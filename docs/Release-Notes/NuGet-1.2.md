@@ -13,11 +13,11 @@ keywords: "NuGet 1.2 的版本資訊，將 bug 修正、 已知問題、 已新�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d69a65352d42025b61df9068473ddedffc5f1663
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 79e82f19d2be96fee3832eeb24ebb443aebc2b64
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 的版本資訊
 
@@ -47,7 +47,7 @@ NuGet 1.2 起已於 2011 年 3 月 30 日發行。
 假設為每部電腦上，.NET Framework 的一部分時，這些組件不會包含在封裝中。 下表列出的屬性`frameworkAssembly`項目。
 
 
-|屬性 |說明|
+|屬性 |描述|
 |----------------|-----------|
 |**assemblyName**|*需要*。 例如，組件名稱`System.Net`。|
 |**targetFramework**|*選擇性*。 可讓您指定架構和設定檔名稱 （或別名），例如"net40"或"sl4"適用於這個 framework 組件。 使用相同的格式中所述[支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)。|

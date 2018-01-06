@@ -13,11 +13,11 @@ keywords: "NuGet 2.1 版本資訊，將 bug 修正、 已知問題、 已新增�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 版本資訊
 
@@ -80,7 +80,7 @@ NuGet 2.1 提供更細微地控制透過 [packages] 資料夾的位置`repositor
 在此範例中，共用`Nuget.Config`檔案會指定無論深度 C:\myteam，下方會建立每個專案的封裝共用的資料夾。 請注意，是否您有現有的封裝資料夾方案根目錄下，您必須將它刪除，NuGet 會將封裝放在新位置之前。
 
 ## <a name="support-for-portable-libraries"></a>可攜式程式庫支援
-[可攜式類別庫](http://msdn.microsoft.com/library/gg597391.aspx)是可讓您建置組件，可以不需要修改不同 Microsoft 平台上，從.net Framework Windows Phone 和 Xbox 甚至的 silverlight 版本的.NET 4 第一次引進的功能360 （雖然在此階段中，NuGet 不支援 Xbox 可攜式程式庫目標）。  藉由擴充[封裝慣例](../create-packages/supporting-multiple-target-frameworks.md)framework 版本和設定檔，NuGet 2.1 現在支援可攜式程式庫，讓您建立封裝以將複合架構和設定檔目標`lib`資料夾。
+[可攜式類別庫](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)是可讓您建置組件，可以不需要修改不同 Microsoft 平台上，從.net Framework Windows Phone 和 Xbox 甚至的 silverlight 版本的.NET 4 第一次引進的功能360 （雖然在此階段中，NuGet 不支援 Xbox 可攜式程式庫目標）。  藉由擴充[封裝慣例](../create-packages/supporting-multiple-target-frameworks.md)framework 版本和設定檔，NuGet 2.1 現在支援可攜式程式庫，讓您建立封裝以將複合架構和設定檔目標`lib`資料夾。
 
 例如，請考慮下列的可攜式類別庫提供的目標平台。
 

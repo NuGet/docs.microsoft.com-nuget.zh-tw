@@ -13,11 +13,11 @@ keywords: "NuGet 1.8 版本資訊，將 bug 修正、 已知問題、 已新增�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 版本資訊
 
@@ -72,7 +72,7 @@ NuGet 1.8 現在支援建立個別的封裝，當地語系化的資源，類似�
 
 第二種方法是將設定環境變數"EnableNuGetPackageRestore"值"true"。  這個方法適用於無人看管的電腦，例如 CI 或組建伺服器。
 
-現在，如上所述，我們已於 NuGet 1.8 中只配置這項功能的基礎。  實際上，這表示，雖然我們新增了所有的邏輯，以啟用功能，它目前未強制執行此版本中。 會啟用它，不過，在下一個版本的 NuGet，因此我們想要讓您知道它儘速使您可以適當地設定您的環境，並因此不會影響我們啟動時，強制使用同意條件約束。
+現在，如上所述，我們已於 NuGet 1.8 中只配置這項功能的基礎。  實際上，這表示，雖然我們新增了所有的邏輯，以啟用功能，它會目前未強制執行此版本中。 會啟用它，不過，在下一個版本的 NuGet，因此我們想要讓您知道它儘速使您可以適當地設定您的環境，並因此不會影響我們啟動時，強制使用同意條件約束。
 
 如需詳細資訊，請參閱[小組部落格文章](http://blog.nuget.org/20120518/package-restore-and-consent.html)這項功能。
 

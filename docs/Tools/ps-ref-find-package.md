@@ -13,15 +13,15 @@ keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b6af6098da9c00e47b81ac9ec37bd5210a99a9fe
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fb55cc71e0d4b8eee28b232e64d2cc42364fc153
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>尋找套件 （在 Visual Studio 中的封裝管理員主控台）
 
-*3.0 +; 版本本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般的 PowerShell Find-package 命令，請參閱[PowerShell PackageManagement 參考](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)。*
+*3.0 +; 版本本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般的 PowerShell Find-package 命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
 從套件來源取得具有指定識別碼或關鍵字的遠端套件集。
 
@@ -34,10 +34,10 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 識別碼&lt;關鍵字&gt; | （必要）若要搜尋的套件來源時使用的關鍵字。 使用 ExactMatch 傳回其封裝識別碼符合關鍵字的套件。 如果不指定任何關鍵字`Find-Package`傳回的前 20 套件下載，或數字的清單所指定的第一次。 請注意，-識別碼是選擇性，並執行任何作業。 |
-| 來源 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Find-Package`搜尋目前選取的套件來源。 |
+| 原始程式檔 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Find-Package`搜尋目前選取的套件來源。 |
 | AllVersions | 顯示所有可用的版本，每個封裝而不是最新的版本。 |
 | First | 要從清單開頭傳回的套件數目預設為 20。 |
 | Skip | 省略第一個&lt;int&gt;封裝從顯示的清單。  |

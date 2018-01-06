@@ -17,17 +17,17 @@ keywords: "NuGet V3 API、 NuGet V2 API、 NuGet JSON、 NuGet 登錄應用程�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>NuGet 的 API
 
 NuGet API 是一組可用來下載的封裝、 擷取中繼資料、 發行新的封裝，並執行大部分官方 NuGet 用戶端中提供其他作業的 HTTP 端點。
 
-這個 API 用於在 Visual Studio、 nuget.exe 和.NET CLI NuGet 用戶端執行 NuGet 作業，例如[ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore)，在 Visual Studio UI 中，搜尋和[ `nuget.exe push` ](../tools/cli-ref-push.md)。
+這個 API 用於在 Visual Studio、 nuget.exe 和.NET CLI NuGet 用戶端執行 NuGet 作業，例如[ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore)，在 Visual Studio UI 中，搜尋和[ `nuget.exe push` ](../tools/cli-ref-push.md)。
 
 請注意，在某些情況下中, nuget.org 有額外的需求不會強制執行由其他封裝來源。 這些差異皆記錄由[nuget.org 通訊協定](nuget-protocols.md)。
 
@@ -58,15 +58,15 @@ NuGet V3 API 名為在這種情況，所以 V2 API 的後置項已正式 NuGet �
 
 **服務索引**描述各種資源。 目前的支援的資源集，如下所示：
 
-資源名稱                                                          | 必要 | 說明
+資源名稱                                                          | 必要 | 描述
 ---------------------------------------------------------------------- | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | 是      | 推入和刪除 （或 unlist） 封裝。
 [`SearchQueryService`](search-query-service-resource.md)               | 是      | 篩選並依關鍵字搜尋的封裝。
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | 是      | 取得封裝的中繼資料。
 [`PackageBaseAddress`](package-base-address-resource.md)               | 是      | 取得封裝的內容 (.nupkg)。
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | no       | 探索的子字串的封裝識別碼和版本。
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | no       | 建構存取 「 檢舉不當使用 「 web 網頁的 URL。
-[`Catalog`](catalog-resource.md)                                       | no       | 完整記錄的所有封裝事件。
+[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | 否       | 探索的子字串的封裝識別碼和版本。
+[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | 否       | 建構存取 「 檢舉不當使用 「 web 網頁的 URL。
+[`Catalog`](catalog-resource.md)                                       | 否       | 完整記錄的所有封裝事件。
 
 一般情況下，應用程式開發介面資源所傳回的所有非二進位資料會使用 JSON 序列化的。 服務索引中每項資源所傳回的回應結構描述是個別定義該資源。 如需有關每個資源的詳細資訊，請參閱上面所列的主題。
 
@@ -79,7 +79,7 @@ NuGet V3 API 名為在這種情況，所以 V2 API 的後置項已正式 NuGet �
 
 ## <a name="http-methods"></a>HTTP 方法
 
-動詞命令   | 用法
+動詞命令   | 使用
 ------ | -----------
 GET    | 執行唯讀作業，通常擷取資料。
 HEAD   | 擷取對應的回應標頭`GET`要求。
@@ -88,7 +88,7 @@ DELETE | 刪除或 unlists 資源。
 
 ## <a name="http-status-codes"></a>HTTP 狀態碼
 
-程式碼 | 說明
+程式碼 | 描述
 ---- | -----
 200  | 如果成功，而且沒有回應主體。
 201  | 已建立成功時，與資源。
@@ -110,7 +110,7 @@ DELETE | 刪除或 unlists 資源。
 
 ## <a name="http-request-headers"></a>HTTP 要求標頭
 
-名稱                     | 說明
+名稱                     | 描述
 ------------------------ | -----------
 X-NuGet-ApiKey           | 所需推入和刪除，請參閱[`PackagePublish`資源](package-publish-resource.md)
 X NuGet 的用戶端版本   | **已被取代**而被取代`X-NuGet-Protocol-Version`

@@ -13,11 +13,11 @@ keywords: "NuGet 封裝管理員主控台中，NuGet powershell 管理 NuGet 封
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d9df514c6f92a3ea0841503d86c44271e70f95f2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-manager-console"></a>封裝管理員主控台
 
@@ -62,7 +62,7 @@ NuGet 封裝管理員主控台內建在 Windows 2012 及更新版本的 Visual S
 
 ## <a name="opening-the-console-and-console-controls"></a>開啟的主控台和主控台控制項
 
-1. 開啟主控台，在 Visual Studio 使用**工具 > NuGet 套件管理員 > Package Manager Console**命令。 主控台的 Visual Studio 視窗可以排列和定位不過嗎 (請參閱[自訂 Visual Studio 中的視窗配置](https://docs.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio))。
+1. 開啟主控台，在 Visual Studio 使用**工具 > NuGet 套件管理員 > Package Manager Console**命令。 主控台的 Visual Studio 視窗可以排列和定位不過嗎 (請參閱[自訂 Visual Studio 中的視窗配置](/visualstudio/ide/customizing-window-layouts-in-visual-studio))。
 
 1. 根據預設，主控台命令做為針對特定的封裝來源和專案集合中的控制項視窗的頂端：
 
@@ -171,7 +171,7 @@ Find-Package jquery -AllVersions -ExactMatch
 
 此外，如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中及更早版本，請檢查**工具 > 擴充功能和更新...** ，並搜尋 NuGet 套件管理員擴充功能。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，您可以下載擴充功能直接從[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)。
 
-Package Manager Console 不是目前適用於 Visual Studio for mac。 對等的命令，不過，可透過[NuGet CLI](nuget-exe-CLI-reference.md)。 Visual Studio for Mac 並沒有使用者介面來管理 NuGet 封裝。 請參閱[您的專案中包括的 NuGet 套件](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)。
+Package Manager Console 不是目前適用於 Visual Studio for mac。 對等的命令，不過，可透過[NuGet CLI](nuget-exe-CLI-reference.md)。 Visual Studio for Mac 並沒有使用者介面來管理 NuGet 封裝。 請參閱[您的專案中包括的 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。
 
 Package Manager Console 未隨附於 Visual Studio 程式碼。
 

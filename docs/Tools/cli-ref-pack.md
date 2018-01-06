@@ -13,11 +13,11 @@ keywords: "nuget 組件參考組件命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 353d5d839d85c04bc315c3a0e9cfe274a361bd15
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="pack-command-nuget-cli"></a>組件命令 (NuGet CLI)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 > [!Important]
 > 下單聲道，不支援從專案檔中建立封裝。 您也需要調整非區域路徑中的`.nuspec`Unix 樣式的路徑，檔案，如 nuget.exe 未轉換 Windows 路徑名稱本身。
 
-## <a name="usage"></a>使用方式
+## <a name="usage"></a>使用量
 
 ```
 nuget pack <nuspecPath | projectPath> [options]
@@ -38,7 +38,7 @@ nuget pack <nuspecPath | projectPath> [options]
 
 ## <a name="options"></a>選項
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | --- | --- |
 | BasePath | 設定檔案中定義的基底路徑`.nuspec`檔案。 |
 | 組建 | 指定應該建置封裝前，先建置專案。 |
@@ -53,7 +53,7 @@ nuget pack <nuspecPath | projectPath> [options]
 | NoDefaultExcludes | 防止預設排除的 NuGet 封裝檔案和檔案和資料夾的啟動點，如`.svn`和`.gitignore`。 |
 | NoPackageAnalysis | 指定封裝不應該在建置套件之後執行套件分析。 |
 | OutputDirectory | 指定建立的封裝儲存所在的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
-| 屬性 | 指定覆寫專案檔案中的值的屬性的清單請參閱[一般 MSBuild 專案屬性](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份語彙基元 = value 配對，以分號分隔，其中出現的每個`$token$`中`.nuspec`檔案將會取代為指定的值。 值可以是以引號的字串。 請注意，「 設定 」 屬性，預設值是"Debug"。 若要變更的發行組態，請使用`-Properties Configuration=Release`。 |
+| 屬性 | 指定覆寫專案檔案中的值的屬性的清單請參閱[一般 MSBuild 專案屬性](/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份語彙基元 = value 配對，以分號分隔，其中出現的每個`$token$`中`.nuspec`檔案將會取代為指定的值。 值可以是以引號的字串。 請注意，「 設定 」 屬性，預設值是"Debug"。 若要變更的發行組態，請使用`-Properties Configuration=Release`。 |
 | 尾碼 | *(3.4.4+)*將後置詞附加至內部產生的版本號碼，通常用於附加建置或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本編號的類似`1.2.3-nightly`。 後置字元的開頭必須是字母，若要避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
 | Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案，而對應符號封裝。 |
 | 工具 | 指定專案的輸出檔應該放在`tool`資料夾。 |

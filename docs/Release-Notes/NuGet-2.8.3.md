@@ -13,11 +13,11 @@ keywords: "NuGet 2.8.3 版本資訊，將 bug 修正、 已知問題、 已新�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8c0b38ea4975300af701b66266a9883eb54412c1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d6fbebaf02cede52a701abd31e843a077f8acbb7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-283-release-notes"></a>NuGet 2.8.3 版本資訊
 
@@ -25,4 +25,4 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 2.8.3 2014 年 10 月 17 日發行。 它是次要更新某些 VSIX 設為我們 2.8.1 目標修正程式。
 
-在本版中的 NuGet 封裝管理員 新增的支援[ASP.NET vNext](http://www.asp.net/vnext)， [DevExtreme](http://js.devexpress.com/)和[BizTalk (.btproj)](http://msdn.microsoft.com/library/aa577497.aspx)專案類型。 它也包括可靠性啟用封裝還原和儲存封裝管理員選項的案例與相關的 bug 修正。
+在本版中的 NuGet 封裝管理員 新增的支援[ASP.NET vNext](http://www.asp.net/vnext)， [DevExtreme](http://js.devexpress.com/)和[BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications)專案類型。 它也包括可靠性啟用封裝還原和儲存封裝管理員選項的案例與相關的 bug 修正。

@@ -13,11 +13,11 @@ keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，新增 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7bf8cdb938195f4747932b38ef0d5bb6c34b9137
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a3232af925f75713168421e68f2773060c5ebaa
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>新增 BindingRedirect （在 Visual Studio 中的封裝管理員主控台）
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 會檢查專案的輸出路徑內的所有組件，並在需要時，將繫結重新導向加入至應用程式或 web 組態檔。 安裝套件時，就會自動執行此命令。
 
-如需繫結重新導向和使用的原因的詳細資訊，請參閱[重新導向組件版本](https://docs.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions).NET 文件中。
+如需繫結重新導向和使用的原因的詳細資訊，請參閱[重新導向組件版本](/dotnet/framework/configure-apps/redirect-assembly-versions).NET 文件中。
 
 ## <a name="syntax"></a>語法
 
@@ -35,7 +35,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | ProjectName | （必要）要在其中加入繫結重新導向的專案。 -ProjectName 參數是選擇性的。 |
 

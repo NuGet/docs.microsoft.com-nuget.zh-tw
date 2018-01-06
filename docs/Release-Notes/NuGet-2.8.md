@@ -13,11 +13,11 @@ keywords: "NuGet 2.8 版本資訊、 錯誤修正的已知問題，已新增的�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0bb35e9d6ef6f3dde7919cd502b32ba5a550c689
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 版本資訊
 
@@ -96,7 +96,7 @@ NuGet 2.8 已於 2014 年 1 月 29 日發行。
 
 ## <a name="development-dependencies"></a>開發相依性
 
-許多不同類型的功能可以傳遞做為 NuGet 套件-包括用來最佳化開發程序的工具。 雖然可以很有幫助開發新的封裝，而這些元件不應視為發行新的封裝更新時的相依性。 NuGet 2.8 可讓封裝本身中識別`.nuspec`developmentDependency 檔案。 安裝時，此中繼資料也會以新增`packages.config`到其中安裝封裝的專案檔。 時， `packages.config` NuGet 相依性，在稍後分析檔案`nuget.exe pack`，其中會排除標記為開發相依性的相依性。
+許多不同類型的功能可以傳遞做為 NuGet 套件-包括用來最佳化開發程序的工具。 這些元件，雖然可以很有幫助開發新的封裝，而不應視為新的封裝的相依性更新版本發行時。 NuGet 2.8 可讓封裝本身中識別`.nuspec`developmentDependency 檔案。 安裝時，此中繼資料也會以新增`packages.config`到其中安裝封裝的專案檔。 時， `packages.config` NuGet 相依性，在稍後分析檔案`nuget.exe pack`，其中會排除標記為開發相依性的相依性。
 
 ## <a name="individual-packagesconfig-files-for-different-platforms"></a>不同的平台的個別 packages.config 檔案
 

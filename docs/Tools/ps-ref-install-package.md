@@ -13,15 +13,15 @@ keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d51cce6223cd2d89c555ca9d6e936eaadf3757bb
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4d7645297d2cd48f39a8e2ec168040710f6fc7a3
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>安裝套件 （在 Visual Studio 中的封裝管理員主控台）
 
-*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 安裝套件的命令，請參閱[PowerShell PackageManagement 參考](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 安裝套件的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
 在專案中安裝封裝及其相依性。
 
@@ -43,12 +43,12 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
   
 ## <a name="parameters"></a>參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | ID | （必要）若要安裝封裝的識別碼。 (*3.0 +*) 路徑或 URL，此識別碼可以是`packages.config`檔案或`.nupkg`檔案。 -Id 參數是選擇性的。 |
 | IgnoreDependencies | 安裝僅此套件不其相依性。 |
 | ProjectName | 要安裝套件，將預設專案的預設專案。 |
-| 來源 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Install-Package`搜尋目前選取的套件來源。 |
+| 原始程式檔 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Install-Package`搜尋目前選取的套件來源。 |
 | 版本 | 若要安裝，封裝版本預設為最新版本。 |
 | IncludePrerelease | 考慮套件發行前版本的安裝。 如果省略，則會視為穩定的套件。 |
 | FileConflictAction | 當詢問您要覆寫或略過專案所參考的現有檔案時要採取動作。 可能的值為*覆寫，忽略、 None、 OverwriteAll*，和*（3.0 +）* *IgnoreAll*。 |

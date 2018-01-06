@@ -17,16 +17,15 @@ keywords: "NuGet API 發送套件，NuGet API 刪除套件，NuGet API unlist �
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>發送和刪除
 
-可推入，並刪除 （或 unlist，不同的伺服器實作） 使用 NuGet V3 API 的封裝。
-這兩項作業會為基礎`PackagePublish`資源中找到[服務索引](service-index.md)。
+可推入、 刪除 （或 unlist，視伺服器實作而定），和 relist 使用 NuGet V3 API 的封裝。 這些作業會為基礎`PackagePublish`資源中找到[服務索引](service-index.md)。
 
 ## <a name="versioning"></a>版本控制
 
@@ -44,9 +43,12 @@ PackagePublish/2.0.0 | 初版
 
 ## <a name="http-methods"></a>HTTP 方法
 
-`PUT`和`DELETE`這項資源所支援的 HTTP 方法。 針對每個端點都支援的方法，請參閱下文。
+`PUT`，`POST`和`DELETE`這項資源所支援的 HTTP 方法。 針對每個端點都支援的方法，請參閱下文。
 
 ## <a name="push-a-package"></a>推播封裝
+
+> [!Note]
+> 具有 nuget.org[其他需求](NuGet-Protocols.md)與推入端點互動。
 
 nuget.org 支援使用下列 API 的推送新套件。 如果提供的識別碼和版本的套件已經存在，nuget.org 將會拒絕推送。 其他封裝來源可能會支援取代現有的封裝。
 
@@ -92,7 +94,7 @@ DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 名稱           | In     | 類型   | 必要 | 注意
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | 字串 | 是      | 要刪除的封裝識別碼
+識別碼             | URL    | 字串 | 是      | 要刪除的封裝識別碼
 VERSION        | URL    | 字串 | 是      | 若要刪除封裝版本
 X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
 
@@ -101,4 +103,29 @@ X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_AP
 狀態碼 | 意義
 ----------- | -------
 204         | 已刪除封裝
+404         | 使用提供的封裝`ID`和`VERSION`存在
+
+## <a name="relist-a-package"></a>Relist 封裝
+
+如果封裝未列出，很可能要在搜尋結果中使用 「 relist 」 端點再次顯示該封裝。 此端點都有相同的圖形做為[刪除 (unlist) 端點](#delete-a-package)但使用`POST`HTTP 方法，而非`DELETE`方法。
+
+如果已列出封裝，請要求仍然會成功。
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>要求參數
+
+名稱           | In     | 類型   | 必要 | 注意
+-------------- | ------ | ------ | -------- | -----
+識別碼             | URL    | 字串 | 是      | 要 relist 封裝的識別碼
+VERSION        | URL    | 字串 | 是      | 若要 relist 封裝版本
+X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
+
+### <a name="response"></a>回應
+
+狀態碼 | 意義
+----------- | -------
+204         | 現在會列出封裝
 404         | 使用提供的封裝`ID`和`VERSION`存在

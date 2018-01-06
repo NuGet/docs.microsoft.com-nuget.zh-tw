@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3423e30eae07ff0c70a010576b8e701be027b847
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="errors-and-warnings"></a>錯誤和警告
 
 在 NuGet 4.3.0、 錯誤和警告本主題中所述的編號，並提供可協助您解決相關的問題的詳細的資訊。 
 
-錯誤和警告此處所列都僅能使用[PackageReference 基礎](../Consume-Packages/Package-References-in-Project-Files.md)專案和 NuGet 4.3.0。 NuGet 會隱藏警告或提高這些錯誤的 MSBuild 屬性也為準。 如需詳細資訊，請參閱[如何： 隱藏編譯器警告](https://docs.microsoft.com/visualstudio/ide/how-to-suppress-compiler-warnings)Visual Studio 文件中。
+錯誤和警告此處所列都僅能使用[PackageReference 基礎](../Consume-Packages/Package-References-in-Project-Files.md)專案和 NuGet 4.3.0。 NuGet 會隱藏警告或提高這些錯誤的 MSBuild 屬性也為準。 如需詳細資訊，請參閱[如何： 隱藏編譯器警告](/visualstudio/ide/how-to-suppress-compiler-warnings)Visual Studio 文件中。
 
 **錯誤**
 

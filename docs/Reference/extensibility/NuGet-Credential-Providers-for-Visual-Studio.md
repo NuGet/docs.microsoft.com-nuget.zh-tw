@@ -13,11 +13,11 @@ keywords: "NuGet 認證提供者，驗證使用的摘要，驗證組件庫，NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>驗證 Visual Studio 中搭配 NuGet 認證提供者使用的摘要
 
@@ -80,7 +80,7 @@ Visual Studio 的自訂 NuGet 認證提供者必須實作`IVsCredentialProvider`
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
-| 輸入的參數 |說明|
+| 輸入的參數 |描述|
 | ----------------|-----------|
 | Uri 的 uri | 封裝來源 Uri 要求認證。|
 | IWebProxy proxy | 若要在網路上通訊時使用的 web proxy。 如果不沒有設定任何 proxy 驗證，則為 null。 |
@@ -88,5 +88,5 @@ Visual Studio 的自訂 NuGet 認證提供者必須實作`IVsCredentialProvider`
 | bool isRetry | 如果這個 uri，先前要求的認證，但提供的認證不允許存取的權限，則為 true。 |
 | 非互動式 bool | 如果為 true，則認證提供者必須抑制所有使用者提示，並改為使用預設值。 |
 | CancellationToken cancellationToken | 這個取消語彙基元應該檢查以判斷作業要求認證已被取消。 |
-  
-**傳回值**： 認證物件實作[`System.Net.ICredentials`介面](https://msdn.microsoft.com/library/system.net.icredentials.aspx)。
+
+**傳回值**： 認證物件實作[`System.Net.ICredentials`介面](/dotnet/api/system.net.icredentials?view=netstandard-2.0)。

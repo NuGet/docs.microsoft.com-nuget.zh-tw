@@ -17,11 +17,11 @@ keywords: "NuGet 的一般容器、 NuGet 封裝基底地址、 NuGet nupkg API�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 756001ff7376a8dd8d66bd2136408e90e6a85d19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a581f9854410bc1a84d65310b38928a1d889ece2
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-content"></a>封裝內容
 
@@ -62,7 +62,7 @@ GET {@id}/{LOWER_ID}/index.json
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | 字串  | 是      | 封裝識別碼、 小寫
 
-`LOWER_ID`值是小寫使用所實作的規則所需的封裝識別碼。網路的[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)方法。
+`LOWER_ID`值是小寫使用所實作的規則所需的封裝識別碼。網路的[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)方法。
 
 ### <a name="response"></a>回應
 
@@ -103,7 +103,7 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 LOWER_ID      | URL    | 字串 | 是      | 封裝識別碼、 小寫
 LOWER_VERSION | URL    | 字串 | 是      | 封裝版本，正規化和小寫
 
-同時`LOWER_ID`和`LOWER_VERSION`會變成使用所實作的規則。網路的[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)方法。
+同時`LOWER_ID`和`LOWER_VERSION`會變成使用所實作的規則。網路的[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)方法。
 
 `LOWER_VERSION`所需的封裝版本都是使用 NuGet 的版本[正規化規則](../reference/package-versioning.md#normalized-version-numbers)。 這表示，允許使用 SemVer 2.0.0 規格的建置中繼資料，必須排除在此情況下。
 
@@ -138,7 +138,7 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 LOWER_ID      | URL    | 字串  | 是      | 封裝識別碼、 小寫
 LOWER_VERSION | URL    | 整數 | 是      | 封裝版本，正規化和小寫
 
-同時`LOWER_ID`和`LOWER_VERSION`會變成使用所實作的規則。網路的[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)方法。
+同時`LOWER_ID`和`LOWER_VERSION`會變成使用所實作的規則。網路的[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)方法。
 
 `LOWER_VERSION`所需的封裝版本都是使用 NuGet 的版本[正規化規則](../reference/package-versioning.md#normalized-version-numbers)。 這表示，允許使用 SemVer 2.0.0 規格的建置中繼資料，必須排除在此情況下。
 

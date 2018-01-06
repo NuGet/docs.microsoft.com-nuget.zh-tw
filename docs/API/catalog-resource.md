@@ -17,11 +17,11 @@ keywords: "NuGet V3 API 類別目錄，nuget.org 的交易記錄，複寫 NuGet.
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50e329680c5527d2a69d9c2b1421dc3aa609b478
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -182,7 +182,7 @@ commitId 目錄：        | 字串                     | 是      | 與這個類
 commitTimeStamp 目錄： | 字串                     | 是      | 此類別目錄項目的認可時間戳記
 id                      | 字串                     | 是      | 封裝識別碼的類別目錄項目
 發行               | 字串                     | 是      | 封裝的類別目錄項目發行的日期
-version                 | 字串                     | 是      | 封裝版本的類別目錄項目
+版本                 | 字串                     | 是      | 封裝版本的類別目錄項目
 
 ### <a name="item-types"></a>項目類型
 
@@ -208,26 +208,26 @@ version                 | 字串                     | 是      | 封裝版本�
 
 名稱                    | 類型                       | 必要 | 注意
 ----------------------- | -------------------------- | -------- | -----
-authors                 | 字串                     | no       |
+authors                 | 字串                     | 否       |
 created                 | 字串                     | 是      | 第一次建立封裝時的時間戳記
-dependencyGroups        | 物件的陣列           | no       | 相同格式化為[套件中繼資料資源](registration-base-url-resource.md#package-dependency-group)
-描述             | 字串                     | no       |
-iconUrl                 | 字串                     | no       |
+dependencyGroups        | 物件的陣列           | 否       | 相同格式化為[套件中繼資料資源](registration-base-url-resource.md#package-dependency-group)
+描述             | 字串                     | 否       |
+iconUrl                 | 字串                     | 否       |
 isPrerelease            | boolean                    | 是      | 封裝版本是否在發行前版本
-語言                | 字串                     | no       |
-licenseUrl              | 字串                     | no       |
-列出的                  | boolean                    | no       | 與封裝是否列出
-MinClientVersion        | 字串                     | no       |
+語言                | 字串                     | 否       |
+licenseUrl              | 字串                     | 否       |
+列出的                  | boolean                    | 否       | 與封裝是否列出
+MinClientVersion        | 字串                     | 否       |
 packageHash             | 字串                     | 是      | 封裝中，使用編碼的雜湊[標準 base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | 字串                     | 是      |
 packageSize             | 整數                    | 是      | 封裝.nupkg，以位元組為單位的大小
-projectUrl              | 字串                     | no       |
-releaseNotes            | 字串                     | no       |
-requireLicenseAgreement | boolean                    | no       | 假設`false`如果排除
-摘要                 | 字串                     | no       |
-標記                    | 字串陣列           | no       |
-標題                   | 字串                     | no       |
-verbatimVersion         | 字串                     | no       | 版本字串，因為它原先位於.nuspec
+projectUrl              | 字串                     | 否       |
+releaseNotes            | 字串                     | 否       |
+requireLicenseAgreement | boolean                    | 否       | 假設`false`如果排除
+摘要                 | 字串                     | 否       |
+標記                    | 字串陣列           | 否       |
+標題                   | 字串                     | 否       |
+verbatimVersion         | 字串                     | 否       | 版本字串，因為它原先位於.nuspec
 
 封裝`version`屬性是完整的正規化版本字串。 這表示，SemVer 2.0.0 的組建資料可能會包含此處。
 
@@ -275,7 +275,7 @@ GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_li
 
 ## <a name="cursor"></a>Cursor
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 
 本章節描述一種用戶端概念，雖然不一定是託管的通訊協定，但應該是任何實用的類別目錄用戶端實作的一部分。
 

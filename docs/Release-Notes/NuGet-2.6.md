@@ -13,11 +13,11 @@ keywords: "NuGet 2.6 版本資訊，將 bug 修正、 已知問題、 已新增�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f93e34326aa9ab3d6bd5d1756126e6bfa24fd82e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 版本資訊
 
@@ -35,8 +35,8 @@ NuGet 2.6 是第一次釋放所提供的 Visual Studio 2013 的支援。 和 Vis
 
 從 NuGet 2.6 開始，我們將發佈兩個擴充功能，如下所示：
 
-1. [NuGet 套件管理員](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c/file/37502/30/NuGet.Tools.vsix)（適用於 Visual Studio 2010 和 2012年）
-2. [Visual Studio 2013 的 NuGet 封裝管理員](http://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca)
+1. [NuGet 套件管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager)（適用於 Visual Studio 2010 和 2012年）
+1. [Visual Studio 2013 的 NuGet 封裝管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
 此分割中， [nuget.org](https://nuget.org)首頁的 「 安裝 NuGet 」 按鈕將立即帶您到[安裝 NuGet](../guides/install-nuget.md)頁面上，您可以在何處安裝不同的 NuGet 用戶端的相關資訊。
 
@@ -44,7 +44,8 @@ NuGet 2.6 是第一次釋放所提供的 Visual Studio 2013 的支援。 和 Vis
 
 ### <a name="xdt-webconfig-transformation-support"></a>XDT Web.config 轉換的支援
 
-其中一個最高要求 NuGet 用戶端功能已支援使用 XDT 轉換引擎使用 Visual Studio 中的功能更強大的 XML 轉換[建置組態轉換](http://msdn.microsoft.com/library/dd465318(v=vs.100).aspx)。
+其中一個最高要求 NuGet 用戶端功能已支援使用 XDT 轉換引擎用於 Visual Studio 建置組態轉換功能更強大的 XML 轉換。
+
 在 2013 年 4 月中，我們所做的有關 XDT NuGet 支援兩個大公告。 第一個已 XDT 程式庫本身已被本身[以 NuGet 套件形式發行](https://nuget.org/packages/Microsoft.Web.Xdt)和[開啟來源 CodePlex 上](http://xdt.codeplex.com/)。 此步驟中啟用 XDT 引擎，可供自由其他開放原始碼軟體，包括 NuGet 用戶端。 第二個宣告已計劃來支援 XDT 引擎使用 NuGet 用戶端中的轉換。 NuGet 2.6 包含這項整合。
 
 #### <a name="how-it-works"></a>它的運作方式

@@ -13,15 +13,15 @@ keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679e89e9cfb16dbe484f133b0b6431313b9d87ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0899198a354a56615a48a1f7f428674a205f386b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>解除安裝套件 （在 Visual Studio 中的封裝管理員主控台）
 
-*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 解除安裝封裝的命令，請參閱[PowerShell PackageManagement 參考](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 解除安裝封裝的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
 移除封裝在專案中，選擇性地移除其相依性。 如果有其他套件相依於這個套件，此命令會失敗，除非 – 指定的 Force 選項。
 
@@ -36,7 +36,7 @@ Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | ID | （必要）若要解除安裝封裝的識別碼。 -Id 參數是選擇性的。 |
 | 版本 | 若要解除安裝，封裝版本預設為目前安裝的版本。 |

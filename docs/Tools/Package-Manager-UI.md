@@ -17,15 +17,15 @@ keywords: "NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88e987054f3c59a327f71b15330a99eb350449e5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 封裝管理員 UI
 
-在 Windows 上的 Visual Studio 中的 NuGet 封裝管理員 UI 可讓您輕鬆地安裝、 解除安裝，及更新在專案和方案的 NuGet 套件。 Visual Studio 中適用於 Mac 的經驗，請參閱[您的專案中包括的 NuGet 套件](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)。 「 封裝管理員 」 UI 未隨附於 Visual Studio 程式碼。
+在 Windows 上的 Visual Studio 中的 NuGet 封裝管理員 UI 可讓您輕鬆地安裝、 解除安裝，及更新在專案和方案的 NuGet 套件。 Visual Studio 中適用於 Mac 的經驗，請參閱[您的專案中包括的 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。 「 封裝管理員 」 UI 未隨附於 Visual Studio 程式碼。
 
 本主題內容：
 

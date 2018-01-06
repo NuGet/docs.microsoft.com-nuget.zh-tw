@@ -12,11 +12,11 @@ description: "要與 NuGet 用戶端互動的發展 nuget.org 通訊協定。"
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>nuget.org 通訊協定
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/14/2017
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-請注意，預先`X-NuGet-Client-Version`標頭具有相同目的，但是目前已被取代，而且無法再使用。
+請注意，`X-NuGet-Client-Version`標頭的語意很類似，但會保留只能由官方 NuGet 用戶端使用。 第三方用戶端應該使用`X-NuGet-Protocol-Version`標頭和值。
 
 **發送**本身的通訊協定所述的文件[`PackagePublish`資源](package-publish-resource.md)。
 
@@ -61,8 +61,8 @@ POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 名稱           | In     | 類型   | 必要 | 注意
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | 字串 | 是      | 要求的驗證領域索引鍵封裝 identidier
-VERSION        | URL    | 字串 | no       | 封裝版本
+識別碼             | URL    | 字串 | 是      | 要求的驗證領域索引鍵封裝 identidier
+VERSION        | URL    | 字串 | 否       | 封裝版本
 X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>回應
@@ -86,8 +86,8 @@ GET api/v2/verifykey/{ID}/{VERSION}
 
 名稱           | In     | 類型   | 必要 | 注意
 -------------  | ------ | ------ | -------- | -----
-ID             | URL    | 字串 | 是      | 要求的驗證領域索引鍵的封裝識別碼
-VERSION        | URL    | 字串 | no       | 封裝版本
+識別碼             | URL    | 字串 | 是      | 要求的驗證領域索引鍵的封裝識別碼
+VERSION        | URL    | 字串 | 否       | 封裝版本
 X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]

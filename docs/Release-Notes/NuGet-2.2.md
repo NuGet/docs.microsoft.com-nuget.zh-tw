@@ -13,11 +13,11 @@ keywords: "NuGet 2.2 版本資訊，將 bug 修正、 已知問題、 已新增�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 690e76a0686a5e7bb699410edef4a6e62ccd2a32
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1f6080e01777431c4dfb2278db167bd3bc9a67ea
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-22-release-notes"></a>NuGet 2.2 版本資訊
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 NuGet 2.2 已於 2012 年 12 月 12 日發行。
 
 ## <a name="visual-studio-quick-launch"></a>Visual Studio 快速啟動
-其中一個 Visual Studio 2012 中已加入的新功能是[快速啟動對話方塊](http://msdn.microsoft.com/library/hh417697.aspx)。 NuGet 2.2 擴充這個對話方塊中，讓它可以在 快速啟動中輸入搜尋詞彙以初始化 封裝管理員 對話方塊。 搜尋符合 'jquery' 的 NuGet 封裝在結果中，輸入 'jquery' 在快速啟動中，現在包含，例如的選項。
+其中一個 Visual Studio 2012 中已加入的新功能是[快速啟動對話方塊](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box)。 NuGet 2.2 擴充這個對話方塊中，讓它可以在 快速啟動中輸入搜尋詞彙以初始化 封裝管理員 對話方塊。 搜尋符合 'jquery' 的 NuGet 封裝在結果中，輸入 'jquery' 在快速啟動中，現在包含，例如的選項。
 
 ![在 Visual Studio 快速啟動中的 NuGet](./media/quick-launch.png)
 

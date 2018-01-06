@@ -17,11 +17,11 @@ keywords: "NuGet 的 API 套件中繼資料、 NuGet API 註冊，NuGet API 未�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 15d3c836a5748497fe33dadc17e5a44846b4a8c0
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -76,7 +76,7 @@ RegistrationsBaseUrl/3.6.0      | 包含 SemVer 2.0.0 的封裝
 
 ### <a name="registration-pages-and-leaves"></a>註冊頁面和保留
 
-雖然這並非絕對必要，來儲存伺服器實作註冊分葉個別登錄頁面文件中，建議的作法，以節省記憶體用戶端。 而不是內嵌的所有註冊會保留在索引或立即儲存分葉頁數的文件中，我們建議您的伺服器實作定義某個啟發學習法選擇在兩種方法為基礎的封裝版本數目或離開封裝的累計大小。
+雖然它不完全具有需要註冊分葉中個別登錄頁數的文件來儲存伺服器實作，它是建議的作法，以節省記憶體用戶端。 而不是內嵌的所有註冊會保留在索引或立即儲存分葉頁數的文件中，我們建議您的伺服器實作定義某個啟發學習法選擇在兩種方法為基礎的封裝版本數目或離開封裝的累計大小。
 
 儲存所有的封裝版本 （分葉） 註冊索引會儲存在 HTTP 要求數不必擷取封裝中繼資料，但表示必須下載較大的文件，而且必須配置更多的用戶端記憶體。 相反地，如果伺服器實作立即儲存註冊保留，另一個頁面上的文件中，用戶端必須執行多個 HTTP 要求，以取得所需的資訊。
 
@@ -92,7 +92,7 @@ GET {@id}/{LOWER_ID}/index.json
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | 字串  | 是      | 封裝識別碼、 小寫
 
-`LOWER_ID`值是小寫使用所實作的規則所需的封裝識別碼。網路的[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)方法。
+`LOWER_ID`值是小寫使用所實作的規則所需的封裝識別碼。網路的[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)方法。
 
 ### <a name="response"></a>回應
 
@@ -113,9 +113,9 @@ count | 整數          | 是      | 在索引中的註冊頁面數目
 ------ | ---------------- | -------- | -----
 @id    | 字串           | 是      | 要註冊頁面的 URL
 count  | 整數          | 是      | 離開頁面中的註冊數目
-項目  | 物件的陣列 | no       | 註冊分葉和其關聯的中繼資料的陣列
+項目  | 物件的陣列 | 否       | 註冊分葉和其關聯的中繼資料的陣列
 較低  | 字串           | 是      | 最低 SemVer 2.0.0 版 （含） 頁面中
-父代 | 字串           | no       | 登錄索引 URL
+父代 | 字串           | 否       | 登錄索引 URL
 上限  | 字串           | 是      | 最高 SemVer 2.0.0 版 （含） 頁面中
 
 `lower`和`upper`時需要的特定頁面版本中繼資料的頁面物件的界限很有用。
@@ -148,21 +148,21 @@ packageContent | 字串 | 是      | 封裝內容 (.nupkg) URL
 名稱                     | 類型                       | 必要 | 注意
 ------------------------ | -------------------------- | -------- | -----
 @id                      | 字串                     | 是      | 要用來產生這個物件的文件的 URL
-authors                  | 字串或字串陣列 | no       | 
-dependencyGroups         | 物件的陣列           | no       | 封裝內容 (.nupkg) URL
-描述              | 字串                     | no       | 
-iconUrl                  | 字串                     | no       | 
+authors                  | 字串或字串陣列 | 否       | 
+dependencyGroups         | 物件的陣列           | 否       | 封裝內容 (.nupkg) URL
+描述              | 字串                     | 否       | 
+iconUrl                  | 字串                     | 否       | 
 id                       | 字串                     | 是      | 封裝的識別碼
-licenseUrl               | 字串                     | no       | 
-列出的                   | boolean                    | no       | 應視為列出如果不存在
-MinClientVersion         | 字串                     | no       | 
-projectUrl               | 字串                     | no       | 
-發行                | 字串                     | no       | 字串，包含 ISO 8601 時間戳記的發佈封裝時
-requireLicenseAcceptance | boolean                    | no       | 
-摘要                  | 字串                     | no       | 
-標記                     | 字串或字串陣列  | no       | 
-標題                    | 字串                     | no       | 
-version                  | 字串                     | 是      | 封裝版本
+licenseUrl               | 字串                     | 否       | 
+列出的                   | boolean                    | 否       | 應視為列出如果不存在
+MinClientVersion         | 字串                     | 否       | 
+projectUrl               | 字串                     | 否       | 
+發行                | 字串                     | 否       | 字串，包含 ISO 8601 時間戳記的發佈封裝時
+requireLicenseAcceptance | boolean                    | 否       | 
+摘要                  | 字串                     | 否       | 
+標記                     | 字串或字串陣列  | 否       | 
+標題                    | 字串                     | 否       | 
+版本                  | 字串                     | 是      | 封裝版本
 
 `dependencyGroups`屬性是一個代表封裝中，依 目標 framework 的相依性物件的陣列。 如果封裝沒有相依性，`dependencyGroups`屬性遺漏，空的陣列，或`dependencies`的所有群組的屬性是空的或遺漏。
 
@@ -172,8 +172,8 @@ version                  | 字串                     | 是      | 封裝版本
 
 名稱            | 類型             | 必要 | 注意
 --------------- | ---------------- | -------- | -----
-targetFramework | 字串           | no       | 這些相依性適用於目標 framework
-相依性    | 物件的陣列 | no       |
+targetFramework | 字串           | 否       | 這些相依性適用於目標 framework
+相依性    | 物件的陣列 | 否       |
 
 `targetFramework`字串使用 NuGet 的.NET 程式庫所實作的格式[NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/)。 如果沒有`targetFramework`指定，則適用於所有的目標架構的相依性群組。
 
@@ -186,8 +186,8 @@ targetFramework | 字串           | no       | 這些相依性適用於目標 f
 名稱         | 類型   | 必要 | 注意
 ------------ | ------ | -------- | -----
 id           | 字串 | 是      | 封裝相依性的識別碼
-range        | object | no       | 允許[版本範圍](../reference/package-versioning.md#version-ranges-and-wildcards)相依性
-註冊 | 字串 | no       | 此相依性的登錄索引 URL
+range        | object | 否       | 允許[版本範圍](../reference/package-versioning.md#version-ranges-and-wildcards)相依性
+註冊 | 字串 | 否       | 此相依性的登錄索引 URL
 
 如果`range`排除屬性或空字串，用戶端應該預設為版本範圍`(, )`。 也就被允許任何版本的相依性。
 
@@ -241,11 +241,11 @@ GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-u
 名稱           | 類型    | 必要 | 注意
 -------------- | ------- | -------- | -----
 @id            | 字串  | 是      | 要註冊的分葉的 URL
-catalogEntry   | 字串  | no       | 產生這些分葉的類別目錄項目 URL
-列出的         | boolean | no       | 應視為列出如果不存在
-packageContent | 字串  | no       | 封裝內容 (.nupkg) URL
-發行      | 字串  | no       | 字串，包含 ISO 8601 時間戳記的發佈封裝時
-註冊   | 字串  | no       | 登錄索引 URL
+catalogEntry   | 字串  | 否       | 產生這些分葉的類別目錄項目 URL
+列出的         | boolean | 否       | 應視為列出如果不存在
+packageContent | 字串  | 否       | 封裝內容 (.nupkg) URL
+發行      | 字串  | 否       | 字串，包含 ISO 8601 時間戳記的發佈封裝時
+註冊   | 字串  | 否       | 登錄索引 URL
 
 > [!Note]
 > 在 nuget.org，`published`值設為 1900 當套件很未列出的年份。

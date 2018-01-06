@@ -13,17 +13,17 @@ keywords: "NuGet 3.2 版本資訊，將 bug 修正、 已知問題、 已新增�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 364a1ac62af25351e78df0b9a506f0919fc8fb61
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 551a54482f83803a2e5e5b6ba57a1bf3dd06db8a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-32-release-notes"></a>NuGet 3.2 版本資訊
 
 [NuGet 3.2 RC 版本資訊](../release-notes/nuget-3.2-RC.md) | [NuGet 3.2.1 版本資訊](../release-notes/nuget-3.2.1.md)
 
-NuGet 3.2 發行版本 2015 年 9 月 16 日的改良功能和修正程式 3.1.1 集合，並且可同時從[dist.nuget.org](http://dist.nuget.org/index.html)和[Visual Studio 組件庫](https://visualstudiogallery.msdn.microsoft.com/5d345edc-2e2d-4a9c-b73b-d53956dc458d?SRC=Home)。
+NuGet 3.2 發行版本 2015 年 9 月 16 日的改良功能和修正程式 3.1.1 集合，並且可同時從[dist.nuget.org](http://dist.nuget.org/index.html)和[Visual Studio 組件庫](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2015)。
 
 ## <a name="new-features"></a>新功能
 

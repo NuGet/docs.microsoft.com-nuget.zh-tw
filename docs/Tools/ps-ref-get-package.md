@@ -13,15 +13,15 @@ keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3f93ab82e9fb769ee20070aa39ba8e3e05953839
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 632936fe4dd9736f7c3740a2f763173dc725424a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>取得封裝 （在 Visual Studio 中的封裝管理員主控台）
 
-*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 取得封裝的命令，請參閱[PowerShell PackageManagement 參考](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 取得封裝的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
 擷取安裝在本機儲存機制中的封裝清單，列出可用的封裝，從套件來源時使用-ListAvailable 參數或列出可用的更新，當搭配-Update 參數。
 
@@ -37,9 +37,9 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| 來源 | 封裝的 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Get-Package`搜尋目前選取的套件來源。 當搭配使用-ListAvailable，預設為 nuget.org。 |
+| 原始程式檔 | 封裝的 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Get-Package`搜尋目前選取的套件來源。 當搭配使用-ListAvailable，預設為 nuget.org。 |
 | ListAvailable | 列出可用的封裝，從套件來源，將預設為 nuget.org。除非已指定-PageSize 及/或-第一個會顯示預設值是 50 的封裝。 |
 | 更新 | 列出從套件來源中有可用更新的封裝。 |
 | ProjectName | 要從中取得已安裝的套件的專案。 如果省略，則傳回安裝整個方案的專案。 |
