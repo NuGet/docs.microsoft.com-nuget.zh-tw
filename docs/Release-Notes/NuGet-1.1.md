@@ -13,11 +13,11 @@ keywords: "NuGet 1.1 版本資訊，將 bug 修正、 已知問題、 已新增�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 00b6a8c6095e12ea2f4ca3fb5129d6c999071e3a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 593848b3e5e063816fbbec8b4d11e6fc789d05cd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 和 1.1 版版本資訊
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 1.0 已於 2011 年 1 月 13 日發行。  NuGet 1.1 已於 2011 年 2 月 12 日發行。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文件包含 NuGet 1.0 主要的預覽版本進行分組的各種版本的版本資訊。
 
@@ -201,7 +201,7 @@ NuGet 工具 Visual Studio 擴充功能 (*NuGet.Tools.vsix*) 需要：
 * [變數 ' $全域： projectCache' 無法擷取，因為尚未設定](http://nuget.codeplex.com/workitem/203)
 * [將加入 MSBuild 工作，以建立 NuPack 封裝](http://nuget.codeplex.com/workitem/205)
 * [列出封裝需要支援搜尋/篩選](http://nuget.codeplex.com/workitem/206)
-* [一律蒩盓繨授權如果封裝作者提供授權 URL](http://nuget.codeplex.com/workitem/208)
+* [一律授權如果封裝作者提供授權 URL](http://nuget.codeplex.com/workitem/208)
 * [偶發的 「 拒絕存取 」 例外狀況，並移除封裝](http://nuget.codeplex.com/workitem/213)
 * [單元測試失敗： InvalidPackageIsExcludedFromFeedItems &amp; CreatingFeedConvertsPackagesToAtomEntries](http://nuget.codeplex.com/workitem/214)
 * [允許後援/預設的檔案集，如果找不到以特定的 framework 版本](http://nuget.codeplex.com/workitem/223)
