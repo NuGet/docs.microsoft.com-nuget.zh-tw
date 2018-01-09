@@ -14,11 +14,11 @@ ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25b74ab629cab0fff7114bf1621606de5fc18dd2
-ms.sourcegitcommit: 89bb9d429c19ff69084c35acad09daea3e16d56b
+ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
+ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="package-versioning"></a>封裝版本控制
 
@@ -59,8 +59,8 @@ ms.lasthandoff: 12/14/2017
 話雖如此，封裝開發人員通常會依照可辨識的命名慣例：
 
 - `-alpha`: Alpha 版本中，通常用於工作的進度和試驗。
-- `-beta`: Beta 版本，通常是已規劃的版本中，接下來的完整功能，但是可能會包含已知的錯誤的其中一個。
-- `-rc`： 發行候選版本，通常是最後一個潛在的版次 (stable) 除非重大的 bug 會出現。
+- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的 Bug。
+- `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
 > NuGet 4.3.0+ 支援[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，可支援使用點標記法，發行前版本號碼中*1.0.1-build.23*。 與之前 4.3.0 的 NuGet 版本不支援點標記法。 您可以使用的表單*1.0.1-build23*。
@@ -95,7 +95,8 @@ ms.lasthandoff: 12/14/2017
 如果您要 nuget.org 傳 SemVer v2.0.0 特定封裝，封裝是看不到舊版的用戶端，並可供 只有下列 NuGet 用戶端：
 
 - NuGet 4.3.0+
-- Visual Studio 2017 15.3 + 版本 
+- Visual Studio 2017 15.3 + 版本
+- Visual Studio 2015 [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (.NET SDK 2.0.0+)
 
 第三方用戶端：
@@ -110,7 +111,7 @@ ms.lasthandoff: 12/14/2017
 
 當參照的套件相依性，NuGet 會支援使用間隔標記法來指定版本範圍，彙總，如下所示：
 
-| Notation | 套用的規則 | 說明 |
+| Notation | 套用的規則 | 描述 |
 |----------|--------------|-------------|
 | 1.0 | 1.0 ≤ x | 最小版本 （含） |
 | (1.0,) | 1.0 < x | 最小版本，而獨佔式 |
