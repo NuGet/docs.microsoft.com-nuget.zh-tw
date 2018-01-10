@@ -17,11 +17,11 @@ keywords: "NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
+ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 封裝管理員 UI
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/05/2018
 > [!Note]
 > 如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中，檢查**工具 > 擴充功能和更新...**並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，下載擴充功能直接從[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)。
 >
-> 在 Visual Studio 2017，NuGet 和 NuGet 套件管理員自動安裝任何。網路相關的工作負載。 選取安裝 individuall**個別元件 > 程式碼工具 > NuGet 套件管理員**選項在 Visual Studio 2017 安裝程式。
+> 在 Visual Studio 2017，NuGet 和 NuGet 套件管理員自動安裝任何。網路相關的工作負載。 選取個別安裝**個別元件 > 程式碼工具 > NuGet 套件管理員**選項在 Visual Studio 2017 安裝程式。
 
 ## <a name="finding-and-installing-a-package"></a>尋找和安裝封裝
 
