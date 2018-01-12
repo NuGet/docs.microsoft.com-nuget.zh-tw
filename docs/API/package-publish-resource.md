@@ -17,11 +17,11 @@ keywords: "NuGet API 發送套件，NuGet API 刪除套件，NuGet API unlist �
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="push-and-delete"></a>發送和刪除
 
@@ -127,5 +127,5 @@ X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_AP
 
 狀態碼 | 意義
 ----------- | -------
-204         | 現在會列出封裝
+200         | 現在會列出封裝
 404         | 使用提供的封裝`ID`和`VERSION`存在

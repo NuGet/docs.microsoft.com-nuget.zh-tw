@@ -13,17 +13,17 @@ keywords: "建立套件, .NET Standard 套件, .NET Core"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>使用 Visual Studio 2017 建立 .NET Standard 2.0 套件
 
 *適用於 NuGet 4.x+ 和 Visual Studio 2017 Update 3 提供的 MSBuild 15.3+。對於舊版的 Visual Studio 2017，這些指示適用於 .NET Standard 1.4 到 1.6，方法是變更 \<TargetFramework\> 屬性。另請參閱[使用 Visual Studio 2015 建立 .NET Standard 套件](../guides/create-net-standard-packages-vs2015.md)，以便使用 NuGet 3.x+。*
 
-[.NET Standard 程式庫](https://docs.microsoft.com/dotnet/articles/standard/library)是計劃提供所有 .NET 執行階段使用的 .NET API 正式規格，因此在 .NET 生態系統中能建立較強的一致性。 .NET Standard 程式庫定義一致的 BCL (基底類別庫) API 集合，以供所有 .NET 平台實作，而不論工作負載為何。 它可讓開發人員產生可跨所有 .NET 執行階段使用的 PCL，並減少 (如果無法消除) 共用程式碼中的平台專屬條件式編譯指示詞。
+[.NET Standard 程式庫](/dotnet/articles/standard/library)是計劃提供所有 .NET 執行階段使用的 .NET API 正式規格，因此在 .NET 生態系統中能建立較強的一致性。 .NET Standard 程式庫定義一致的 BCL (基底類別庫) API 集合，以供所有 .NET 平台實作，而不論工作負載為何。 它可讓開發人員產生可跨所有 .NET 執行階段使用的 PCL，並減少 (如果無法消除) 共用程式碼中的平台專屬條件式編譯指示詞。
 
 本指南將引導您使用 Visual Studio 2017 Update 3 和 NuGet 4.0，建立以 .NET Standard 程式庫 2.0 為目標的 nuget 套件。
 
@@ -107,11 +107,11 @@ NuGet 4.0 支援在當專案包含所需的套件中繼資料時使用 MSBuild 1
 > [!Tip]
 > `.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。 然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。
 
-若要讓其他開發人員使用您的套件，請遵循[發行套件](../create-packages/publish-a-package.md)的指示。
+若要讓其他開發人員使用您的套件，請遵循[發行套件](../create-packages/publish-a-package.md)上的指示。
 
 ## <a name="related-topics"></a>相關主題
 
 - [專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)描述直接在專案檔中描述您套件的所有詳細資料。
 - [NuGet 包裝及還原為 MSBuild 目標](../schema/msbuild-targets.md)描述使用 `msbuild /t:pack` 建立套件的所有選項。
-- [.NET Standard 程式庫文件](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [從 .NET Framework 移轉到 .NET Core](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [.NET Standard 程式庫文件](/dotnet/articles/standard/library)
+- [從 .NET Framework 移轉到 .NET Core](/dotnet/articles/core/porting/index)

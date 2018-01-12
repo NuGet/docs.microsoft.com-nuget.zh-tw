@@ -14,11 +14,11 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 7d380b7f2ff52ec39a2ac9a2b939ee51db6054f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 89a55716ccbc9043cfce4c7f38ec8ab9a0e2f768
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>轉換原始程式碼和組態檔
 
@@ -27,20 +27,19 @@ ms.lasthandoff: 12/14/2017
 > [!Note]
 > 使用[專案檔中的套件參考](../Consume-Packages/Package-References-in-Project-Files.md)在專案中安裝套件時，不會套用原始程式檔和組態檔轉換。 
 
-安裝套件時，**原始程式碼轉換**會將單向權杖取代套用至套件之 `content` 資料夾中的檔案，而權杖指的是 Visual Studio [套件屬性](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
+安裝套件時，**原始程式碼轉換**會將單向權杖取代套用至套件之 `content` 資料夾中的檔案，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
 
 **組態檔轉換**可讓您修改目標專案中的現有檔案 (例如 `web.config` 和 `app.config`)。 例如，您的套件可能需要將項目新增至組態檔中的 `modules` 區段。 此轉換的完成是透過在專案中包含可描述要新增至組態檔之區段的特殊檔案。 解除安裝套件時，接著會反轉這些相同的變更，讓這項作業成為雙向轉換。
-
 
 ## <a name="specifying-source-code-transformations"></a>指定原始程式碼轉換
 
 1. 您想要從套件插入至專案的檔案必須位在套件的 `content` 資料夾中。 例如，如果您想要將稱為 `ContosoData.cs` 的檔案安裝在目標專案的 `Models` 資料夾中，則它必須在套件的 `content\Models` 資料夾內部。
 
-2. 若要指示 NuGet 在安裝期間套用權杖取代，請將 `.pp` 附加至原始程式檔名稱。 安裝之後，檔案的副檔名將不會是 `.pp`。
+1. 若要指示 NuGet 在安裝期間套用權杖取代，請將 `.pp` 附加至原始程式檔名稱。 安裝之後，檔案的副檔名將不會是 `.pp`。
 
     例如，若要在 `ContosoData.cs` 中進行轉換，請將套件中的檔案命名為 `ContosoData.cs.pp`。 它在安裝後會顯示為 `ContosoData.cs`。
 
-3. 在原始程式檔中，使用表單 `$token$` 的不區分大小寫權杖指出 NuGet 應該取代為專案屬性的值：
+1. 在原始程式檔中，使用表單 `$token$` 的不區分大小寫權杖指出 NuGet 應該取代為專案屬性的值：
 
     ```cs
     namespace $rootnamespace$.Models
@@ -58,8 +57,7 @@ ms.lasthandoff: 12/14/2017
 
     安裝時，NuGet 會將 `$rootnamespace$` 取代為 `Fabrikam`，並假設目標專案的根命名空間是 `Fabrikam`。
 
-`$rootnamespace$` 權杖是最常用的專案屬性，其他則列在 MSDN 的[專案屬性](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx)文件中。 當然，請注意，某些屬性可能是專案類型所特有。
-
+`$rootnamespace$` 權杖是最常用的專案屬性，其他則列在 MSDN 的[專案屬性](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_)文件中。 當然，請注意，某些屬性可能是專案類型所特有。
 
 ## <a name="specifying-config-file-transformations"></a>指定組態檔轉換
 
@@ -91,7 +89,6 @@ ms.lasthandoff: 12/14/2017
 
 若要在套件安裝期間將 `MyNuModule` 項目新增至 `modules` 區段，請在套件的 `content` 資料夾中建立 `web.config.transform` 檔案，如下所示：
 
-    
 ```xml
 <configuration>
     <system.webServer>
@@ -125,10 +122,9 @@ NuGet 安裝套件之後，`web.config` 會顯示如下：
 
 若要查看安裝和解除安裝套件的效果，請在 Visual Studio 中建立新的 ASP.NET 專案 (範本是在 [新增專案] 對話方塊的 [Visual C#] > [Web] 下方)，然後選取空白 ASP.NET 應用程式。 開啟 `web.config` 以查看其初始狀態。 接著以滑鼠右鍵按一下專案，並選取 [管理 NuGet 套件]，再瀏覽 nuget.org 上的 ELMAH，然後安裝最新版本。 請注意所有 `web.config` 變更。 現在解除安裝套件，而您會看到 `web.config` 還原成其先前狀態。
 
-
 ### <a name="xdt-transforms"></a>XDT 轉換
 
-使用 NuGet 2.6 和更新版本，您可以使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)來修改組態檔。 您也可以在 `$` 分隔符號 (不區分大小寫) 內包含屬性名稱，讓 NuGet 將權杖取代為[專案屬性](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx)。
+使用 NuGet 2.6 和更新版本，您可以使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)來修改組態檔。 您也可以在 `$` 分隔符號 (不區分大小寫) 內包含屬性名稱，讓 NuGet 將權杖取代為[專案屬性](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_)。
 
 例如，下列 `app.config.install.xdt` 檔案會將 `appSettings` 項目從專案插入至包含 `FullPath`、`FileName` 和 `ActiveConfigurationSettings` 值的 `app.config`：
 

@@ -12,13 +12,14 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
+- vs.nuget.packagemanager.ui
 description: "使用 NuGet 封裝，使用 Visual Studio 中的 NuGet 封裝管理員 UI 的指示。"
 keywords: "NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管理 NuGet 封裝、 NuGet 使用者介面、 封裝管理員 Visual Studio 中的 NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
-ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
+ms.openlocfilehash: 39ce53184755887c419c8872148a6c13dc2c65ec
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2018

@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1a29fe6e9a3dec6847dbed07761e28fb8eb9b19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-symbol-packages"></a>建立符號套件
 
 除了建置 nuget.org 或其他來源的套件之外，NuGet 也支援建立相關聯符號套件以及將它們發行至 [SymbolSource 存放庫](http://www.symbolsource.org/Public)。
 
-套件取用者接著可以在 Visual Studio 中將 `http://srv.symbolsource.org/pdb/Public` 新增至其符號來源，以允許在 Visual Studio 偵錯工具中逐步執行套件程式碼。 如需該程序的詳細資料，請參閱[在 Visual Studio Debugger 中指定符號 (.pdb) 和原始程式檔](https://docs.microsoft.com/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)。
+套件取用者接著可以在 Visual Studio 中將 `http://srv.symbolsource.org/pdb/Public` 新增至其符號來源，以允許在 Visual Studio 偵錯工具中逐步執行套件程式碼。 如需該程序的詳細資料，請參閱[在 Visual Studio Debugger 中指定符號 (.pdb) 和原始程式檔](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)。
 
 
 ## <a name="creating-a-symbol-package"></a>建立符號套件
@@ -134,6 +134,6 @@ nuget pack MyProject.csproj -Symbols
 
 在此情況下，NuGet 將主要套件發行至 nuget.org 之後，會將 `MyPackage.symbols.nupkg` (存在時) 發行至 https://nuget.smbsrc.net/ (symbolsource.org 的推送 URL)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  - <a href="https://www.symbolsource.org/Public/Wiki/Using" target="_blank">使用 SymbolSource</a> (symbolsource.org)

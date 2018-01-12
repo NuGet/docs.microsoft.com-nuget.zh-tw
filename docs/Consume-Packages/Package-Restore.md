@@ -13,11 +13,11 @@ keywords: "NuGet 套件還原, NuGet 套件安裝, 安裝套件, 還原套件、
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2567f45b6bb36cdd94c4ce6f1418cb1c7ceac5e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4e819a2bb34bbe70f0f11d5adeed82b976a8cb65
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-restore"></a>套件還原
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/14/2017
 
 首先，會使用下列其中一種套件管理格式來維護套件參考 (視專案類型和 NuGet 版本而定)  (請注意，NuGet 4 和 MSBuild 15.1 是與 Visual Studio 2017 一起安裝)。
 
-| 方法 | NuGet 版本 | 說明 | 
+| 方法 | NuGet 版本 | 描述 | 
 | --- | --- | --- |
 | `packages.config` | 2.x+ | 列出一組完整深層相依性。 新增至 `packages.config` 的套件也必須新增至專案檔，而且 [目標] 和 [屬性] 也必須新增至專案檔。 這是 NuGet 所有版本的基準方法，但與其他選項相較之下效能較慢。 (請參閱 [packages.config 結構描述](../schema/packages-config.md))。 | 
 | `project.json` | 3.x+ | 預設只會與 UWP 專案搭配使用，但可以從 `packages.config` 轉換專案。 `project.json` 只會列出最上層相依性。 在建置期間會將參考、目標和屬性動態新增至專案，並與 `packages.config` 相較之下可產生更好的效能  (請參閱 [project.json 結構描述](../schema/project-json.md))。|
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/14/2017
 | 命令 | 適用的案例 |
 | --- | --- | 
 | `nuget restore` | 所有版本的 NuGet 和所有參考類型。 請參閱下方的[命令列還原](#command-line-restore)。 | 
-| `dotnet restore` | 與 .NET Core 專案的 `nuget restore` 相同。 請參閱 [dotnet restore](https://docs.microsoft.com/dotnet/articles/core/tools/dotnet-restore)。 |
+| `dotnet restore` | 與 .NET Core 專案的 `nuget restore` 相同。 請參閱 [dotnet restore](/dotnet/articles/core/tools/dotnet-restore)。 |
 | `msbuild /t:restore` | 僅限具有[專案檔中的套件參考](../Consume-Packages/Package-References-in-Project-Files.md)的 Nuget 4.x+ 和 MSBuild 15.1+。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。 請參閱 [NuGet 封裝和還原為 MSBuild 目標 - 還原目標](../schema/msbuild-targets.md#restore-target)。|
 
 Visual Studio 本身也會在不同的時間還原套件：

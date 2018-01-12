@@ -13,11 +13,11 @@ keywords: "nuget 的來源參考、 來源命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 52c46dba168e7395d50cb8d8f9775839389e614c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2eca8557840c467a60f5f708efe242cd83609164
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sources-command-nuget-cli"></a>來源命令 (NuGet CLI)
 
@@ -25,7 +25,9 @@ ms.lasthandoff: 12/14/2017
 
 管理清單的來源位於`%AppData%\NuGet\NuGet.Config`或指定的組態檔。
 
-## <a name="usage"></a>使用方式
+請注意，nuget.org 的來源 URL 是`https://api.nuget.org/v3/index.json`。
+
+## <a name="usage"></a>使用量
 
 ```
 nuget sources <operation> -Name <name> -Source <source>
@@ -33,10 +35,9 @@ nuget sources <operation> -Name <name> -Source <source>
 
 其中`<operation>`是其中一個*清單、 加入、 移除、 啟用、 停用，*或*更新*，`<name>`是來源的名稱和`<source>`是來源的 URL。
 
-
 ## <a name="options"></a>選項
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | --- | --- |
 | ConfigFile | *（2.5 +)* NuGet 組態檔來套用。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |

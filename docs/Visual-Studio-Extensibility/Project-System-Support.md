@@ -13,11 +13,11 @@ keywords: "Visual Studio 中的 NuGet、自訂專案類型、Visual Studio 專�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39212361e7cb2c214c3e83cef604d40cd057fd7e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio 專案系統的 NuGet 支援
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/14/2017
 NuGet 用戶端會根據[專案功能](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md) (如下表所述) 來判斷哪些套件與您的專案類型相容。
 
 
-|功能|說明|
+|功能|描述|
 |----------------|-----------|
 |AssemblyReferences|指出專案支援組件參考 (與 WinRTReferences 不同)|
 |DeclaredSourceItems|指出專案是一般 MSBuild 專案 (非 DNX)，因為它會宣告專案本身中的來源項目 (而不是假設資料夾中的所有檔案都是編譯一部分的 `project.json` 檔案)。|
@@ -121,9 +121,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-
 ## <a name="dte-support"></a>DTE 支援
 
-NuGet 會呼叫 [DTE](https://msdn.microsoft.com/library/mt452175.aspx) (這是最上層 Visual Studio 自動化介面)，來驅動專案系統新增參考、內容項目和 MSBuild 匯入。 DTE 是一組您可能已實作的 COM 介面。
+NuGet 會呼叫 [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017) (這是最上層 Visual Studio 自動化介面)，來驅動專案系統新增參考、內容項目和 MSBuild 匯入。 DTE 是一組您可能已實作的 COM 介面。
 
 如果您的專案類型根據 CPS，則會為您實作 DTE。

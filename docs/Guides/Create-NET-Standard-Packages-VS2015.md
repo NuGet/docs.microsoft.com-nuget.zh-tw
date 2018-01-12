@@ -13,17 +13,17 @@ keywords: "建立套件, .NET Standard 套件, .NET Standard 對應表"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET Standard 套件
 
 *適用於 NuGet 3.x。請參閱[使用 Visual Studio 2017 建立 .NET Standard 套件](../guides/create-net-standard-packages-vs2017.md)，以使用 NuGet 4.x+。*
 
-[.NET Standard 程式庫](https://docs.microsoft.com/dotnet/articles/standard/library)是計劃提供所有 .NET 執行階段使用的 .NET API 正式規格，因此在 .NET 生態系統中能建立較強的一致性。 .NET Standard 程式庫定義一致的 BCL (基底類別庫) API 集合，以供所有 .NET 平台實作，而不論工作負載為何。 它可讓開發人員產生可跨所有 .NET 執行階段使用的 PCL，並減少 (如果無法消除) 共用程式碼中的平台專屬條件式編譯指示詞。
+[.NET Standard 程式庫](/dotnet/articles/standard/library)是計劃提供所有 .NET 執行階段使用的 .NET API 正式規格，因此在 .NET 生態系統中能建立較強的一致性。 .NET Standard 程式庫定義一致的 BCL (基底類別庫) API 集合，以供所有 .NET 平台實作，而不論工作負載為何。 它可讓開發人員產生可跨所有 .NET 執行階段使用的 PCL，並減少 (如果無法消除) 共用程式碼中的平台專屬條件式編譯指示詞。
 
 本指南將引導您建立以 .NET Standard 程式庫 1.4 為目標的 NuGet 套件。 這對 .NET Framework 4.6.1、通用 Windows 平台 10、.NET Core 和 Mono/Xamarin 都適用。 如需詳細資料，請參閱本主題下文中的 [.NET Standard 對應表](#net-standard-mapping-table)。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 
 1. Visual Studio 2015。 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 Community Edition，當然也可以使用 Professional Edition 和 Enterprise Edition。
 1. .NET Core：從 [https://go.microsoft.com/fwlink/?LinkId=824849](https://go.microsoft.com/fwlink/?LinkId=824849) 安裝 .NET Core 以及適用於 Visual Studio 2015 的範本和其他工具。
-1. NuGet CLI。 從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 nuget.exe，將它儲存至您選擇的位置。 如果尚未新增，則請將該位置新增至您的 PATH 環境變數。
+1. NuGet CLI。 從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 nuget.exe，並將它儲存至您選擇的位置。 如果尚未新增，則請將該位置新增至您的 PATH 環境變數。
 
 > [!Note]
 > nuget.exe 本身是 CLI 工具，不是安裝程式，所以請務必從瀏覽器儲存下載的檔案，而不是執行它。
@@ -327,7 +327,7 @@ nuget pack AppLogger.nuspec
 - [符號套件](../create-packages/symbol-packages.md)
 - [套件版本控制](../reference/package-versioning.md)
 - [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
-- [在套件中包含 MSBuild props 和目標](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
-- [.NET Standard 程式庫文件](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [從 .NET Framework 移轉到 .NET Core](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [.NET Standard 程式庫文件](/dotnet/articles/standard/library)
+- [從 .NET Framework 移轉到 .NET Core](/dotnet/articles/core/porting/index)

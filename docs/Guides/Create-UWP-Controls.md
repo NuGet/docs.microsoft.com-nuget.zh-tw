@@ -13,11 +13,11 @@ keywords: "NuGet UWP 控制項、Visual Studio XAML 設計工具、Blend 設計�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>建立 UWP 控制項作為 NuGet 套件
 
@@ -105,7 +105,7 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 \ref\uap10.0\*
 ```
 
-若要強制執行適當的 TPMinV 檢查，請建立 [MSBuild 目標檔案](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets)，並將它封裝在組建資料夾下方 (將 "your_assembly_name" 取代為特定組件的名稱)：
+若要強制執行適當的 TPMinV 檢查，請建立 [MSBuild 目標檔案](/visualstudio/msbuild/msbuild-targets)，並將它封裝在組建資料夾下方 (將 "your_assembly_name" 取代為特定組件的名稱)：
 
 ```
 \build
@@ -133,7 +133,7 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 
 ## <a name="add-design-time-support"></a>新增設計階段支援
 
-若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\<platform>\Design` 資料夾內。 此外，為了確保**[編輯範本 > 編輯複本](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**功能正常運作，您必須包含 `Generic.xaml` 以及它在 `<AssemblyName>\Themes` 資料夾中所合併的任何資源字典  (此檔案不會影響控制項的執行階段行為)。
+若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\<platform>\Design` 資料夾內。 此外，為了確保**[編輯範本 > 編輯複本](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**功能正常運作，您必須包含 `Generic.xaml` 以及它在 `<AssemblyName>\Themes` 資料夾中所合併的任何資源字典  (此檔案不會影響控制項的執行階段行為)。
 
 
 ```
@@ -172,7 +172,7 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 \tools
 ```
 
-您也可以編寫 [MSBuild 目標檔案](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets)，以確保將資產複製至取用專案的輸出資料夾：
+您也可以編寫 [MSBuild 目標檔案](/visualstudio/msbuild/msbuild-targets)，以確保將資產複製至取用專案的輸出資料夾：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 </Project>
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [建立 UWP 套件](create-uwp-packages.md)
 - [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

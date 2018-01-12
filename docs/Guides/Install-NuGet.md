@@ -13,11 +13,11 @@ keywords: "nuget.exe CLI, NuGet 用戶端工具, NuGet 套件管理員, NuGet �
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/14/2017
 1. [**NuGet CLI** ](#nuget-cli) 是適用於 Windows 的命令列公用程式，它提供所有 NuGet 功能，也可以在 Mac OSX 與 Linux 上使用 Mono 執行，或透過 .NET Core CLI 執行 (`dotnet`)。
 1. [**Visual Studio 中的 NuGet 套件管理員**](#nuget-package-manager-in-visual-studio) (僅限 Windows) 是一種管理套件的 GUI 工具，並包含 PowerShell 主控台；透過它，您可以直接在 VisualStudio 內使用特定的 NuGet 命令。 套件管理員 UI 和主控台都包含在 Visual Studio (在 Windows 上) 2012 及更新版本中，且可以針對先前的版本手動安裝。
 
-    使用 Visual Studio for Mac，NuGet 功能已直接內建。 如需逐步解說，請參閱[在專案中包含 NuGet 套件](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)。
+    使用 Visual Studio for Mac，NuGet 功能已直接內建。 如需逐步解說，請參閱[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。
 
     目前的 Visual Studio 程式碼沒有任何內建的 NuGet 支援。 請使用 NuGet CLI 或 [dotnet CLI](../Tools/dotnet-Commands.md)。
 
@@ -53,7 +53,7 @@ NuGet CLI 和套件管理員都支援下列作業：
 
 > [!Note]
 > 另一個很好的工具是 [NuGet 套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)，這是一個開放原始碼的獨立工具，以視覺化方式瀏覽、建立和編輯 NuGet 套件。 例如，它很適用對套件結構進行實驗性的變更，而不必每次重建套件。
-> 跨平台的 [.NET Core CLI](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation) 工具鏈，用來開發 .NET Core 應用程式，能支援數個 NuGet 命令，例如 delete、locals、push、pack 和 restore。 
+> 跨平台的 [.NET Core CLI](/dotnet/articles/core/tools/index#installation) 工具鏈，用來開發 .NET Core 應用程式，能支援數個 NuGet 命令，例如 delete、locals、push、pack 和 restore。 
 
 ## <a name="nuget-cli"></a>NuGet CLI
 

@@ -13,15 +13,15 @@ keywords: "NuGet API, Visual Studio 中的 NuGet, NuGet 程式設計介面"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1d5c4cba1474f4215c6cc83497e347b2145f21ef
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e1279f5c0c36bfdf99a6bae240c779fd0c39f04c
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio 中的 NuGet API
 
-除了 Visual Studio 中的套件管理員 UI 與主控台以外，NuGet 也會透過 [Managed Extensibility Framework (MEF)](http://msdn.microsoft.com/library/dd460648.aspx) 匯出某些有用的服務。 這個介面允許 Visual Studio 中的其他元件與 NuGet 互動，NuGet 可以用於安裝和解除安裝套件，以及取得已安裝套件的相關資訊。
+除了 Visual Studio 中的套件管理員 UI 與主控台以外，NuGet 也會透過 [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index) 匯出某些有用的服務。 這個介面允許 Visual Studio 中的其他元件與 NuGet 互動，NuGet 可以用於安裝和解除安裝套件，以及取得已安裝套件的相關資訊。
 
 截至 NuGet 3.3+，NuGet 匯出下列服務，它們全都是位於 `NuGet.VisualStudio.dll` 組件中的 `NuGet.VisualStudio` 命名空間：
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/14/2017
 > [!Warning]
 > 除了您的程式碼中的公用介面，請不要使用任何其他類型，而且不要參考任何其他 NuGet 組件，包括 `NuGet.Core.dll`。
 
-1. 若要使用服務，請透過 [MEF 匯入屬性](https://msdn.microsoft.com/library/dd460648.aspx#Imports%20and%20Exports%20with%20Attributes)匯入它，或透過 [IComponentModel 服務](http://msdn.microsoft.com/library/microsoft.visualstudio.componentmodelhost.icomponentmodel.aspx)。
+1. 若要使用服務，請透過 [MEF 匯入屬性](/dotnet/framework/mef/index#imports-and-exports-with-attributes)匯入它，或透過 [IComponentModel 服務](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017)。
 
     ```cs
     //Using the Import attribute

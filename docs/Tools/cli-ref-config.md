@@ -13,11 +13,11 @@ keywords: "nuget 組態參考組態命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 12a8b51dd11b9bc3a496e02e869cdeb95e67b9e3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="config-command-nuget-cli"></a>組態命令 (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 取得或設定 NuGet 組態值。 對於其他使用方式，請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 如需允許的索引鍵名稱的詳細資訊，請參閱[NuGet 組態檔參考](../Schema/nuget-config-file.md)。
 
-## <a name="usage"></a>使用方式
+## <a name="usage"></a>使用量
 
 ```
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
@@ -34,11 +34,13 @@ nuget config -AsPath <name> [options]
 
 其中`<name>`和`<value>`指定要在組態中設定的索引鍵-值組。 您可以視需要指定多組。 若要移除的值，指定名稱和`=`號但沒有值。
 
+如需允許的索引鍵名稱，請參閱[NuGet 組態檔參考](../Schema/nuget-config-file.md)。
+
 在 NuGet 3.4 +`<value>`可以使用[環境變數](cli-ref-environment-variables.md)。
 
 ## <a name="options"></a>選項
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | --- | --- |
 | AsPath | 傳回組態值做為路徑，會忽略時`-Set`用。 |
 | ConfigFile | *（2.5 +)* NuGet 組態檔來修改。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
