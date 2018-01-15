@@ -157,9 +157,9 @@ install-package log4net
 
 如果發生此種情況，請遵循 [StackOverflow 上討論](http://stackoverflow.com/questions/12638289/embedding-powershell-v2-0-in-net-app-on-windows-8-rtm)的解決方案來修正它們。
 
-## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>如果解決方案包含 InstallShield 限量版專案，[Add Package Library Reference] (新增套件程式庫參考) 對話方塊就會擲回例外狀況。
+## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>如果解決方案包含 InstallShield 限量版專案，[Add Package Library Reference]\ (新增套件程式庫參考) 對話方塊就會擲回例外狀況。
 
-我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] (新增套件程式庫參考) 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
+我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference]\ (新增套件程式庫參考) 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[解除安裝] 按鈕呈現灰色？ 需要有系統管理員權限才能安裝/解除安裝 NuGet
 
@@ -217,7 +217,7 @@ FluentNHibernate 預設需要 NHibernate 3.0.0.2001。 但依照設計，NuGet �
     throw "My error message"
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>在 Windows 2003 上以有限的存取安裝 NuGet，會損毀 Visual Studio
-嘗試不以系統管理員身分執行，使用 Visual Studio 延伸模組管理員安裝 NuGet 時，顯示的 [執行身分] 對話方塊預設會勾選 [Run this program with restricted access] (以限制存取權限執行此程式) 核取方塊。
+嘗試不以系統管理員身分執行，使用 Visual Studio 延伸模組管理員安裝 NuGet 時，顯示的 [執行身分] 對話方塊預設會勾選 [Run this program with restricted access]\ (以限制存取權限執行此程式) 核取方塊。
 
 ![[Run As Restricted] (以限制身分執行) 對話方塊](./media/RunAsRestricted.png)
 

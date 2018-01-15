@@ -246,7 +246,7 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 * 安裝套件還原記錄兩次還原套件訊息 - [#3785](https://github.com/NuGet/Home/issues/3785)
 
-* 移除 [執行階段] 區段的 [Guardrails - Restore] (防撞欄 - 還原) 僅適用於目前的專案 - [#3768](https://github.com/NuGet/Home/issues/3768)
+* 移除 [執行階段] 區段的 [Guardrails - Restore] \(防撞欄 - 還原) 僅適用於目前的專案 - [#3768](https://github.com/NuGet/Home/issues/3768)
 
 * 套件工作會將內容檔放在 'content/' 和 'contentFiles/' - [#3718](https://github.com/NuGet/Home/issues/3718)
 

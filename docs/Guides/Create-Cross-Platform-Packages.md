@@ -44,7 +44,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="create-the-project-structure-and-abstraction-code"></a>建立專案結構和抽象程式碼
 
 1. 針對 Visual Studio，下載並執行 [ Xamarin 範本延伸模組外掛程式](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)。 這些範本可讓您輕鬆建立此逐步解說的必要專案結構。
-1. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案]、搜尋 `Plugin`、選取 [Plugin for Xamarin ] (Xamarin 的外掛程式) 範本、將名稱變更為 LoggingLibrary，然後按一下 [確定]。
+1. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案]、搜尋 `Plugin`、選取 [Plugin for Xamarin ] \(Xamarin 的外掛程式) 範本、將名稱變更為 LoggingLibrary，然後按一下 [確定]。
 
     ![Visual Studio 中的新空白應用程式 (Xamarin.Forms 可攜式) 專案](media/CrossPlatform-NewProject.png)
 

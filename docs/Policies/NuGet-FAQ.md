@@ -65,7 +65,7 @@ ms.lasthandoff: 01/08/2018
 
 在 Visual Studio 中，使用 [說明] > [關於 Microsoft Visual Studio] 命令，並查看 [NuGet 套件管理員] 旁邊所顯示的版本。
 
-或者，啟動 [套件管理員主控台] ([工具] > [NuGet 套件管理員] > [套件管理員主控台])，並輸入 `$host` 以查看 NuGet 的相關資訊 (包含版本)。
+或者，啟動 [套件管理員主控台]\ ([工具] > [NuGet 套件管理員] > [套件管理員主控台])，並輸入 `$host` 以查看 NuGet 的相關資訊 (包含版本)。
 
 **NuGet 支援哪些程式設計語言？**
 
@@ -245,7 +245,7 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 - 安裝最新版的 [Fiddler](http://www.telerik.com/download/fiddler)。
 - 啟動 Fiddler，並使用 [檔案] > [擷取流量] 功能表來停用擷取流量。
 - 移除所有工作階段 (選取清單中的所有項目，並按 **Delete** 鍵)。
-- 設定 Fiddler 擷取 HTTPS 流量，方法是核取 [工具] > [Fiddler 選項] 功能表的 [HTTPS] 索引標籤中的 [Decrypt HTTPS traffic] (將 HTTPS 流量解密)。
+- 設定 Fiddler 擷取 HTTPS 流量，方法是核取 [工具] > [Fiddler 選項] 功能表的 [HTTPS] 索引標籤中的 [Decrypt HTTPS traffic] \(將 HTTPS 流量解密)。
 - 關閉 Visual Studio。
 - 啟用 [檔案] > [擷取流量] 功能表。
 - 啟動 Visual Studio 或 nuget.exe，然後執行無法運作的動作。 這些動作所產生的流量應該會顯示在 Fiddler 中。
