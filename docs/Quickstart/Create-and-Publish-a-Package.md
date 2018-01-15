@@ -13,11 +13,11 @@ keywords: "NuGet 套件建立, NuGet 套件發行, NuGet 教學課程"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>建立及發行套件
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/14/2017
     nuget spec
     ```
 
-1. 在文字編輯器中開啟檔案。 資訊清單看起來類似下列程式碼，其中 *$`<token>`$* 格式的語彙基元會在封裝程序期間取代為來自專案 Properties/AssemblyInfo.cs 檔案的值。 如需語彙基元的詳細資料，請參閱[建立 .nuspec 檔案](../create-packages/creating-a-package.md#creating-the-nuspec-file)。
+1. 在文字編輯器中開啟檔案。 資訊清單看起來類似下列程式碼，其中 `<token>` 格式的權杖 (例如 `$id$`) 會在封裝程序期間取代為來自專案 Properties/AssemblyInfo.cs 檔案的值。 如需語彙基元的詳細資料，請參閱[建立 .nuspec 檔案](../create-packages/creating-a-package.md#creating-the-nuspec-file)。
 
     ```xml
     <?xml version="1.0"?>
@@ -115,7 +115,6 @@ nuget pack AppLogger.csproj
 > [!Warning]
 > 您發行至 nuget.org 的套件可以讓其他開發人員公開看見。 若要私下裝載套件，請參閱[裝載套件](../hosting-packages/overview.md)。
 
-
 1. 在 [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) 上建立免費帳戶，如果您已有帳戶則請登入。 建立新的帳戶會傳送一封確認電子郵件。 您必須確認帳戶，才可以上傳套件。
 
 1. 登入之後，選取您的使用者名稱 (在右上方)，然後選取 [API 金鑰]。
@@ -134,7 +133,7 @@ nuget pack AppLogger.csproj
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. nuget.exe 顯示發行程序的結果：
 
     ```

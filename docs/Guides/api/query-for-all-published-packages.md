@@ -17,11 +17,11 @@ keywords: "NuGet API 列舉所有套件, NuGet API 複寫套件, 發佈至 nuget
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50a5be4cb0405ad78a72d0497612781a4b346060
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>查詢發佈至 nuget.org 的所有套件
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 
 因此，您可遵循下列指南，以更可靠且未來有保證的方式處理上述案例。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本指南的中心是 [NuGet API](../../api/overview.md) 的資源，稱之為**目錄**。 目錄是僅附加的 API，可讓呼叫端查看 nuget.org 新增、修改及刪除套件的完整記錄。如果您對發佈至 nuget.org 的所有套件或甚至套件子集有興趣，目錄會是隨時將目前可用套件集保持在最新狀態的絕佳方式。
 
@@ -106,7 +106,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 ### <a name="downloading-the-nupkg"></a>下載 .nupkg
 
-如果想要下載目錄中找到的套件 .nupkg，您可以使用[套件內容資源](../../api/package-base-address-resource.md)。 但請注意，在目錄中找到套件和套件內容資源提供套件之間，有短暫的延遲。 因此，如果在嘗試下載於目錄中找到的套件 .nupkg 時，發生 `404 Not Found` 問題，只要稍後再試即可。 GitHub 問題 [NuGet/NuGetGallery#3455](https://github.com/NuGet/NuGetGallery/issues/3455) 會追蹤修正此延遲。
+如果想要下載目錄中找到的套件 .nupkg，您可以使用[套件內容資源](../../api/package-base-address-resource.md)。 但請注意，發現目錄中有套件的時間和套件內容資源提供該套件的時間之間有短暫的延遲。 因此，如果在嘗試下載於目錄中找到的套件 .nupkg 時，發生 `404 Not Found` 問題，只要稍後再試即可。 GitHub 問題 [NuGet/NuGetGallery#3455](https://github.com/NuGet/NuGetGallery/issues/3455) 會追蹤修正此延遲。
 
 ## <a name="move-the-cursor-forward"></a>將資料指標向前移
 

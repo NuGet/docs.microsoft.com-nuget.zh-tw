@@ -13,11 +13,11 @@ keywords: "NuGet 問與答, 問題和解答, 常見問題, NuGet 版本, 套件�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 12/14/2017
 **在不同的 Visual Studio 產品中，如何支援 NuGet？**
 
 - Windows 上的 Visual Studio 支援[套件管理員 UI](../tools/Package-Manager-UI.md) 和[套件管理員主控台](../tools/Package-Manager-Console.md)。
-- Visual Studio for Mac 具有內建 NuGet 功能，如[在專案中包含 NuGet 套件](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)中所述。
+- Visual Studio for Mac 具有內建 NuGet 功能，如[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)中所述。
 - Visual Studio Code (所有平台) 沒有任何直接 NuGet 整合。 請使用 [NuGet CLI](../tools/nuget-exe-CLI-Reference.md) 或 [dotnet CLI](../tools/dotnet-commands.md)。
-- Visual Studio Team Services 提供[還原 NuGet 套件的建置步驟](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget)。 您也可以[在 Team Services 上裝載私用 NuGet 套件摘要](https://www.visualstudio.com/docs/package/nuget/publish)。
+- Visual Studio Team Services 提供[還原 NuGet 套件的建置步驟](/vsts/build-release/tasks/package/nuget)。 您也可以[在 Team Services 上裝載私用 NuGet 套件摘要](https://www.visualstudio.com/docs/package/nuget/publish)。
 
 **如何檢查已安裝 NuGet 工具的確切版本？**
 
@@ -101,7 +101,7 @@ NuGet 完整支援各種專案範本，例如 Windows、Web、Cloud、SharePoint
 
 **如何在套件管理員主控台中存取 DTE 物件？**
 
-Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具環境) 物件。 此主控台透過名為 `$DTE` 的變數提供這個項目。 如需詳細資訊，請參閱＜Visual Studio 擴充性＞文件中的 [Automation Model Overview](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview) (自動化模型概觀)。
+Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具環境) 物件。 此主控台透過名為 `$DTE` 的變數提供這個項目。 如需詳細資訊，請參閱＜Visual Studio 擴充性＞文件中的 [Automation Model Overview](/visualstudio/extensibility/internals/automation-model-overview) (自動化模型概觀)。
 
 **我嘗試將 $DTE 變數轉換為類型 DTE2，但收到錯誤：無法將 "EnvDTE.DTEClass" 類型的 "EnvDTE.DTEClass" 值轉換為 "EnvDTE80.DTE2" 類型。有什麼問題？**
 
@@ -177,9 +177,9 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 ## <a name="managing-packages-on-nugetorg"></a>在 nuget.org 上管理套件
 
-**我可以在上傳套件之後編輯套件中繼資料嗎？為什麼建議編輯 nuspec 並上傳新的套件以變更套件中繼資料？**
+**我可以在上傳套件之後編輯套件中繼資料嗎？為什麼必須編輯 nuspec 及上傳新的套件才能變更套件中繼資料？**
 
-NuGet 將會實作套件簽章。 套件簽署的設計原則是已簽署的套件內容必須是不可變的，其中包含 nuspec。 編輯套件中繼資料會導致 nuspec 變更，並讓現有簽章失效。 建議修改現有工作流程，使其不需要在建立套件之後編輯套件中繼資料。
+NuGet 需要所有套件皆已簽署。 套件簽署的設計原則是已簽署的套件內容必須是不可變的，其中包含 nuspec。 編輯套件中繼資料會導致 nuspec 變更，並讓現有簽章失效。 建議修改現有工作流程，使其不需要在建立套件之後編輯套件中繼資料。
 
 請注意，會自動從您套件本身產生針對套件所列出的相依性，而且無法進行編輯。
 

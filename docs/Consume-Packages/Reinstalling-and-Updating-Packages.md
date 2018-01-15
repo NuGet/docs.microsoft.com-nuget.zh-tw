@@ -13,11 +13,11 @@ keywords: "NuGet 套件安裝、NuGet 套件重新安裝、NuGet 套件還原、
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 898a431af4ed2e090b87d97bf43cec965b72d3c3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 
@@ -31,7 +31,8 @@ ms.lasthandoff: 12/14/2017
 | 套件管理員 UI | 在 [更新] 索引標籤上，選取一或多個套件，然後選取 [更新] | 在 [已安裝] 索引標籤上，選取套件，並記錄其名稱，然後選取 [解除安裝]。 切換至 [瀏覽] 索引標籤，並搜尋套件名稱，再選取它，然後選取 [安裝]。 |
 | nuget.exe CLI | `nuget update` 命令 | 針對所有套件，刪除套件資料夾，然後執行 `nuget install`。 針對單一套件，刪除套件資料夾，然後使用 `nuget install <id>` 重新安裝相同套件。 |
 
-本主題內容：
+本文內容：
+
 - [重新安裝套件的時機](#when-to-reinstall-a-package)
 - [限制升級版本](#constraining-upgrade-versions)
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 12/14/2017
 
 1. **套件還原之後參考損毀**：如果您已開啟專案並還原 NuGet 套件，但仍看到損毀參考，請嘗試重新安裝所有這些套件。
 1. **專案因已刪除檔案而中斷**：NuGet 不會防止您移除已從套件新增的項目，因此很容易不慎修改從套件安裝的內容，並中斷您的專案。 若要還原專案，請重新安裝受影響的套件。
-1. **套件更新中斷專案**：如果套件的更新中斷專案，則可能已存在的相依性套件一般會導致失敗。 若要還原相依性的狀態，請重新安裝該特定套件。
+1. **套件更新中斷專案**：如果更新套件中斷專案，失敗的原因通常是由曾為更新的相依性套件所引起。 若要還原相依性的狀態，請重新安裝該特定套件。
 1. **保護重設目標或升級**：已對專案重設目標或升級時，以及套件因目標架構變更而需要重新安裝時，這可能十分好用。 在這類情況下，NuGet 2.7 和更新版本會在專案重定目標之後立即顯示組建錯誤，而後續的組建警告可讓您知道可能需要重新安裝套件。 針對專案升級，NuGet 會在專案升級記錄中顯示錯誤。
 1. **在開發套件期間重新安裝套件**：套件作者通常需要重新安裝他們所開發以測試該行為之相同版本的套件。 `Install-Package` 命令未提供選項來強制重新安裝，因此請改用 `Update-Package -reinstall`。
 

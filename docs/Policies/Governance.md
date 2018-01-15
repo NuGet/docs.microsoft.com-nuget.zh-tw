@@ -13,11 +13,11 @@ keywords: "NuGet 治理、NuGet 仁慈獨裁者、認可者責任、參與者責
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: db2ed774b35d5698a88f9afba43fd30692001f6a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-governance"></a>NuGet 治理
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 專案是由仁慈獨裁者所帶領，並且由社群進行管理。 也就是說，社群主動參與專案的日常維護，但是由仁慈獨裁者策畫一般策略線。 如果不一致，則由仁慈獨裁者決定。
 
-仁慈獨裁者負責解決社群內的爭議，以及確保可以透過協作方式執行專案。 接著，社群負責透過主動參與和貢獻引導仁慈獨裁者進行決策。
+仁慈獨裁者負責解決社群內的爭議，以及確保可以透過協作方式執行專案。 而社群則負責透過主動參與和貢獻引導仁慈獨裁者進行決策。
 
 ## <a name="roles-and-responsibilities"></a>角色和責任
 

@@ -13,15 +13,15 @@ keywords: "NuGet 套件管理員、使用、套件建立、套件裝載"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 簡介
 
-任何現代化開發平台的基本工具都是一種機制，而開發人員可以透過此機制建立、共用和使用有用的程式碼程式庫。 這類程式庫通常稱為「套件」，因為它們可以包含已編譯程式碼 (如 DLL) 以及其他使用這些程式庫之專案中可能需要的內容。
+任何新式開發平台的基本工具都是一種機制，而開發人員可以透過此機制建立、共用和使用實用的程式碼。 這類程式碼通常會打包成「套件」，其中包含已編譯程式碼 (如 DLL)，以及在取用這些套件之專案中所需的內容。
 
 針對 .NET，共用程式碼的機制是 **NuGet**，其定義如何建立、裝載和使用 .NET 的套件，並提供所有這些角色的工具。 
 
@@ -41,11 +41,11 @@ NuGet 的角色是主機，因此本身會在 [nuget.org](https://www.nuget.org)
 
 除了裝載支援之外，NuGet 也提供建立者和取用者所使用的各種工具：
 
-| 工具 | 平台 | 適用的案例 | 說明 |
+| 工具 | 平台 | 適用的案例 | 描述 |
 | --- | --- | --- | --- |
 | [nuget.exe CLI](Tools/nuget-exe-CLI-Reference.md) | 全部 | 建立、使用 | 提供所有 NuGet 功能，而且有些命令專門套用至套件建立者、有些命令只套用至取用者，其他命令則套用至兩者。 例如，套件建立者使用 `nuget pack` 命令以從各種組件和相關檔案建立套件、套件取用者使用 `nuget install` 以將套件納入專案，而每個人都使用 `nuget config` 來設定 NuGet 組態變數。  |
 | [套件管理員 UI](Tools/Package-Manager-UI.md) | Windows 上的 Visual Studio | 使用 | 提供易用 UI，以在 .NET 專案中安裝和管理套件。 | 
-| [管理 NuGet UI](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 使用 | 提供易用 UI，以在 .NET 專案中安裝和管理套件。 |
+| [管理 NuGet UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 使用 | 提供易用 UI，以在 .NET 專案中安裝和管理套件。 |
 | [套件管理員主控台](Tools/Package-Manager-Console.md) | Windows 上的 Visual Studio | 使用 | 提供 [PowerShell 命令](Tools/Powershell-Reference.md)，以在 .NET 專案中安裝和管理套件。 | 
 | [dotnet CLI](Tools/dotnet-Commands.md) | 全部 | 建立、使用 | 在 .NET Core 工具鏈內，直接提供特定 NuGet CLI 功能。 |
 | [ MSBuild](Schema/msbuild-targets.md) | Windows | 建立、使用 | 可以建立套件，以及還原透過 MSBuild 工具鏈直接用於專案的套件。 |

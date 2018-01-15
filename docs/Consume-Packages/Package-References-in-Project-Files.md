@@ -13,11 +13,11 @@ keywords: "NuGet 套件相依性, 套件參考, 專案檔, PackageReference, pac
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c8fc9e558557af444d9a35ace36d043a5f6382a7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 > [!Important]
 > 目前，Visual Studio 2017 僅支援以 Windows 10 組建 15063 (Creators Update) 為目標的 .NET Core 專案、.NET Standard 專案和 UWP 專案套件參考。
 
-`PackageReference` 方法可讓您使用 MSBuild 條件，依目標 Framework、組態、平台或其他分組來選擇套件參考。 它也允許對相依性和內容流動進行細微控制。 就行為和[相依性解析](Dependency-Resolution.md)而言，和使用 `project.json` 相同。
+`PackageReference` 方法可讓您使用 MSBuild 條件，依目標 Framework、組態、平台或其他分組來選擇套件參考。 它也允許對相依性和內容流動進行細微控制。 就行為和[相依性解析](Dependency-Resolution.md)而言，這和使用 `project.json` 相同。
 
 如需 MSBuild 與專案檔中套件參考整合的詳細資料，請參閱 [NuGet 套件與還原為 MSBuild 目標](../schema/msbuild-targets.md)。
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 12/14/2017
 
 下列中繼資料標記控制相依性資產：
 
-| 標記 | 說明 | 預設值 |
+| 標記 | 描述 | 預設值 |
 | --- | --- | --- |
 | IncludeAssets | 會取用這些資產 | 全部 |
 | ExcludeAssets | 不會取用這些資產 | 無 | 
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/14/2017
 
 這些標記的可允許值如下，使用分號隔開多個值，但 `all` 和 `none` 必須單獨出現：
 
-| 值 | 說明 |
+| 值 | 描述 |
 | --- | ---
 | compile | `lib` 資料夾的內容 |
 | 執行階段 | `runtime` 資料夾的內容 |

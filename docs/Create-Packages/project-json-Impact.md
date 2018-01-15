@@ -13,11 +13,11 @@ keywords: "NuGet 和 project.json, project.json 影響, 套件撰寫考量, proj
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93a4e9f9cb57c8acbe516a957e01b801bac0e116
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 69a6bbbe1c96b06dbba7ac787b836b8b62c438ec
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
 
@@ -64,7 +64,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 在摘要中，如果上述功能不是絕對必要，建議您繼續使用現有的套件格式，因為這裡描述的格式只有 NuGet 3.x+ 支援。
 
-您可以建置套件透過填充處理 `packages.config` 和 `project.json` 案例，不過以傳統方法結構套件通常會更簡單，不需要使用上述已取代的功能。
+您可以透過填充建置套件以用於 `packages.config` 和 `project.json` 案例，不過以傳統方法建構套件通常比較簡單，不需要使用上述的過時功能。
 
 
 ## <a name="3x-package-format"></a>3.x 套件格式  ##

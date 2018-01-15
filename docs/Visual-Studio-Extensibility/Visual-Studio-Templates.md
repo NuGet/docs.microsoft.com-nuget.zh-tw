@@ -3,29 +3,28 @@ title: "Visual Studio 範本中的 NuGet 套件 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 2/8/2017
+ms.date: 1/3/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b2cf228-f028-475d-8792-c012dffdb26f
 description: "將 NuGet 套件包含為 Visual Studio 專案和項目範本一部分的指示。"
 keywords: "Visual Studio 中的 NuGet, Visual Studio 專案範本, Visual Studio 項目範本, 專案範本中的套件, 項目範本中的套件"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b2ad7616578b5f54d917c4555e861c847814da9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio 範本中的套件
 
-在建立專案或項目時，Visual Studio 專案和項目範本經常需要確保已安裝特定的套件。 例如，ASP.NET MVC 3 範本會安裝 jQuery、Modernizr 和其他套件。
+當建立專案或項目時，Visual Studio 專案及物件範本通常需要確認特定套件已安裝。 例如，ASP.NET MVC 3 範本會安裝 jQuery、Modernizr 和其他套件。
 
 若要支援此作業，範本作者可以指示 NuGet 安裝必要的套件，而不是個別的程式庫。 開發人員稍後便可以隨時輕鬆地更新那些套件。
 
-若要深入了解自行撰寫範本，請參閱[在 Visual Studio 中建立專案和項目範本](https://msdn.microsoft.com/library/s365byhx.aspx)或[使用 Visual Studio SDK 建立自訂專案與項目範本](https://msdn.microsoft.com/library/ff527340.aspx)。
+若要深入了解撰寫範本自身，請參閱[如何：建立專案範本](/visualstudio/ide/how-to-create-project-templates)或[建立自訂專案與項目範本](/visualstudio/extensibility/creating-custom-project-and-item-templates)。
 
 本節的其餘部分描述在撰寫範本以正確包含 NuGet 套件時要採取的特定步驟。
 
@@ -34,16 +33,15 @@ ms.lasthandoff: 12/14/2017
 
 如需範例，請參閱 [NuGetInVsTemplates 範例](https://bitbucket.org/marcind/nugetinvstemplates)。
 
-
 ## <a name="adding-packages-to-a-template"></a>將套件新增至範本
 
-具現化範本時，會叫用[範本精靈](https://msdn.microsoft.com/library/ms185301.aspx)來載入要安裝的套件清單，以及何處可以找到這些套件的相關資訊。 套件可以內嵌在 VSIX 中、內嵌在範本中，或位於本機硬碟上，在此情況下您會使用登錄機碼來參考檔案路徑。 這些位置的詳細資料稍後會在本節中提供。
+具現化範本時，會叫用[範本精靈](/visualstudio/extensibility/how-to-use-wizards-with-project-templates)來載入要安裝的套件清單，以及何處可以找到這些套件的相關資訊。 套件可以內嵌在 VSIX 中、內嵌在範本中，或位於本機硬碟上，在此情況下您會使用登錄機碼來參考檔案路徑。 這些位置的詳細資料稍後會在本節中提供。
 
-預先安裝的套件使用[範本精靈](http://msdn.microsoft.com/library/ms185301.aspx)來運作。 範本具現化時，會叫用特殊的精靈。 精靈會載入需要安裝的套件清單，並將該資訊傳遞至適當的 NuGet API。
+預先安裝的套件使用[範本精靈](/visualstudio/extensibility/how-to-use-wizards-with-project-templates)來運作。 範本具現化時，會叫用特殊的精靈。 精靈會載入需要安裝的套件清單，並將該資訊傳遞至適當的 NuGet API。
 
 要在範本中包含套件的步驟：
 
-1. 在您的 `vstemplate` 檔案中，藉由新增 [`WizardExtension`](http://msdn.microsoft.com/library/ms171411.aspx) 項目新增對 NuGet 範本精靈的參考：
+1. 在您的 `vstemplate` 檔案中，藉由新增 [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) 項目新增對 NuGet 範本精靈的參考：
 
     ```xml
     <WizardExtension>
@@ -66,12 +64,11 @@ ms.lasthandoff: 12/14/2017
 
     *(NuGet 2.2.1+)* 精靈支援多個 `<package>` 項目以支援多個套件來源。 同時需要 `id` 和 `version` 屬性，這表示即使有較新版本，也將會安裝該特定版本的套件。 這可防止套件更新中斷範本，讓使用範本的開發人員能選擇是否更新套件。
 
-
 1. 指定 NuGet 可以找到套件的儲存機制，如下列各節中所述。
 
 ### <a name="vsix-package-repository"></a>VSIX 套件儲存機制
 
-Visual Studio 專案/項目範本的建議部署方法是 [VSIX 延伸模組](http://msdn.microsoft.com/library/ff363239.aspx)，因為它可讓您將多個專案/項目範本封裝在一起，並可讓開發人員輕鬆地使用 VS 延伸模組管理員或 Visual Studio 組件庫探索您的範本。 延伸模組的更新也很容易使用 [Visual Studio 延伸模組管理員自動更新機制](http://msdn.microsoft.com/library/dd997169.aspx)部署。
+Visual Studio 專案/項目範本的建議部署方法是 [VSIX 延伸模組](/visualstudio/extensibility/shipping-visual-studio-extensions)，因為它可讓您將多個專案/項目範本封裝在一起，並可讓開發人員輕鬆地使用 VS 延伸模組管理員或 Visual Studio 組件庫探索您的範本。 延伸模組的更新也很容易使用 [Visual Studio 延伸模組管理員自動更新機制](/visualstudio/extensibility/how-to-update-a-visual-studio-extension)部署。
 
 VSIX 本身可以作為範本所需的套件來源：
 
@@ -83,25 +80,17 @@ VSIX 本身可以作為範本所需的套件來源：
     </packages>
     ```
 
-    `repository` 屬性指定儲存機制的類型為 `extension`，而 `repositoryId` 是 VSIX 本身的唯一識別碼 (這是延伸模組之 `vsixmanifest` 檔中的 [`ID` 屬性](http://msdn.microsoft.com/library/dd393688.aspx)值)。
+    `repository` 屬性指定存放庫的類型為 `extension`，而 `repositoryId` 是 VSIX 本身的唯一識別碼 (這是延伸模組檔案 `vsixmanifest` 的 `ID` 屬性值，請參閱 [VSIX 延伸結構描述 2.0 參考](/visualstudio/extensibility/vsix-extension-schema-2-0-reference))。
 
 1. 將您 `nupkg` 檔案放在 VSIX 內稱為 `Packages` 的資料夾。
-1. 將所需的套件檔案新增為 `source.extension.vsixmanifest` 檔案中的[自訂延伸模組內容](http://msdn.microsoft.com/library/dd393737.aspx)。 如果您使用 2.0 結構描述，看起來應該像這樣：
+
+1. 在 `vsixmanifest` 檔案中將必要套件檔案新增為 `<Asset>` (請參閱 [VSIX 延伸結構描述 2.0 參考](/visualstudio/extensibility/vsix-extension-schema-2-0-reference))：
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />
     ```
 
-    如果您使用 1.0 結構描述，看起來應該像這樣：
-
-    ```xml
-    <CustomExtension Type="Moq.4.0.10827.nupkg">
-        packages/Moq.4.0.10827.nupkg
-    </CustomExtension>
-    ```
-
 1. 請注意，您可以在與您專案範本相同的 VSIX 中提供套件，或者可以在對您的案例更有意義時將它們放在個別的 VSIX 中。 不過，請勿參考您無法控制的任何 VSIX，因為該延伸模組的變更可能會破壞您的範本。
-
 
 ### <a name="template-package-repository"></a>範本套件儲存機制
 
@@ -120,7 +109,6 @@ VSIX 本身可以作為範本所需的套件來源：
 1. 將套件放在專案/項目範本 ZIP 檔案的根資料夾。
 
 請注意，在包含多個範本的 VSIX 中使用這種方法，會在一或多個套件是範本皆通用時導致不必要的膨脹。 在這種情況下，請使用 [VSIX 作為儲存機制](#vsix-package-repository)，如上一節中所述。
-
 
 ### <a name="registry-specified-folder-path"></a>登錄指定的資料夾路徑
 
@@ -159,6 +147,6 @@ VSIX 本身可以作為範本所需的套件來源：
     <!-- ... -->
     ```
 
-1. 藉由在 `.vstemplate` 檔案中設定 [`<PromptForSaveOnCreation>`](http://msdn.microsoft.com/library/twfxayz5.aspx)，要求在建立時儲存專案/項目範本。
+1. 藉由在 `.vstemplate` 檔案中包含 [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates)，要求在建立時儲存專案/項目範本。
 
 1. 範本不包含 `packages.config` 或 `project.json` 檔案，而且不包含安裝 NuGet 套件時將會新增的任何參考或內容。

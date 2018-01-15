@@ -13,11 +13,11 @@ keywords: "NuGet.Config 檔案, NuGet 組態參考, NuGet 組態選項"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fa471e1ad419c6a4cab99e271375d9be94c29a50
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 830c622f622b894a228b18dfdb3a790bccfde8a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 參考
 
@@ -31,12 +31,11 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 - [bindingRedirects 區段](#bindingredirects-section)
 - [packageRestore 區段](#packagerestore-section)
 - [solution 區段](#solution-section)
-- [套件來源區段](#package-source-sections)：
-    - [packageSources](#packagesources)
-    - [packageSourceCredentials](#packagesourcecredentials)
-    - [apikeys](#apikeys)
-    - [disabledPackageSources](#disabledpackagesources)
-    - [activePackageSource](#activepackagesource)
+- [套件來源區段](#package-source-sections)：-[packageSources](#packagesources)
+  - [packageSourceCredentials](#packagesourcecredentials)
+  - [apikeys](#apikeys)
+  - [disabledPackageSources](#disabledpackagesources)
+  - [activePackageSource](#activepackagesource)
 - [使用環境變數](#using-environment-variables)
 - [設定檔範例](#example-config-file)
 
@@ -59,7 +58,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
 
-
 **範例**：
 
 ```xml
@@ -70,7 +68,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```
-
 
 ## <a name="bindingredirects-section"></a>bindingRedirects 區段
 
@@ -116,7 +113,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 | --- | --- |
 | disableSourceControlIntegration | 布林值，指出當使用原始檔控制時是否要忽略 packages 資料夾。 預設值為 false。 |
 
-
 **範例**：
 
 ```xml
@@ -125,13 +121,13 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 </solution>
 ```
 
-
 ## <a name="package-source-sections"></a>套件來源區段
 
 `packageSources`、`packageSourceCredentials`、`apikeys`、`activePackageSource` 和 `disabledPackageSources` 全部一起運作，以設定 NuGet 在安裝、還原及更新作業期間，如何處理套件儲存機制。
 
 [`nuget sources` 命令](../tools/cli-ref-sources.md)通常用來管理這些設定，但 `apikeys` 例外，它是使用 [`nuget setapikey` 命令](../tools/cli-ref-setapikey.md)來管理。
 
+請注意，nuget.org 的來源 URL 是 `https://api.nuget.org/v3/index.json`。
 
 ### <a name="packagesources"></a>packageSources
 
@@ -150,7 +146,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
     <add key="Test Source" value="c:\packages" />
 </packageSources>
 ```
-
 
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
@@ -190,7 +185,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
-    </Test_x0020_Source>    
+    </Test_x0020_Source>
 </packageSourceCredentials>
 ```
 
@@ -210,7 +205,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 </apikeys>
 ```
 
-
 ### <a name="disabledpackagesources"></a>disabledPackageSources
 
 識別目前已停用的來源。 可以是空的。
@@ -218,8 +212,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 | Key | 值 |
 | --- | --- |
 | (來源名稱) | 布林值，指出是否停用來源。 |
-
-
 
 **範例：**
 
@@ -263,7 +255,6 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 同樣地，如果 Mac/Linux 上的 `HOME` 設為 `/home/myStuff`，則設定檔中的 `$HOME/NuGetRepository` 會解析為 `/home/myStuff/NuGetRepository`。
 
 如果找不到環境變數，NuGet 會使用來自設定檔的常值。
-
 
 ## <a name="example-config-file"></a>範例設定檔
 

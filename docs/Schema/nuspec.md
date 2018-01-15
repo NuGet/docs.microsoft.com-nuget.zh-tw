@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
-ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
+ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -58,66 +58,66 @@ ms.lasthandoff: 01/04/2018
 </package>
 ```
 
-為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，然後按一下 [XML 結構描述總管] 連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，然後選取 [Show XML Schema Explorer] \(顯示 XML 結構描述總管\)。 任一方式都可取得類似以下的檢視 (大部分展開時)：
+為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管] 連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)。 任一方式都可取得類似以下的檢視 (大部分展開時)：
 
 ![開啟了 nuspec.xsd 的 Visual Studio 結構描述總管](media/SchemaExplorer.png)
 
 ### <a name="metadata-attributes"></a>中繼資料屬性
 
-`<metadata>` 元素支援下表所描述的屬性。
+`<metadata>` 項目支援下表所描述的屬性。
 
 | 屬性 | 必要 | 描述 |
 | --- | --- | --- | 
-| **minClientVersion** | 否 | *(2.5+)* 指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，使用 `developmentDependency` 屬性的套件應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 元素的套件 (請參閱下一節) 應該將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。 |
+| **minClientVersion** | 否 | *(2.5+)* 指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。 |
 
-### <a name="required-metadata-elements"></a>必要的中繼資料元素
+### <a name="required-metadata-elements"></a>必要的中繼資料項目
 
-雖然下列元素是套件的最低需求，但您應該考慮新增[選擇性中繼資料元素](#optional-metadata-elements)以改善開發人員使用套件的整體體驗。
+雖然下列項目是套件的最低需求，但您應該考慮新增[選擇性中繼資料項目](#optional-metadata-elements)以改善開發人員使用套件的整體體驗。
 
-這些元素必須出現在 `<metadata>` 元素內。
+這些項目必須出現在 `<metadata>` 項目中。
 
 | 元素 | 描述 |
 | --- | --- |
 | **id** | 不區分大小寫的套件識別碼，在整個 nuget.org 或套件所在的任何組件庫中都必須是唯一的。 識別碼可能不包含對 URL 而言無效的空格或字元，而且通常會遵循 .NET 命名空間規則。 如需指導方針，請參閱[選擇唯一的套件識別碼](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)。 |
 | **version** | 套件版本，遵循 *major.minor.patch* 模式。 版本號碼可以包含預先發行版本的後置詞，如[套件版本控制](../reference/package-versioning.md#pre-release-versions)中所述。 |
 | **description** | UI 顯示中的套件詳細描述。 |
-| **authors** | 以逗號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些名稱會顯示在 nuget.org 的 NuGet 組件庫中，並用來交互參照相同作者的其他套件。 |
+| **作者** | 以逗號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些名稱會顯示在 nuget.org 的 NuGet 組件庫中，並用來交互參照相同作者的其他套件。 |
 
-### <a name="optional-metadata-elements"></a>選擇性中繼資料元素
+### <a name="optional-metadata-elements"></a>選擇性中繼資料項目
 
 這些元素可能會出現在 `<metadata>` 元素內。
 
-#### <a name="single-elements"></a>單一authors
+#### <a name="single-elements"></a>單一項目
 
 | 元素 | 描述 |
 | --- | --- |
-| **title** | 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 如未指定，則使用套件識別碼。 |
-| **owners** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
+| **標題** | 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 如未指定，則使用套件識別碼。 |
+| **擁有者** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
 | **projectUrl** | 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
 | **licenseUrl** | 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
-| **iconUrl** | 具有透明背景之 64x64 影像的 URL，該影像會用作套件在 UI 顯示中的圖示。 確定這個元素包含「直接影像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 的影像，請使用原始檔 URL，如 `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>`。 |
+| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 的映像，請使用原始檔 URL，如 `https://github.com/<username>/<repository>/raw/<branch>/<logo.png>`。 |
 | **requireLicenseAcceptance** | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
 | **developmentDependency** | *(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 |
 | **summary** | UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。 |
-| **releaseNotes** | *(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio 套件管理員的 [更新] 索引標籤等 UI 中，以取代套件描述。 |
-| **copyright** | *(1.5+)* 套件的著作權詳細資料。 |
+| **releaseNotes** | *(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新] 索引標籤等 UI 中，以取代套件描述。 |
+| **著作權** | *(1.5+)* 套件的著作權詳細資料。 |
 | **language** | 套件的地區設定識別碼。 請參閱[建立當地語系化的套件](../create-packages/creating-localized-packages.md)。 |
-| **tags** | 以逗號分隔的標記與關鍵字清單，描述套件並透過搜尋和篩選協助探索套件。 |
-| **serviceable** | *(3.3+)* 僅供內部 NuGet 使用。 |
+| **標記** | 以逗號分隔的標記與關鍵字清單，描述套件並透過搜尋和篩選協助探索套件。 |
+| **能否提供服務** | *(3.3+)* 僅供內部 NuGet 使用。 |
 
-#### <a name="collection-elements"></a>集合元素
+#### <a name="collection-elements"></a>集合項目
 
 | 元素 | 描述 |
 | --- | --- |
-**packageTypes** | *(3.3+)* 零或多個 `<packageType>` 元素的集合，指定非傳統相依性套件以外的套件類型。 每個 packageType 都有 *name* 和 *version* 屬性。 請參閱[設定套件類型](../create-packages/creating-a-package.md#setting-a-package-type)。 |
-| **相依性** | 零或多個 `<dependency>` 元素的集合，指定套件的相依性。 每個相依性都有 *id**version**include* (3.x+) 和 *exclude* (3.x+) 屬性。 請參閱下面的[相依性](#dependencies)。 |
-| **frameworkAssemblies** | *(1.2+)* 零或多個 `<frameworkAssembly>` 元素的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下面的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。 |
-| **參考** | *(1.5+)* 在套件的 `lib` 資料夾中命名組件的零或多個 `<reference>` 元素集合，這些元素可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含具有 *targetFramework* 屬性的 `<group>` 元素，該屬性包含 `<reference>` 元素。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。 |
-| **contentFiles** | *(3.3+)* `<files>` 元素的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下面的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。 |
+**packageTypes** | *(3.3+)* 零或多個 `<packageType>` 項目的集合，指定非傳統相依性套件以外的套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/creating-a-package.md#setting-a-package-type)。 |
+| **相依性** | 零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies)。 |
+| **frameworkAssemblies** | *(1.2+)* 零或多個 `<frameworkAssembly>` 項目的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下文的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。 |
+| **參考** | *(1.5+)* 在套件的 `lib` 資料夾中命名組件的零或多個 `<reference>` 項目集合，這些項目可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含具有 *targetFramework* 屬性的 `<group>` 項目，然後即可包含 `<reference>` 項目。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。 |
+| **contentFiles** | *(3.3+)* `<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。 |
 
-### <a name="files-element"></a>Files 元素
+### <a name="files-element"></a>Files 項目
 
-`<package>` 節點可包含一個與 `<metadata>` 同層級的 `<files>` 節點，和/或一個 `<metadata>` 下的 `<contentFiles>` 子系，指定要在套件中包含哪些組件和內容檔案。 如需詳細資料，請參閱此主題下面將提到的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
+`<package>` 節點可包含一個與 `<metadata>` 同層級的 `<files>` 節點，及/或一個 `<metadata>` 下的 `<contentFiles>` 子系，指定要在套件中包含哪些組件和內容檔案。 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
 
 ## <a name="replacement-tokens"></a>取代權杖
 
@@ -138,11 +138,11 @@ nuget pack MyProject.csproj -properties
 nuget pack MyProject.csproj
 ```
 
-通常，當您擁有專案時，一開始會使用自動包含這些標準權杖一部分的 `nuget spec MyProject.csproj` 來建立 `.nuspec`。 不過，如果專案沒有所需之 `.nuspec` 元素的值，則 `nuget pack` 會失敗。 此外，如果變更專案值，請務必在建立套件前重建；使用 pack 命令的 `build` 參數很容易完成此作業。
+通常，當您擁有專案時，一開始會使用自動包含這些標準權杖一部分的 `nuget spec MyProject.csproj` 來建立 `.nuspec`。 不過，如果專案沒有所需之 `.nuspec` 項目的值，則 `nuget pack` 會失敗。 此外，如果變更專案值，請務必在建立套件前重建；使用 pack 命令的 `build` 參數很容易完成此作業。
 
-除了 `$configuration$` 以外，專案中值的使用順序優先於任何指派給命令列上相同權杖的值。
+除 `$configuration$` 以外，專案中值的使用順序優先於任何指派給命令列上相同權杖的值。
 
-| 權杖 | 值來源 | 值
+| 語彙基元 | 值來源 | 值
 | --- | --- | ---
 | **$id$** | 專案檔 | 來自專案檔的 AssemblyName |
 | **$version$** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
@@ -169,11 +169,11 @@ nuget pack MyProject.csproj
 
 ## <a name="dependencies"></a>相依性
 
-`<metadata>` 內的 `<dependencies>` 元素包含任意數目的 `<dependency>` 元素，可識別最上層套件依存的其他套件。 每個 `<dependency>` 的屬性如下：
+`<metadata>` 內的 `<dependencies>` 項目包含任意數目的 `<dependency>` 項目，可識別最上層套件依存的其他套件。 每個 `<dependency>` 的屬性如下：
 
 | 屬性 | 描述 |
-| --- | --- | 
-| `id` | (必要) 相依性的套件識別碼。 |
+| --- | --- |
+| `id` | (必要) 相依性的套件識別碼，例如 "EntityFramework" 與 "NUnit"，是在套件頁面上顯示的套件 nuget.org 名稱。 |
 | `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../reference/package-versioning.md#version-ranges-and-wildcards)。 |
 | include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值是 `none`。 |
 | exclude | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值為 `all`。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
@@ -181,9 +181,9 @@ nuget pack MyProject.csproj
 | 包含/排除標記 | 目標的受影響資料夾 |
 | --- | --- |
 | contentFiles | 內容  |
-| runtime | 執行階段、資源和 FrameworkAssemblies  |
+| 執行階段 | 執行階段、資源和 FrameworkAssemblies  |
 | compile | lib |
-| build | 組建 (MSBuild props 和目標) |
+| 組建 | 組建 (MSBuild props 和目標) |
 | native | native |
 | 無 | 無資料夾 |
 | 全部 | 全部資料夾 |
@@ -212,16 +212,16 @@ nuget pack MyProject.csproj
 
 *2.0+ 版*
 
-當作單一一般清單的替代方案，您可以使用 `<dependencies>` 內的 `<group>` 元素，根據目標專案的 Framework 設定檔指定相依性。
+當作單一一般清單的替代方案，您可以使用 `<dependencies>` 內的 `<group>` 項目，根據目標專案的 Framework 設定檔指定相依性。
 
-每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<dependency>` 元素。 當目標 Framework 與專案的 Framework 設定檔相容時，會同時安裝這些相依性。
+每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<dependency>` 項目。 當目標 Framework 與專案的 Framework 設定檔相容時，會同時安裝這些相依性。
 
-沒有 `targetFramework` 屬性的 `<group>` 元素用為預設值或後援相依性清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../schema/target-frameworks.md)。
+沒有 `targetFramework` 屬性的 `<group>` 項目用為預設值或後援相依性清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../schema/target-frameworks.md)。
 
 > [!Important]
 > 群組格式無法和一般清單混合使用。
 
-下列範例示範 `<group>` 元素的不同變化：
+下列範例示範 `<group>` 項目的不同變化：
 
 ```xml
 <dependencies>
@@ -243,9 +243,9 @@ nuget pack MyProject.csproj
 
 ## <a name="explicit-assembly-references"></a>明確的組件參考
 
-`<references>` 元素明確指定使用套件時，目標專案應該參考的組件。 有此元素時，NuGet 只會加入對所列組件的參考。它不會加入對套件之 `lib` 資料夾中任何其他組件的參考。
+`<references>` 項目明確指定使用套件時，目標專案應該參考的組件。 有此項目時，NuGet 只會將參考新增至列出的組件。它不會在套件的 `lib` 資料夾中新增任何其他組件的參考。
 
-例如，以下 `<references>` 元素會指示 NuGet 只加入對 `xunit.dll` 和 `xunit.extensions.dll` 的參考，即使套件中有其他組件：
+例如，以下 `<references>` 項目會指示 NuGet 只將參考新增至 `xunit.dll` 和 `xunit.extensions.dll`，即使套件中有其他組件：
 
 ```xml
 <references>
@@ -254,7 +254,7 @@ nuget pack MyProject.csproj
 </references>
 ```
 
-明確參考通常只用於設計階段的組件。 例如使用 [Code Contracts](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/code-contracts) (程式碼合約) 時，合約組件必須在它們擴大的執行階段組件旁邊，讓 Visual Studio 可以找到它們，但是合約組件不需要被專案參考，或複製到專案的 `bin` 資料夾。
+明確參考通常只用於設計階段的組件。 例如使用 [Code Contracts](/dotnet/framework/debug-trace-profile/code-contracts) (程式碼合約) 時，合約組件必須在它們擴大的執行階段組件旁邊，讓 Visual Studio 可以找到它們，但是合約組件不需要被專案參考，或複製到專案的 `bin` 資料夾。
 
 同樣地，明確參考可以用於單元測試 Framework ，例如 XUnit，這需要它的工具組件位在執行階段組件旁邊，但它們不需要包含為專案參考。
 
@@ -262,16 +262,16 @@ nuget pack MyProject.csproj
 
 *2.5+ 版本*
 
-當作單一一般清單的替代方案，您可以使用 `<references>` 內的 `<group>` 元素，根據目標專案的 Framework 設定檔指定參考。
+當作單一一般清單的替代方案，您可以使用 `<references>` 內的 `<group>` 項目，根據目標專案的 Framework 設定檔指定參考。
 
-每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<reference>` 元素。 當目標 Framework 與專案的 Framework 設定檔相容時，這些參考會新增至專案。
+每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<reference>` 項目。 當目標 Framework 與專案的 Framework 設定檔相容時，這些參考會新增至專案。
 
-沒有 `targetFramework` 屬性的 `<group>` 元素用為預設值或後援參考清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../schema/target-frameworks.md)。
+沒有 `targetFramework` 屬性的 `<group>` 項目用為預設值或後援參考清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../schema/target-frameworks.md)。
 
 > [!Important]
 > 群組格式無法和一般清單混合使用。
 
-下列範例示範 `<group>` 元素的不同變化：
+下列範例示範 `<group>` 項目的不同變化：
 
 ```xml
 <references>
@@ -293,9 +293,9 @@ nuget pack MyProject.csproj
 
 ## <a name="framework-assembly-references"></a>Framework 組件參考
 
-Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全域組件快取 (GAC) 中。 找出 `<frameworkAssemblies>` 元素內的這些組件，套件可以確保所需的參考已新增至事件的專案，該專案尚未有這類參考。 當然，這類組件不直接包含在套件中。
+Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全域組件快取 (GAC) 中。 找出 `<frameworkAssemblies>` 項目內的這些組件，套件可以確保所需的參考已新增至事件的專案，該專案尚未有這類參考。 當然，這類組件不直接包含在套件中。
 
-`<frameworkAssemblies>` 元素包含零或多個 `<frameworkAssembly>` 元素，它們每一個都會指定下列屬性：
+`<frameworkAssemblies>` 項目包含零或多個 `<frameworkAssembly>` 項目，它們每一個都會指定下列屬性：
 
 | 屬性 | 描述 |
 | --- | --- |
@@ -319,9 +319,9 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 如果遵循[建立套件](../create-packages/creating-a-package.md)中所述的慣例，即不必在 `.nuspec` 檔案中明確指定檔案清單。 `nuget pack` 命令會自動挑選必要的檔案。
 
 > [!Important]
-> 當套件安裝至專案時，NuGet 會自動加入對套件 DLL 的組件參考，「排除」那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
+> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
 
-為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 元素當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 元素的檔案。 例如: 
+為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 項目當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 項目的檔案。 例如: 
 
 ```xml
 <files>
@@ -331,16 +331,16 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 </files>
 ```
 
-使用 NuGet 2.x 及更舊版本，並規劃使用 `packages.config`；在安裝套件時，也會使用 `<files>` 元素包含不可變的內容檔。 使用 NuGet 3.3+ 和使用 `project.json` pr PackageReference 的專案，則改用 `<contentFiles>` 元素。 如需詳細資料，請參閱下文中的[包含內容檔](#including-content-files)。
+使用 NuGet 2.x 及更舊版本，並規劃使用 `packages.config`；在安裝套件時，也會使用 `<files>` 項目包含不可變的內容檔。 使用 NuGet 3.3+ 和使用 `project.json` pr PackageReference 的專案，則改用 `<contentFiles>` 項目。 如需詳細資料，請參閱下文中的[包含內容檔](#including-content-files)。
 
-### <a name="file-element-attributes"></a>檔案元素屬性
+### <a name="file-element-attributes"></a>檔案項目屬性
 
-每個 `<file>` 元素都會指定下列屬性：
+每個 `<file>` 項目都會指定下列屬性：
 
 | 屬性 | 描述 |
 | --- | --- |
 | **src** | 要包含的檔案位置，會受到 `exclude` 屬性指定的排除項目約束。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
-| **target** | 套件內資料夾的相對路徑是放置原始程式檔的位置，其開頭必須是 `lib`、`content`、`build` 或 `tools`。 請參閱[從慣例的工作目錄建立 .nuspec](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory)。 |
+| **目標** | 套件內資料夾的相對路徑是放置原始程式檔的位置，其開頭必須是 `lib`、`content`、`build` 或 `tools`。 請參閱[從慣例的工作目錄建立 .nuspec](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory)。 |
 | **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 
 ### <a name="examples"></a>範例
@@ -416,11 +416,11 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 - 需要以專案的組建輸出包含的指令碼
 - 套件的組態檔必須包含在專案中，但不需要專門針對任何專案變更
 
-內容檔包含在使用 `<files>` 元素的套件中，指定 `target` 屬性中的 `content` 資料夾。 不過，在使用 `project.json` 系統 (NuGet 3.3+) 或 PackageReference (NuGet 4+) 的專案中安裝套件時，會忽略這類檔案，改用 `<contentFiles>` 元素。
+內容檔包含在使用 `<files>` 項目的套件中，指定 `target` 屬性中的 `content` 資料夾。 不過，在使用 `project.json` 系統 (NuGet 3.3+) 或 PackageReference (NuGet 4+) 的專案中安裝套件時，會忽略這類檔案，改用 `<contentFiles>` 項目。
 
-為取得取用專案的最大相容性，套件應該在兩個元素中都指定內容檔。
+為取得取用專案的最大相容性，套件應該在兩個項目中都指定內容檔。
 
-### <a name="using-the-files-element-for-content-files"></a>為內容檔使用 files 元素
+### <a name="using-the-files-element-for-content-files"></a>內容檔使用 files 項目
 
 內容檔只要使用和組件檔相同的格式即可，但要在 `target` 屬性中指定 `content` 作為基底資料夾，如下列範例所示。
 
@@ -537,7 +537,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 根據預設，套件會將內容放在 `contentFiles` 資料夾 (請參閱下文)，而 `nuget pack` 包含使用預設屬性資料夾中的所有檔案。 在此情況下，`.nuspec` 完全不需要包含 `contentFiles` 節點。
 
-為控制包含哪些檔案，`<contentFiles>` 元素要指定 `<files>` 元素的集合，找出正確的檔案。
+為控制包含哪些檔案，`<contentFiles>` 項目要指定 `<files>` 項目的集合，找出正確的檔案。
 
 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定：
 
@@ -549,7 +549,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 | **copyToOutput** | 布林值，指出是否要將內容項目複製到組建輸出資料夾。 預設為 false。 |
 | **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 預設為 false。 |
 
-安裝套件時，NuGet 會由上而下套用 `<contentFiles>` 的子元素。 如有多個項目符合同一檔案，則套用所有項目。 如果相同的屬性發生衝突，則最上層項目會覆寫較低的項目。
+安裝套件時，NuGet 會由上而下套用 `<contentFiles>` 的子項目。 如有多個項目符合同一檔案，則套用所有項目。 如果相同的屬性發生衝突，則最上層項目會覆寫較低的項目。
 
 #### <a name="package-folder-structure"></a>套件資料夾結構
 
@@ -561,7 +561,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 - `TxM` 是 NuGet 支援的任何合法目標 Framework Moniker (請參閱[目標 Framework](../schema/target-frameworks.md))。
 - 這個語法的結尾可以附加任何資料夾結構。
 
-例如：
+例如: 
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

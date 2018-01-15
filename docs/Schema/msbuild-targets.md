@@ -11,11 +11,11 @@ ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。"
 keywords: "NuGet 和 MSBuild、NuGet 封裝目標、NuGet 還原目標"
 ms.reviewer: karann-msft
-ms.openlocfilehash: def01380e5bc3bf878e72dd437f52cd033641ca5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -64,9 +64,9 @@ NuGet 4.0+ 可以直接與 `.csproj` 檔案中的資訊搭配運作，而不需�
 | 作者 | 作者 | 目前使用者的使用者名稱 | |
 | Owners | N/A | NuSpec 中沒有 | |
 | 標題 | 標題 | PackageId| |
-| 說明 | 說明 | "Package Description" | |
+| 描述 | 描述 | "Package Description" | |
 | Copyright | Copyright | 空白 | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | LicenseUrl | PackageLicenseUrl | 空白 | |
 | ProjectUrl | PackageProjectUrl | 空白 | |
 | IconUrl | PackageIconUrl | 空白 | |
@@ -84,7 +84,7 @@ NuGet 4.0+ 可以直接與 `.csproj` 檔案中的資訊搭配運作，而不需�
 - PackageVersion
 - PackageId
 - 作者
-- 說明
+- 描述
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -193,7 +193,7 @@ NuGet 4.0+ 可以直接與 `.csproj` 檔案中的資訊搭配運作，而不需�
 
 這與 `IncludeSymbols` 相同，差異在於它也會複製原始程式檔和 `.pdb` 檔案。 所有 `Compile` 類型的檔案都會覆寫 `src\<ProjectName>\`，並保留所產生套件中的相對路徑資料夾結構。 這也適用於任何 `ProjectReference` 的原始程式檔，而這些原始程式檔將 `TreatAsPackageReference` 設定為 `false`。
 
-如果 Compile 類型的檔案是在專案資料夾外部，則只會將它新增至 `src\<ProjectName>\`。
+若類型為 Compile 的檔案位於專案資料夾之外，就只會將其新增至 `src\<ProjectName>\`。
 
 ### <a name="istool"></a>IsTool
 
@@ -235,7 +235,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 其他還原設定可能來自專案檔中的 MSBuild 屬性。 您也可以從命令列，使用 `/p:` 參數設定值 (請參閱下列＜範例＞)。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |--------|--------|
 | RestoreSources | 以分號分隔的套件來源清單。 |
 | RestorePackagesPath | 使用者套件資料夾路徑。 |
@@ -267,7 +267,7 @@ msbuild /t:restore /p:RestoreConfigFile=<path>
 
 還原會在組建 `obj` 資料夾中建立下列檔案：
 
-| 檔案 | 說明 |
+| 檔案 | 描述 |
 |--------|--------|
 | `project.assets.json` | 先前是 `project.lock.json` |
 | `{projectName}.projectFileExtension.nuget.g.props` | 套件中所含 MSBuild 屬性的參考 |
@@ -297,7 +297,7 @@ msbuild /t:restore /p:RestoreConfigFile=<path>
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>取代還原圖形中的一個程式庫
 
-如果還原內含錯誤的組件，則可能會排除該套件預設選項，並將它取代為您自己的選項。 首先，會有最上層 `PackageReference`，但排除所有資產：
+如果還原內含錯誤的組件，您可以排除該套件預設選項，並將其取代為您自己的選項。 首先，會有最上層 `PackageReference`，但排除所有資產：
 
 ```xml
 <PackageReference Include="Newtonsoft.Json" Version="9.0.1">

@@ -13,11 +13,11 @@ keywords: "NuGet 相依性, NuGet 和 UWP, UWP 和 project.json, NuGet project.j
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json 和 UWP
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 套件可以包含 `.targets` 和 `.props` 檔案，而這些檔案匯入至套件安裝所在的任何 MSBuild 專案。 在 NuGet 2.x 中，做法是將 `<Import>` 陳述式插入 `.csproj` 檔案中，而在 NuGet 3.0 中，則沒有特定「專案安裝」動作。 相反地，套件還原程序會寫入兩個檔案 `[projectname].nuget.props` 和 `[projectname].NuGet.targets`。
 
-MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和即將結束時自動予以匯入。 其提供的行為與 NuGet 2.x 非常類似，但有一個主要差異：「在此情況下不保證目標/屬性檔順序」。 不過，MSBuild 確實會提供方法，透過 `<Target>` 定義的 `BeforeTargets` 和 `AfterTargets` 屬性來排序目標 (請參閱[目標項目 (MSBuild)](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild))。
+MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和即將結束時自動予以匯入。 其提供的行為與 NuGet 2.x 非常類似，但有一個主要差異：「在此情況下不保證目標/屬性檔順序」。 不過，MSBuild 確實會提供方法，透過 `<Target>` 定義的 `BeforeTargets` 和 `AfterTargets` 屬性來排序目標 (請參閱[目標項目 (MSBuild)](/visualstudio/msbuild/target-element-msbuild))。
 
 
 ## <a name="lib-and-ref"></a>Lib 和 Ref
@@ -93,7 +93,7 @@ MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和
 
 大部分套件作者不需要 `ref` 資料夾。 它適用於套件，而套件需要提供編譯和 IntelliSense 的一致介面區，但不同的 TxM 有不同的實作。 這個的最大使用案例是在 NuGet 上傳遞 .NET Core 時所產生的 `System.*` 套件。 這些套件有透過一組一致的參考組件統一的各種實作。
 
-透過機械方式，將 `ref` 資料夾中所含的組件傳遞至編譯器的參考組件。 針對已使用 csc.exe 的人員，這些是傳遞給 [C# /reference 選項](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option)參數的組件。
+透過機械方式，將 `ref` 資料夾中所含的組件傳遞至編譯器的參考組件。 針對已使用 csc.exe 的人員，這些是傳遞給 [C# /reference 選項](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option)參數的組件。
 
 `ref` 資料夾的結構與 `lib` 相同，例如：
 
@@ -121,7 +121,7 @@ MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和
 
 ## <a name="runtimes"></a>執行階段
 
-runtimes 資料夾包含在特定「執行階段」上執行所需的組件和原生程式庫，而執行階段一般是透過作業系統和 CPU 架構所定義。 這些執行階段是使用[執行階段識別碼 (RID)](https://docs.microsoft.com/dotnet/core/rid-catalog) (例如 `win`、`win-x86`、`win7-x86`、`win8-64` 等等) 進行識別。
+runtimes 資料夾包含在特定「執行階段」上執行所需的組件和原生程式庫，而執行階段一般是透過作業系統和 CPU 架構所定義。 這些執行階段是使用[執行階段識別碼 (RID)](/dotnet/core/rid-catalog) (例如 `win`、`win-x86`、`win7-x86`、`win8-64` 等等) 進行識別。
 
 ## <a name="native-light-up"></a>原生重點
 
@@ -157,7 +157,7 @@ runtimes 資料夾包含在特定「執行階段」上執行所需的組件和�
 
 在上述範例中，`lib/net40` 組件是純受控程式碼，而 runtimes 資料夾中的組件將會 p/叫用到原生協助程式組件，以呼叫 Windows 8 特有的 API。
 
-只會挑選單一 `lib` 資料夾，因此如果有執行階段特定資料夾，則會透過非執行階段特定 `lib` 來選擇它。 原生資料夾是加總，如果已存在，則會將它複製至組建輸出。
+只會挑選單一 `lib` 資料夾，因此如果有執行階段專用的資料夾，則會選擇該資料夾，而不選非執行階段專用的 `lib`。 原生資料夾是加總，如果已存在，則會將它複製至組建輸出。
 
 ## <a name="managed-wrapper"></a>受控包裝函式
 

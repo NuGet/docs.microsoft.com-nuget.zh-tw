@@ -13,11 +13,11 @@ keywords: "NuGet 套件建立, 建立套件, nuspec 資訊清單, NuGet 套件�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e7a2c4d02afb2387161c22fe5bd443eb0991ea8c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
+ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
@@ -157,7 +157,7 @@ nuget locals -list global-packages
 移至任何 *package\version* 資料夾，並將 `.nupkg` 檔案複製至 `.zip` 檔案，然後開啟該 `.zip` 檔案，並檢查其內的 `.nuspec`。
 
 > [!Note]
-> 從 Visual Studio 專案建立 `.nuspec` 時，資訊清單會包含建置套件時可取代為專案中資訊的權杖。 請參閱[從 Visual Studio 專案建立 .nuspec](#from-a-visual-studio-project)。
+> 從 Visual Studio 專案建立 `.nuspec` 時，資訊清單會包含建置套件時取代為專案中資訊的權杖。 請參閱[從 Visual Studio 專案建立 .nuspec](#from-a-visual-studio-project)。
 
 ## <a name="creating-the-nuspec-file"></a>建立 .nuspec 檔案
 
@@ -185,7 +185,7 @@ nuget locals -list global-packages
 
 資料夾慣例如下：
 
-| 資料夾 | 說明 | 套件安裝時的動作 |
+| 資料夾 | 描述 | 套件安裝時的動作 |
 | --- | --- | --- |
 | (root) | readme.txt 的位置 | 安裝套件時，Visual Studio 會顯示套件根目錄中的 readme.txt 檔案。 |
 | lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為參考；`.xml` 和 `.pdb` 則會複製至專案資料夾。 請參閱[支援多個目標架構](Supporting-Multiple-Target-Frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
@@ -284,7 +284,7 @@ nuget spec [<package-name>]
 
 - `Dependency` 類型套件會將建置或執行階段資產新增至程式庫和應用程式，並且可以安裝至任何專案類型 (假設它們相容)。
 
-- `DotnetCliTool` 類型套件是 [.NET CLI](https://docs.microsoft.com/dotnet/articles/core/tools/index) 的延伸模組，並且會從命令列予以叫用。 這類套件只能安裝在 .NET Core 專案中，而且不會影響還原作業。 [.NET Core 擴充性](https://docs.microsoft.com/dotnet/articles/core/tools/extensibility#per-project-based-extensibility)文件提供所有這些專案延伸模組的詳細資料。
+- `DotnetCliTool` 類型套件是 [.NET CLI](/dotnet/articles/core/tools/index) 的延伸模組，並且會從命令列予以叫用。 這類套件只能安裝在 .NET Core 專案中，而且不會影響還原作業。 [.NET Core 擴充性](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility)文件提供所有這些專案延伸模組的詳細資料。
 
     安裝 DotnetCliTool 套件時，Visual Studio 會將套件放入 `project.json` `tools` 節點中，而不是 `dependencies` 節點。
 

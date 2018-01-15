@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
@@ -53,7 +53,7 @@ NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括�
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows 市集   | netcore      | netcore [netcore45] |
+|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -122,7 +122,7 @@ Tizen | tizen | tizen3 |
 
 ## <a name="net-platform-standard"></a>.NET 平台標準
 
-[.NET 平台標準](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md)可簡化二進位相容 Framework 之間的參考，讓單一目標 Framework 參考其他項目的組合。 (背景請參閱 [.NET 入門](https://docs.microsoft.com/dotnet/articles/standard/index)。)
+[.NET 平台標準](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md)可簡化二進位相容 Framework 之間的參考，讓單一目標 Framework 參考其他項目的組合。 (背景請參閱 [.NET 入門](/dotnet/articles/standard/index)。)
 
 [NuGet 取得最接近的 Framework 工具](https://aka.ms/s2m3th)會模擬 NuGet 使用的方法，從以專案 Framework 為基礎之套件中的許多可用 Framework 資產中選取一個 Framework。
 
@@ -282,7 +282,7 @@ NuGet 3.3 和更舊版本中應該使用 moniker 的 `dotnet` 系列，v3.4 及�
 
 此外，以 Xamarin 為目標的 NuGet 套件可以使用其他 Xamarin 定義的 Framework。 請參閱 [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (手動建立適用於 Xamarin 的 NuGet 套件)。
 
-| 名稱 | 說明 | .NET Standard |
+| 名稱 | 描述 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android 作業系統的 Mono 支援 | netstandard1.4 |
 | monotouch | iOS 的 Mono 支援 | netstandard1.4 |

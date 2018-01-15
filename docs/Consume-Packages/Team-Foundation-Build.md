@@ -13,11 +13,11 @@ keywords: "NuGet 套件還原、NuGet 和 TFS、NuGet 和 VSTS、NuGet 組建系
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4be1bb83549958897a15d690439cac073c9683d1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>使用 Team Foundation Build 設定套件還原
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/14/2017
 >
 > 如果您搭配使用 Visual Studio Team Services 或內部部署 Team Foundation Server 2013 與其建置流程範本，則會在建置流程進行自動套件還原。
 
-本節提供在 [git](http://en.wikipedia.org/wiki/Git_(software)) 和 [TF 版本設定](http://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) 的 [Team Foundation 建置](http://msdn.microsoft.com/library/ms181710(v=VS.90).aspx)期間如何還原套件的詳細逐步解說。
+本節提供有關如何在 Git 與 Team Services 版本控制的 [Team Services 建置](/vsts/build-release/index)期間還原套件的詳細逐步解說。
 
-雖然這個逐步解說專屬於使用 [Team Foundation Service](http://tfs.visualstudio.com/) 的案例，但是這些概念也適用於其他版本設定和組建系統。
+雖然這個逐步解說專屬於使用 Visual Studio Team Services 的案例，但是這些概念也適用於其他版本控制和建置系統。
 
 ## <a name="the-general-approach"></a>一般方法
 
@@ -119,7 +119,7 @@ nuget restore path\to\solution.sln
 
 這會排除所有 `packages` 資料夾，但會重新包含所有內含的 `.targets` 檔案。 但您可以在[這裡](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)找到 `.gitignore` 檔案的範本，此範本是特別為 Visual Studio 開發人員需求量身訂做。
 
-TF 版本設定透過 [.tfignore](http://msdn.microsoft.com/library/ms245454.aspx) 檔案支援非常類似的機制。 語法幾乎相同：
+TF 版本設定透過 [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) 檔案支援非常類似的機制。 語法幾乎相同：
 
     *.user
     *.suo
@@ -135,7 +135,7 @@ TF 版本設定透過 [.tfignore](http://msdn.microsoft.com/library/ms245454.asp
 
 - `Build` 和 `Rebuild` 目標都是根據 `RestorePackages`。 這確保您可以同時執行 `Build` 和 `Rebuild`，並且依賴所還原的套件。
 - `Clean`、`Build` 和 `Rebuild` 會叫用所有方案檔上的對應 MSBuild 目標。
-- `RestorePackages` 目標會叫用每個方案檔的 `nuget.exe`。 這是使用 [MSBuild 的批次功能](http://msdn.microsoft.com/library/ms171473.aspx)所完成。
+- `RestorePackages` 目標會叫用每個方案檔的 `nuget.exe`。 這是使用 [MSBuild 的批次功能](/visualstudio/msbuild/msbuild-batching)所完成。
 
 結果如下所示：
 
