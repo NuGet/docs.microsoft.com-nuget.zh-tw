@@ -83,7 +83,7 @@ project.assets.json
 
 1. 如果您使用的是 TFS 2010 或更舊的版本，請隱匿工作區對應中的 `packages` 資料夾。
 
-1. 在 TFS 2012 或更新版本，或使用 Visual Studio Team Services 的版本上，依[新增檔案到伺服器](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore)所述建立 `.tfignore` 檔案。 在該檔案中納入以下內容，明確忽略在存放庫層級和其他幾個中繼檔案中對 `\packages` 資料夾的修改。 (您可以在 Windows 檔案總管中，使用 `.tfignore.` 加結尾後置點的名稱來建立檔案，但可能需要先停用 [Hide known file extensions] (隱藏已知副檔名) 選項。)：
+1. 在 TFS 2012 或更新版本，或使用 Visual Studio Team Services 的版本上，依[新增檔案到伺服器](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore)所述建立 `.tfignore` 檔案。 在該檔案中納入以下內容，明確忽略在存放庫層級和其他幾個中繼檔案中對 `\packages` 資料夾的修改。 (您可以在 Windows 檔案總管中，使用 `.tfignore.` 加結尾後置點的名稱來建立檔案，但可能需要先停用 [Hide known file extensions] \(隱藏已知副檔名) 選項。)：
 
    ```
    # Ignore NuGet Packages
