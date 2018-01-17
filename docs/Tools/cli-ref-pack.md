@@ -13,11 +13,11 @@ keywords: "nuget 組件參考組件命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>組件命令 (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget pack <nuspecPath | projectPath> [options]
 | --- | --- |
 | BasePath | 設定檔案中定義的基底路徑`.nuspec`檔案。 |
 | 組建 | 指定應該建置封裝前，先建置專案。 |
-| 排除 | 指定建立封裝時所要排除的一個或多個萬用字元模式。 |
+| 排除 | 指定建立封裝時所要排除的一個或多個萬用字元模式。 若要指定多個模式，請重複-排除旗標。 請參閱以下的範例。 |
 | ExcludeEmptyDirectories | 建立封裝時，可避免包含空的目錄。 |
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```
