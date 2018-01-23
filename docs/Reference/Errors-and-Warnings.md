@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>錯誤和警告
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 01/05/2018
 
 | 群組 | 錯誤號碼 |
 | --- | --- |
-| [無效的輸入的錯誤](#invalid-input-errors) | [NU1001](#nu1001)， [NU1002](#nu1002)， [NU1003](#nu1003) |
-| [遺失封裝和專案的錯誤](#missing-package-and-project-errors) | [NU1100](#nu1100)， [NU1101](#nu1101)， [NU1102](#nu1102)， [NU1103](#nu1103)， [NU1104](#nu1104)， [NU1105](#nu1105)， [NU1106](#nu1106)， [NU1107](#nu1107) (先前 NU1607) [NU1108](#nu1107) (先前 NU1606) |
-| [相容性錯誤](#compatibility-errors) | [NU1201](#nu1201)， [NU1202](#nu1202)， [NU1203](#nu1203)， [NU1401](#nu1401) |
+| [無效的輸入的錯誤](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
+| [遺失封裝和專案的錯誤](#missing-package-and-project-errors) | [NU1100](#nu1100)， [NU1101](#nu1101)， [NU1102](#nu1102)， [NU1103](#nu1103)， [NU1104](#nu1104)， [NU1105](#nu1105)， [NU1106](#nu1106)， [NU1107](#nu1107) (先前 NU1607) [NU1108](#nu1108) (先前 NU1606) |
+| [相容性錯誤](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **警告**
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/05/2018
 | [解決衝突的警告](#resolver-conflict-warnings) | [NU1608](#nu1608) |
 | [封裝後援警告](#package-fallback-warnings) | [NU1701](#nu1701) |
 | [摘要的警告](#feed-warnings) | [NU1801](#nu1801) |
-| [NuGet 的內部錯誤和警告](#nuget-internal-errors-and-warnings) | [NU1000](#nu1000)， [NU1500](#nu1500) |
+| [NuGet 的內部錯誤和警告](#nuget-internal-errors-and-warnings) | [NU1000](#nu1000), [NU1500](#nu1500) |
 
 ## <a name="invalid-input-errors"></a>無效的輸入的錯誤
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="missing-package-and-project-errors"></a>遺失封裝和專案的錯誤
 
-[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104)  |  [NU1105](#nu1105) | [NU1106](#nu1106)
+[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104) | [NU1105](#nu1105) | [NU1106](#nu1106)
 
 ### <a name="nu1100"></a>NU1100
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/05/2018
 | **常見的原因** | 封裝包含確切版本，而未限制範圍不是封裝的相依性。 |
 | **範例訊息** | *無法滿足 {id} 的衝突要求: {衝突 path} Framework: {目標圖表}* |
 
-< a name ="NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (先前 NU1607)
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 01/05/2018
 | **常見的原因** | 封裝名稱中有相依性條件約束，確切的版本上不允許其他封裝，以提高版本，如有需要。 |
 | **範例訊息** | *偵測到 NuGet.Versioning 版本衝突。參照套件，直接從專案以解決此問題。<br/>NuGet.Packaging 3.5.0 NuGet.Versioning （= 3.5.0）]-> [<br/> NuGet.Configuration 4.0.0]-> [的 NuGet.Versioning （等於 4.0.0）* |
 
-< a name ="NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (先前 NU1606)
 
@@ -263,8 +263,6 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="resolver-conflict-warnings"></a>解決衝突的警告
 
-[NU1608](#nu1608)
-
 ### <a name="nu1608"></a>NU1608
 
 | | |
@@ -275,8 +273,6 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="package-fallback-warnings"></a>封裝後援警告
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
@@ -286,8 +282,6 @@ ms.lasthandoff: 01/05/2018
 | **範例訊息** | *已還原封裝 'NuGet.Versioning'，'可攜式 net45 + win8' 改為使用專案目標 framework 'netstandard1.5'。此封裝可能無法完全相容，您的專案。* |
 
 ## <a name="feed-warnings"></a>摘要的警告
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 
