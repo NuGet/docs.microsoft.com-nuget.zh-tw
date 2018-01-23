@@ -9,7 +9,6 @@
 ## [建立 UWP 套件](Guides/Create-UWP-Packages.md)
 ## [建立 UWP 控制項作為 NuGet 套件](Guides/Create-UWP-Controls.md)
 ## [建立跨平台套件](Guides/Create-Cross-Platform-Packages.md)
-## [查詢所有使用 API 的套件](Guides/api/query-for-all-published-packages.md)
 # 建立套件
 ## [概觀和工作流程](Create-Packages/Overview-and-Workflow.md)
 ## [建立套件](Create-Packages/Creating-a-Package.md)
@@ -86,6 +85,7 @@
 ### [nuget.exe 認證提供者](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # API
 ## [概觀](API/overview.md)
+## [操作說明：查詢使用 API 的所有套件](Guides/api/query-for-all-published-packages.md)
 ## [服務索引](API/service-index.md)
 ## [推送與刪除](API/package-publish-resource.md)
 ## [搜尋](API/search-query-service-resource.md)
