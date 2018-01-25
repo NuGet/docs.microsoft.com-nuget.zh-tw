@@ -3,28 +3,27 @@ title: "NuGet 封裝管理員主控台指南 |Microsoft 文件"
 author: kraigb
 hms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2b92b119-6861-406c-82af-9d739af230e4
 f1_keywords: vs.nuget.packagemanager.console
 description: "使用 Visual Studio 中的 NuGet 封裝管理員主控台，使用封裝的指示。"
 keywords: "NuGet 封裝管理員主控台中，NuGet powershell 管理 NuGet 封裝"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8f1df23d1a43412868c14e508ee5221d48dcc7c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b89c51812cee0f64c6f5c39cd9d86bc4a0be068e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-manager-console"></a>封裝管理員主控台
 
 NuGet 封裝管理員主控台內建在 Windows 2012 及更新版本的 Visual Studio 中。 （它不包含在 Visual Studio for Mac 或 Visual Studio 程式碼）。
 
-在主控台可讓您使用[NuGet PowerShell 命令](../tools/powershell-reference.md)尋找、 安裝、 解除安裝和更新 NuGet 套件。 在 「 封裝管理員 」 UI 不提供方法來執行作業的情況下，必須使用主控台。
+在主控台可讓您使用[NuGet PowerShell 命令](../tools/powershell-reference.md)尋找、 安裝、 解除安裝和更新 NuGet 套件。 在 「 封裝管理員 」 UI 不提供方法來執行作業的情況下，必須使用主控台。 若要使用`nuget.exe`命令在主控台中，請參閱[使用主控台中的 nuget.exe CLI](#using-the-nugetexe-cli-in-the-console)。
 
 例如，尋找和安裝封裝是使用三個簡單步驟完成：
 
@@ -43,17 +42,6 @@ NuGet 封裝管理員主控台內建在 Windows 2012 及更新版本的 Visual S
     # Install the Elmah package to the project named MyProject.
     Install-Package Elmah -ProjectName MyProject
     ```
-
-本主題內容：
-
-- [開啟主控台](#opening-the-console-and-console-controls)
-- [安裝封裝](#installing-a-package)
-- [解除安裝封裝](#uninstalling-a-package)
-- [尋找封裝](#finding-a-package)
-- [更新封裝](#updating-a-package)
-- [在主控台的可用性](#availability-of-the-console)
-- [延伸封裝管理員主控台](#extending-the-package-manager-console)
-- [NuGet PowerShell 設定檔設定](#setting-up-a-nuget-powershell-profile)
 
 > [!Important]
 > 也可以使用完成所有作業都可在主控台[NuGet CLI](../tools/nuget-exe-cli-reference.md)。 不過，主控台命令的 Visual Studio，並儲存的專案/方案內容中運作，而且通常超過其對等的 CLI 命令完成。 比方說，安裝套件，以透過主控台將參考加入專案而不 CLI 命令。 基於這個理由，通常使用 Visual Studio 中的開發人員會習慣使用 CLI 至主控台。
@@ -96,8 +84,8 @@ Install-Package Elmah -ProjectName UtilitiesLib
 - 與隱含協議的 [主控台] 視窗中顯示適用之授權條款。 如果您不同意這些條款，您應該立即解除安裝封裝。
 - 將參考加入至專案中參考的格式是使用中。 接著會出現在 方案總管 和 適用的參考格式檔案參考。 不過，請注意，與 PackageReference，需要儲存專案以直接查看專案檔中的變更。
 - 會快取封裝：
-    - PackageReference： 封裝已經快取`%USERPROFILE%\.nuget\packages`和鎖定的檔案也就是`project.assets.json`會更新。
-    - `packages.config`： 建立`packages`在方案根目錄和複製子資料夾內的套件檔案的資料夾。 `package.config`更新檔案。
+  - PackageReference： 封裝已經快取`%USERPROFILE%\.nuget\packages`和鎖定的檔案也就是`project.assets.json`會更新。
+  - `packages.config`： 建立`packages`在方案根目錄和複製子資料夾內的套件檔案的資料夾。 `package.config`更新檔案。
 - 更新`app.config`及/或`web.config`如果封裝使用[來源和組態檔案轉換](../create-packages/source-and-config-file-transformations.md)。
 - 若還未出現在專案中，會安裝任何相依性。 中所述，這可能會更新處理序中的封裝版本[相依性解析](../consume-packages/dependency-resolution.md)。
 - Visual Studio 視窗中顯示封裝的讀我檔案，如果有的話。
@@ -186,9 +174,7 @@ Package Manager Console 未隨附於 Visual Studio 程式碼。
 
 PowerShell 設定檔可讓您開放常用的命令使用，只要您使用 PowerShell。 NuGet 支援特定的 NuGet 設定檔，通常在下列位置找到：
 
-```
-%UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
-```
+    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 若要尋找的設定檔，請輸入`$profile`主控台中：
 
@@ -198,3 +184,12 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
 如需詳細資訊，請參閱[Windows PowerShell 設定檔](https://technet.microsoft.com/library/bb613488.aspx)。
+
+## <a name="using-the-nugetexe-cli-in-the-console"></a>使用主控台中的 nuget.exe CLI
+
+若要讓[ `nuget.exe` CLI](nuget-exe-CLI-Reference.md)可用在封裝管理員主控台中，安裝[NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/)封裝從主控台：
+
+```ps
+# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+Install-Package NuGet.CommandLine -Version 4.4.1
+```

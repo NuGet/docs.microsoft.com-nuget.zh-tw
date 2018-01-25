@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.1 版本資訊。"
 keywords: "NuGet 2.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 版本資訊
 
@@ -101,16 +100,16 @@ NuGet 2.1 除了新增目標可攜式程式庫專案的支援，Windows 8 市集
 
 |2.0 及更早版本的 NuGet|NuGet 2.1|
 |----------------|-----------|
-|winRT45。NETCore45|Windows，Windows8，win win8|
+|winRT45, .NETCore45|Windows，Windows8，win win8|
 
 <br/>
 Windows Phone 專案的識別項，看起來像這樣：
 
 |Phone OS|2.0 及更早版本的 NuGet|NuGet 2.1
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3 wp|wp，wp7，WindowsPhone WindowsPhone7|
-|Windows Phone 7.5 (Mango)|silverilght4 wp71|wp71 WindowsPhone71|
-|Windows Phone 8|（不支援）|wp8 WindowsPhone8|
+|Windows Phone 7|silverlight3-wp|wp，wp7，WindowsPhone WindowsPhone7|
+|Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
+|Windows Phone 8|（不支援）|wp8, WindowsPhone8|
 <br/>
 在所有上述變更，舊的架構名稱會繼續受到完整支援 NuGet 2.1。  起，新的名稱應該使用時，就能更穩定跨各平台的未來版本。 新的名稱會*不*是支援的 NuGet 2.1 之前的版本，不過，因此詳加規劃時，切換。
 

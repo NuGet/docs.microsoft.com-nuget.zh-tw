@@ -3,21 +3,20 @@ title: "NuGet CLI 環境變數 |Microsoft 文件"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1f5c31ca-fa0a-4798-a906-110f2c73d00b
 description: "Nuget.exe 環境變數的參考"
 keywords: "nuget 環境變數"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0a1dc2a928da657b0d222c2adc02fbd850b66704
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 516a66103d6159a3d68b5383090e8e3b519a5588
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI 環境變數
 
@@ -25,7 +24,7 @@ Nuget.exe CLI 行為可以透過環境變數，其中會影響 nuget.exe 全電�
 
 一般情況下，直接在命令列上，或在 NuGet 組態檔中指定的選項的優先順序，但有少數的例外狀況的這類*FORCE_NUGET_EXE_INTERACTIVE*。 如果您發現該 nuget.exe 的行為方式會不同電腦之間，環境變數可能是原因。 例如，Azure Web 應用程式 Kudu （在部署期間使用） 具有*NUGET_XMLDOC_MODE*設*略過*來加速封裝還原效能，並節省磁碟空間。
 
-| 變數 | 說明 | 備註 |
+| 變數 | 描述 | 備註 |
 | --- | --- | --- |
 | http_proxy | NuGet HTTP 作業所使用的 http proxy。 | 這會指定為`http://<username>:<password>@proxy.com`。 |
 | no_proxy | 設定網域以使用 proxy 略過。 | 指定為以逗號 （，） 分隔的網域。 |

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4153ff3f-f97f-4e54-b638-e844f70edf22
 description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.0 Beta。"
 keywords: "NuGet 3.0 Beta 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 46b2a81845f5ac06b8c80975c55fcfc33b86636e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 618d140c443d51f4d7eb87bac2381ad961ed85d1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>NuGet 3.0 Beta 版本資訊
 
@@ -27,7 +26,7 @@ NuGet 3.0 Beta 已於 2015 年 2 月 23 日發行 Visual Studio 2015 CTP 6 版�
 
 我們強烈建議您先解除安裝任何舊版的 NuGet Visual Studio 2015 延伸模組，再安裝此新的版本。  如果您有與此版本的擴充功能的任何問題，我們建議您還原為[舊版](http://nuget.codeplex.com/downloads/get/909582)搭配 Visual Studio 2015 預覽。
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 若要安裝 Visual Studio 2015 CTP 6 延伸模組組件庫中使用此 NuGet 3.0 Beta。 我們正努力預覽卸除的 Visual Studio 2012 和 Visual Studio 2013 很快。 我們先前共用我們意圖[中止更新適用於 Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html)，我們沒有做出的決策，困難。
 

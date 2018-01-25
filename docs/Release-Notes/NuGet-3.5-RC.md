@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 75a9b496-5762-48b6-922f-fdddf1369c45
 description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.5 RC 版本資訊。"
 keywords: "NuGet 3.5 RC 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 09d566de6f53bc0f0ddd8049143dc647f3075671
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="35-rc-release-notes"></a>3.5 RC 版本資訊
+# <a name="nuget-35-rc-release-notes"></a>NuGet 3.5 RC 版本資訊
 
 [NuGet 3.5 Beta2 前版本資訊](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-RTM 版本資訊](../release-notes/nuget-3.5-RTM.md)
 
@@ -95,7 +94,7 @@ ms.lasthandoff: 12/14/2017
 
 * 解決 NuGet 更新-ReSharper 效能問題[#3044](https://github.com/NuGet/Home/issues/3044)： 範例專案，安裝套件時所花費的時間用來減少從 140s年 68s。
 
-## <a name="dcrs"></a>Dcr
+## <a name="dcrs"></a>DCR
 
 * 若要讓使用者知道，在基礎 dotnet tfm 升級/安裝 PCL 可能會導致問題-需要 NuGet [#3138](https://github.com/NuGet/Home/issues/3138)
 

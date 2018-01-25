@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1eaa403a-5c13-4c05-9352-2f791b98aa7e
 description: "發行服務可讓用戶端對發佈新的套件和 unlist 或刪除現有的封裝。"
 keywords: "NuGet API 發送套件，NuGet API 刪除套件，NuGet API unlist 套件，NuGet API 上傳封裝、 NuGet API 建立封裝"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-and-delete"></a>發送和刪除
 
@@ -52,9 +51,7 @@ PackagePublish/2.0.0 | 初版
 
 nuget.org 支援使用下列 API 的推送新套件。 如果提供的識別碼和版本的套件已經存在，nuget.org 將會拒絕推送。 其他封裝來源可能會支援取代現有的封裝。
 
-```
-PUT https://www.nuget.org/api/v2/package
-```
+    PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>要求參數
 
@@ -86,9 +83,7 @@ API 金鑰是不透明的字串從套件來源取得的使用者，並設定在�
 
 nuget.org 會解譯為封裝刪除要求的"unlist"。 這表示封裝仍可供現有消費者的封裝，但封裝不會再出現在搜尋結果中或在 web 介面。 如需此作法的詳細資訊，請參閱[刪除封裝](../policies/deleting-packages.md)原則。 其他伺服器實作會解譯為永久刪除這個信號、 虛刪除，或 unlist 可用。 例如， [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) （只支援較舊的 V2 API 的伺服器實作） 支援處理此要求為 unlist 或永久刪除，根據組態選項。
 
-```
-DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>要求參數
 
@@ -111,9 +106,7 @@ X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_AP
 
 如果已列出封裝，請要求仍然會成功。
 
-```
-POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>要求參數
 

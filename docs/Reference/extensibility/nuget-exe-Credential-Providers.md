@@ -7,17 +7,16 @@ ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
 description: "nuget.exe 認證提供者使用摘要驗證，而且會實作為命令列可執行檔，請遵循特定的慣例。"
 keywords: "nuget.exe 認證提供者認證提供者 API，驗證使用的摘要，驗證組件庫"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>搭配 nuget.exe 認證提供者使用的驗證摘要
 
@@ -56,16 +55,16 @@ nuget.exe 認證提供者可用以 3 種方式：
 
 ### <a name="input-parameters"></a>輸入的參數
 
-| 參數/切換 |說明|
+| 參數/切換 |描述|
 |----------------|-----------|
 | Uri 的 {value} | 封裝來源 URI 需要認證。|
-| 非互動式 | 如果有的話，提供者不會發出互動式提示。 |
+| NonInteractive | 如果有的話，提供者不會發出互動式提示。 |
 | IsRetry | 如果有的話，表示這項嘗試是先前的失敗嘗試的重試。 提供者通常使用這個旗標，以確保它們略過任何現有的快取，並盡可能提示您輸入新的認證。|
 | 詳細等級 {value} | 如果有的話，下列值之一: 「 標準 」、 「 無訊息 」 或 「 詳細 」。 如果未提供值，預設為"normal"。 提供者應該使用這個選擇性記錄的層級的指示來發出至標準錯誤資料流。 |
 
 ### <a name="exit-codes"></a>結束代碼
 
-| 程式碼 |結果 | 說明 |
+| 程式碼 |結果 | 描述 |
 |----------------|-----------|-----------|
 | 0 | 成功 | 已成功取得認證，並已寫入至 stdout。|
 | 1 | ProviderNotApplicable | 目前的提供者不提供認證指定的 uri。|

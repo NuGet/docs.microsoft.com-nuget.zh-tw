@@ -3,21 +3,20 @@ title: "NuGet 的 CLI 組件命令 |Microsoft 文件"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 55e9e4d2-8039-4e9b-bdd9-c8b3eb0e894b
 description: "Nuget.exe 套件命令參考"
 keywords: "nuget 組件參考組件命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="pack-command-nuget-cli"></a>組件命令 (NuGet CLI)
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="usage"></a>使用量
 
-```
+```cli
 nuget pack <nuspecPath | projectPath> [options]
 ```
 
@@ -57,7 +56,7 @@ nuget pack <nuspecPath | projectPath> [options]
 | 尾碼 | *(3.4.4+)*將後置詞附加至內部產生的版本號碼，通常用於附加建置或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本編號的類似`1.2.3-nightly`。 後置字元的開頭必須是字母，若要避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
 | Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案，而對應符號封裝。 |
 | 工具 | 指定專案的輸出檔應該放在`tool`資料夾。 |
-| 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細 （2.5 +）*。 |
+| 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 | 版本 | 覆寫的版本號碼`.nuspec`檔案。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
@@ -83,7 +82,7 @@ nuget pack <nuspecPath | projectPath> [options]
 
 ## <a name="examples"></a>範例
 
-```
+```cli
 nuget pack
 
 nuget pack foo.nuspec

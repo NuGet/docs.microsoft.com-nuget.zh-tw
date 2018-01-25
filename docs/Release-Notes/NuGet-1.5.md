@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3ec1ff28-18fc-4d53-bd43-208619a7270a
 description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.5。"
 keywords: "NuGet 1.5 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29792f4c7399155bcf5fb3361d7f10ddd1b18ca1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
- # <a name="nuget-15-release-notes"></a>NuGet 1.5 版本資訊
+# <a name="nuget-15-release-notes"></a>NuGet 1.5 版本資訊
 
 [NuGet 1.4 版本資訊](../release-notes/nuget-1.4.md) | [NuGet 1.6 版本資訊](../release-notes/nuget-1.6.md)
 
@@ -35,6 +34,7 @@ ASP.NET MVC 3 專案範本包含一組叫用的專案範本時，取得安裝的
 如需有關這項功能的詳細資訊，請閱讀本[功能的開發人員部落格文章](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx)。
 
 ### <a name="explicit-assembly-references"></a>明確的組件參考
+
 加入新`<references />`用來明確指定組件內的項目應該要參考的封裝。
 
 例如，如果您將加入下列：

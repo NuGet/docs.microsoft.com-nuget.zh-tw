@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 description: "搜尋服務可讓用戶端封裝關鍵字的查詢以及在封裝中的特定欄位上的篩選結果。"
 keywords: "NuGet 搜尋 API，NuGet 探索 API 來查詢的 NuGet 封裝 API，以瀏覽 NuGet 套件的套件"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 8b37c1bfb66290de49641a8b6197cb83cd35318a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="search"></a>搜尋
 
@@ -51,19 +50,17 @@ SearchQueryService/3.0.0-rc   | 別名`SearchQueryService`
 
 未列出的封裝應永遠不會出現在搜尋結果。
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>要求參數
 
 名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | 字串  | no       | 搜尋詞彙，以用來篩選器套件
-skip        | URL    | 整數 | no       | 若要略過，針對分頁的結果數目
-take        | URL    | 整數 | no       | 若要傳回，針對分頁的結果數目
-發行前版本  | URL    | boolean | no       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | 字串  | no       | SemVer 1.0.0 版本字串 
+q           | URL    | 字串  | 否       | 搜尋詞彙，以用來篩選器套件
+skip        | URL    | 整數 | 否       | 若要略過，針對分頁的結果數目
+take        | URL    | 整數 | 否       | 若要傳回，針對分頁的結果數目
+發行前版本  | URL    | boolean | 否       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串 
 
 搜尋查詢`q`剖析的方式，由伺服器實作所定義。 nuget.org 支援基本篩選[的各種欄位](../consume-packages/finding-and-choosing-packages.md#search-syntax)。 如果沒有`q`提供所有套件應該都傳回，skip 和 take 所加諸之界限內。 這可讓 Visual Studio 經驗的 [瀏覽] 索引標籤。
 
@@ -96,20 +93,20 @@ totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和
 名稱           | 類型                       | 必要 | 注意
 -------------- | -------------------------- | -------- | -----
 id             | 字串                     | 是      | 相符的套件的識別碼
-version        | 字串                     | 是      | 完整的 SemVer 2.0.0 的版本字串，封裝 （可能包含建置中繼資料）
-描述    | 字串                     | no       | 
+版本        | 字串                     | 是      | 完整的 SemVer 2.0.0 的版本字串，封裝 （可能包含建置中繼資料）
+描述    | 字串                     | 否       | 
 版本       | 物件的陣列           | 是      | 所有的相符的封裝版本`prerelease`參數
-authors        | 字串或字串陣列 | no       | 
-iconUrl        | 字串                     | no       | 
-licenseUrl     | 字串                     | no       | 
-owners         | 字串或字串陣列 | no       | 
-projectUrl     | 字串                     | no       | 
-註冊   | 字串                     | no       | 相關聯的絕對 URL[註冊索引](registration-base-url-resource.md#registration-index)
-摘要        | 字串                     | no       | 
-標記           | 字串或字串陣列 | no       | 
-標題          | 字串                     | no       | 
-totalDownloads | 整數                    | no       | 這個值可以推斷下載中的總和`versions`陣列
-驗證       | boolean                    | no       | JSON 布林值，指出封裝是否[驗證](../reference/id-prefix-reservation.md)
+authors        | 字串或字串陣列 | 否       | 
+iconUrl        | 字串                     | 否       | 
+licenseUrl     | 字串                     | 否       | 
+owners         | 字串或字串陣列 | 否       | 
+projectUrl     | 字串                     | 否       | 
+註冊   | 字串                     | 否       | 相關聯的絕對 URL[註冊索引](registration-base-url-resource.md#registration-index)
+摘要        | 字串                     | 否       | 
+標記           | 字串或字串陣列 | 否       | 
+標題          | 字串                     | 否       | 
+totalDownloads | 整數                    | 否       | 這個值可以推斷下載中的總和`versions`陣列
+驗證       | boolean                    | 否       | JSON 布林值，指出封裝是否[驗證](../reference/id-prefix-reservation.md)
 
 在 nuget.org，已驗證的封裝指的是已保留的識別碼前置詞比對的封裝識別碼和擁有者保留的命名空間擁有者之一。 如需詳細資訊，請參閱[識別碼前置詞保留項目相關的文件](../reference/id-prefix-reservation.md)。
 
@@ -118,14 +115,12 @@ totalDownloads | 整數                    | no       | 這個值可以推斷下
 名稱      | 類型    | 必要 | 注意
 --------- | ------- | -------- | -----
 @id       | 字串  | 是      | 相關聯的絕對 URL[註冊分葉](registration-base-url-resource.md#registration-leaf)
-version   | 字串  | 是      | 完整的 SemVer 2.0.0 的版本字串，封裝 （可能包含建置中繼資料）
+版本   | 字串  | 是      | 完整的 SemVer 2.0.0 的版本字串，封裝 （可能包含建置中繼資料）
 下載 | 整數 | 是      | 如需此特定的封裝版本的下載的數目
 
 ### <a name="sample-request"></a>範例要求
 
-```
-GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
-```
+    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 
 ### <a name="sample-response"></a>範例回應
 

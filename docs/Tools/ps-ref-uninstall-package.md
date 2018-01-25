@@ -3,21 +3,20 @@ title: "NuGet 解除安裝套件的 PowerShell 參考 |Microsoft 文件"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 6/1/2017
+ms.date: 06/01/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: f4f5dc79-8e8e-4012-8986-873a5d9283d9
 description: "在 Visual Studio 中的 NuGet 封裝管理員主控台中的封裝解除安裝的 PowerShell 命令的參考。"
 keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考，解除安裝套件"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0899198a354a56615a48a1f7f428674a205f386b
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: b8c1690e0ddda6ad88e045a2097d65d135e233d2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>解除安裝套件 （在 Visual Studio 中的封裝管理員主控台）
 

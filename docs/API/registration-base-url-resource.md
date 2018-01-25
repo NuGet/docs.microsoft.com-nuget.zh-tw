@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 description: "封裝註冊基底 URL 可讓您擷取有關封裝的中繼資料。"
 keywords: "NuGet 的 API 套件中繼資料、 NuGet API 註冊，NuGet API 未列出的封裝"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -82,9 +81,7 @@ RegistrationsBaseUrl/3.6.0      | 包含 SemVer 2.0.0 的封裝
 
 Nuget.org 使用如下所示的啟發學習法： 128 或多個版本的封裝時，中斷分葉頁面大小為 64。 如果有少於 128 個版本，所有內嵌都離開的登錄索引。
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>要求參數
 
@@ -155,7 +152,7 @@ iconUrl                  | 字串                     | 否       |
 id                       | 字串                     | 是      | 封裝的識別碼
 licenseUrl               | 字串                     | 否       | 
 列出的                   | boolean                    | 否       | 應視為列出如果不存在
-MinClientVersion         | 字串                     | 否       | 
+minClientVersion         | 字串                     | 否       | 
 projectUrl               | 字串                     | 否       | 
 發行                | 字串                     | 否       | 字串，包含 ISO 8601 時間戳記的發佈封裝時
 requireLicenseAcceptance | boolean                    | 否       | 
@@ -193,11 +190,9 @@ range        | object | 否       | 允許[版本範圍](../reference/package-ve
 
 ### <a name="sample-request"></a>範例要求
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
 
-### <a name="sample-response"></a>範例回應 
+### <a name="sample-response"></a>範例回應
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -222,9 +217,7 @@ count  | 整數          | 是      | 離開頁面中的註冊數目
 
 ## <a name="sample-request"></a>範例要求
 
-```
-GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
-```
+    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
 
 ## <a name="sample-response"></a>範例回應
 
@@ -252,9 +245,7 @@ packageContent | 字串  | 否       | 封裝內容 (.nupkg) URL
 
 ### <a name="sample-request"></a>範例要求
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
 
 ### <a name="sample-response"></a>範例回應
 

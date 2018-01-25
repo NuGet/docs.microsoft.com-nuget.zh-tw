@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "搜尋 「 自動完成 」 服務支援互動式尋找的封裝識別碼和版本。"
 keywords: "NuGet 自動完成應用程式開發介面、 NuGet 搜尋封裝識別碼、 子字串的套件識別碼"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>自動完成
 
@@ -51,19 +50,17 @@ SearchAutocompleteService/3.0.0-rc   | 別名`SearchAutocompleteService`
 
 只有未列出的版本的封裝不會出現在結果中。
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>要求參數
 
 名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | 字串  | no       | 要與封裝識別碼進行比較的字串
-skip        | URL    | 整數 | no       | 若要略過，針對分頁的結果數目
-take        | URL    | 整數 | no       | 若要傳回，針對分頁的結果數目
-發行前版本  | URL    | boolean | no       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | 字串  | no       | SemVer 1.0.0 版本字串 
+q           | URL    | 字串  | 否       | 要與封裝識別碼進行比較的字串
+skip        | URL    | 整數 | 否       | 若要略過，針對分頁的結果數目
+take        | URL    | 整數 | 否       | 若要傳回，針對分頁的結果數目
+發行前版本  | URL    | boolean | 否       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串 
 
 自動完成查詢`q`剖析的方式，由伺服器實作所定義。 nuget.org 支援來查詢前置詞的封裝識別碼權杖是片段 spliting 所產生的識別碼，原始的 camel 命名法的大小寫和符號字元。
 
@@ -90,9 +87,7 @@ totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和
 
 ### <a name="sample-request"></a>範例要求
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>範例回應
 
@@ -104,17 +99,15 @@ GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 未列出的套件版本不會出現在結果中。
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>要求參數
 
 名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | 字串  | 是      | 要擷取的版本的套件識別碼
-發行前版本  | URL    | boolean | no       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | 字串  | no       | SemVer 2.0.0 的版本字串 
+發行前版本  | URL    | boolean | 否       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | 字串  | 否       | SemVer 2.0.0 的版本字串 
 
 如果`prerelease`未提供，會排除發行前版本的封裝。
 
@@ -134,9 +127,7 @@ semVerLevel | URL    | 字串  | no       | SemVer 2.0.0 的版本字串
 
 ### <a name="sample-request"></a>範例要求
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>範例回應
 

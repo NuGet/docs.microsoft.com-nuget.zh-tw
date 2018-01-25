@@ -3,21 +3,20 @@ title: "將命令加入 NuGet CLI |Microsoft 文件"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4f68a016-ad4e-41fc-b869-88910fc5121e
 description: "Nuget.exe 的參考加入命令"
 keywords: "nuget 加入參考，新增套件 命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bf9a6e51dfbf1716ba40273487b76ae04c18e948
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="add-command-nuget-cli"></a>加入命令 (NuGet CLI)
 
@@ -36,9 +35,9 @@ ms.lasthandoff: 12/14/2017
 
 若要擴充套件中的所有檔案到目的地封裝來源，使用`-Expand`切換。 這通常會導致其他子資料夾，例如出現在目的地`tools`和`lib`。
 
-## <a name="usage"></a>使用方式
+## <a name="usage"></a>使用量
 
-```
+```cli
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
@@ -46,20 +45,20 @@ nuget add <packagePath> -Source <sourcePath> [options]
 
 ## <a name="options"></a>選項
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 | --- | --- |
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。| 
 | Expand | 加入封裝中的所有檔案，對套件來源。 |
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>範例
 
-```
+```cli
 nuget add foo.nupkg -Source c:\bar\
 
 nuget add foo.nupkg -Source \\bar\packages\

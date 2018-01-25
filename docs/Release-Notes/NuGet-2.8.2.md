@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: bb547f5d-3c0e-4721-b2c7-3fc7e09c34de
 description: "版本資訊包含 NuGet 2.8.2 已知問題、 錯誤修正、 新增的功能，以及 Dcr。"
 keywords: "NuGet 2.8.2 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 221b8970663ca80a986fc3ee542b99971c5e2018
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f50bd1f0c981ef293a4d2ff425e0dffbdf58036c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-282-release-notes"></a>NuGet 2.8.2 版本資訊
 

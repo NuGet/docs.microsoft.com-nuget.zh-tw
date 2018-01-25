@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba2edaad-4795-47a0-a572-d0e1716bd540
 description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.7。"
 keywords: "NuGet 2.7 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 502cb5e68f905e9ad8f4003bb0690d3e676f6bb7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 版本資訊
 
@@ -103,7 +102,7 @@ NuGet 2.7 導入了 nuget.exe 的新功能：`nuget.exe restore`
 
 這個新的還原命令可讓您輕鬆地還原所有的套件在方案中使用單一命令中，接受的解決方案檔案或資料夾做為引數。 此外，目前的資料夾中僅有單一的解決方案時，就會隱含該引數。 這表示從包含單一方案檔 (MySolution.sln) 的資料夾的所有下列都工作：
 
-1. nuget.exe 還原 MySolution.sln
+1. nuget.exe restore MySolution.sln
 1. nuget.exe 還原。
 1. nuget.exe 還原
 

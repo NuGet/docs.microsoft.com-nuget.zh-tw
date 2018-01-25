@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "目錄是所有的封裝，建立以及在 nuget.org 刪除索引。"
 keywords: "NuGet V3 API 類別目錄，nuget.org 的交易記錄，複寫 NuGet.org，clone NuGet.org，NuGet.org 的附加專用的記錄"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -73,9 +72,7 @@ Catalog/3.0.0 | 初版
 
 下列要求會擷取類別目錄索引。
 
-```
-GET {@id}
-```
+    GET {@id}
 
 類別目錄索引是 JSON 文件，其中包含的物件具有下列屬性：
 
@@ -107,9 +104,7 @@ count           | 整數 | 是      | 在 [類別目錄] 頁面中的項目數
 
 ### <a name="sample-request"></a>範例要求
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>範例回應
 
@@ -161,9 +156,7 @@ nuget:version   | 字串  | 是      | 與這個分葉封裝版本
 
 ### <a name="sample-request"></a>範例要求
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>範例回應
 
@@ -178,8 +171,8 @@ GET https://api.nuget.org/v3/catalog0/page2926.json
 名稱                    | 類型                       | 必要 | 注意
 ----------------------- | -------------------------- | -------- | -----
 @type                   | 字串或字串陣列 | 是      | 目錄項目的型別
-commitId 目錄：        | 字串                     | 是      | 與這個類別目錄項目相關聯的認可 ID
-commitTimeStamp 目錄： | 字串                     | 是      | 此類別目錄項目的認可時間戳記
+catalog:commitId        | 字串                     | 是      | 與這個類別目錄項目相關聯的認可 ID
+catalog:commitTimeStamp | 字串                     | 是      | 此類別目錄項目的認可時間戳記
 id                      | 字串                     | 是      | 封裝識別碼的類別目錄項目
 發行               | 字串                     | 是      | 封裝的類別目錄項目發行的日期
 版本                 | 字串                     | 是      | 封裝版本的類別目錄項目
@@ -217,7 +210,7 @@ isPrerelease            | boolean                    | 是      | 封裝版本�
 語言                | 字串                     | 否       |
 licenseUrl              | 字串                     | 否       |
 列出的                  | boolean                    | 否       | 與封裝是否列出
-MinClientVersion        | 字串                     | 否       |
+minClientVersion        | 字串                     | 否       |
 packageHash             | 字串                     | 是      | 封裝中，使用編碼的雜湊[標準 base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | 字串                     | 是      |
 packageSize             | 整數                    | 是      | 封裝.nupkg，以位元組為單位的大小
@@ -242,9 +235,7 @@ verbatimVersion         | 字串                     | 否       | 版本字串�
 
 #### <a name="sample-request"></a>範例要求
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>範例回應
 
@@ -265,9 +256,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 #### <a name="sample-request"></a>範例要求
 
-```
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
+取得 https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>範例回應
 

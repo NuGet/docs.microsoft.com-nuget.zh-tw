@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: e4856d0a-b408-4c60-ac51-f80ea06d9f79
 description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.4。"
 keywords: "NuGet 1.4 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c4c27861c8697c75a06712b8ca6243b3b206cbb3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a69f4f5c7172817d711fa5e995cf6db3875c4810
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 版本資訊
 
@@ -150,10 +149,10 @@ NuGet 1.4 有工作項目固定 88 總數。 這些 71 已標示為錯誤。
 * [問題 1036年](http://nuget.codeplex.com/workitem/1036)： 加入`NuGet Pack SomeProject.csproj`來建置後事件不會再造成無限迴圈。
 * [問題 961](http://nuget.codeplex.com/workitem/961):`-Source`旗標可支援相對路徑。
 
-# <a name="nuget-14-update"></a>NuGet 1.4 更新
+## <a name="nuget-14-update"></a>NuGet 1.4 更新
 不久後 NuGet 1.4 版本中，我們可以發現幾個重要修正的問題。
 這項更新 1.4 的特定版本號碼是 1.4.20615.9020。
 
-## <a name="bug-fixes"></a>Bug 修正
+### <a name="bug-fixes"></a>Bug 修正
 * [問題 1220年](http://nuget.codeplex.com/workitem/1220)： 不會執行更新套件`install.ps1` / `uninstall.ps1`多個專案時，所有專案中
 * [問題 1156年](http://nuget.codeplex.com/workitem/1156)： 封裝管理員主控台卡 W2K3/XP 上 （當未安裝 Powershell 2）

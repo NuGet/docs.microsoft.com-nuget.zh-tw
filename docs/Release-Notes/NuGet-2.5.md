@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c193f1e3-d114-427f-9425-9930cc8e4db3
 description: "NuGet 2.5 的已知的問題、 錯誤修正、 新增的功能，以及 Dcr 包括版本資訊。"
 keywords: "NuGet 2.5 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d3bebbbe550645fcffad078538134427103cf98
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2.5 版本資訊
 
@@ -59,9 +58,9 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 1. [Tong 牆](https://www.codeplex.com/site/users/view/CodeChief)([@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) -MSTest 中斷且最新 NuGet 2.4 和 2.5 的組建
 
-# <a name="notable-features-in-the-release"></a>在版本中值得注意的功能
+## <a name="notable-features-in-the-release"></a>在版本中值得注意的功能
 
-## <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>允許使用者覆寫已存在的內容檔案
+### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>允許使用者覆寫已存在的內容檔案
 
 其中一個最常要求的功能的所有時間已經過覆寫已存在時包含在 NuGet 套件中的磁碟的內容檔案的能力。 NuGet 2.5 從開始，這些衝突會識別，系統會提示您覆寫檔案，而先前這些檔案永遠略過。
 
@@ -71,13 +70,13 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 
 從封裝檔案已存在目標專案中時，請設定預設動作。 設定為 [覆寫]，永遠覆寫檔案。 設為 [忽略] 略過檔案。 如果未指定，它會提示輸入每個衝突的檔案。
 
-## <a name="automatic-import-of-msbuild-targets-and-props-files"></a>自動匯入的 MSBuild 目標與 props 檔案
+### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>自動匯入的 MSBuild 目標與 props 檔案
 
 在最上層的 NuGet 封裝已建立新的傳統資料夾。  等`\lib`， `\content`，和`\tools`，您現在可以包含`\build`在封裝中的資料夾。  在這個資料夾中，您可以將兩個檔案，具有固定的名稱放`{packageid}.targets`或`{packageid}.props`。 這兩個檔案可以是直接在`build`或架構特定的資料夾，就像其他資料夾底下。 挑選最相符的 framework 資料夾的規則是完全相同的。
 
 當 NuGet 封裝安裝 \build 檔案時，它會將加入 MSBuild`<Import>`指向專案檔中的項目`.targets`和`.props`檔案。 `.props`檔案加入在頂端，而`.targets`檔案新增到下方。
 
-## <a name="specify-different-references-per-platform-using-references-element"></a>指定每個平台使用不同參考`<References/>`項目
+### <a name="specify-different-references-per-platform-using-references-element"></a>指定每個平台使用不同參考`<References/>`項目
 
 2.5 之前, 在`.nuspec`檔案，使用者只可以指定要加入所有 framework 相同的檔案參考。 現在使用者可以利用此在 2.5 的新功能，撰寫`<reference/>`每個支援的平台，例如項目：
 
@@ -105,7 +104,7 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 
 注意： 您必須現在使用 nuget.exe 套件使用這項功能。NuGet 封裝總管 還不支援它。
 
-## <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>更新所有的按鈕，以允許立即更新所有的封裝
+### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>更新所有的按鈕，以允許立即更新所有的封裝
 
 知道有關 「 更新套件 」 的 PowerShell 指令程式來更新所有封裝。現在是可以輕鬆地透過 UI 以及執行這項操作。
 
@@ -118,7 +117,7 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 
 ![更新對話方塊中的所有按鈕](./media/NuGet-2.5/update-all.png)
 
-## <a name="improved-project-reference-support-for-nugetexe-pack"></a>Nuget.exe 套件的改良的專案參考支援
+### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Nuget.exe 套件的改良的專案參考支援
 
 現在 nuget.exe 套件命令處理程序會參考專案的下列規則：
 
@@ -132,7 +131,7 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 
 這裡有更多詳細資料： [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
-## <a name="add-a-minimum-nuget-version-property-to-packages"></a>將 ' 至少 NuGet Version' 屬性加入封裝
+### <a name="add-a-minimum-nuget-version-property-to-packages"></a>將 ' 至少 NuGet Version' 屬性加入封裝
 
 新的中繼資料屬性，稱為 'minClientVersion' 現在可以指出使用封裝所需的最小 NuGet 用戶端版本。
 
@@ -146,7 +145,7 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 
 這可以改善時若要安裝，但失敗，表示無法辨識的結構描述版本已識別封裝的開始位置的現有體驗。
 
-## <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>相依性不會再不必要地更新套件安裝
+### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>相依性不會再不必要地更新套件安裝
 
 NuGet 2.5 之前時已安裝的套件相依於已安裝在專案中，封裝的相依性會更新新的安裝，即使現有版本符合相依性。
 
@@ -167,13 +166,13 @@ NuGet 2.5 之前時已安裝的套件相依於已安裝在專案中，封裝的�
 
 如需這項變更的詳細背景，讀取詳細[工作項目](http://nuget.codeplex.com/workitem/1681)以及相關[討論](http://nuget.codeplex.com/discussions/436712)。
 
-## <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>nuget.exe 輸出 http 要求，以及詳細的詳細資訊
+### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>nuget.exe 輸出 http 要求，以及詳細的詳細資訊
 
 如果您正在疑難排解 nuget.exe 或只知道哪些發出 HTTP 要求會在作業期間，'-詳細等級的詳細 ' 參數現在會輸出所做的所有 HTTP 要求。
 
 ![Nuget.exe 的 HTTP 輸出](./media/NuGet-2.5/verbosity.png)
 
-## <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>nuget.exe 推送現可支援 UNC 和資料夾的來源
+### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>nuget.exe 推送現可支援 UNC 和資料夾的來源
 
 之前 NuGet 2.5，如果您嘗試執行 'nuget.exe 推送' 上的 UNC 路徑或本機資料夾，為基礎的封裝來源推播會失敗。 使用最近加入的階層式組態功能，它變得很常見的 nuget.exe 需要為目標的資料夾 UNC/來源或以 HTTP 為基礎的 NuGet Gallery。
 
@@ -185,7 +184,7 @@ NuGet 2.5 之前時已安裝的套件相依於已安裝在專案中，封裝的�
 nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 ```
 
-## <a name="nugetexe-supports-explicitly-specified-config-files"></a>nuget.exe 支援明確指定的組態檔
+### <a name="nugetexe-supports-explicitly-specified-config-files"></a>nuget.exe 支援明確指定的組態檔
 
 nuget.exe 命令的存取設定 （除了 '規格' 和 '組件' 全部） 現在支援新的 '-ConfigFile' 選項，強制執行特定的組態檔可用於取代 %appdata%\nuget\nuget.config 預設組態檔。
 
@@ -195,7 +194,7 @@ nuget.exe 命令的存取設定 （除了 '規格' 和 '組件' 全部） 現在
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config
 ```
 
-## <a name="support-for-native-projects"></a>原生專案的支援
+### <a name="support-for-native-projects"></a>原生專案的支援
 
 以 NuGet 2.5 NuGet 工具現在是適用於 Visual Studio 中的原生專案。 我們預期最原生封裝會利用上述的 MSBuild 匯入功能使用工具所建立[CoApp 專案](http://coapp.org)。 如需詳細資訊，請參閱[工具的相關詳細資料](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html)coapp.org 網站上。
 

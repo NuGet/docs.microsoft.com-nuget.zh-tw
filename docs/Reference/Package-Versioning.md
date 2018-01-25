@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "確切的指定版本號碼和範圍而定的 NuGet 封裝，並安裝相依性的方式在其他封裝的詳細資訊。"
 keywords: "版本控制、 NuGet 封裝相依性、 NuGet 相依性版本、 NuGet 版本號碼、 NuGet 封裝版本、 版本範圍、 版本規格，正規化的版本號碼"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>封裝版本控制
 
@@ -42,12 +41,11 @@ ms.lasthandoff: 01/09/2018
 - *-尾碼*（選擇性）： 連字號後面接著此項表示應發行前版本字串 (下列[語意化版本控制或 SemVer 1.0 慣例](http://semver.org/spec/v1.0.0.html))。
 
 **範例：**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > nuget.org 會拒絕任何缺少的確切的版本號碼的封裝上傳。 必須在指定的版本`.nuspec`或用來建立封裝的專案檔。
@@ -67,16 +65,14 @@ ms.lasthandoff: 01/09/2018
 
 解決時封裝會參照和多個封裝版本只有不同後置詞，NuGet 首先，選擇的版本不含尾碼，然後套用至發行前版本，以反向字母順序的優先順序。 例如，下列版本本來的順序顯示：
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>2.0.0 的語意版本設定
 
@@ -92,10 +88,10 @@ ms.lasthandoff: 01/09/2018
 - 封裝自己版本是 SemVer v2.0.0 相容，但相容、 不 SemVer v1.0.0 上方所定義。
 - 所有封裝的相依性版本範圍有不相容 SemVer v2.0.0 但相容、 不 SemVer v1.0.0; 上述定義的最小值或最大版本例如， *[1.0.0-alpha.1,)*。
 
-如果您要 nuget.org 傳 SemVer v2.0.0 特定封裝，封裝是看不到舊版的用戶端，並可供 只有下列 NuGet 用戶端：
+如果您要 nuget.org 傳 SemVer v2.0.0 特定封裝，封裝是看不到舊版的用戶端，並可供 [只有下列 NuGet 用戶端：
 
 - NuGet 4.3.0+
-- Visual Studio 2017 15.3 + 版本
+- Visual Studio 2017 version 15.3+
 - Visual Studio 2015 [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (.NET SDK 2.0.0+)
 
@@ -115,7 +111,7 @@ ms.lasthandoff: 01/09/2018
 |----------|--------------|-------------|
 | 1.0 | 1.0 ≤ x | 最小版本 （含） |
 | (1.0,) | 1.0 < x | 最小版本，而獨佔式 |
-| [1.0] | x = = 1.0 | 確切的版本相符項目 |
+| [1.0] | x == 1.0 | 確切的版本相符項目 |
 | (,1.0] | x ≤ 1.0 | 最大版本，（含） |
 | (,1.0) | x < 1.0 | 最大版本，而獨佔式 |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | 確切的範圍內含 |
@@ -123,7 +119,7 @@ ms.lasthandoff: 01/09/2018
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | 混合含最小值和獨佔式最大版本 |
 | (1.0)    | 無效 | 無效 |
 
-當使用 PackageReference 或`project.json`封裝也支援使用萬用字元標記法參考格式，NuGet \*、 主要、 次要、 修補程式，和數字的發行前版本後置字元部分。 不支援萬用字元`packages.config`格式。
+使用 PackageReference 格式時，NuGet 也支援使用萬用字元標記法\*、 主要、 次要、 修補程式，和數字的發行前版本後置字元部分。 不支援萬用字元`packages.config`格式。
 
 > [!Note]
 > 解決版本範圍時，不會包含發行前版本。 發行前版本*是*包含時使用萬用字元 (\*)。 版本範圍*[1.0,2.0]*，比方說，不包括 2.0 beta 版，但萬用字元標記法_2.0-*_沒有。 請參閱[發出 912](https://github.com/NuGet/Home/issues/912)的進一步討論發行前版本萬用字元。
@@ -228,18 +224,14 @@ ms.lasthandoff: 01/09/2018
 
 - 前置的零會從版本號碼：
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - 版本號碼的第四個部分中的零，則會予以忽略
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 這個正規化不會影響封裝本身; 中的版本號碼它會影響只如何 NuGet 符合版本解析相依性時。
 

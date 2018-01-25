@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 082a96b9-607b-4225-864d-e1cea537f591
 description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.5 版本資訊。"
 keywords: "NuGet 3.5 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0a0f039d2529e1d41bbc0c7f9ac3f76f51f96ce5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="nuget-35-release-notes"></a>NuGet 3.5 版本資訊
+# <a name="nuget-35-release-notes"></a>NuGet 3.5 版本資訊
 
 [NuGet 3.5 RC 版本資訊](../release-notes/nuget-3.5-RC.md) | [NuGet 4.0 RC 版本資訊](../release-notes/nuget-4.0-RC.md)
 
@@ -145,7 +144,7 @@ ms.lasthandoff: 12/14/2017
 
 * 所有的封裝來源，但遺漏了 1 個來源，封裝 Nuget 安裝失敗- [# 2322年](https://github.com/NuGet/Home/issues/2322)
 
-* [PerfWatson]UIDelay: nuget.packagemanagement.visualstudio.dll ！NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt;&gt;c__DisplayClass_0 +&lt;&lt;AddReference&gt;b__&gt;d.MoveNext- [# 2285年](https://github.com/NuGet/Home/issues/2285)
+* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll!NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt;&gt;c__DisplayClass_0+&lt;&lt;AddReference&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
 
 * 如果單一來源授權-就會失敗，請安裝區塊[# 2034年](https://github.com/NuGet/Home/issues/2034)
 
@@ -185,7 +184,7 @@ ms.lasthandoff: 12/14/2017
 
 * nuget 套件`project.json`會忽略摘要、 作者、 等位的擁有者等 packOptions 標記[#3161](https://github.com/NuGet/Home/issues/3161)
 
-* 透過 NuGet.Packaging.PhysicalPackageFile.GetStream-NullReferenceException [#3160](https://github.com/NuGet/Home/issues/3160)
+* NullReferenceException via NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
 
 * NuGet 套件會忽略輸出中的相依性`.nuspec`如`project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
 
@@ -274,7 +273,7 @@ ms.lasthandoff: 12/14/2017
 
 * 啟用在組件-SemVer 2.0.0 [#3356](https://github.com/NuGet/Home/issues/3356)
 
-## <a name="dcrs"></a>Dcr
+## <a name="dcrs"></a>DCR
 
 * nuget.exe 推送的逾時參數無法運作- [# 2785年](https://github.com/NuGet/Home/issues/2785)
 

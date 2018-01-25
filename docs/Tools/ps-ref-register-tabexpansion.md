@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8314ec69-ee8c-4933-84ef-e6d8a412d268
 description: "在 Visual Studio 中的 NuGet 封裝管理員主控台中的暫存器 TabExpansion PowerShell 命令的參考。"
 keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，註冊 TabExpansion NuGet Powershell 參考"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 498b8638c81b800e5f20f7604b36e6af76da0283
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5691c07f9efef4bfd12680421f3b02c5a523eb6f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>暫存器 TabExpansion （在 Visual Studio 中的封裝管理員主控台）
 
@@ -33,7 +32,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 名稱 | （必要）要用來註冊擴充的命令。 -Name 參數是選擇性的。 |
 | 定義 | （必要）物件，描述語法中的引數`@{'<parameter>' = {'<value1>', '<value2>', ...}}`其中`<parameter>`是要修改的參數和每個名稱`<value>`提供特定的擴充。 接受單引號與雙引號引號。 |

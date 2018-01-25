@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 42476008-64b3-480e-a966-98b2fa38b681
 description: "取得封裝 PowerShell 命令，在 Visual Studio 中的 NuGet 封裝管理員主控台中的參考。"
 keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考資料，取得封裝"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 632936fe4dd9736f7c3740a2f763173dc725424a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c38e0da2e98d2e5bf5b4fc165462e9abcfdd73c0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>取得封裝 （在 Visual Studio 中的封裝管理員主控台）
 
@@ -83,4 +82,3 @@ Get-Package -Updates
 # Lists packages installed in a specific project that have available updates
 Get-Package -Updates -ProjectName MyProject
 ```
-

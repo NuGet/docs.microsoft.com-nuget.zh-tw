@@ -3,21 +3,20 @@ title: "NuGet 命令列介面 (CLI) 參考 |Microsoft 文件"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d777c424-0cf3-4bc0-8abd-7ca16c22192b
 description: "Nuget.exe CLI 的命令列參考索引"
 keywords: "nuget.exe 參考索引、 nuget.exe 命令列介面、 nuget.exe CLI、 nuget 命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5dba358b1dda46f551721461e0460219f8210f9a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI 參考
 
@@ -31,11 +30,16 @@ NuGet 命令列介面 (CLI) ( `nuget.exe`，提供 NuGet 功能來安裝、 建�
 
 [!INCLUDE[install-cli](../includes/install-cli.md)]
 
+> [!Tip]
+> 若要使用 NuGet CLI 封裝管理員主控台內，在 Visual Studio 中，請參閱[使用主控台中的 nuget.exe CLI](package-manager-console.md#using-the-nugetexe-cli-in-the-console)。
+
 ## <a name="availability"></a>可用性
 
+請參閱[功能可用性](../install-nuget-client-tools.md#feature-availability)的確切詳細資料。
+
 - 在 Windows 上的所有命令都都可用。
-- 所有命令都使用[nuget.exe Mono 上執行](../guides/install-nuget.md#mac-osx-and-linux)除外替`pack`， `restore`，和`update`。
-- `pack`， `restore`， `delete`， `locals`，和`push`，還有適用於 Mac 和 Linux 透過命令[dotnet CLI](dotnet-Commands.md)。
+- 所有命令都使用 nuget.exe 除了所指定的執行上 Mono `pack`， `restore`，和`update`。
+- `pack`， `restore`， `delete`， `locals`，和`push`也會提供在 Mac 和 Linux 上透過 dotnet CLI 命令。
 
 ## <a name="commands-and-applicability"></a>命令和適用性
 
@@ -47,11 +51,10 @@ NuGet 命令列介面 (CLI) ( `nuget.exe`，提供 NuGet 功能來安裝、 建�
 | [push](cli-ref-push.md) | 發佈 | 全部 | 將封裝發佈到套件來源。 |
 | [config](cli-ref-config.md) | 全部 | 全部 | 取得或設定 NuGet 組態值。 |
 | [help 或 ?](cli-ref-help.md) | 全部 | 全部 | 顯示說明資訊或命令的說明。 |
-| [locals](cli-ref-locals.md) | 使用 | 3.3+ | 清除或列出全域 packages 資料夾中，各種快取中的封裝，或識別這些資料夾。 |
+| [locals](cli-ref-locals.md) | 使用 | 3.3+ | 清除或列出全域 packages] 資料夾中，各種快取中的封裝，或識別這些資料夾。 |
 | [restore](cli-ref-restore.md) | 使用 | 2.7+ | 還原使用中的封裝參考格式所參考的所有封裝。 單聲道上執行時，不支援還原使用 PackageReference 格式的封裝。 |
 | [setapikey](cli-ref-setapikey.md) | 發佈、 耗用量 | 全部 | 儲存該封裝來源需要索引鍵存取的 API 金鑰指定的套件來源。 |
 | [spec](cli-ref-spec.md) | 建立 | 全部 | 會產生`.nuspec`檔案，如果從 Visual Studio 專案中產生檔案，請使用語彙基元。 |
-
 
 | 第二個命令 | 適用的角色 | NuGet 版本 | 描述 |
 | --- | --- | --- | --- |

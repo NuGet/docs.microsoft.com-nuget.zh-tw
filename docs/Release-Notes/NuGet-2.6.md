@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.6 版本資訊。"
 keywords: "NuGet 2.6 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 版本資訊
 
@@ -38,7 +37,7 @@ NuGet 2.6 是第一次釋放所提供的 Visual Studio 2013 的支援。 和 Vis
 1. [NuGet 套件管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager)（適用於 Visual Studio 2010 和 2012年）
 1. [Visual Studio 2013 的 NuGet 封裝管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-此分割中， [nuget.org](https://nuget.org)首頁的 「 安裝 NuGet 」 按鈕將立即帶您到[安裝 NuGet](../guides/install-nuget.md)頁面上，您可以在何處安裝不同的 NuGet 用戶端的相關資訊。
+此分割中， [nuget.org](https://nuget.org)首頁的 「 安裝 NuGet"按鈕會帶您前往[安裝 NuGet](../install-nuget-client-tools.md)頁面上，您可以在何處安裝不同的 NuGet 用戶端的相關資訊。
 
 <a name="xdt"></a>
 
@@ -71,8 +70,8 @@ NuGet 2.6 延伸設定 NuGet 搜尋路徑 %programdata%/nuget/config 下的資�
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
-3. %ProgramData%\NuGet\Config\{IDE}\{版本}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{版本}\{SKU}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
 在此清單中，以便在 Visual Studio 中，它將會是"VisualStudio"，為特定 NuGet 執行中，在 IDE {IDE} 預留位置。 {版本} 和 {SKU} 預留位置 （例如提供 IDE"11.0"和"WDExpress"、"VWDExpress 」 和 「 Pro"，分別)。 資料夾可以再包含許多不同的 *.config 檔案。
 因此，ACME 元件公司可以其產品安裝程式的過程中，加入自訂的套件來源將會是檢視只能在 Visual Studio 2012 Professional 和 Ultimate 版本中建立下列檔案路徑：
@@ -101,11 +100,11 @@ Visual Studio 2013 中，檔案會安裝在使用這項功能：
 從 NuGet 2.6，現在會將資料傳送為安裝操作。  封裝在 NuGet Gallery 上的統計資料會公開做為個別的安裝作業，該資料與 「-相依性"後置詞。
 
 * 安裝
-* 安裝相依性
+* Install-Dependency
 * 更新
-* 更新相依性
+* Update-Dependency
 * 重新安裝
-* 重新安裝相依性
+* Reinstall-Dependency
 
 除了不同的作業名稱，也會針對安裝記錄相依的套件識別碼。  在 NuGet Gallery 的未來更新將會公開在報表中，可讓封裝作者以充分了解如何開發人員要安裝其封裝資料。
 

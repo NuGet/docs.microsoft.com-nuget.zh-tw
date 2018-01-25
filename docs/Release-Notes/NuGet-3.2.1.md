@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d27c3bb9-8db1-439a-a134-54e20b7a7766
 description: "版本資訊包含 NuGet 3.2.1 已知問題、 錯誤修正、 新增的功能，以及 Dcr。"
 keywords: "NuGet 3.2.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b2001d9518a34bbd5f2879de6123ec13abf4ae08
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c9c2457c33eb3630f632c98bf0cf96703c3a548
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-321-release-notes"></a>NuGet 3.2.1 版本資訊
 

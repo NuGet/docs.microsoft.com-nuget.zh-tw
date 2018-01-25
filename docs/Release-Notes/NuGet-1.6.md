@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ed433790-99bf-4b71-92a8-17314bd49867
 description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.6 版的版本資訊。"
 keywords: "NuGet 1.6 的版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7824d62cb73c54205175ec742cfc26d1ca3aa741
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
  # <a name="nuget-16-release-notes"></a>NuGet 1.6 版的版本資訊
 
@@ -28,7 +27,7 @@ NuGet 1.6 已於 2011 年 12 月 13 日發行。
 ## <a name="known-installation-issue"></a>已知的安裝問題
 如果您正在執行 VS 2010 SP1，您可能會遇到安裝錯誤時嘗試升級 NuGet，如果您有安裝較舊的版本。
 
-因應措施是只要解除安裝 NuGet，然後再從 VS 擴充功能庫進行安裝。  請參閱[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)如需詳細資訊。
+因應措施是只要解除安裝 NuGet，然後再從 VS 擴充功能庫進行安裝。  如需詳細資訊，請參閱 [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)。
 
 注意： 如果 Visual Studio 不會允許您解除安裝 （解除安裝 按鈕會停用） 的延伸模組，則您可能需要重新啟動 Visual Studio 中使用 「 以系統管理員身分執行 」。
 

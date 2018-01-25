@@ -7,7 +7,6 @@ ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 62f6962b-7b84-4452-ae0d-a9e1ef1fc6f0
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
@@ -18,11 +17,11 @@ keywords: "NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39ce53184755887c419c8872148a6c13dc2c65ec
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 0ff60c3cecee5fd9b7f698d2abed7553f5d89c1d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 封裝管理員 UI
 
@@ -30,12 +29,12 @@ ms.lasthandoff: 01/10/2018
 
 本主題內容：
 
-- [尋找和安裝封裝 （瀏覽 索引標籤）](#finding-and-installing-a-package)
-- [解除安裝封裝 （已安裝 索引標籤）](#uninstalling-a-package)
+- [尋找和安裝封裝 （瀏覽] 索引標籤）](#finding-and-installing-a-package)
+- [解除安裝封裝 （已安裝] 索引標籤）](#uninstalling-a-package)
 - [更新封裝 （已安裝與更新索引標籤）](#updating-a-package) (包括["隱含參考 sdk"或"AutoReferenced 」 訊息](#implicit_reference))
 - [管理解決方案套件](#managing-packages-for-the-solution)（在同一時間方式處理多個專案）。
 - [封裝來源](#package-sources)
-- [封裝管理員選項 控制項](#package-manager-options-control)
+- [封裝管理員選項] 控制項](#package-manager-options-control)
 
 > [!Note]
 > 如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中，檢查**工具 > 擴充功能和更新...**並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，下載擴充功能直接從[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)。
@@ -46,13 +45,13 @@ ms.lasthandoff: 01/10/2018
 
 1. 在**方案總管] 中**，以滑鼠右鍵按一下 [**參考**或專案，然後選取**管理 NuGet 封裝...**.
 
-    ![管理 NuGet 封裝 功能表選項](media/ManagePackagesUICommand.png)
+    ![管理 NuGet 封裝] 功能表選項](media/ManagePackagesUICommand.png)
 
 1. **瀏覽**索引標籤會顯示受歡迎情況看出從目前選取的來源封裝 (請參閱[封裝來源](#package-sources))。 搜尋特定的封裝，使用在左上方的 [搜尋] 方塊。 封裝從清單選取以顯示其資訊，也可讓**安裝**版本選取項目下拉式清單以及按鈕。
 
-    ![管理 NuGet 套件對話方塊瀏覽 索引標籤](media/Search.png)
+    ![管理 NuGet 套件對話方塊瀏覽] 索引標籤](media/Search.png)
 
-1. 從下拉式清單選取所需的版本，然後選取**安裝**。 Visual Studio 會將封裝和其相依性安裝到專案。 系統可能會要求您接受授權條款。 已加入的套件安裝完成時，出現在**已安裝** 索引標籤。封裝也會列在**參考**節點的 方案總管 中，表示您可以在專案中有參考它們`using`陳述式。
+1. 從下拉式清單選取所需的版本，然後選取**安裝**。 Visual Studio 會將封裝和其相依性安裝到專案。 系統可能會要求您接受授權條款。 已加入的套件安裝完成時，出現在**已安裝**] 索引標籤。封裝也會列在**參考**節點的 [方案總管] 中，表示您可以在專案中有參考它們`using`陳述式。
 
     ![在 [方案總管] 的參考](media/References.png)
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 01/10/2018
 ## <a name="uninstalling-a-package"></a>解除安裝封裝
 
 1. 在**方案總管] 中**，以滑鼠右鍵按一下 [**參考**或所需的專案，然後選取**管理 NuGet 封裝...**.
-1. 選取**已安裝** 索引標籤。
+1. 選取**已安裝**] 索引標籤。
 1. 選取要解除安裝 （使用搜尋來篩選清單，如有必要） 的套件，然後選取**解除安裝**。
 
     ![解除安裝封裝](media/UninstallPackage.png)
@@ -82,7 +81,7 @@ ms.lasthandoff: 01/10/2018
     ![範例封裝標示為隱含參考或 AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 
 1. 若要為其最新版本更新多個封裝，選取這些清單並選取**更新**清單上方的按鈕。
-1. 您也可以更新從個別封裝**已安裝** 索引標籤。在此情況下，封裝的詳細資料包含版本選取器 (受**包含發行前版本**選項) 和**更新** 按鈕。
+1. 您也可以更新從個別封裝**已安裝**] 索引標籤。在此情況下，封裝的詳細資料包含版本選取器 (受**包含發行前版本**選項) 和**更新**] 按鈕。
 
 ## <a name="managing-packages-for-the-solution"></a>管理方案套件
 
@@ -106,15 +105,15 @@ ms.lasthandoff: 01/10/2018
 
 - 選取要更新專案清單中的專案。
 - 選取要使用所有這些專案中的版本**版本**控制權，例如 EntityFramework 6.2.0。
-- 選取**安裝** 按鈕。
+- 選取**安裝**] 按鈕。
 
-封裝管理員安裝到所有選取的專案，在其後封裝不會再出現在選取的封裝版本**合併彙算** 索引標籤。
+封裝管理員安裝到所有選取的專案，在其後封裝不會再出現在選取的封裝版本**合併彙算**] 索引標籤。
 
 ## <a name="package-sources"></a>封裝來源
 
 若要變更 Visual Studio 將會從中取得封裝的來源，請選取從來源選取器的其中一個：
 
-![封裝管理員 UI 中的 封裝來源選取器](media/PackageSourceDropDown.png)
+![封裝管理員 UI 中的 [封裝來源選取器](media/PackageSourceDropDown.png)
 
 若要管理的封裝來源：
 
@@ -126,18 +125,18 @@ ms.lasthandoff: 01/10/2018
 
     ![封裝來源選項](media/options.png)
 
-1. 若要新增為來源，請選取 **+** 、 編輯名稱、 輸入的路徑或 URL**來源**控制項，然後選取**更新**。 來源現在會出現在選取器下拉式清單中。
+1. 若要新增為來源，請選取** + **、 編輯名稱、 輸入的路徑或 URL**來源**控制項，然後選取**更新**。 來源現在會出現在選取器下拉式清單中。
 1. 若要變更的封裝來源，請選取它，進行中的編輯**名稱**和**來源**方塊，然後選取**更新**。
 1. 若要停用封裝來源，請清除方塊左邊的清單中的名稱。
-1. 若要移除的封裝來源，加以選取，然後選取**X**  按鈕。
+1. 若要移除的封裝來源，加以選取，然後選取**X** ] 按鈕。
 1. 使用向上和向下箭號按鈕以變更的封裝來源的優先順序。 還原專案的封裝時，visual Studio 會搜尋這些來源中的優先順序。 如需詳細資訊，請參閱[封裝還原](../Consume-Packages/Package-Restore.md)。
 
 > [!Tip]
 > 如果套件來源再次出現之後刪除它，它可能會列在電腦層級或使用者層級`NuGet.Config`檔案。 請參閱[設定 NuGet 行為](../Consume-Packages/Configuring-NuGet-Behavior.md)針對這些檔案的位置，然後移除來源以手動方式編輯檔案，或使用[nuget 來源命令](../tools/nuget-exe-CLI-reference.md)。
 
-## <a name="package-manager-options-control"></a>封裝管理員選項 控制項
+## <a name="package-manager-options-control"></a>封裝管理員選項] 控制項
 
-選取封裝時，「 封裝管理員 」 UI 會顯示小，可展開**選項**下方 （如下所示同時摺疊和展開） 版本選擇器控制項。 請注意，某些專案類型，例如.NET Core 和那些使用`project.json`參考格式，只有**顯示預覽視窗**提供選項。
+選取封裝時，「 封裝管理員 」 UI 會顯示小，可展開**選項**下方 （如下所示同時摺疊和展開） 版本選擇器控制項。 請注意，某些專案類型，才**顯示預覽視窗**提供選項。
 
 ![封裝管理員選項](media/PackageManagerUIOptions.png)
 
@@ -164,7 +163,7 @@ ms.lasthandoff: 01/10/2018
 - *最高次要*安裝的版本具有相同主要版本號碼，但最高次要號碼和修補程式數目。 如果指定 1.2.2 版本，然後以 1 為開頭的最高版本將會安裝
 - *最高*安裝封裝的最新可用版本。
 
-**檔案衝突 動作**指定 NuGet 應該如何處理已經存在於專案或本機電腦的封裝：
+**檔案衝突] 動作**指定 NuGet 應該如何處理已經存在於專案或本機電腦的封裝：
 
 - *提示*指示 NuGet 詢問是否要保留或覆寫現有的封裝。
 - *忽略以上所有*指示 NuGet 略過覆寫任何現有的封裝。
