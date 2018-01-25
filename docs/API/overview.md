@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 description: "NuGet API 是一組可用來下載套件、 擷取中繼資料，發佈新的封裝、 等等的 HTTP 端點。"
 keywords: "NuGet V3 API、 NuGet V2 API、 NuGet JSON、 NuGet 登錄應用程式開發介面，NuGet API 一般容器、 NuGet nupkg API、 NuGet 中繼資料 API、 NuGet 搜尋應用程式開發介面、 NuGet 推入應用程式開發介面，NuGe 發佈 API、 NuGet 刪除應用程式開發介面、 NuGet unlist API 的 NuGet 通訊協定"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>NuGet 的 API
 
@@ -113,8 +112,8 @@ DELETE | 刪除或 unlists 資源。
 名稱                     | 描述
 ------------------------ | -----------
 X-NuGet-ApiKey           | 所需推入和刪除，請參閱[`PackagePublish`資源](package-publish-resource.md)
-X NuGet 的用戶端版本   | **已被取代**而被取代`X-NuGet-Protocol-Version`
-X NuGet 的通訊協定版本 | 在某些情況下，只在 nuget.org 的需要，請參閱[nuget.org 通訊協定](NuGet-Protocols.md)
+X-NuGet-Client-Version   | **已被取代**而被取代`X-NuGet-Protocol-Version`
+X-NuGet-Protocol-Version | 在某些情況下，只在 nuget.org 的需要，請參閱[nuget.org 通訊協定](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>驗證
 
