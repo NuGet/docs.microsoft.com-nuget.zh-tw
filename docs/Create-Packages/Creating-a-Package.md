@@ -1,4 +1,4 @@
----
+﻿---
 title: "如何建立 NuGet 套件 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
@@ -192,7 +192,7 @@ nuget locals -list global-packages
 | runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件會新增為參考；其他檔案則會複製至專案資料夾。 請參閱[支援多個目標架構](Supporting-Multiple-Target-Frameworks.md)。 |
 | content | 任意檔案 | 內容會複製至專案根目錄。 請將 **content** 資料夾視為最後使用套件的目標應用程式的根目錄。 若要讓套件在應用程式的 */images* 資料夾中新增映像，請將它放在套件的 *content/images* 資料夾中。 |
 | build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入專案檔 (NuGet 2.x) 或 `project.lock.json` (NuGet 3.x+) 中。 |
-| tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時*「不」*會新增至針對 MSBuild 所設定的 `PATH`)。 |
+| tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時「不」會新增至針對 MSBuild 所設定的 `PATH`)。 |
 
 因為您的資料夾結構可以包含任意數目之目標架構的任意數目組件，所以建立可支援多個架構的套件時需要這種方法 
 
