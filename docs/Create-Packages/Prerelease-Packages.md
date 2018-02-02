@@ -3,21 +3,20 @@ title: "NuGet 套件中的發行前版本 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: df6a366a-22c1-47bb-8017-18231311ce88
 description: "建置發行前版本套件的指引"
 keywords: "版本控制, NuGet 套件版本控制, NuGet 發行前版本, NuGet 發行前版本套件, 預覽套件版本, RC 套件版本, 搶鮮版 (Beta) 套件版本, NuGet 語意版本控制"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07cb9b9bdeeea6f283e95a11a06d7f2043c9b17c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -47,7 +46,6 @@ ms.lasthandoff: 12/14/2017
 
 當您準備好要發行穩定版本時，只要移除尾碼，套件就會優先於任何發行前版本。 請再次參考[套件版本控制](../reference/package-versioning.md#pre-release-versions)。
 
-
 ## <a name="installing-and-updating-pre-release-packages"></a>安裝和更新發行前版本套件
 
 NuGet 使用套件時預設不包含發行前版本，但是您可以如下所示變更此行為：
@@ -61,7 +59,6 @@ NuGet 使用套件時預設不包含發行前版本，但是您可以如下所�
 - **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../tools/powershell-reference.md)。
 
 - **NuGet CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 和 `mirror` 命令。 請參閱 [NuGet CLI 參考](../tools/nuget-exe-cli-reference.md)
-
 
 ## <a name="semantic-versioning"></a>語意版本控制
 
@@ -86,16 +83,14 @@ NuGet 使用套件時預設不包含發行前版本，但是您可以如下所�
 
 但無論使用什麼樣的尾碼，NuGet 都會以反向字母順序給予它們優先權：
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta12
-1.0.1-beta05
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta12
+    1.0.1-beta05
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
 
 如範例所示，不含任何尾碼的版本一律優先於發行前版本。 另請注意，如果您使用數值尾碼和可能使用兩位數 (或以上) 數字的發行前版本標籤，請和 beta01 及 beta05 一樣前面加零，以確保數字變大時正確排序。

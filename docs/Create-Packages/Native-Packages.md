@@ -3,21 +3,20 @@ title: "建立原生 NuGet 套件 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 7a70d748-efe2-4f8f-a3fd-67ddb0f6214e
 description: "建立包含 C++ 程式碼而非受控程式碼的原生 NuGet 套件，供 C++ 專案使用的詳細資料。"
 keywords: "NuGet 原生套件, NuGet C++ 套件, 原生程式碼套件, 以 C++ 專案為目標"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fa5baaa6ecbad0f5f6dd85d657679ffbbbc8a47a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 71f4eca411d520630ca7d77165b8f03cd32af290
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="creating-native-packages"></a>建立原生套件
 

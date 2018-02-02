@@ -7,18 +7,17 @@ ms.date: 08/25/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 97577ddd-c294-432d-81a7-b4aebe88bd1c
 description: "在本機或遠端開啟裝載您自己的 NuGet 套件摘要或資源庫的概觀。"
 keywords: "NuGet 摘要, NuGet 資源庫, 自訂套件摘要, NuGet.Server"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: c3c6b17cdeb4fe959adbc56bdc6ace73202a98fc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 738190e20603046d075faa3f50402601890583c1
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>裝載您自己的 NuGet 摘要
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 針對所有這類用途，NuGet 以下列方式支援設定私用的套件來源：
 
 - 本機摘要：套件只位於適當的網路檔案共用，最好使用 `nuget init` 和 `nuget add`，以建立階層式資料夾結構 (NuGet 3.3+)。 如需詳細資料，請參閱[本機摘要](../hosting-packages/local-feeds.md)。
-- NuGet.Server：套件可以透過本機 HTTP 伺服器提供。 如需詳細資料，請參閱 [NuGet.Server](../hosting-packages/NuGet-Server.md)。
+- NuGet.Server：套件可以透過本機 HTTP 伺服器提供。 如需詳細資料，請參閱 [NuGet.Server](../hosting-packages/nuget-server.md)。
 - NuGet 資源庫：套件裝載在使用 [NuGet 資源庫專案](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps)的網際網路伺服器上 (github.com)。 NuGet 資源庫讓使用者能夠管理及使用功能，例如大量 web UI，在瀏覽器中搜尋和瀏覽套件，類似 nuget.org。
 
 另外還有數個 NuGet 裝載產品支援遠端私用摘要，包括：

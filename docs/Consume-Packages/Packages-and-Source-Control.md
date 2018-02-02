@@ -3,21 +3,20 @@ title: "NuGet 套件和原始檔控制 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2c874e6f-99eb-46dd-997f-f67d98d0237e
 description: "如何在版本設定和原始檔控制系統內處理 NuGet 套件的考量，以及如何以 git 和 TFVC 省略套件。"
 keywords: "NuGet 原始檔控制, NuGet 版本設定, NuGet 和 git, NuGet 和 TFS, NuGet 和 TFVC, 省略套件, 原始檔控制存放庫, 版本設定存放庫"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c73dea74f2363f49fb476a5812c29de63fec89a3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>在原始檔控制系統中省略 NuGet 套件
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 12/14/2017
 
 `.gitignore` 檔案的重要部分為：
 
-```
+```gitignore
 # Ignore NuGet Packages
 *.nupkg
 
@@ -70,7 +69,7 @@ project.assets.json
 
 1. 在該資料夾中，建立名為 `NuGet.Config` 的檔案，再開啟進行編輯。
 
-1. 新增下列文字作為最小值，其中 [disableSourceControlIntegration](../Schema/nuget-config-file.md#solution-section) 設定會指示 Visual Studio 略過 `packages` 資料夾中的所有內容：
+1. 新增下列文字作為最小值，其中 [disableSourceControlIntegration](../reference/nuget-config-file.md#solution-section) 設定會指示 Visual Studio 略過 `packages` 資料夾中的所有內容：
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -85,9 +84,9 @@ project.assets.json
 
 1. 在 TFS 2012 或更新版本，或使用 Visual Studio Team Services 的版本上，依[新增檔案到伺服器](https://www.visualstudio.com/en-us/docs/tfvc/add-files-server#tfignore)所述建立 `.tfignore` 檔案。 在該檔案中納入以下內容，明確忽略在存放庫層級和其他幾個中繼檔案中對 `\packages` 資料夾的修改。 (您可以在 Windows 檔案總管中，使用 `.tfignore.` 加結尾後置點的名稱來建立檔案，但可能需要先停用 [Hide known file extensions] \(隱藏已知副檔名) 選項。)：
 
-   ```
+   ```cli
    # Ignore NuGet Packages
-   *.nupkg   
+   *.nupkg
 
    # Ignore the NuGet packages folder in the root of the repository. If needed, prefix 'packages'
    # with additional folder names if it's not in the same folder as .tfignore.   
