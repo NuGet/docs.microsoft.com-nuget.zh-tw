@@ -13,12 +13,12 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: ff143526c814c69f1a133a62c1ad1a8f5fbedd60
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>驗證 [Visual Studio 中搭配 NuGet 認證提供者使用的摘要
+# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>驗證 Visual Studio 中搭配 NuGet 認證提供者使用的摘要
 
 NuGet Visual Studio 擴充功能 3.6 + 支援認證提供者，可讓已驗證的摘要所使用的 NuGet。
 安裝 Visual Studio 的 NuGet 認證提供者之後，Visual Studio 擴充功能會自動取得，並重新整理的已驗證的摘要，視需要的認證。
@@ -49,7 +49,7 @@ NuGet Visual Studio 擴充功能 3.6 + 會實作內部 CredentialService 用來�
 1. 認證將會提取從 NuGet 組態檔 (使用內建`SettingsCredentialProvider`)。
 1. 如果套件來源位於 Visual Studio Team Services，`VisualStudioAccountProvider`將使用。
 1. 所有其他外掛程式的認證提供者會嘗試依序。
-1. 如果已取得不含認證的資訊，將會提示使用者輸入認證，使用標準的基本驗證] 對話方塊。
+1. 如果已取得不含認證的資訊，將會提示使用者輸入認證，使用標準的基本驗證 對話方塊。
 
 ### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>實作 IVsCredentialProvider.GetCredentialsAsync
 

@@ -13,10 +13,10 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 版本資訊
 
@@ -76,7 +76,7 @@ NuGet 2.8 已於 2014 年 1 月 29 日發行。
 
 ## <a name="preview-nuget-operations-with--whatif"></a>預覽 NuGet 作業與-whatif
 
-部分 NuGet 封裝可以有深入的相依性圖形，而在這種情況，它可以在安裝期間會有幫助、 解除安裝或更新作業來第一次看到 [會發生什麼事。 NuGet 2.8 將標準的 PowerShell-whatif 參數新增至安裝套件、 解除安裝套件和更新套件的命令，以啟用視覺化的封裝命令將套用的整個終止。 例如，執行`install-package Microsoft.AspNet.WebApi -whatif`空的 ASP.NET Web 應用程式會產生下列。
+部分 NuGet 封裝可以有深入的相依性圖形，而在這種情況，它可以在安裝期間會有幫助、 解除安裝或更新作業來第一次看到 會發生什麼事。 NuGet 2.8 將標準的 PowerShell-whatif 參數新增至安裝套件、 解除安裝套件和更新套件的命令，以啟用視覺化的封裝命令將套用的整個終止。 例如，執行`install-package Microsoft.AspNet.WebApi -whatif`空的 ASP.NET Web 應用程式會產生下列。
 
     PM> install-package Microsoft.AspNet.WebApi -whatif
     Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.

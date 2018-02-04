@@ -13,10 +13,10 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI 參考
 
@@ -51,7 +51,7 @@ NuGet 命令列介面 (CLI) ( `nuget.exe`，提供 NuGet 功能來安裝、 建�
 | [push](cli-ref-push.md) | 發佈 | 全部 | 將封裝發佈到套件來源。 |
 | [config](cli-ref-config.md) | 全部 | 全部 | 取得或設定 NuGet 組態值。 |
 | [help 或 ?](cli-ref-help.md) | 全部 | 全部 | 顯示說明資訊或命令的說明。 |
-| [locals](cli-ref-locals.md) | 使用 | 3.3+ | 清除或列出全域 packages] 資料夾中，各種快取中的封裝，或識別這些資料夾。 |
+| [locals](cli-ref-locals.md) | 使用 | 3.3+ | 清除或列出全域 packages 資料夾中，各種快取中的封裝，或識別這些資料夾。 |
 | [restore](cli-ref-restore.md) | 使用 | 2.7+ | 還原使用中的封裝參考格式所參考的所有封裝。 單聲道上執行時，不支援還原使用 PackageReference 格式的封裝。 |
 | [setapikey](cli-ref-setapikey.md) | 發佈、 耗用量 | 全部 | 儲存該封裝來源需要索引鍵存取的 API 金鑰指定的套件來源。 |
 | [spec](cli-ref-spec.md) | 建立 | 全部 | 會產生`.nuspec`檔案，如果從 Visual Studio 專案中產生檔案，請使用語彙基元。 |
