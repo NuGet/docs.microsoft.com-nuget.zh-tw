@@ -13,24 +13,24 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: ace56284e56f24394d49c0598ec3604b62caaf67
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="nuget-285-release-notes"></a><span data-ttu-id="22e75-104">NuGet 2.8.5 版本資訊</span><span class="sxs-lookup"><span data-stu-id="22e75-104">NuGet 2.8.5 Release Notes</span></span>
+# <a name="nuget-285-release-notes"></a><span data-ttu-id="693ab-104">NuGet 2.8.5 版本資訊</span><span class="sxs-lookup"><span data-stu-id="693ab-104">NuGet 2.8.5 Release Notes</span></span>
 
-<span data-ttu-id="22e75-105">[NuGet 2.8.3 版本資訊](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 版本資訊](../release-notes/nuget-2.8.6.md)</span><span class="sxs-lookup"><span data-stu-id="22e75-105">[NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md)</span></span>
+<span data-ttu-id="693ab-105">[NuGet 2.8.3 版本資訊](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 版本資訊](../release-notes/nuget-2.8.6.md)</span><span class="sxs-lookup"><span data-stu-id="693ab-105">[NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md)</span></span>
 
-<span data-ttu-id="22e75-106">NuGet 2.8.5 2015 年 3 月 30 日發行。</span><span class="sxs-lookup"><span data-stu-id="22e75-106">NuGet 2.8.5 was released March 30, 2015.</span></span> <span data-ttu-id="22e75-107">它是次要更新某些 VSIX 設為我們 2.8.3 目標修正程式。</span><span class="sxs-lookup"><span data-stu-id="22e75-107">It is a minor update to our 2.8.3 VSIX with some targeted fixes.</span></span>
+<span data-ttu-id="693ab-106">NuGet 2.8.5 2015 年 3 月 30 日發行。</span><span class="sxs-lookup"><span data-stu-id="693ab-106">NuGet 2.8.5 was released March 30, 2015.</span></span> <span data-ttu-id="693ab-107">它是次要更新某些 VSIX 設為我們 2.8.3 目標修正程式。</span><span class="sxs-lookup"><span data-stu-id="693ab-107">It is a minor update to our 2.8.3 VSIX with some targeted fixes.</span></span>
 
-<span data-ttu-id="22e75-108">在本版中的 NuGet 封裝管理員 新增的支援[DNX 目標 Framework Moniker](https://github.com/aspnet/dnx)。</span><span class="sxs-lookup"><span data-stu-id="22e75-108">In this release, the support for NuGet Package Manager dialog was added for [DNX Target Framework Monikers](https://github.com/aspnet/dnx).</span></span>  <span data-ttu-id="22e75-109">這些新的 framework moniker 的支援包括：</span><span class="sxs-lookup"><span data-stu-id="22e75-109">These new framework monikers that are supported include:</span></span>
+<span data-ttu-id="693ab-108">在本版中的 NuGet 封裝管理員 新增的支援[DNX 目標 Framework Moniker](https://github.com/aspnet/dnx)。</span><span class="sxs-lookup"><span data-stu-id="693ab-108">In this release, the support for NuGet Package Manager dialog was added for [DNX Target Framework Monikers](https://github.com/aspnet/dnx).</span></span>  <span data-ttu-id="693ab-109">這些新的 framework moniker 的支援包括：</span><span class="sxs-lookup"><span data-stu-id="693ab-109">These new framework monikers that are supported include:</span></span>
 
-* <span data-ttu-id="22e75-110">**core50** -'base' 的目標 framework moniker (TFM) 和核心 CLR 相容。</span><span class="sxs-lookup"><span data-stu-id="22e75-110">**core50** - A 'base' target framework moniker (TFM) that is compatible with the Core CLR.</span></span>
-* <span data-ttu-id="22e75-111">**dnx452** -使用完整 4.5.2 TFM DNX 為基礎的特定應用程式的 framework 版本</span><span class="sxs-lookup"><span data-stu-id="22e75-111">**dnx452** - A TFM specific to DNX-based apps using the full 4.5.2 version of the framework</span></span>
-* <span data-ttu-id="22e75-112">**dnx46** -使用 framework 完整 4.6 版 TFM DNX 為基礎的特定應用程式</span><span class="sxs-lookup"><span data-stu-id="22e75-112">**dnx46** - A TFM specific to DNX-based apps using the full 4.6 version of the framework</span></span>
-* <span data-ttu-id="22e75-113">**dnxcore50** -A TFM DNX 為基礎的特定應用程式使用 framework Core 5.0 版</span><span class="sxs-lookup"><span data-stu-id="22e75-113">**dnxcore50** - A TFM specific to DNX-based apps using the Core 5.0 version of the framework</span></span>
+* <span data-ttu-id="693ab-110">**core50** -'base' 的目標 framework moniker (TFM) 和核心 CLR 相容。</span><span class="sxs-lookup"><span data-stu-id="693ab-110">**core50** - A 'base' target framework moniker (TFM) that is compatible with the Core CLR.</span></span>
+* <span data-ttu-id="693ab-111">**dnx452** -使用完整 4.5.2 TFM DNX 為基礎的特定應用程式的 framework 版本</span><span class="sxs-lookup"><span data-stu-id="693ab-111">**dnx452** - A TFM specific to DNX-based apps using the full 4.5.2 version of the framework</span></span>
+* <span data-ttu-id="693ab-112">**dnx46** -使用 framework 完整 4.6 版 TFM DNX 為基礎的特定應用程式</span><span class="sxs-lookup"><span data-stu-id="693ab-112">**dnx46** - A TFM specific to DNX-based apps using the full 4.6 version of the framework</span></span>
+* <span data-ttu-id="693ab-113">**dnxcore50** -A TFM DNX 為基礎的特定應用程式使用 framework Core 5.0 版</span><span class="sxs-lookup"><span data-stu-id="693ab-113">**dnxcore50** - A TFM specific to DNX-based apps using the Core 5.0 version of the framework</span></span>
 
-<span data-ttu-id="22e75-114">一個 bug 已修正無法正確安裝到 FSharp 專案無法在封裝：</span><span class="sxs-lookup"><span data-stu-id="22e75-114">One bug was fixed that prevented packages from installing into FSharp projects properly:</span></span>
+<span data-ttu-id="693ab-114">一個 bug 已修正無法正確安裝到 FSharp 專案無法在封裝：</span><span class="sxs-lookup"><span data-stu-id="693ab-114">One bug was fixed that prevented packages from installing into FSharp projects properly:</span></span>
 
-<span data-ttu-id="22e75-115">https://nuget.codeplex.com/workitem/4400</span><span class="sxs-lookup"><span data-stu-id="22e75-115">https://nuget.codeplex.com/workitem/4400</span></span>
+<span data-ttu-id="693ab-115">https://nuget.codeplex.com/workitem/4400</span><span class="sxs-lookup"><span data-stu-id="693ab-115">https://nuget.codeplex.com/workitem/4400</span></span>

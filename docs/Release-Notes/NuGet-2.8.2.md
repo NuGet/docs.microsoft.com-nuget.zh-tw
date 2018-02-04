@@ -13,42 +13,42 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: f50bd1f0c981ef293a4d2ff425e0dffbdf58036c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="nuget-282-release-notes"></a><span data-ttu-id="76702-104">NuGet 2.8.2 版本資訊</span><span class="sxs-lookup"><span data-stu-id="76702-104">NuGet 2.8.2 Release Notes</span></span>
+# <a name="nuget-282-release-notes"></a><span data-ttu-id="016cc-104">NuGet 2.8.2 版本資訊</span><span class="sxs-lookup"><span data-stu-id="016cc-104">NuGet 2.8.2 Release Notes</span></span>
 
-<span data-ttu-id="76702-105">[NuGet 2.8.1 版本資訊](../release-notes/nuget-2.8.1.md) | [NuGet 2.8.3 版本資訊](../release-notes/nuget-2.8.3.md)</span><span class="sxs-lookup"><span data-stu-id="76702-105">[NuGet 2.8.1 Release Notes](../release-notes/nuget-2.8.1.md) | [NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md)</span></span>
+<span data-ttu-id="016cc-105">[NuGet 2.8.1 版本資訊](../release-notes/nuget-2.8.1.md) | [NuGet 2.8.3 版本資訊](../release-notes/nuget-2.8.3.md)</span><span class="sxs-lookup"><span data-stu-id="016cc-105">[NuGet 2.8.1 Release Notes](../release-notes/nuget-2.8.1.md) | [NuGet 2.8.3 Release Notes](../release-notes/nuget-2.8.3.md)</span></span>
 
-<span data-ttu-id="76702-106">NuGet 2.8.2 已於 2014 年 22 日發行。</span><span class="sxs-lookup"><span data-stu-id="76702-106">NuGet 2.8.2 was released on May 22, 2014.</span></span>  <span data-ttu-id="76702-107">此版本僅包含變更 nuget.exe 命令列、 NuGet.Server 套件以及其他 NuGet 封裝。</span><span class="sxs-lookup"><span data-stu-id="76702-107">This release only included changes to the nuget.exe command-line, the NuGet.Server package and other NuGet packages.</span></span>  <span data-ttu-id="76702-108">更新 Visual Studio 擴充功能或 WebMatrix 的擴充功能未包含版本。</span><span class="sxs-lookup"><span data-stu-id="76702-108">The release did not include an updated Visual Studio extension or WebMatrix extension.</span></span>
+<span data-ttu-id="016cc-106">NuGet 2.8.2 已於 2014 年 22 日發行。</span><span class="sxs-lookup"><span data-stu-id="016cc-106">NuGet 2.8.2 was released on May 22, 2014.</span></span>  <span data-ttu-id="016cc-107">此版本僅包含變更 nuget.exe 命令列、 NuGet.Server 套件以及其他 NuGet 封裝。</span><span class="sxs-lookup"><span data-stu-id="016cc-107">This release only included changes to the nuget.exe command-line, the NuGet.Server package and other NuGet packages.</span></span>  <span data-ttu-id="016cc-108">更新 Visual Studio 擴充功能或 WebMatrix 的擴充功能未包含版本。</span><span class="sxs-lookup"><span data-stu-id="016cc-108">The release did not include an updated Visual Studio extension or WebMatrix extension.</span></span>
 
-## <a name="notable-updates"></a><span data-ttu-id="76702-109">值得注意的更新</span><span class="sxs-lookup"><span data-stu-id="76702-109">Notable Updates</span></span>
+## <a name="notable-updates"></a><span data-ttu-id="016cc-109">值得注意的更新</span><span class="sxs-lookup"><span data-stu-id="016cc-109">Notable Updates</span></span>
 
-<span data-ttu-id="76702-110">最值得注意的更新已在命令列 nuget.exe 和 NuGet.Server （適用於封裝自我裝載的 NuGet 摘要）。</span><span class="sxs-lookup"><span data-stu-id="76702-110">The most notable updates were in the nuget.exe command-line and the NuGet.Server package (for self-hosted NuGet feeds).</span></span>
+<span data-ttu-id="016cc-110">最值得注意的更新已在命令列 nuget.exe 和 NuGet.Server （適用於封裝自我裝載的 NuGet 摘要）。</span><span class="sxs-lookup"><span data-stu-id="016cc-110">The most notable updates were in the nuget.exe command-line and the NuGet.Server package (for self-hosted NuGet feeds).</span></span>
 
-### <a name="important-nugetexe-bug-fixes"></a><span data-ttu-id="76702-111">重要 nuget.exe Bug 修正</span><span class="sxs-lookup"><span data-stu-id="76702-111">Important nuget.exe Bug Fixes</span></span>
+### <a name="important-nugetexe-bug-fixes"></a><span data-ttu-id="016cc-111">重要 nuget.exe Bug 修正</span><span class="sxs-lookup"><span data-stu-id="016cc-111">Important nuget.exe Bug Fixes</span></span>
 
-1. [<span data-ttu-id="76702-112">nuget.exe 推送失敗，且會持續重試一次</span><span class="sxs-lookup"><span data-stu-id="76702-112">nuget.exe Push fails and keeps retrying</span></span>](https://nuget.codeplex.com/workitem/4000)
-1. [<span data-ttu-id="76702-113">nuget.exe 推送不會正確傳送基本驗證認證</span><span class="sxs-lookup"><span data-stu-id="76702-113">nuget.exe Push does not send Basic Auth credentials correctly</span></span>](https://nuget.codeplex.com/workitem/4109)
-1. [<span data-ttu-id="76702-114">nuget.exe 推送將不會遵循暫時重新導向</span><span class="sxs-lookup"><span data-stu-id="76702-114">nuget.exe Push won't follow temporary redirect</span></span>](https://nuget.codeplex.com/workitem/4050)
+1. [<span data-ttu-id="016cc-112">nuget.exe 推送失敗，且會持續重試一次</span><span class="sxs-lookup"><span data-stu-id="016cc-112">nuget.exe Push fails and keeps retrying</span></span>](https://nuget.codeplex.com/workitem/4000)
+1. [<span data-ttu-id="016cc-113">nuget.exe 推送不會正確傳送基本驗證認證</span><span class="sxs-lookup"><span data-stu-id="016cc-113">nuget.exe Push does not send Basic Auth credentials correctly</span></span>](https://nuget.codeplex.com/workitem/4109)
+1. [<span data-ttu-id="016cc-114">nuget.exe 推送將不會遵循暫時重新導向</span><span class="sxs-lookup"><span data-stu-id="016cc-114">nuget.exe Push won't follow temporary redirect</span></span>](https://nuget.codeplex.com/workitem/4050)
 
-### <a name="important-nugetserver-bug-fix"></a><span data-ttu-id="76702-115">重要 NuGet.Server Bug 修正</span><span class="sxs-lookup"><span data-stu-id="76702-115">Important NuGet.Server Bug Fix</span></span>
+### <a name="important-nugetserver-bug-fix"></a><span data-ttu-id="016cc-115">重要 NuGet.Server Bug 修正</span><span class="sxs-lookup"><span data-stu-id="016cc-115">Important NuGet.Server Bug Fix</span></span>
 
-1. [<span data-ttu-id="76702-116">IsAbsoluteLatestVersion NuGet.Server 所傳回的值錯誤</span><span class="sxs-lookup"><span data-stu-id="76702-116">Wrong value of IsAbsoluteLatestVersion returned by NuGet.Server</span></span>](https://nuget.codeplex.com/workitem/4147)
+1. [<span data-ttu-id="016cc-116">IsAbsoluteLatestVersion NuGet.Server 所傳回的值錯誤</span><span class="sxs-lookup"><span data-stu-id="016cc-116">Wrong value of IsAbsoluteLatestVersion returned by NuGet.Server</span></span>](https://nuget.codeplex.com/workitem/4147)
 
-## <a name="packages-updated"></a><span data-ttu-id="76702-117">更新套件</span><span class="sxs-lookup"><span data-stu-id="76702-117">Packages Updated</span></span>
+## <a name="packages-updated"></a><span data-ttu-id="016cc-117">更新套件</span><span class="sxs-lookup"><span data-stu-id="016cc-117">Packages Updated</span></span>
 
-<span data-ttu-id="76702-118">Nuget.exe 命令列和 NuGet.Server 修正隨附做為 NuGet 套件的更新。</span><span class="sxs-lookup"><span data-stu-id="76702-118">The nuget.exe command-line and NuGet.Server fixes are shipped as NuGet package updates.</span></span>  <span data-ttu-id="76702-119">沒有更新 2.8.2 以及其他封裝。</span><span class="sxs-lookup"><span data-stu-id="76702-119">There were other packages updated with 2.8.2 as well.</span></span>
+<span data-ttu-id="016cc-118">Nuget.exe 命令列和 NuGet.Server 修正隨附做為 NuGet 套件的更新。</span><span class="sxs-lookup"><span data-stu-id="016cc-118">The nuget.exe command-line and NuGet.Server fixes are shipped as NuGet package updates.</span></span>  <span data-ttu-id="016cc-119">沒有更新 2.8.2 以及其他封裝。</span><span class="sxs-lookup"><span data-stu-id="016cc-119">There were other packages updated with 2.8.2 as well.</span></span>
 
-<span data-ttu-id="76702-120">以下是已更新封裝的清單：</span><span class="sxs-lookup"><span data-stu-id="76702-120">Here's the list of updated packages:</span></span>
+<span data-ttu-id="016cc-120">以下是已更新封裝的清單：</span><span class="sxs-lookup"><span data-stu-id="016cc-120">Here's the list of updated packages:</span></span>
 
-1. [<span data-ttu-id="76702-121">NuGet.Core</span><span class="sxs-lookup"><span data-stu-id="76702-121">NuGet.Core</span></span>](https://www.nuget.org/packages/NuGet.Core/)
-1. [<span data-ttu-id="76702-122">NuGet.CommandLine</span><span class="sxs-lookup"><span data-stu-id="76702-122">NuGet.CommandLine</span></span>](https://www.nuget.org/packages/NuGet.CommandLine/)
-1. [<span data-ttu-id="76702-123">NuGet.Server</span><span class="sxs-lookup"><span data-stu-id="76702-123">NuGet.Server</span></span>](https://www.nuget.org/packages/NuGet.Server/)
-1. [<span data-ttu-id="76702-124">NuGet.Build</span><span class="sxs-lookup"><span data-stu-id="76702-124">NuGet.Build</span></span>](https://www.nuget.org/packages/NuGet.Build/)
-1. <span data-ttu-id="76702-125">[NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) （封裝、 非副檔名）</span><span class="sxs-lookup"><span data-stu-id="76702-125">[NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (the package, not the extension)</span></span>
+1. [<span data-ttu-id="016cc-121">NuGet.Core</span><span class="sxs-lookup"><span data-stu-id="016cc-121">NuGet.Core</span></span>](https://www.nuget.org/packages/NuGet.Core/)
+1. [<span data-ttu-id="016cc-122">NuGet.CommandLine</span><span class="sxs-lookup"><span data-stu-id="016cc-122">NuGet.CommandLine</span></span>](https://www.nuget.org/packages/NuGet.CommandLine/)
+1. [<span data-ttu-id="016cc-123">NuGet.Server</span><span class="sxs-lookup"><span data-stu-id="016cc-123">NuGet.Server</span></span>](https://www.nuget.org/packages/NuGet.Server/)
+1. [<span data-ttu-id="016cc-124">NuGet.Build</span><span class="sxs-lookup"><span data-stu-id="016cc-124">NuGet.Build</span></span>](https://www.nuget.org/packages/NuGet.Build/)
+1. <span data-ttu-id="016cc-125">[NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) （封裝、 非副檔名）</span><span class="sxs-lookup"><span data-stu-id="016cc-125">[NuGet.VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/) (the package, not the extension)</span></span>
 
-## <a name="all-changes"></a><span data-ttu-id="76702-126">所有的變更</span><span class="sxs-lookup"><span data-stu-id="76702-126">All Changes</span></span>
-<span data-ttu-id="76702-127">有一些 10 發行版本中解決的問題。</span><span class="sxs-lookup"><span data-stu-id="76702-127">There were 10 issues addressed in the release.</span></span> <span data-ttu-id="76702-128">如需完整清單的工作項目固定在 NuGet 2.8.2，請檢視[此版本的 NuGet Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)。</span><span class="sxs-lookup"><span data-stu-id="76702-128">For a full list of the work items fixed in NuGet 2.8.2, please view the [NuGet Issue Tracker for this release](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).</span></span>
+## <a name="all-changes"></a><span data-ttu-id="016cc-126">所有的變更</span><span class="sxs-lookup"><span data-stu-id="016cc-126">All Changes</span></span>
+<span data-ttu-id="016cc-127">有一些 10 發行版本中解決的問題。</span><span class="sxs-lookup"><span data-stu-id="016cc-127">There were 10 issues addressed in the release.</span></span> <span data-ttu-id="016cc-128">如需完整清單的工作項目固定在 NuGet 2.8.2，請檢視[此版本的 NuGet Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)。</span><span class="sxs-lookup"><span data-stu-id="016cc-128">For a full list of the work items fixed in NuGet 2.8.2, please view the [NuGet Issue Tracker for this release](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%202.8.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).</span></span>
