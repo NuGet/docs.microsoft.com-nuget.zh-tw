@@ -12,11 +12,11 @@ keywords: "dotnet.exe CLI, nuget.exe CLI, NuGet 用戶端工具, NuGet 套件管
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07ca66b44a981f7fcc108e1b4d97c0cf5e206a6f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
+ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
@@ -59,7 +59,7 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 > 使用 `nuget update -self`，將現有的 nuget.exe 更新為最新版本。
 
 > [!Note]
-> 最新建議的 NuGet CLI 一律可在 `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` 找到。 為了與舊版持續整合系統相容，先前的 URL  `https://nuget.org/nuget.exe` 一律會提供 2.8.6 CLI 工具。
+> 最新建議的 NuGet CLI 一律可在 `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` 找到。 為了與舊版持續整合系統相容，先前的 URL `https://nuget.org/nuget.exe` 目前會提供 2.8.6 CLI 工具。 [這已被取代](https://github.com/NuGet/NuGetGallery/issues/5381)。
 
 ## <a name="visual-studio"></a>Visual Studio
 
@@ -70,7 +70,7 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
   - 套件管理員 UI 和主控台對 Windows 上的 Visual Studio 而言是不同的。 它們目前不適用於 Visual Studio for Mac。
   - Visual Studio 不會自動納入 `nuget.exe` CLI，必須分開安裝，如先前所述。
   - 套件管理員主控台命令只能在 Windows 上的 Visual Studio 內運作，無法在其他 PowerShell 環境中運作。
-  - Visual Studio 2017 安裝程式會在採用 .NET 的任何工作負載包含 NuGet 套件管理員。 若要個別安裝，或確認已安裝套管理員，請執行 Visual Studio 2017 安裝程式，並選取 [個別元件] > [程式碼工具] > [NuGet 套件管理員] 下方選項。
+  - Visual Studio 2017 安裝程式會在採用 .NET 的任何工作負載包含 NuGet 套件管理員。 若要個別安裝，或確認已安裝套管理員，請執行 Visual Studio 2017 安裝程式，並核取 [個別元件] > [程式碼工具] > [NuGet 套件管理員] 下方選項。
   - 針對 Visual Studio 2010 及更早版本，安裝「適用於 Visual Studio 的 NuGet 套件管理員」擴充功能。
   - 您也可以從 [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) 下載適用於 Visual Studio 2013 和 2015 的 NuGet 擴充功能。
   - 如果您想要預覽即將推出的 NuGet 功能，請安裝 [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/)，它能與穩定版本的 Visual Studio 並存運作。 若要針對預覽回報問題或分享想法，請在 [NuGet GitHub 存放庫](https://github.com/Nuget/Home/issues) \(英文\) 上建立問題。

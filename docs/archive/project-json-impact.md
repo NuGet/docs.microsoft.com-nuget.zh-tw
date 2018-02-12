@@ -12,11 +12,11 @@ keywords: "NuGet 和 project.json, project.json 影響, 套件撰寫考量, proj
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6104b4dac330869bc5724ffcf15cc0ac9ee26c1f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
+ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
 
@@ -61,7 +61,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 現有的套件大部分應該不需要使用下文描述的套件格式。
 
-格式會讓原生內容成為第一級案例。 這表示受控組件依賴與硬體實作的距離，根據目標平台沿著受控組件傳送二進位實作。 例如，System.IO.Compression 套件就是使用這項技術。 [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+格式會讓原生內容成為第一級案例。 這表示受控組件相當仰賴硬體實作，以根據目標平台來送出受控組件及二進位實作。 例如，System.IO.Compression 套件就是使用這項技術。 [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
 在摘要中，如果上述功能不是絕對必要，建議您繼續使用現有的套件格式，因為這裡描述的格式只有 NuGet 3.x+ 支援。
 
