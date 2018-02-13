@@ -12,11 +12,11 @@ keywords: "NuGet.Config 檔案, NuGet 組態參考, NuGet 組態選項"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 參考
 
@@ -48,7 +48,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 包含其他組態設定，可以使用 [`nuget config` 命令](../tools/cli-ref-config.md)設定。
 
-注意：`dependencyVersion` 和 `repositoryPath` 僅適用於使用 `packages.config` 的專案。 `globalPackagesFolder`僅適用於使用 PackageReference 格式的專案。
+注意：`dependencyVersion` 和 `repositoryPath` 僅適用於使用 `packages.config` 的專案。 `globalPackagesFolder` 僅適用於使用 PackageReference 格式的專案。
 
 | Key | 值 |
 | --- | --- |
@@ -131,7 +131,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ### <a name="packagesources"></a>packageSources
 
-列出所有已知的套件來源。
+列出所有已知的套件來源。 在還原作業期間，以及與任何使用 PackageReference 格式的專案，會忽略順序。 NuGet 尊重安裝的來源順序，並使用專案以更新 operations `packages.config`。
 
 | Key | 值 |
 | --- | --- |
