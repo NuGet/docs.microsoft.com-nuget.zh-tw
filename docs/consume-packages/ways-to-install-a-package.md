@@ -3,7 +3,7 @@ title: "安裝 NuGet 套件的方式 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/30/2018
+ms.date: 02/12/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "安裝 NuGet, NuGet 套件耗用量, 安裝 NuGet 套件, NuGet 套�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e48bbe813168e773bc46b7fe25af29785ff75df
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>安裝 NuGet 套件的不同方式
 
@@ -35,7 +35,10 @@ NuGet 通常會執行下列動作，然後要求安裝套件：
 
 1. 取得套件：
     - 檢查要求的套件是否已經存在快取中 (請參閱[管理 NuGet 快取](managing-the-nuget-cache.md))。
-    - 如果套件不在快取中，請嘗試從組態檔中所列的來源下載套件，從清單的第一個項目開始。 此行為可讓您在於 nuget.org 上尋找套件之前，先使用私人套件摘要 (請參閱[設定 NuGet 行為](configuring-nuget-behavior.md))。
+    - 如果套件不在快取中，請嘗試從[組態檔](Configuring-NuGet-Behavior.md)中所列的來源下載套件。
+      - 針對使用 `packages.config` 參考格式的專案，NuGet 會使用組態中來源的順序。
+      - 針對使用 PackageReference 格式的專案，NuGet 首先會檢查本機資料夾中的來源，然後檢查網路共用上的來源，最後則檢查 HTTP (網際網路) 來源。
+      - 一般而言，NuGet 檢查來源的順序並不重要，因為不管來源為何，只要套件具有相同的識別碼和版本號碼，便會是完全相同的套件。
     - 如果已成功從其中一個來源取得套件，NuGet 就會將它新增至快取。 否則，安裝會失敗。
 
 1. 在專案中展開套件。
