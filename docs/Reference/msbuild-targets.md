@@ -11,17 +11,17 @@ description: "使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSB
 keywords: "NuGet 和 MSBuild、NuGet 封裝目標、NuGet 還原目標"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
 *NuGet 4.0+*
 
-PackageReference 格式時，NuGet 4.0 + 可以儲存所有資訊清單的中繼資料，直接在專案檔，而不是使用不同的`.nuspec`檔案。
+利用 PackageReference 格式，NuGet 4.0+ 可以在專案檔內直接儲存所有資訊清單中繼資料，而非使用個別的 `.nuspec` 檔案。
 
 使用 MSBuild 15.1+，NuGet 也是含 `pack` 和 `restore` 目標的第一級 MSBuild 公民，如下所述。 這些目標可讓您使用 NuGet，就像使用任何其他 MSBuild 工作或目標一樣。 (在 NuGet 3.x 和更早版本中，您可以改成透過 NuGet CLI 來使用 [pack](../tools/cli-ref-pack.md) 和 [restore](../tools/cli-ref-restore.md) 命令)。
 
@@ -42,7 +42,7 @@ PackageReference 格式時，NuGet 4.0 + 可以儲存所有資訊清單的中繼
 
 ## <a name="pack-target"></a>封裝目標
 
-當使用的組件目標，也就是`msbuild /t:pack`，MSBuild 專案檔從繪製其輸入。 下表描述可以加入至專案檔中第一個的 MSBuild 屬性`<PropertyGroup>`節點。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表是依 [`.nuspec` 檔案](../reference/nuspec.md)中的對等屬性進行組織。
+使用封裝目標 (即 `msbuild /t:pack`) 時，MSBuild 會從專案檔獲得其輸入。 下表描述可新增至第一個 `<PropertyGroup>` 節點內之專案檔的 MSBuild 屬性。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表是依 [`.nuspec` 檔案](../reference/nuspec.md)中的對等屬性進行組織。
 
 請注意，MSBuild 不支援 `.nuspec` 中的 `Owners` 和 `Summary` 屬性。
 
@@ -63,8 +63,10 @@ PackageReference 格式時，NuGet 4.0 + 可以儲存所有資訊清單的中繼
 | IconUrl | PackageIconUrl | 空白 | |
 | Tags | PackageTags | 空白 | 以分號來分隔標記。 |
 | ReleaseNotes | PackageReleaseNotes | 空白 | |
-| RepositoryUrl | RepositoryUrl | 空白 | |
-| RepositoryType | RepositoryType | 空白 | |
+| 儲存機制/Url | RepositoryUrl | 空白 | 用來複製或擷取原始程式碼儲存機制 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* |
+| 儲存機制/類型 | RepositoryType | 空白 | 儲存機制類型。 範例： *git*， *tfs*。 |
+| 儲存機制/分支 | RepositoryBranch | 空白 | 選擇性的儲存機制分支的資訊。 *RepositoryUrl*也必須指定要包含這個屬性。 範例：*主要*(NuGet 4.7.0+) |
+| 儲存機制/認可 | RepositoryCommit | 空白 | 選擇性的儲存機制認可或變更集，以表示其來源封裝已針對所建立。 *RepositoryUrl*也必須指定要包含這個屬性。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | 總結 | 不支援 | | |
 
@@ -90,6 +92,8 @@ PackageReference 格式時，NuGet 4.0 + 可以儲存所有資訊清單的中繼
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -170,7 +174,7 @@ PackageReference 格式時，NuGet 4.0 + 可以儲存所有資訊清單的中繼
 您可在上述任何項目上設定的其他封裝特定中繼資料包含 ```<PackageCopyToOutput>``` 和 ```<PackageFlatten>```，其在輸出 nuspec 的 ```contentFiles``` 項目上設定 ```CopyToOutput``` 和 ```Flatten``` 值。
 
 > [!Note]
-> 內容項目，除了`<Pack>`和`<PackagePath>`中繼資料也可以設定檔案的編譯、 EmbeddedResource、 ApplicationDefinition、 頁面、 資源、 啟動顯示畫面、 DesignData、 DesignDataWithDesignTimeCreateableTypes 建置動作CodeAnalysisDictionary、 AndroidAsset、 AndroidResource BundleResource 或 None。
+> 除了 Content 項目之外，還可以在建置動作為 Compile、EmbeddedResource、ApplicationDefinition、Page、Resource、SplashScreen、DesignData、DesignDataWithDesignTimeCreateableTypes、CodeAnalysisDictionary、AndroidAsset、AndroidResource、BundleResource 或 None 的檔案上設定 `<Pack>` 和 `<PackagePath>` 中繼資料。
 >
 > 針對封裝，若要在使用萬用字元模式時將檔案名稱附加至套件路徑，您套件路徑的結尾必須是資料夾分隔符號字元，否則會將套件路徑視為包含檔案名稱的完整路徑。
 

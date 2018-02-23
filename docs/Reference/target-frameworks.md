@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
@@ -129,7 +129,7 @@ NuGet 3.3 和更舊版本中應該使用 moniker 的 `dotnet` 系列，v3.4 及�
 ## <a name="portable-class-libraries"></a>可攜式類別庫
 
 > [!Warning]
-> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 .NET 平台標準是進化的 PCL，代表跨平台的二進位可攜性，這些平台使用未繫結至 *portable-a+b+c* 等靜態 Moniker 的單一 Moniker。
+> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 為.NET 平台標準的演進而來的 PCLs 和跨平台使用未繫結至靜態程式庫如單一 moniker 代表二進位的可攜性*可攜式-a + b + c* moniker。
 
 若要定義參考多個子目標 Framework 的目標 Framework，會使用 `portable` 關鍵字 作為參考之 Framework 清單的首碼。 避免以人為方式包含不會直接編譯的額外 Framework ，因為它會導致這些 Framework 出現非預期的副作用。
 
