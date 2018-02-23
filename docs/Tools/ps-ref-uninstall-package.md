@@ -12,45 +12,45 @@ keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8c1690e0ddda6ad88e045a2097d65d135e233d2
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: db7cf9b2282bf40988eee2308c256381c4fd5124
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
-# <a name="uninstall-package-package-manager-console-in-visual-studio"></a><span data-ttu-id="47952-104">解除安裝套件 （在 Visual Studio 中的封裝管理員主控台）</span><span class="sxs-lookup"><span data-stu-id="47952-104">Uninstall-Package (Package Manager Console in Visual Studio)</span></span>
+# <a name="uninstall-package-package-manager-console-in-visual-studio"></a><span data-ttu-id="3f421-104">解除安裝套件 （在 Visual Studio 中的封裝管理員主控台）</span><span class="sxs-lookup"><span data-stu-id="3f421-104">Uninstall-Package (Package Manager Console in Visual Studio)</span></span>
 
-<span data-ttu-id="47952-105">*本主題描述內的命令[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上的 Visual Studio 中。一般 PowerShell 解除安裝封裝的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*</span><span class="sxs-lookup"><span data-stu-id="47952-105">*This topic describes the command within the [NuGet Package Manager Console](Package-Manager-Console.md) in Visual Studio on Windows. For the generic PowerShell Uninstall-Package command, see the [PowerShell PackageManagement reference](/powershell/module/packagemanagement/?view=powershell-6).*</span></span>
+<span data-ttu-id="3f421-105">*本主題描述內的命令[NuGet Package Manager Console](package-manager-console.md) Windows 上的 Visual Studio 中。一般 PowerShell 解除安裝封裝的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*</span><span class="sxs-lookup"><span data-stu-id="3f421-105">*This topic describes the command within the [NuGet Package Manager Console](package-manager-console.md) in Visual Studio on Windows. For the generic PowerShell Uninstall-Package command, see the [PowerShell PackageManagement reference](/powershell/module/packagemanagement/?view=powershell-6).*</span></span>
 
-<span data-ttu-id="47952-106">移除封裝在專案中，選擇性地移除其相依性。</span><span class="sxs-lookup"><span data-stu-id="47952-106">Removes a package from a project, optionally removing its dependencies.</span></span> <span data-ttu-id="47952-107">如果有其他套件相依於這個套件，此命令會失敗，除非 – 指定的 Force 選項。</span><span class="sxs-lookup"><span data-stu-id="47952-107">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
+<span data-ttu-id="3f421-106">移除封裝在專案中，選擇性地移除其相依性。</span><span class="sxs-lookup"><span data-stu-id="3f421-106">Removes a package from a project, optionally removing its dependencies.</span></span> <span data-ttu-id="3f421-107">如果有其他套件相依於這個套件，此命令會失敗，除非 – 指定的 Force 選項。</span><span class="sxs-lookup"><span data-stu-id="3f421-107">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="47952-108">語法</span><span class="sxs-lookup"><span data-stu-id="47952-108">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="3f421-108">語法</span><span class="sxs-lookup"><span data-stu-id="3f421-108">Syntax</span></span>
 
 ```ps
 Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [-Force]
     [-Version <string>] [-WhatIf] [<CommonParameters>]
 ```
 
-<span data-ttu-id="47952-109">如果有其他套件相依於這個套件，此命令會失敗，除非 – 指定的 Force 選項。</span><span class="sxs-lookup"><span data-stu-id="47952-109">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
+<span data-ttu-id="3f421-109">如果有其他套件相依於這個套件，此命令會失敗，除非 – 指定的 Force 選項。</span><span class="sxs-lookup"><span data-stu-id="3f421-109">If other packages depend on this package, the command will fail unless the –Force option is specified.</span></span>
 
-## <a name="parameters"></a><span data-ttu-id="47952-110">參數</span><span class="sxs-lookup"><span data-stu-id="47952-110">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="3f421-110">參數</span><span class="sxs-lookup"><span data-stu-id="3f421-110">Parameters</span></span>
 
-| <span data-ttu-id="47952-111">參數</span><span class="sxs-lookup"><span data-stu-id="47952-111">Parameter</span></span> | <span data-ttu-id="47952-112">描述</span><span class="sxs-lookup"><span data-stu-id="47952-112">Description</span></span> |
+| <span data-ttu-id="3f421-111">參數</span><span class="sxs-lookup"><span data-stu-id="3f421-111">Parameter</span></span> | <span data-ttu-id="3f421-112">描述</span><span class="sxs-lookup"><span data-stu-id="3f421-112">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="47952-113">ID</span><span class="sxs-lookup"><span data-stu-id="47952-113">Id</span></span> | <span data-ttu-id="47952-114">（必要）若要解除安裝封裝的識別碼。</span><span class="sxs-lookup"><span data-stu-id="47952-114">(Required) The identifier of the package to uninstall.</span></span> <span data-ttu-id="47952-115">-Id 參數是選擇性的。</span><span class="sxs-lookup"><span data-stu-id="47952-115">The -Id switch itself is optional.</span></span> |
-| <span data-ttu-id="47952-116">版本</span><span class="sxs-lookup"><span data-stu-id="47952-116">Version</span></span> | <span data-ttu-id="47952-117">若要解除安裝，封裝版本預設為目前安裝的版本。</span><span class="sxs-lookup"><span data-stu-id="47952-117">The version of the package to uninstall, defaulting to the currently installed version.</span></span> |
-| <span data-ttu-id="47952-118">RemoveDependencies</span><span class="sxs-lookup"><span data-stu-id="47952-118">RemoveDependencies</span></span> | <span data-ttu-id="47952-119">解除安裝套件及其未使用相依性。</span><span class="sxs-lookup"><span data-stu-id="47952-119">Uninstall the package and its unused dependencies.</span></span> <span data-ttu-id="47952-120">也就是說，如果任何相依性具有相依於它的另一個封裝，它會略過。</span><span class="sxs-lookup"><span data-stu-id="47952-120">That is, if any dependency has another package that depends on it, it's skipped.</span></span> |
-| <span data-ttu-id="47952-121">ProjectName</span><span class="sxs-lookup"><span data-stu-id="47952-121">ProjectName</span></span> | <span data-ttu-id="47952-122">要從中解除安裝封裝，將預設為預設專案的專案。</span><span class="sxs-lookup"><span data-stu-id="47952-122">The project from which to uninstall the package, defaulting to the default project.</span></span> |
-| <span data-ttu-id="47952-123">強制</span><span class="sxs-lookup"><span data-stu-id="47952-123">Force</span></span> | <span data-ttu-id="47952-124">強制解除安裝，封裝，即使有其他套件相依於它。</span><span class="sxs-lookup"><span data-stu-id="47952-124">Forces a package to be uninstalled, even if other packages depend on it.</span></span> |
-| <span data-ttu-id="47952-125">WhatIf</span><span class="sxs-lookup"><span data-stu-id="47952-125">WhatIf</span></span> | <span data-ttu-id="47952-126">顯示執行命令，而不需實際執行解除安裝時，會發生什麼情況。</span><span class="sxs-lookup"><span data-stu-id="47952-126">Shows what would happen when running the command without actually performing the uninstall.</span></span> |
+| <span data-ttu-id="3f421-113">ID</span><span class="sxs-lookup"><span data-stu-id="3f421-113">Id</span></span> | <span data-ttu-id="3f421-114">（必要）若要解除安裝封裝的識別碼。</span><span class="sxs-lookup"><span data-stu-id="3f421-114">(Required) The identifier of the package to uninstall.</span></span> <span data-ttu-id="3f421-115">-Id 參數是選擇性的。</span><span class="sxs-lookup"><span data-stu-id="3f421-115">The -Id switch itself is optional.</span></span> |
+| <span data-ttu-id="3f421-116">版本</span><span class="sxs-lookup"><span data-stu-id="3f421-116">Version</span></span> | <span data-ttu-id="3f421-117">若要解除安裝，封裝版本預設為目前安裝的版本。</span><span class="sxs-lookup"><span data-stu-id="3f421-117">The version of the package to uninstall, defaulting to the currently installed version.</span></span> |
+| <span data-ttu-id="3f421-118">RemoveDependencies</span><span class="sxs-lookup"><span data-stu-id="3f421-118">RemoveDependencies</span></span> | <span data-ttu-id="3f421-119">解除安裝套件及其未使用相依性。</span><span class="sxs-lookup"><span data-stu-id="3f421-119">Uninstall the package and its unused dependencies.</span></span> <span data-ttu-id="3f421-120">也就是說，如果任何相依性具有相依於它的另一個封裝，它會略過。</span><span class="sxs-lookup"><span data-stu-id="3f421-120">That is, if any dependency has another package that depends on it, it's skipped.</span></span> |
+| <span data-ttu-id="3f421-121">ProjectName</span><span class="sxs-lookup"><span data-stu-id="3f421-121">ProjectName</span></span> | <span data-ttu-id="3f421-122">要從中解除安裝封裝，將預設為預設專案的專案。</span><span class="sxs-lookup"><span data-stu-id="3f421-122">The project from which to uninstall the package, defaulting to the default project.</span></span> |
+| <span data-ttu-id="3f421-123">強制</span><span class="sxs-lookup"><span data-stu-id="3f421-123">Force</span></span> | <span data-ttu-id="3f421-124">強制解除安裝，封裝，即使有其他套件相依於它。</span><span class="sxs-lookup"><span data-stu-id="3f421-124">Forces a package to be uninstalled, even if other packages depend on it.</span></span> |
+| <span data-ttu-id="3f421-125">WhatIf</span><span class="sxs-lookup"><span data-stu-id="3f421-125">WhatIf</span></span> | <span data-ttu-id="3f421-126">顯示執行命令，而不需實際執行解除安裝時，會發生什麼情況。</span><span class="sxs-lookup"><span data-stu-id="3f421-126">Shows what would happen when running the command without actually performing the uninstall.</span></span> |
 
-<span data-ttu-id="47952-127">這些參數接受管線輸入或萬用字元的字元。</span><span class="sxs-lookup"><span data-stu-id="47952-127">None of these parameters accept pipeline input or wildcard characters.</span></span>
+<span data-ttu-id="3f421-127">這些參數接受管線輸入或萬用字元的字元。</span><span class="sxs-lookup"><span data-stu-id="3f421-127">None of these parameters accept pipeline input or wildcard characters.</span></span>
 
-## <a name="common-parameters"></a><span data-ttu-id="47952-128">一般參數</span><span class="sxs-lookup"><span data-stu-id="47952-128">Common Parameters</span></span>
+## <a name="common-parameters"></a><span data-ttu-id="3f421-128">一般參數</span><span class="sxs-lookup"><span data-stu-id="3f421-128">Common Parameters</span></span>
 
-<span data-ttu-id="47952-129">`Uninstall-Package`支援下列[一般 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。</span><span class="sxs-lookup"><span data-stu-id="47952-129">`Uninstall-Package` supports the following [common PowerShell parameters](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
+<span data-ttu-id="3f421-129">`Uninstall-Package` 支援下列[一般 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。</span><span class="sxs-lookup"><span data-stu-id="3f421-129">`Uninstall-Package` supports the following [common PowerShell parameters](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="47952-130">範例</span><span class="sxs-lookup"><span data-stu-id="47952-130">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="3f421-130">範例</span><span class="sxs-lookup"><span data-stu-id="3f421-130">Examples</span></span>
 
 ```ps
 # Uninstalls the Elmah package from the default project
