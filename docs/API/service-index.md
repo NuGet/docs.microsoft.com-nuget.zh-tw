@@ -16,11 +16,11 @@ keywords: "NuGet 的 API 進入點，NuGetA PI 端點探索"
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>服務索引
 
@@ -30,12 +30,11 @@ nuget.org 的服務索引位於`https://api.nuget.org/v3/index.json`。
 
 ## <a name="versioning"></a>版本控制
 
-`version`值是 SemVer 2.0.0 可以剖析版本的字串表示服務索引的結構描述版本。
-API 要求的版本字串的主要版本號碼`3`。 服務索引結構描述會進行非中斷變更，就會增加的版本字串的次要版本。
+`version`值是 SemVer 2.0.0 可以剖析版本的字串表示服務索引的結構描述版本。 API 要求的版本字串的主要版本號碼`3`。 服務索引結構描述會進行非中斷變更，就會增加的版本字串的次要版本。
 
 服務索引中的每個資源的版本也是獨立於服務索引結構描述版本。
 
-目前的結構描述版本是`3.0.0-beta.1`。
+目前的結構描述版本是`3.0.0`。 `3.0.0`版本功能上相當於舊版`3.0.0-beta.1`版本，但應該是慣用的穩定，已定義的結構描述更清楚地通訊。
 
 ## <a name="http-methods"></a>HTTP 方法
 

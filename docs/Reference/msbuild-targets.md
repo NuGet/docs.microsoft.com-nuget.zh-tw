@@ -11,11 +11,11 @@ description: "使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSB
 keywords: "NuGet 和 MSBuild、NuGet 封裝目標、NuGet 還原目標"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/20/2018
 | 作者 | 作者 | 目前使用者的使用者名稱 | |
 | Owners | N/A | NuSpec 中沒有 | |
 | 標題 | 標題 | PackageId| |
-| 描述 | 描述 | "Package Description" | |
+| 描述 | PackageDescription | "Package Description" | |
 | Copyright | Copyright | 空白 | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | LicenseUrl | PackageLicenseUrl | 空白 | |
@@ -222,6 +222,9 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. 執行還原
 1. 下載套件
 1. 撰寫資產檔案、目標和屬性
+
+> [!Note]
+> `restore` MSBuild 目標只適用於使用專案`PackageReference`項目，且不會還原封裝使用參考`packages.config`檔案。
 
 ### <a name="restore-properties"></a>還原屬性
 

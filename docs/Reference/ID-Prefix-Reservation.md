@@ -13,15 +13,15 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bee215fcc88b03dbdde6c15d1583898bdf205952
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-id-prefix-reservation"></a>封裝識別碼前置詞保留項目
 
-封裝擁有者會保留，並保護其身分識別，藉由保留識別碼前置詞。 封裝取用者會提供其他資訊時使用之封裝的他們使用的封裝將不會詐騙識別屬性中。 
+封裝擁有者可以保留，而保留識別碼前置詞來保護他們的身分識別。 封裝取用者會提供其他資訊時使用之封裝的他們使用的封裝將不會詐騙識別屬性中。 
 
 [nuget.org](https://www.nuget.org/)和 Visual Studio 2017 15.4 或更新版本的套件，只要封裝符合保留的識別碼送出的擁有者，以保留的封裝識別碼的前置詞，前置詞的命名模式，顯示一種視覺指標。 參考下列說明識別碼的前置詞保留區的需要，以及如何套用的擁有者識別碼前置詞。
 
