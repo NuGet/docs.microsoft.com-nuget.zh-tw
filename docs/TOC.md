@@ -26,6 +26,7 @@
 ## [發行前版本套件](create-packages/prerelease-packages.md)
 ## [原生套件](create-packages/native-packages.md)
 ## [符號套件](create-packages/symbol-packages.md)
+## [正在簽署套件](create-packages/sign-a-package.md)
 ## [發行套件](create-packages/publish-a-package.md)
 ## 輔助線
 ### [建立 UWP 套件](guides/create-uwp-packages.md)
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [簽署](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [驗證](tools/cli-ref-verify.md)
 ### [環境變數](tools/cli-ref-environment-variables.md)
 ## [套件管理員 UI](tools/package-manager-ui.md)
 ## [套件管理員主控台](tools/package-manager-console.md)
@@ -79,6 +82,7 @@
 ## [錯誤和警告](reference/errors-and-warnings.md)
 ## [識別碼首碼保留項目](reference/id-prefix-reservation.md)
 ## [NuGet 用戶端 SDK](reference/nuget-client-sdk.md)
+## [已簽署套件參考](reference/signed-packages-reference.md)
 ## 擴充性
 ### [適用於 Visual Studio 的 NuGet 認證提供者](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe 認證提供者](reference/extensibility/nuget-exe-credential-providers.md)
@@ -108,9 +112,9 @@
 ## [生態系統](policies/ecosystem.md)
 ## [爭議解決方法](policies/dispute-resolution.md)
 ## [刪除套件](policies/deleting-packages.md)
-# [GitHub 存放庫](https://github.com/NuGet)
 # 版本資訊
 ## [已知問題](release-notes/known-issues.md)
+## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
 ## [NuGet 4.4 RTM](release-notes/NuGet-4.4-RTM.md)
 ## [NuGet 4.3 RTM](release-notes/NuGet-4.3-RTM.md)
