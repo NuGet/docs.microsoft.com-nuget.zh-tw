@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "目錄是所有的封裝，建立以及在 nuget.org 刪除索引。"
-keywords: "NuGet V3 API 類別目錄，nuget.org 的交易記錄，複寫 NuGet.org，clone NuGet.org，NuGet.org 的附加專用的記錄"
+keywords: "NuGet V3 API 類別目錄，nuget.org 的交易記錄，複寫 nuget.org 複製 nuget.org nuget.org 的附加專用的記錄"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -50,7 +50,7 @@ Catalog/3.0.0 | 初版
 
 ## <a name="catalog-index"></a>類別目錄索引
 
-類別目錄索引是文件中有一份類別目錄項目，排序 cronologically 的已知位置。 它是目錄資源的進入點。
+類別目錄索引是具有類別目錄項目，依時間先後順序排序清單的已知位置中的文件。 它是目錄資源的進入點。
 
 索引被組成類別目錄網頁。 每個類別目錄 頁面包含類別目錄項目。 每個類別目錄項目代表有關時間點的單一封裝的事件。 類別目錄項目可以代表已建立、 未列出，relisted，或刪除從套件來源的封裝。 藉由處理類別目錄中的項目依時間先後順序，用戶端可以建置 V3 套件來源上存在每個套件的最新檢視。
 
@@ -128,7 +128,7 @@ count           | 整數          | 是      | 在頁面中的項目數
 
 在每個項目`items`陣列是具有類別目錄項目某些最少詳細資料的物件。 這些項目物件不包含所有類別目錄項目的資料。 頁面的項目順序`items`陣列未定義。 項目可以依照使用記憶體中的用戶端來排序其`commitTimeStamp`屬性。
 
-在網頁中的類別目錄項目數目是由伺服器實作所定義。 Nuget.org，最多 550 項目中有每個頁面上，雖然實際數目的時間可能較小的點在下一步的認可批次大小某些網頁 dependong。
+在網頁中的類別目錄項目數目是由伺服器實作所定義。 Nuget.org，最多 550 項目中有每個頁面上，雖然實際數目的時間可能較小的某些頁面，在下一步認可批次大小而定。
 
 引入新的項目，`count`是遞增的和新的類別目錄項目物件會出現在`items`陣列。
 
@@ -164,7 +164,7 @@ nuget:version   | 字串  | 是      | 與這個分葉封裝版本
 
 ## <a name="catalog-leaf"></a>類別目錄的分葉
 
-類別目錄的分葉包含特定的封裝識別碼和版本，在某個時間點的相關中繼資料的時間。 它是使用文件`@id`類別目錄 頁面中找到的值。 類別目錄的分葉的 URL 不是要 predictedable，應該使用類別目錄頁探索。
+類別目錄的分葉包含特定的封裝識別碼和版本，在某個時間點的相關中繼資料的時間。 它是使用文件`@id`類別目錄 頁面中找到的值。 類別目錄的分葉的 URL 不是有可預測性，應該使用類別目錄頁探索。
 
 目錄的分葉文件是具有下列屬性的 JSON 物件：
 
@@ -226,12 +226,12 @@ verbatimVersion         | 字串                     | 否       | 版本字串�
 
 `created`封裝來源，而這通常是短時間類別目錄項目的認可時間戳記之前先收到封裝時，時間戳記。
 
-`packageHashAlgorithm`是由伺服器實作 represeting 定義字串的雜湊演算法，用來產生`packageHash`。 一律使用 nuget.org`packageHashAlgorithm`值`SHA512`。
+`packageHashAlgorithm`為字串，代表用來產生的雜湊演算法的伺服器實作所定義`packageHash`。 一律使用 nuget.org`packageHashAlgorithm`值`SHA512`。
 
 `published`時間戳記是上次列出封裝時的時間。
 
 > [!Note]
-> 在 nuget.org，`published`值設為 1900 當套件很未列出的年份。
+> 在 nuget.org，`published`值設為 1900 年當套件很未列出。
 
 #### <a name="sample-request"></a>範例要求
 
@@ -256,7 +256,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 #### <a name="sample-request"></a>範例要求
 
-取得 https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>範例回應
 
@@ -307,7 +307,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 ### <a name="dependent-cursors"></a>相依的資料指標
 
-假設有兩個類別目錄用戶端具有 inherant 的相依性，其中一個用戶端的輸出取決於另一個用戶端的輸出。 
+假設有兩個類別目錄用戶端具有固有的相依性，其中一個用戶端的輸出取決於另一個用戶端的輸出。 
 
 #### <a name="example"></a>範例
 
@@ -317,7 +317,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 #### <a name="algorithm"></a>演算法
 
-若要實作這項限制，簡單修改上述是演算法：
+若要實作這項限制，只需修改上述是演算法：
 
 1. 從本機存放區擷取記錄的資料指標的值。
 1. 下載及還原序列化的類別目錄的索引。

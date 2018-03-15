@@ -12,11 +12,11 @@ keywords: "nuget 還原參考，請還原封裝命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0ad5156a065e20dfced99da6b2e2860dbd748ad5
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
@@ -38,7 +38,7 @@ nuget restore <projectPath> [options]
 
 | 選項 | 描述 |
 | --- | --- |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
+| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | DirectDownload | *（4.0 +)*下載套件，直接但不填入任何二進位檔或中繼資料快取。 |
 | DisableParallelProcessing | 還原多個封裝，以平行方式停用。 |
 | FallbackSource | *（3.2 +)*作為後援，萬一主要中找不到封裝的封裝來源的清單或預設的來源。 |

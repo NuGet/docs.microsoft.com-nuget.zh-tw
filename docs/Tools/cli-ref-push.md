@@ -12,11 +12,11 @@ keywords: "nuget 推入參考，推入命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df8ef42f650a20b92a281fff3e597ac8d484544e
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 095e81406df3db5fbfc6c5202362894b2c6d7cf8
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="push-command-nuget-cli"></a>推播命令 (NuGet CLI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/14/2018
 
 將封裝的封裝來源以推入，並將其發佈。
 
-NuGet 的預設組態透過載入`%AppData%\NuGet\NuGet.Config`，然後載入任何`Nuget.Config`或`.nuget\Nuget.Config`檔案從磁碟機的根目錄開始和結束目前的目錄中 (請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md))
+NuGet 的預設組態透過載入`%AppData%\NuGet\NuGet.Config`(Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，然後載入任何`Nuget.Config`或`.nuget\Nuget.Config`檔案從磁碟機的根目錄開始和結束目前的目錄中 (請參閱[設定NuGet 行為](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>使用量
 
@@ -41,8 +41,8 @@ nuget push <packagePath> [options]
 
 | 選項 | 描述 |
 | --- | --- |
-| ApiKey | 目標存放庫 API 金鑰。 如果不存在，在中指定一個*%AppData%\NuGet\NuGet.Config*用。 |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
+| ApiKey | 目標存放庫 API 金鑰。 如果不存在，則會使用組態檔中所指定。 |
+| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | DisableBuffering | 停用緩衝以減少記憶體使用方式的推入至 http （s） 伺服器時。 注意： 使用此選項時，整合式的 Windows 驗證可能無法運作。 |
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |

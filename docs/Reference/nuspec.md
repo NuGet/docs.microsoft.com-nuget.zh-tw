@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/20/2018
 | **擁有者** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
 | **projectUrl** | 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
 | **licenseUrl** | 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
-| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL *https://github.com/\<username\>/\<儲存機制\>/raw/\<分支\>/ \<logo.png\>*。 |
+| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL  *https://github.com/ \<username\>/\<儲存機制\>/raw/\<分支\>/ \<logo.png\>*。 |
 | **requireLicenseAcceptance** | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
 | **developmentDependency** | *(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 |
 | **summary** | UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。 |
@@ -143,9 +143,10 @@ nuget pack MyProject.csproj
 
 | 語彙基元 | 值來源 | 值
 | --- | --- | ---
-| **$id$** | 專案檔 | 來自專案檔的 AssemblyName |
+| **$id$** | 專案檔 | 從專案檔的 AssemblyName （標題） |
 | **$version$** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | 組件 DLL | 用以建置組件的組態，預設為偵錯。 請注意，若要建立使用版本組態的套件，命令列上一律要使用 `-properties Configuration=Release`。 |
@@ -543,7 +544,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 | **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **buildAction** | 要指派給 MSBuild 內容項目的建置動作，例如 `Content`、`None`、`Embedded Resource`、`Compile` 等等。預設為 `Compile`。 |
-| **copyToOutput** | 布林值，指出是否要將內容項目複製到組建輸出資料夾。 預設為 false。 |
+| **copyToOutput** | 布林值，指出是否要將內容項目複製到組建 （或發行） 的輸出資料夾。 預設為 false。 |
 | **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設為 false。 |
 
 安裝套件時，NuGet 會由上而下套用 `<contentFiles>` 的子項目。 如有多個項目符合同一檔案，則套用所有項目。 如果相同的屬性發生衝突，則最上層項目會覆寫較低的項目。

@@ -12,11 +12,11 @@ keywords: "nuget 符號參考登命令"
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 109b0f6aca0ebaae2ea56fbb45226bc1b14f2ea1
-ms.sourcegitcommit: df7158169e84900d135416cd5e52f937df0beb52
+ms.openlocfilehash: f600a0830472703f40ef62f1b1538c53671703a9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sign-command-nuget-cli"></a>符號命令 (NuGet CLI)
 
@@ -44,7 +44,7 @@ nuget sign <package(s)> [options]
 | CertificateStoreLocation | 指定 X.509 憑證存放區用來搜尋憑證的名稱。 預設值為"CurrentUser"，目前使用者所使用的 X.509 憑證存放區。 指定透過-CertificateSubjectName 或-CertificateFingerprint 選項憑證時，應該使用這個選項。 |
 | CertificateStoreName | 指定要用於搜尋憑證的 X.509 憑證存放區的名稱。 預設為 「 我的 」，個人憑證的 X.509 憑證存放區。 指定透過-CertificateSubjectName 或-CertificateFingerprint 選項憑證時，應該使用這個選項。 |
 | CertificateSubjectName | 指定用來搜尋憑證的本機憑證存放區的憑證的主體名稱。  搜尋不區分大小寫字串比較，使用所提供的值，會發現所有憑證的主體名稱，包含該字串，不論其他主體的值。  -CertificateStoreName 和-CertificateStoreLocation 選項所指定的憑證存放區。 |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
+| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | ForceEnglishOutput | 強制使用的非變異的英文文化特性來執行 nuget.exe。 |
 | HashAlgorithm | 要用來簽署套件的雜湊演算法。 預設為 SHA256。 |
 | 說明 | 顯示說明命令的資訊。 |

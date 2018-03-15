@@ -12,11 +12,11 @@ keywords: "nuget 組態參考組態命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 34d156a29207122bac3c21c3307cbe7373b5f031
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 7cf7c06000904a617752567ed7612c0c48042db9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="config-command-nuget-cli"></a>組態命令 (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget config -AsPath <name> [options]
 | 選項 | 描述 |
 | --- | --- |
 | AsPath | 傳回組態值做為路徑，會忽略時`-Set`用。 |
-| ConfigFile | 要修改的 NuGet 設定檔。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
+| ConfigFile | 要修改的 NuGet 設定檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
 | NonInteractive | 抑制使用者輸入或確認提示。 |

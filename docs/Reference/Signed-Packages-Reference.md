@@ -13,11 +13,11 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4763b0dde0153f9e8ea840d5e788b5a3d96b9bd8
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 9bf9885aaf42bedb681a5d916202fa8b26749a0c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="signed-packages"></a>簽署的封裝
 
@@ -27,7 +27,7 @@ NuGet 封裝可以包含數位簽章可防止遭竄改的內容。 此簽章會�
 
 簽署的封裝提供最強的端對端驗證。 作者簽章可確保封裝不已修改的作者從不論簽署封裝之後, 的儲存機制或什麼傳輸的方法傳送封裝。
 
-取用者要求鎖定的環境可能需要使用特定作者憑證來簽署封裝。
+取用者要求鎖定的環境可能需要使用特定作者憑證簽署的封裝。
 
 此外，作者簽署的封裝提供 nuget.org 發行管線的其他驗證機制，因為必須事先註冊簽署憑證。
 
@@ -51,7 +51,7 @@ NuGet 封裝可以包含數位簽章可防止遭竄改的內容。 此簽章會�
 - [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)
 - [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) 
 
-可從取得完整的 Windows 信任憑證授權單位清單[http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners)。
+可從取得完整的 Windows 信任憑證授權單位清單[ http://aka.ms/trustcertpartners ](http://aka.ms/trustcertpartners)。
 
 ## <a name="create-a-test-certificate"></a>建立測試憑證
 

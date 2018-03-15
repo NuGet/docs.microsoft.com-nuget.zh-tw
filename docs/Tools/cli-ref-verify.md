@@ -12,11 +12,11 @@ keywords: "nuget 驗證參考，請確認命令"
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 2747491eb35d8685a44e86fcc1b572013982c754
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 096c79670267d9b602dd6ad30640e832441c31c5
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="verify-command-nuget-cli"></a>確認命令 (NuGet CLI)
 
@@ -38,7 +38,7 @@ nuget verify <package(s)> [options]
 | --- | --- |
 | 全部 | 指定所有的驗證可能要執行的封裝上。 |
 | CertificateFingerprint | 指定一或多個 sha-256 憑證指紋的憑證 (s) 必須經過簽署的簽署的封裝。 使用 sha-256 憑證指紋是憑證的 sha-256 雜湊。 多個輸入應該是以分號分隔。 |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
+| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | ForceEnglishOutput | 強制使用的非變異的英文文化特性來執行 nuget.exe。 |
 | 說明 | 顯示說明命令的資訊。 |
 | NonInteractive | 抑制使用者輸入或確認提示。 |

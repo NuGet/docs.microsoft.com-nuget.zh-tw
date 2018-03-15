@@ -12,17 +12,17 @@ keywords: "nuget 清單參考，列出封裝命令"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5a1f68aaffd26a0f903aa3a7a4a450a0121191c3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="list-command-nuget-cli"></a>列出命令 (NuGet CLI)
 
 **適用於：**封裝耗用量、 發行&bullet;**支援的版本：**所有
 
-顯示從指定的來源封裝的清單。 如果未不指定任何來源，所有來源檔案中定義全域設定， `%AppData%\NuGet\NuGet.Config`，所使用。 如果`NuGet.Config`不指定任何來源，然後`list`會使用預設的摘要 (nuget.org)。
+顯示從指定的來源封裝的清單。 如果未不指定任何來源，所有來源檔案中定義全域設定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`，所使用。 如果`NuGet.Config`不指定任何來源，然後`list`會使用預設的摘要 (nuget.org)。
 
 ## <a name="usage"></a>使用量
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 02/02/2018
 nuget list [search terms] [options]
 ```
 
-其中選擇性的搜尋詞彙會篩選顯示的清單。 搜尋字詞會套用至封裝、 標記，以及封裝描述的名稱。
+其中選擇性的搜尋詞彙會篩選顯示的清單。 就如同它們在 nuget.org 上使用它們時，搜尋詞彙會套用至封裝、 標記，以及封裝描述的名稱。
 
 ## <a name="options"></a>選項
 
 | 選項 | 描述 |
 | --- | --- |
 | AllVersions | 列出所有封裝的版本。 根據預設，會顯示只有最新的封裝版本。 |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。 |
+| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
 | IncludeDelisted | *（3.2 +)*顯示未列出的封裝。 |
@@ -53,5 +53,7 @@ nuget list [search terms] [options]
 ```cli
 nuget list
 
-nuget list -Verbosity detailed -AllVersions
+nuget list chinese korean -Verbosity detailed
+
+nuget list couchbase -AllVersions
 ```

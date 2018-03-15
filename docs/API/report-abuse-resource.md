@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "報表濫用的 URL 範本可讓用戶端在其 UI 中顯示報表濫用連結。"
-keywords: "NuGet 的 API 回報不當使用 NuGet API 檔案相容、 NuGet.org 報表 URL 範本"
+keywords: "NuGet 的 API 回報不當使用 NuGet API 檔案相容、 nuget.org 報表 URL 範本"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>報表濫用的 URL 範本
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/02/2018
 @type 值                       | 注意
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | 初版
-ReportAbuseUriTemplate/3.0.0-rc   | 別名`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | 別名 `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>URL 範本
 
@@ -58,7 +58,7 @@ ReportAbuseUriTemplate/3.0.0-rc   | 別名`ReportAbuseUriTemplate/3.0.0-beta`
 `{id}`      | 字串  | 否       | 要為回報不當使用的套件識別碼
 `{version}` | 字串  | 否       | 回報不當使用的封裝版本
 
-`{id}`和`{version}`伺服器實作的解譯的值必須是大小寫 usernames 並不容易版本是否會正規化。
+`{id}`和`{version}`解譯伺服器實作的值必須是不區分大小寫並不容易版本是否會正規化。
 
 例如，nuget.org 的報表濫用範本看起來像這樣：
 
