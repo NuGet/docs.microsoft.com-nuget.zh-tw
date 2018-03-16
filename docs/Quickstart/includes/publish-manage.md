@@ -1,6 +1,6 @@
 從您在 nuget.org 上的設定檔，選取 [管理套件] 以查看您剛發行的套件。 您也會收到確認電子郵件。 請注意，可能需要一些時間才會編製套件的索引，並顯示在其他人可以找到它的搜尋結果中。 在這段期間，套件頁面會顯示下列訊息：
 
-    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+![此套件尚未編製索引。 編製索引完成後，它會出現在搜尋結果中，並且可供安裝/還原。](../media/QS_Create-03-NotIndexed.png)
 
 就是這麼容易！ 您剛剛已將第一個 NuGet 套件發行至 nuget.org，其他開發人員可以在他們自己的專案中使用它。
 
