@@ -1,5 +1,5 @@
 ---
-title: "使用 dotnet CLI 建立和發行 NuGet 套件的入門指南 | Microsoft Docs"
+title: "使用 dotnet CLI 建立和發佈 NuGet 套件 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,17 +12,17 @@ keywords: "NuGet 套件建立, NuGet 套件發行, NuGet 教學課程, dotnet �
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c9f46cafafcdc238e43979d6f05521e19bf3d7f6
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>建立及發行套件
 
 使用 `dotnet` 命令列介面 (CLI) 從 .NET 類別庫建立 NuGet 套件，並將它發行到 nuget.org 是個簡單的程序。
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 1. 安裝 [.NET Core SDK](https://www.microsoft.com/net/download/)，其中包括 `dotnet` CLI。
 
@@ -95,7 +95,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!INCLUDE[publish-errors](includes/publish-errors.md)]
 
-
 ### <a name="manage-the-published-package"></a>管理已發行的套件
 
 [!INCLUDE[publish-manage](includes/publish-manage.md)]
@@ -107,3 +106,4 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 - [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
 - [套件版本控制](../reference/package-versioning.md)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
+- [正在簽署套件](../create-packages/Sign-a-package.md)

@@ -3,7 +3,7 @@ title: "如何使用 NuGet 封裝 UWP 控制項 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/21/2017
+ms.date: 03/14/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,17 +12,17 @@ keywords: "NuGet UWP 控制項、Visual Studio XAML 設計工具、Blend 設計�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>建立 UWP 控制項作為 NuGet 套件
 
 使用 Visual Studio 2017，您可以利用以 NuGet 套件傳遞之 UWP 控制項的新增功能。 本指南會逐步引導您使用 [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)來使用這些功能。 
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 1. Visual Studio 2017
 1. 了解如何[建立 UWP 套件](create-uwp-packages.md)
@@ -100,13 +100,7 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-若要強制執行適當的 TPMinV 檢查，請建立 [MSBuild 目標檔案](/visualstudio/msbuild/msbuild-targets)，並將它封裝在組建資料夾下方 (將 "your_assembly_name" 取代為特定組件的名稱)：
-
-    \build
-      \uap10.0
-        your_assembly_name.targets
-    \lib
-    \tools
+若要強制執行適當的 TPMinV 檢查，請建立 [MSBuild 目標檔案](/visualstudio/msbuild/msbuild-targets)，並將其封裝在 `build\uap10.0" folder as `<your_assembly_name>.targets`, replacing `<your_assembly_name>` 為您的特定組件名稱。
 
 以下範例是目標檔案的內容：
 
@@ -114,7 +108,7 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="TPMinVCheck" BeforeTargets="Build;ReBuild" Condition="'$(TargetPlatformMinVersion)' != ''">
+  <Target Name="TPMinVCheck" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetPlatformMinVersion)' != ''">
     <PropertyGroup>
       <RequiredTPMinV>10.0.14393</RequiredTPMinV>
       <ActualTPMinV>$(TargetPlatformMinVersion)</ActualTPMinV>
@@ -126,17 +120,15 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 
 ## <a name="add-design-time-support"></a>新增設計階段支援
 
-若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\<platform>\Design` 資料夾內。 此外，為了確保**[編輯範本 > 編輯複本](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**功能正常運作，您必須包含 `Generic.xaml` 以及它在 `<AssemblyName>\Themes` 資料夾中所合併的任何資源字典  (此檔案不會影響控制項的執行階段行為)。
+若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。 (此檔案不會影響控制項的執行階段行為)。資料夾結構會因此出現，如下所示：
 
-    \build
     \lib
-      \uap10.0.14393.0
+      \uap10.0
         \Design
           \MyControl.design.dll
         \your_assembly_name
           \Themes
             Generic.xaml
-    \tools
 
 > [!Note]
 > 控制屬性預設會顯示在屬性偵測器的 [其他] 類別下方。
@@ -149,23 +141,15 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 
 ## <a name="package-content-such-as-images"></a>套件內容 (例如影像)
 
-封裝控制項或取用 UWP 專案可使用的內容 (例如影像)。 如下在 `lib\uap10.0.14393.0` 資料夾中新增這些檔案 ("your_assembly_name" 應該再次符合您的特定控制項)：
+若要封裝控制項或取用 UWP 專案可使用的內容 (例如影像)，請將這些檔案放在 `lib\uap10.0` 資料夾中。
 
-    \build
-    \lib
-      \uap10.0.14393.0
-        \Design
-          \your_assembly_name
-    \contosoSampleImage.jpg
-    \tools
-
-您也可以編寫 [MSBuild 目標檔案](/visualstudio/msbuild/msbuild-targets)，以確保將資產複製至取用專案的輸出資料夾：
+您也可以編寫 [MSBuild 目標檔案](/visualstudio/msbuild/msbuild-targets)，以確保資產會複製到取用專案的輸出資料夾：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0.14393.0\contosoSampleImage.jpg">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\contosoSampleImage.jpg">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

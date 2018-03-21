@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 610b20831b17ca5c1bae07546fde6eff3e2e43cc
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="publishing-packages"></a>發行套件
 
@@ -72,9 +72,9 @@ ms.lasthandoff: 02/14/2018
 
 ### <a name="package-validation-and-indexing"></a>套件驗證和編製索引
 
-推送至 NuGet.org 的套件會歷經數次驗證。 套件通過所有驗證檢查時，可能需要一些時間進行編製索引，並顯示在搜尋結果中。 編製索引完成之後，您會收到一封電子郵件，確認已成功發行套件。 如果套件讓驗證檢查失敗，則會更新套件詳細資料頁面以顯示相關聯的錯誤，而且您也會收到一封電子郵件通知您有關該錯誤。
+推送至 nuget.org 的套件會歷經數次驗證。 套件通過所有驗證檢查時，可能需要一些時間進行編製索引，並顯示在搜尋結果中。 編製索引完成之後，您會收到一封電子郵件，確認已成功發行套件。 如果套件讓驗證檢查失敗，則會更新套件詳細資料頁面以顯示相關聯的錯誤，而且您也會收到一封電子郵件通知您有關該錯誤。
 
-套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發行所需的時間超出預期，請前往[status.nuget.org](https://status.nuget.org/)，以檢查 NuGet.org 是否發生任何中斷。 如果所有系統都可以正常運作，而且在一個小時內未成功發行套件，請登入 NuGet.org，並使用套件頁面上的 [連絡客戶支援] 連結，與我們連絡。
+套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發佈所需的時間超出預期，請前往 [status.nuget.org](https://status.nuget.org/)，以檢查 nuget.org 是否發生任何中斷。 如果所有系統都可以正常運作，但未在一個小時內成功發佈套件，請登入 nuget.org，並使用套件頁面上的 [連絡客戶支援] 連結與我們連絡。
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 

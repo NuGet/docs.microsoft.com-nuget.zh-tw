@@ -1,28 +1,28 @@
 ---
-title: "使用 Visual Studio 建立及發行 NuGet 套件的入門指南 | Microsoft Docs"
+title: "使用 Visual Studio 建立及發佈 .NET Standard NuGet 套件的入門指南 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: "使用 Visual Studio 2017 建立及發行 NuGet 套件的逐步解說教學課程。"
+description: "使用 Visual Studio 2017 建立及發佈 .NET Standard NuGet 套件的逐步解說教學課程。"
 keywords: "NuGet 套件建立, NuGet 套件發行, NuGet 教學課程, Visual Studio 建立 NuGet 套件, MSbuild 套件"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>使用 Visual Studio 建立及發行套件
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>使用 Visual Studio (.NET Standard) 建立及發佈套件
 
-使用 CLI 工具，從 Visual Studio 中的 .NET 類別庫建立 NuGet 套件，然後將它發行到 nuget.org 是個簡單的程序。
+只要使用 CLI 工具，就能輕鬆從 Visual Studio 中的 .NET Standard 類別庫建立 NuGet 套件，然後將其發佈到 nuget.org。
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 1. 使用任何 .NET 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017。 Visual Studio 2017 會在安裝 .NET 工作負載時，自動包含 NuGet 功能。
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/09/2018
 
 ## <a name="create-a-class-library-project"></a>建立類別庫專案
 
-您可以針對要封裝的程式碼使用現有的 .NET 類別庫專案，或建立一個簡單的專案，如下所示：
+您可以針對要封裝的程式碼使用現有的 .NET Standard 類別庫專案，或建立一個簡單的專案，如下所示：
 
 1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]、展開 [Visual C#] > [.NET Standard] 節點、選取 [類別庫 (.NET Standard)] 範本、將專案命名為 AppLogger，然後按一下 [確定]。
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>設定套件屬性
 
-1. 選取 [專案] > [屬性] 功能表命令，然後選取 [套件] 索引標籤：
+1. 選取 [專案] > [屬性] 功能表命令，然後選取 [套件] 索引標籤。([套件] 索引標籤只會出現於 .NET Standard 類別庫專案；如果您的目標是 .NET Framework，請參閱[建立及發佈 .NET Framework 套件](create-and-publish-a-package-using-visual-studio-net-framework.md)。)
 
     ![Visual Studio 專案中的 NuGet 套件屬性](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>替代選項：使用 MSBuild 封裝
 
-使用 [封裝] 功能表命令的另一種替代方法，便是當專案包含必要的套件資料時，NuGet 4.x+ 和 MSBuild 15.1+ 可支援 `pack` 目標：
+當專案包含必要的套件資料時，NuGet 4.x+ 和 MSBuild 15.1+ 可支援 `pack` 目標，而這是使用 [封裝] 功能表命令的另一種替代方法。 請開啟命令提示字元，巡覽至專案資料夾並執行下列命令。 (若從 [開始] 功能表啟動 [適用於 Visual Studio 的開發人員命令提示字元]，其中就會設定好 MSBuild 的所有必要路徑，因此這是建議的做法。)
 
 ```cli
 msbuild /t:pack /p:Configuration=Release

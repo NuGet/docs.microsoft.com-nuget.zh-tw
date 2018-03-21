@@ -12,11 +12,11 @@ keywords: "建立套件, UWP 的套件, Windows 執行階段元件"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>建立 UWP 套件
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/14/2018
 
 在本逐步解說中，您將使用可在受控和原生專案中使用的原生 UWP 元件 (包含 XAML 控制項) 來建立 NuGet 套件。
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 1. Visual Studio 2017 或 Visual Studio 2015. 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2017 Community Edition，也可以使用 Professional Edition 和 Enterprise Edition。
 
@@ -156,7 +156,7 @@ Windows 執行階段元件需要描述其所有公開可用類型的中繼資料
 
 ### <a name="adding-targets"></a>新增 .targets
 
-接下來，可能使用 NuGet 套件的 C++ 和 JavaScript 專案需要有 .targets 檔案，才能識別必要組件和 winmd 檔案  (C# 和 Visual Basic 專案會自動執行這項作業)。建立此檔案，方法是將下列文字複製至 `ImageEnhancer.targets`，並將它儲存至與 `.nuspec` 檔案相同的資料夾中：
+接下來，可能使用 NuGet 套件的 C++ 和 JavaScript 專案需要有 .targets 檔案，才能識別必要組件和 winmd 檔案  (C# 和 Visual Basic 專案會自動執行這項作業)。將下方文字複製到 `ImageEnhancer.targets` 以建立此檔案，然後將其儲存到與 `.nuspec` 檔案相同的資料夾中。 _注意_：此 `.targets` 檔案的名稱必須與套件識別碼的名稱相同 (例如 `.nupspec` 檔案中的 `<Id>` 項目)：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

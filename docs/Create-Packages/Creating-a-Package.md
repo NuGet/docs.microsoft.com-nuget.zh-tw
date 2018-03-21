@@ -13,40 +13,22 @@ keywords: "NuGet 套件建立, 建立套件, nuspec 資訊清單, NuGet 套件�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
-ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
+ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
+ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
-不論套件的功能或所含程式碼為何，您都可以使用 `nuget.exe` 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。 若要安裝 `nuget.exe`，請參閱[安裝 NuGet CLI](../guides/Install-NuGet.md#nuget-cli)。 請注意，Visual Studio 不會自動包含 `nuget.exe`。
+不論套件的功能或所含程式碼為何，您都可以使用 `nuget.exe` 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。 若要安裝 `nuget.exe`，請參閱[安裝 NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli)。 請注意，Visual Studio 不會自動包含 `nuget.exe`。
 
-技術上而言，NuGet 套件就只是已重新命名為 `.nupkg` 副檔名且其內容符合特定慣例的 ZIP 檔案。 本主題描述如何建立符合這些慣例之套件的詳細程序。 如需詳細的逐步解說，請參閱[建立和發行套件快速入門](../quickstart/create-and-publish-a-package.md)。
+技術上而言，NuGet 套件就只是已重新命名為 `.nupkg` 副檔名且其內容符合特定慣例的 ZIP 檔案。 本主題描述如何建立符合這些慣例之套件的詳細程序。 如需詳細的逐步解說，請參閱[快速入門：建立和發行套件](../quickstart/create-and-publish-a-package.md)。
 
-封裝開始於已編譯的程式碼 (組件)、符號 (和) 您想要以套件形式傳遞的其他檔案 (請參閱[概觀和工作流程](Overview-and-Workflow.md))。 此程序與編譯或產生進入套件的檔案無關，但您可以使用專案檔中的資訊保持已編譯的組件與套件同步。
-
-本主題內容：
-
-- [決定要封裝的組件](#deciding-which-assemblies-to-package)
-- [`.nuspec` 檔案的角色和結構](#the-role-and-structure-of-the-nuspec-file)
-- 從下列項目[建立 `.nuspec` 檔案](#creating-the-nuspec-file)：
-    - [以慣例為基礎的工作目錄](#from-a-convention-based-working-directory)
-    - [組件 DLL](#from-an-assembly-dll)
-    - [Visual Studio 專案](#from-a-visual-studio-project)
-    - [含預設值的新檔案](#new-file-with-default-values)    
-- [選擇唯一的套件識別碼並設定版本號碼](#choosing-a-unique-package-identifier-and-setting-the-version-number)
-- [設定套件類型](#setting-a-package-type) (NuGet 3.5 和更新版本)
-- [新增讀我檔案和其他檔案](#adding-a-readme-and-other-files)
-- [在套件中包含 MSBuild 屬性和目標](#including-msbuild-props-and-targets-in-a-package)
-- [撰寫包含 COM Interop 組件的套件](#authoring-packages-with-com-interop-assemblies)
-- [執行nuget pack 以產生 .nupkg 檔案](#running-nuget-pack-to-generate-the-nupkg-file)
-
-在這些核心步驟之後，您可以併入各種其他功能，如這份文件中所述。 請參閱下方的[後續步驟](#next-steps)。
+封裝開始於已編譯的程式碼 (組件)、符號 (和) 您想要以套件形式傳遞的其他檔案 (請參閱[概觀和工作流程](overview-and-workflow.md))。 此流程與編譯或產生進入套件的檔案無關，但您可以使用專案檔中的資訊保持已編譯的組件與套件同步。
 
 > [!Note]
-> 本主題適用於使用 Visual Studio 2017 和 NuGet 4.0+ 的 .NET Core 專案以外的專案類型。 在這些 .NET Core 專案中，NuGet 會直接使用 `.csproj` 檔案中的資訊。 如需詳細資料，請參閱[使用 Visual Studio 2017 建立 .NET Standard 套件](../guides/create-net-standard-packages-vs2017.md)和 [NuGet 封裝和還原為 MSBuild 目標](../schema/msbuild-targets.md)。
+> 本主題適用於使用 Visual Studio 2017 和 NuGet 4.0+ 的 .NET Core 專案以外的專案類型。 在這些 .NET Core 專案中，NuGet 會直接使用專案檔中的資訊。 如需詳細資料，請參閱[使用 Visual Studio 2017 建立 .NET Standard 套件](../guides/create-net-standard-packages-vs2017.md)和 [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)。
 
 ## <a name="deciding-which-assemblies-to-package"></a>決定要封裝的組件
 
@@ -55,7 +37,8 @@ ms.lasthandoff: 01/08/2018
 - 一般而言，最好一個 NuGet 套件一個組件，前提是每個組件都可以獨立使用。 例如，如果您有與 `Parser.dll` 相依的 `Utilities.dll`，而且 `Parser.dll` 可以單獨使用，則會為每個項目建立一個套件。 這樣做可讓開發人員單獨使用 `Parser.dll` 和 `Utilities.dll`。
 
 - 如果您的程式庫包含多個無法單獨使用的組件，則最好將它們結合成單一套件。 使用上述範例時，如果 `Parser.dll` 所包含的程式碼僅供 `Utilities.dll` 使用，則最好將 `Parser.dll` 放在相同的套件中。
-    - 同樣地，如果 `Utilities.dll` 與 `Utilities.resources.dll` 相依 (再提醒一次，後者無法單獨使用)，則請將這兩個放在相同的套件中。
+
+- 同樣地，如果 `Utilities.dll` 與 `Utilities.resources.dll` 相依 (再提醒一次，後者無法單獨使用)，則請將這兩個放在相同的套件中。
 
 資源其實是特殊案例。 將套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，但「排除」名為 `.resources.dll` 的參考，因為它們假設為當地語系化附屬組件 (請參閱[建立當地語系化套件](creating-localized-packages.md))。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
 
@@ -69,12 +52,12 @@ ms.lasthandoff: 01/08/2018
 
 1. 描述套件內容而且本身包含在套件中。
 1. 驅使建立套件並指示 NuGet 如何將套件安裝至專案。 例如，資訊清單會識別其他套件相依性；因此，安裝主要套件時，NuGet 也可以安裝這些相依性。
-1. 包含必要和選擇性屬性，如下所述。 如需確切詳細資料 (包含這裡未提及的其他屬性)，請參閱 [.nuspec 參考](../schema/nuspec.md)。
+1. 包含必要和選擇性屬性，如下所述。 如需確切詳細資料 (包含這裡未提及的其他屬性)，請參閱 [.nuspec 參考](../reference/nuspec.md)。
 
 必要屬性：
 
 - 套件識別碼，其在裝載套件的資源庫內必須是唯一的。
-- *Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](Prerelease-Packages.md)
+- *Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)
 - 它應該出現在主機上的套件標題 (例如 nuget.org)
 - 作者和擁有者資訊。
 - 套件的詳細描述。
@@ -83,7 +66,7 @@ ms.lasthandoff: 01/08/2018
 
 - 版本資訊
 - 著作權資訊
-- [Visual Studio 中的套件管理員 UI](../Tools/Package-Manager-UI.md) 的簡短描述
+- [Visual Studio 中的套件管理員 UI](../tools/package-manager-ui.md) 的簡短描述
 - 地區設定識別碼
 - 首頁和授權 URL
 - 圖示 URL
@@ -146,11 +129,11 @@ ms.lasthandoff: 01/08/2018
 </package>
 ```
 
-如需宣告相依性以及指定版本號碼的詳細資料，請參閱[套件版本控制](../reference/package-versioning.md)。 在 `dependency` 項目上使用 `include` 和 `exclude` 屬性，也可以將相依性中的資產直接用於套件中。 請參閱 [.nuspec 參考 - 相依性](../Schema/nuspec.md#dependencies)。
+如需宣告相依性以及指定版本號碼的詳細資料，請參閱[套件版本控制](../reference/package-versioning.md)。 在 `dependency` 項目上使用 `include` 和 `exclude` 屬性，也可以將相依性中的資產直接用於套件中。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
 
 因為資訊清單會包含在透過它所建立的套件中，所以檢查現有套件就可以找到任意數目的其他範例。 不錯的來源是您電腦上的全域套件快取，即下列命令所傳回的位置：
 
-```
+```cli
 nuget locals -list global-packages
 ```
 
@@ -188,17 +171,17 @@ nuget locals -list global-packages
 | 資料夾 | 描述 | 套件安裝時的動作 |
 | --- | --- | --- |
 | (root) | readme.txt 的位置 | 安裝套件時，Visual Studio 會顯示套件根目錄中的 readme.txt 檔案。 |
-| lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為參考；`.xml` 和 `.pdb` 則會複製至專案資料夾。 請參閱[支援多個目標架構](Supporting-Multiple-Target-Frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
-| runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件會新增為參考；其他檔案則會複製至專案資料夾。 請參閱[支援多個目標架構](Supporting-Multiple-Target-Frameworks.md)。 |
+| lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為參考；`.xml` 和 `.pdb` 則會複製至專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
+| runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件會新增為參考；其他檔案則會複製至專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)。 |
 | content | 任意檔案 | 內容會複製至專案根目錄。 請將 **content** 資料夾視為最後使用套件的目標應用程式的根目錄。 若要讓套件在應用程式的 */images* 資料夾中新增映像，請將它放在套件的 *content/images* 資料夾中。 |
-| build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入專案檔 (NuGet 2.x) 或 `project.lock.json` (NuGet 3.x+) 中。 |
+| build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入專案檔或 `project.lock.json` (NuGet 3.x+) 中。 |
 | tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時「不」會新增至針對 MSBuild 所設定的 `PATH`)。 |
 
 因為您的資料夾結構可以包含任意數目之目標架構的任意數目組件，所以建立可支援多個架構的套件時需要這種方法 
 
 在任何情況下，您擁有所要的資料夾結構之後，請在該資料夾中執行下列命令來建立 `.nuspec` 檔案：
 
-```
+```cli
 nuget spec
 ```
 
@@ -208,7 +191,7 @@ nuget spec
 
 在從組件建立套件的簡單案例中，您可以使用下列命令，透過組件的中繼資料產生 `.nuspec` 檔案：
 
-```
+```cli
 nuget spec <assembly-name>.dll
 ```
 
@@ -218,7 +201,7 @@ nuget spec <assembly-name>.dll
 
 從 `.csproj` 或 `.vbproj` 檔案建立 `.nuspec` 十分方便，因為已安裝至這些專案的其他套件會自動參照為相依性。 只需要在與專案檔相同的資料夾中使用下列命令：
 
-```
+```cli
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget spec
 ```
@@ -231,7 +214,7 @@ nuget spec
 <id>$id$</id>
 ```
 
-在封裝時間，會將此權杖取代為專案檔中的 `AssemblyName` 值。 若要將專案值完全對應至 `.nuspec` 權杖，請參閱[取代權杖參考](../schema/nuspec.md#replacement-tokens)。
+在封裝時間，會將此權杖取代為專案檔中的 `AssemblyName` 值。 若要將專案值完全對應至 `.nuspec` 權杖，請參閱[取代權杖參考](../reference/nuspec.md#replacement-tokens)。
 
 更新專案時，權杖可讓您不需要更新 `.nuspec` 中這類版本號碼的重要值  (如有需要，您一律可以將權杖取代為常值)。 
 
@@ -241,7 +224,7 @@ nuget spec
 
 *僅限 NuGet 2.x。在 NuGet 3.0+ 中無法使用。*
 
-NuGet 2.x 支援可安裝套件管理員主控台工具或其他命令的方案層級套件概念 (`tools` 資料夾內容)，但不會將參考、內容或組建自訂新增至方案中的任何專案。 這類套件在其直接 `lib`、`content` 或 `build` 資料夾中未包含任何檔案，而其相依性在各自的 `lib`、`content` 或 `build` 資料夾中沒有檔案。 
+NuGet 2.x 支援可安裝套件管理員主控台工具或其他命令的方案層級套件概念 (`tools` 資料夾內容)，但不會將參考、內容或組建自訂新增至方案中的任何專案。 這類套件在其直接 `lib`、`content` 或 `build` 資料夾中未包含任何檔案，而其相依性在各自的 `lib`、`content` 或 `build` 資料夾中沒有檔案。
 
 NuGet 會追蹤 `.nuget` 資料夾的 `packages.config` 檔案中的已安裝方案層級套件，而不是專案的 `packages.config` 檔案。
 
@@ -249,7 +232,7 @@ NuGet 會追蹤 `.nuget` 資料夾的 `packages.config` 檔案中的已安裝方
 
 下列命令會建立含預留位置的預設資訊清單，確保您是從正確的檔案結構開始：
 
-```
+```cli
 nuget spec [<package-name>]
 ```
 
@@ -286,11 +269,9 @@ nuget spec [<package-name>]
 
 - `DotnetCliTool` 類型套件是 [.NET CLI](/dotnet/articles/core/tools/index) 的延伸模組，並且會從命令列予以叫用。 這類套件只能安裝在 .NET Core 專案中，而且不會影響還原作業。 [.NET Core 擴充性](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility)文件提供所有這些專案延伸模組的詳細資料。
 
-    安裝 DotnetCliTool 套件時，Visual Studio 會將套件放入 `project.json` `tools` 節點中，而不是 `dependencies` 節點。
-
 - 自訂類型套件會使用任意類型識別碼，而其符合與套件識別碼相同的格式規則。 不過，Visual Studio 中的 NuGet 套件管理員無法辨識 `Dependency` 和 `DotnetCliTool` 以外的任何類型。
 
-套件類型設定於 `.nuspec` 檔案或 `project.json` 中。 在這兩種情況下，針對回溯相容性，最好「不」要明確設定 `Dependency` 類型，而是在未指定類型時改為依賴採用此類型的 NuGet。
+套件類型是設定在 `.nuspec` 檔案中。 針對回溯相容性，最好「不要」明確設定 `Dependency` 類型，而是在未指定類型時改為依賴採用此類型的 NuGet。
 
 - `.nuspec`：指出 `<metadata>` 項目的 `packageTypes\packageType` 節點內的套件類型：
 
@@ -304,17 +285,6 @@ nuget spec [<package-name>]
         </packageTypes>
         </metadata>
     </package>
-    ```
-
-- `project.json`：指出 `packOptions.packageType` 屬性 json 內的套件類型：
-
-    ```json
-    {
-        // ...
-        "packOptions": {
-        "packageType": "DotnetCliTool"
-        }
-    }
     ```
 
 ## <a name="adding-a-readme-and-other-files"></a>新增讀我檔案和其他檔案
@@ -366,7 +336,7 @@ nuget spec [<package-name>]
 ```xml
 <?xml version="1.0"?>
 <package >
-    <metadata>
+    <metadata minClientVersion="2.5">
     <!-- ... -->
     </metadata>
     <files>
@@ -379,7 +349,9 @@ nuget spec [<package-name>]
 </package>
 ```
 
-NuGet 2.x 使用 `\build` 檔案安裝套件時，會在指向 `.targets` 和 `.props` 檔案的專案檔中新增 MSBuild `<Import>` 項目  (`.props` 新增於專案檔頂端；`.targets` 則新增於底端)。
+[NuGet 2.5 引進了](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files)在套件中包含 MSBuild pros 和 targets 的做法，因此建議您將 `minClientVersion="2.5"` 屬性新增到 `metadata` 元素，以指出使用套件所需的最低 NuGet 用戶端版本。
+
+當 NuGet 安裝含有 `\build` 檔案的套件時，會在指向 `.targets` 和 `.props` 檔案的專案檔中新增 MSBuild `<Import>` 項目。 (`.props` 新增於專案檔頂端；`.targets` 則新增於底端)。
 
 使用 NuGet 3.x 時，目標不會新增至專案，但可透過 `project.lock.json` 提供。
 
@@ -387,7 +359,7 @@ NuGet 2.x 使用 `\build` 檔案安裝套件時，會在指向 `.targets` 和 `.
 
 包含 COM Interop 組件的套件必須包含適當的[目標檔案](#including-msbuild-props-and-targets-in-a-package)，因此會使用 PackageReference 格式將正確的 `EmbedInteropTypes` 中繼資料新增至專案。 根據預設，使用 PackageReference 時，所有組件的 `EmbedInteropTypes` 中繼資料一律為 false，因此目標檔案會明確新增此中繼資料。 若要避免衝突，目標名稱應該是唯一的；在理想狀況下，使用套件名稱和所內嵌組件的組合，並將下列範例中的 `{InteropAssemblyName}` 取代為該值  (如需範例，請參閱 [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop))。
 
-```xml      
+```xml
 <Target Name="EmbeddingAssemblyNameFromPackageId" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
   <PropertyGroup>
     <_InteropAssemblyFileName>{InteropAssemblyName}</_InteropAssemblyFileName>
@@ -402,7 +374,7 @@ NuGet 2.x 使用 `\build` 檔案安裝套件時，會在指向 `.targets` 和 `.
 
 請注意，使用 `packages.config` 參考格式時，新增套件中組件的參考會讓 NuGet 和 Visual Studio 檢查 COM Interop 組件，並將專案檔中的 `EmbedInteropTypes` 設定為 true。 在此情況下，會覆寫目標。
 
-此外，根據預設，[組建資產不會轉移流動](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 如這裡所述而撰寫的套件從專案對專案參考提取為可轉移相依性時，即會以不同的方式運作。 套件取用者允許它們流動的方式，是將 PrivateAssets 預設值修改為不包含組建。  
+此外，根據預設，[組建資產不會轉移流動](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 如這裡所述而撰寫的套件從專案對專案參考提取為可轉移相依性時，即會以不同的方式運作。 套件取用者允許它們流動的方式，是將 PrivateAssets 預設值修改為不包含組建。
 
 <a name="creating-the-package"></a>
 
@@ -410,13 +382,13 @@ NuGet 2.x 使用 `\build` 檔案安裝套件時，會在指向 `.targets` 和 `.
 
 使用組件或以慣例為基礎的工作目錄時，搭配執行 `nuget pack` 與 `.nuspec` 檔案，並將 `<manifest-name>` 取代為特定檔案名稱，以建立套件：
 
-```
+```cli
 nuget pack <project-name>.nuspec
 ```
 
 使用 Visual Studio 專案時，請搭配執行 `nuget pack` 與專案檔，這樣會自動載入專案的 `.nuspec` 檔案，並使用專案檔中的值來取代其內的任何權杖：
 
-```
+```cli
 nuget pack <project-name>.csproj
 ```
 
@@ -440,7 +412,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 - **參考的專案**：如果專案參考其他專案，則您可以使用 `-IncludeReferencedProjects` 選項，將參考的專案新增為套件的一部分或相依性：
 
-    ```
+    ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
     ```
 
@@ -450,13 +422,13 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 - **組建組態**：NuGet 預設會使用專案檔中所設定的預設組建組態，通常是「偵錯」。 若要從不同組建組態來封裝檔案 (例如「發行」)，請搭配使用 `-properties` 選項與下列組態：
 
-    ```
+    ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
     ```
 
 - **符號**：若要包含可讓取用者在偵錯工具中逐步執行您套件程式碼的符號，請使用 `-Symbols` 選項：
 
-    ```
+    ```cli
     nuget pack MyProject.csproj -symbols
     ```
 
@@ -464,12 +436,12 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 發行套件之前，您通常會想要測試將套件安裝至專案的程序。 測試可確定必要檔案最後都在專案的正確位置。
 
-您可以使用一般[套件安裝步驟](../Quickstart/Use-a-Package.md)，以在 Visual Studio 中或命令列上手動測試安裝。
+您可以使用一般[套件安裝步驟](../consume-packages/ways-to-install-a-package.md)，以在 Visual Studio 中或命令列上手動測試安裝。
 
 自動化測試的基本程序如下：
 
 1. 將 `.nupkg` 檔案複製至本機資料夾。
-1. 使用 `nuget sources -name <name> -source <path>` 命令，將資料夾新增至套件來源 (請參閱 [nuget sources](../tools/cli-ref-sources.md))。 請注意，您只需要在任何指定電腦上設定此本機來源一次。
+1. 使用 `nuget sources add -name <name> -source <path>` 命令，將資料夾新增至套件來源 (請參閱 [nuget sources](../tools/cli-ref-sources.md))。 請注意，您只需要在任何指定電腦上設定此本機來源一次。
 1. 使用 `nuget install <packageID> -source <name>` 以從該來源安裝套件，其中 `<name>` 符合您指定至 `nuget sources` 的來源名稱。 指定來源可確保單獨從該來源安裝套件。
 1. 檢查檔案系統，確認已正確安裝檔案。
 

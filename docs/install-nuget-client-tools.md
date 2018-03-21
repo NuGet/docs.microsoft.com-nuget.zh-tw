@@ -12,11 +12,11 @@ keywords: "dotnet.exe CLI, nuget.exe CLI, NuGet 用戶端工具, NuGet 套件管
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
-ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
+ms.openlocfilehash: 462557e939e769f26fe05d6f9e2994eaf43c6e11
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="installing-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/03/2018
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | 隨附於 .NET Core SDK，並提供所有平台上的核心 NuGet 功能。 | [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | 提供 Windows 上的所有 NuGet 功能，以及在 Mac 和 Linux 上的 [Mono](http://www.mono-project.com/docs/getting-started/install/) 下執行的大部分功能。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | 透過套件管理員 UI 和套件管理員主控台提供 NuGet 功能。 | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | 透過套件管理員 UI 和套件管理員主控台提供 NuGet 功能；隨附 .NET 相關的工作負載。 | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 [MSBuild CLI](reference/msbuild-targets.md) 也提供還原和建立套件的能力，這主要用於組建伺服器。 除此之外，MSBuild 並非適合用來搭配 NuGet 使用的一般用途工具。
 
@@ -67,10 +67,10 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 - Visual Studio for Mac：已直接內建特定的 NuGet 功能。 如需逐步解說，請參閱[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。 針對其他功能，請使用 `dotnet.exe` 或 `nuget.exe` CLI 工具。
 
 - Windows 上的 Visual Studio：**NuGet 套件管理員**隨附於 Visual Studio 2012 及更新版本。 套件管理員提供[套件管理員 UI](tools/package-manager-ui.md) 和[套件管理員主控台](tools/package-manager-console.md)，您可以透過它們執行大部分 NuGet 作業。
+  - Visual Studio 2017 安裝程式會在採用 .NET 的任何工作負載包含 NuGet 套件管理員。 若要個別安裝，或確認已安裝套管理員，請執行 Visual Studio 2017 安裝程式，並核取 [個別元件] > [程式碼工具] > [NuGet 套件管理員] 下方選項。
   - 套件管理員 UI 和主控台對 Windows 上的 Visual Studio 而言是不同的。 它們目前不適用於 Visual Studio for Mac。
   - Visual Studio 不會自動納入 `nuget.exe` CLI，必須分開安裝，如先前所述。
   - 套件管理員主控台命令只能在 Windows 上的 Visual Studio 內運作，無法在其他 PowerShell 環境中運作。
-  - Visual Studio 2017 安裝程式會在採用 .NET 的任何工作負載包含 NuGet 套件管理員。 若要個別安裝，或確認已安裝套管理員，請執行 Visual Studio 2017 安裝程式，並核取 [個別元件] > [程式碼工具] > [NuGet 套件管理員] 下方選項。
   - 針對 Visual Studio 2010 及更早版本，安裝「適用於 Visual Studio 的 NuGet 套件管理員」擴充功能。
   - 您也可以從 [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) 下載適用於 Visual Studio 2013 和 2015 的 NuGet 擴充功能。
   - 如果您想要預覽即將推出的 NuGet 功能，請安裝 [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/)，它能與穩定版本的 Visual Studio 並存運作。 若要針對預覽回報問題或分享想法，請在 [NuGet GitHub 存放庫](https://github.com/Nuget/Home/issues) \(英文\) 上建立問題。

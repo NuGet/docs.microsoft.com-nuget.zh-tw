@@ -12,11 +12,11 @@ keywords: "NuGet 相依性, NuGet 和 UWP, UWP 和 project.json, NuGet project.j
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json 和 UWP
 
@@ -121,7 +121,7 @@ MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和
 
 runtimes 資料夾包含在特定「執行階段」上執行所需的組件和原生程式庫，而執行階段一般是透過作業系統和 CPU 架構所定義。 這些執行階段是使用[執行階段識別碼 (RID)](/dotnet/core/rid-catalog) (例如 `win`、`win-x86`、`win7-x86`、`win8-64` 等等) 進行識別。
 
-## <a name="native-light-up"></a>原生重點
+## <a name="native-helpers-to-use-platform-specific-apis"></a>使用平台專屬 API 的原生協助程式
 
 下列範例示範具有數個平台之純受控 實作的套件，但在 Windows 8 上使用可呼叫 Windows 8 特定原生 API 的原生協助程式。
 

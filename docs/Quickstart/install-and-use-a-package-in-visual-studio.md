@@ -12,11 +12,11 @@ keywords: "安裝 NuGet, NuGet 套件耗用量, 安裝 NuGet 套件, NuGet 套�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>在 Visual Studio 中安裝並使用套件
 
@@ -27,7 +27,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 > [!Tip]
 > **從 nuget.org 開始**：瀏覽 nuget.org 是 .NET 開發人員通常用來尋找可在自己應用程式中重複使用之元件的方式。 您可以直接搜尋 nuget.org，或在 Visual Studio 中尋找並安裝套件，如本文所示。
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 - Visual Studio 2017，包含通用 Windows 平台開發工作負載，或
 - Visual Studio 2015 Update 3，包含通用 Windows 應用程式的工具。
@@ -40,7 +40,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>新增 Newtonsoft.Json NuGet 套件
 
-若要安裝套件，您可以使用套件管理員 UI 或套件管理員主控台。
+若要安裝套件，您可以使用套件管理員 UI 或套件管理員主控台。 當您安裝套件時，NuGet 會在您的專案檔或 `packages.config` 檔案中記錄相依性。 如需詳細資訊，請參閱[套件使用概觀和工作流程](../consume-packages/Overview-and-Workflow.md)。
 
 ### <a name="package-manager-ui"></a>套件管理員 UI
 

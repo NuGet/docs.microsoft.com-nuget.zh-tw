@@ -1,5 +1,5 @@
 ---
-title: "建立跨平台 NuGet 套件 (適用於 iOS、Android 和 Windows) | Microsoft Docs"
+title: "為 Xamarin 建立 NuGet 套件 (適用於 iOS、Android 和 Windows) | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,26 +12,26 @@ keywords: "建立套件, Xamarin 的套件, 跨平台套件"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-cross-platform-packages"></a>建立跨平台套件
+# <a name="create-packages-for-xamarin"></a>建立適用於 Xamarin 的套件
 
 跨平台套件包含在 iOS、Android 和 Windows 上使用原生 API 的程式碼 (視執行階段作業系統而定)。 雖然這十分簡單，但最好是讓開發人員使用 PCL 中的套件，或透過通用 API 介面區的 .NET Standard 程式庫。
 
 在本逐步解說中，您會建立可在 iOS、Android 和 Windows 上之行動專案中使用的跨平台 NuGet 套件。
 
-1. [必要條件](#pre-requisites)
+1. [必要條件](#prerequisites)
 1. [建立專案結構和抽象程式碼](#create-the-project-structure-and-abstraction-code)
 1. [撰寫平台特定程式碼](#write-your-platform-specific-code)
 1. [建立和更新 .nuspec 檔案](#create-and-update-the-nuspec-file)
 1. [封裝元件](#package-the-component)
 1. [相關主題](#related-topics)
 
-## <a name="pre-requisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 1. 含通用 Windows 平台 (UWP) 和 Xamarin 的 Visual Studio 2015。 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 Community Edition，當然也可以使用 Professional Edition 和 Enterprise Edition。 若要包含 UWP 和 Xamarin 工具，請選取 [自訂安裝] 並檢查適當的選項。
 1. NuGet CLI。 從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 nuget.exe，並將它儲存至您選擇的位置。 如果尚未新增，則請將該位置新增至您的 PATH 環境變數。
@@ -112,9 +112,9 @@ namespace Plugin.LoggingLibrary.Abstractions
 
 1. 開啟命令提示字元，並巡覽至 `LoggingLibrary` 資料夾 (低於 `.sln` 檔案一階)，然後執行 NuGet `spec` 命令以建立初始的 `Package.nuspec` 檔案：
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. 將這個檔案重新命名為 `LoggingLibrary.nuspec`，並在編輯器中予以開啟。
 1. 更新檔案使其符合下列內容，並使用適當的值取代 YOUR_NAME。 尤其是在整個 nuget.org 中，`<id>` 值必須為唯一 (請參閱[建立套件](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。

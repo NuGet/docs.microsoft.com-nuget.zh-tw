@@ -12,18 +12,18 @@ keywords: "NuGet 套件當地語系化、NuGet 附屬組件、建立當地語系
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1ce8cff07bf629fcdeeaace901a185f2446b077a
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>建立當地語系化 NuGet 套件
 
 有兩種方式可以建立文件庫的當地語系化版本：
 
 1. 在單一套件中包含所有當地語系化資源組件。
-1. 遵循一組嚴格的慣例，以建立不同的當地語系化附屬套件 (NuGet 1.8 和更新版本)。
+1. 遵循一組嚴格的慣例，以建立不同的當地語系化附屬套件。
 
 兩種方法都有其優缺點，如下列各節中所述。
 

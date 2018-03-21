@@ -12,11 +12,11 @@ keywords: "NuGet 已知問題, NuGet 問題"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
 
@@ -45,7 +45,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 ![無任何來源的 NuGet 設定](./media/knownIssue-34-NoSources.PNG)
 
-意外清空 `%AppData%\NuGet\` 資料夾中的 `NuGet.Config` 檔案。 若要修正此問題：請關閉 Visual Studio 2015，刪除 `%AppData%\NuGet\` 資料夾的 `NuGet.Config` 檔案，然後重新啟動 Visual Studio。  將產生新的 `NuGet.Config` 檔案，您就可以繼續作業。
+意外清空 `%AppData%\NuGet\` (Windows) 或 `~/.nuget/` (Mac/Linux) 資料夾中的 `NuGet.Config` 檔案。 若要修正此問題：請關閉 Visual Studio (在 Windows 中，如果適用)，刪除 `NuGet.Config` 檔案，然後再次嘗試操作。 NuGet 產生了新的 `NuGet.Config`，而您應該能夠繼續進行。
 
 ## <a name="error-installing-packages-with-nuget-27"></a>使用 NuGet 2.7 安裝套件時發生錯誤
 
@@ -96,7 +96,7 @@ install-package log4net
 檢視記錄檔時，您可能會看到有關 `SignatureMismatchException` 的記錄。
 
 為避免發生這種情形，您可以安裝 [Visual Studio 2010 SP1 Hotfix](http://bit.ly/vsixcertfix)。
-也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。  如需詳細資訊，請參閱 [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)。
+也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。  請參閱 [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) 以取得詳細資訊。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>如果也安裝了反射程式 Visual Studio 增益集，套件管理員主控台會擲回例外狀況。
 
@@ -231,4 +231,4 @@ Windows Phone 工具不支援 Visual Studio 延伸模組管理員。 為解除�
 
 ## <a name="reporting-issues"></a>回報問題
 
-若要回報 NuGet 問題，請造訪 [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)。
+若要回報 NuGet 問題，請瀏覽 [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)。
