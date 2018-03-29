@@ -1,5 +1,5 @@
 ---
-title: "概觀、 NuGet API |Microsoft 文件"
+title: 概觀、 NuGet API |Microsoft 文件
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet API 是一組可用來下載套件、 擷取中繼資料，發佈新的封裝、 等等的 HTTP 端點。"
-keywords: "NuGet V3 API、 NuGet V2 API、 NuGet JSON、 NuGet 登錄應用程式開發介面，NuGet API 一般容器、 NuGet nupkg API、 NuGet 中繼資料 API、 NuGet 搜尋應用程式開發介面、 NuGet 推入應用程式開發介面，NuGe 發佈 API、 NuGet 刪除應用程式開發介面、 NuGet unlist API 的 NuGet 通訊協定"
+ms.technology: ''
+description: NuGet API 是一組可用來下載套件、 擷取中繼資料，發佈新的封裝、 等等的 HTTP 端點。
+keywords: NuGet V3 API、 NuGet V2 API、 NuGet JSON、 NuGet 登錄應用程式開發介面，NuGet API 一般容器、 NuGet nupkg API、 NuGet 中繼資料 API、 NuGet 搜尋應用程式開發介面、 NuGet 推入應用程式開發介面，NuGe 發佈 API、 NuGet 刪除應用程式開發介面、 NuGet unlist API 的 NuGet 通訊協定
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-api"></a>NuGet 的 API
 
@@ -32,8 +35,7 @@ NuGet API 是一組可用來下載的封裝、 擷取中繼資料、 發行新�
 
 ## <a name="service-index"></a>服務索引
 
-應用程式開發介面的進入點是 JSON 文件中的已知位置。 這份文件稱為**服務索引**。
-Nuget.org 的服務索引的位置是`https://api.nuget.org/v3/index.json`。
+應用程式開發介面的進入點是 JSON 文件中的已知位置。 這份文件稱為**服務索引**。 Nuget.org 的服務索引的位置是`https://api.nuget.org/v3/index.json`。
 
 此 JSON 文件包含一份*資源*提供不同的功能以及滿足不同使用案例。
 
@@ -112,8 +114,9 @@ DELETE | 刪除或 unlists 資源。
 名稱                     | 描述
 ------------------------ | -----------
 X-NuGet-ApiKey           | 所需推入和刪除，請參閱[`PackagePublish`資源](package-publish-resource.md)
-X-NuGet-Client-Version   | **已被取代**而被取代`X-NuGet-Protocol-Version`
+X-NuGet-Client-Version   | **已被取代**而被取代 `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | 在某些情況下，只在 nuget.org 的需要，請參閱[nuget.org 通訊協定](NuGet-Protocols.md)
+X-NuGet-Session-Id       | *選擇性*。 NuGet 的用戶端 v4.7 + 識別相同 NuGet 用戶端工作階段的一部分的 HTTP 要求。 如`PackageReference`有還原作業是單一工作階段識別碼，如需其他案例，例如自動完成，並`packages.config`可能有數個不同的工作階段 id 的由於程式碼分解的方式還原。
 
 ## <a name="authentication"></a>驗證
 

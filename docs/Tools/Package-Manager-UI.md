@@ -1,27 +1,30 @@
 ---
-title: "NuGet 封裝管理員 UI 參考 |Microsoft 文件"
+title: NuGet 封裝管理員 UI 參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "使用 NuGet 封裝，使用 Visual Studio 中的 NuGet 封裝管理員 UI 的指示。"
-keywords: "NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管理 NuGet 封裝、 NuGet 使用者介面、 封裝管理員 Visual Studio 中的 NuGet"
+description: 使用 NuGet 封裝，使用 Visual Studio 中的 NuGet 封裝管理員 UI 的指示。
+keywords: NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管理 NuGet 封裝、 NuGet 使用者介面、 封裝管理員 Visual Studio 中的 NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 封裝管理員 UI
 
@@ -37,7 +40,7 @@ ms.lasthandoff: 03/08/2018
 - [封裝管理員選項 控制項](#package-manager-options-control)
 
 > [!Note]
-> 如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中，檢查**工具 > 擴充功能和更新...**並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，下載擴充功能直接從[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)。
+> 如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中，檢查**工具 > 擴充功能和更新...**並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，下載擴充功能直接從[ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html)。
 >
 > 在 Visual Studio 2017，NuGet 和 NuGet 套件管理員自動安裝任何。網路相關的工作負載。 選取個別安裝**個別元件 > 程式碼工具 > NuGet 套件管理員**選項在 Visual Studio 2017 安裝程式。
 
@@ -125,7 +128,7 @@ ms.lasthandoff: 03/08/2018
 
     ![封裝來源選項](media/options.png)
 
-1. 若要新增為來源，請選取 **+** 、 編輯名稱、 輸入的路徑或 URL**來源**控制項，然後選取**更新**。 來源現在會出現在選取器下拉式清單中。
+1. 若要新增為來源，請選取**+**、 編輯名稱、 輸入的路徑或 URL**來源**控制項，然後選取**更新**。 來源現在會出現在選取器下拉式清單中。
 1. 若要變更的封裝來源，請選取它，進行中的編輯**名稱**和**來源**方塊，然後選取**更新**。
 1. 若要停用封裝來源，請清除方塊左邊的清單中的名稱。
 1. 若要移除的封裝來源，加以選取，然後選取**X**  按鈕。

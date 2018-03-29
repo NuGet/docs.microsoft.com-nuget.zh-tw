@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI list 命令 |Microsoft 文件"
+title: NuGet CLI list 命令 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe list 命令的參考"
-keywords: "nuget 清單參考，列出封裝命令"
+ms.technology: ''
+description: Nuget.exe list 命令的參考
+keywords: nuget 清單參考，列出封裝命令
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 61ad02eb99d6c56968c38841498df8aa9f74159d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="list-command-nuget-cli"></a>列出命令 (NuGet CLI)
 

@@ -1,18 +1,21 @@
 ---
-title: "NuGet 錯誤和警告參考 |Microsoft 文件"
+title: NuGet 錯誤和警告參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "警告和錯誤各種 NuGet 作業期間發出 NuGet 從的完整參考。"
-keywords: "NuGet 錯誤、 NuGet 警告診斷"
+ms.technology: ''
+description: 警告和錯誤各種 NuGet 作業期間發出 NuGet 從的完整參考。
+keywords: NuGet 錯誤、 NuGet 警告診斷
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>錯誤和警告
 
@@ -136,7 +139,7 @@ ms.lasthandoff: 03/12/2018
 | --- | --- |
 | **問題** | 找到的封裝識別碼，但任何來源上找不到指定的相依性範圍內的版本。 封裝並不是使用者，可能指定的範圍。 |
 | **範例訊息** | *找不到版本套件 NuGet.Versioning (> = 9.0.1)<br/> -找到 30 位在 nuget.org 的版本 [最近的版本： 4.0.0]<br/> -dotnet buildtools 中的找到 10 版本 [最近的版本： 4.0.0-rc-2129]<br/> -找到 9版本 NuGetVolatile 中的 [最近的版本： 3.0.0-beta-00032]<br/> -0 版本位於 dotnet 核心<br/>-0 版本位於 dotnet roslyn* |
-| **方案** | 編輯專案檔或`packages.config`更正封裝版本。 也請檢查[NuGet 組態](../consume-packages/Configuring-NuGet-Behavior.md)識別封裝來源您預期會使用。 您可能需要變更 requeted 版本，如果此封裝直接專案參考。 |
+| **方案** | 編輯專案檔以便可以正確封裝版本。 也請檢查[NuGet 組態](../consume-packages/Configuring-NuGet-Behavior.md)識別封裝來源您預期會使用。 您可能需要變更 requeted 版本，如果此封裝直接專案參考。 |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ ms.lasthandoff: 03/12/2018
 | --- | --- |
 | **問題** | 指定的專案相依性範圍的穩定版本，但該範圍中找不到任何穩定版本。 找不到發行前版本，但不是允許。 |
 | **範例訊息** | *找不到版本為穩定套件 NuGet.Versioning (> = 3.0.0)<br/> -dotnet buildtools 中的找到 10 版本 [最近的版本： 4.0.0-rc-2129]<br/> -NuGetVolatile 中的找到 9 版本 [最近的版本： 3.0.0-beta-00032]<br/> -0 版本位於 dotnet 核心<br/>-0 版本位於 dotnet roslyn* |
-| **方案** |  編輯專案檔中的版本範圍或`packages.config`以包含發行前版本。 請參閱[封裝版本控制](../reference/Package-Versioning.md)。 |
+| **方案** |  編輯專案檔，以包含發行前版本中的版本範圍。 請參閱[封裝版本控制](../reference/Package-Versioning.md)。 |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ ms.lasthandoff: 03/12/2018
 | | |
 | --- | --- |
 | **問題** | 無法解析相依性條件約束。 |
-| **範例訊息** | *無法滿足 {id} 的衝突要求: {衝突 path} Framework: {目標圖表}* 
-| **方案** | 編輯專案檔或`packages.config`來指定相依性，而不是正確的版本更開放式的範圍。 |
+| **範例訊息** | *無法滿足 {id} 的衝突要求: {衝突 path} Framework: {目標圖表}* |
+| **方案** | 編輯專案檔來指定相依性，而不是正確的版本更開放式的範圍。 |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ ms.lasthandoff: 03/12/2018
 | --- | --- |
 | **問題** | 無法解析封裝之間的相依性條件約束。 |
 | **範例訊息** | *偵測到 NuGet.Versioning 版本衝突。參照套件，直接從專案以解決此問題。<br/>NuGet.Packaging 3.5.0 NuGet.Versioning （= 3.5.0）]-> [<br/> NuGet.Configuration 4.0.0]-> [的 NuGet.Versioning （等於 4.0.0）* |
-| **方案** | 封裝名稱中有相依性條件約束，確切的版本上不允許其他封裝，以提高版本，如有需要。 直接加入至專案的參考 (在專案檔或`packages.config`) 所需的正確版本。 |
+| **方案** | 封裝名稱中有相依性條件約束，確切的版本上不允許其他封裝，以提高版本，如有需要。 加入直接 （專案檔） 中的專案參考所需的正確版本。 |
 
 <a name="nu1108"></a>
 

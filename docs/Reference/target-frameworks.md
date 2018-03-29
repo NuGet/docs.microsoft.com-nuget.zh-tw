@@ -1,23 +1,26 @@
 ---
-title: "NuGet 的目標 Framework 參考 | Microsoft Docs"
+title: NuGet 的目標 Framework 參考 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/11/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 目標 Framework 參考會識別並隔離套件的 Framework 相依元件。"
-keywords: "NuGet 套件目標, .NET Framework 目標, .NET Framework 版本"
+ms.technology: ''
+description: NuGet 目標 Framework 參考會識別並隔離套件的 Framework 相依元件。
+keywords: NuGet 套件目標, .NET Framework 目標, .NET Framework 版本
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="target-frameworks"></a>目標 Framework
 

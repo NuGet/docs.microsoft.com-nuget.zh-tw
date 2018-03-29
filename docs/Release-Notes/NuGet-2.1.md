@@ -1,22 +1,25 @@
 ---
-title: "NuGet 2.1 版本資訊 |Microsoft 文件"
+title: NuGet 2.1 版本資訊 |Microsoft 文件
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.1 版本資訊。"
-keywords: "NuGet 2.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
+ms.technology: ''
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.1 版本資訊。
+keywords: NuGet 2.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 405f5a0bddd5472cc760da77412c5fa066da1558
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 06116a86887b5561ad4e2ecad8090222d16cd333
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 版本資訊
 

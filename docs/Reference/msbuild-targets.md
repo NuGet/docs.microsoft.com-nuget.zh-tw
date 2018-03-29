@@ -1,21 +1,25 @@
 ---
-title: "NuGet 封裝和還原為 MSBuild 目標 | Microsoft Docs"
+title: NuGet 封裝和還原為 MSBuild 目標 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。"
-keywords: "NuGet 和 MSBuild、NuGet 封裝目標、NuGet 還原目標"
+ms.technology: ''
+description: 使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。
+keywords: NuGet 和 MSBuild、NuGet 封裝目標、NuGet 還原目標
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -110,7 +114,7 @@ PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入�
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-隨著 [NuGet 問題 2582](https://github.com/NuGet/Home/issues/2582) 的變更，`PackageIconUrl` 最後會變更為 `PackageIconUri`，而且可以是圖示檔的相對路徑，而圖示檔包含在所產生套件的根目錄中。
+一部分的變更[NuGet 問題 352](https://github.com/NuGet/Home/issues/352)，`PackageIconUrl`最終將會變更為`PackageIconUri`而且可以是圖示檔案以將包含在產生的封裝根目錄的相對路徑。
 
 ### <a name="output-assemblies"></a>輸出組件
 
@@ -231,6 +235,61 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>進階擴充點來建立自訂的套件
+
+`pack`目標提供兩個內部的目標 framework 特定組建中執行的擴充點。 包括特定內容的目標 framework 和到封裝的組件，支援的擴充點：
+
+- `TargetsForTfmSpecificBuildOutput` 目標： 用於內部檔案`lib`資料夾或使用指定的資料夾`BuildOutputTargetFolder`。
+- `TargetsForTfmSpecificContentInPackage` 目標： 以外的檔案使用`BuildOutputTargetFolder`。
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+撰寫自訂的目標，並指定做為值`$(TargetsForTfmSpecificBuildOutput)`屬性。 需要進入的任何檔案`BuildOutputTargetFolder`(依預設 lib)，目標應該將這些檔案複製到 ItemGroup`BuildOutputInPackage`並設定下列兩個中繼資料值：
+
+- `FinalOutputPath`： 絕對路徑的檔案。如果未提供，身分識別用來評估來源路徑。
+- `TargetPath`: （選擇性) 需要移入的子資料夾中的檔案時，設定`lib\<TargetFramework>`，像在其各自的文化特性資料夾下，移至附屬組件。 預設值是檔案的名稱。
+
+範例：
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+撰寫自訂的目標，並指定做為值`$(TargetsForTfmSpecificContentInPackage)`屬性。 若要在封裝中包含任何檔案，目標應該寫入這些檔案 ItemGroup`TfmSpecificPackageFile`並設定下列選擇性中繼資料：
+
+- `PackagePath`： 在封裝中的輸出檔案應該的儲存路徑。 如果多個檔案加入至相同的封裝路徑，NuGet 就會發出警告。
+- `BuildAction`： 建置動作指派給檔，才是必要的封裝路徑是否在`contentFiles`資料夾。 預設值是"None"。
+
+範例：
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>還原目標
 
 `MSBuild /t:restore` (`nuget restore` 和 `dotnet restore` 與 .NET Core 專案搭配使用) 會還原專案檔中所參考的套件，如下所示：
@@ -254,7 +313,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 | RestorePackagesPath | 使用者套件資料夾路徑。 |
 | RestoreDisableParallel | 限制逐一進行下載。 |
 | RestoreConfigFile | 要套用之 `Nuget.Config` 檔案的路徑。 |
-| RestoreNoCache | 如果為 true，請避免使用 Web 快取。 |
+| RestoreNoCache | 如果為 true，可避免使用快取的套件。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | RestoreIgnoreFailedSources | 如果為 true，請忽略失敗或遺漏的套件來源。 |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` 的路徑。 |
 | RestoreGraphProjectInput | 要還原的專案清單 (以分號分隔)，其中應包含絕對路徑。 |
@@ -282,7 +341,7 @@ msbuild /t:restore /p:RestoreConfigFile=<path>
 
 | 檔案 | 描述 |
 |--------|--------|
-| `project.assets.json` | 先前是 `project.lock.json` |
+| `project.assets.json` | 包含封裝的所有參考的相依性圖形。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | 套件中所含 MSBuild 屬性的參考 |
 | `{projectName}.projectFileExtension.nuget.g.targets` | 套件中所含 MSBuild 目標的參考 |
 

@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI 安裝命令 |Microsoft 文件"
+title: NuGet CLI 安裝命令 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 安裝命令的參考"
-keywords: "nuget 安裝參考時，安裝套件 命令"
+ms.technology: ''
+description: Nuget.exe 安裝命令的參考
+keywords: nuget 安裝參考時，安裝套件 命令
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-command-nuget-cli"></a>安裝命令 (NuGet CLI)
 
@@ -27,7 +30,7 @@ ms.lasthandoff: 03/15/2018
 > [!Tip]
 > 若要下載的封裝，直接在專案內容之外，請瀏覽封裝的頁面上[nuget.org](https://www.nuget.org)選取**下載**連結。
 
-如果未不指定任何來源，列出全域組態檔中， `%APPDATA%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，會使用。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)如需詳細資訊。
+如果未不指定任何來源，列出全域組態檔中， `%appdata%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，會使用。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)如需詳細資訊。
 
 如果未不指定任何特定的封裝，`install`將列在專案中的所有封裝都安裝`packages.config`檔案，讓它變成類似[ `restore` ](cli-ref-restore.md)。
 
@@ -55,7 +58,7 @@ nuget install <packageID | configFilePath> [options]
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 架構 | *（4.4 +)*用於選取的相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
 | 說明 | 顯示說明命令的資訊。 |
-| 無快取記憶體 | NuGet 可防止從本機電腦的快取使用的封裝。 |
+| 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | NonInteractive | 抑制使用者輸入或確認提示。 |
 | OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
 | PackageSaveMode | 指定要儲存封裝的安裝後的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |

@@ -1,25 +1,28 @@
 ---
-title: "NuGet 封裝版本參考 |Microsoft 文件"
+title: NuGet 封裝版本參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "確切的指定版本號碼和範圍而定的 NuGet 封裝，並安裝相依性的方式在其他封裝的詳細資訊。"
-keywords: "版本控制、 NuGet 封裝相依性、 NuGet 相依性版本、 NuGet 版本號碼、 NuGet 封裝版本、 版本範圍、 版本規格，正規化的版本號碼"
+ms.technology: ''
+description: 確切的指定版本號碼和範圍而定的 NuGet 封裝，並安裝相依性的方式在其他封裝的詳細資訊。
+keywords: 版本控制、 NuGet 封裝相依性、 NuGet 相依性版本、 NuGet 版本號碼、 NuGet 封裝版本、 版本範圍、 版本規格，正規化的版本號碼
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="package-versioning"></a>封裝版本控制
+# <a name="package-versioning"></a>套件版本控制
 
 特定封裝永遠被指使用其封裝識別碼和確切的版本號碼。 例如， [Entity Framework](https://www.nuget.org/packages/EntityFramework/) nuget.org 上有數個數十種特定封裝可用，範圍從版本*4.1.10311*版本*6.1.3* （最新穩定發行） 和各種不同的發行前版本*6.2.0-beta1*。
 
@@ -61,7 +64,7 @@ ms.lasthandoff: 02/02/2018
 - `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，可支援使用點標記法，發行前版本號碼中*1.0.1-build.23*。 與之前 4.3.0 的 NuGet 版本不支援點標記法。 您可以使用的表單*1.0.1-build23*。
+> NuGet 4.3.0+ 支援[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，可支援使用點標記法，發行前版本號碼中*1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用的表單*1.0.1-build23*。
 
 解決時封裝會參照和多個封裝版本只有不同後置詞，NuGet 首先，選擇的版本不含尾碼，然後套用至發行前版本，以反向字母順序的優先順序。 例如，下列版本本來的順序顯示：
 
@@ -109,8 +112,8 @@ ms.lasthandoff: 02/02/2018
 
 | Notation | 套用的規則 | 描述 |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | 最小版本 （含） |
-| (1.0,) | 1.0 < x | 最小版本，而獨佔式 |
+| 1.0 | x ≥ 1.0 | 最小版本 （含） |
+| (1.0,) | x > 1.0 | 最小版本，而獨佔式 |
 | [1.0] | x == 1.0 | 確切的版本相符項目 |
 | (,1.0] | x ≤ 1.0 | 最大版本，（含） |
 | (,1.0) | x < 1.0 | 最大版本，而獨佔式 |

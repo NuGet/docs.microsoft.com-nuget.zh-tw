@@ -1,23 +1,26 @@
 ---
-title: "NuGet 的 .nuspec 檔案參考 | Microsoft Docs"
+title: NuGet 的 .nuspec 檔案參考 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: ".nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。"
-keywords: "nuspec 參考, NuGet 套件中繼資料, NuGet 套件資訊清單, nuspec 結構描述"
+ms.technology: ''
+description: .nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。
+keywords: nuspec 參考, NuGet 套件中繼資料, NuGet 套件資訊清單, nuspec 結構描述
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 3cc9ab4e352de9b3fabbfd92303f0d528d804c20
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -75,7 +78,7 @@ ms.lasthandoff: 03/15/2018
 
 這些項目必須出現在 `<metadata>` 項目中。
 
-| 元素 | 描述 |
+| 項目 | 描述 |
 | --- | --- |
 | **id** | 不區分大小寫的套件識別碼，在整個 nuget.org 或套件所在的任何組件庫中都必須是唯一的。 識別碼可能不包含對 URL 而言無效的空格或字元，而且通常會遵循 .NET 命名空間規則。 如需指導方針，請參閱[選擇唯一的套件識別碼](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)。 |
 | **version** | 套件版本，遵循 *major.minor.patch* 模式。 版本號碼可以包含預先發行版本的後置詞，如[套件版本控制](../reference/package-versioning.md#pre-release-versions)中所述。 |
@@ -88,7 +91,7 @@ ms.lasthandoff: 03/15/2018
 
 #### <a name="single-elements"></a>單一項目
 
-| 元素 | 描述 |
+| 項目 | 描述 |
 | --- | --- |
 | **標題** | 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 如未指定，則使用套件識別碼。 |
 | **擁有者** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
@@ -106,7 +109,7 @@ ms.lasthandoff: 03/15/2018
 
 #### <a name="collection-elements"></a>集合項目
 
-| 元素 | 描述 |
+| 項目 | 描述 |
 | --- | --- |
 **packageTypes** | *(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/creating-a-package.md#setting-a-package-type)。 |
 | **相依性** | 零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies)。 |

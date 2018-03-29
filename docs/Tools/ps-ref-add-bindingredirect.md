@@ -1,22 +1,25 @@
 ---
-title: "NuGet 加入 BindingRedirect PowerShell 參考 |Microsoft 文件"
+title: NuGet 加入 BindingRedirect PowerShell 參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "在 Visual Studio 中的 NuGet 封裝管理員主控台新增 BindingRedirect PowerShell 命令的參考。"
-keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，新增 BindingRedirect NuGet Powershell 參考"
+ms.technology: ''
+description: 在 Visual Studio 中的 NuGet 封裝管理員主控台新增 BindingRedirect PowerShell 命令的參考。
+keywords: NuGet 封裝管理員主控台中，NuGet Powershell 命令，新增 BindingRedirect NuGet Powershell 參考
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 41f27d7a1b6b363a562f26590b220d9e11e944f1
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 2a337bd61295f436b49c56c1680d07ccc6a8c403
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>新增 BindingRedirect （在 Visual Studio 中的封裝管理員主控台）
 

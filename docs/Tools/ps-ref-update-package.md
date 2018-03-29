@@ -1,22 +1,25 @@
 ---
-title: "NuGet 的更新套件的 PowerShell 參考 |Microsoft 文件"
+title: NuGet 的更新套件的 PowerShell 參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "在 Visual Studio 中的 NuGet 封裝管理員主控台的更新套件的 PowerShell 命令的參考。"
-keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考資料，更新套件"
+ms.technology: ''
+description: 在 Visual Studio 中的 NuGet 封裝管理員主控台的更新套件的 PowerShell 命令的參考。
+keywords: NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考資料，更新套件
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>更新套件 （在 Visual Studio 中的封裝管理員主控台）
 
@@ -47,7 +50,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | 包含要更新的封裝，將預設為所有專案的專案名稱。 |
 | 版本 | 要用於升級，將預設為最新版本的版本。 在 NuGet 3.0 + 版本的值必須是其中一個*Lowest、 最高、 HighestMinor*，或*HighestPatch* （相當於-安全）。 |
 | 安全 | 限制升級至具有相同主要和次要版本與目前已安裝封裝的唯一版本。 |
-| 原始程式檔 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Uninstall-Package`搜尋目前選取的套件來源。 |
+| 原始程式檔 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Update-Package`搜尋目前選取的套件來源。 |
 | IncludePrerelease | 包含套件發行前版本的更新。 |
 | 重新安裝 | Resintalls 封裝使用其目前已安裝的版本。 請參閱[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md)。 |
 | FileConflictAction | 當詢問您要覆寫或略過專案所參考的現有檔案時要採取動作。 可能的值為*覆寫，忽略、 None、 OverwriteAll*，和*IgnoreAll* （3.0 +）。 |

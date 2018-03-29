@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.0 和 1.1 版本資訊 |Microsoft 文件"
+title: NuGet 1.0 和 1.1 版本資訊 |Microsoft 文件
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.1 版本資訊。"
-keywords: "NuGet 1.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
+ms.technology: ''
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.1 版本資訊。
+keywords: NuGet 1.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 和 1.1 版版本資訊
 
@@ -49,7 +52,7 @@ NuGet 工具 Visual Studio 擴充功能 (*NuGet.Tools.vsix*) 需要：
 
 * 先解除安裝較舊組建。 您要與執行以系統管理員身分執行此動作。
 * 移除您所擁有的所有現有摘要。
-* 加入新的摘要指向[http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669)。
+* 加入新的摘要指向[ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669)。
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -135,7 +138,7 @@ NuGet 工具 Visual Studio 擴充功能 (*NuGet.Tools.vsix*) 需要：
 
 以下是最重要 CTP 2 中所做的變更：
 
-* 切換至 OData 服務端點從 ATOM 摘要的封裝： 如果您升級到 CTP2 版本的 NuGet，請務必新增為套件來源的下列 URL: https://feed.nuget.org/ctp2/odata/v1/。
+* 切換至 OData 服務端點從 ATOM 摘要的封裝： 如果您升級到 CTP2 版本的 NuGet，請務必新增為套件來源的下列 URL: `https://feed.nuget.org/ctp2/odata/v1/`。
 * 重新命名以 [新增套件] 命令*Install-package*。
 * 更新`.nuspec`格式。 `.nuspec`格式現在包含*iconUrl*欄位來指定將會顯示在 [新增套件] 對話方塊 32 x 32 png 圖示。 因此請務必設定，以區別您的封裝。 `.nuspec`格式亦包含新*projectUrl*欄位可用來指向提供封裝的詳細資訊的網頁。
 

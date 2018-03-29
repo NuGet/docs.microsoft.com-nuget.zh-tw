@@ -1,22 +1,25 @@
 ---
-title: "NuGet 的 CLI 組件命令 |Microsoft 文件"
+title: NuGet 的 CLI 組件命令 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 套件命令參考"
-keywords: "nuget 組件參考組件命令"
+ms.technology: ''
+description: Nuget.exe 套件命令參考
+keywords: nuget 組件參考組件命令
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9ee5dc87ea33b4419bcd9a09751c41b53ae2f70e
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 14ecf724477f652275eb68a090bb57b8640d4a8a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="pack-command-nuget-cli"></a>組件命令 (NuGet CLI)
 

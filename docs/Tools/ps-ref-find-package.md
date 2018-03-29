@@ -1,22 +1,25 @@
 ---
-title: "NuGet Find-package PowerShell 參考 |Microsoft 文件"
+title: NuGet Find-package PowerShell 參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 6/1/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "在 Visual Studio 中的 NuGet 封裝管理員主控台中尋找封裝 PowerShell 命令的參考。"
-keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考資料，尋找封裝"
+ms.technology: ''
+description: 在 Visual Studio 中的 NuGet 封裝管理員主控台中尋找封裝 PowerShell 命令的參考。
+keywords: NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考資料，尋找封裝
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4303421c5f11177f3e5fc051a450934df47ab117
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 32b15ff415e77c3e063ded637a614fc8a04d5a0c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>尋找套件 （在 Visual Studio 中的封裝管理員主控台）
 

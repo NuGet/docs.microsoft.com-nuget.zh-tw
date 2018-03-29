@@ -1,22 +1,25 @@
 ---
-title: "NuGet 開啟 PackagePage PowerShell 參考 |Microsoft 文件"
+title: NuGet 開啟 PackagePage PowerShell 參考 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "在 Visual Studio 中的 NuGet 封裝管理員主控台中開啟 PackagePage PowerShell 命令的參考。"
-keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，開啟 PackagePage NuGet Powershell 參考"
+ms.technology: ''
+description: 在 Visual Studio 中的 NuGet 封裝管理員主控台中開啟 PackagePage PowerShell 命令的參考。
+keywords: NuGet 封裝管理員主控台中，NuGet Powershell 命令，開啟 PackagePage NuGet Powershell 參考
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4cc645d9a2779fd6b1b329e9aac4777d50f75d16
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 5e0955e58daacf381666c676c8fcf22c698e9db6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>開啟 PackagePage （在 Visual Studio 中的封裝管理員主控台）
 

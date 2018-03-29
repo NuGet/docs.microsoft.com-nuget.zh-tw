@@ -1,22 +1,25 @@
 ---
-title: "NuGet 2.5 版本資訊 |Microsoft 文件"
+title: NuGet 2.5 版本資訊 |Microsoft 文件
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 2.5 的已知的問題、 錯誤修正、 新增的功能，以及 Dcr 包括版本資訊。"
-keywords: "NuGet 2.5 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
+ms.technology: ''
+description: NuGet 2.5 的已知的問題、 錯誤修正、 新增的功能，以及 Dcr 包括版本資訊。
+keywords: NuGet 2.5 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4fb696a1f4d76bdd3461df6af461f279f9f0a8b0
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4495e1ea9cc4ec13ef330e56d12de1320cf10b24
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2.5 版本資訊
 
@@ -129,7 +132,7 @@ NuGet 2.5 已於 2013 年 4 月 25 日發行。 此版本太大，我們被迫�
 
 這可讓參考的專案，如果沒有，被視為相依`.nuspec`檔案中，否則它會變成套件的一部分。
 
-這裡有更多詳細資料： [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
+以下更多詳細資料： [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
 ### <a name="add-a-minimum-nuget-version-property-to-packages"></a>將 ' 至少 NuGet Version' 屬性加入封裝
 

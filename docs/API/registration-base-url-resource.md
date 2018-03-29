@@ -1,5 +1,5 @@
 ---
-title: "封裝中繼資料，NuGet API |Microsoft 文件"
+title: 封裝中繼資料，NuGet API |Microsoft 文件
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "封裝註冊基底 URL 可讓您擷取有關封裝的中繼資料。"
-keywords: "NuGet 的 API 套件中繼資料、 NuGet API 註冊，NuGet API 未列出的封裝"
+ms.technology: ''
+description: 封裝註冊基底 URL 可讓您擷取有關封裝的中繼資料。
+keywords: NuGet 的 API 套件中繼資料、 NuGet API 註冊，NuGet API 未列出的封裝
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -35,8 +38,8 @@ ms.lasthandoff: 02/02/2018
 @type 值                     | 注意
 ------------------------------- | -----
 RegistrationsBaseUrl            | 初版
-RegistrationsBaseUrl/3.0.0-beta | 別名`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | 別名`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | 別名 `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | 別名 `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Gzipped 回應
 RegistrationsBaseUrl/3.6.0      | 包含 SemVer 2.0.0 的封裝
 
@@ -146,7 +149,7 @@ packageContent | 字串 | 是      | 封裝內容 (.nupkg) URL
 ------------------------ | -------------------------- | -------- | -----
 @id                      | 字串                     | 是      | 要用來產生這個物件的文件的 URL
 authors                  | 字串或字串陣列 | 否       | 
-dependencyGroups         | 物件的陣列           | 否       | 封裝內容 (.nupkg) URL
+dependencyGroups         | 物件的陣列           | 否       | 封裝中，依 目標 framework 的相依性
 描述              | 字串                     | 否       | 
 iconUrl                  | 字串                     | 否       | 
 id                       | 字串                     | 是      | 封裝的識別碼

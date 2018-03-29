@@ -1,22 +1,25 @@
 ---
-title: "dotNet NuGet 命令 |Microsoft 文件"
+title: dotNet NuGet 命令 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "簡短 NuGet 相關的命令使用 dotnet 命令列介面的參考。"
-keywords: "dotnet NuGet 命令 dotnet、 組件、 dotnet 還原、 dotnet nuget 區域變數、 dotnet nuget 發送 dotnet nuget 刪除"
+ms.technology: ''
+description: 簡短 NuGet 相關的命令使用 dotnet 命令列介面的參考。
+keywords: dotnet NuGet 命令 dotnet、 組件、 dotnet 還原、 dotnet nuget 區域變數、 dotnet nuget 發送 dotnet nuget 刪除
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2851938cd43b35454d8e4ad595fbd93229d4dd72
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 352145701fba509e21e774a429d227e7427a1f0d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dotnet-commands"></a>dotNet 命令
 
@@ -29,7 +32,7 @@ ms.lasthandoff: 02/20/2018
 - [**將封裝加入 dotnet**](/dotnet/core/tools/dotnet-add-package): 封裝將參考加入至專案檔，然後執行`dotnet restore`安裝套件。
 - [**dotnet 移除封裝**](/dotnet/core/tools/dotnet-remove-package)： 從專案檔中移除封裝參考。
 - [**dotnet 還原**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)： 還原的相依性和專案的工具。 為準，NuGet 4.0，如此就會執行相同的程式碼做為`nuget restore`。
-- [**dotnet nuget 區域變數**](/dotnet/core/tools/dotnet-nuget-locals)： 清除或列出本機 NuGet 資源，例如 http 要求的快取、 暫時快取，以及 [全機器全域 packages] 資料夾。
+- [**dotnet nuget 區域變數**](/dotnet/core/tools/dotnet-nuget-locals)： 列出之位置*全域封裝*， *http 快取*，和*temp*資料夾，並清除的內容這些資料夾中。
 
 ## <a name="package-creation"></a>建立封裝
 

@@ -1,28 +1,31 @@
 ---
-title: "NuGet CLI 來源命令 |Microsoft 文件"
+title: NuGet CLI 來源命令 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 的參考資料來源的命令"
-keywords: "nuget 的來源參考、 來源命令"
+ms.technology: ''
+description: Nuget.exe 的參考資料來源的命令
+keywords: nuget 的來源參考、 來源命令
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f682a5209556ec6741473ccf2648e8f38bb568b9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sources-command-nuget-cli"></a>來源命令 (NuGet CLI)
 
 **適用於：**封裝耗用量、 發行&bullet;**支援的版本：**所有
 
-管理使用者範圍的組態檔中指定的組態檔位於來源的清單。 使用者範圍的組態檔是位於`%APPDATA%\NuGet\NuGet.Config`(Windows) 和`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)。
+管理使用者範圍的組態檔中指定的組態檔位於來源的清單。 使用者範圍的組態檔是位於`%appdata%\NuGet\NuGet.Config`(Windows) 和`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)。
 
 請注意，nuget.org 的來源 URL 是 `https://api.nuget.org/v3/index.json`。
 

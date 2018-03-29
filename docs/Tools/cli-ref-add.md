@@ -1,22 +1,25 @@
 ---
-title: "將命令加入 NuGet CLI |Microsoft 文件"
+title: 將命令加入 NuGet CLI |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 的參考加入命令"
-keywords: "nuget 加入參考，新增套件 命令"
+ms.technology: ''
+description: Nuget.exe 的參考加入命令
+keywords: nuget 加入參考，新增套件 命令
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 48e093cbae2cecb1652e17a9b26920107aa8aef7
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-command-nuget-cli"></a>加入命令 (NuGet CLI)
 
@@ -47,7 +50,7 @@ nuget add <packagePath> -Source <sourcePath> [options]
 
 | 選項 | 描述 |
 | --- | --- |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， *%AppData%\NuGet\NuGet.Config*用。| 
+| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | Expand | 加入封裝中的所有檔案，對套件來源。 |
 | ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |

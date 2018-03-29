@@ -1,22 +1,25 @@
 ---
-title: "NuGet.Config 檔案參考 | Microsoft Docs"
+title: NuGet.Config 檔案參考 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。"
-keywords: "NuGet.Config 檔案, NuGet 組態參考, NuGet 組態選項"
+ms.technology: ''
+description: NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。
+keywords: NuGet.Config 檔案, NuGet 組態參考, NuGet 組態選項
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 參考
 
@@ -48,13 +51,13 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 包含其他組態設定，可以使用 [`nuget config` 命令](../tools/cli-ref-config.md)設定。
 
-注意：`dependencyVersion` 和 `repositoryPath` 僅適用於使用 `packages.config` 的專案。 `globalPackagesFolder` 僅適用於使用 PackageReference 格式的專案。
+`dependencyVersion` 和`repositoryPath`僅適用於使用專案`packages.config`。 `globalPackagesFolder` 僅適用於使用 PackageReference 格式的專案。
 
 | Key | 值 |
 | --- | --- |
 | dependencyVersion (僅 `packages.config`) | 當未直接指定 `-DependencyVersion` 參數時，套件安裝、還原及更新的預設 `DependencyVersion` 值。 NuGet 套件管理員 UI 也使用此值。 值為 `Lowest`、`HighestPatch`、`HighestMinor`、`Highest`。 |
-| globalPackagesFolder (不使用 `packages.config` 的專案) | 預設全域套件資料夾的位置。 預設值為 `%USERPROFILE%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `Nuget.Config` 檔案。 |
-| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `Nuget.Config` 檔案。 |
+| globalPackagesFolder （僅限使用 PackageReference 專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `Nuget.Config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
+| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `Nuget.Config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
 
@@ -64,7 +67,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 <config>
     <add key="dependencyVersion" value="Highest" />
     <add key="globalPackagesFolder" value="c:\packages" />
-    <add key="repositoryPath" value="c:\repo" />
+    <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```

@@ -1,22 +1,25 @@
 ---
-title: "NuGet 2.7 版本資訊 |Microsoft 文件"
+title: NuGet 2.7 版本資訊 |Microsoft 文件
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.7。"
-keywords: "NuGet 2.7 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
+ms.technology: ''
+description: 版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.7。
+keywords: NuGet 2.7 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 版本資訊
 
@@ -51,9 +54,9 @@ NuGet 2.7 已於 2013 年 8 月 22 日發行。
 1. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
     - [#3307](http://nuget.codeplex.com/workitem/3307) -修正 bug`NuGet.targets`不 $(Platform) 時傳遞至 nuget.exe 還原封裝。
 1. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-    - [#3294](http://nuget.codeplex.com/workitem/3294) -nuget.exe 套件 命令會讓加入具有相同名稱但不同大小寫，最後導致 「 項目已經存在 」 的例外狀況的檔案中的修正 bug。
+    - [#3294](http://nuget.codeplex.com/workitem/3294) -nuget.exe 套件] 命令會讓加入具有相同名稱但不同大小寫，最後導致 「 項目已經存在 」 的例外狀況的檔案中的修正 bug。
 1. [奧 Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-    - [# 2990年](http://nuget.codeplex.com/workitem/2990)-新增版本 屬性，NetPortableProfile 類別。
+    - [# 2990年](http://nuget.codeplex.com/workitem/2990)-新增版本] 屬性，NetPortableProfile 類別。
 1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
     - [#3460](https://nuget.codeplex.com/workitem/3460) -如果修正 bug NullReferenceException requireApiKey = true，但標頭 X-NUGET-APIKEY 不存在
 1. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
@@ -88,11 +91,11 @@ NuGet 2.7 從開始，NuGet 會自動下載缺少的套件 Visual Studio 中，�
 
 若要在 Visual Studio 中，使用自動封裝還原，您只需要採取動作 （中） 的其中一個：
 
-1. 請勿核取 您`packages`資料夾
+1. 請勿核取 [您`packages`資料夾
 
 有幾種方式可以省略您`packages`從原始檔控制的資料夾。 如需詳細資訊，請參閱[封裝和原始檔控制](../consume-packages/packages-and-source-control.md)主題。
 
-雖然所有使用者都是隱含選擇加入自動封裝還原同意，您也可以輕鬆地退出透過 Visual Studio 中 套件管理員設定。
+雖然所有使用者都是隱含選擇加入自動封裝還原同意，您也可以輕鬆地退出透過 Visual Studio 中 [套件管理員設定。
 
 ![封裝管理員設定](./media/NuGet-2.7/package-manager-settings.png)
 
@@ -158,7 +161,7 @@ NuGet 2.7 導入了 nuget.exe 的新功能： `nuget.exe restore`
 
 ### <a name="renaming-the-default-package-source"></a>重新命名的預設封裝來源
 
-NuGet 一律已註冊預設稱為 「 NuGet 官方封裝來源 」 指向 nuget.org 的封裝來源。該名稱的詳細資訊，它也未指定位置的實際指向。 若要解決這些兩個問題，我們已重新命名只要"nuget.org 」 在 UI 中此封裝來源。 封裝來源的 URL 也已變更為包含"www"。 前置詞。 使用 NuGet 2.7 之後, 您現有 「 NuGet 官方封裝來源 」 將自動更新 」 nuget.org"做為其名稱和"https://www.nuget.org/api/v2/"做為其 URL。
+NuGet 一律已註冊預設稱為 「 NuGet 官方封裝來源 」 指向 nuget.org 的封裝來源。該名稱的詳細資訊，它也未指定位置的實際指向。 若要解決這些兩個問題，我們已重新命名只要"nuget.org 」 在 UI 中此封裝來源。 封裝來源的 URL 也已變更為包含"www"。 前置詞的「套件組合識別碼」。 使用 NuGet 2.7 之後, 您現有 「 NuGet 官方封裝來源 」 會自動更新為"nuget.org"做為其名稱和"https://www.nuget.org/api/v2/"做為其 URL。
 
 ### <a name="performance-improvements"></a>效能改善
 

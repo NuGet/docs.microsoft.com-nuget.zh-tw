@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.8 版本資訊 |Microsoft 文件"
+title: NuGet 1.8 版本資訊 |Microsoft 文件
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.8 的版本資訊。"
-keywords: "NuGet 1.8 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
+ms.technology: ''
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.8 的版本資訊。
+keywords: NuGet 1.8 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 版本資訊
 
@@ -27,7 +30,7 @@ NuGet 1.8 已於 2012 月 23 日發行。
 ## <a name="known-installation-issue"></a>已知的安裝問題
 如果您正在執行 VS 2010 SP1，您可能會遇到安裝錯誤時嘗試升級 NuGet，如果您有安裝較舊的版本。
 
-因應措施是只要解除安裝 NuGet，然後再從 VS 擴充功能庫進行安裝。  請參閱[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)如需詳細資訊，或[直接前往 VS hotfix](http://bit.ly/vsixcertfix)。
+因應措施是只要解除安裝 NuGet，然後再從 VS 擴充功能庫進行安裝。  請參閱[ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019)如需詳細資訊，或[直接前往 VS hotfix](http://bit.ly/vsixcertfix)。
 
 注意： 如果 Visual Studio 不會允許您解除安裝 （解除安裝 按鈕會停用） 的延伸模組，則您可能需要重新啟動 Visual Studio 中使用 「 以系統管理員身分執行 」。
 
@@ -60,7 +63,7 @@ NuGet 1.8 現在支援建立個別的封裝，當地語系化的資源，類似�
 
 要注意與附屬封裝一個現有的 bug 會 NuGet 當地語系化的資源不會複製`bin`適用於網站專案的資料夾。  NuGet 的下一個版本中，將會修正此問題。
 
-如需示範如何建立及使用附屬項目封裝的完整範例，請參閱[https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample)。
+如需示範如何建立及使用附屬項目封裝的完整範例，請參閱[ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample)。
 
 ### <a name="package-restore-consent"></a>封裝還原同意
 在 NuGet 1.8 我們打造支援來保護使用者隱私權的封裝還原的一個重要限制。 此條件約束需要開發人員在建置專案和方案用來明確地同意封裝還原封裝還原的上線從設定的封裝來源下載套件。

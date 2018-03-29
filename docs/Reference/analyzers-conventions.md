@@ -1,26 +1,29 @@
 ---
-title: "NuGet 的 .NET Compiler Platform 分析器格式 | Microsoft Docs"
+title: NuGet 的 .NET Compiler Platform 分析器格式 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: ".NET 分析器的慣例，這些分析器會使用實作 API 或程式庫的 NuGet 套件來封裝與散發。"
-keywords: "NuGet 分析器慣例, .NET 分析器, NuGet 和 .NET Compiler Platform, NuGet 和 Roslyn"
+ms.technology: ''
+description: .NET 分析器的慣例，這些分析器會使用實作 API 或程式庫的 NuGet 套件來封裝與散發。
+keywords: NuGet 分析器慣例, .NET 分析器, NuGet 和 .NET Compiler Platform, NuGet 和 Roslyn
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e44cfa609c14422d50769e512108844cbd2f96a4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 26e40346b1d76d2f4f0e4177dbe0670f10db164c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="analyzer-nuget-formats"></a>分析器 NuGet 格式
 
-.NET Compiler Platform (也稱為"Roslyn") 可讓開發人員建立[分析器] (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)，在撰寫的同時檢查程式碼的語法樹狀結構與語意。 這提供開發人員一種方法，來建立網域特定分析工具，例如可協助引導使用特定 API 或程式庫的工具。 您可以在 [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub Wiki 找到更多資訊。 另請參閱 MSDN Magazine 中的文件：[使用 Roslyn 為您的 API 撰寫即時程式碼分析器](https://msdn.microsoft.com/magazine/dn879356.aspx)。
+.NET 編譯器平台 (也稱為"Roslyn") 可讓開發人員建立 [分析器] (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) ，檢查程式碼的語意與語法樹狀結構中正在寫入。 這提供開發人員一種方法，來建立網域特定分析工具，例如可協助引導使用特定 API 或程式庫的工具。 您可以在 [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub Wiki 找到更多資訊。 另請參閱 MSDN Magazine 中的文件：[使用 Roslyn 為您的 API 撰寫即時程式碼分析器](https://msdn.microsoft.com/magazine/dn879356.aspx)。
 
 分析器本身通常會封裝並散發作為實作討論中 API 或程式庫之 NuGet 套件的一部分。
 

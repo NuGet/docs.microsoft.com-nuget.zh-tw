@@ -1,24 +1,27 @@
 ---
-title: "NuGet 封裝管理員主控台指南 |Microsoft 文件"
+title: NuGet 封裝管理員主控台指南 |Microsoft 文件
 author: kraigb
 hms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.nuget.packagemanager.console
-description: "使用 Visual Studio 中的 NuGet 封裝管理員主控台，使用封裝的指示。"
-keywords: "NuGet 封裝管理員主控台中，NuGet powershell 管理 NuGet 封裝"
+description: 使用 Visual Studio 中的 NuGet 封裝管理員主控台，使用封裝的指示。
+keywords: NuGet 封裝管理員主控台中，NuGet powershell 管理 NuGet 封裝
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: af22a524f6b4a41a4c24077fe396846da6fb1ff8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-manager-console"></a>套件管理員主控台
 
@@ -80,19 +83,10 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 請參閱[Install-package](../tools/ps-ref-install-package.md)。
 
-安裝封裝，執行下列動作：
+安裝封裝，在主控台中執行相同的步驟，如下所述[安裝封裝時，會發生什麼事](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed)，具有下列功能：
 
-- 與隱含協議的 [主控台] 視窗中顯示適用之授權條款。 如果您不同意這些條款，您應該立即解除安裝封裝。
-- 將參考加入至專案中參考的格式是使用中。 接著會出現在 方案總管 和 適用的參考格式檔案參考。 不過，請注意，與 PackageReference，需要儲存專案以直接查看專案檔中的變更。
-- 會快取封裝：
-  - PackageReference： 封裝已經快取`%USERPROFILE%\.nuget\packages`和鎖定的檔案也就是`project.assets.json`會更新。
-  - `packages.config`： 建立`packages`在方案根目錄和複製子資料夾內的套件檔案的資料夾。 `package.config`更新檔案。
-- 更新`app.config`及/或`web.config`如果封裝使用[來源和組態檔案轉換](../create-packages/source-and-config-file-transformations.md)。
-- 若還未出現在專案中，會安裝任何相依性。 中所述，這可能會更新處理序中的封裝版本[相依性解析](../consume-packages/dependency-resolution.md)。
-- Visual Studio 視窗中顯示封裝的讀我檔案，如果有的話。
-
-> [!Tip]
-> 安裝封裝的主要優點之一`Install-Package`主控台中的命令時，會加入專案的參考，就如同您使用 「 封裝管理員 」 UI。 相反地， `nuget install` CLI 命令只會下載套件，並不會自動加入的參考。
+- 主控台會顯示適用之授權條款，其使用隱含協議 視窗中。 如果您不同意這些條款，您應該立即解除安裝封裝。
+- 封裝的參考也會加入至專案檔，而且會出現在**方案總管 中**下**參考** 節點，您需要儲存專案以直接查看專案檔中的變更。
 
 ## <a name="uninstalling-a-package"></a>解除安裝封裝
 
@@ -111,12 +105,9 @@ Uninstall-Package Elmah -Force
 
 解除安裝封裝，執行下列動作：
 
-- 移除參考封裝專案 （及任何參考格式正在使用中）。 參考不會再出現在 [方案總管] 中。 (您可能需要重建專案，以查看它從移除**Bin**資料夾。)
+- 移除參考封裝專案 （及管理的格式是使用中）。 參考不再出現於**方案總管 中**。 (您可能需要重建專案，以查看它從移除**Bin**資料夾。)
 - 反轉所做的變更`app.config`或`web.config`已經安裝封裝。
 - 如果沒有剩餘的封裝，請使用這些依存性移除先前安裝相依性。
-
-> [!Tip]
-> 像`Install-Package`、`Uninstall-Package`命令有不同於管理在專案中，參考的優點`nuget uninstall`CLI 命令。
 
 ## <a name="updating-a-package"></a>更新封裝
 
@@ -159,7 +150,7 @@ Find-Package jquery -AllVersions -ExactMatch
 
 在 Visual Studio 2017，NuGet 和 NuGet 套件管理員會自動安裝時選取任何。網路相關的工作負載;您也可以安裝它個別藉由檢查**個別元件 > 程式碼工具 > NuGet 套件管理員**選項在 Visual Studio 2017 安裝程式。
 
-此外，如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中及更早版本，請檢查**工具 > 擴充功能和更新...** ，並搜尋 NuGet 套件管理員擴充功能。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，您可以下載擴充功能直接從[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)。
+此外，如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中及更早版本，請檢查**工具 > 擴充功能和更新...** ，並搜尋 NuGet 套件管理員擴充功能。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，您可以下載擴充功能直接從[ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html)。
 
 Package Manager Console 不是目前適用於 Visual Studio for mac。 對等的命令，不過，可透過[NuGet CLI](nuget-exe-CLI-reference.md)。 Visual Studio for Mac 並沒有使用者介面來管理 NuGet 封裝。 請參閱[您的專案中包括的 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。
 

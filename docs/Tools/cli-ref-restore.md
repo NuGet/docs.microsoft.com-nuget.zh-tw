@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI restore 命令 |Microsoft 文件"
+title: NuGet CLI restore 命令 |Microsoft 文件
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 還原命令的參考"
-keywords: "nuget 還原參考，請還原封裝命令"
+ms.technology: ''
+description: Nuget.exe 還原命令的參考
+keywords: nuget 還原參考，請還原封裝命令
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
@@ -46,15 +49,15 @@ nuget restore <projectPath> [options]
 | 說明 | 顯示說明命令的資訊。 |
 | MSBuildPath | *（4.0 +)*指定之路徑的 MSBuild 命令，優先於使用`-MSBuildVersion`。 |
 | MSBuildVersion | *（3.2 +)*指定要搭配此命令使用 MSBuild 的版本。 支援的值為 4，12，14，15。 根據預設，在路徑中的 MSBuild 會挑出，否則，預設為最高的已安裝版本的 MSBuild。 |
-| 無快取記憶體 | NuGet 可防止從本機電腦的快取使用的封裝。 |
+| 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | NonInteractive | 抑制使用者輸入或確認提示。 |
-| OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
+| OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 必要時還原`packages.config`檔案除非`PackagesDirectory`或`SolutionDirectory`用。|
 | PackageSaveMode | 指定要儲存封裝的安裝後的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
-| PackagesDirectory | 與 `OutputDirectory` 相同。 |
+| PackagesDirectory | 與 `OutputDirectory` 相同。 必要時還原`packages.config`檔案除非`OutputDirectory`或`SolutionDirectory`用。 |
 | Project2ProjectTimeOut | 以秒為單位來解析專案對專案參考的逾時。 |
 | 遞迴 | *（4.0 +)*還原所有參考的專案，適用於 UWP 和.NET Core 專案。 不適用於使用專案`packages.config`。 |
 | RequireConsent | 確認一次還原封裝才能下載和安裝封裝。 如需詳細資訊，請參閱[封裝還原，](../consume-packages/package-restore.md)。 |
-| SolutionDirectory | 指定的方案資料夾。 還原解決方案的封裝時，則不正確。 |
+| SolutionDirectory | 指定的方案資料夾。 還原解決方案的封裝時，則不正確。 必要時還原`packages.config`檔案除非`PackagesDirectory`或`OutputDirectory`用。 |
 | 原始程式檔 | 指定封裝來源清單 （Url) 要用於還原。 如果省略，則此命令會使用組態檔中提供的來源，請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
 | 詳細資訊 |> 指定輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 

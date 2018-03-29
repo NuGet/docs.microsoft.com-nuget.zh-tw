@@ -1,22 +1,25 @@
 ---
-title: "NuGet 3.0 Beta 版本資訊 |Microsoft 文件"
+title: NuGet 3.0 Beta 版本資訊 |Microsoft 文件
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.0 Beta。"
-keywords: "NuGet 3.0 Beta 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
+ms.technology: ''
+description: 版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.0 Beta。
+keywords: NuGet 3.0 Beta 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3a595d002e385ff0330c2eebd0e8439f5dbefbd9
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: bb64cbce4f26d84e1ba12930578382f887bb85f8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>NuGet 3.0 Beta 版本資訊
 
