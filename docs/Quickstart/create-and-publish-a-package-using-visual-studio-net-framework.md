@@ -1,22 +1,22 @@
 ---
-title: "使用 Visual Studio 建立及發佈 .NET Framework NuGet 套件的入門指南 | Microsoft Docs"
+title: 使用 Visual Studio 建立及發佈 .NET Framework NuGet 套件的入門指南 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/13/2018
 ms.topic: get-started-article
 ms.prod: nuget
-ms.technology: 
-description: "使用 Visual Studio 2017 建立及發佈 .NET Framework NuGet 套件的逐步解說教學課程。"
-keywords: "NuGet 套件建立, NuGet 套件發行, NuGet 教學課程, Visual Studio 建立 NuGet 套件, MSbuild 套件"
+ms.technology: ''
+description: 使用 Visual Studio 2017 建立及發佈 .NET Framework NuGet 套件的逐步解說教學課程。
+keywords: NuGet 套件建立, NuGet 套件發行, NuGet 教學課程, Visual Studio 建立 NuGet 套件, MSbuild 套件
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: 613cb6e8cf5762f354d69aa271c1e2f0d4851c97
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-publish-a-package-using-visual-studio-net-framework"></a>使用 Visual Studio (.NET Framework) 建立及發佈套件
 

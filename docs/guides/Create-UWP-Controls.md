@@ -1,22 +1,25 @@
 ---
-title: "如何使用 NuGet 封裝 UWP 控制項 | Microsoft Docs"
+title: 如何使用 NuGet 封裝 UWP 控制項 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/14/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "如何建立包含 UWP 控制項的 NuGet 套件，包含 Visual Studio 和 Blend 設計工具的必要中繼資料和支援檔案。"
-keywords: "NuGet UWP 控制項、Visual Studio XAML 設計工具、Blend 設計工具、自訂控制項"
+ms.technology: ''
+description: 如何建立包含 UWP 控制項的 NuGet 套件，包含 Visual Studio 和 Blend 設計工具的必要中繼資料和支援檔案。
+keywords: NuGet UWP 控制項、Visual Studio XAML 設計工具、Blend 設計工具、自訂控制項
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f024fd1823c77d57d30c4f841bf03494194c8339
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>建立 UWP 控制項作為 NuGet 套件
 

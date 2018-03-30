@@ -1,22 +1,25 @@
 ---
-title: "使用 NuGet.Server 裝載 NuGet 摘要 | Microsoft Docs"
+title: 使用 NuGet.Server 裝載 NuGet 摘要 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "如何使用 NuGet.Server 在所有執行 IIS 的伺服器上建立及裝載 NuGet 套件摘要，透過 HTTP 和 OData 提供套件。"
-keywords: "NuGet 摘要, NuGet 資源庫, 遠端套件摘要, NuGet.Server"
+ms.technology: ''
+description: 如何使用 NuGet.Server 在所有執行 IIS 的伺服器上建立及裝載 NuGet 套件摘要，透過 HTTP 和 OData 提供套件。
+keywords: NuGet 摘要, NuGet 資源庫, 遠端套件摘要, NuGet.Server
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d85c1ca88ca44c8f8bfa5cb9c453279f65f26f50
-ms.sourcegitcommit: 9adf5349eab91bd1d044e11f34836d53cfb115b3
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a8996fed537e5745a1dbeb1c3d12b2a0670e744d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetserver"></a>NuGet.Server
 

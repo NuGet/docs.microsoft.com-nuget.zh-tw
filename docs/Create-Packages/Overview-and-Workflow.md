@@ -1,22 +1,25 @@
 ---
-title: "建立 NuGet 套件的概觀和工作流程 | Microsoft Docs"
+title: 建立 NuGet 套件的概觀和工作流程 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/26/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "建立和發行 NuGet 套件程序的概觀，以及程序之其他特定部分的連結。"
-keywords: "NuGet 套件建立, NuGet 建立概觀, NuGet 建立工作流程, 套件建立工作流程, 套件建立概觀。"
+ms.technology: ''
+description: 建立和發行 NuGet 套件程序的概觀，以及程序之其他特定部分的連結。
+keywords: NuGet 套件建立, NuGet 建立概觀, NuGet 建立工作流程, 套件建立工作流程, 套件建立概觀。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 84587ad1f511416cc03b6fee153d1df44d0e7aa7
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: df08e15c2632a88ea7cc3333d64f4844c78c278d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-creation-workflow"></a>套件建立工作流程
 

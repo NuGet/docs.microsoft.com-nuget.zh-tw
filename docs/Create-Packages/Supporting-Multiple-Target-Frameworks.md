@@ -1,22 +1,25 @@
 ---
-title: "NuGet 套件的多目標 | Microsoft Docs"
+title: NuGet 套件的多目標 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 09/27/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "將目標設為單一 NuGet 套件內多個 .NET Framework 版本之各種方法的描述。"
-keywords: "NuGet 套件目標、.NET Framework 版本、NuGet 和 .NET、目標設為多個架構、NuGet 套件建立"
+ms.technology: ''
+description: 將目標設為單一 NuGet 套件內多個 .NET Framework 版本之各種方法的描述。
+keywords: NuGet 套件目標、.NET Framework 版本、NuGet 和 .NET、目標設為多個架構、NuGet 套件建立
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 723dbcc12ecc4e16d2ba4662559f107b9b22e2c2
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4349fed276b1a1f46845c990718f9202b356072c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>支援多個 .NET Framework 版本
 

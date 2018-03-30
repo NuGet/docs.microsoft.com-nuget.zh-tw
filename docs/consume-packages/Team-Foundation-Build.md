@@ -1,22 +1,25 @@
 ---
-title: "使用 Team Foundation Build 的 NuGet 套件還原逐步解說 | Microsoft Docs"
+title: 使用 Team Foundation Build 的 NuGet 套件還原逐步解說 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "使用 Team Foundation Build (TFS 和 Visual Studio Team Services) 進行 NuGet 套件還原的逐步解說。"
-keywords: "NuGet 套件還原、NuGet 和 TFS、NuGet 和 VSTS、NuGet 組建系統、Team Foundation Build、自訂 MSBuild 專案、雲端組建、持續整合"
+ms.technology: ''
+description: 使用 Team Foundation Build (TFS 和 Visual Studio Team Services) 進行 NuGet 套件還原的逐步解說。
+keywords: NuGet 套件還原、NuGet 和 TFS、NuGet 和 VSTS、NuGet 組建系統、Team Foundation Build、自訂 MSBuild 專案、雲端組建、持續整合
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>使用 Team Foundation Build 設定套件還原
 
@@ -110,6 +113,9 @@ nuget restore path\to\solution.sln
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 `.gitignore` 檔案的[功能相當強大](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html)。 例如，如果您想要通常不要簽入 `packages` 資料夾的內容，但想要進行先前之簽入 `.targets` 檔案的指引，則可能改為具有下列規則：
 
@@ -125,6 +131,9 @@ TF 版本設定透過 [.tfignore](/vsts/tfvc/add-files-server#customize-which-fi
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 

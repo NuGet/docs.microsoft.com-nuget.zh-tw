@@ -1,22 +1,25 @@
 ---
-title: "NuGet 常見問題集 | Microsoft Docs"
+title: NuGet 常見問題集 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "在命令列上和 Visual Studio 中使用 NuGet 以及使用 NuGet 資源庫的常見問題和解答。"
-keywords: "NuGet 問與答, 問題和解答, 常見問題, NuGet 版本, 套件版本"
+ms.technology: ''
+description: 在命令列上和 Visual Studio 中使用 NuGet 以及使用 NuGet 資源庫的常見問題和解答。
+keywords: NuGet 問與答, 問題和解答, 常見問題, NuGet 版本, 套件版本
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3782fe5dcf8df002d99446aa7548a6eacc62211c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 33e4776054b1cdd874dcd7e955552ef873dbbf5b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 

@@ -1,26 +1,29 @@
 ---
-title: "建立原生 NuGet 套件 | Microsoft Docs"
+title: 建立原生 NuGet 套件 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "建立包含 C++ 程式碼而非受控程式碼的原生 NuGet 套件，供 C++ 專案使用的詳細資料。"
-keywords: "NuGet 原生套件, NuGet C++ 套件, 原生程式碼套件, 以 C++ 專案為目標"
+ms.technology: ''
+description: 建立包含 C++ 程式碼而非受控程式碼的原生 NuGet 套件，供 C++ 專案使用的詳細資料。
+keywords: NuGet 原生套件, NuGet C++ 套件, 原生程式碼套件, 以 C++ 專案為目標
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f4eca411d520630ca7d77165b8f03cd32af290
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ed33f906f11a80c0d033292f7de151e93b8368fd
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-native-packages"></a>建立原生套件
 
-原生套件包含原生 C++ 程式碼而非受控程式碼，所以可以用在 C++ 專案中。 (請參閱＜取用＞一節的[原生 C++ 套件](../consume-packages/finding-and-choosing-packages.md#native-cpp-packages)。)
+原生套件包含原生 C++ 程式碼而非受控程式碼，所以可以用在 C++ 專案中。 (請參閱＜取用＞一節的[原生 C++ 套件](../consume-packages/finding-and-choosing-packages.md#native-c-packages)。)
 
 套件必須以 `native` 架構為目標，才能在 C++ 專案中取用。 目前沒有任何版本號碼與此架構建立關聯，因為 NuGet 對所有 C++ 專案一視同仁。
 
