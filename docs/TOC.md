@@ -102,6 +102,7 @@
 ## [套件內容](api/package-base-address-resource.md)
 ## [檢舉不當使用 URL](api/report-abuse-resource.md)
 ## [目錄](api/catalog-resource.md)
+## [速率限制](api/rate-limits.md)
 ## [nuget.org 通訊協定](api/nuget-protocols.md)
 # Visual Studio 擴充性
 ## [Visual Studio 中的 NuGet API](visual-studio-extensibility/nuget-api-in-visual-studio.md)
