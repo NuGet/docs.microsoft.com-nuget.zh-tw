@@ -64,7 +64,7 @@ ms.lasthandoff: 03/28/2018
 
 在更進階的情況下，您也可以在單一套件包含多個控制項組件時，於 `<FileList>` 內包含多個 `<File>` 項目。 如果您想要將您的控制項組織成不同的類別，則也可以在單一 `<File>` 內有多個 `<ToolboxItems>` 節點。
 
-在下列範例中，`ManagedPackage.winmd` 中所實作的控制項會出現在 Visual Studio 和 Blend 的 [Managed Package] (Managed 套件) 群組中，而且 “MyCustomControl” 會出現在該群組中。 所有這些名稱都是任意的。
+在下列範例中，`ManagedPackage.winmd` 中所實作的控制項會出現在 Visual Studio 和 Blend 的 [Managed Package] \(Managed 套件) 群組中，而且 “MyCustomControl” 會出現在該群組中。 所有這些名稱都是任意的。
 
 ```xml
 <FileList>
