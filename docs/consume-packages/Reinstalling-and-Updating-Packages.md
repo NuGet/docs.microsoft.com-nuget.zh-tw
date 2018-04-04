@@ -1,23 +1,25 @@
 ---
-title: "重新安裝和更新 NuGet 套件 | Microsoft Docs"
+title: 重新安裝和更新 NuGet 套件 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "何時需要重新安裝和更新套件的詳細資料，與 Visual Studio 中的損毀套件參考相同。"
-keywords: "NuGet 套件安裝、NuGet 套件重新安裝、NuGet 套件還原、更新套件、還原套件、修正損毀參考"
+ms.technology: ''
+description: 何時需要重新安裝和更新套件的詳細資料，與 Visual Studio 中的損毀套件參考相同。
+keywords: NuGet 套件安裝、NuGet 套件重新安裝、NuGet 套件還原、更新套件、還原套件、修正損毀參考
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 03/08/2018
 
 重新安裝或更新套件預設「一律」會安裝套件來源中可用的最新版本。
 
-不過，在使用 `packages.config` 參考格式的專案中，您可以特別限制版本範圍。 例如，如果您知道您的應用程式僅適用於 1.x 版的套件，而不是 2.0 和更新版本 (可能是套件 API 中的主要變更所造成)，則會想要限制 1.x 版的升級。 這可避免破壞應用程式的意外更新。
+不過，在使用 `packages.config` 管理格式的專案中，您可以特別限制版本範圍。 例如，如果您知道您的應用程式僅適用於 1.x 版的套件，而不是 2.0 和更新版本 (可能是套件 API 中的主要變更所造成)，則會想要限制 1.x 版的升級。 這可避免破壞應用程式的意外更新。
 
 若要設定條件約束，請在文字編輯器中開啟 `packages.config`，並找到有問題的相依性，然後使用版本範圍新增 `allowedVersions` 屬性。 例如，若要限制 1.x 版的更新，請將 `allowedVersions` 設定為 `[1,2)`：
 

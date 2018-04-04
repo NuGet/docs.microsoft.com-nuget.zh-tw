@@ -1,26 +1,29 @@
 ---
-title: "NuGet project.json 封存內容 | Microsoft Docs"
+title: NuGet project.json 封存內容 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/17/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "從 NuGet 文件的其他區域所移除的各種 project.json 內容。"
-keywords: "NuGet project.json 檔案"
+ms.technology: ''
+description: 從 NuGet 文件的其他區域所移除的各種 project.json 內容。
+keywords: NuGet project.json 檔案
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-archive"></a>project.json 封存
 
-`project.json` 參考格式在 NuGet 3.x 引進，並用於某些特定專案類型。 此格式已隨著 PackageReference 格式的引進而被取代，後者將相依性直接列在專案檔中。
+`project.json` 管理格式於 NuGet 3.x 引進並用於某些專案類型。 此格式已隨著 PackageReference 格式的引進而被取代，後者將相依性直接列在專案檔中。
 
 另請參閱：
 
@@ -28,11 +31,11 @@ ms.lasthandoff: 02/01/2018
 - [project.json 對套件作者的影響](project-json-impact.md)
 - [project.json 和 UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-reference-format"></a>project.json 參考格式
+## <a name="projectjson-management-format"></a>project.json 管理格式
 
 原本在[套件還原](../what-is-nuget.md)中。
 
-在參考格式清單中：
+在管理格式的清單中：
 
 - [`project.json`](project-json.md)：(已過時) 這是一個 JSON 檔案，負責維護相關檔案 (`project.lock.json`) 中專案與整體套件關係圖的相依性清單。 此格式已由 PackageReference 所取代。
 
@@ -138,7 +141,7 @@ PackageReference 的行為也適用於 `project.json`。 NuGet restore 將相依
 
 原本在 [NuGet.Config 參考](../reference/nuget-config-file.md)中。
 
-`globalPackagesFolder` 僅適用於 `project.json`。
+`globalPackagesFolder` 僅適用於 `project.json`。 (新增附註：也適用於 PackageReference。)
 
 ### <a name="nuspec-file-reference"></a>nuspec 檔案參考
 
@@ -150,7 +153,7 @@ PackageReference 的行為也適用於 `project.json`。 NuGet restore 將相依
 
 原本在[套件管理員 UI 參考](../tools/package-manager-ui.md)中。
 
-使用 `project.json` 參考格式的專案只會顯示 [顯示預覽視窗] 選項。
+使用 `project.json` 管理格式的專案只顯示 [顯示預覽視窗] 選項。
 
 ### <a name="visual-studio-templates"></a>Visual Studio 範本
 

@@ -1,22 +1,25 @@
 ---
-title: "project.json 對 NuGet 套件作者的影響 | Microsoft Docs"
+title: project.json 對 NuGet 套件作者的影響 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.x 中的 project.json 實作如何影響套件作者的詳細資料，例如不支援的功能、內容以及套件格式。"
-keywords: "NuGet 和 project.json, project.json 影響, 套件撰寫考量, project.json 功能"
+ms.technology: ''
+description: NuGet 3.x 中的 project.json 實作如何影響套件作者的詳細資料，例如不支援的功能、內容以及套件格式。
+keywords: NuGet 和 project.json, project.json 影響, 套件撰寫考量, project.json 功能
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
 
@@ -51,7 +54,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 內容檔案仍然可以載入套件中，且目前仍予忽略，不過使用者仍可以將其複製到正確的位置。
 
-您可以查看這裡的其中一項提議，帶回內容檔案並追蹤其進度：[https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)。
+在下列網頁中可以看到其中一個帶回內容檔案的提議，而且可以追蹤其進度：[https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627) \(英文\)。
 
 ## <a name="impact-for-package-authors"></a>對套件作者的影響
 

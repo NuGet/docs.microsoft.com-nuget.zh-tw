@@ -1,28 +1,31 @@
 ---
-title: "NuGet 的 project.json 檔案參考 | Microsoft Docs"
+title: NuGet 的 project.json 檔案參考 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "在某些專案類型中，project.json 會維護專案中所使用的 NuGet 套件清單。"
-keywords: "NuGet project.json, NuGet 套件參考, NuGet 相依性, project.lock.json"
+ms.technology: ''
+description: 在某些專案類型中，project.json 會維護專案中所使用的 NuGet 套件清單。
+keywords: NuGet project.json, NuGet 套件參考, NuGet 相依性, project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>project.json 參考
 
 *NuGet 3.x+*
 
-`project.json` 檔案會維護一份專案中使用的套件清單，稱為套件參考格式。 它會取代 `packages.config`，但又被 NuGet 4.0+ 的 [PackageReference](../consume-packages/package-references-in-project-files.md) 所取代。
+`project.json` 檔案維護一份專案中使用的套件之清單，稱為套件管理格式。 它會取代 `packages.config`，但又被 NuGet 4.0+ 的 [PackageReference](../consume-packages/package-references-in-project-files.md) 所取代。
 
 [`project.lock.json`](#projectlockjson) 檔案 (如下所述) 也用於採用 `project.json` 的專案。
 
@@ -122,9 +125,9 @@ ms.lasthandoff: 01/25/2018
     }
  ```
 
-在 `frameworks` 區段中只允許單一項目。 (有一項例外就是使用已取代的 DNX 工具鏈之 ASP.NET 專案的 `project.json` 檔，它允許多個目標。)
+在 `frameworks` 區段中只允許單一項目。 (有一項例外就是使用已淘汰的 DNX 工具鏈建置之 ASP.NET 專案的 `project.json` 檔，它允許多個目標。)
 
-## <a name="runtimes"></a>Runtimes
+## <a name="runtimes"></a>執行階段
 
 列出您的應用程式執行所在的作業系統和架構，例如 `win10-arm`、`win8-x64`、`win8-x86`。
 

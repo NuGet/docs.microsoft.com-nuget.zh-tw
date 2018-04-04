@@ -1,22 +1,25 @@
 ---
-title: "設定 NuGet 行為 | Microsoft Docs"
+title: 設定 NuGet 行為 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config 檔案可全面和根據每個專案來控制 NuGet 行為，並使用 nuget config 命令進行修改。"
-keywords: "NuGet 組態檔, NuGet 組態, NuGet 行為設定, NuGet 設定, Nuget.Config, NuGetDefaults.Config, 預設"
+ms.technology: ''
+description: NuGet.Config 檔案可全面和根據每個專案來控制 NuGet 行為，並使用 nuget config 命令進行修改。
+keywords: NuGet 組態檔, NuGet 組態, NuGet 行為設定, NuGet 設定, Nuget.Config, NuGetDefaults.Config, 預設
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>設定 NuGet 行為
 
@@ -27,7 +30,7 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 | 範圍 | NuGet.Config 檔案位置 | 描述 |
 | --- | --- | --- |
 | 專案 | 目前的資料夾 (也稱為專案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在專案資料夾中，設定僅適用於該專案。 在包含多個專案子資料夾的父資料夾中，設定適用於這些子資料夾中的所有專案。 |
-| 使用者 | Windows：`%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.nuget/NuGet/NuGet.Config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
+| 使用者 | Windows：`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.nuget/NuGet/NuGet.Config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
 | 電腦 | Windows：`%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux：`$XDG_DATA_HOME` (一般是 `~/.local/share`) | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
 
 舊版 NuGet 的注意事項：
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>建立新的組態檔
 
-將下面的範本複製至新的檔案，然後使用 `nuget config --configFile <filename>` 來設定值：
+將下面的範本複製至新的檔案，然後使用 `nuget config -configFile <filename>` 來設定值：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ NuGet 在這些檔案中找到設定時，會如下套用設定：
 
 則在下列位置中會有四個具有指定內容的 `NuGet.Config` 檔案  (此範例未包含電腦層級檔案，但其行為與使用者層級檔案類似)。
 
-檔案 A。使用者層級檔案 (在 Windows 上為 `%APPDATA%\NuGet\NuGet.Config`，在 Mac/Linux 上則為 `~/.nuget/NuGet/NuGet.Config`)：
+檔案 A。使用者層級檔案 (在 Windows 上為 `%appdata%\NuGet\NuGet.Config`，在 Mac/Linux 上則為 `~/.nuget/NuGet/NuGet.Config`)：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config 設定
 
-- `packageSources`：此集合的意義與一般組態檔中的 `packageSources` 相同，並指定預設來源。 使用 `packages.config` 參考格式來安裝或更新專案中的套件時，NuGet 會依序使用來源。 對於使用 PackageReference 格式的專案，NuGet 首先使用本機來源，然後使用網路共用的來源，再使用 HTTP 來源，與組態檔中的順序無關。 NuGet 一律會略過還原作業的來源順序。
+- `packageSources`：此集合的意義與一般組態檔中的 `packageSources` 相同，並指定預設來源。 使用 `packages.config` 管理格式來安裝或更新專案中的套件時，NuGet 會依序使用來源。 對於使用 PackageReference 格式的專案，NuGet 首先使用本機來源，然後使用網路共用的來源，再使用 HTTP 來源，與組態檔中的順序無關。 NuGet 一律會略過還原作業的來源順序。
 
 - `disabledPackageSources`：此集合的意義也與 `NuGet.Config` 檔案相同；其中，會依名稱列出受影響的來源，以及指出是否停用的 true/false 值。 這可讓來源名稱和 URL 保留在 `packageSources` 中，而不需要預設將它開啟。 個別開發人員接著可以將其他 `NuGet.Config` 檔案中來源的值設定為 false 來重新啟用來源，而不需要重新尋找正確的 URL。 這也適用於將組織的完整內部來源 URL 清單提供給開發人員，同時預設僅啟用個別小組的來源。
 

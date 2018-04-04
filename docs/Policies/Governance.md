@@ -1,22 +1,25 @@
 ---
-title: "NuGet 專案治理 | Microsoft Docs"
+title: NuGet 專案治理 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 的治理模型，包含認可者、參與者和使用者的角色和責任。"
-keywords: "NuGet 治理、NuGet 仁慈獨裁者、認可者責任、參與者責任、使用者責任"
+ms.technology: ''
+description: NuGet 的治理模型，包含認可者、參與者和使用者的角色和責任。
+keywords: NuGet 治理、NuGet 仁慈獨裁者、認可者責任、參與者責任、使用者責任
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>NuGet 治理
 
@@ -40,7 +43,7 @@ NuGet 核心小組會自行指派為仁慈獨裁者或專案負責人。 不過�
 
 ### <a name="committers"></a>認可者
 
-認可者是對 NuGet 有持續重要貢獻且由仁慈獨裁者指派的參與者。 認可者在指派之後會依賴將程式碼直接寫入存放庫，並篩選其他人的貢獻。 認可者通常是開發人員，但可以透過其他方式參與。
+認可者是對 NuGet 有持續重要貢獻且由仁慈獨裁者指派的參與者。 一旦受到指派，認可者會負責將程式碼直接寫入存放庫，並篩選其他人的貢獻。 認可者通常是開發人員，但可以透過其他方式參與。
 
 一般而言，認可者著重於專案的特定層面，並具有某程度的專業和了解，讓他們贏得社群和專案負責人的尊重。 認可者角色不是正式角色，而只是具影響力的社群成員所擔任的身分，因為專案負責人會向其尋求指引和支援。
 

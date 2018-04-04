@@ -1,62 +1,79 @@
 ---
-title: "如何發行 NuGet 套件 | Microsoft Docs"
+title: 如何發行 NuGet 套件 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/05/2017
+ms.date: 03/19/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "如何將 NuGet 套件發行至 nuget.org 或私用摘要以及如何在 nuget.org 上管理套件擁有權的詳細指示。"
-keywords: "NuGet 套件發行、發行 NuGet 套件、NuGet 套件擁有權、發行至 nuget.org、私用 NuGet 摘要"
+ms.technology: ''
+description: 如何將 NuGet 套件發行至 nuget.org 或私用摘要以及如何在 nuget.org 上管理套件擁有權的詳細指示。
+keywords: NuGet 套件發行、發行 NuGet 套件、NuGet 套件擁有權、發行至 nuget.org、私用 NuGet 摘要
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 68db25276297353fab03258adecd9169149dbe51
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="publishing-packages"></a>發行套件
 
 建立套件且具有 `.nukpg` 檔案之後，只要透過簡單的流程，其他開發人員就能使用此套件 (不論公開或私用)：
 
-- 如本主題中所述，所有開發人員都可以透過 [nuget.org](https://www.nuget.org/packages/manage/upload) 全域使用公用套件。
+- 如本文中所述，所有開發人員都可以透過 [nuget.org](https://www.nuget.org/packages/manage/upload) 全域使用公用套件 (需要 NuGet 4.1.0+)。
 - 私用套件僅適用於小組或組織，方法是將它們裝載在檔案共用、私用 NuGet 伺服器、[Visual Studio Team Services 套件管理](https://www.visualstudio.com/docs/package/nuget/publish)或協力廠商存放庫 (例如 myget、ProGet、Nexus Repository 和 Artifactory)。 如需其他詳細資料，請參閱[裝載套件概觀](../hosting-packages/overview.md)。
 
-本主題涵蓋發行至 nuget.org；若要發行至 Visual Studio Team Services，請參閱[套件管理](https://www.visualstudio.com/docs/package/nuget/publish)。
+本文涵蓋發行至 nuget.org；若要發行至 Visual Studio Team Services，請參閱[套件管理](https://www.visualstudio.com/docs/package/nuget/publish)。
 
 ## <a name="publish-to-nugetorg"></a>發行至 nuget.org
 
-針對 nuget.org，您必須先[註冊免費帳戶](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)或登入 (如果已註冊)：
+對於 nuget.org，您必須使用 Microsoft 帳戶登入，之後會要求您使用該帳戶註冊 nuget.org 的帳戶。您也可以使用以舊版入口網站建立的 nuget.org 帳戶登入。
 
-![NuGet 註冊和登入位置](media/publish_NuGetSignIn.png)
+![NuGet 登入位置](media/publish_NuGetSignIn.png)
 
 接下來，您可以透過 nuget.org Web 入口網站上傳套件、從命令列推送至 nuget.org (需要 `nuget.exe` 4.1.0+)，或透過 Visual Studio Team Services 在 CI/CD 流程期間發行，如下列各節中所述。
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web 入口網站：使用 nuget.org 上的 [Upload Package] \(上傳套件\) 索引標籤
 
-![使用 NuGet 套件管理員上傳套件](media/publish_UploadYourPackage.PNG)
+1. 在 nuget.org 的上方功能表中選取 [上傳]，並瀏覽至套件位置。
+
+    ![在 nuget.org 上上傳套件](media/publish_UploadYourPackage.PNG)
+
+1. nuget.org 會告訴您該套件名稱是否可用。 如果不可使用，請在您專案中變更套件識別碼、重建，並再次嘗試上傳。
+
+1. 如果套件名稱可用，nuget.org 會開啟 [確認] 區段，您可在其中檢閱套件資訊清單的中繼資料。 若要變更任何中繼資料，請編輯您的專案 (專案檔或 `.nuspec` 檔案)、重建、重新建立套件，然後再次上傳。
+
+1. 在 [匯入文件] 底下，您可以貼上 Markdown、使用 URL 指向您的文件，或上傳文件檔案。
+
+1. 當所有資訊準備就緒時，請選取 [提交] 按鈕
 
 ### <a name="command-line"></a>命令列
 
-> [!Important]
-> 若要將套件推送至 nuget.org，您必須使用 [nuget.exe 4.1.0 版或以上版本](https://www.nuget.org/downloads)，以實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。
+若要將套件推送至 nuget.org，您必須使用 [nuget.exe 4.1.0 版或以上版本](https://www.nuget.org/downloads)，以實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。 您也需要 API 金鑰，這是在 nuget.org 上建立的。
 
-1. 按一下您的使用者名稱，以巡覽至您的帳戶設定。
-1. 在 [API 金鑰] 下方，按一下 [複製到剪貼簿] 以擷取 CLI 中您需要的存取金鑰：
+#### <a name="create-api-keys"></a>建立 API 金鑰
 
-    ![從帳戶設定複製 API 金鑰](media/publish_APIKey.png)
+[!INCLUDE[publish-api-key](../quickstart/includes/publish-api-key.md)]
 
-1. 在命令提示字元中，執行下列命令：
+#### <a name="publish-with-dotnet-nuget-push"></a>使用 dotnet nuget push 發行
+
+[!INCLUDE[publish-dotnet](../quickstart/includes/publish-dotnet.md)]
+
+#### <a name="publish-with-nuget-push"></a>使用 nuget push 發行
+
+1. 在命令提示字元中執行下列命令，將 `<your_API_key>` 取代為從 nuget.org 取得的金鑰：
 
     ```cli
-    nuget setApiKey Your-API-Key
+    nuget setApiKey <your_API_key>
     ```
 
-    這會在電腦上儲存您的 API 金鑰，讓您不需要在相同電腦上重新執行此步驟。
+    此命令會將您的 API 金鑰儲存在 NuGet 組態中，因此您就必須在相同電腦上再次重複此步驟。
 
 1. 使用下列命令，將套件推送至 NuGet 資源庫：
 
@@ -64,17 +81,19 @@ ms.lasthandoff: 03/15/2018
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
 
-1. 設為公開之前，會掃描所有上傳至 nuget.org 的套件是否有病毒，並在發現任何病毒時予以拒絕。 也會定期掃描 nuget.org 上列出的所有套件。
-
-1. 在您的 nuget.org 帳戶中，按一下 [Manage my packages] \(管理我的套件\)，以查看您剛剛發行的套件；您也會收到確認電子郵件。 請注意，您的套件進行編製索引可能需要一些時間，並顯示在其他人可以找到它的搜尋結果中；在這段期間，您會在套件頁面上看到下列訊息：
-
-    ![指出套件尚未進行編製索引的訊息](media/publish_NotYetIndexed.png)
-
 ### <a name="package-validation-and-indexing"></a>套件驗證和編製索引
 
-推送至 nuget.org 的套件會歷經數次驗證。 套件通過所有驗證檢查時，可能需要一些時間進行編製索引，並顯示在搜尋結果中。 編製索引完成之後，您會收到一封電子郵件，確認已成功發行套件。 如果套件讓驗證檢查失敗，則會更新套件詳細資料頁面以顯示相關聯的錯誤，而且您也會收到一封電子郵件通知您有關該錯誤。
+推送至 nuget.org 的套件會歷經數次驗證，例如病毒檢查。 (nuget.org 上的所有套件都會定期掃描)。
+
+。 套件通過所有驗證檢查時，可能需要一些時間進行編製索引，並顯示在搜尋結果中。 編製索引完成之後，您會收到一封電子郵件，確認已成功發行套件。 如果套件讓驗證檢查失敗，則會更新套件詳細資料頁面以顯示相關聯的錯誤，而且您也會收到一封電子郵件通知您有關該錯誤。
 
 套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發佈所需的時間超出預期，請前往 [status.nuget.org](https://status.nuget.org/)，以檢查 nuget.org 是否發生任何中斷。 如果所有系統都可以正常運作，但未在一個小時內成功發佈套件，請登入 nuget.org，並使用套件頁面上的 [連絡客戶支援] 連結與我們連絡。
+
+若要檢視套件狀態，請在 nuget.org 上，選取您帳戶名稱下的 [管理套件]。驗證完成時，您會收到確認電子郵件。
+
+請注意，您的套件進行編製索引可能需要一些時間，並顯示在其他人可以找到它的搜尋結果中；在這段期間，您會在套件頁面上看到下列訊息：
+
+![指出套件尚未發行的訊息](media/publish_NotYetIndexed.png)
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
@@ -89,14 +108,14 @@ ms.lasthandoff: 03/15/2018
 若要變更套件的擁有權，請執行下列動作：
 
 1. 使用套件之目前擁有者的帳戶來登入 nuget.org。
-1. 按一下您的使用者名稱，並按一下 [Manage my packages] \(管理我的套件)，然後按一下您想要管理的套件。
-1. 按一下左側的 [管理擁有者] 連結。
+1. 選取您的帳戶名稱，選取 [管理套件]，然後展開 [已發行的套件]。
+1. 選取您要管理的套件，然後在右側選取 [管理擁有者]。
 
 在這裡，您有數個選項：
 
-1. 若要新增擁有者，請輸入其 NuGet 帳戶名稱，然後按一下 [新增]。 這會將含有確認連結的電子郵件傳送給這個新的共同擁有者。 確認之後，該人員具有新增和移除擁有者的完整權限  (確認之後，[管理擁有者] 頁面會指出該人員的 [等待核准])。
-1. 若要移除擁有者，請在 [管理擁有者] 上選取其名稱，然後按一下 [移除]。
-1. 若要傳送擁有權 (擁有權變更時，或透過錯誤的帳戶發行套件之後)，只需要新增擁有者，而且在確認擁有權之後，即可從清單中將您移除。
+1. 移除 [目前擁有者] 底下所列的所有擁有者。
+1. 在 [新增擁有者]下，透過輸入其使用者名稱、訊息，並選取 [新增] 來新增擁有者。 此動作會將含有確認連結的電子郵件傳送給這個新的共同擁有者。 確認之後，該人員具有新增和移除擁有者的完整權限  (確認之後，[目前擁有者] 區段會指出該人員等待核准。)
+1. 若要移轉擁有權 (擁有權變更時，或透過錯誤的帳戶發行套件之後)，請新增擁有者，而且在確認擁有權之後，即可從清單中將您移除。
 
 若要將擁有權指派給公司或群組，請使用轉寄給適當小組成員的電子郵件別名來建立 nuget.org 帳戶。 例如，各種 Microsoft ASP.NET 套件都是由 [microsoft](http://nuget.org/profiles/microsoft) 和 [aspnet](http://nuget.org/profiles/aspnet) 帳戶共同擁有，這可簡化這類別名。
 

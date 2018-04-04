@@ -1,22 +1,25 @@
 ---
-title: "NuGet 套件相依性解析 | Microsoft Docs"
+title: NuGet 套件相依性解析 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "在 NuGet 2.x 和 NuGet 3.x+ 中解析和安裝 NuGet 套件相依性之程序的詳細資料。"
-keywords: "NuGet 套件相依性、NuGet 版本控制、相依性版本、版本圖形、版本解析、可轉移還原"
+ms.technology: ''
+description: 在 NuGet 2.x 和 NuGet 3.x+ 中解析和安裝 NuGet 套件相依性之程序的詳細資料。
+keywords: NuGet 套件相依性、NuGet 版本控制、相依性版本、版本圖形、版本解析、可轉移還原
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet 如何解析套件相依性
 
@@ -24,7 +27,7 @@ ms.lasthandoff: 03/08/2018
 
 這些立即相依性接著會有其自己的相依性，而這會繼續到任意深度。 這會產生所謂的「相依性圖形」，以描述所有層級上套件之間的關聯性。
 
-多個套件具有相同的相依性時，同一個套件識別碼可能會多次出現在圖形中，但可能具有不同版本的條件約束。 不過，專案中只能使用一個指定套件的版本，因此 NuGet 必須選擇要使用的版本。 確切程序取決於所使用的套件參考格式。
+多個套件具有相同的相依性時，同一個套件識別碼可能會多次出現在圖形中，但可能具有不同版本的條件約束。 不過，專案中只能使用一個指定套件的版本，因此 NuGet 必須選擇要使用的版本。 確切的處理序取決於所使用的套件管理格式。
 
 ## <a name="dependency-resolution-with-packagereference"></a>使用 PackageReference 的相依性解析
 
@@ -109,7 +112,7 @@ ms.lasthandoff: 03/08/2018
 
 根據預設，NuGet 2.8 會尋找最低的修補程式版本 (請參閱 [NuGet 2.8 版本資訊](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies))。 您可以透過 `Nuget.Config` 中的 `DependencyVersion` 屬性和命令列上的 `-DependencyVersion` 參數，來控制此設定。  
 
-針對較大的相依性圖形，解析相依性的 `packages.config` 程序會更為複雜。 每個新套件安裝都需要周遊整個圖形，而且會引發版本衝突機會。 發生衝突時，會停止安裝，並讓專案處於不定狀態，特別是對專案檔本身進行可能的修改。 使用其他套件參考格式時，這不是問題。
+針對較大的相依性圖形，解析相依性的 `packages.config` 程序會更為複雜。 每個新套件安裝都需要周遊整個圖形，而且會引發版本衝突機會。 發生衝突時，會停止安裝，並讓專案處於不定狀態，特別是對專案檔本身進行可能的修改。 使用其他套件管理格式時，這不是問題。
 
 ## <a name="managing-dependency-assets"></a>管理相依性資產
 
@@ -121,7 +124,7 @@ ms.lasthandoff: 03/08/2018
 
 在某些情況下，可能會在專案中多次參考同名的組件，並產生設計階段和建置時間錯誤。 請考慮包含 `C.dll` 之自訂版本的專案，並參考也包含 `C.dll` 的套件 C。 同時，專案也與套件 B 相依，而套件 B 也與套件 C 和 `C.dll` 相依。 因此，NuGet 無法決定要使用的 `C.dll`，但您不能只移除專案與套件 C 的相依性，因為套件 B 也與其相依。
 
-若要解決此問題，您必須直接參考想要的 `C.dll` (或使用另一個參考正確項目的套件)，然後新增與排除所有資產之套件 C 的相依性。 這是根據使用中的套件參考格式所進行，如下所示：
+若要解決此問題，您必須直接參考想要的 `C.dll` (或使用另一個參考正確項目的套件)，然後新增與排除所有資產之套件 C 的相依性。 這是根據使用中的套件管理格式所進行，如下所示：
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md)：在相依性中新增 `Exclude="All"`：
 

@@ -1,23 +1,25 @@
 ---
-title: "尋找及選擇 NuGet 套件 | Microsoft Docs"
+title: 尋找及選擇 NuGet 套件 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 8886f899-797b-4704-9d16-820b55b71186
-description: "如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。"
-keywords: "NuGet 套件使用, NuGet 套件探索, 最佳 NuGet 套件, 在套件上決定, 使用套件, 評估套件, NuGet 搜尋語法"
+ms.technology: ''
+description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
+keywords: NuGet 套件使用, NuGet 套件探索, 最佳 NuGet 套件, 在套件上決定, 使用套件, 評估套件, NuGet 搜尋語法
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -31,7 +33,7 @@ ms.lasthandoff: 03/08/2018
 
 請注意頁面右上方的 [包含發行前版本] 選項。 選取時，nuget.org 會顯示套件的所有版本，包含搶鮮版 (Beta) 和其他早期版本。 若只要顯示穩定發行的版本，請清除此選項。
 
-針對特定需求，依標記搜尋 (在 Visual Studio 的套件管理員內或在 nuget.org 這類入口網站上) 是探索適合套件的最常見方法。 例如，搜尋 "json" 會列出所有標上該關鍵字的 NuGet 套件，因此具有與 JSON 資料格式的某種關聯性。
+針對特殊需求，依據標記搜尋 (在 Visual Studio 套件管理員或在 nuget.org 之類的入口網站上) 是發現適當套件的最常用方法。 例如，搜尋 "json" 會列出所有標上該關鍵字的 NuGet 套件，因此具有與 JSON 資料格式的某種關聯性。
 
 ![nuget.org 上 'json' 的搜尋結果](media/Finding-02-SearchResults.png)
 
@@ -41,7 +43,7 @@ ms.lasthandoff: 03/08/2018
 
 ### <a name="does-the-package-support-my-projects-target-framework"></a>套件支援我專案的目標架構嗎？
 
-只有在套件支援的架構包含專案的目標架構時，NuGet 才會將該套件安裝至專案  (如需在建立套件時如何完成這項作業的資訊，請參閱[支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md))。如果套件不相容，NuGet 就會發出錯誤。
+只有在套件支援的架構包含專案的目標架構時，NuGet 才會將該套件安裝至專案  如果套件不相容，NuGet 就會發出錯誤。
 
 部分套件會直接在 nuget.org 資源庫中列出其支援的架構，但因為不需要這類資料，所以許多套件都不會包含該清單。 目前沒有方法可以搜尋 nuget.org 中是否有支援特定目標架構的套件 (這項功能已列入考量，請參閱 [NuGet 問題 2936](https://github.com/NuGet/NuGetGallery/issues/2936))。
 
@@ -59,7 +61,7 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 ![nuget.org 上的 [包含發行前版本] 核取方塊](media/Finding-06-include-prerelease.png)
 
-在 Visual Studio 中，並且使用 NuGet CLI 時，NuGet 預設不會包含發行前版本。 若要變更此行為，請執行下列步驟：
+在 Visual Studio 中，並且使用 NuGet 和 dotnet CLI 工具時，NuGet 預設不會包含發行前版本。 若要變更此行為，請執行下列步驟：
 
 - **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，設定 [包含發行前版本] 方塊。 設定或清除此方塊時，會重新整理套件管理員 UI 以及您可以安裝的可用版本清單。
 
@@ -67,7 +69,9 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 - **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../tools/powershell-reference.md)。
 
-- **NuGet CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 和 `mirror` 命令。 請參閱 [NuGet CLI 參考](../tools/nuget-exe-cli-reference.md)
+- **nuget.exe CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 和 `mirror` 命令。 請參閱 [NuGet CLI 參考](../tools/nuget-exe-cli-reference.md)
+
+- **dotnet.exe CLI**使用 `-v` 引數指定確切的發行前版本。 請參閱 [dotnet 新增套件參考](/dotnet/core/tools/dotnet-add-package)。
 
 <a name="native-cpp-packages"></a>
 
@@ -79,7 +83,7 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 ## <a name="evaluating-packages"></a>評估套件
 
-評估套件實用性的最佳方式是下載套件並在您的程式碼中進行試用。 畢竟，只有少數使用高度常用之套件的開發人員才能啟動高度常用的套件，而且您可能是早期採用者  (請注意，nuget.org 上的所有套件都會定期掃描是否有病毒)。
+評估套件實用性的最佳方法是下載套件並以您的代碼加以試用 (順帶一題，nuget.org 上的所有套件都會定期掃描病毒)。 畢竟，只有少數使用高度常用之套件的開發人員才能啟動高度常用的套件，而且您可能是早期採用者 
 
 同時，使用 NuGet 套件表示與其相依，因此您想要確定其為穩定且可靠。 因為安裝和直接測試套件相當耗時，所以您也可以使用套件清單頁面上的資訊來深入了解套件品質：
 
@@ -93,7 +97,7 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 - *最近安裝*：在套件頁面的 [統計資料] 下方，選取 [View full stats] (檢視完整統計資料)。完整統計資料頁面會依版本號碼顯示過去六週的套件安裝。 其他開發人員主動使用的套件一般是比未使用的套件還適合的選擇。
 
-- *支援*：在套件頁面的 [資訊] 下方，選取 [專案網站] \(如果有的話) 以查看可用的支援選項。 具有專用網站的專案通常有較佳的支援。
+- *支援*：在套件頁面的 [資訊] 下方，選取 [專案網站] \(如果有的話) 以查看作者提供的支援選項。 具有專用網站的專案通常有較佳的支援。
 
 - *開發人員歷程記錄*：在套件頁面的 [擁有者] 下方，選取擁有者以查看他們已發行的其他套件。 具有多個套件的擁有者未來較可能繼續支援其工作。
 
@@ -108,29 +112,19 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 在 nuget.org 上、從 NuGet CLI 中，以及 Visual Studio 的 NuGet 套件管理員延伸模組內，NuGet 套件搜尋的運作都相同。 一般而言，會將搜尋套用至關鍵字和套件描述。
 
-- **關鍵字**：搜尋會尋找包含所有已提供關鍵字的相關套件。 範例：
-
-    ```
-    modern UI javascript
-    ```
-
-- **詞組**：輸入以雙引號括住的字詞會尋找與這些字詞完全相同且不區分大小寫的相符項。 範例：
-
-    ```
-    "modern UI" package
-    ```
-
+- **關鍵字**：搜尋會尋找包含所有已提供關鍵字的相關套件。 範例：`modern UI javascript`
+- **詞組**：輸入以雙引號括住的字詞會尋找與這些字詞完全相同且不區分大小寫的相符項。 範例：`"modern UI" package`
 - **篩選**：您可以使用 `<property>:<term>` 語法，將搜尋字詞套用至特定屬性，其中 `<property>` (不區分大小寫) 可以是 `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary` 和 `owner`。 必要時，可以使用引號括住字詞，而且您可以同時搜尋多個屬性。 此外，對 `id` 屬性的搜尋是子字串比對，而 `packageid` 使用精確比對。 例如：
 
     ```
-    id:NuGet.Core                //Match any part of the id property
+    id:NuGet.Core                # Match any part of the id property
     Id:"Nuget.Core"
     ID:jQuery
-    title:jquery                 //Searches title as shown on the package listing
-    PackageId:jquery             //Match the package id exactly
-    id:jquery id:ui              //Search for multiple terms in the id
-    id:jquery tags:validation    //Search multiple properties
-    id:"jquery.ui"               //Phrase search
-    invalid:jquery ui            //Unsupported properties are ignored, so this
-                                 //is the same as searching on jquery ui
+    title:jquery                 # Searches title as shown on the package listing
+    PackageId:jquery             # Match the package id exactly
+    id:jquery id:ui              # Search for multiple terms in the id
+    id:jquery tags:validation    # Search multiple properties
+    id:"jquery.ui"               # Phrase search
+    invalid:jquery ui            # Unsupported properties are ignored, so this
+                                 # is the same as searching on jquery ui
     ```

@@ -1,26 +1,29 @@
 ---
-title: "從 Visual Studio 使用 NuGet 套件的入門指南 | Microsoft Docs"
+title: 從 Visual Studio 使用 NuGet 套件的入門指南 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "在 Visual Studio 專案中安裝並使用 NuGet 套件程序的逐步解說教學課程。"
-keywords: "安裝 NuGet, NuGet 套件耗用量, 安裝 NuGet 套件, NuGet 套件參考, 使用 NuGet 套件"
+ms.technology: ''
+description: 在 Visual Studio 專案中安裝並使用 NuGet 套件程序的逐步解說教學課程。
+keywords: 安裝 NuGet, NuGet 套件耗用量, 安裝 NuGet 套件, NuGet 套件參考, 使用 NuGet 套件
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>在 Visual Studio 中安裝並使用套件
 
-NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 使用套件管理員 UI 或套件管理員主控台，將套件安裝到 Visual Studio 專案，如本文中針對熱門 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件和通用 Windows 平台 (UWP) 專案所述的內容。
+NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 套件使用套件管理員 UI 或套件管理員主控台安裝到 Visual Studio 專案中。 本文示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 套件和通用 Windows 平台 (UWP) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
 
 安裝之後，請使用 `using <namespace>` 參考程式碼中的套件，其中 \<namespace\> 為您使用的套件專用。 建立參考之後，您可以透過其 API 呼叫套件。
 
@@ -36,7 +39,9 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 ## <a name="create-a-project"></a>建立專案
 
-您可以將 NuGet 套件安裝到某種類型的 .NET 專案。 針對這個逐步解說，您會使用簡單的通用 Windows (UWP) 應用程式。 使用 [檔案] > [新增專案]，然後選取 [Windows 通用] > [空白應用程式 (通用 Windows)]，在 Visual Studio 中建立專案。 當系統出現提示時，請接受目標版本和最低版本的預設值。
+假設 NuGet 套件 支援與專案相同的目標架構，則該套件就可安裝到任何的 .NET 專案中。
+
+針對這個逐步解說，請使用簡單的通用 Windows (UWP) 應用程式。 使用 [檔案] > [新增專案]，然後選取 [Windows 通用] > [空白應用程式 (通用 Windows)]，在 Visual Studio 中建立專案。 當系統出現提示時，請接受目標版本和最低版本的預設值。
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>新增 Newtonsoft.Json NuGet 套件
 
@@ -56,7 +61,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 1. (Visual Studio 2017) 如果系統提示您選取套件管理格式，請選取 [專案檔中的 PackageReference]：
 
-    ![選取套件參考格式](media/QS_Use-03b-SelectFormat.png)
+    ![選取套件管理格式](media/QS_Use-03b-SelectFormat.png)
 
 1. 如果提示您檢閱變更，請選取 [確定]。
 

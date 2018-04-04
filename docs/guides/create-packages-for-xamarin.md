@@ -1,28 +1,31 @@
 ---
-title: "為 Xamarin 建立 NuGet 套件 (適用於 iOS、Android 和 Windows) | Microsoft Docs"
+title: 使用 Visual Studio 2015 建立適用於 Xamarin (適用於 iOS、Android 和 Windows) 的 NuGet 套件 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "有關如何為 Xamarin 建立 NuGet 套件的端對端逐步解說，而這些套件在 iOS、Android 和 Windows 上使用原生 API。"
-keywords: "建立套件, Xamarin 的套件, 跨平台套件"
+ms.technology: ''
+description: 有關如何為 Xamarin 建立 NuGet 套件的端對端逐步解說，而這些套件在 iOS、Android 和 Windows 上使用原生 API。
+keywords: 建立套件, Xamarin 的套件, 跨平台套件
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-packages-for-xamarin"></a>建立適用於 Xamarin 的套件
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立適用於 Xamarin 的套件
 
-跨平台套件包含在 iOS、Android 和 Windows 上使用原生 API 的程式碼 (視執行階段作業系統而定)。 雖然這十分簡單，但最好是讓開發人員使用 PCL 中的套件，或透過通用 API 介面區的 .NET Standard 程式庫。
+適用於 Xamarin 的套件包含使用 iOS、Android 和 Windows (視執行階段作業系統而定) 上原生 API 的程式碼。 雖然這十分簡單，但最好是讓開發人員使用 PCL 中的套件，或透過通用 API 介面區的 .NET Standard 程式庫。
 
-在本逐步解說中，您會建立可在 iOS、Android 和 Windows 上之行動專案中使用的跨平台 NuGet 套件。
+在此逐步解說中，您要使用 Visual Studio 2015 建立可用於 iOS、Android 和 Windows 行動專案中的跨平台 NuGet 套件。
 
 1. [必要條件](#prerequisites)
 1. [建立專案結構和抽象程式碼](#create-the-project-structure-and-abstraction-code)

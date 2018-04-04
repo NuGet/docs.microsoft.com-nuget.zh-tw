@@ -1,22 +1,25 @@
 ---
-title: "針對 Visual Studio 中的 NuGet 套件還原進行疑難排解 | Microsoft Docs"
+title: 針對 Visual Studio 中的 NuGet 套件還原進行疑難排解 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio 中常見的 NuGet 還原錯誤描述，以及如何針對這些錯誤進行疑難排解。"
-keywords: "NuGet 套件還原, 還原套件, 進行疑難排解, 疑難排解"
+ms.technology: ''
+description: Visual Studio 中常見的 NuGet 還原錯誤描述，以及如何針對這些錯誤進行疑難排解。
+keywords: NuGet 套件還原, 還原套件, 進行疑難排解, 疑難排解
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8efaed497a596921af3c73ab919831c73bf598e0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 27a43ceaefdf3a7842183a64ea57d05416d6cb02
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
@@ -48,7 +51,10 @@ This project references NuGet package(s) that are missing on this computer.
 Use NuGet Package Restore to download them. The missing file is {name}.
 ```
 
-當您嘗試建置包含一或多個 NuGet 套件參考的專案，但這些套件目前並未在專案中快取時，就會發生這項錯誤。 (如該專案使用 `packages.config`，套件會在位於解決方案根目錄的 `packages` 資料夾中快取；或者，如果該專案使用 PackageReference 格式，則會在 `obj/project.assets.json` 檔案之中。)
+當您嘗試建置包含一或多個 NuGet 套件參考的專案，但這些套件目前並未在電腦上或專案中安裝時，就會發生這項錯誤。
+
+- 使用 PackageReference 管理格式時，此錯誤表示套件並未如[管理全域套件和快取資料夾](managing-the-global-packages-and-cache-folders.md)中所述安裝在 *global-packages* 資料夾中。
+- 當使用 `packages.config` 時，此錯誤表示套件並未安裝在解決方案跟目錄的 `packages` 資料夾中。
 
 當您從原始檔控制或另一個下載處取得專案的原始程式碼時，通常就會發生這種情況。 套件通常會從原始檔控制或下載中省略，因為可以從類似 nuget.org 的套件摘要中還原 (請參閱[套件和原始檔控制](Packages-and-Source-Control.md))。 包含套件反而會使存放庫膨脹，或建立不必要的大型 .zip 檔案。
 
@@ -59,7 +65,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 - 在命令列上執行 `nuget restore` (除了以 `dotnet` 建立的專案在此情況下會使用 `dotnet restore`)。
 - 對於使用 PackageReference 格式的專案，在命令列上執行 `msbuild /t:restore`。
 
-成功還原之後，您應該會看到 `packages` 資料夾 (使用 `packages.config` 時) 或 `obj/project.assets.json` 檔案 (使用 PackageReference 時)。 專案現在應可順利建置。 如果沒有，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)以便我們與您連絡。
+成功還原之後，套件應該存在於 *global-packages* 資料夾中。 對於使用 PackageReference 的專案，還原應重新建立 `obj/project.assets.json` 檔案；針對使用 `packages.config` 的專案，套件應該會出現在專案的 `packages` 資料夾中。 專案現在應可順利建置。 如果沒有，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)以便我們與您連絡。
 
 <a name="assets"></a>
 
@@ -71,7 +77,9 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 Assets file '<path>\project.assets.json' not found. Run a NuGet package restore to generate this file.
 ```
 
-這項錯誤的發生原因與[上一節](#missing)說明的相同，補救方法也一樣。 例如，在已經從原始檔控制取得的 .NET Core 專案上執行 `msbuild`，不會自動還原套件。 在此情況下，請在執行 `msbuild /t:restore` 後接著執行 `msbuild`，或使用 `dotnet build` (會自動還原套件)。
+當使用 PackageReference 管理格式時，`project.assets.json` 檔案會維護專案的相依性關係圖，此圖是用來確認電腦上已安裝所有必要套件的。 因為此檔案是透過套件還原動態產生的，因此通常不會新增到原始檔控制。 因此當使用不會自動還原套件的 `msbuild` 之類的工具建立專案時，會發生此錯誤。
+
+在此情況下，請在執行 `msbuild /t:restore` 後接著執行 `msbuild`，或使用 `dotnet build` (會自動還原套件)。 您也可以使用[上一節](#missing)中的任何一個套件還原方法。
 
 <a name="consent"></a>
 
@@ -103,11 +111,12 @@ during build.' You can also give consent by setting the environment variable
 </configuration>
 ```
 
-請注意，如果您直接在 `nuget.config` 中編輯 `packageRestore` 設定，請重新啟動 Visual Studio，讓選項對話方塊顯示目前的值。
+> [!Important]
+> 如果您直接在 `nuget.config` 中編輯 `packageRestore` 設定，請重新啟動 Visual Studio，讓選項對話方塊顯示目前的值。
 
 ## <a name="other-potential-conditions"></a>其他可能的情況
 
-- 您可能會因為遺失檔案而遇到建置錯誤，會有訊息指出應使用 NuGet 還原加以下載。 不過，執行還原時有可能會顯示「所有套件均已安裝，沒有可還原的項目」。 在此情況下，請刪除 `packages` 資料夾 (使用 `packages.config` 時) 或 `obj/project.assets.json` 檔案 (使用 PackageReference 時)，並再次執行還原。
+- 您可能會因為遺失檔案而遇到建置錯誤，會有訊息指出應使用 NuGet 還原加以下載。 不過，執行還原時有可能會顯示「所有套件均已安裝，沒有可還原的項目」。 在此情況下，請刪除 `packages` 資料夾 (使用 `packages.config` 時) 或 `obj/project.assets.json` 檔案 (使用 PackageReference 時)，並再次執行還原。 如果錯誤持續發生，請從命令列使用 `nuget locals all -clear` 或 `dotnet locals all --clear` 以清除 *global-packages* 和快取資料夾，如[管理全域套件和快取資料夾](managing-the-global-packages-and-cache-folders.md)中所述。
 
 - 從原始檔控制取得專案時，您的專案資料夾可能會設定成唯讀。 請變更資料夾的權限，然後再次嘗試還原套件。
 

@@ -1,22 +1,25 @@
 ---
-title: "NuGet 的已知問題 | Microsoft Docs"
+title: NuGet 的已知問題 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 已知問題，包括驗證、套件安裝和工具。"
-keywords: "NuGet 已知問題, NuGet 問題"
+ms.technology: ''
+description: NuGet 已知問題，包括驗證、套件安裝和工具。
+keywords: NuGet 已知問題, NuGet 問題
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
 
@@ -227,7 +230,7 @@ Windows Phone 工具不支援 Visual Studio 延伸模組管理員。 為解除�
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>變更 NuGet 套件識別碼的大小寫會中斷套件還原
 
-如[此 GitHub 問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)上所討論的長度，NuGet 支援可變更 NuGet 套件的大小寫，但對在本機套件快取中現有大小寫不同套件的使用者，會在還原套件期間造成很複雜的情況。 建議您，只有在能與套件現有的使用者，溝通其建置時間套件還原可能發生中斷時，才要求變更大小寫。
+根據在[此 GitHub 問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932) \(英文\) 上長時間的討論，NuGet 支援可變更 NuGet 套件的大小寫，但對於在 *global-packages* 資料夾中現有大小寫不同套件的使用者，會在還原套件期間造成很複雜的情況。 建議您，只有在能與套件現有的使用者，溝通其建置時間套件還原可能發生中斷時，才要求變更大小寫。
 
 ## <a name="reporting-issues"></a>回報問題
 

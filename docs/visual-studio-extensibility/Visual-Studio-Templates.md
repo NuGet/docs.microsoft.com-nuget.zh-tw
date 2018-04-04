@@ -1,22 +1,25 @@
 ---
-title: "Visual Studio 範本中的 NuGet 套件 | Microsoft Docs"
+title: Visual Studio 範本中的 NuGet 套件 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "將 NuGet 套件包含為 Visual Studio 專案和項目範本一部分的指示。"
-keywords: "Visual Studio 中的 NuGet, Visual Studio 專案範本, Visual Studio 項目範本, 專案範本中的套件, 項目範本中的套件"
+ms.technology: ''
+description: 將 NuGet 套件包含為 Visual Studio 專案和項目範本一部分的指示。
+keywords: Visual Studio 中的 NuGet, Visual Studio 專案範本, Visual Studio 項目範本, 專案範本中的套件, 項目範本中的套件
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio 範本中的套件
 
@@ -62,7 +65,7 @@ ms.lasthandoff: 02/02/2018
     </WizardData>
     ```
 
-    *(NuGet 2.2.1+)* 精靈支援多個 `<package>` 項目以支援多個套件來源。 同時需要 `id` 和 `version` 屬性，這表示即使有較新版本，也將會安裝該特定版本的套件。 這可防止套件更新中斷範本，讓使用範本的開發人員能選擇是否更新套件。
+    精靈支援多個 `<package>` 元素以支援多個套件來源。 同時需要 `id` 和 `version` 屬性，這表示即使有較新版本，也將會安裝該特定版本的套件。 這可防止套件更新中斷範本，讓使用範本的開發人員能選擇是否更新套件。
 
 1. 指定 NuGet 可以找到套件的儲存機制，如下列各節中所述。
 

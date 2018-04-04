@@ -1,22 +1,25 @@
 ---
-title: "Visual Studio 專案系統的 NuGet 支援 | Microsoft Docs"
+title: Visual Studio 專案系統的 NuGet 支援 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "針對協力廠商專案類型，將 NuGet 整合至 Visual Studio 專案系統。"
-keywords: "Visual Studio 中的 NuGet、自訂專案類型、Visual Studio 專案"
+ms.technology: ''
+description: 針對協力廠商專案類型，將 NuGet 整合至 Visual Studio 專案系統。
+keywords: Visual Studio 中的 NuGet、自訂專案類型、Visual Studio 專案
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0ffebfc9e403315482d3781a00a0a6896fd04f0c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio 專案系統的 NuGet 支援
 
@@ -107,7 +110,7 @@ class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 
 ## <a name="responding-to-queries"></a>回應查詢
 
-專案會透過 `IVsHierarchy::GetProperty` 支援 `VSHPROPID_ProjectCapabilitiesChecker` 屬性，來宣告此功能。 它應該會傳回 `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` 的執行個體，其定義在 `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` 組件中。 參考此組件的方式是安裝[其 NuGet 套件](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)。
+專案會透過 `IVsHierarchy::GetProperty` 支援 `VSHPROPID_ProjectCapabilitiesChecker` 屬性，來宣告此功能。 它應該會傳回 `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` 的執行個體，其定義在 `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` 組件中。 藉由安裝[其 NuGet 套件](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime) \(英文\) 以參考此組件。
 
 例如，您可能會將下列 `case` 陳述式新增至您 `IVsHierarchy::GetProperty` 方法的 `switch` 陳述式：
 

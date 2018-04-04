@@ -1,26 +1,29 @@
 ---
-title: "NuGet 套件和原始檔控制 | Microsoft Docs"
+title: NuGet 套件和原始檔控制 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "如何在版本設定和原始檔控制系統內處理 NuGet 套件的考量，以及如何以 git 和 TFVC 省略套件。"
-keywords: "NuGet 原始檔控制, NuGet 版本設定, NuGet 和 git, NuGet 和 TFS, NuGet 和 TFVC, 省略套件, 原始檔控制存放庫, 版本設定存放庫"
+ms.technology: ''
+description: 如何在版本設定和原始檔控制系統內處理 NuGet 套件的考量，以及如何以 git 和 TFVC 省略套件。
+keywords: NuGet 原始檔控制, NuGet 版本設定, NuGet 和 git, NuGet 和 TFS, NuGet 和 TFVC, 省略套件, 原始檔控制存放庫, 版本設定存放庫
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 43fc1653616091b0f974903147645c0c99c8f57b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>在原始檔控制系統中省略 NuGet 套件
 
-開發人員通常會省略其原始檔控制存放庫的 NuGet 套件，改為依賴[套件還原](../consume-packages/package-restore.md)先重新安裝專案的相依性再建置。
+開發人員通常會省略其原始檔控制存放庫的 NuGet 套件，改為依賴[套件還原](package-restore.md)先重新安裝專案的相依性再建置。
 
 依賴套件還原的原因包括：
 
@@ -29,11 +32,11 @@ ms.lasthandoff: 02/14/2018
 1. 清除任何未使用過的套件資料夾的解決方案會變得愈來愈困難，因為需要確保不刪除仍在使用的任何套件。
 1. 透過略過套件的方式，維護程式碼和來自其他相依人員的套件之間的清楚擁有權界限。 許多 NuGet 套件已在自己的原始檔控制存放庫中進行維護。
 
-雖然套件還原是 NuGet 的預設行為，但仍需某些手動工作從原始檔控制省略套件，&mdash;也就是專案中的 `packages` 資料夾&mdash;，如下列各節中所述。
+雖然套件還原是 NuGet 的預設行為，但仍需某些手動工作從原始檔控制省略套件，&mdash;也就是專案中的 `packages` 資料夾&mdash;，如本文所述。
 
 ## <a name="omitting-packages-with-git"></a>使用 Git 省略套件
 
-使用 [.gitignore 檔案](https://git-scm.com/docs/gitignore)以免在原始檔控制中包含 `packages` 資料夾。 如需參考，請參閱 [Visual Studio 專案的範例 `.gitignore`](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)。
+使用 [.gitignore 檔案](https://git-scm.com/docs/gitignore)略過 NuGet 套件 (`.nupkg`) `packages` 資料夾，以及 `project.assets.json` 和其他項目。 如需參考，請參閱 [Visual Studio 專案的範例 `.gitignore`](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)：
 
 `.gitignore` 檔案的重要部分為：
 
@@ -41,20 +44,24 @@ ms.lasthandoff: 02/14/2018
 # Ignore NuGet Packages
 *.nupkg
 
-# Ignore the packages folder
-**/packages/*
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
 
-# Include packages/build/, which is used as an MSBuild target
-!**/packages/build/
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
 
-# Uncomment if necessary; generally it's regenerated when needed
-#!**/packages/repositories.config
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
 
 # Ignore other intermediate files that NuGet might create. project.lock.json is used in conjunction
-# with project.json; project.assets.json is used in conjunction with the PackageReference format.
+# with project.json (NuGet v3); project.assets.json is used in conjunction with the PackageReference
+# format (NuGet v4 and .NET Core).
 project.lock.json
 project.assets.json
-*.nuget.props
 ```
 
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>使用 Team Foundation 版本設定略過套件
@@ -92,7 +99,7 @@ project.assets.json
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
 
-   # Include package target files which may be required for MSBuild, again prefixing the folder name as needed.
+   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
    !packages/*.targets
 
    # Omit temporary files
