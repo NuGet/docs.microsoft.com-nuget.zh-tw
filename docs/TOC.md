@@ -74,6 +74,7 @@
 # 參考資料
 ## [.nuspec](reference/nuspec.md)
 ## [專案檔中的套件參考](consume-packages/package-references-in-project-files.md)
+## [將 packages.config 移轉至 PackageReference](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [套件版本控制](reference/package-versioning.md)
 ## [Nuget.Config 檔案](reference/nuget-config-file.md)
