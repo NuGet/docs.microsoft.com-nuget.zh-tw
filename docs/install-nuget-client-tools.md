@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: dd9ca3b39c4bc9b00d8fca6fe1479d64016bad86
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
@@ -59,7 +59,7 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 [!INCLUDE[install-cli](includes/install-cli.md)]
 
 > [!Tip]
-> 使用 `nuget update -self`，將現有的 nuget.exe 更新為最新版本。
+> 在 Windows 上使用 `nuget update -self`，將現有的 nuget.exe 更新為最新版本。
 
 > [!Note]
 > 最新建議的 NuGet CLI 一律可在 `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` 找到。 為了與舊版持續整合系統相容，先前的 URL `https://nuget.org/nuget.exe` 目前會提供[已被取代的 2.8.6 CLI 工具](https://github.com/NuGet/NuGetGallery/issues/5381)。

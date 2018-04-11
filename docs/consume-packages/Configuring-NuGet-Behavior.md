@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-nuget-behavior"></a>設定 NuGet 行為
 
@@ -30,8 +30,8 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 | 範圍 | NuGet.Config 檔案位置 | 描述 |
 | --- | --- | --- |
 | 專案 | 目前的資料夾 (也稱為專案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在專案資料夾中，設定僅適用於該專案。 在包含多個專案子資料夾的父資料夾中，設定適用於這些子資料夾中的所有專案。 |
-| 使用者 | Windows：`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.nuget/NuGet/NuGet.Config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
-| 電腦 | Windows：`%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux：`$XDG_DATA_HOME` (一般是 `~/.local/share`) | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
+| 使用者 | Windows：`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (依 OS 發行版本而異) | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
+| 電腦 | Windows：`%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux：`$XDG_DATA_HOME`。 如果 `$XDG_DATA_HOME` 為 Null 或空白，則會使用 `~/.local/share` 或 `/usr/local/share` (依 OS 發行版本而異)  | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
 
 舊版 NuGet 的注意事項：
 - NuGet 3.3 和更早版本使用整個方案設定的 `.nuget` 資料夾。 NuGet 3.4+ 中不會使用這個檔案。
@@ -140,7 +140,7 @@ NuGet 在這些檔案中找到設定時，會如下套用設定：
 
 則在下列位置中會有四個具有指定內容的 `NuGet.Config` 檔案  (此範例未包含電腦層級檔案，但其行為與使用者層級檔案類似)。
 
-檔案 A。使用者層級檔案 (在 Windows 上為 `%appdata%\NuGet\NuGet.Config`，在 Mac/Linux 上則為 `~/.nuget/NuGet/NuGet.Config`)：
+檔案 A。使用者層級檔案 (在 Windows 上為 `%appdata%\NuGet\NuGet.Config`，在 Mac/Linux 上則為 `~/.config/NuGet/NuGet.Config`)：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,8 +218,8 @@ NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 
 | OS 平台  | NuGetDefaults.Config 位置 |
 | --- | --- |
-| Windows      | **Visual Studio 2017 或 NuGet 4.x+：**%ProgramFiles(x86)%\NuGet\Config <br />**Visual Studio 2015 及更早版本或 NuGet 3.x 及更早版本：**%PROGRAMDATA%\NuGet |
-| Mac/Linux    | $XDG_DATA_HOME (一般是 ~/.local/share)|
+| Windows      | **Visual Studio 2017 或 NuGet 4.x+：** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 及更早版本或 NuGet 3.x 及更早版本：** `%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME` (一般為 `~/.local/share` 或 `/usr/local/share`，取決於 OS 發行版本)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config 設定
 
