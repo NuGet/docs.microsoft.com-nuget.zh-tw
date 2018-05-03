@@ -1,29 +1,17 @@
 ---
-title: 封裝中繼資料，NuGet API |Microsoft 文件
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: 套件中繼資料，NuGet API
+description: 封裝註冊基底 URL 可讓您擷取有關封裝的中繼資料。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 封裝註冊基底 URL 可讓您擷取有關封裝的中繼資料。
-keywords: NuGet 的 API 套件中繼資料、 NuGet API 註冊，NuGet API 未列出的封裝
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 50064e1450232e9cdedcc042a09c08860f802e76
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-metadata"></a>套件中繼資料
 

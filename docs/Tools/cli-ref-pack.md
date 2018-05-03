@@ -1,25 +1,16 @@
 ---
-title: NuGet 的 CLI 組件命令 |Microsoft 文件
+title: NuGet 的 CLI 組件命令
+description: Nuget.exe 套件命令參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 套件命令參考
-keywords: nuget 組件參考組件命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 14ecf724477f652275eb68a090bb57b8640d4a8a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a2468b099a822e69298ea78c80cfd1d5d5c09938
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="pack-command-nuget-cli"></a>組件命令 (NuGet CLI)
 
@@ -33,7 +24,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="usage"></a>使用量
 
 ```cli
-nuget pack <nuspecPath | projectPath> [options]
+nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
 其中`<nuspecPath>`和`<projectPath>`指定`.nuspec`或專案檔，分別。
@@ -46,17 +37,17 @@ nuget pack <nuspecPath | projectPath> [options]
 | 組建 | 指定應該建置封裝前，先建置專案。 |
 | 排除 | 指定建立封裝時所要排除的一個或多個萬用字元模式。 若要指定多個模式，請重複-排除旗標。 請參閱以下的範例。 |
 | ExcludeEmptyDirectories | 建立封裝時，可避免包含空的目錄。 |
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
 | IncludeReferencedProjects | 指出已建立的封裝應包含參考的專案做為相依性，或是做為封裝的一部分。 如果參考的專案都有對應`.nuspec`檔案具有相同名稱做為專案，則該參考的專案加入做為相依性。 否則，封裝的一部分加入參考的專案。 |
 | MinClientVersion | 設定*minClientVersion*屬性建立的封裝。 這個值會覆寫現有的值*minClientVersion*屬性 （如果有的話） 中`.nuspec`檔案。 |
-| MSBuildPath | *（4.0 +)*指定之路徑的 MSBuild 命令，優先於使用`-MSBuildVersion`。 |
-| MSBuildVersion | *（3.2 +)*指定要搭配此命令使用 MSBuild 的版本。 支援的值為 4，12，14，15。 根據預設，在路徑中的 MSBuild 會挑出，否則，預設為最高的已安裝版本的 MSBuild。 |
+| MSBuildPath | *（4.0 +)* 指定之路徑的 MSBuild 命令，優先於使用`-MSBuildVersion`。 |
+| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用 MSBuild 的版本。 支援的值為 4，12，14，15。 根據預設，在路徑中的 MSBuild 會挑出，否則，預設為最高的已安裝版本的 MSBuild。 |
 | NoDefaultExcludes | 防止預設排除的 NuGet 封裝檔案和檔案和資料夾的啟動點，如`.svn`和`.gitignore`。 |
 | NoPackageAnalysis | 指定封裝不應該在建置套件之後執行套件分析。 |
 | OutputDirectory | 指定建立的封裝儲存所在的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
-| 屬性 | 指定覆寫專案檔案中的值的屬性的清單請參閱[一般 MSBuild 專案屬性](/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份語彙基元 = value 配對，以分號分隔，其中出現的每個`$token$`中`.nuspec`檔案將會取代為指定的值。 值可以是以引號的字串。 請注意，「 設定 」 屬性，預設值是"Debug"。 若要變更的發行組態，請使用`-Properties Configuration=Release`。 |
-| 尾碼 | *(3.4.4+)*將後置詞附加至內部產生的版本號碼，通常用於附加建置或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本編號的類似`1.2.3-nightly`。 後置字元的開頭必須是字母，若要避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
+| 屬性 | 之後應該顯示最後一個命令列上的其他選項。 指定覆寫專案檔案中的值的屬性的清單請參閱[一般 MSBuild 專案屬性](/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份語彙基元 = value 配對，以分號分隔，其中出現的每個`$token$`中`.nuspec`檔案將會取代為指定的值。 值可以是以引號的字串。 請注意，「 設定 」 屬性，預設值是"Debug"。 若要變更的發行組態，請使用`-Properties Configuration=Release`。 |
+| 尾碼 | *(3.4.4+)* 將後置詞附加至內部產生的版本號碼，通常用於附加建置或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本編號的類似`1.2.3-nightly`。 後置字元的開頭必須是字母，若要避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
 | Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案，而對應符號封裝。 |
 | 工具 | 指定專案的輸出檔應該放在`tool`資料夾。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
@@ -96,8 +87,8 @@ nuget pack foo.csproj -Properties Configuration=Release
 
 nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="1.0.5"
 
-# create a package from project foo.csproj, using MSBuild version 12 to build the project
-nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="1.0.5" -MSBuildVersion 12
+# Create a package from project foo.csproj, using MSBuild version 12 to build the project
+nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
 
 nuget pack foo.nuspec -Version 2.1.0
 

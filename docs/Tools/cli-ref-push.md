@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI 發送命令 |Microsoft 文件
+title: NuGet CLI 推入命令
+description: Nuget.exe 推送命令參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 推送命令參考
-keywords: nuget 推入參考，推入命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 832f7aeb2b485acbb83e5213916fc3423df961ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 959b539fc20bc47f38946cb660375a6652582a0d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="push-command-nuget-cli"></a>推播命令 (NuGet CLI)
 
@@ -44,16 +35,16 @@ nuget push <packagePath> [options]
 
 | 選項 | 描述 |
 | --- | --- |
-| ApiKey | 目標存放庫 API 金鑰。 如果不存在，則會使用組態檔中所指定。 |
+| apiKey | 目標存放庫 API 金鑰。 如果不存在，則會使用組態檔中所指定。 |
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | DisableBuffering | 停用緩衝以減少記憶體使用方式的推入至 http （s） 伺服器時。 注意： 使用此選項時，整合式的 Windows 驗證可能無法運作。 |
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
-| NoSymbols | *（3.5 +)*如果符號封裝存在，它將不會發送至符號伺服器。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NoSymbols | *（3.5 +)* 如果符號封裝存在，它將不會發送至符號伺服器。 |
 | 原始程式檔 | 指定伺服器 URL。 NuGet 識別的 UNC 或本機資料夾的來源，並只會複製檔案而不是將它使用 HTTP 推送。  此外，從 NuGet 3.4.2 開始，這是必要參數除非`NuGet.Config`檔案會指定*DefaultPushSource*值 (請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md))。 |
-| SymbolSource | *（3.5 +)*指定符號伺服器 URL，當 nuget.smbsrc.net 推入至 nuget.org 時，會使用 |
-| SymbolApiKey | *（3.5 +)*指定 URL 中指定的 API 金鑰`-SymbolSource`。 |
+| SymbolSource | *（3.5 +)* 指定符號伺服器 URL，當 nuget.smbsrc.net 推入至 nuget.org 時，會使用 |
+| SymbolApiKey | *（3.5 +)* 指定 URL 中指定的 API 金鑰`-SymbolSource`。 |
 | 等候逾時 | 指定在逾時，以秒為單位，可用於推入到伺服器。 預設值是 300 秒 （5 分鐘）。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 

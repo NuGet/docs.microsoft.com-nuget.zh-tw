@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.6 版本資訊 |Microsoft 文件"
+title: NuGet 2.6 版本資訊
+description: Webmatrix 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.6.1 的版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.6 版本資訊。"
-keywords: "NuGet 2.6 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 39ce6ac3d36464d26966b0dabb0893f09ad4afdc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 版本資訊
 
@@ -100,11 +94,11 @@ Visual Studio 2013 中，檔案會安裝在使用這項功能：
 從 NuGet 2.6，現在會將資料傳送為安裝操作。  封裝在 NuGet Gallery 上的統計資料會公開做為個別的安裝作業，該資料與 「-相依性"後置詞。
 
 * 安裝
-* Install-Dependency
+* 安裝相依性
 * 更新
-* Update-Dependency
+* 更新相依性
 * 重新安裝
-* Reinstall-Dependency
+* 重新安裝相依性
 
 除了不同的作業名稱，也會針對安裝記錄相依的套件識別碼。  在 NuGet Gallery 的未來更新將會公開在報表中，可讓封裝作者以充分了解如何開發人員要安裝其封裝資料。
 

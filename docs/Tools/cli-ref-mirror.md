@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI 鏡像命令 |Microsoft 文件
+title: NuGet CLI 鏡像命令
+description: Nuget.exe 鏡像命令參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 鏡像命令參考
-keywords: nuget 鏡像參考，鏡像命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 5ba13196d385abf42a5af2faa3fe6f0e80fb59d8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>鏡像命令 (NuGet CLI)
 
@@ -46,7 +37,7 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 
 | 選項 | 描述 |
 | --- | --- |
-| ApiKey | 目標存放庫 API 金鑰。 如果不存在，指定在組態檔中會使用 (`%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux))。 |
+| apiKey | 目標存放庫 API 金鑰。 如果不存在，指定在組態檔中會使用 (`%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux))。 |
 | 說明 | 顯示說明命令的資訊。 |
 | 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | Noop | 記錄項目會完成，但不會執行動作。假設推送作業成功。 |

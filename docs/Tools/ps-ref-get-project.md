@@ -1,25 +1,16 @@
 ---
-title: NuGet Get 專案 PowerShell 參考 |Microsoft 文件
+title: NuGet Get 專案 PowerShell 參考
+description: 在 Visual Studio 中的 NuGet 封裝管理員主控台的 GetProject PowerShell 命令的參考。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 在 Visual Studio 中的 NuGet 封裝管理員主控台的 GetProject PowerShell 命令的參考。
-keywords: NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考，Get 專案
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9fcdcf7c550408cd7dfd73787ee14821c46a1df9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a7b66cbf36095e31b5929596300018239749cb15
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>取得專案 （在 Visual Studio 中的封裝管理員主控台）
 

@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI init 命令 |Microsoft 文件
+title: NuGet CLI init 命令
+description: Nuget.exe init 命令參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe init 命令參考
-keywords: nuget init 參考，初始化命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 01a3553622020b5868e33ece09cd7555cb712fd3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: f5e819d014637d1ebb0403d9d838f9362efb20f0
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="init-command-nuget-cli"></a>初始化命令 (NuGet CLI)
 
@@ -42,10 +33,10 @@ nuget init <source> <destination> [options]
 | 選項 | 描述 |
 | --- | --- |
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | Expand | 將所有檔案新增至套件來源; 每個封裝中與相同`-Expand`與`add`命令。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

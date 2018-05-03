@@ -1,22 +1,16 @@
 ---
-title: "NuGet 1.7 版本資訊 |Microsoft 文件"
+title: NuGet 1.7 版版本資訊
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.7 的版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.7 的版本資訊。"
-keywords: "NuGet 1.7 的版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 7b16bea8c6bcc77f814dd32a43b895b5e656c95d
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 81db81642ac21b7dd41f5940dfba919d0871ec01
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-17-release-notes"></a>NuGet 1.7 版版本資訊
 
@@ -27,7 +21,7 @@ NuGet 1.7 已於 2012 年 4 月 4 日發行。
 ## <a name="known-installation-issue"></a>已知的安裝問題
 如果您正在執行 VS 2010 SP1，您可能會遇到安裝錯誤時嘗試升級 NuGet，如果您有安裝較舊的版本。
 
-因應措施是只要解除安裝 NuGet，然後再從 VS 擴充功能庫進行安裝。  如需詳細資訊，請參閱 [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)。
+因應措施是只要解除安裝 NuGet，然後再從 VS 擴充功能庫進行安裝。  請參閱 [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) 以取得詳細資訊。
 
 注意： 如果 Visual Studio 不會允許您解除安裝 （解除安裝 按鈕會停用） 的延伸模組，則您可能需要重新啟動 Visual Studio 中使用 「 以系統管理員身分執行 」。
 

@@ -1,25 +1,16 @@
 ---
-title: 將命令加入 NuGet CLI |Microsoft 文件
+title: 將命令加入 NuGet CLI
+description: Nuget.exe 的參考加入命令
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 的參考加入命令
-keywords: nuget 加入參考，新增套件 命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 48e093cbae2cecb1652e17a9b26920107aa8aef7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 4a4201a321ffe0f7fb61f4e98012a1a2d7d8fda4
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="add-command-nuget-cli"></a>加入命令 (NuGet CLI)
 
@@ -52,9 +43,9 @@ nuget add <packagePath> -Source <sourcePath> [options]
 | --- | --- |
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | Expand | 加入封裝中的所有檔案，對套件來源。 |
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

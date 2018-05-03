@@ -1,28 +1,20 @@
 ---
-title: 速率限制 |Microsoft 文件
-author:
-- cmanu
-- anangaur
-ms.author:
-- cmanu
+title: 速率限制，NuGet API
+description: NuGet 的 Api 將會強制執行速率限制，以防止不當使用。
+author: cmanu
+ms.author: cmanu
 manager: skofman
 ms.date: 03/20/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet 的 Api 將會強制執行速率限制，以防止不當使用。
-keywords: NuGet 的 API，速率限制
 ms.reviewer:
 - skofman
 - anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7891d5e4c008219d9f4808f223f3e5e7ae06ced
-ms.sourcegitcommit: fa40be739d093a37d5f7072b62ebdb4f595f4110
+- kraigb
+ms.openlocfilehash: 3aaebef8fff670759c6484a5a8f90a2f4dd58c66
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="rate-limits"></a>速率限制
 
@@ -45,10 +37,10 @@ ms.lasthandoff: 03/30/2018
 
 | API | 限制類型 | 限制值 | 應用程式開發介面 usecase |
 |:---|:---|:---|:---|
-**GET** `/api/v1/Packages` | IP | 1000 / 分 | 查詢 NuGet 套件中繼資料，透過 v1 OData`Packages`集合 |
-**GET** `/api/v1/Search()` | IP | 3000 / 分 | 搜尋 v1 搜尋端點透過 NuGet 封裝 | 
-**GET** `/api/v2/Packages` | IP | 20000 / 分 | 查詢 NuGet 套件中繼資料，透過 v2 OData`Packages`集合 | 
-**GET** `/api/v2/Packages/$count` | IP | 100 / 分 | 查詢透過 v2 OData 的 NuGet 封裝計數`Packages`集合 | 
+**取得** `/api/v1/Packages` | IP | 1000 / 分 | 查詢 NuGet 套件中繼資料，透過 v1 OData`Packages`集合 |
+**取得** `/api/v1/Search()` | IP | 3000 / 分 | 搜尋 v1 搜尋端點透過 NuGet 封裝 | 
+**取得** `/api/v2/Packages` | IP | 20000 / 分 | 查詢 NuGet 套件中繼資料，透過 v2 OData`Packages`集合 | 
+**取得** `/api/v2/Packages/$count` | IP | 100 / 分 | 查詢透過 v2 OData 的 NuGet 封裝計數`Packages`集合 | 
 
 ## <a name="package-push-and-unlist"></a>封裝發送和 Unlist
 

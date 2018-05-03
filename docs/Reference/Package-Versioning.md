@@ -1,26 +1,17 @@
 ---
-title: NuGet 封裝版本參考 |Microsoft 文件
+title: NuGet 封裝版本的參考
+description: 確切的指定版本號碼和範圍而定的 NuGet 封裝，並安裝相依性的方式在其他封裝的詳細資訊。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 確切的指定版本號碼和範圍而定的 NuGet 封裝，並安裝相依性的方式在其他封裝的詳細資訊。
-keywords: 版本控制、 NuGet 封裝相依性、 NuGet 相依性版本、 NuGet 版本號碼、 NuGet 封裝版本、 版本範圍、 版本規格，正規化的版本號碼
-ms.reviewer:
-- anandr
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: d17d964ac73075f05678b9727e90d481a30da62e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-versioning"></a>套件版本控制
 
@@ -94,9 +85,10 @@ ms.lasthandoff: 03/28/2018
 如果您要 nuget.org 傳 SemVer v2.0.0 特定封裝，封裝是看不到舊版的用戶端，並可供 只有下列 NuGet 用戶端：
 
 - NuGet 4.3.0+
-- Visual Studio 2017 version 15.3+
+- Visual Studio 2017 15.3 + 版本
 - Visual Studio 2015 [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (.NET SDK 2.0.0+)
+- dotnet
+  - dotnetcore.exe (.NET SDK 2.0.0+)
 
 第三方用戶端：
 
@@ -125,7 +117,7 @@ ms.lasthandoff: 03/28/2018
 使用 PackageReference 格式時，NuGet 也支援使用萬用字元標記法\*、 主要、 次要、 修補程式，和數字的發行前版本後置字元部分。 不支援萬用字元`packages.config`格式。
 
 > [!Note]
-> 解決版本範圍時，不會包含發行前版本。 發行前版本*是*包含時使用萬用字元 (\*)。 版本範圍*[1.0,2.0]*，比方說，不包括 2.0 beta 版，但萬用字元標記法_2.0-*_沒有。 請參閱[發出 912](https://github.com/NuGet/Home/issues/912)的進一步討論發行前版本萬用字元。
+> 解決版本範圍時，不會包含發行前版本。 發行前版本*是*包含時使用萬用字元 (\*)。 版本範圍 *[1.0,2.0]*，比方說，不包括 2.0 beta 版，但萬用字元標記法_2.0-*_ 沒有。 請參閱[發出 912](https://github.com/NuGet/Home/issues/912)的進一步討論發行前版本萬用字元。
 
 ### <a name="examples"></a>範例
 

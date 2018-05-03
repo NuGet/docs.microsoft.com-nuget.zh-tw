@@ -1,22 +1,16 @@
 ---
-title: "Visual Studio 的 NuGet 認證提供者 |Microsoft 文件"
+title: Visual Studio 的 NuGet 認證提供者
+description: NuGet 的認證提供者會向 IVsCredentialProvider 介面實作中的 Visual Studio 擴充功能的摘要。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 的認證提供者會向 IVsCredentialProvider 介面實作中的 Visual Studio 擴充功能的摘要。"
-keywords: "NuGet 認證提供者，驗證使用的摘要，驗證組件庫，NuGet visual studio 擴充功能"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ff143526c814c69f1a133a62c1ad1a8f5fbedd60
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 740df87b0d663aac482d888e916662528ce27030
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>驗證 Visual Studio 中搭配 NuGet 認證提供者使用的摘要
 

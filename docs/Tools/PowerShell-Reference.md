@@ -1,22 +1,16 @@
 ---
-title: "NuGet PowerShell 參考 |Microsoft 文件"
+title: NuGet PowerShell 參考
+description: Visual Studio 中的 NuGet 封裝管理員主控台中可用的 PowerShell 命令的完整參考。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/02/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Visual Studio 中的 NuGet 封裝管理員主控台中可用的 PowerShell 命令的完整參考。"
-keywords: "NuGet 封裝管理員主控台中，NuGet Powershell 命令，NuGet Powershell 參考"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 0cbd9b13b34bd93fea6c6684c03bca9cff5d9e5e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 455787d3c8701f5275ace4ed0dcb605213bfbf29
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="powershell-reference"></a>PowerShell 參考
 

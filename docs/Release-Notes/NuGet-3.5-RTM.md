@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.5 Beta 版本資訊 |Microsoft 文件"
+title: NuGet 3.5 Beta 版本資訊
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.5 版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.5 版本資訊。"
-keywords: "NuGet 3.5 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>NuGet 3.5 版本資訊
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * 沒有資訊時呼叫 nuget.exe 更新 *.csproj 專案時沒有指定`packages.config`  -  [# 1496年](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`還原不會重試在來源 V2-5xx 狀態碼[# 1217年](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` 還原不會重試在來源 V2-5xx 狀態碼[# 1217年](https://github.com/NuGet/Home/issues/1217)
 
 * 在檔案中的 src 雙點`.nuspec`無法運作- [# 2947年](https://github.com/NuGet/Home/issues/2947)
 
@@ -148,7 +142,7 @@ ms.lasthandoff: 02/02/2018
 
 * 如果單一來源授權-就會失敗，請安裝區塊[# 2034年](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`版本範圍應該覆寫-IncludeReferencedProjects 版本- [# 1983年](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` 版本範圍應該覆寫-IncludeReferencedProjects 版本- [# 1983年](https://github.com/NuGet/Home/issues/1983)
 
 * 更新套件 super 緩慢-「 嘗試收集相依性資訊 」- [# 1909年](https://github.com/NuGet/Home/issues/1909)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * 認證外掛程式已結束，錯誤碼為-1 / 錯誤下載封裝使用多個來源的認證提供者時[# 2885年](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`nuget 還原會造成重新編譯時不變更- [# 2817年](https://github.com/NuGet/Home/issues/2817)
+* `project.json` nuget 還原會造成重新編譯時不變更- [# 2817年](https://github.com/NuGet/Home/issues/2817)
 
 * 符號套件永遠不能用於安裝或更新- [# 2807年](https://github.com/NuGet/Home/issues/2807)
 

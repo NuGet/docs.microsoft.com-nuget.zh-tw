@@ -1,26 +1,17 @@
 ---
-title: "搜尋、 NuGet API |Microsoft 文件"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: 搜尋時，NuGet API
+description: 搜尋服務可讓用戶端封裝關鍵字的查詢以及在封裝中的特定欄位上的篩選結果。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "搜尋服務可讓用戶端封裝關鍵字的查詢以及在封裝中的特定欄位上的篩選結果。"
-keywords: "NuGet 搜尋 API，NuGet 探索 API 來查詢的 NuGet 封裝 API，以瀏覽 NuGet 套件的套件"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>搜尋
 
@@ -33,8 +24,8 @@ ms.lasthandoff: 02/02/2018
 @type 值                   | 注意
 ----------------------------- | -----
 SearchQueryService            | 初版
-SearchQueryService/3.0.0-beta | 別名`SearchQueryService`
-SearchQueryService/3.0.0-rc   | 別名`SearchQueryService`
+SearchQueryService/3.0.0-beta | 別名 `SearchQueryService`
+SearchQueryService/3.0.0-rc   | 別名 `SearchQueryService`
 
 ## <a name="base-url"></a>基礎 URL
 
@@ -59,7 +50,7 @@ SearchQueryService/3.0.0-rc   | 別名`SearchQueryService`
 q           | URL    | 字串  | 否       | 搜尋詞彙，以用來篩選器套件
 skip        | URL    | 整數 | 否       | 若要略過，針對分頁的結果數目
 take        | URL    | 整數 | 否       | 若要傳回，針對分頁的結果數目
-發行前版本  | URL    | boolean | 否       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+發行前版本  | URL    | boolean | 否       | `true` 或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串 
 
 搜尋查詢`q`剖析的方式，由伺服器實作所定義。 nuget.org 支援基本篩選[的各種欄位](../consume-packages/finding-and-choosing-packages.md#search-syntax)。 如果沒有`q`提供所有套件應該都傳回，skip 和 take 所加諸之界限內。 這可讓 Visual Studio 經驗的 [瀏覽] 索引標籤。
@@ -82,7 +73,7 @@ semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串
 
 名稱      | 類型             | 必要 | 注意
 --------- | ---------------- | -------- | -----
-totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和`take`
+totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和 `take`
 資料      | 物件的陣列 | 是      | 要求所符合的搜尋結果
 
 ### <a name="search-result"></a>搜尋結果

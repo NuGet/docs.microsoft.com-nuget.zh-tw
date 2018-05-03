@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.4.1 版本資訊 |Microsoft 文件"
+title: NuGet 3.4.1 版本資訊
+description: 版本資訊包含 NuGet 3.4.1 已知問題、 錯誤修正、 新增的功能，以及 Dcr。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "版本資訊包含 NuGet 3.4.1 已知問題、 錯誤修正、 新增的功能，以及 Dcr。"
-keywords: "NuGet 3.4.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2e22b6c22c55fd51bd1d20d52b4b7b07c5a205c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d492afc59fe2f9237aaf54dca56e09f9148a0dcf
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-341-release-notes"></a>NuGet 3.4.1 版本資訊
 
@@ -27,7 +21,7 @@ NuGet 3.4.1 發行 2016 年 3 月 30 日的時間不同的 Visual Studio 2015 Up
 ## <a name="updates-and-improvements"></a>更新和增強功能
 
 * 已更正問題，導致無法瀏覽封裝從 Visual Studio UI 與最小的 Visual Studio 安裝
-* 修正 Visual Studio 找出發生問題`lucene.net.dll`
+* 修正 Visual Studio 找出發生問題 `lucene.net.dll`
 * 安裝 NuGet 延伸模組，或更新之後的所有來源不能預設儲存機制來源。  您可以選擇加入的這項功能的組態設定。
 
 我們將繼續在我們的 GitHub 問題清單，可以在找到追蹤問題： [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

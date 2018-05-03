@@ -1,26 +1,17 @@
 ---
-title: 識別碼前置詞保留項目參考 |Microsoft 文件
+title: 識別碼前置詞保留項目參考
+description: 封裝識別碼的前置詞保留項目功能的描述及撰寫指南。
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 封裝識別碼的前置詞保留項目功能的描述及撰寫指南。
-keywords: NuGet 封裝識別碼、 前置詞、 保留項目
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>封裝識別碼前置詞保留項目
 
@@ -74,9 +65,9 @@ ms.lasthandoff: 03/28/2018
 
 1. 檢閱接受[前置詞識別碼保留項目的準則](#id-prefix-reservation-criteria)。
 
-1. 判斷您想要保留時，除了任何命名的空間[進階前置詞保留案例](#advanced-prefix-reservation-scenarios)，您可能需要。
+2. 判斷您想要保留時，除了任何命名的空間[進階前置詞保留案例](#advanced-prefix-reservation-scenarios)，您可能需要。
 
-1. 傳送郵件給[ account@nuget.org ](mailto:account@nuget.org)與擁有者顯示名稱上[nuget.org](https://www.nuget.org/)，以及任何您要求保留的前置詞。 如果您正在委派前置詞的子集，多個擁有者，請確定您提到所有擁有者的顯示名稱和前置詞的子集。
+3. 傳送郵件給[ account@nuget.org ](mailto:account@nuget.org)與擁有者顯示名稱上[nuget.org](https://www.nuget.org/)，以及任何您要求保留的前置詞。 如果您正在委派前置詞的子集，多個擁有者，請確定您提到所有擁有者的顯示名稱和前置詞的子集。
 
 在提交應用程式之後，就會通知的接受或拒絕 （使用準則造成拒絕）。 我們可能需要詢問確認擁有者身分識別的其他識別問題。
 

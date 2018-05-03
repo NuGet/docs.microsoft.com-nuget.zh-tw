@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.1 版本資訊 |Microsoft 文件"
+title: NuGet 3.1 版本資訊
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.1 版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.1 版本資訊。"
-keywords: "NuGet 3.1 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>NuGet 3.1 版本資訊
 
@@ -32,7 +26,7 @@ NuGet 3.1 已發行於 2015 年 7 月 27 日做為通用 Windows 平台 SDK 配�
 
 ### <a name="new-features"></a>新功能
 
-* `project.json`支援 Windows 適用 UWP 和 ASP.NET 5 支援
+* `project.json` 支援 Windows 適用 UWP 和 ASP.NET 5 支援
 * 可轉移的套件安裝
 
 描述與這些功能的定義可以找到其他地方文件中。
@@ -45,7 +39,7 @@ NuGet 3.1 已發行於 2015 年 7 月 27 日做為通用 Windows 平台 SDK 配�
 
 下列的功能就不再適用於 Visual Studio 2015 和使用的專案`project.json`規格
 
-* `install.ps1`和`uninstall.ps1`-這些指令碼封裝安裝期間將會忽略、 還原、 更新及解除安裝
+* `install.ps1` 和`uninstall.ps1`-這些指令碼封裝安裝期間將會忽略、 還原、 更新及解除安裝
 * 設定轉換將會被忽略
 * 內容將會執行，但是不會複製到專案。
     * 小組正在重新實作這項功能，請依照下列討論進度： [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
@@ -59,7 +53,7 @@ NuGet 3.1 已發行於 2015 年 7 月 27 日做為通用 Windows 平台 SDK 配�
 
 ## <a name="nuget-command-line"></a>NuGet 命令列
 
-NuGet 命令列可執行檔已更新，並移至新的 「 可散布位置，如此 nuget.exe 歷史版本才能繼續可供使用。  您可以下載 Windows 上 nuget.exe 3.1 beta 版： [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
+NuGet 命令列可執行檔已更新，並移至新的 「 可散布位置，如此 nuget.exe 歷史版本才能繼續可供使用。  您可以在 windows 下載 nuget.exe 3.1 beta 版： [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
 
 新的 「 可散布位置位於 dist.nuget.org 主機上，使用此範本會遵循資料夾結構：
 
@@ -75,4 +69,4 @@ NuGet 命令列可執行檔已更新，並移至新的 「 可散布位置，如
 1.    無法執行組件針對`project.json`檔案- [928](https://github.com/NuGet/Home/issues/928)
 2.    不支援單聲道- [1059年](https://github.com/NuGet/Home/issues/1059)
 3.    未當地語系化- [1058年](https://github.com/NuGet/Home/issues/1058)， [1057年](https://github.com/NuGet/Home/issues/1057)
-4.    未簽署，就像現存的 http://nuget.org/nuget.exe- [1073年](https://github.com/NuGet/Home/issues/1073)
+4.    未簽署，就像現存http://nuget.org/nuget.exe- [1073年](https://github.com/NuGet/Home/issues/1073)

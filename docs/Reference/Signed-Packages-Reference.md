@@ -1,26 +1,17 @@
 ---
-title: 簽署封裝參考 |Microsoft 文件
+title: 簽署 NuGet 封裝參考
+description: NuGet 封裝簽章需求。
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 簽署封裝功能描述。
-keywords: NuGet 套件簽署、 簽章憑證
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>簽署的封裝
 
@@ -38,6 +29,9 @@ NuGet 封裝可以包含數位簽章可防止遭竄改的內容。 此簽章會�
 
 > [!Important]
 > nuget.org 目前不接受簽署的封裝。 您可以簽署套件以發佈至自訂摘要。
+
+> [!Important]
+> 目前支援封裝簽章，只有在 Windows 上使用 nuget.exe 時。 只有在 Windows 上使用 nuget.exe 或 Visual Studio 時，目前支援驗證簽署的封裝。
 
 ## <a name="certificate-requirements"></a>憑證需求
 

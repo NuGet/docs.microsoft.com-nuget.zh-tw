@@ -1,31 +1,22 @@
 ---
-title: NuGet.Config 檔案參考 | Microsoft Docs
+title: nuget.config 檔案參考
+description: NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。
-keywords: NuGet.Config 檔案, NuGet 組態參考, NuGet 組態選項
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="nugetconfig-reference"></a>NuGet.Config 參考
+# <a name="nugetconfig-reference"></a>nuget.config 參考
 
 NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)中所述。
 
-`NuGet.Config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每一個區段包含零個或更多 `<add>` 項目與 `key` 和 `value` 屬性。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
+`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每一個區段包含零個或更多 `<add>` 項目與 `key` 和 `value` 屬性。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
 
 本主題內容：
 
@@ -56,8 +47,8 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 | Key | 值 |
 | --- | --- |
 | dependencyVersion (僅 `packages.config`) | 當未直接指定 `-DependencyVersion` 參數時，套件安裝、還原及更新的預設 `DependencyVersion` 值。 NuGet 套件管理員 UI 也使用此值。 值為 `Lowest`、`HighestPatch`、`HighestMinor`、`Highest`。 |
-| globalPackagesFolder （僅限使用 PackageReference 專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `Nuget.Config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
-| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `Nuget.Config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
+| globalPackagesFolder （僅限使用 PackageReference 專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
+| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
 
@@ -108,7 +99,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ## <a name="solution-section"></a>solution 區段
 
-控制解決方案的 `packages` 資料夾是否會包含在原始檔控制。 本區段只適用於解決方案資料夾中的 `Nuget.Config` 檔。
+控制解決方案的 `packages` 資料夾是否會包含在原始檔控制。 本區段只適用於解決方案資料夾中的 `nuget.config` 檔。
 
 | Key | 值 |
 | --- | --- |
@@ -249,7 +240,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ## <a name="using-environment-variables"></a>使用環境變數
 
-您可以在 `NuGet.Config` 值中使用環境變數 (NuGet 3.4+)，在執行階段套用設定。
+您可以在 `nuget.config` 值中使用環境變數 (NuGet 3.4+)，在執行階段套用設定。
 
 例如，如果 Windows 上的 `HOME` 環境變數設為 `c:\users\username`，則設定檔中的 `%HOME%\NuGetRepository` 值會解析為 `c:\users\username\NuGetRepository`。
 
@@ -259,7 +250,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ## <a name="example-config-file"></a>範例設定檔
 
-以下是 `NuGet.Config` 檔範例，說明多項設定：
+以下是 `nuget.config` 檔範例，說明多項設定：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

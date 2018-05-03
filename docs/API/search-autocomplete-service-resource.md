@@ -1,26 +1,17 @@
 ---
-title: "自動完成，NuGet API |Microsoft 文件"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: 自動完成，NuGet API
+description: 搜尋 「 自動完成 」 服務支援互動式尋找的封裝識別碼和版本。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "搜尋 「 自動完成 」 服務支援互動式尋找的封裝識別碼和版本。"
-keywords: "NuGet 自動完成應用程式開發介面、 NuGet 搜尋封裝識別碼、 子字串的套件識別碼"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>自動完成
 
@@ -33,8 +24,8 @@ ms.lasthandoff: 02/02/2018
 @type 值                          | 注意
 ------------------------------------ | -----
 SearchAutocompleteService            | 初版
-SearchAutocompleteService/3.0.0-beta | 別名`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | 別名`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | 別名 `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | 別名 `SearchAutocompleteService`
 
 ## <a name="base-url"></a>基礎 URL
 
@@ -59,7 +50,7 @@ SearchAutocompleteService/3.0.0-rc   | 別名`SearchAutocompleteService`
 q           | URL    | 字串  | 否       | 要與封裝識別碼進行比較的字串
 skip        | URL    | 整數 | 否       | 若要略過，針對分頁的結果數目
 take        | URL    | 整數 | 否       | 若要傳回，針對分頁的結果數目
-發行前版本  | URL    | boolean | 否       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+發行前版本  | URL    | boolean | 否       | `true` 或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串 
 
 自動完成查詢`q`剖析的方式，由伺服器實作所定義。 nuget.org 支援來查詢前置詞的封裝識別碼權杖是片段 spliting 所產生的識別碼，原始的 camel 命名法的大小寫和符號字元。
@@ -82,12 +73,12 @@ semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串
 
 名稱      | 類型             | 必要 | 注意
 --------- | ---------------- | -------- | -----
-totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和`take`
+totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和 `take`
 資料      | 字串陣列 | 是      | 封裝符合所要求的識別碼
 
 ### <a name="sample-request"></a>範例要求
 
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+取得 https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>範例回應
 
@@ -106,7 +97,7 @@ GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | 字串  | 是      | 要擷取的版本的套件識別碼
-發行前版本  | URL    | boolean | 否       | `true`或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+發行前版本  | URL    | boolean | 否       | `true` 或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | 字串  | 否       | SemVer 2.0.0 的版本字串 
 
 如果`prerelease`未提供，會排除發行前版本的封裝。

@@ -1,26 +1,17 @@
 ---
-title: NuGet 的目標 Framework 參考 | Microsoft Docs
+title: NuGet 的目標架構參考
+description: NuGet 目標 Framework 參考會識別並隔離套件的 Framework 相依元件。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/11/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet 目標 Framework 參考會識別並隔離套件的 Framework 相依元件。
-keywords: NuGet 套件目標, .NET Framework 目標, .NET Framework 版本
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: 6b7ee3f739847777dda638d8fed083c48ed5812e
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
@@ -41,25 +32,25 @@ Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 
 
 NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括弧內。 請注意，某些工具，例如 `dotnet`，可能會在某些檔案中使用標準的 TFM 變化。 例如，`dotnet pack` 在 `.nuspec` 檔案中使用 `.NETCoreApp2.0`，而非 `netcoreapp2.0`。 各種 NuGet 用戶端工具會正確處理這些變化，但直接編輯檔案時，您應該一律使用標準的 TFM。
 
-| 名稱           | 縮寫 | TFM/TxM |
-| -------------  | ------------ | --------- |
-|.NET Framework  | net          | net11     |
-|                |              | net20     |
-|                |              | net35     |
-|                |              | net40     |
-|                |              | net403    |
-|                |              | net45      |
-|                |              | net451     |
-|                |              | net452     |
-|                |              | net46      |
-|                |              | net461     |
-|                |              | net462     |
-|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
-|                |              | netcore45 [win, win8] |
-|                |              | netcore451 [win81] |
-|                |              | netcore50 |
-|.NET MicroFramework | netmf    | netmf |
-|Windows         | win          | win [win8, netcore45] |
+| 名稱 | 縮寫 | TFM/TxM |
+| ------------- | ------------ | --------- |
+|.NET Framework | net | net11 |
+| | | net20 |
+| | | net35 |
+| | | net40 |
+| | | net403 |
+| | | net45 |
+| | | net451 |
+| | | net452 |
+| | | net46 |
+| | | net461 |
+| | | net462 |
+|Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
+| | | netcore45 [win, win8] |
+| | | netcore451 [win81] |
+| | | netcore50 |
+|.NET MicroFramework | netmf | netmf |
+|Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (Windows 10 平台不支援) |
@@ -88,6 +79,7 @@ Tizen | tizen | tizen3 |
 | | | tizen4 |
 
 ## <a name="deprecated-frameworks"></a>已被取代的架構
+
 下列架構已被取代。 以這些架構為目標的套件應該移轉至所指出的取代項目。
 
 | 已被取代的架構 | Replacement
@@ -114,12 +106,12 @@ Tizen | tizen | tizen3 |
 有一些 Framework 彼此相關且相容，但未必相等：
 
 | 架構 | 可使用 |
-| --- | --- |
+| -- | --- |
 | uap (通用 Windows 平台) | win81 |
 | | wpa81 |
 | | netcore50 |
 | win (Microsoft Store) | winrt |
-| | | winrt45 |
+| | |
 
 ## <a name="net-platform-standard"></a>.NET 平台標準
 

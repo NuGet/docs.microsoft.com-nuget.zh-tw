@@ -1,22 +1,16 @@
 ---
-title: "NuGet 1.3 版本資訊 |Microsoft 文件"
+title: NuGet 1.3 版的版本資訊
+description: 版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.3。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 1.3。"
-keywords: "NuGet 1.3 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 59169be5b39ba4436e13e0935a0ad6efa724e08e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-13-release-notes"></a>NuGet 1.3 版的版本資訊
 
@@ -30,7 +24,7 @@ NuGet 1.3 已於 2011 年 4 月 25 日發行。
 
 NuGet 團隊在協助人員[SymbolSource.org](http://www.symbolsource.org/)提供真正簡易的方式以及您的套件中發佈您的來源和 PDB 的。 這可讓您的封裝的取用者逐步執行您在偵錯工具中的封裝的來源。 如需詳細資訊，請參閱[建立和發行符號套件](../create-packages/symbol-packages.md)簡單的方法發佈 NuGet 套件的來源。 您也可以觀看即時的示範這項功能的深度 NuGet 一部分在 Mix11 與互動。 這項功能會完全示範開始在 20 分鐘標記的視訊。
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage`命令
+### <a name="open-packagepage-command"></a>`Open-PackagePage` 命令
 
 此命令讓您更容易取得來源的封裝，封裝管理員主控台內的 [專案] 頁面。 它也提供選項，以開啟 授權 URL 及報表濫用頁面封裝。
 命令語法如下：

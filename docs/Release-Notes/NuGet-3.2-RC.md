@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.2 RC 版本資訊 |Microsoft 文件"
+title: NuGet 3.2 RC 版本資訊
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.2 RC 版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.2 RC 版本資訊。"
-keywords: "NuGet 3.2 RC 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>NuGet 3.2 RC 版本資訊
 
@@ -27,7 +21,7 @@ ms.lasthandoff: 02/02/2018
 ## <a name="new-features"></a>新功能
 
 * 在相同的資料夾中的專案現在可以有不同`project.json`特有的每個專案的資料夾中的檔案。  針對每個專案，名稱`project.json`檔案`{ProjectName}.project.json`NuGet 會正確參考，並且針對每個專案可以適當地利用該內容。  這種情況支援新功能[1102年](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`現在支援為相對路徑-globalPackagesFolder [1062年](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` 現在支援為相對路徑-globalPackagesFolder [1062年](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>命令列的更新
 
@@ -45,7 +39,7 @@ ms.lasthandoff: 02/02/2018
 * 已更正 NuGet 還原命令時，會發生錯誤狀況的正確傳回 1 [1186年](https://github.com/NuGet/Home/issues/1186)
 * 現在網路連線重試一次最多 5 次故障 HTTP 5xx-每個 200 毫秒[1120年](https://github.com/NuGet/Home/issues/1120)
 * 改善伺服器重新導向回應的處理期間的推播命令- [1051年](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`現在支援 URL 或儲存機制名稱做為引數-Nuget.Config [1046年](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` 現在支援 URL 或儲存機制名稱做為引數-Nuget.Config [1046年](https://github.com/NuGet/Home/issues/1046)
 * 遺漏已在還原期間不位於儲存機制的套件現在會報告為錯誤，而非警告[1038年](https://github.com/NuGet/Home/issues/1038)
 * 已更正的 Unix/Linux 案例-\r\n multipartwebrequest 處理[776](https://github.com/NuGet/Home/issues/776)
 

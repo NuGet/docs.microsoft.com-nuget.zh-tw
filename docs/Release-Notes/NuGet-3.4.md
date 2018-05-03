@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.4 版本資訊 |Microsoft 文件"
+title: NuGet 3.4 版本資訊
+description: NuGet 3.4 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr 的版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.4 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr 的版本資訊。"
-keywords: "NuGet 3.4 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 版本資訊
 
@@ -24,9 +18,9 @@ ms.lasthandoff: 02/02/2018
 
 NuGet 3.4 2016 年 3 月 30 日發行 Visual Studio 2015 Update 2 與 Visual Studio 15 Preview 版本的一部分，並不在建置中對少數原則：
 
-*  跨平台支援
-*  效能改善
-*  次要的 UI 增強功能
+* 跨平台支援
+* 效能改善
+* 次要的 UI 增強功能
 
 下列功能先前 RC 中新增和已更新或完成 3.4 版本：
 

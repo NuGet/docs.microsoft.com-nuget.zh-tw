@@ -1,30 +1,21 @@
 ---
-title: NuGet 封裝管理員 UI 參考 |Microsoft 文件
+title: NuGet 封裝管理員 UI 參考
+description: 使用 NuGet 封裝，使用 Visual Studio 中的 NuGet 封裝管理員 UI 的指示。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/08/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+ms.topic: conceptual
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: 使用 NuGet 封裝，使用 Visual Studio 中的 NuGet 封裝管理員 UI 的指示。
-keywords: NuGet UI，NuGet 封裝管理員 UI 中，在 Visual Studio 中，管理 NuGet 封裝、 NuGet 使用者介面、 封裝管理員 Visual Studio 中的 NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 封裝管理員 UI
 
@@ -40,7 +31,7 @@ ms.lasthandoff: 03/28/2018
 - [封裝管理員選項 控制項](#package-manager-options-control)
 
 > [!Note]
-> 如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中，檢查**工具 > 擴充功能和更新...**並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，下載擴充功能直接從[ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html)。
+> 如果您遺漏的 NuGet 封裝管理員 Visual Studio 2015 中，檢查**工具 > 擴充功能和更新...** 並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的擴充功能安裝程式，下載擴充功能直接從[ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html)。
 >
 > 在 Visual Studio 2017，NuGet 和 NuGet 套件管理員自動安裝任何。網路相關的工作負載。 選取個別安裝**個別元件 > 程式碼工具 > NuGet 套件管理員**選項在 Visual Studio 2017 安裝程式。
 
@@ -59,7 +50,7 @@ ms.lasthandoff: 03/28/2018
     ![在 [方案總管] 的參考](media/References.png)
 
 > [!Tip]
-    > 若要在搜尋中，包含發行前版本，而且建立發行前版本版本中提供下拉式清單，請選取**包含發行前版本**選項。
+> 若要在搜尋中，包含發行前版本，而且建立發行前版本版本中提供下拉式清單，請選取**包含發行前版本**選項。
 
 ## <a name="uninstalling-a-package"></a>解除安裝封裝
 
@@ -90,7 +81,7 @@ ms.lasthandoff: 03/28/2018
 
 管理方案套件是方便的方法，來同時使用多個專案。
 
-1. 選取**工具 > NuGet 套件管理員 > 管理方案的 NuGet 封裝...**功能表命令時，或以滑鼠右鍵按一下方案並選取**管理 NuGet 封裝...**:
+1. 選取**工具 > NuGet 套件管理員 > 管理方案的 NuGet 封裝...** 功能表命令時，或以滑鼠右鍵按一下方案並選取**管理 NuGet 封裝...**:
 
     ![管理方案的 NuGet 封裝](media/ManagePackagesSolutionUICommand.png)
 

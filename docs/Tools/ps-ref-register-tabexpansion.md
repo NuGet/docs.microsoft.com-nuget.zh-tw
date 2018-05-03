@@ -1,25 +1,16 @@
 ---
-title: NuGet 的暫存器 TabExpansion PowerShell 參考 |Microsoft 文件
+title: NuGet 的暫存器 TabExpansion PowerShell 參考
+description: 在 Visual Studio 中的 NuGet 封裝管理員主控台中的暫存器 TabExpansion PowerShell 命令的參考。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 在 Visual Studio 中的 NuGet 封裝管理員主控台中的暫存器 TabExpansion PowerShell 命令的參考。
-keywords: NuGet 封裝管理員主控台中，NuGet Powershell 命令，註冊 TabExpansion NuGet Powershell 參考
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c7b95c46c55b95a8d743f9661ef9c63433b0192d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 02f6d4ecd246b7ce5425cf56ade10789cf03113c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>暫存器 TabExpansion （在 Visual Studio 中的封裝管理員主控台）
 

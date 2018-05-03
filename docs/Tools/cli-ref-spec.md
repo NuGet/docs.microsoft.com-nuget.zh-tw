@@ -1,22 +1,16 @@
 ---
-title: "NuGet CLI 規格命令 |Microsoft 文件"
+title: NuGet CLI 規格命令
+description: Nuget.exe 規格命令參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 規格命令參考"
-keywords: "nuget 規格的參考，規格命令"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 68d661030ce7bcff7d7a3a1c96c07e149ad4ffea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="spec-command-nuget-cli"></a>規格命令 (NuGet CLI)
 
@@ -38,9 +32,9 @@ nuget spec [<packageID>] [options]
 | --- | --- |
 | AssemblyPath | 指定要用於中繼資料組件的路徑。 |
 | 強制 | 覆寫任何現有`.nuspec`檔案。 |
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

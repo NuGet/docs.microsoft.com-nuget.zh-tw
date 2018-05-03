@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI 安裝命令 |Microsoft 文件
+title: NuGet CLI 安裝命令
+description: Nuget.exe 安裝命令的參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 安裝命令的參考
-keywords: nuget 安裝參考時，安裝套件 命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="install-command-nuget-cli"></a>安裝命令 (NuGet CLI)
 
@@ -51,15 +42,15 @@ nuget install <packageID | configFilePath> [options]
 | 選項 | 描述 |
 | --- | --- |
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
-| DependencyVersion | *（4.4 +)*指定特定版本，覆寫預設相依性解析行為。 |
+| DependencyVersion | *（4.4 +)* 指定特定版本，覆寫預設相依性解析行為。 |
 | DisableParallelProcessing | 安裝多個封裝，以平行方式停用。 |
 | ExcludeVersion | 會封裝安裝到名為與封裝名稱和版本號碼。 |
-| FallbackSource | *（3.2 +)*作為後援，萬一主要中找不到封裝的封裝來源的清單或預設的來源。 |
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
-| 架構 | *（4.4 +)*用於選取的相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
+| FallbackSource | *（3.2 +)* 作為後援，萬一主要中找不到封裝的封裝來源的清單或預設的來源。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| 架構 | *（4.4 +)* 用於選取的相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
 | 說明 | 顯示說明命令的資訊。 |
 | 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
 | OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
 | PackageSaveMode | 指定要儲存封裝的安裝後的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
 | 發行前版本 | 允許安裝的套件發行前版本。 還原的封裝時，不需要此旗標`packages.config`。 |

@@ -1,25 +1,17 @@
 ---
-title: NuGet CLI 登命令 |Microsoft 文件
+title: NuGet CLI 登命令
+description: Nuget.exe 登命令參考
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 登命令參考
-keywords: nuget 符號參考登命令
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9c83e5abae0e70cdc62917861c1febfce4f792c7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: 7e84d794b802cfd69c785f720280fd5c022a46f6
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sign-command-nuget-cli"></a>符號命令 (NuGet CLI)
 
@@ -27,7 +19,7 @@ ms.lasthandoff: 03/28/2018
 
 簽署憑證的第一個引數比對的所有封裝。 從檔案或從安裝在憑證存放區提供主體名稱或指紋的憑證，您可以取得具有私密金鑰的憑證。
 
-封裝簽章尚未支援單聲道下或在非 Windows 平台上。
+封裝簽章尚未支援在.NET Core Mono，或在非 Windows 平台上。
 
 ## <a name="usage"></a>使用量
 
@@ -51,7 +43,7 @@ nuget sign <package(s)> [options]
 | ForceEnglishOutput | 強制使用的非變異的英文文化特性來執行 nuget.exe。 |
 | HashAlgorithm | 要用來簽署套件的雜湊演算法。 預設為 SHA256。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
 | OutputDirectory | 指定用來儲存已簽署的封裝的目錄。 依預設會覆寫的已簽署套件的原始封裝。 |
 | 覆寫 | 表示是否應該覆寫目前的簽章的參數。 如果已經有套件的簽章，則預設將會失敗命令。 |
 | Timestamper | RFC 3161 時間戳記伺服器的 URL。 |

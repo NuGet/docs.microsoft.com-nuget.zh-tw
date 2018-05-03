@@ -1,25 +1,16 @@
 ---
-title: NuGet 3.0 Preview 版本資訊 |Microsoft 文件
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 3.0 的預覽版本資訊
 description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.0 預覽的版本資訊。
-keywords: NuGet 3.0 預覽的版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f9f979e041ea6c7ba2f61603b1ea5848edc28f0c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 67c217e52d975ed8f6889cd69f9b7e0d52b3a119
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 的預覽版本資訊
 
@@ -27,7 +18,7 @@ ms.lasthandoff: 03/28/2018
 
 NuGet 3.0 預覽版本已發行於 2014 年 11 月 12 日在 Visual Studio 2015 Preview 版本。 我們發行了 NuGet 3.0 預覽。 這是我們大發行 （雖然預覽中），以及我們很高興能夠開始取得意見反應，我們變更。
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012+
+## <a name="visual-studio-2012"></a>Visual Studio 2012 +
 
 此 NuGet 3.0 預覽隨附於 Visual Studio 2015 Preview。 我們正努力預覽卸除的 Visual Studio 2012 和 Visual Studio 2013 很快。 我們先前共用我們意圖[中止更新適用於 Visual Studio 2010](http://blog.nuget.org/20141002/visual-studio-2010.html)，我們沒有做出的決策，困難。
 

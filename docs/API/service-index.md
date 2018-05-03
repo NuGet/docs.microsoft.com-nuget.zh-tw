@@ -1,29 +1,17 @@
 ---
-title: 服務索引，NuGet API |Microsoft 文件
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: 服務的索引，NuGet API
+description: 服務索引是 NuGet HTTP 應用程式開發介面的進入點，並列舉伺服器的功能。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 服務索引是 NuGet HTTP 應用程式開發介面的進入點，並列舉伺服器的功能。
-keywords: NuGet 的 API 進入點，NuGetA PI 端點探索
-ms.reviewer:
-- karann
-- unnir
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1c1dea25067cc582a14a0dd22c2f3f7f70d40a02
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 84e623e8480e4d17edad2ec3b2da6dcb6e53d21b
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="service-index"></a>服務索引
 
@@ -71,7 +59,7 @@ nuget.org 的服務索引位於`https://api.nuget.org/v3/index.json`。
 
 ### <a name="sample-request"></a>範例要求
 
-GET https://api.nuget.org/v3/index.json
+取得 https://api.nuget.org/v3/index.json
 
 ### <a name="sample-response"></a>範例回應
 

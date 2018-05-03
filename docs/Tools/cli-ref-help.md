@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI 說明命令 |Microsoft 文件
+title: NuGet CLI [說明] 命令
+description: Nuget.exe 的 [說明] 命令的參考
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 的 [說明] 命令的參考
-keywords: nuget 說明參考，幫助命令
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 440861e53b4a9ff73a9d3e8a2a3dad7dbddc9584
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dbfc803e24c824d30e128d6e86cfa3c43660668f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>協助或嗎？ 命令 (NuGet CLI)
 
@@ -45,10 +36,10 @@ nuget ? [command] [options]
 | --- | --- |
 | 全部 | 列印所有可用的命令; 的詳細的說明如果特定命令提供，則會忽略。 |
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
-| ForceEnglishOutput | *（3.5 +)*強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示的說明說明命令本身的資訊。 |
 | Markdown | 列印詳細的說明，以搭配使用時的 markdown 格式`-All`。 否則會忽略。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
+| 非互動式 | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

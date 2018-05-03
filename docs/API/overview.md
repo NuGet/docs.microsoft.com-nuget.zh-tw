@@ -1,29 +1,17 @@
 ---
-title: 概觀、 NuGet API |Microsoft 文件
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: NuGet 的 API 的概觀
+description: NuGet API 是一組可用來下載套件、 擷取中繼資料，發佈新的封裝、 等等的 HTTP 端點。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet API 是一組可用來下載套件、 擷取中繼資料，發佈新的封裝、 等等的 HTTP 端點。
-keywords: NuGet V3 API、 NuGet V2 API、 NuGet JSON、 NuGet 登錄應用程式開發介面，NuGet API 一般容器、 NuGet nupkg API、 NuGet 中繼資料 API、 NuGet 搜尋應用程式開發介面、 NuGet 推入應用程式開發介面，NuGe 發佈 API、 NuGet 刪除應用程式開發介面、 NuGet unlist API 的 NuGet 通訊協定
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: a638dba005c14bff4b2e668e2d6ca527a67b94a9
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api"></a>NuGet 的 API
 

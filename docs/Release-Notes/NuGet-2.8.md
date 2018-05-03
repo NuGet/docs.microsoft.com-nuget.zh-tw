@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.8 版本資訊 |Microsoft 文件"
+title: NuGet 2.8 版本資訊
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.8 的版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.8 的版本資訊。"
-keywords: "NuGet 2.8 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 9f472f1370bfedaf04ebe889c0da01155b8aec22
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 版本資訊
 
@@ -28,21 +22,21 @@ NuGet 2.8 已於 2014 年 1 月 29 日發行。
 
 1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
     - [#3466](https://nuget.codeplex.com/workitem/3466) -當壓縮封裝，驗證相依性套件的識別碼。
-1. [馬頓 Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [馬頓 Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
     - [# 2379年](https://nuget.codeplex.com/workitem/2379)-persistening 摘要認證時，移除 $metadata 後置詞。
-1. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
+3. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
     - [#3538](http://nuget.codeplex.com/workitem/3538) -指定 nuget.exe 更新命令的專案檔的支援。
-1. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
+4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - [#3536](http://nuget.codeplex.com/workitem/3536) -不會隨-IncludeReferencedProjects 取代語彙基元。
-1. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
     - [#3677](http://nuget.codeplex.com/workitem/3677) -修正 nuget.push 推入大型封裝時，擲回 OutOfMemoryException。
-1. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
+6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
     - [#3666](http://nuget.codeplex.com/workitem/3666) -修正不正確的目標路徑的專案參考另一個 CLI/c + + 專案時。
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#3639](https://nuget.codeplex.com/workitem/3639) -允許依預設，做為開發相依性安裝的封裝
-1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - [#3717](https://nuget.codeplex.com/workitem/3717) -移除隱含升級至最新修補程式版本
-1. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
+9. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
     - 數個 bug 修正和增強功能 NuGet.Server、 nuget.exe 鏡像命令，以及其他等等。
     - 這項工作已完成 Gregory 我們努力右計時整合 2.8 主機幾個月。
 
