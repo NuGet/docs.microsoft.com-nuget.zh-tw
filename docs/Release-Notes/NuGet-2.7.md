@@ -1,25 +1,16 @@
 ---
-title: NuGet 2.7 版本資訊 |Microsoft 文件
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 2.7 版本資訊
 description: 版本資訊包含已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 2.7。
-keywords: NuGet 2.7 版本資訊，將 bug 修正、 已知問題、 已新增的功能，Dcr
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4b7cea360764e1b069afacabadd9b94d87e21ecc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 版本資訊
 
@@ -33,36 +24,36 @@ NuGet 2.7 已於 2013 年 8 月 22 日發行。
 
 1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - 當詳細列出封裝和詳細資訊會顯示授權 url。
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+2. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [# 1956年](http://nuget.codeplex.com/workitem/1956)-新增要 developmentDependency 屬性`packages.config`並使其只包含執行階段封裝組件命令中使用它
-1. [Rafael-salas.com Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
+3. [Rafael-salas.com Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - 避免重複 nuget.exe 套件命令的屬性索引鍵。
-1. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
+4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
     - [# 2610年](http://nuget.codeplex.com/workitem/2610)-machine 快取大小增加到 200。
-1. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
     - [#3217](http://nuget.codeplex.com/workitem/3217) -修正 NuGet 對話方塊顯示在 [錯誤] 索引標籤中的更新
     - 修正 Project.TargetFramework 可以是 null ProjectManager 中
     - [#3248](http://nuget.codeplex.com/workitem/3248) -修正 SharedPackageRepository FindPackage/FindPackagesById 上不存在 packageId，將會失敗
-1. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
+6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -啟用遊牧專案支援
-1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
     - [#3252](http://nuget.codeplex.com/workitem/3252) -檔案不存在時，修正發送命令失敗，並結束程式碼 0。
-1. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
     - [#3226](http://nuget.codeplex.com/workitem/3226) -使用專案參考資料庫專案時加入 BindingRedirect 命令修正 bug。
-1. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
+9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
     - [# 2891年](http://nuget.codeplex.com/workitem/2891)-修正 bug 的 nuget.pack 不正確剖析 'exclude' 屬性中的萬用字元。
-1. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-    - [#3307](http://nuget.codeplex.com/workitem/3307) -修正 bug`NuGet.targets`不 $(Platform) 時傳遞至 nuget.exe 還原封裝。
-1. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-    - [#3294](http://nuget.codeplex.com/workitem/3294) -nuget.exe 套件] 命令會讓加入具有相同名稱但不同大小寫，最後導致 「 項目已經存在 」 的例外狀況的檔案中的修正 bug。
-1. [奧 Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-    - [# 2990年](http://nuget.codeplex.com/workitem/2990)-新增版本] 屬性，NetPortableProfile 類別。
-1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-    - [#3460](https://nuget.codeplex.com/workitem/3460) -如果修正 bug NullReferenceException requireApiKey = true，但標頭 X-NUGET-APIKEY 不存在
-1. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-    - [#3278](https://nuget.codeplex.com/workitem/3278) -修正 NuGet.Build 目標檔案，讓它 MonoDevelop 上正常運作
-1. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-    - 還原命令的效能改善藉由增加平行化作業
+10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -修正 bug`NuGet.targets`不 $(Platform) 時傳遞至 nuget.exe 還原封裝。
+11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -nuget.exe 套件 命令會讓加入具有相同名稱但不同大小寫，最後導致 「 項目已經存在 」 的例外狀況的檔案中的修正 bug。
+12. [奧 Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+     - [# 2990年](http://nuget.codeplex.com/workitem/2990)-新增版本 屬性，NetPortableProfile 類別。
+13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
+     - [#3460](https://nuget.codeplex.com/workitem/3460) -如果修正 bug NullReferenceException requireApiKey = true，但標頭 X-NUGET-APIKEY 不存在
+14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -修正 NuGet.Build 目標檔案，讓它 MonoDevelop 上正常運作
+15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
+     - 還原命令的效能改善藉由增加平行化作業
 
 ## <a name="notable-features-in-the-release"></a>在版本中值得注意的功能
 
@@ -91,11 +82,11 @@ NuGet 2.7 從開始，NuGet 會自動下載缺少的套件 Visual Studio 中，�
 
 若要在 Visual Studio 中，使用自動封裝還原，您只需要採取動作 （中） 的其中一個：
 
-1. 請勿核取 [您`packages`資料夾
+1. 請勿核取 您`packages`資料夾
 
 有幾種方式可以省略您`packages`從原始檔控制的資料夾。 如需詳細資訊，請參閱[封裝和原始檔控制](../consume-packages/packages-and-source-control.md)主題。
 
-雖然所有使用者都是隱含選擇加入自動封裝還原同意，您也可以輕鬆地退出透過 Visual Studio 中 [套件管理員設定。
+雖然所有使用者都是隱含選擇加入自動封裝還原同意，您也可以輕鬆地退出透過 Visual Studio 中 套件管理員設定。
 
 ![封裝管理員設定](./media/NuGet-2.7/package-manager-settings.png)
 
@@ -105,7 +96,7 @@ NuGet 2.7 導入了 nuget.exe 的新功能： `nuget.exe restore`
 
 這個新的還原命令可讓您輕鬆地還原所有的套件在方案中使用單一命令中，接受的解決方案檔案或資料夾做為引數。 此外，目前的資料夾中僅有單一的解決方案時，就會隱含該引數。 這表示從包含單一方案檔 (MySolution.sln) 的資料夾的所有下列都工作：
 
-1. nuget.exe restore MySolution.sln
+1. nuget.exe 還原 MySolution.sln
 1. nuget.exe 還原。
 1. nuget.exe 還原
 
@@ -161,7 +152,7 @@ NuGet 2.7 導入了 nuget.exe 的新功能： `nuget.exe restore`
 
 ### <a name="renaming-the-default-package-source"></a>重新命名的預設封裝來源
 
-NuGet 一律已註冊預設稱為 「 NuGet 官方封裝來源 」 指向 nuget.org 的封裝來源。該名稱的詳細資訊，它也未指定位置的實際指向。 若要解決這些兩個問題，我們已重新命名只要"nuget.org 」 在 UI 中此封裝來源。 封裝來源的 URL 也已變更為包含"www"。 前置詞的「套件組合識別碼」。 使用 NuGet 2.7 之後, 您現有 「 NuGet 官方封裝來源 」 會自動更新為"nuget.org"做為其名稱和"https://www.nuget.org/api/v2/"做為其 URL。
+NuGet 一律已註冊預設稱為 「 NuGet 官方封裝來源 」 指向 nuget.org 的封裝來源。該名稱的詳細資訊，它也未指定位置的實際指向。 若要解決這些兩個問題，我們已重新命名只要"nuget.org 」 在 UI 中此封裝來源。 封裝來源的 URL 也已變更為包含"www"。 前置詞的「套件組合識別碼」。 使用 NuGet 2.7 之後, 您現有 「 NuGet 官方封裝來源 」 會自動更新為"nuget.org"做為其名稱和"<https://www.nuget.org/api/v2/>"做為其 URL。
 
 ### <a name="performance-improvements"></a>效能改善
 

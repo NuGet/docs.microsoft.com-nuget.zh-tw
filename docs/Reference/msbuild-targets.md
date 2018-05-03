@@ -1,25 +1,16 @@
 ---
-title: NuGet 封裝和還原為 MSBuild 目標 | Microsoft Docs
+title: NuGet 封裝和還原為 MSBuild 目標
+description: 使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。
-keywords: NuGet 和 MSBuild、NuGet 封裝目標、NuGet 還原目標
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: e922da94a02450d4ea476c828209fa0cd4305725
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -332,7 +323,7 @@ msbuild /t:restore /p:RestoreConfigFile=<path>
 ```xml
 <PropertyGroup>
     <RestoreIgnoreFailedSource>true</RestoreIgnoreFailedSource>
-<PropertyGroup>
+</PropertyGroup>
 ```
 
 ### <a name="restore-outputs"></a>Restore outputs

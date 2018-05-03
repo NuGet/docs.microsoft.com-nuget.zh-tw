@@ -1,22 +1,16 @@
 ---
-title: "3.5 RC 版本資訊 |Microsoft 文件"
+title: 3.5 RC 版本資訊
+description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.5 RC 版本資訊。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.5 RC 版本資訊。"
-keywords: "NuGet 3.5 RC 版本資訊、 錯誤修正的已知問題，已新增的功能，Dcr"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d620a8b8d97f9a52cb2bc93a91eb393130a42898
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-35-rc-release-notes"></a>NuGet 3.5 RC 版本資訊
 
@@ -24,7 +18,7 @@ ms.lasthandoff: 02/02/2018
 
 3.5 版本著重於改善品質及效能的 NuGet 用戶端。 此外，我們已寄出一些功能，例如支援[後援資料夾](https://github.com/NuGet/Home/issues/2899)， [PackageType](https://github.com/NuGet/Home/issues/2476)支援`.nuspec`等等。
 
-[問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
+[問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
 ## <a name="bug-fixes"></a>Bug 修正
 

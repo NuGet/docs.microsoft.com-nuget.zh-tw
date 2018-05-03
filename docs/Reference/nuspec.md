@@ -1,26 +1,17 @@
 ---
-title: NuGet 的 .nuspec 檔案參考 | Microsoft Docs
+title: NuGet 的.nuspec 檔案參考
+description: .nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: .nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。
-keywords: nuspec 參考, NuGet 套件中繼資料, NuGet 套件資訊清單, nuspec 結構描述
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 086826b47402bb5e7066c7a10b1e2ff246fd58ea
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.reviewer: anangaur
+ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -97,14 +88,14 @@ ms.lasthandoff: 04/03/2018
 | **擁有者** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
 | **projectUrl** | 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
 | **licenseUrl** | 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
-| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL  *https://github.com/ \<username\>/\<儲存機制\>/raw/\<分支\>/ \<logo.png\>*。 |
+| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL  <em>https://github.com/ \<username\>/\<儲存機制\>/raw/\<分支\>/ \<logo.png\></em>。 |
 | **requireLicenseAcceptance** | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
 | **developmentDependency** | *(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 |
 | **summary** | UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。 |
 | **releaseNotes** | *(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新] 索引標籤等 UI 中，以取代套件描述。 |
 | **著作權** | *(1.5+)* 套件的著作權詳細資料。 |
 | **language** | 套件的地區設定識別碼。 請參閱[建立當地語系化的套件](../create-packages/creating-localized-packages.md)。 |
-| **標記** | 以逗號分隔的標記與關鍵字清單，描述套件並透過搜尋和篩選協助探索套件。 |
+| **標記**  | 以逗號分隔的標記與關鍵字清單，描述套件並透過搜尋和篩選協助探索套件。 |
 | **能否提供服務** | *(3.3+)* 僅供內部 NuGet 使用。 |
 
 #### <a name="collection-elements"></a>集合項目
@@ -183,8 +174,8 @@ nuget pack MyProject.csproj
 
 | 包含/排除標記 | 目標的受影響資料夾 |
 | --- | --- |
-| contentFiles | 內容  |
-| 執行階段 | 執行階段、資源和 FrameworkAssemblies  |
+| contentFiles | 內容 |
+| 執行階段 | 執行階段、資源和 FrameworkAssemblies |
 | compile | lib |
 | build | 組建 (MSBuild props 和目標) |
 | native | native |
