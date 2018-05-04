@@ -77,7 +77,7 @@
 ## [將 packages.config 移轉至 PackageReference](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [套件版本控制](reference/package-versioning.md)
-## [Nuget.Config 檔案](reference/nuget-config-file.md)
+## [nuget.config 檔案](reference/nuget-config-file.md)
 ## [MSBuild 目標](reference/msbuild-targets.md)
 ## [目標架構](reference/target-frameworks.md)
 ## [分析器慣例](reference/analyzers-conventions.md)
@@ -85,6 +85,7 @@
 ## [識別碼首碼保留項目](reference/id-prefix-reservation.md)
 ## [NuGet 用戶端 SDK](reference/nuget-client-sdk.md)
 ## [已簽署套件參考](reference/signed-packages-reference.md)
+## [在 nuget.org 上的組織](reference/organizations-on-nuget-org.md)
 ## 擴充性
 ### [適用於 Visual Studio 的 NuGet 認證提供者](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe 認證提供者](reference/extensibility/nuget-exe-credential-providers.md)
