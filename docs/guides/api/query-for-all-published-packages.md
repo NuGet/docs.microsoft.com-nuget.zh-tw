@@ -1,29 +1,17 @@
 ---
-title: 查詢發佈至 nuget.org 的所有套件 | Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: 查詢發佈至 nuget.org 的所有套件
+description: 使用 NuGet API 可以查詢發佈到 nuget.org 的所有套件，並隨時保持最新狀態。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 11/02/2017
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: 使用 NuGet API 可以查詢發佈到 nuget.org 的所有套件，並隨時保持最新狀態。
-keywords: NuGet API 列舉所有套件, NuGet API 複寫套件, 發佈至 nuget.org 的最新套件
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 5ea11e1b4edd87b6d30d3838986ca60aaa77870f
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 4190cfb500127f117ea1067f0679e5c248bffb3d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>查詢發佈至 nuget.org 的所有套件
 
