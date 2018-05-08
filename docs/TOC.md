@@ -114,6 +114,7 @@
 ## [NuGet 常見問題集](policies/nuget-faq.md)
 ## [監管](policies/governance.md)
 ## [生態系統](policies/ecosystem.md)
+## [資料要求](policies/Data-requests.md)
 ## [爭議解決方法](policies/dispute-resolution.md)
 ## [刪除套件](policies/deleting-packages.md)
 # 版本資訊
