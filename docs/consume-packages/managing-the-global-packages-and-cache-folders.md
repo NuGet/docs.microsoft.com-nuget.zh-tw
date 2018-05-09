@@ -1,22 +1,16 @@
 ---
-title: 如何在 NuGet 中管理全域套件、快取、暫存資料夾 | Microsoft Docs
+title: 如何在 NuGet 中管理全域套件、快取、暫存資料夾
+description: 如何管理全域套件安裝資料夾、套件快取，以及安裝、還原和更新套件時存在電腦上的暫存資料夾。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/19/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 如何管理全域套件安裝資料夾、套件快取，以及安裝、還原和更新套件時存在電腦上的暫存資料夾。
-keywords: NuGet 全域套件資料夾, NuGet 套件快取, 套件快取, 套件安裝資料夾, NuGet 快取, 管理快取, 本機 NuGet 快取, 全域 NuGet 快取, NuGet locals 命令, 清除快取
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: e9f4383a3f1700b96e3d6fe9ea4c0a7c24daa45a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 354a8ec80e2ba20abe27746dec8c8aaae9b6c96c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>管理全域套件、快取和暫存資料夾
 
@@ -99,7 +93,7 @@ nuget locals all -clear
 
 目前在 Visual Studio 中開啟且由專案使用的任何套件不會從 *global-packages* 資料夾清除。
 
-在 Visual Studio 中，使用 [工具] > [NuGet 套件管理員] > [套件管理員設定] 功能表命令，然後選取 [清除所有 NuGet 快取]。 目前無法透過套件管理員主控台來管理快取。
+在 Visual Studio 2017 中，使用 [工具] > [NuGet 套件管理員] > [套件管理員設定] 功能表命令，然後選取 [清除所有 NuGet 快取]。 目前無法透過套件管理員主控台來管理快取。 在 Visual Studio 2015 中，請改用 CLI 命令。
 
 ![用來清除快取的 NuGet 選項命令](media/options-clear-caches.png)
 

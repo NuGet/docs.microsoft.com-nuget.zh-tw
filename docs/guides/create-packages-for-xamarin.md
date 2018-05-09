@@ -1,25 +1,16 @@
 ---
-title: 使用 Visual Studio 2015 建立適用於 Xamarin (適用於 iOS、Android 和 Windows) 的 NuGet 套件 | Microsoft Docs
+title: 使用 Visual Studio 2015 建立適用於 Xamarin (適用於 iOS、Android 和 Windows) 的 NuGet 套件
+description: 有關如何為 Xamarin 建立 NuGet 套件的端對端逐步解說，而這些套件在 iOS、Android 和 Windows 上使用原生 API。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.prod: nuget
-ms.technology: ''
-description: 有關如何為 Xamarin 建立 NuGet 套件的端對端逐步解說，而這些套件在 iOS、Android 和 Windows 上使用原生 API。
-keywords: 建立套件, Xamarin 的套件, 跨平台套件
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 1189151b04da6dc4c7b680f759b6a8ca7c5bd85f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立適用於 Xamarin 的套件
 

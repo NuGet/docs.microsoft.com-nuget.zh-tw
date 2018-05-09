@@ -1,25 +1,16 @@
 ---
-title: UWP 專案的 NuGet project.json 檔案 | Microsoft Docs
+title: UWP 專案的 NuGet project.json 檔案
+description: 描述如何使用 project.json 檔案來追蹤通用 Windows 平台 (UWP) 專案中的 NuGet 相依性。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 07/17/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 描述如何使用 project.json 檔案來追蹤通用 Windows 平台 (UWP) 專案中的 NuGet 相依性。
-keywords: NuGet 相依性, NuGet 和 UWP, UWP 和 project.json, NuGet project.json 檔案
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 453a38456670db850d3d2845b23bd4ad36fc8fd2
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 826aed65a69c553bedf661cb5a4f940735dfba2c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json 和 UWP
 

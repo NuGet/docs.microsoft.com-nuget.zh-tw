@@ -1,25 +1,16 @@
 ---
-title: 設定 NuGet 行為 | Microsoft Docs
+title: 設定 NuGet 行為
+description: NuGet.Config 檔案可全面和根據每個專案來控制 NuGet 行為，並使用 nuget config 命令進行修改。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet.Config 檔案可全面和根據每個專案來控制 NuGet 行為，並使用 nuget config 命令進行修改。
-keywords: NuGet 組態檔, NuGet 組態, NuGet 行為設定, NuGet 設定, Nuget.Config, NuGetDefaults.Config, 預設
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.topic: conceptual
+ms.openlocfilehash: c8cc78be1bd48adc603b9447282a6c4bef7f942f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="configuring-nuget-behavior"></a>設定 NuGet 行為
 

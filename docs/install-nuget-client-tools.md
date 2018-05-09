@@ -1,31 +1,22 @@
 ---
-title: 安裝 NuGet 用戶端工具 | Microsoft Docs
+title: 安裝 NuGet 用戶端工具
+description: 有關安裝用戶端工具、dotnet 和 nuget 命令列介面 (CLI)，以及適用於 Visual Studio 的套件管理員的指導方針。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
-ms.date: 01/24/2018
+manager: douge
+ms.date: 04/09/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: 有關安裝用戶端工具、dotnet 和 nuget 命令列介面 (CLI)，以及適用於 Visual Studio 的套件管理員的指導方針。
-keywords: dotnet.exe CLI, nuget.exe CLI, NuGet 用戶端工具, NuGet 套件管理員, NuGet 套件管理員主控台, NuGet for Visual Studio, NuGet 搶鮮版 (Beta) 通道
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.openlocfilehash: 6681c910768bc705f5e09340e04e4d368fde5efe
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="installing-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
 > **想要安裝套件？請參閱[安裝 NuGet 套件的方式](consume-packages/ways-to-install-a-package.md)。**
 
-若要以套件取用者或建立者身分使用 NuGet，您可以使用[命令列介面 (CLI) 工具](#cli-tools)以及 [Visual Studio 中的 NuGet 功能](#visual-studio)。 本文簡要概述不同工具的功能、安裝它們的方式，以及它們相對的[功能可用性](#feature-availability)。
+若要以套件取用者或建立者身分使用 NuGet，您可以使用[命令列介面 (CLI) 工具](#cli-tools)以及 [Visual Studio 中的 NuGet 功能](#visual-studio)。 本文簡要概述不同工具的功能、安裝它們的方式，以及它們相對的[功能可用性](#feature-availability)。 若要開始使用 NuGet 來取用套件，請參閱[安裝並使用套件 (.NET CLI)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) 和[安裝並使用套件 (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)。 若要開始建立 NuGet 套件，請參閱[建立及發佈 .NET Standard 套件 (dotnet CLI)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) 和[建立及發佈 .NET Standard 套件 (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
 | 工具&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 下載&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
@@ -56,7 +47,7 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 
 安裝：
 
-[!INCLUDE[install-cli](includes/install-cli.md)]
+[!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > 在 Windows 上使用 `nuget update -self`，將現有的 nuget.exe 更新為最新版本。

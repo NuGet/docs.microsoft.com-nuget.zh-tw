@@ -1,25 +1,16 @@
 ---
-title: 重新安裝和更新 NuGet 套件 | Microsoft Docs
+title: 重新安裝和更新 NuGet 套件
+description: 何時需要重新安裝和更新套件的詳細資料，與 Visual Studio 中的損毀套件參考相同。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 何時需要重新安裝和更新套件的詳細資料，與 Visual Studio 中的損毀套件參考相同。
-keywords: NuGet 套件安裝、NuGet 套件重新安裝、NuGet 套件還原、更新套件、還原套件、修正損毀參考
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: fc2c1a58f787da61041c644085058355de4f12ea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 
@@ -81,7 +72,7 @@ Update-Package -Id <package_name> –reinstall
 Update-Package <package_name>
 ```
 
-`Update-Package` 預設會影響方案中的所有套件。 若要將動作限制為特定專案，請使用 `-ProjectName` 參數，並使用出現在方案總管中的專案名稱：
+`Update-Package` 預設會影響方案中的所有專案。 若要將動作限制為特定專案，請使用 `-ProjectName` 參數，並使用出現在方案總管中的專案名稱：
 
 ```ps
 # Reinstall the package in just MyProject

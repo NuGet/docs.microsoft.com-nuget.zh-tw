@@ -1,25 +1,16 @@
 ---
-title: NuGet 套件還原 | Microsoft Docs
+title: NuGet 套件還原
+description: 概述 NuGet 如何還原專案相依的套件，包括如何停用還原和限制版本。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 概述 NuGet 如何還原專案相依的套件，包括如何停用還原和限制版本。
-keywords: NuGet 套件還原, NuGet 套件安裝, 安裝套件, 還原套件、相依性版本, 停用自動還原, 限制套件版本
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: d5c9c9f571ea25f8877f78c3fba114562d31fcd8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 6a8a2f1c5ced956f18b623f112756cdd2fab22f5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-restore"></a>套件還原
 

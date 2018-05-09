@@ -1,25 +1,16 @@
 ---
-title: Visual Studio 專案系統的 NuGet 支援 | Microsoft Docs
+title: Visual Studio 專案系統的 NuGet 支援
+description: 針對協力廠商專案類型，將 NuGet 整合至 Visual Studio 專案系統。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 針對協力廠商專案類型，將 NuGet 整合至 Visual Studio 專案系統。
-keywords: Visual Studio 中的 NuGet、自訂專案類型、Visual Studio 專案
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0ffebfc9e403315482d3781a00a0a6896fd04f0c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a9dd503c4c76adda6255d398cc400eb622721912
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio 專案系統的 NuGet 支援
 

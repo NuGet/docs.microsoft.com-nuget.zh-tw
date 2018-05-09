@@ -1,25 +1,16 @@
 ---
-title: 尋找及選擇 NuGet 套件 | Microsoft Docs
+title: 尋找及選擇 NuGet 套件
+description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
-keywords: NuGet 套件使用, NuGet 套件探索, 最佳 NuGet 套件, 在套件上決定, 使用套件, 評估套件, NuGet 搜尋語法
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -104,6 +95,8 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 - *開放原始碼參與*：開放原始碼存放庫會維護許多套件，因此與其相依的開發人員可以直接參與 Bug 修正和功能改善。 任何指定套件的參與歷程記錄也是有多少開發人員主動參與的不錯指標。
 
 - *訪談擁有者*：可以肯定平均認可新的開發人員，以產生您可使用的不錯套件，讓它們有機會帶入 NuGet 生態系統的新項目。 請記住，透過清單頁面的 [資訊] 下方的 [連絡擁有者] 選項直接聯繫套件開發人員。 而且他們很樂意與您合作來滿足您的需求！
+
+- *保留的套件識別碼首碼*：許多套件擁有者已申請並獲得[保留的套件識別碼首碼](../reference/id-prefix-reservation.md)。 當您在 [nuget.org](https://www.nuget.org/) 上或 Visual Studio 中看到套件識別碼旁出現視覺核取標記時，表示套件擁有者已符合我們的識別碼首碼保留[準則](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria)。 這表示套件擁有者已明確識別自身及其套件。
 
 > [!Note]
 > 請一律留意套件的授權條款，而選取 nuget.org 的套件清單頁面上的 [授權資訊] 即可看到授權條款。如果套件未指定授權條款，請使用套件頁面上的 [連絡擁有者] 連結直接連絡套件擁有者。 Microsoft 不會將任何智慧財產權從協力廠商套件提供者授權給您，而且不負責協力廠商所提供的資訊。

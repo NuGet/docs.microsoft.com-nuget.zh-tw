@@ -1,25 +1,16 @@
 ---
-title: Visual Studio 範本中的 NuGet 套件 | Microsoft Docs
+title: Visual Studio 範本中的 NuGet 套件
+description: 將 NuGet 套件包含為 Visual Studio 專案和項目範本一部分的指示。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/03/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: 將 NuGet 套件包含為 Visual Studio 專案和項目範本一部分的指示。
-keywords: Visual Studio 中的 NuGet, Visual Studio 專案範本, Visual Studio 項目範本, 專案範本中的套件, 項目範本中的套件
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 801e107afb498d7a3353bd36d71eb7b0f0201910
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio 範本中的套件
 
