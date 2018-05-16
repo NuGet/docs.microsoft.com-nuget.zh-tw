@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: e922da94a02450d4ea476c828209fa0cd4305725
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
-ms.translationtype: MT
+ms.openlocfilehash: 73885256c5d5ea67140051bf63ff470991978928
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -26,10 +26,10 @@ ms.lasthandoff: 04/28/2018
 
 ```xml
 <Target Name="CopyPackage" AfterTargets="Pack">
-    <Copy
-        SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"
-        DestinationFolder="\\myshare\packageshare\"
-        />
+  <Copy
+    SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"
+    DestinationFolder="\\myshare\packageshare\"
+    />
 </Target>
 ```
 
@@ -141,17 +141,17 @@ PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入�
 若要包含內容，請將額外的中繼資料新增至現有的 `<Content>` 項目。 除非您覆寫為下列這類項目，否則 "Content" 類型的所有項目預設都會包含在套件中：
 
  ```xml
-    <Content Include="..\win7-x64\libuv.txt">
-        <Pack>false</Pack>
-    </Content>
+<Content Include="..\win7-x64\libuv.txt">
+  <Pack>false</Pack>
+</Content>
  ```
 
 除非您指定套件路徑，否則所有項目預設都會新增至套件內的 `content` 和 `contentFiles\any\<target_framework>` 資料夾根目錄，並保留相對資料夾結構：
 
 ```xml
 <Content Include="..\win7-x64\libuv.txt">
-    <Pack>true</Pack>
-    <PackagePath>content\myfiles\</PackagePath>
+  <Pack>true</Pack>
+  <PackagePath>content\myfiles\</PackagePath>
 </Content>
 ```
 
@@ -161,8 +161,8 @@ PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入�
 
 ```xml
 <Content Include="..\win7-x64\libuv.txt">
-    <Pack>true</Pack>
-    <PackagePath>content\myfiles;content\sample;;</PackagePath>
+  <Pack>true</Pack>
+  <PackagePath>content\myfiles;content\sample;;</PackagePath>
 </Content>
 ```
 
@@ -213,7 +213,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 組件 nuspec 檔案 csproj 檔案的範例是：
 
-```
+```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -242,7 +242,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 範例：
 
-```
+```xml
 <PropertyGroup>
   <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
 </PropertyGroup>
@@ -264,21 +264,21 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 - `BuildAction`： 建置動作指派給檔，才是必要的封裝路徑是否在`contentFiles`資料夾。 預設值是"None"。
 
 範例：
-```
+```xml
 <PropertyGroup>
-    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+  <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
 </PropertyGroup>
 
 <Target Name=""CustomContentTarget"">
-    <ItemGroup>
-      <TfmSpecificPackageFile Include=""abc.txt"">
-        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
-      </TfmSpecificPackageFile>
-      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
-        <PackagePath>net46content</PackagePath>
-      </TfmSpecificPackageFile>  
-    </ItemGroup>
-  </Target>  
+  <ItemGroup>
+    <TfmSpecificPackageFile Include=""abc.txt"">
+      <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+    </TfmSpecificPackageFile>
+    <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+      <PackagePath>net46content</PackagePath>
+    </TfmSpecificPackageFile>  
+  </ItemGroup>
+</Target>  
 ```
 
 ## <a name="restore-target"></a>還原目標
@@ -362,7 +362,7 @@ msbuild /t:restore /p:RestoreConfigFile=<path>
 
 ```xml
 <PackageReference Include="Newtonsoft.Json" Version="9.0.1">
-    <ExcludeAssets>All</ExcludeAssets>
+  <ExcludeAssets>All</ExcludeAssets>
 </PackageReference>
 ```
 

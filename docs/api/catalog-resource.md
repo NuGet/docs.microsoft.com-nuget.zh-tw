@@ -7,11 +7,11 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8554f9515b671dbececd94a025ec7e56037c2bd9
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -193,11 +193,11 @@ id                      | 字串                     | 是      | 封裝識別�
 名稱                    | 類型                       | 必要 | 注意
 ----------------------- | -------------------------- | -------- | -----
 authors                 | 字串                     | 否       |
-created                 | 字串                     | 是      | 第一次建立封裝時的時間戳記
+created                 | 字串                     | 否       | 第一次建立封裝時的時間戳記。 後援屬性： `published`。
 dependencyGroups        | 物件的陣列           | 否       | 相同格式化為[套件中繼資料資源](registration-base-url-resource.md#package-dependency-group)
 描述             | 字串                     | 否       |
 iconUrl                 | 字串                     | 否       |
-isPrerelease            | boolean                    | 是      | 封裝版本是否在發行前版本
+isPrerelease            | boolean                    | 否       | 封裝版本是否發行前版本。 可以偵測到從`version`。
 語言                | 字串                     | 否       |
 licenseUrl              | 字串                     | 否       |
 列出的                  | boolean                    | 否       | 與封裝是否列出

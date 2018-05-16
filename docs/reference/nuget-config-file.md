@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e57d17c5bf393a05b8915b9a1a7af0b659a04716
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
@@ -244,7 +244,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 例如，如果 Windows 上的 `HOME` 環境變數設為 `c:\users\username`，則設定檔中的 `%HOME%\NuGetRepository` 值會解析為 `c:\users\username\NuGetRepository`。
 
-同樣地，如果 Mac/Linux 上的 `HOME` 設為 `/home/myStuff`，則設定檔中的 `$HOME/NuGetRepository` 會解析為 `/home/myStuff/NuGetRepository`。
+同樣地，如果 Mac/Linux 上的 `HOME` 設為 `/home/myStuff`，則設定檔中的 `%HOME%/NuGetRepository` 會解析為 `/home/myStuff/NuGetRepository`。
 
 如果找不到環境變數，NuGet 會使用來自設定檔的常值。
 
