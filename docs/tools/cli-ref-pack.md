@@ -12,9 +12,9 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="pack-command-nuget-cli"></a>組件命令 (NuGet CLI)
+# <a name="pack-command-nuget-cli"></a>pack 命令 (NuGet CLI)
 
-**適用於：**封裝建立&bullet;**支援的版本：** 2.7 +
+**適用於：** 封裝建立&bullet;**支援的版本：** 2.7 +
 
 建立根據指定的 NuGet 套件`.nuspec`或專案檔。 `dotnet pack`命令 (請參閱[dotnet 命令](dotnet-Commands.md)) 和`msbuild /t:pack`(請參閱[MSBuild 目標](../reference/msbuild-targets.md)) 可做為替代項目。
 

@@ -14,7 +14,7 @@ ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-command-nuget-cli"></a>update 命令 (NuGet CLI)
 
-**適用於：**封裝耗用量&bullet;**支援的版本：**所有
+**適用於：** 封裝耗用量&bullet;**支援的版本：** 所有
 
 更新專案中的所有封裝 (使用`packages.config`) 為其最新可用版本。 建議您執行['restore'](cli-ref-restore.md)再執行`update`。 (若要更新個別的封裝，請使用[ `nuget install` ](cli-ref-install.md)但未指定版本號碼，case NuGet 會安裝最新版本。)
 

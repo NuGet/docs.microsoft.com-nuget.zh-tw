@@ -14,7 +14,7 @@ ms.lasthandoff: 04/26/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>協助或嗎？ 命令 (NuGet CLI)
 
-**適用於：**所有&bullet;**支援的版本，**： 所有
+**適用於：** 所有&bullet;**支援的版本，**： 所有
 
 顯示一般說明資訊，以及說明特定命令的相關資訊。
 

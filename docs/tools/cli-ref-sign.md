@@ -13,9 +13,9 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sign-command-nuget-cli"></a>符號命令 (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>sign 命令 (NuGet CLI)
 
-**適用於：**封裝建立&bullet;**支援的版本：** 4.6 +
+**適用於：** 封裝建立&bullet;**支援的版本：** 4.6 +
 
 簽署憑證的第一個引數比對的所有封裝。 從檔案或從安裝在憑證存放區提供主體名稱或指紋的憑證，您可以取得具有私密金鑰的憑證。
 

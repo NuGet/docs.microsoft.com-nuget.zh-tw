@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="update-package-package-manager-console-in-visual-studio"></a>更新套件 （在 Visual Studio 中的封裝管理員主控台）
+# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio 套件管理員主控台)
 
 *只能在[NuGet Package Manager Console](package-manager-console.md) Windows 上的 Visual Studio 中。*
 

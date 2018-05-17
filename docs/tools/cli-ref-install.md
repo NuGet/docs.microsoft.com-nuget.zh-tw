@@ -8,13 +8,13 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
 ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="install-command-nuget-cli"></a>安裝命令 (NuGet CLI)
+# <a name="install-command-nuget-cli"></a>install 命令 (NuGet CLI)
 
-**適用於：**封裝耗用量&bullet;**支援的版本：**所有
+**適用於：** 封裝耗用量&bullet;**支援的版本：** 所有
 
 下載並安裝到專案，將預設為目前的資料夾，使用指定的封裝來源的封裝。
 

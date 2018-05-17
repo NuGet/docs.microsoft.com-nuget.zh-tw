@@ -12,9 +12,9 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="locals-command-nuget-cli"></a>[區域變數] 命令 (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>locals 命令 (NuGet CLI)
 
-**適用於：**封裝耗用量&bullet;**支援的版本：** 3.3 +
+**適用於：** 封裝耗用量&bullet;**支援的版本：** 3.3 +
 
 清除或列出本機 NuGet 資源，例如*http 快取*，*全域封裝*資料夾以及暫存資料夾。 `locals`命令也可用來顯示這些位置的清單。 如需詳細資訊，請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。
 

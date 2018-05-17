@@ -12,9 +12,9 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sources-command-nuget-cli"></a>來源命令 (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>sources 命令 (NuGet CLI)
 
-**適用於：**封裝耗用量、 發行&bullet;**支援的版本：**所有
+**適用於：** 封裝耗用量、 發行&bullet;**支援的版本：** 所有
 
 管理使用者範圍的組態檔中指定的組態檔位於來源的清單。 使用者範圍的組態檔是位於`%appdata%\NuGet\NuGet.Config`(Windows) 和`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)。
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/26/2018
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-其中`<operation>`是其中一個*清單、 加入、 移除、 啟用、 停用，*或*更新*，`<name>`是來源的名稱和`<source>`是來源的 URL。
+其中`<operation>`是其中一個*清單、 加入、 移除、 啟用、 停用，* 或*更新*，`<name>`是來源的名稱和`<source>`是來源的 URL。
 
 ## <a name="options"></a>選項
 

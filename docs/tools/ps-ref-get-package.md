@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="get-package-package-manager-console-in-visual-studio"></a>取得封裝 （在 Visual Studio 中的封裝管理員主控台）
+# <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio 套件管理員主控台)
 
 *本主題描述內的命令[NuGet Package Manager Console](package-manager-console.md) Windows 上的 Visual Studio 中。一般 PowerShell 取得封裝的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 

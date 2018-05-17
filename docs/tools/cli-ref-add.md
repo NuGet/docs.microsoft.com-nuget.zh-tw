@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="add-command-nuget-cli"></a>加入命令 (NuGet CLI)
+# <a name="add-command-nuget-cli"></a>add 命令 (NuGet CLI)
 
 **適用於**： 封裝發行&bullet;**支援的版本，**: 3.3 +
 

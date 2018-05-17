@@ -13,9 +13,9 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/27/2018
 ---
-# <a name="verify-command-nuget-cli"></a>確認命令 (NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>verify 命令 (NuGet CLI)
 
-**適用於：**封裝耗用量&bullet;**支援的版本：** 4.6 +
+**適用於：** 封裝耗用量&bullet;**支援的版本：** 4.6 +
 
 驗證封裝。
 

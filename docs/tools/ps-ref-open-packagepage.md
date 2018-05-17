@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>開啟 PackagePage （在 Visual Studio 中的封裝管理員主控台）
+# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Visual Studio 套件管理員主控台)
 
 *3.0 +; 中已被取代只能在[NuGet Package Manager Console](package-manager-console.md) Windows 上的 Visual Studio 中。*
 

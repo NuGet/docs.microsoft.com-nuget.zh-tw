@@ -12,9 +12,9 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="mirror-command-nuget-cli"></a>鏡像命令 (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>mirror 命令 (NuGet CLI)
 
-**適用於：**封裝發行&bullet;**支援的版本：** 3.2 + 中已被取代
+**適用於：** 封裝發行&bullet;**支援的版本：** 3.2 + 中已被取代
 
 反映封裝及其相依性從指定的來源儲存機制的目標儲存機制。
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="install-package-package-manager-console-in-visual-studio"></a>安裝套件 （在 Visual Studio 中的封裝管理員主控台）
+# <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio 套件管理員主控台)
 
 *本主題描述內的命令[NuGet Package Manager Console](package-manager-console.md) Windows 上的 Visual Studio 中。一般 PowerShell 安裝套件的命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
@@ -42,7 +42,7 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | 原始程式檔 | 要搜尋的封裝來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Install-Package`搜尋目前選取的套件來源。 |
 | 版本 | 若要安裝，封裝版本預設為最新版本。 |
 | IncludePrerelease | 考慮套件發行前版本的安裝。 如果省略，則會視為穩定的套件。 |
-| FileConflictAction | 當詢問您要覆寫或略過專案所參考的現有檔案時要採取動作。 可能的值為*覆寫，忽略、 None、 OverwriteAll*，和*（3.0 +）* *IgnoreAll*。 |
+| FileConflictAction | 當詢問您要覆寫或略過專案所參考的現有檔案時要採取動作。 可能的值為*覆寫，忽略、 None、 OverwriteAll*，和 *（3.0 +）* *IgnoreAll*。 |
 | DependencyVersion | 若要使用，可以是下列其中之一的相依性套件的版本：<br/><ul><li>*最低*（預設值）： 最低版本</li><li>*HighestPatch*： 具有最低主要、 次要最低、 最高的修補程式的版本</li><li>*HighestMinor*： 具有最低主要版本、 最小、 最高的修補程式</li><li>*最高*（預設值更新套件不含任何參數）： 最高的版本</li></ul>您可以設定預設值使用[ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)中設定`Nuget.Config`檔案。 |
 | WhatIf | 顯示執行命令，而不需實際執行安裝時，會發生什麼情況。 |
 
