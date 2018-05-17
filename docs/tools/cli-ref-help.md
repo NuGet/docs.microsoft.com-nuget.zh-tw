@@ -14,7 +14,7 @@ ms.lasthandoff: 04/26/2018
 ---
 # <a name="help-or--command-nuget-cli"></a><span data-ttu-id="d31ff-103">協助或嗎？</span><span class="sxs-lookup"><span data-stu-id="d31ff-103">help or ?</span></span> <span data-ttu-id="d31ff-104">命令 (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="d31ff-104">command (NuGet CLI)</span></span>
 
-<span data-ttu-id="d31ff-105">**適用於：**所有&bullet;**支援的版本，**： 所有</span><span class="sxs-lookup"><span data-stu-id="d31ff-105">**Applies to:** all &bullet; **Supported versions**: all</span></span>
+<span data-ttu-id="d31ff-105">**適用於：** 所有&bullet;**支援的版本，**： 所有</span><span class="sxs-lookup"><span data-stu-id="d31ff-105">**Applies to:** all &bullet; **Supported versions**: all</span></span>
 
 <span data-ttu-id="d31ff-106">顯示一般說明資訊，以及說明特定命令的相關資訊。</span><span class="sxs-lookup"><span data-stu-id="d31ff-106">Displays general help information and help information about specific commands.</span></span>
 

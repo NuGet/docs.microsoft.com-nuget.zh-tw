@@ -14,7 +14,7 @@ ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-command-nuget-cli"></a><span data-ttu-id="8e9bf-103">update 命令 (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="8e9bf-103">update command (NuGet CLI)</span></span>
 
-<span data-ttu-id="8e9bf-104">**適用於：**封裝耗用量&bullet;**支援的版本：**所有</span><span class="sxs-lookup"><span data-stu-id="8e9bf-104">**Applies to:** package consumption &bullet; **Supported versions:** all</span></span>
+<span data-ttu-id="8e9bf-104">**適用於：** 封裝耗用量&bullet;**支援的版本：** 所有</span><span class="sxs-lookup"><span data-stu-id="8e9bf-104">**Applies to:** package consumption &bullet; **Supported versions:** all</span></span>
 
 <span data-ttu-id="8e9bf-105">更新專案中的所有封裝 (使用`packages.config`) 為其最新可用版本。</span><span class="sxs-lookup"><span data-stu-id="8e9bf-105">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="8e9bf-106">建議您執行['restore'](cli-ref-restore.md)再執行`update`。</span><span class="sxs-lookup"><span data-stu-id="8e9bf-106">It is recommended to run ['restore'](cli-ref-restore.md) before running the `update`.</span></span> <span data-ttu-id="8e9bf-107">(若要更新個別的封裝，請使用[ `nuget install` ](cli-ref-install.md)但未指定版本號碼，case NuGet 會安裝最新版本。)</span><span class="sxs-lookup"><span data-stu-id="8e9bf-107">(To update an individual package, use [`nuget install`](cli-ref-install.md) without specifying a version number, in which case NuGet installs the latest version.)</span></span>
 
