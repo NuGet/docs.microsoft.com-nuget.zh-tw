@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 1d8cb8186b9cedb29918d48539bdf45b130030c0
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 封裝管理員 UI
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/28/2018
 
     ![更新封裝](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>針對某些封裝，**更新**按鈕會停用，而且會出現訊息指出，它 「 隱含由參考 SDK"（或 「 AutoReferenced"）。 訊息會指出封裝，例如 Microsoft.NETCore.App 或 Microsoft.NETStandard.Library，是較大的架構或 SDK 的一部分，而且不應該獨立更新。 (這類封裝會在內部標示`<IsImplicitlyDefined>True</IsImplicitlyDefined>`。)若要更新封裝，更新其所屬的 SDK。
+1. <a name="implicit_reference"></a>針對某些封裝，**更新**按鈕會停用，而且會出現訊息指出，它 「 隱含由參考 SDK"（或 「 AutoReferenced"）。 訊息會指出封裝，例如 Microsoft.NETCore.App 或 Microsoft.NETStandard.Library，是較大的架構或 SDK 的一部分，而且不應該獨立更新。 (這類封裝會在內部標示`<IsImplicitlyDefined>True</IsImplicitlyDefined>`。)若要更新封裝，更新的 SDK 所屬，推斷包含 SDK 來源封裝名稱。 例如，像 Microsoft.NETCore.App 封裝是.NET Core SDK 的一部分，因此您需要將.NET Core SDK 安裝更新。
 
     ![範例封裝標示為隱含參考或 AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 
