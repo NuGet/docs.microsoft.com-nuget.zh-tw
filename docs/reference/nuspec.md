@@ -7,11 +7,11 @@ manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: c0717418e1efcdcaf407bec6ab50f43e5396421e
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 04/28/2018
 | **擁有者** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
 | **projectUrl** | 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
 | **licenseUrl** | 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
-| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL  <em>https://github.com/ \<username\>/\<儲存機制\>/raw/\<分支\>/ \<logo.png\></em>。 |
+| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 |
 | **requireLicenseAcceptance** | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
 | **developmentDependency** | *(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 |
 | **summary** | UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。 |
@@ -388,9 +388,10 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 **排除檔案**
 
     Source files:
-        \tools\*.bak
-        \tools\*.log
-        \tools\build\*.log
+        \tools\fileA.bak
+        \tools\fileB.bak
+        \tools\fileA.log
+        \tools\build\fileB.log
 
     .nuspec entries:
         <file src="tools\*.*" target="tools" exclude="tools\*.bak" />

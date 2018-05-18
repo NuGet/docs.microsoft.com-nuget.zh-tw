@@ -10,11 +10,11 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: e236d685a700d0f47480336cece8edfd44c28863
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rate-limits"></a>速率限制
 
@@ -46,5 +46,5 @@ ms.lasthandoff: 05/04/2018
 
 | API | 限制類型 | 限制值 | 應用程式開發介面 usecase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API 金鑰 | 100 / 分 | 上傳新的 NuGet 封裝 （版本） 透過 v2 推入端點 
-**刪除** `/api/v2/package/{id}/{version}` | API 金鑰 | 100 / 分 | Unlist v2 端點透過 NuGet 封裝 （版本） 
+**PUT** `/api/v2/package` | API 金鑰 | 250 / 小時 | 上傳新的 NuGet 封裝 （版本） 透過 v2 推入端點 
+**刪除** `/api/v2/package/{id}/{version}` | API 金鑰 | 250 / 小時 | Unlist v2 端點透過 NuGet 封裝 （版本） 
