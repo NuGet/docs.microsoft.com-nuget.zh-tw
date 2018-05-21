@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="help-or--command-nuget-cli"></a>協助或嗎？ 命令 (NuGet CLI)
+# <a name="help-or--command-nuget-cli"></a>help or ? 命令 (NuGet CLI)
 
 **適用於：** 所有&bullet;**支援的版本，**： 所有
 
