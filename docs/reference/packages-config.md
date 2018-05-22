@@ -4,17 +4,21 @@ description: 在某些專案類型中，packages.config 會維護專案中所使
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 12/07/2017
+ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 73234f79cb9eb30327c4e206a5bc51c5bc1c6f1d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e10bc1625bc4cea7b7befe18caa22d33a876489b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="packagesconfig-reference"></a>packages.config 參考
 
 `packages.config` 檔案用於某些專案類型，以維護專案所參考的套件清單。 將專案傳輸至沒有所有這些套件的不同電腦 (例如組建伺服器) 時，這可讓 NuGet 輕鬆地還原專案的相依性。
+
+如果單獨使用，`packages.config`通常位於專案根目錄中。 它會自動建立時的第一個 NuGet 作業執行時，但可以手動建立，然後再執行任何命令，例如`nuget restore`。
+
+專案使用[PackageReference](../consume-packages/Package-References-in-Project-Files.md)不要使用`packages.config`。
 
 ## <a name="schema"></a>結構描述
 
