@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.reviewer:
 - kraigb
 - camsoper
-ms.openlocfilehash: 0e836f5f39620f0b83212c9510735481119ddda2
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 7f40654a08ac221c5ec3a90c86387b6760b28994
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="organization-on-nugetorg"></a>Nuget.org 的組織
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 04/26/2018
 
 ### <a name="using-api-keys"></a>使用 API 金鑰
 
-推播封裝`nuget push`或`dotnet nuget push`CLI 命令，您必須取得 API 金鑰所需的這些命令。 如需詳細資訊，請參閱[發佈封裝](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio#publish-the-package)。
+推播封裝`nuget push`或`dotnet nuget push`CLI 命令，您必須取得 API 金鑰所需的這些命令。 如需詳細資訊，請參閱[發佈封裝](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package)。
 
 在建立新的 API 金鑰時，選取適當的組織中**封裝擁有者**下拉式清單。 您所建立的任何 API 金鑰是僅適用於所選的組織：
 

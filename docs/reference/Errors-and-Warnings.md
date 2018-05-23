@@ -4,7 +4,7 @@ description: 警告和錯誤各種 NuGet 作業期間發出 NuGet 從的完整�
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/06/2018
+ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
 f1_keywords:
@@ -44,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="errors-and-warnings"></a>錯誤和警告
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 04/26/2018
 | --- | --- |
 | **問題** | 任何來源上找不到封裝。 |
 | **範例訊息** | *找不到封裝 System.Missing。無封裝存在具有此 id 來源中： dotnet 核心、 dotnet roslyn、 nuget.org* |
-| **方案** | 檢查以確定您使用正確的封裝識別碼和版本號碼的 Visual Studio 中的專案的相依性。 也請檢查[NuGet 組態](../consume-packages/Configuring-NuGet-Behavior.md)識別封裝來源您預期會使用。 如果您使用具有封裝[語意版本設定 2.0.0](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#semantic-versioning-200)，請確定您使用[V3 摘要](https://api.nuget.org/v3/index.json)中[NuGet 組態](../consume-packages/Configuring-NuGet-Behavior.md)。 |
+| **方案** | 檢查以確定您使用正確的封裝識別碼和版本號碼的 Visual Studio 中的專案的相依性。 也請檢查[NuGet 組態](../consume-packages/Configuring-NuGet-Behavior.md)識別封裝來源您預期會使用。 如果您使用具有封裝[語意版本設定 2.0.0](../reference/package-versioning.md#semantic-versioning-200)，請確定您使用換行字元、 V3 `https://api.nuget.org/v3/index.json`，請在[NuGet 組態](../consume-packages/Configuring-NuGet-Behavior.md)。 |
 
 ### <a name="nu1102"></a>NU1102
 
