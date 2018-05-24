@@ -84,7 +84,7 @@
 ## [錯誤和警告](reference/errors-and-warnings.md)
 ## [識別碼首碼保留項目](reference/id-prefix-reservation.md)
 ## [NuGet 用戶端 SDK](reference/nuget-client-sdk.md)
-## [已簽署套件參考](reference/signed-packages-reference.md)
+## [已簽署的套件](reference/signed-packages-reference.md)
 ## [在 nuget.org 上的組織](reference/organizations-on-nuget-org.md)
 ## 擴充性
 ### [適用於 Visual Studio 的 NuGet 認證提供者](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
