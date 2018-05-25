@@ -7,11 +7,11 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: a469cbdd218a0e9c18950bb0d36faf4dbcb42a01
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -24,9 +24,6 @@ ms.lasthandoff: 04/26/2018
 1. nuget.exe 4.6.0 或更新版本。 請參閱如何[安裝 NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli)。
 
 1. [程式碼簽署憑證](../reference/signed-packages-reference.md#get-a-code-signing-certificate)。
-
-> [!Warning]
-> nuget.org 目前不接受簽署的套件。 您可以簽署套件以發佈至自訂摘要。
 
 ## <a name="sign-a-package"></a>簽署套件
 
