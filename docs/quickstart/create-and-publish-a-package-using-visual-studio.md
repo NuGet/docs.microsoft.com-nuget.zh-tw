@@ -1,20 +1,23 @@
 ---
-title: 使用 Visual Studio 建立及發佈 .NET Standard NuGet 套件的入門指南
-description: 使用 Visual Studio 2017 建立及發佈 .NET Standard NuGet 套件的逐步解說教學課程。
+title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard 套件
+description: 在 Windows 上使用 Visual Studio 2017 建立及發行 .NET Standard NuGet 套件的逐步解說教學課程。
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/18/2018
+ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>快速入門：使用 Visual Studio 建立及發佈 NuGet 套件 (.NET Standard)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
-只要使用 CLI 工具，就能輕鬆從 Visual Studio 中的 .NET Standard 類別庫建立 NuGet 套件，然後將其發佈到 nuget.org。
+使用 CLI 工具可以輕鬆在 Windows 上從 Visual Studio 中的 .NET Standard 類別庫建立 NuGet 套件，然後將其發行到 nuget.org。
+
+> [!Note]
+> 本快速入門僅適用於 Windows 版 Visual Studio 2017。 Visual Studio for Mac 不包含這裡描述的功能。 請改為使用 [dotnet CLI 工具](create-and-publish-a-package-using-the-dotnet-cli.md)。
 
 ## <a name="prerequisites"></a>必要條件
 

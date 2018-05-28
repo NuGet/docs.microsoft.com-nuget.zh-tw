@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: c1e3bfd1c7e80c7deb505ef732d73c2edf3e32f7
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
@@ -157,7 +157,7 @@ nuget locals -list global-packages
 
 ### <a name="from-a-convention-based-working-directory"></a>從以慣例為基礎的工作目錄
 
-因為 NuGet 套件只是使用 `.nupkg` 副檔名重新命名的 ZIP 檔案，所以通常最容易在檔案系統上建立您想要的資料夾結構，然後直接從該結構建立 `.nuspec` 檔案。 `nuget pack` 命令接著會自動在該資料夾結構中新增所有檔案 (不含任何開頭為 `.` 的資料夾)，以讓您將私人檔案保留在相同的結構中)。
+因為 NuGet 套件只是使用 `.nupkg` 副檔名重新命名的 ZIP 檔案，所以很容易便能在本機檔案系統上建立所要的資料夾結構，然後直接從該結構建立 `.nuspec` 檔案。 `nuget pack` 命令接著會自動在該資料夾結構中新增所有檔案 (不含任何開頭為 `.` 的資料夾)，以讓您將私人檔案保留在相同的結構中)。
 
 這種方法的優點是您不需要在資訊清單中指定想要包含在套件中的檔案 (如本主題中稍後所述)。 您可以只讓建置程序產生套件中完全相同的資料夾結構，而且可以輕鬆地包含可能不屬於專案的其他檔案：
 
@@ -361,12 +361,9 @@ nuget spec [<package-name>]
 包含 COM Interop 組件的套件必須包含適當的[目標檔案](#including-msbuild-props-and-targets-in-a-package)，因此會使用 PackageReference 格式將正確的 `EmbedInteropTypes` 中繼資料新增至專案。 根據預設，使用 PackageReference 時，所有組件的 `EmbedInteropTypes` 中繼資料一律為 false，因此目標檔案會明確新增此中繼資料。 若要避免衝突，目標名稱應該是唯一的；在理想狀況下，使用套件名稱和所內嵌組件的組合，並將下列範例中的 `{InteropAssemblyName}` 取代為該值  (如需範例，請參閱 [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop))。
 
 ```xml
-<Target Name="EmbeddingAssemblyNameFromPackageId" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
-  <PropertyGroup>
-    <_InteropAssemblyFileName>{InteropAssemblyName}</_InteropAssemblyFileName>
-  </PropertyGroup>
+<Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
   <ItemGroup>
-    <ReferencePath Condition=" '%(FileName)' == '$(_InteropAssemblyFileName)' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
+    <ReferencePath Condition=" '%(FileName)' == '{InteropAssemblyName}' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </ReferencePath>
   </ItemGroup>
@@ -381,7 +378,7 @@ nuget spec [<package-name>]
 
 ## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>執行 nuget pack 以產生 .nupkg 檔案
 
-使用組件或以慣例為基礎的工作目錄時，搭配執行 `nuget pack` 與 `.nuspec` 檔案，並將 `<manifest-name>` 取代為特定檔案名稱，以建立套件：
+使用組件或以慣例為基礎的工作目錄時，搭配執行 `nuget pack` 與 `.nuspec` 檔案，並將 `<project-name>` 取代為特定檔案名稱，以建立套件：
 
 ```cli
 nuget pack <project-name>.nuspec
@@ -444,7 +441,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 1. 將 `.nupkg` 檔案複製至本機資料夾。
 1. 使用 `nuget sources add -name <name> -source <path>` 命令，將資料夾新增至套件來源 (請參閱 [nuget sources](../tools/cli-ref-sources.md))。 請注意，您只需要在任何指定電腦上設定此本機來源一次。
 1. 使用 `nuget install <packageID> -source <name>` 以從該來源安裝套件，其中 `<name>` 符合您指定至 `nuget sources` 的來源名稱。 指定來源可確保單獨從該來源安裝套件。
-1. 檢查檔案系統，確認已正確安裝檔案。
+1. 檢查您的檔案系統，確認已正確安裝檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

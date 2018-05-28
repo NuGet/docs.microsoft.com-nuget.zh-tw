@@ -4,18 +4,18 @@ description: 如何將 NuGet 套件發行至 nuget.org 或私用摘要以及如�
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 806a64d2d7654e4c1bca89a13d70fd9983c12703
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="publishing-packages"></a>發行套件
 
-建立套件且具有 `.nukpg` 檔案之後，只要透過簡單的流程，其他開發人員就能使用此套件 (不論公開或私用)：
+建立套件且具有 `.nupkg` 檔案之後，只要透過簡單的流程，其他開發人員就能使用此套件 (不論公開或私用)：
 
 - 如本文中所述，所有開發人員都可以透過 [nuget.org](https://www.nuget.org/packages/manage/upload) 全域使用公用套件 (需要 NuGet 4.1.0+)。
 - 私用套件僅適用於小組或組織，方法是將它們裝載在檔案共用、私用 NuGet 伺服器、[Visual Studio Team Services 套件管理](https://www.visualstudio.com/docs/package/nuget/publish)或協力廠商存放庫 (例如 myget、ProGet、Nexus Repository 和 Artifactory)。 如需其他詳細資料，請參閱[裝載套件概觀](../hosting-packages/overview.md)。
@@ -71,6 +71,13 @@ ms.lasthandoff: 04/28/2018
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
+
+#### <a name="publish-signed-packages"></a>發行已簽署的套件
+
+若要提交已簽署的套件，必須先[註冊用來簽署套件的憑證](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg)。 
+
+> [!Warning]
+> nuget.org 會拒絕不符合[簽署的套件需求](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg)的套件。
 
 ### <a name="package-validation-and-indexing"></a>套件驗證和編製索引
 

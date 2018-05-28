@@ -1,20 +1,23 @@
 ---
-title: 使用 Visual Studio 建立及發佈 .NET Framework NuGet 套件的入門指南
-description: 使用 Visual Studio 2017 建立及發佈 .NET Framework NuGet 套件的逐步解說教學課程。
+title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Framework 套件
+description: 在 Windows 上使用 Visual Studio 2017 建立及發行 .NET Framework NuGet 套件的逐步解說教學課程。
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/13/2018
+ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>快速入門：使用 Visual Studio 建立及發佈套件 (.NET Framework)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發行套件 (.NET Framework，Windows)
 
-從 .NET Framework 類別庫中建立 NuGet 套件，會在 Visual Studio 中建立 DLL，進而使用 nuget.exe 命令列工具來建立和發佈套件。
+從 .NET Framework 類別庫中建立 NuGet 套件，會涉及在 Windows 上於 Visual Studio 中建立 DLL，進而使用 nuget.exe 命令列工具來建立及發行套件。
+
+> [!Note]
+> 本快速入門僅適用於 Windows 版 Visual Studio 2017。 Visual Studio for Mac 不包含這裡描述的功能。 請改為使用 [dotnet CLI 工具](create-and-publish-a-package-using-the-dotnet-cli.md)。
 
 ## <a name="prerequisites"></a>必要條件
 

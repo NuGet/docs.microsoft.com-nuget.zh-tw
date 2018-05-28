@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: d1a64c61954381b7ab3a7ecc8aa5a812cfa14e8b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9bdcff8210c192a695a5645f28ef88087469ec52
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>支援多個 .NET Framework 版本
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/26/2018
 
 如需所支援名稱的完整清單，請參閱[目標架構參考](../reference/target-frameworks.md#supported-frameworks)。
 
-您的程式庫版本絕對不應該是架構特有的，而且會直接放在根 `lib` 資料夾中  (過去只有 `packages.config` 才支援此功能)。 這麼做可與任何目標架構相容，並使其能夠安裝在任何位置，但可能會導致意外的執行階段錯誤。 使用 PackagesReference 格式時，已取代並忽略在根資料夾 (例如 `lib\abc.dll`) 或子資料夾 (例如 `lib\abc\abc.dll`) 中新增組件。
+您的程式庫版本絕對不應該是架構特有的，而且會直接放在根 `lib` 資料夾中  (過去只有 `packages.config` 才支援此功能)。 如此會讓程式庫與任何目標架構相容，並且能夠安裝在任何位置，因而可能導致意外的執行階段錯誤。 使用 PackagesReference 格式時，已取代並忽略在根資料夾 (例如 `lib\abc.dll`) 或子資料夾 (例如 `lib\abc\abc.dll`) 中新增組件。
 
 例如，下列資料夾結構支援架構特有的四種版本的組件：
 
