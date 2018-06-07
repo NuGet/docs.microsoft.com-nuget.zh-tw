@@ -1,16 +1,17 @@
 ---
 title: NuGet CLI 安裝命令
 description: Nuget.exe 安裝命令的參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: 8aaf4c2563aa802900a102848fc33fc8708a135d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817885"
 ---
 # <a name="install-command-nuget-cli"></a>install 命令 (NuGet CLI)
 
@@ -49,11 +50,11 @@ nuget install <packageID | configFilePath> [options]
 | ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 架構 | *（4.4 +)* 用於選取的相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NoCache | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
+| 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | NonInteractive | 抑制使用者輸入或確認提示。 |
 | OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
 | PackageSaveMode | 指定要儲存封裝的安裝後的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
-| PreRelease | 允許安裝的套件發行前版本。 還原的封裝時，不需要此旗標`packages.config`。 |
+| 發行前版本 | 允許安裝的套件發行前版本。 還原的封裝時，不需要此旗標`packages.config`。 |
 | RequireConsent | 確認一次還原封裝才能下載和安裝封裝。 如需詳細資訊，請參閱[封裝還原，](../consume-packages/package-restore.md)。 |
 | SolutionDirectory | 指定要還原封裝方案的根資料夾。 |
 | 原始程式檔 | 指定封裝來源清單 （Url) 使用。 如果省略，則此命令會使用組態檔中提供的來源，請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |

@@ -1,16 +1,17 @@
 ---
 title: NuGet CLI 更新命令
 description: Nuget.exe 更新命令的參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 39e269b10a0cf144d5971d2af9f82a606e0b6904
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817703"
 ---
 # <a name="update-command-nuget-cli"></a>update 命令 (NuGet CLI)
 
@@ -43,7 +44,7 @@ nuget update <configPath> [options]
 | ID | 指定封裝識別碼，以更新的清單。 |
 | MSBuildPath | *（4.0 +)* 指定之路徑的 MSBuild 命令，優先於使用`-MSBuildVersion`。 |
 | MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用 MSBuild 的版本。 支援的值為 4，12，14，15。 根據預設，在路徑中的 MSBuild 會挑出，否則，預設為最高的已安裝版本的 MSBuild。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | 發行前版本 | 可讓更新的發行前版本。 更新已安裝的套件發行前版本時，則不需要此旗標。 |
 | RepositoryPath | 指定已安裝的套件的本機資料夾。 |
 | 安全 | 指定，只更新相同的主要和次要版本中可用的最高版本時已安裝的封裝將會安裝。 |

@@ -1,16 +1,17 @@
 ---
 title: NuGet CLI 環境變數
 description: Nuget.exe 環境變數的參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adeacd917fd775c6eed431df9c0f74e591ad793e
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 50bf8b469eda423db7665323823a2daf3f3aa41d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817069"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI 環境變數
 

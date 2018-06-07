@@ -1,20 +1,21 @@
 ---
 title: NuGet CLI 推入命令
 description: Nuget.exe 推送命令參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 959b539fc20bc47f38946cb660375a6652582a0d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 05cafa981ecf42829d1b3d8b8988ed51449d9d86
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817187"
 ---
 # <a name="push-command-nuget-cli"></a>推播命令 (NuGet CLI)
 
-**適用於：**封裝發行&bullet;**支援的版本：**所有; 所需的 nuget.org 4.1.0+
+**適用於：** 封裝發行&bullet;**支援的版本：** 所有; 所需的 nuget.org 4.1.0+
 
 > [!Important]
 > 若要推入至 nuget.org 的封裝，您必須使用 nuget.exe v4.1.0 +，它會實作所需[NuGet 通訊協定](../api/nuget-protocols.md)。
@@ -40,7 +41,7 @@ nuget push <packagePath> [options]
 | DisableBuffering | 停用緩衝以減少記憶體使用方式的推入至 http （s） 伺服器時。 注意： 使用此選項時，整合式的 Windows 驗證可能無法運作。 |
 | ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | NoSymbols | *（3.5 +)* 如果符號封裝存在，它將不會發送至符號伺服器。 |
 | 原始程式檔 | 指定伺服器 URL。 NuGet 識別的 UNC 或本機資料夾的來源，並只會複製檔案而不是將它使用 HTTP 推送。  此外，從 NuGet 3.4.2 開始，這是必要參數除非`NuGet.Config`檔案會指定*DefaultPushSource*值 (請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md))。 |
 | SymbolSource | *（3.5 +)* 指定符號伺服器 URL，當 nuget.smbsrc.net 推入至 nuget.org 時，會使用 |

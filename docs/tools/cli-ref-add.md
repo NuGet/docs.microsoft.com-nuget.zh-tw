@@ -1,16 +1,17 @@
 ---
 title: 將命令加入 NuGet CLI
 description: Nuget.exe 的參考加入命令
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a4201a321ffe0f7fb61f4e98012a1a2d7d8fda4
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f229ca100463c556f9c4cefc49f52724a9c4ba77
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817606"
 ---
 # <a name="add-command-nuget-cli"></a>add 命令 (NuGet CLI)
 
@@ -45,7 +46,7 @@ nuget add <packagePath> -Source <sourcePath> [options]
 | Expand | 加入封裝中的所有檔案，對套件來源。 |
 | ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

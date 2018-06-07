@@ -1,16 +1,17 @@
 ---
 title: NuGet packages.config 檔案參考
 description: 在某些專案類型中，packages.config 會維護專案中所使用的 NuGet 套件清單。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: e10bc1625bc4cea7b7befe18caa22d33a876489b
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: 2019ce5961a8237fbda855cd7d5b42948808be3a
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817828"
 ---
 # <a name="packagesconfig-reference"></a>packages.config 參考
 

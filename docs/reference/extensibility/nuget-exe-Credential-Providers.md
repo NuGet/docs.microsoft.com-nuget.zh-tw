@@ -1,16 +1,17 @@
 ---
 title: nuget.exe 認證提供者
 description: nuget.exe 認證提供者使用摘要驗證，而且會實作為命令列可執行檔，請遵循特定的慣例。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ebd3354c298eae8bc8158a987327374ac4a8d4f0
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818756"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>搭配 nuget.exe 認證提供者使用的驗證摘要
 
@@ -52,7 +53,7 @@ nuget.exe 認證提供者可用以 3 種方式：
 | 參數/切換 |描述|
 |----------------|-----------|
 | Uri 的 {value} | 封裝來源 URI 需要認證。|
-| 非互動式 | 如果有的話，提供者不會發出互動式提示。 |
+| NonInteractive | 如果有的話，提供者不會發出互動式提示。 |
 | IsRetry | 如果有的話，表示這項嘗試是先前的失敗嘗試的重試。 提供者通常使用這個旗標，以確保它們略過任何現有的快取，並盡可能提示您輸入新的認證。|
 | 詳細等級 {value} | 如果有的話，下列值之一: 「 標準 」、 「 無訊息 」 或 「 詳細 」。 如果未提供值，預設為"normal"。 提供者應該使用這個選擇性記錄的層級的指示來發出至標準錯誤資料流。 |
 

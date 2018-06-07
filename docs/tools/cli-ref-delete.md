@@ -1,20 +1,21 @@
 ---
 title: NuGet CLI delete 命令
 description: Nuget.exe delete 命令的參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 1db00a32d777f1c0247f855bf57a0dcf1c6734ae
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: c0f33dd5475521da47972a6f032ac6ea86d98c83
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817174"
 ---
 # <a name="delete-command-nuget-cli"></a>delete 命令 (NuGet CLI)
 
-**適用於：**封裝發行&bullet;**支援的版本：**所有
+**適用於：** 封裝發行&bullet;**支援的版本：** 所有
 
 刪除或 unlists 從套件來源的封裝。 為 delete 命令，nuget.org [unlists 封裝](../policies/deleting-packages.md)。
 
@@ -34,7 +35,7 @@ nuget delete <packageID> <packageVersion> [options]
 | ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
 | ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示說明命令的資訊。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | 原始程式檔 | 指定伺服器 URL。 Nuget.org 的 URL 是`https://api.nuget.org/v3/index.json`。 私用的摘要，替代的主機名稱，例如 *%hostname%/api/v3*。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 

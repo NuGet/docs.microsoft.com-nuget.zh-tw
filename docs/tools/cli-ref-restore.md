@@ -1,20 +1,21 @@
 ---
 title: NuGet CLI restore 命令
 description: Nuget.exe 還原命令的參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 4df7685883fea78428c6744bdbf4c66d83e469bc
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817914"
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
-**適用於：**封裝耗用量&bullet;**支援的版本：** 2.7 +
+**適用於：** 封裝耗用量&bullet;**支援的版本：** 2.7 +
 
 下載並安裝任何遺漏的套件`packages`資料夾。 搭配 NuGet 4.0 + 及 PackageReference 格式使用時，會產生`<project>.nuget.props`檔案，如有需要在`obj`資料夾。 （從原始檔控制可以省略檔案）。
 
@@ -41,7 +42,7 @@ nuget restore <projectPath> [options]
 | MSBuildPath | *（4.0 +)* 指定之路徑的 MSBuild 命令，優先於使用`-MSBuildVersion`。 |
 | MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用 MSBuild 的版本。 支援的值為 4，12，14，15。 根據預設，在路徑中的 MSBuild 會挑出，否則，預設為最高的已安裝版本的 MSBuild。 |
 | 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 必要時還原`packages.config`檔案除非`PackagesDirectory`或`SolutionDirectory`用。|
 | PackageSaveMode | 指定要儲存封裝的安裝後的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
 | PackagesDirectory | 與 `OutputDirectory` 相同。 必要時還原`packages.config`檔案除非`OutputDirectory`或`SolutionDirectory`用。 |

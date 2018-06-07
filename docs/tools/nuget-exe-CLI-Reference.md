@@ -1,16 +1,17 @@
 ---
 title: NuGet 命令列介面 (CLI) 參考
 description: Nuget.exe CLI 的命令列參考索引
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 477883ce1579ba3e4b586dff2cf01e31e7afdb3f
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817872"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI 參考
 
@@ -44,7 +45,7 @@ NuGet 命令列介面 (CLI) ( `nuget.exe`，提供 NuGet 功能來安裝、 建�
 | [pack](cli-ref-pack.md) | 建立 | 2.7+ | 建立來源的 NuGet 封裝`.nuspec`或專案檔。 單聲道上執行時，不支援從專案檔中建立封裝。 |
 | [push](cli-ref-push.md) | 發佈 | 全部 | 將封裝發佈到套件來源。 |
 | [config](cli-ref-config.md) | 全部 | 全部 | 取得或設定 NuGet 組態值。 |
-| [help 或 ?](cli-ref-help.md) | 全部 | 全部 | 顯示說明資訊或命令的說明。 |
+| [help or ?](cli-ref-help.md) | 全部 | 全部 | 顯示說明資訊或命令的說明。 |
 | [locals](cli-ref-locals.md) | 使用 | 3.3+ | 列出位置*全域封裝*， *http 快取*，和*temp*資料夾並清除這些資料夾的內容。 |
 | [restore](cli-ref-restore.md) | 使用 | 2.7+ | 還原使用中的封裝管理格式所參考的所有封裝。 單聲道上執行時，不支援還原使用 PackageReference 格式的封裝。 |
 | [setapikey](cli-ref-setapikey.md) | 發佈、 耗用量 | 全部 | 儲存該封裝來源需要索引鍵存取的 API 金鑰指定的套件來源。 |

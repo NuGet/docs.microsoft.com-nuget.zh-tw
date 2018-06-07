@@ -6,11 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2b15d60d4f71fb2777e36c6a948ad72b4e2bc594
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e0a4363a2807874ec8e2693c5b1c1a0eb2e8af0e
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818782"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從 packages.config 移轉至 PackageReference
 
@@ -29,6 +30,24 @@ Visual Studio 2017 15.7年預覽第 3 版和更新版本支援的移轉專案，
 * NuGet PackageReference 不是適用於 Visual Studio 2015 及更早版本。 只有在 Visual Studio 2017，可以開啟移轉的專案。
 * 移轉目前不提供對於 c + + 和 ASP.NET 專案。
 * 某些封裝可能無法與 PackageReference 完全相容。 如需詳細資訊，請參閱[封裝相容性問題](#package-compatibility-issues)。
+
+### <a name="known-issues"></a>已知問題
+
+1. 滑鼠右鍵快顯功能表中無法使用 `Migrate packages.config to PackageReference...` 選項 
+
+#### <a name="issue"></a>問題 
+ 
+當專案第一次開啟時，直到執行 NuGet 作業之前，NuGet 可能不會初始化。 這會造成移轉選項不會顯示在 `packages.config` 或 `References` 的滑鼠右鍵快顯功能表中。 
+
+#### <a name="workaround"></a>因應措施 
+
+執行以下任何一個 NuGet 動作： 
+* 開啟 [套件管理員] UI - 在 `References` 上按一下滑鼠右鍵，並選取 `Manage NuGet Packages...` 
+* 開啟 [套件管理員] 主控台 - 從 `Tools > NuGet Package Manager` 選取 `Package Manager Console` 
+* 執行 NuGet 還原 - 在 [方案總管] 中的方案節點上按一下滑鼠右鍵，並選取 `Restore NuGet Packages` 
+* 建置專案也會觸發 NuGet 還原 
+
+您現在應該可以看到移轉選項。 請注意，ASP.NET 和 C++ 專案類型不支援且不顯示此選項。 
 
 ## <a name="migration-steps"></a>移轉步驟
 
@@ -58,7 +77,7 @@ Visual Studio 2017 15.7年預覽第 3 版和更新版本支援的移轉專案，
 
 1. 關閉已移轉的專案。
 
-1. 複製專案檔和`packages.config`從備份 (通常`<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) 到專案資料夾。
+1. 複製專案檔和`packages.config`從備份 (通常`<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) 到專案資料夾。 如果它存在於專案根目錄中，請刪除 obj 資料夾。
 
 1. 開啟專案。
 
