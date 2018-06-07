@@ -1,16 +1,17 @@
 ---
 title: NuGet CLI [說明] 命令
 description: Nuget.exe 的 [說明] 命令的參考
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: dbfc803e24c824d30e128d6e86cfa3c43660668f
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d7112209a0a2a267343c3458ebacaf6b744786a9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818252"
 ---
 # <a name="help-or--command-nuget-cli"></a>help or ? 命令 (NuGet CLI)
 
@@ -39,7 +40,7 @@ nuget ? [command] [options]
 | ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
 | 說明 | 顯示的說明說明命令本身的資訊。 |
 | Markdown | 列印詳細的說明，以搭配使用時的 markdown 格式`-All`。 否則會忽略。 |
-| 非互動式 | 抑制使用者輸入或確認提示。 |
+| NonInteractive | 抑制使用者輸入或確認提示。 |
 | 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

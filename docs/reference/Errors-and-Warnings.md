@@ -1,9 +1,9 @@
 ---
 title: NuGet 錯誤和警告參考
 description: 警告和錯誤各種 NuGet 作業期間發出 NuGet 從的完整參考。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
@@ -44,11 +44,12 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 368a9554c5caf92b709f9b29e16b8a7cdb264eec
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818512"
 ---
 # <a name="errors-and-warnings"></a>錯誤和警告
 
@@ -173,7 +174,7 @@ ms.lasthandoff: 05/22/2018
 | --- | --- |
 | **問題** | 無法解析封裝之間的相依性條件約束。 |
 | **範例訊息** | *偵測到 NuGet.Versioning 版本衝突。參照套件，直接從專案以解決此問題。<br/>NuGet.Packaging 3.5.0 NuGet.Versioning （= 3.5.0）]-> [<br/> NuGet.Configuration 4.0.0]-> [的 NuGet.Versioning （等於 4.0.0）* |
-| **方案** | 封裝名稱中有相依性條件約束，確切的版本上不允許其他封裝，以提高版本，如有需要。 加入直接 （專案檔） 中的專案參考所需的正確版本。 |
+| **方案** | 封裝名稱中有相依性條件約束，確切的版本上不允許其他封裝，以提高版本，如有需要。 加入所需的正確版本的套件直接 （在專案檔） 的參考。 |
 
 <a name="nu1108"></a>
 
