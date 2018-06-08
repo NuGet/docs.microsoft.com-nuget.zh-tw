@@ -1,16 +1,17 @@
 ---
 title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard 套件
 description: 在 Windows 上使用 Visual Studio 2017 建立及發行 .NET Standard NuGet 套件的逐步解說教學課程。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818743"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 

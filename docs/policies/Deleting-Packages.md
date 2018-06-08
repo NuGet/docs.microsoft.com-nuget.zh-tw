@@ -1,16 +1,17 @@
 ---
 title: 刪除 nuget.org 中的 NuGet 套件
 description: 取消列出 nuget.org 中套件的原則。除非套件違反其他原則，否則不支援永久刪除。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: bea4f1589f184d38da27e5d82c3ce17a183fbdd1
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 84a27c16968fa55ff1929db1adf98b8242a64fcf
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816976"
 ---
 # <a name="deleting-packages"></a>刪除套件
 

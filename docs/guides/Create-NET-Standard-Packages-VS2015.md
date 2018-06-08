@@ -1,20 +1,21 @@
 ---
 title: 使用 Visual Studio 2015 建立 .NET Standard 和 .NET Framework NuGet 套件
 description: 使用 NuGet 3.x 和 Visual Studio 2015 建立 .NET Standard 和 NuGet 套件的逐步解說。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: a77d977b2abc4cfd8be48e97e4c811e68e09bd61
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: c66e782ea5d4e9e2a9585d8301dc2a1b2e8c72b9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818723"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 NET Standard 和 NET Framework 套件
 
-**注意：**建議使用 Visual Studio 2017 來開發 .NET Standard 程式庫。 可以使用 Visual Studio 2015，但 .NET Core 工具僅提供為「預覽」階段。 如需使用 NuGet 4.x+ 和 Visual Studio 2017 的資訊，請參閱[使用 Visual Studio 2017 建立和發佈套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
+**注意：** 建議使用 Visual Studio 2017 來開發 .NET Standard 程式庫。 可以使用 Visual Studio 2015，但 .NET Core 工具僅提供為「預覽」階段。 如需使用 NuGet 4.x+ 和 Visual Studio 2017 的資訊，請參閱[使用 Visual Studio 2017 建立和發佈套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
 [.NET Standard 程式庫](/dotnet/articles/standard/library)是計劃提供所有 .NET 執行階段使用的 .NET API 正式規格，因此在 .NET 生態系統中能建立較強的一致性。 .NET Standard 程式庫定義一致的 BCL (基底類別庫) API 集合，以供所有 .NET 平台實作，而不論工作負載為何。 其可讓開發人員產生可跨所有 .NET 執行階段使用的程式碼，並減少 (如果無法消除) 共用程式碼中的平台專屬條件式編譯指示詞。
 

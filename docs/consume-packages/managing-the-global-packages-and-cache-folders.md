@@ -1,16 +1,17 @@
 ---
 title: 如何在 NuGet 中管理全域套件、快取、暫存資料夾
 description: 如何管理全域套件安裝資料夾、套件快取，以及安裝、還原和更新套件時存在電腦上的暫存資料夾。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 354a8ec80e2ba20abe27746dec8c8aaae9b6c96c
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 89f70c8d22f5a6409bc3db751646a253f6ad034a
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817480"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>管理全域套件、快取和暫存資料夾
 

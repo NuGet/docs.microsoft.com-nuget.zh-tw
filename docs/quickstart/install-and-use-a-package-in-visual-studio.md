@@ -1,16 +1,17 @@
 ---
 title: 從 Visual Studio 使用 NuGet 套件的入門指南
 description: 在 Visual Studio 專案中安裝並使用 NuGet 套件程序的逐步解說教學課程。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: c61f8929d34bc9ff1a84ee186636543da5bcee63
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: a64a87319e9bc6dc992892783d00dc42db1b1dd8
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818850"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>快速入門：在 Visual Studio 中安裝並使用套件
 

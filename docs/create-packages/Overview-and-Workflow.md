@@ -1,16 +1,17 @@
 ---
 title: 建立 NuGet 套件的概觀和工作流程
 description: 建立和發行 NuGet 套件程序的概觀，以及程序之其他特定部分的連結。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a9dd4439f2aa72424187eaa2d9555d5af0e7843d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 1e2a7299be64d33bd0d697522cf5febb2022e0ee
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816993"
 ---
 # <a name="package-creation-workflow"></a>套件建立工作流程
 
