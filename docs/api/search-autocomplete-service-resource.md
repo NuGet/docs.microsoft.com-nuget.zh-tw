@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822132"
 ---
 # <a name="autocomplete"></a><span data-ttu-id="0cd87-103">自動完成</span><span class="sxs-lookup"><span data-stu-id="0cd87-103">Autocomplete</span></span>
 

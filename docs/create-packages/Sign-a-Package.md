@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34449600"
 ---
 # <a name="signing-nuget-packages"></a><span data-ttu-id="453b0-103">簽署 NuGet 套件</span><span class="sxs-lookup"><span data-stu-id="453b0-103">Signing NuGet Packages</span></span>
 

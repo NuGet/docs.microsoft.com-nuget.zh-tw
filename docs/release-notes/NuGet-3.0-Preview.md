@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821310"
 ---
 # <a name="nuget-30-preview-release-notes"></a><span data-ttu-id="0c16f-103">NuGet 3.0 的預覽版本資訊</span><span class="sxs-lookup"><span data-stu-id="0c16f-103">NuGet 3.0 Preview Release Notes</span></span>
 

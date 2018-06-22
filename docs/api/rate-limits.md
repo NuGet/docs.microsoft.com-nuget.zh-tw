@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34225940"
 ---
 # <a name="rate-limits"></a><span data-ttu-id="0bd1d-103">速率限制</span><span class="sxs-lookup"><span data-stu-id="0bd1d-103">Rate Limits</span></span>
 

@@ -11,6 +11,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32044775"
 ---
 # <a name="nuget-35-rc-release-notes"></a><span data-ttu-id="a1372-103">NuGet 3.5 RC 版本資訊</span><span class="sxs-lookup"><span data-stu-id="a1372-103">NuGet 3.5 RC Release Notes</span></span>
 
