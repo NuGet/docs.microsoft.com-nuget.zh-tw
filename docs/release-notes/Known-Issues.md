@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822015"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
 
@@ -45,7 +46,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 **問題：**
 
-在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息**「輸入字串格式不正確。」**，如下：
+在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息 **「輸入字串格式不正確。」**，如下：
 
 ```ps
 install-package log4net

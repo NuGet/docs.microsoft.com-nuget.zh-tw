@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822054"
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 版本資訊
 
@@ -74,7 +75,7 @@ NuGet 1.4 同時在多個專案新增安裝/解除安裝/更新封裝的支援�
 ### <a name="package-visualizer"></a>封裝的視覺化檢視
 新的封裝視覺化檢視，啟動透過**工具** -> **程式庫套件管理員** -> **封裝視覺化檢視**功能表選項，可讓您輕鬆地將所有專案與方案中的封裝相依性視覺化。
 
-_**重要事項：**這項功能會利用 DGML 支援 Visual Studio 中。在 Visual Studio Ultimate 中才支援建立視覺效果。只支援在 Visual Studio Premium 或高階檢視 DGML 圖表。_
+_**重要事項：** 這項功能會利用 DGML 支援 Visual Studio 中。在 Visual Studio Ultimate 中才支援建立視覺效果。只支援在 Visual Studio Premium 或高階檢視 DGML 圖表。_
 
 ![封裝的視覺化檢視](./media/package-visualizer.png)
 

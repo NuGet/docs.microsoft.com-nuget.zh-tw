@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820468"
 ---
 # <a name="nuget-34-release-notes"></a>NuGet 3.4 版本資訊
 
@@ -59,11 +60,11 @@ NuGet 3.4 2016 年 3 月 30 日發行 Visual Studio 2015 Update 2 與 Visual Stu
     * 載入有 init.ps1 指令碼 （例如 EntityFramework) 的專案
     * 發行的 web 內容
 
-* **因應措施：**請確認您的 Windows 10 安裝已套用最新的修補程式、 expecially 年 1 月 2016 (KB 3124263) 或更新版的更新。  更多詳細資料位於[GitHub 問題 # 1638年](http://github.com/nuget/home/issues/1638)
+* **因應措施：** 請確認您的 Windows 10 安裝已套用最新的修補程式、 expecially 年 1 月 2016 (KB 3124263) 或更新版的更新。  更多詳細資料位於[GitHub 問題 # 1638年](http://github.com/nuget/home/issues/1638)
 
 * **問題** ：NuGet v2 通訊協定重新導向中斷。
 將要求重新導向至替代主機的自訂 NuGet 儲存機制不接受重新導向要求。
-* **因應措施：**若要解決此問題，請同時設定封裝儲存機制的 URI 設定為指向重新導向的伺服器位置。
+* **因應措施：** 若要解決此問題，請同時設定封裝儲存機制的 URI 設定為指向重新導向的伺服器位置。
 如需詳細資訊，請參閱[GitHub 提取要求 #387](https://github.com/NuGet/NuGet.Client/pull/387)。
 
 我們將繼續在我們的 GitHub 問題清單，可以在找到追蹤問題： [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

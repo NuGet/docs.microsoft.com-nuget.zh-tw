@@ -11,6 +11,7 @@ ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33086199"
 ---
 # <a name="user-data-requests"></a>使用者資料要求
 

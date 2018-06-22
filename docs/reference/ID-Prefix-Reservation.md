@@ -12,6 +12,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32044844"
 ---
 # <a name="package-id-prefix-reservation"></a>封裝識別碼前置詞保留項目
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/28/2018
 
 1. 封裝每次提交給[nuget.org](https://www.nuget.org/)識別碼符合保留的識別碼前置詞，除非它來自保留識別碼首碼而後，會拒絕封裝。
 
-1. 符合保留的識別碼前置詞並源自保留識別碼首碼而後任何套件將具有視覺指標，在 Visual Studio 2017 15.4 以後版本，和[nuget.org](https://www.nuget.org/)指出封裝正在保留的識別碼前置詞。 這是新的封裝提交以及下者的現有封裝，則為 true。 **注意：**單一摘要當做封裝來源時，才會出現在 Visual Studio 中的指標。
+1. 符合保留的識別碼前置詞並源自保留識別碼首碼而後任何套件將具有視覺指標，在 Visual Studio 2017 15.4 以後版本，和[nuget.org](https://www.nuget.org/)指出封裝正在保留的識別碼前置詞。 這是新的封裝提交以及下者的現有封裝，則為 true。 **注意：** 單一摘要當做封裝來源時，才會出現在 Visual Studio 中的指標。
 
 1. 所有先前已存在封裝符合保留的識別碼前置詞，但這是*不*保留的擁有者所擁有的前置詞將維持不變 （而不要使用未列出，但也不會提供視覺指標）。 此外，這些封裝的擁有者仍會送出至封裝的新版本。
 
