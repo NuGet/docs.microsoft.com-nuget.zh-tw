@@ -1,16 +1,17 @@
 ---
 title: 針對 Visual Studio 中的 NuGet 套件還原進行疑難排解
 description: Visual Studio 中常見的 NuGet 還原錯誤描述，以及如何針對這些錯誤進行疑難排解。
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c552941c896d1a7136310c0a8bc6755d5974809a
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8e817b8e95c53d27120bf56db52b45b69a5ff973
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816965"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
@@ -49,8 +50,11 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 當您從原始檔控制或另一個下載處取得專案的原始程式碼時，通常就會發生這種情況。 套件通常會從原始檔控制或下載中省略，因為可以從類似 nuget.org 的套件摘要中還原 (請參閱[套件和原始檔控制](Packages-and-Source-Control.md))。 包含套件反而會使存放庫膨脹，或建立不必要的大型 .zip 檔案。
 
+如果您的專案檔包含套件位置的絕對路徑，而您又移動了專案，也會發生錯誤。
+
 請使用下列其中一種方法來還原套件：
 
+- 如果您移動了專案檔，請直接編輯檔案以更新套件參考。
 - 在 Visual Studio 中，選取 [工具] > [NuGet 套件管理員] > [套件管理員設定] 功能表命令，設定 [套件還原] 下的兩個選項，然後選取 [確定]，以啟用套件還原。 然後再次建置解決方案。
 - 若是 .NET Core 專案，請執行 `dotnet restore` 或 `dotnet build` (會自動執行還原)。
 - 在命令列上執行 `nuget restore` (除了以 `dotnet` 建立的專案在此情況下會使用 `dotnet restore`)。

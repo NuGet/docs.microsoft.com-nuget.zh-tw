@@ -1,16 +1,17 @@
 ---
 title: 尋找及選擇 NuGet 套件
 description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817898"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -105,7 +106,7 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 在 nuget.org 上、從 NuGet CLI 中，以及 Visual Studio 的 NuGet 套件管理員延伸模組內，NuGet 套件搜尋的運作都相同。 一般而言，會將搜尋套用至關鍵字和套件描述。
 
-- **關鍵字**：搜尋會尋找包含所有已提供關鍵字的相關套件。 範例：`modern UI javascript`
+- **關鍵字**：搜尋會尋找包含任何所提供關鍵字的相關套件。 範例：`modern UI`。 若要搜尋包含所有已提供關鍵字的套件，請在詞彙之間使用 "+"，例如 `modern+UI`。
 - **詞組**：輸入以雙引號括住的字詞會尋找與這些字詞完全相同且不區分大小寫的相符項。 範例：`"modern UI" package`
 - **篩選**：您可以使用 `<property>:<term>` 語法，將搜尋字詞套用至特定屬性，其中 `<property>` (不區分大小寫) 可以是 `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary` 和 `owner`。 必要時，可以使用引號括住字詞，而且您可以同時搜尋多個屬性。 此外，對 `id` 屬性的搜尋是子字串比對，而 `packageid` 使用精確比對。 例如：
 

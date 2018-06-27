@@ -1,16 +1,17 @@
 ---
 title: NuGet 常見問題集
 description: 在命令列上和 Visual Studio 中使用 NuGet 以及使用 NuGet 資源庫的常見問題和解答。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcdb4e8971ee4e742e6cf37f8b662e50a77604f0
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817976"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -160,9 +161,9 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 ## <a name="managing-packages-on-nugetorg"></a>在 nuget.org 上管理套件
 
-**我可以在上傳套件之後編輯套件中繼資料嗎？為什麼必須編輯 nuspec 及上傳新的套件才能變更套件中繼資料？**
+**我可以在上傳套件之後編輯套件中繼資料嗎？**
 
-NuGet 需要所有套件皆已簽署。 套件簽署的設計原則是已簽署的套件內容必須是不可變的，其中包含 nuspec。 編輯套件中繼資料會導致 nuspec 變更，並讓現有簽章失效。 建議修改現有工作流程，使其不需要在建立套件之後編輯套件中繼資料。
+NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套件內容必須是不可變的，其中包含 nuspec。 編輯套件中繼資料會導致 nuspec 變更，並讓現有簽章失效。 建議修改現有工作流程，使其不需要在建立套件之後編輯套件中繼資料。
 
 請注意，會自動從您套件本身產生針對套件所列出的相依性，而且無法進行編輯。
 
