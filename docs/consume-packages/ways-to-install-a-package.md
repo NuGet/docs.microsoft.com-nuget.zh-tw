@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 5f71ce6217071efc3d483cde4cf36c5585808167
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816919"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843377"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>安裝 NuGet 套件的不同方式
 
@@ -39,7 +39,7 @@ NuGet 套件會使用下表中的任一種方法來下載並安裝 (如果您尚
 
    - 如果套件不在快取中，則會嘗試從組態中所列的來源下載套件。 如果已下載套件，輸出中會出現 "GET" 和 "OK"。
 
-   - 如果無法從任何來源成功取得套件，此時安裝會失敗，並出現錯誤，例如 [NU1103](../reference/errors-and-warnings.md#nu1103)。 請注意，來自 `nuget.exe` 命令的錯誤只會顯示所檢查的最後一個來源，但表示無法從任何來源使用套件。
+   - 如果無法從任何來源成功取得套件，此時安裝會失敗，並出現錯誤，例如 [NU1103](../reference/errors-and-warnings/NU1103.md)。 請注意，來自 `nuget.exe` 命令的錯誤只會顯示所檢查的最後一個來源，但表示無法從任何來源使用套件。
 
    取得套件時，可能套用 NuGet 組態中的來源順序為：
 

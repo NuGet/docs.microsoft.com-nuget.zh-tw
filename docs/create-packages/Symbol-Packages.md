@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8d2ff4d414e496d4a57755637cbbe05f4a8408e3
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e917895d0fa6ed6dc4bc24b72afc7fa0770f2dd0
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816887"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843364"
 ---
 # <a name="creating-symbol-packages"></a>建立符號套件
 
@@ -111,9 +111,6 @@ nuget pack MyProject.csproj -Symbols
     nuget push MyPackage.symbols.nupkg
     ```
 
-   > [!Note]
-   > 使用 nuget.exe 4.5.0 或以上版本，不會將符號套件自動推送至 symbolsource.org。您需要如下個步驟中所述來個別推送符號套件。
-
 3. 若要發行至不同的符號存放庫，或推送未遵循命名慣例的符號套件，請使用 `-Source` 選項：
 
     ```cli
@@ -126,6 +123,9 @@ nuget pack MyProject.csproj -Symbols
     nuget push MyPackage.nupkg
     ```
 
+   > [!Note]
+   > 使用 nuget.exe 4.5.0 或以上版本，不會將符號套件自動推送至 symbolsource.org。您需要如下個步驟中所述來個別推送符號套件。
+   
 在此情況下，NuGet 將主要套件發行至 nuget.org 之後，會將 `MyPackage.symbols.nupkg` (存在時) 發行至 https://nuget.smbsrc.net/ (symbolsource.org 的推送 URL)。
 
 ## <a name="see-also"></a>請參閱

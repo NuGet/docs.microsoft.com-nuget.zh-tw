@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 2ff83538f9f1cf3bd4ed616ec8f5f1aef3ffd9d6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 142f82386395b8ab2ed1d57218db9bc1d2e98638
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818538"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843442"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -89,7 +89,7 @@ ms.locfileid: "34818538"
 | **擁有者** | 以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 |
 | **projectUrl** | 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
 | **licenseUrl** | 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 |
-| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 比方說，若要使用的映像從 GitHub，使用 原始檔 URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 |
+| **iconUrl** | 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 的映像，使用 原始檔 URL，如<em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 |
 | **requireLicenseAcceptance** | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
 | **developmentDependency** | *(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 |
 | **summary** | UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。 |
@@ -98,6 +98,7 @@ ms.locfileid: "34818538"
 | **language** | 套件的地區設定識別碼。 請參閱[建立當地語系化的套件](../create-packages/creating-localized-packages.md)。 |
 | **標記**  | 以逗號分隔的標記與關鍵字清單，描述套件並透過搜尋和篩選協助探索套件。 |
 | **能否提供服務** | *(3.3+)* 僅供內部 NuGet 使用。 |
+| **存放庫** | 存放庫的中繼資料，其中包含四個選擇性屬性：*型別*並*url* *（4.0 +）*，以及*分支*和*認可* *（4.6 +）*。 這些屬性可讓您將對應至儲存機制，建置它，以取得可能的.nupkg 為個別的分支或認可建置套件所述。 |
 
 #### <a name="collection-elements"></a>集合項目
 
