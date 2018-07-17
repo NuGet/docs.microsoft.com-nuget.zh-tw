@@ -58,6 +58,7 @@
 ### [update](tools/cli-ref-update.md)
 ### [驗證](tools/cli-ref-verify.md)
 ### [環境變數](tools/cli-ref-environment-variables.md)
+### [長路徑支援](tools/cli-ref-long-path.md)
 ## [套件管理員 UI](tools/package-manager-ui.md)
 ## [套件管理員主控台](tools/package-manager-console.md)
 ## [PowerShell 參考](tools/powershell-reference.md)
