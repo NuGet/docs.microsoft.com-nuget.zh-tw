@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843390"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072362"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從 packages.config 移轉至 PackageReference
 
@@ -41,7 +41,7 @@ Visual Studio 2017 版本 15.7年和更新版本的支援移轉的專案[package
 
 #### <a name="workaround"></a>因應措施 
 
-執行以下任何一個 NuGet 動作： 
+執行下列 NuGet 動作的任何一個： 
 * 開啟 [套件管理員] UI - 在 `References` 上按一下滑鼠右鍵，並選取 `Manage NuGet Packages...` 
 * 開啟 [套件管理員] 主控台 - 從 `Tools > NuGet Package Manager` 選取 `Package Manager Console` 
 * 執行 NuGet 還原 - 在 [方案總管] 中的方案節點上按一下滑鼠右鍵，並選取 `Restore NuGet Packages` 
@@ -58,7 +58,7 @@ Visual Studio 2017 版本 15.7年和更新版本的支援移轉的專案[package
 
 1. 在 [**方案總管] 中**，以滑鼠右鍵按一下**參考**節點或`packages.config`檔案，然後選取**Packages.config na PackageReference...**.
 
-1. 遷移程式會分析專案的 NuGet 套件參考，並嘗試對其進行分類**最上層相依性**（NuGet 套件，您已經安裝目錄） 和**可轉移相依性**（已安裝為最上層套件的相依性的套件）。
+1. 遷移程式會分析專案的 NuGet 套件參考，並嘗試對其進行分類**最上層相依性**（您在直接安裝 NuGet 套件） 和**可轉移相依性**（已安裝為最上層套件的相依性的套件）。
 
    > [!Note]
    > PackageReference 支援可轉移套件還原，並解析相依性，以動態方式表示，可轉移相依性需要不明確安裝。

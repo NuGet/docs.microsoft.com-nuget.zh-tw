@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: f835deabe337236dcabe6654f1963984ab0687ca
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0e7e0952519afdcb4b50f31d33cce2a92e3579b4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818304"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069696"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -38,7 +38,7 @@ ms.locfileid: "34818304"
 
 ## <a name="pack-target"></a>封裝目標
 
-PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入来用來建立 NuGet 封裝的專案檔案。
+.NET Standard 專案使用 PackageReference 格式，請使用`msbuild /t:pack`獲得從要用來建立 NuGet 套件的專案檔的輸入。
 
 下表描述可新增至第一個 `<PropertyGroup>` 節點內之專案檔的 MSBuild 屬性。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表是依 [`.nuspec` 檔案](../reference/nuspec.md)中的對等屬性進行組織。
 
@@ -61,10 +61,10 @@ PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入�
 | IconUrl | PackageIconUrl | 空白 | |
 | Tags | PackageTags | 空白 | 以分號來分隔標記。 |
 | ReleaseNotes | PackageReleaseNotes | 空白 | |
-| 儲存機制/Url | RepositoryUrl | 空白 | 用來複製或擷取原始程式碼儲存機制 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* |
-| 儲存機制/類型 | RepositoryType | 空白 | 儲存機制類型。 範例： *git*， *tfs*。 |
-| 儲存機制/分支 | RepositoryBranch | 空白 | 選擇性的儲存機制分支的資訊。 *RepositoryUrl*也必須指定要包含這個屬性。 範例：*主要*(NuGet 4.7.0+) |
-| 儲存機制/認可 | RepositoryCommit | 空白 | 選擇性的儲存機制認可或變更集，以表示其來源封裝已針對所建立。 *RepositoryUrl*也必須指定要包含這個屬性。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| 存放庫/Url | RepositoryUrl | 空白 | 用來複製或擷取原始程式碼存放庫 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* |
+| 存放庫/類型 | RepositoryType | 空白 | 存放庫類型。 範例： *git*， *tfs*。 |
+| 存放庫/分支 | RepositoryBranch | 空白 | 選擇性的存放庫分支資訊。 *RepositoryUrl*也必須指定要包含此屬性。 範例：*主要*(NuGet 4.7.0+) |
+| 存放庫/認可 | RepositoryCommit | 空白 | 選擇性的儲存機制認可或變更集，以表示其來源的套件建置。 *RepositoryUrl*也必須指定要包含此屬性。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | 總結 | 不支援 | | |
 
@@ -106,7 +106,7 @@ PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入�
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-一部分的變更[NuGet 問題 352](https://github.com/NuGet/Home/issues/352)，`PackageIconUrl`最終將會變更為`PackageIconUri`而且可以是圖示檔案以將包含在產生的封裝根目錄的相對路徑。
+一部分的變更[NuGet 問題 352](https://github.com/NuGet/Home/issues/352)，`PackageIconUrl`最後會變更為`PackageIconUri`而且可以是圖示檔會包含在產生的封裝根目錄的相對路徑。
 
 ### <a name="output-assemblies"></a>輸出組件
 
@@ -192,7 +192,7 @@ PackageReference 格式，使用標準.NET 專案`msbuild /t:pack`繪製輸入�
 
 ### <a name="packing-using-a-nuspec"></a>使用 .nuspec 封裝
 
-您可以使用`.nuspec`檔案來封裝您的專案，前提是有 SDK 專案檔匯入`NuGet.Build.Tasks.Pack.targets`，這樣可以執行組件工作。 您仍需要將專案還原之前，您可以壓縮 nuspec 檔案。 專案檔的目標 framework 不相關及 nuspec 封裝作業時，不使用。 下列三個 MSBuild 屬性與使用 `.nuspec` 進行封裝有關：
+您可以使用`.nuspec`檔案來封裝您的專案，前提是您要匯入的 SDK 專案檔案`NuGet.Build.Tasks.Pack.targets`，這樣可以執行封裝工作。 您仍然需要先還原專案，才可以 pack nuspec 檔案。 專案檔的目標 framework 無關，不使用封裝 nuspec 時。 下列三個 MSBuild 屬性與使用 `.nuspec` 進行封裝有關：
 
 1. `NuspecFile`：將用於封裝之 `.nuspec` 檔案的相對或絕對路徑。
 1. `NuspecProperties`：以分號分隔的索引鍵=值組清單。 基於 MSBuild 命令列剖析的運作方式，必須如下指定多個屬性：`/p:NuspecProperties=\"key1=value1;key2=value2\"`。  
@@ -210,9 +210,9 @@ dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nuspec
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
-請注意，封裝 nuspec 使用 dotnet.exe 或 msbuild 也會使預設建置專案。 這可以避免藉由傳遞```--no-build```dotnet.exe，相當於設定的屬性```<NoBuild>true</NoBuild> ```專案檔，以及設定中```<IncludeBuildOutput>false</IncludeBuildOutput> ```專案檔中
+請注意，封裝 nuspec 使用 dotnet.exe 或 msbuild 也會導致建置預設的專案。 可以避免此一傳遞```--no-build```屬性就相當於設定的 dotnet.exe```<NoBuild>true</NoBuild> ```在您的專案檔，以及設定```<IncludeBuildOutput>false</IncludeBuildOutput> ```專案檔中
 
-組件 nuspec 檔案 csproj 檔案的範例是：
+Csproj 檔案組件 nuspec 檔案的範例為：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -227,19 +227,19 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 </Project>
 ```
 
-### <a name="advanced-extension-points-to-create-customized-package"></a>進階擴充點來建立自訂的套件
+### <a name="advanced-extension-points-to-create-customized-package"></a>進階延伸模組點來建立自訂的套件
 
-`pack`目標提供兩個內部的目標 framework 特定組建中執行的擴充點。 包括特定內容的目標 framework 和到封裝的組件，支援的擴充點：
+`pack`目標會提供在內部的目標 framework 特定組建中執行的兩個擴充點。 包含特定內容的目標 framework 和組件載入封裝，支援的擴充點：
 
-- `TargetsForTfmSpecificBuildOutput` 目標： 用於內部檔案`lib`資料夾或使用指定的資料夾`BuildOutputTargetFolder`。
-- `TargetsForTfmSpecificContentInPackage` 目標： 以外的檔案使用`BuildOutputTargetFolder`。
+- `TargetsForTfmSpecificBuildOutput` 目標： 檔案內使用`lib`資料夾或使用指定的資料夾`BuildOutputTargetFolder`。
+- `TargetsForTfmSpecificContentInPackage` 目標： 用於外部檔案`BuildOutputTargetFolder`。
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
-撰寫自訂的目標，並指定做為值`$(TargetsForTfmSpecificBuildOutput)`屬性。 需要進入的任何檔案`BuildOutputTargetFolder`(依預設 lib)，目標應該將這些檔案複製到 ItemGroup`BuildOutputInPackage`並設定下列兩個中繼資料值：
+撰寫自訂目標，並將其指定的值為`$(TargetsForTfmSpecificBuildOutput)`屬性。 針對需要進入的任何檔案`BuildOutputTargetFolder`（預設程式庫），目標應該寫入 ItemGroup 的那些檔案`BuildOutputInPackage`並設定下列兩個中繼資料值：
 
-- `FinalOutputPath`： 絕對路徑的檔案。如果未提供，身分識別用來評估來源路徑。
-- `TargetPath`: （選擇性) 需要移入的子資料夾中的檔案時，設定`lib\<TargetFramework>`，像在其各自的文化特性資料夾下，移至附屬組件。 預設值是檔案的名稱。
+- `FinalOutputPath`: 檔案中; 的絕對路徑如果未提供，身分識別用來評估來源路徑。
+- `TargetPath`: （選擇性) 設定時必須將檔案移至的子資料夾內`lib\<TargetFramework>`，例如在其各自的文化特性資料夾底下，移至附屬組件。 預設值是檔案的名稱。
 
 範例：
 
@@ -259,10 +259,10 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 
 #### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
 
-撰寫自訂的目標，並指定做為值`$(TargetsForTfmSpecificContentInPackage)`屬性。 若要在封裝中包含任何檔案，目標應該寫入這些檔案 ItemGroup`TfmSpecificPackageFile`並設定下列選擇性中繼資料：
+撰寫自訂目標，並將其指定的值為`$(TargetsForTfmSpecificContentInPackage)`屬性。 要包含在封裝中的任何檔案，目標應該寫入這些檔案的 ItemGroup`TfmSpecificPackageFile`並設定下列選擇性的中繼資料：
 
-- `PackagePath`： 在封裝中的輸出檔案應該的儲存路徑。 如果多個檔案加入至相同的封裝路徑，NuGet 就會發出警告。
-- `BuildAction`： 建置動作指派給檔，才是必要的封裝路徑是否在`contentFiles`資料夾。 預設值是"None"。
+- `PackagePath`： 在封裝中的輸出檔案應該的儲存路徑。 如果多個檔案新增至相同的封裝路徑，NuGet 就會發出警告。
+- `BuildAction`： 建置動作將指派給該檔案，才需要的封裝路徑是否在`contentFiles`資料夾。 預設為 「 無 」。
 
 範例：
 ```xml
@@ -270,12 +270,12 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
   <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
 </PropertyGroup>
 
-<Target Name=""CustomContentTarget"">
+<Target Name="CustomContentTarget">
   <ItemGroup>
-    <TfmSpecificPackageFile Include=""abc.txt"">
+    <TfmSpecificPackageFile Include="abc.txt">
       <PackagePath>mycontent/$(TargetFramework)</PackagePath>
     </TfmSpecificPackageFile>
-    <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+    <TfmSpecificPackageFile Include="Extensions/ext.txt" Condition="'$(TargetFramework)' == 'net46'">
       <PackagePath>net46content</PackagePath>
     </TfmSpecificPackageFile>  
   </ItemGroup>
@@ -293,7 +293,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. 下載套件
 1. 撰寫資產檔案、目標和屬性
 
-`restore`目標 works**只**使用 PackageReference 格式的專案。 它會**不**工作的專案使用`packages.config`格式; 使用[nuget 還原](../tools/cli-ref-restore.md)改為。
+`restore`目標 works**只有**對於使用 PackageReference 格式的專案。 它會**未**工作使用的專案`packages.config`格式; 請改用[nuget 還原](../tools/cli-ref-restore.md)改為。
 
 ### <a name="restore-properties"></a>還原屬性
 
@@ -305,7 +305,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 | RestorePackagesPath | 使用者套件資料夾路徑。 |
 | RestoreDisableParallel | 限制逐一進行下載。 |
 | RestoreConfigFile | 要套用之 `Nuget.Config` 檔案的路徑。 |
-| RestoreNoCache | 如果為 true，可避免使用快取的套件。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
+| RestoreNoCache | 如果為 true，可避免使用快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | RestoreIgnoreFailedSources | 如果為 true，請忽略失敗或遺漏的套件來源。 |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` 的路徑。 |
 | RestoreGraphProjectInput | 要還原的專案清單 (以分號分隔)，其中應包含絕對路徑。 |
