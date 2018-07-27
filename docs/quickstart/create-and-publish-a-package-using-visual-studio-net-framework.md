@@ -7,11 +7,11 @@ manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
 ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818265"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37963154"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發行套件 (.NET Framework，Windows)
 
