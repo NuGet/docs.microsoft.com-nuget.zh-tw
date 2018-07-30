@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 48ebddb26aa6c236609691e099a82db80075944e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b72369efb906f6d186c914fa3d8dd1da0be94641
+ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818414"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37948365"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>裝載您自己的 NuGet 摘要
 
@@ -31,6 +31,8 @@ ms.locfileid: "34818414"
 - Inedo 的 [ProGet](http://inedo.com/proget)
 - [NuGet 伺服器](http://nugetserver.net/)，Inedo 社群專案
 - [NuGet 伺服器 (開放原始碼)](http://nuget-server.net)，類似於 Inedo NuGet 伺服器的開放原始碼實作
+- [LiGet](https://github.com/ai-traders/liget)，這是一個在 docker 中的 kestrel 上執行的 NuGet V2 伺服器開放原始碼實作
+- [BaGet](https://github.com/loic-sharma/BaGet)，這是使用 .NET Core 的 NuGet V3 伺服器開放原始碼實作
 - JFrog 的 [Artifactory](https://www.jfrog.com/artifactory/)。
 - Sonatype 的 [Nexus](http://www.sonatype.org/nexus/)。
 - JetBrains 的 [TeamCity](https://www.jetbrains.com/teamcity/)。

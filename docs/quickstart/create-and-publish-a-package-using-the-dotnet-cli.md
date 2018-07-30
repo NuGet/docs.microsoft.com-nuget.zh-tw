@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: c50c92f966cd68477cd3f29ab99857911299b7ea
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818447"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069670"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發佈套件 (dotnet CLI)
 
@@ -35,7 +35,7 @@ ms.locfileid: "34818447"
 
 每個 NuGet 套件都需要資訊清單來描述套件的內容和相依性。 在最後一個套件中，資訊清單是一個 `.nuspec` 檔案，這是從您納入專案檔中的 NuGet 中繼資料屬性所產生的檔案。
 
-1. 開啟專案檔 (`.csproj`)，並在即將結束的 `<PropertyGroup>` 標籤內新增下列基本屬性，適當地變更值：
+1. 開啟專案檔 (`.csproj`)，並在現有的 `<PropertyGroup>` 標籤內新增下列基本屬性，適當地變更值：
 
     ```xml
     <PackageId>AppLogger</PackageId>
