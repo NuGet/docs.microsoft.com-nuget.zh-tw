@@ -1,6 +1,6 @@
 ---
 title: 速率限制，NuGet API
-description: NuGet 的 Api 將會強制執行速率限制，以防止不當使用。
+description: NuGet Api 將會強制執行以避免不當使用的速率限制。
 author: cmanu
 ms.author: cmanu
 manager: skofman
@@ -10,16 +10,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
-ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.openlocfilehash: a55eb49318b766028d1579a4d33618617bbd8801
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34225940"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508123"
 ---
 # <a name="rate-limits"></a>速率限制
 
-會強制執行 NuGet.org API，以防止不當使用的速率限制。 超過速率限制的要求會傳回下列錯誤： 
+NuGet.org API 會強制執行以避免不當使用的速率限制。 超過速率限制的要求會傳回下列錯誤： 
 
   ~~~
     {
@@ -28,24 +28,33 @@ ms.locfileid: "34225940"
     }
   ~~~
 
-下表列出 NuGet.org api 的速率限制。
+除了要求節流使用速率限制，某些 Api 也會強制執行配額。 超過配額的要求會傳回下列錯誤：
 
-## <a name="package-search"></a>封裝搜尋
+  ~~~
+    {
+      "statusCode": 403,
+      "message": "Quota exceeded."
+    }
+  ~~~
+
+下表列出 NuGet.org API 速率限制。
+
+## <a name="package-search"></a>套件搜尋
 
 > [!Note]
-> 我們建議您使用 NuGet.org 的[V3 Api](https://docs.microsoft.com/nuget/api/search-query-service-resource)目前搜尋高效能且沒有任何限制。 V1 和 V2 搜尋應用程式開發介面，followins 限制適用於：
+> 我們建議使用 NuGet.org 的[V3 Api](https://docs.microsoft.com/nuget/api/search-query-service-resource)目前搜尋的效能，而且沒有任何限制。 V1 和 V2 搜尋 Api、 followins 限制適用於：
 
 
-| API | 限制類型 | 限制值 | 應用程式開發介面 usecase |
+| API | 限制類型 | 限制值 | API usecase |
 |:---|:---|:---|:---|
-**取得** `/api/v1/Packages` | IP | 1000 / 分 | 查詢 NuGet 套件中繼資料，透過 v1 OData`Packages`集合 |
-**取得** `/api/v1/Search()` | IP | 3000 / 分 | 搜尋 v1 搜尋端點透過 NuGet 封裝 | 
-**取得** `/api/v2/Packages` | IP | 20000 / 分 | 查詢 NuGet 套件中繼資料，透過 v2 OData`Packages`集合 | 
-**取得** `/api/v2/Packages/$count` | IP | 100 / 分 | 查詢透過 v2 OData 的 NuGet 封裝計數`Packages`集合 | 
+**取得** `/api/v1/Packages` | IP | 1000 / 分鐘 | 查詢 NuGet 套件中繼資料，透過 v1 OData`Packages`集合 |
+**取得** `/api/v1/Search()` | IP | 3000 / 分鐘 | 搜尋 NuGet 套件透過 v1 搜尋端點 | 
+**取得** `/api/v2/Packages` | IP | 20000 / 分鐘 | 查詢 NuGet 套件中繼資料，透過 v2 OData`Packages`集合 | 
+**取得** `/api/v2/Packages/$count` | IP | 100 / 分鐘 | 查詢透過 v2 OData 的 NuGet 套件數目`Packages`集合 | 
 
-## <a name="package-push-and-unlist"></a>封裝發送和 Unlist
+## <a name="package-push-and-unlist"></a>封裝將推送，並取消列出
 
-| API | 限制類型 | 限制值 | 應用程式開發介面 usecase | 
+| API | 限制類型 | 限制值 | API usecase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API 金鑰 | 250 / 小時 | 上傳新的 NuGet 封裝 （版本） 透過 v2 推入端點 
-**刪除** `/api/v2/package/{id}/{version}` | API 金鑰 | 250 / 小時 | Unlist v2 端點透過 NuGet 封裝 （版本） 
+**PUT** `/api/v2/package` | API 金鑰 | 250 / 小時 | 上傳新的 NuGet 封裝 （版本） 透過 v2 推播端點 
+**刪除** `/api/v2/package/{id}/{version}` | API 金鑰 | 250 / 小時 | 取消列出透過 v2 端點的 NuGet 套件 （版本） 

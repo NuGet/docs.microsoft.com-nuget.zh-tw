@@ -1,34 +1,34 @@
 ---
 title: NuGet CLI 安裝命令
-description: Nuget.exe 安裝命令的參考
+description: Nuget.exe install 命令參考
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8aaf4c2563aa802900a102848fc33fc8708a135d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e609b01bc14083ce212f6d4d4c6d3412f0ee316b
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817885"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508318"
 ---
 # <a name="install-command-nuget-cli"></a>install 命令 (NuGet CLI)
 
-**適用於：** 封裝耗用量&bullet;**支援的版本：** 所有
+**適用於：** 套件耗用量&bullet;**支援的版本：** 所有
 
-下載並安裝到專案，將預設為目前的資料夾，使用指定的封裝來源的封裝。
+下載並安裝至專案時，預設為目前的資料夾中，使用指定的封裝來源。
 
 > [!Tip]
-> 若要下載的封裝，直接在專案內容之外，請瀏覽封裝的頁面上[nuget.org](https://www.nuget.org)選取**下載**連結。
+> 若要下載封裝，以直接在專案的內容之外，請瀏覽套件頁面上[nuget.org](https://www.nuget.org) ，然後選取**下載**連結。
 
-如果未不指定任何來源，列出全域組態檔中， `%appdata%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，會使用。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)如需詳細資訊。
+如果未不指定任何來源，所列在 全域設定檔中， `%appdata%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，會使用。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)如需詳細資訊。
 
-如果未不指定任何特定的封裝，`install`將列在專案中的所有封裝都安裝`packages.config`檔案，讓它變成類似[ `restore` ](cli-ref-restore.md)。
+如果未不指定任何特定的套件，`install`會安裝在專案中所列出的所有套件`packages.config`檔案，讓它變成類似[ `restore` ](cli-ref-restore.md)。
 
-`install`命令不會修改專案檔或`packages.config`; 如此一來，類似於`restore`，只能將封裝新增至磁碟，但不會變更專案的相依性。
+`install`命令不會修改專案檔或`packages.config`; 如此一來，類似於`restore`，因為它只會將套件新增至磁碟，但不會變更專案的相依性。
 
-若要加入相依性，請在 Visual Studio 中，加入透過封裝管理員 UI 或主控台封裝，或是修改`packages.config`，然後執行 `install`或`restore`。
+若要加入相依性，請在 Visual Studio 中，新增套件，以透過套件管理員 UI 或主控台，或是修改`packages.config`，然後執行`install`或`restore`。
 
 ## <a name="usage"></a>使用量
 
@@ -36,30 +36,30 @@ ms.locfileid: "34817885"
 nuget install <packageID | configFilePath> [options]
 ```
 
-其中`<packageID>`名稱 （使用最新版本） 來安裝封裝或`<configFilePath>`識別`packages.config`檔案，其中列出要安裝的封裝。 您可以指定特定版本與`-Version`選項。
+何處`<packageID>`名稱來安裝 （使用最新版本），或`<configFilePath>`識別`packages.config`檔案，其中列出要安裝的套件。 您可以指定特定版本`-Version`選項。
 
 ## <a name="options"></a>選項
 
 | 選項 | 描述 |
 | --- | --- |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
-| DependencyVersion | *（4.4 +)* 指定特定版本，覆寫預設相依性解析行為。 |
+| ConfigFile | 若要套用 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
+| DependencyVersion | *（4.4 +)* 的相依性套件使用，它可以是下列其中一種版本：<br/><ul><li>*最低*（預設值）： 最低版本</li><li>*HighestPatch*： 具有最低的主要、 次要最低、 最高的修補程式版本</li><li>*HighestMinor*： 具有最低的主要版本、 最小、 最高的修補程式</li><li>*最高*： 最高版本</li></ul> |
 | DisableParallelProcessing | 安裝多個封裝，以平行方式停用。 |
-| ExcludeVersion | 會封裝安裝到名為與封裝名稱和版本號碼。 |
-| FallbackSource | *（3.2 +)* 作為後援，萬一主要中找不到封裝的封裝來源的清單或預設的來源。 |
-| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
-| 架構 | *（4.4 +)* 用於選取的相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
+| ExcludeVersion | 安裝封裝到資料夾，名為封裝名稱和版本號碼。 |
+| FallbackSource | *（3.2 +)* 作為後援，以防主要中找不到封裝的封裝來源清單或預設來源。 |
+| ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
+| 架構 | *（4.4 +)* 用於選取相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
 | 說明 | 顯示說明命令的資訊。 |
-| 無快取記憶體 | NuGet 可防止使用快取的封裝。 請參閱[管理全域封裝和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
-| OutputDirectory | 指定在其中安裝封裝的資料夾。 如果沒有指定資料夾，則會使用目前的資料夾。 |
-| PackageSaveMode | 指定要儲存封裝的安裝後的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
-| 發行前版本 | 允許安裝的套件發行前版本。 還原的封裝時，不需要此旗標`packages.config`。 |
-| RequireConsent | 確認一次還原封裝才能下載和安裝封裝。 如需詳細資訊，請參閱[封裝還原，](../consume-packages/package-restore.md)。 |
-| SolutionDirectory | 指定要還原封裝方案的根資料夾。 |
-| 原始程式檔 | 指定封裝來源清單 （Url) 使用。 如果省略，則此命令會使用組態檔中提供的來源，請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
-| 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
-| 版本 | 指定要安裝之封裝的版本。 |
+| 無快取記憶體 | 禁止 NuGet 使用的快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
+| NonInteractive | 隱藏提示使用者輸入或確認。 |
+| OutputDirectory | 指定套件安裝所在的資料夾。 如果未不指定任何資料夾，則會使用目前的資料夾。 |
+| PackageSaveMode | 指定要在套件安裝之後儲存的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
+| 發行前版本 | 允許發行前版本套件進行安裝。 還原套件時，不需要此旗標`packages.config`。 |
+| RequireConsent | 確認，然後再下載並安裝封裝中啟用還原套件。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。 |
+| SolutionDirectory | 指定要還原套件解決方案的根資料夾。 |
+| 原始程式檔 | 指定封裝來源清單 （Url) 來使用。 如果省略，則此命令會使用組態檔中提供的來源，請參閱 <<c0> [ 設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
+| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| 版本 | 指定要安裝的套件版本。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
