@@ -70,4 +70,4 @@ NuGet 命令列可執行檔已更新，並移至新的 「 可散布位置，如
 1.    無法執行組件針對`project.json`檔案- [928](https://github.com/NuGet/Home/issues/928)
 2.    不支援單聲道- [1059年](https://github.com/NuGet/Home/issues/1059)
 3.    未當地語系化- [1058年](https://github.com/NuGet/Home/issues/1058)， [1057年](https://github.com/NuGet/Home/issues/1057)
-4.    未簽署，就像現存http://nuget.org/nuget.exe- [1073年](https://github.com/NuGet/Home/issues/1073)
+4.    未簽署，就像現存 http://nuget.org/nuget.exe - [1073年](https://github.com/NuGet/Home/issues/1073)
