@@ -15,7 +15,7 @@ ms.locfileid: "39508266"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從 packages.config 移轉至 PackageReference
 
-Visual Studio 2017 版本 15.7年和更新版本的支援移轉的專案[packages.config](./packages-config.md)來管理格式[PackageReference](../consume-packages/Package-References-in-Project-Files.md)格式。
+Visual Studio 2017 15.7和之後的版本支援將專案從[packages.config](./packages-config.md)管理格式轉移為[PackageReference](../consume-packages/Package-References-in-Project-Files.md)格式。
 
 ## <a name="benefits-of-using-packagereference"></a>使用 PackageReference 的優點
 
