@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449600"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508175"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -44,7 +44,7 @@ nuget sign MyPackage.nupkg -CertificateSubjectName <MyCertSubjectName> -Timestam
 - 時間戳記伺服器不符合憑證需求。
 
 > [!Note]
-> 簽署的套件應包含時間戳記，以確定簽署憑證過期時，簽章仍保持有效。 簽署不含時間戳記時，簽署作業會產生 [NU3002 警告](../reference/Errors-and-Warnings.md#nu3002)。
+> 簽署的套件應包含時間戳記，以確定簽署憑證過期時，簽章仍保持有效。 簽署不含時間戳記時，簽署作業會產生 [NU3002 警告](../reference/errors-and-warnings/NU3002.md)。
 
 ## <a name="verify-a-signed-package"></a>驗證簽署的套件
 
@@ -56,7 +56,7 @@ nuget verify -signature MyPackage.nupkg
 
 ## <a name="install-a-signed-package"></a>安裝簽署的套件
 
-簽署的套件不需要安裝任何特定動作；不過，如果內容在簽署後已經過修改，就會封鎖安裝並產生 [NU3008 錯誤](../reference/Errors-and-Warnings.md#nu3008)。
+簽署的套件不需要安裝任何特定動作；不過，如果內容在簽署後已經過修改，就會封鎖安裝並產生 [NU3008 錯誤](../reference/errors-and-warnings/NU3008.md)。
 
 > [!Warning]
 > 以不受信任的憑證簽署的套件，會視為未簽署，安裝時會如同其他未簽署的套件一樣不含任何警告或錯誤。
