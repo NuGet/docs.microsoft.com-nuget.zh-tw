@@ -13,7 +13,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/06/2018
 ms.locfileid: "34818723"
 ---
-# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 NET Standard 和 NET Framework 套件
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET Standard 和 .NET Framework 套件
 
 **注意：** 建議使用 Visual Studio 2017 來開發 .NET Standard 程式庫。 可以使用 Visual Studio 2015，但 .NET Core 工具僅提供為「預覽」階段。 如需使用 NuGet 4.x+ 和 Visual Studio 2017 的資訊，請參閱[使用 Visual Studio 2017 建立和發佈套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
