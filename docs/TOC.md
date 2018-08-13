@@ -161,6 +161,7 @@
 ## [套件中繼資料](api/registration-base-url-resource.md)
 ## [套件內容](api/package-base-address-resource.md)
 ## [檢舉不當使用 URL](api/report-abuse-resource.md)
+## [存放庫簽章](api/repository-signatures-resource.md)
 ## [目錄](api/catalog-resource.md)
 ## [速率限制](api/rate-limits.md)
 ## [nuget.org 通訊協定](api/nuget-protocols.md)
