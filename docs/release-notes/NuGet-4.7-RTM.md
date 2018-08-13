@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f23cc2973fa6370d9b7513d415fd8151b822c104
-ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.openlocfilehash: 79be74f9c54e27bf2c08e83c7adf81d1f96ce79a
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34225966"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508159"
 ---
 # <a name="nuget-47-rtm-release-notes"></a>NuGet 4.7 RTM 版本資訊
 
@@ -19,7 +19,7 @@ ms.locfileid: "34225966"
 
 ## <a name="summary-whats-new-in-this-release"></a>摘要：此版本的新功能
 
-* 我們已增強套件簽署，以啟用[存放庫簽署套件](https://github.com/NuGet/Home/wiki/Repository-Signatures) \(英文\)
+* 我們已增強套件簽署，以啟用[存放庫簽署套件](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
 * Visual Studio Version 15.7 引進了一個功能，[讓使用 packages.config 格式的現有專案移轉成改為使用 PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)。
 

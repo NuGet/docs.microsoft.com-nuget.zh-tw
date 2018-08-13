@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963154"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508253"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發行套件 (.NET Framework，Windows)
 
@@ -114,7 +114,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
 
 ## <a name="edit-the-manifest"></a>編輯資訊清單
 
-1. 如果您嘗試使用 `.nuspec` 檔案中的預設值來建立套件，NuGet 會產生錯誤，因此您必須編輯下列欄位後再繼續。 請參閱 [.nuspec 檔案參考 - 單一項目](../reference/nuspec.md#single-elements)以取得這些使用方式的說明。
+1. 如果您嘗試使用 `.nuspec` 檔案中的預設值來建立套件，NuGet 會產生錯誤，因此您必須編輯下列欄位後再繼續。 如需如何使用這些項目的描述，請參閱 [.nuspect 檔案參考 - 選擇性中繼資料元素](../reference/nuspec.md#optional-metadata-elements)。
 
     - licenseUrl
     - projectUrl
