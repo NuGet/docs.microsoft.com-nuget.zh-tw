@@ -27,8 +27,8 @@ Visual Studio 2017 15.7 與更新版本支援將專案從 [packages.config](./pa
 
 ### <a name="limitations"></a>限制
 
-* NuGet PackageReference 不提供在 Visual Studio 2015 和更早版本。 可以只在 Visual Studio 2017 中開啟已移轉的專案。
-* 找不到目前適用於 c + + 和 ASP.NET 專案的移轉。
+* Visual Studio 2015 和更早版本中未提供 NuGet PackageReference。 只可以在 Visual Studio 2017 中開啟已移轉的專案。
+* 移轉目前不適用於 C++ 和 ASP.NET 專案。
 * 有些封裝可能無法完全相容，使用 PackageReference。 如需詳細資訊，請參閱 <<c0> [ 封裝相容性問題](#package-compatibility-issues)。
 
 ### <a name="known-issues"></a>已知問題
