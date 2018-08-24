@@ -7,12 +7,12 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fe843a121e2f1aae376f3e30a7b911792057688f
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 0cb40a640a0bab63a63b3b690a34f1f8cbf7fcb8
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020527"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793177"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -21,6 +21,8 @@ NuGet API 是一組可用來下載套件、 擷取中繼資料、 發行新的�
 此 API 可由 NuGet 用戶端，在 Visual Studio 中，nuget.exe 和.NET CLI 來執行 NuGet 作業，例如[ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore)，在 Visual Studio UI 中，搜尋並[ `nuget.exe push` ](../tools/cli-ref-push.md)。
 
 請注意在某些情況下，nuget.org 不會強制執行由其他套件來源的其他需求。 這些差異都記錄所[nuget.org 通訊協定](nuget-protocols.md)。
+
+簡單列舉和下載可用的 nuget.exe 版本中，請參閱[tools.json](tools-json.md)端點。
 
 ## <a name="service-index"></a>服務索引
 

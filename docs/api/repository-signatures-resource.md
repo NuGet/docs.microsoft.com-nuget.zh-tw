@@ -16,12 +16,12 @@ keywords: NuGet API 存放庫簽章、 簽章憑證，nuget.org nuget.org 套件
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020553"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793297"
 ---
 # <a name="repository-signatures"></a>存放庫簽章
 
@@ -59,7 +59,7 @@ RepositorySignatures/4.7.0 | 初始版本
 
 在大部分情況下，憑證清單只會將附加到。 先前的簽署憑證已過期，而且若要開始使用新的簽署憑證需要的套件來源時，新的憑證將會新增至清單。 如果憑證從清單中移除，這表示，使用已移除的簽署憑證建立的所有套件簽章應不會再都視為有效用戶端。 在此情況下，封裝簽章 （但不是一定是封裝） 無效。 用戶端原則可能會允許安裝為不帶正負號的套件。
 
-如果憑證撤銷 （例如金鑰洩露），是封裝來源預期放棄所有受影響的憑證所簽署的套件。 此外，套件來源應該移除受影響的憑證簽署的憑證清單。
+在憑證撤銷 （例如金鑰洩露） 的情況下的套件來源應該重新簽署所有受影響的憑證所簽署的套件。 此外，套件來源應該移除受影響的憑證簽署的憑證清單。
 
 下列要求擷取存放庫簽章索引。
 

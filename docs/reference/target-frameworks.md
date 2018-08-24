@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 87000ce95ffeef36d9f792e9e8fdad6878488773
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c9267945b8055b536cf35911c36a066981ef67b6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818317"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793289"
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
@@ -46,6 +46,9 @@ NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括�
 | | | net46 |
 | | | net461 |
 | | | net462 |
+| | | net47 |
+| | | net471 |
+| | | net472 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -76,6 +79,7 @@ Windows Phone (UWP) | | wpa81 |
 .NET Core 應用程式 | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
+| | | netcoreapp2.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -125,7 +129,7 @@ NuGet 3.3 和更舊版本中應該使用 moniker 的 `dotnet` 系列，v3.4 及�
 ## <a name="portable-class-libraries"></a>可攜式類別庫
 
 > [!Warning]
-> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 為.NET 平台標準的演進而來的 PCLs 和跨平台使用未繫結至靜態程式庫如單一 moniker 代表二進位的可攜性*可攜式-a + b + c* moniker。
+> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 .NET 平台標準是進化的 Pcl 和跨平台使用單一 moniker 未繫結至靜態程式庫，如代表二進位可攜性*可攜式-a + b + c* moniker。
 
 若要定義參考多個子目標 Framework 的目標 Framework，會使用 `portable` 關鍵字 作為參考之 Framework 清單的首碼。 避免以人為方式包含不會直接編譯的額外 Framework ，因為它會導致這些 Framework 出現非預期的副作用。
 
