@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 89f70c8d22f5a6409bc3db751646a253f6ad034a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 545e658d26b557f27d6534bf677f467e65a315b4
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817480"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42793614"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>管理全域套件、快取和暫存資料夾
 
@@ -22,6 +22,7 @@ ms.locfileid: "34817480"
 | global&#8209;packages | *global-packages* 資料夾是 NuGet 安裝下載套件的位置。 每個套件已經完全展開至符合套件識別碼和版本號碼的子資料夾。 使用 PackageReference 格式的專案一律使用直接從這個資料夾取得的套件。 當使用 `packages.config` 時，套件會安裝到 *global-packages* 資料夾，然後複製到專案的 `packages` 資料夾。<br/><ul><li>Windows：`%userprofile%\.nuget\packages`</li><li>Mac/Linux：`~/.nuget/packages`</li><li>使用 NUGET_PACKAGES 環境變數、`globalPackagesFolder` 或 `repositoryPath` [組態設定](../reference/nuget-config-file.md#config-section) (當分別使用 PackageReference 和 `packages.config` 時)，或 `RestorePackagesPath` MSBuild 屬性 (僅限 MSBuild) 來覆寫。 環境變數的優先性高於組態設定。</li></ul> |
 | http&#8209;cache | Visual Studio 套件管理員 (NuGet 3.x+) 和 `dotnet` 工具會將下載的套件複本存放在此快取中 (另存為 `.dat` 檔案)，並組織到每個套件來源的子資料夾。 套件不會展開，而且快取的到期時間為 30 分鐘。<br/><ul><li>Windows：`%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux：`~/.local/share/NuGet/v3-cache`</li><li>使用 NUGET_HTTP_CACHE_PATH 環境變數來覆寫。</li></ul> |
 | temp | NuGet 在其各種作業期間存放暫存檔的資料夾。<br/><li>Windows：`%temp%\NuGetScratch`</li><li>Mac/Linux：`/tmp/NuGetScratch`</li></ul> |
+| plugins-cache **4.8+** | NuGet 在此資料夾中儲存來自作業宣告要求的結果。<br/><ul><li>Windows：`%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux：`~/.local/share/NuGet/plugins-cache`</li><li>使用 NUGET_PLUGINS_CACHE_PATH 環境變數來覆寫。</li></ul> |
 
 > [!Note]
 > NuGet 3.5 和更早版本使用的是 *packages-cache*，而非位於 `%localappdata%\NuGet\Cache` 中的 *http-cache*。
@@ -34,7 +35,25 @@ NuGet 需要擷取套件時，首先會尋找 *global-packages* 資料夾。 如
 
 ## <a name="viewing-folder-locations"></a>檢視資料夾位置
 
-您可以使用 [dotnet nuget locals 命令](/dotnet/core/tools/dotnet-nuget-locals) 來檢視資料夾位置：
+您可以使用 [nuget locals 命令](../tools/cli-ref-locals.md)來檢視位置：
+
+```cli
+# Display locals for all folders: global-packages, http cache, temp and plugins cache
+nuget locals all -list
+```
+
+一般輸出 (Windows；"user1" 是目前使用者名稱)：
+
+```output
+http-cache: C:\Users\user1\AppData\Local\NuGet\v3-cache
+global-packages: C:\Users\user1\.nuget\packages\
+temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
+plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
+```
+
+(`package-cache` 使用於 NuGet 2.x 中，並在 NuGet 3.5 及更早版本中出現)。
+
+您可以使用 [dotnet nuget locals 命令](/dotnet/core/tools/dotnet-nuget-locals)來檢視資料夾位置：
 
 ```cli
 dotnet nuget locals all --list
@@ -46,26 +65,10 @@ dotnet nuget locals all --list
 info : http-cache: /home/user1/.local/share/NuGet/v3-cache
 info : global-packages: /home/user1/.nuget/packages/
 info : temp: /tmp/NuGetScratch
+info : plugins-cache: /home/user1/.local/share/NuGet/plugins-cache
 ```
 
-若要顯示單一資料夾的位置，請使用 `http-cache`、`global-packages` 或 `temp`，不要使用 `all`。 
-
-您也可以使用 [nuget locals 命令](../tools/cli-ref-locals.md)來檢視位置：
-
-```cli
-# Display locals for all folders: global-packages, cache, and temp
-nuget locals all -list
-```
-
-一般輸出 (Windows；"user1" 是目前使用者名稱)：
-
-```output
-http-cache: C:\Users\user1\AppData\Local\NuGet\v3-cache
-global-packages: C:\Users\user1\.nuget\packages\
-temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
-```
-
-(`package-cache` 使用於 NuGet 2.x 中，並在 NuGet 3.5 及更早版本中出現)。
+若要顯示單一資料夾的位置，請使用 `http-cache`、`global-packages`、`temp` 或 `plugins-cache`，不要使用 `all`。
 
 ## <a name="clearing-local-folders"></a>清除本機資料夾
 
@@ -86,6 +89,10 @@ nuget locals global-packages -clear
 # Clear the temporary cache (use either command)
 dotnet nuget locals temp --clear
 nuget locals temp -clear
+
+# Clear the plugins cache (use either command)
+dotnet nuget locals plugins-cache --clear
+nuget locals plugins-cache -clear
 
 # Clear all caches (use either command)
 dotnet nuget locals all --clear

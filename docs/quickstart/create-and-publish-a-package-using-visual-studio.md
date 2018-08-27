@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: af6e6e015f2e4adccd99171abb37e7291551351c
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963083"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794095"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -149,6 +149,26 @@ msbuild /t:pack /p:Configuration=Release
 ### <a name="manage-the-published-package"></a>管理已發行的套件
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
+
+## <a name="adding-a-readme-and-other-files"></a>新增讀我檔案和其他檔案
+
+若要直接指定套件中要包含的檔案，請編輯專案檔並使用 `content` 屬性：
+
+```xml
+<ItemGroup>
+  <Content Include="readme.txt">
+    <Pack>true</Pack>
+    <PackagePath>\</PackagePath>
+  </Content>
+</ItemGroup>
+```
+
+這會在套件根目錄中包含名稱為 `readme.txt` 的檔案。 Visual Studio 會在直接安裝套件之後，立即以純文字顯示該檔案的內容。 (不會針對安裝為相依性的套件顯示讀我檔案)。 例如，以下是 HtmlAgilityPack 套件的讀我檔案顯示方式：
+
+![安裝時 NuGet 套件的讀我檔案顯示](../create-packages/media/Create_01-ShowReadme.png)
+
+> [!Note]
+> 只在專案根目錄新增 readme.txt，並不會導致其包含在產生的套件中。
 
 ## <a name="related-topics"></a>相關主題
 
