@@ -1,21 +1,21 @@
 ---
-title: .NET 編譯器平台的 NuGet 的分析器格式
+title: .NET 編譯器平台 nuget 的分析器格式
 description: .NET 分析器的慣例，這些分析器會使用實作 API 或程式庫的 NuGet 套件來封裝與散發。
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: dc5896631fa3b15dcc1b84b054cb532d56193f36
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 9e833447820c0fb13cf558a45921554e82e2b2df
+ms.sourcegitcommit: ddc2b07a788d4a92b9df193c9bbd43db945b14d9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818382"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43119158"
 ---
 # <a name="analyzer-nuget-formats"></a>分析器 NuGet 格式
 
-.NET 編譯器平台 (也稱為"Roslyn") 可讓開發人員建立[分析器](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)，檢查程式碼的語意與語法樹狀結構中正在寫入。 這提供開發人員一種方法，來建立網域特定分析工具，例如可協助引導使用特定 API 或程式庫的工具。 您可以在 [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub Wiki 找到更多資訊。 另請參閱 MSDN Magazine 中的文件：[使用 Roslyn 為您的 API 撰寫即時程式碼分析器](https://msdn.microsoft.com/magazine/dn879356.aspx)。
+.NET 編譯器平台 (也稱為"Roslyn") 可讓開發人員建立[分析器](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)，檢查語法樹狀結構和語意的程式碼正在寫入時。 這提供開發人員一種方法，來建立網域特定分析工具，例如可協助引導使用特定 API 或程式庫的工具。 您可以在 [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub Wiki 找到更多資訊。 另請參閱 MSDN Magazine 中的文件：[使用 Roslyn 為您的 API 撰寫即時程式碼分析器](https://msdn.microsoft.com/magazine/dn879356.aspx)。
 
 分析器本身通常會封裝並散發作為實作討論中 API 或程式庫之 NuGet 套件的一部分。
 
@@ -44,7 +44,7 @@ Props 檔案 (為了分析器實作而包含以停用舊式 FxCop 規則) 放在
 
 `analyzers` 資料夾的使用類似於[目標架構](../create-packages/supporting-multiple-target-frameworks.md)所用的資料夾，只除了路徑中的規範描述開發主應用程式相依性，而不是建置時間。 一般格式如下：
 
-    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}}/{analyzer_name}.dll
+    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
 - **framework_name**：「選擇性」的 .NET Framework API 介面區，此為包含的 DLL 執行所需。 `dotnet` 是目前唯一有效的值，因為 Roslyn 是唯一可以執行分析器的主機。 如果未指定目標，DLL 會假設套用至「所有」目標。
 - **supported_language**：DLL 適用的語言，`cs`(C#) 和 `vb`(Visual Basic) 其中之一，以及 `fs`F#)。 語言表示應該僅針對使用該語言的專案載入分析器。 如果未指定語言，則 DLL 會假設要套用至「所有」支援分析器的語言。
