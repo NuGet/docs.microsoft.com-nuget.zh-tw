@@ -1,23 +1,22 @@
 ---
-title: NuGet CLI delete 命令
-description: Nuget.exe delete 命令的參考
+title: NuGet CLI 刪除命令
+description: Nuget.exe delete 命令參考
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: c0f33dd5475521da47972a6f032ac6ea86d98c83
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817174"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548506"
 ---
 # <a name="delete-command-nuget-cli"></a>delete 命令 (NuGet CLI)
 
 **適用於：** 封裝發行&bullet;**支援的版本：** 所有
 
-刪除或 unlists 從套件來源的封裝。 為 delete 命令，nuget.org [unlists 封裝](../policies/deleting-packages.md)。
+刪除或取消列出套件從套件來源。 對於 nuget.org，delete 命令[取消列出套件](../policies/deleting-packages.md)。
 
 ## <a name="usage"></a>使用量
 
@@ -25,19 +24,19 @@ ms.locfileid: "34817174"
 nuget delete <packageID> <packageVersion> [options]
 ```
 
-其中`<packageID>`和`<packageVersion>`識別要刪除或 unlist 確切的封裝。 確切行為取決於來源。 針對本機資料夾，例如，已經刪除套件;nuget.org 的封裝未列出。
+何處`<packageID>`和`<packageVersion>`找出要刪除或取消列出確切的套件。 確切行為取決於來源。 對於本機資料夾，比方說，已經刪除套件;對於 nuget.org 的套件不會列出。
 
 ## <a name="options"></a>選項
 
 | 選項 | 描述 |
 | --- | --- |
-| apiKey | 目標存放庫 API 金鑰。 如果不存在，則會使用組態檔中所指定。 |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
-| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ApiKey | 目標存放庫的 API 金鑰。 如果不存在，則會使用組態檔中所指定。 |
+| ConfigFile | 若要套用 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
+| ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
-| 原始程式檔 | 指定伺服器 URL。 Nuget.org 的 URL 是`https://api.nuget.org/v3/index.json`。 私用的摘要，替代的主機名稱，例如 *%hostname%/api/v3*。 |
-| 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| NonInteractive | 隱藏提示使用者輸入或確認。 |
+| 原始程式檔 | 指定伺服器 URL。 Nuget.org 的 URL 是`https://api.nuget.org/v3/index.json`。 對於私用摘要，取代主機名稱，例如 *%hostname%/api/v3*。 |
+| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 

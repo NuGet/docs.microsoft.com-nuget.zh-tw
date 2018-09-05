@@ -1,22 +1,21 @@
 ---
-title: 發送和刪除，NuGet API
-description: 發行服務可讓用戶端對發佈新的套件和 unlist 或刪除現有的封裝。
+title: 推送與刪除，NuGet API
+description: 發行 」 服務可讓用戶端來發佈新的套件，並取消列出或刪除現有的封裝。
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 911c8238624f806b1fbb5c7938d02b6bdfbd8614
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819477"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547517"
 ---
-# <a name="push-and-delete"></a>發送和刪除
+# <a name="push-and-delete"></a>推送與刪除
 
-可推入、 刪除 （或 unlist，視伺服器實作而定），和 relist 使用 NuGet V3 API 的封裝。 這些作業會為基礎`PackagePublish`資源中找到[服務索引](service-index.md)。
+您可將推播、 刪除 （或取消列出，根據伺服器實作） 和重新列出封裝使用 NuGet V3 API。 這些作業會為基礎`PackagePublish`資源中找到[服務索引](service-index.md)。
 
 ## <a name="versioning"></a>版本控制
 
@@ -24,24 +23,24 @@ ms.locfileid: "31819477"
 
 @type 值          | 注意
 -------------------- | -----
-PackagePublish/2.0.0 | 初版
+PackagePublish/2.0.0 | 初始版本
 
 ## <a name="base-url"></a>基礎 URL
 
-下列應用程式開發介面的基底 URL 是值`@id`屬性`PackagePublish/2.0.0`封裝來源中的資源[服務索引](service-index.md)。 如下列文件，會使用 nuget.org 的 URL。 請考慮`https://www.nuget.org/api/v2/package`做為預留位置`@id`值的索引中找到服務。
+下列 Api 的基底 URL 是值`@id`的屬性`PackagePublish/2.0.0`封裝來源中的資源[服務索引](service-index.md)。 下列文件，會使用 nuget.org 的 URL。 請考慮`https://www.nuget.org/api/v2/package`作為預留位置`@id`服務索引中找到的值。
 
-請注意，此 URL 指向舊版 V2 推入端點的相同位置因為通訊協定是相同。
+請注意，此 URL 會指向與舊版的 V2 推播端點位於相同位置因為通訊協定相同。
 
 ## <a name="http-methods"></a>HTTP 方法
 
-`PUT`，`POST`和`DELETE`這項資源所支援的 HTTP 方法。 針對每個端點都支援的方法，請參閱下文。
+`PUT`，`POST`和`DELETE`這項資源所支援 HTTP 方法。 針對每個端點上支援何種方法，如下所示。
 
-## <a name="push-a-package"></a>推播封裝
+## <a name="push-a-package"></a>將封裝推送
 
 > [!Note]
-> 具有 nuget.org[其他需求](NuGet-Protocols.md)與推入端點互動。
+> nuget.org 已[其他需求](NuGet-Protocols.md)與推播端點互動。
 
-nuget.org 支援使用下列 API 的推送新套件。 如果提供的識別碼和版本的套件已經存在，nuget.org 將會拒絕推送。 其他封裝來源可能會支援取代現有的封裝。
+nuget.org 支援使用下列 API 推送新的套件。 如果提供的識別碼和版本的套件已經存在，nuget.org 會拒絕推送。 其他套件來源可能會支援取代現有的封裝。
 
     PUT https://www.nuget.org/api/v2/package
 
@@ -51,29 +50,29 @@ nuget.org 支援使用下列 API 的推送新套件。 如果提供的識別碼�
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
 
-API 金鑰是不透明的字串從套件來源取得的使用者，並設定在用戶端。 託管沒有特定字串的格式，但 API 金鑰的長度應該超過合理的大小，如 HTTP 標頭值。
+API 金鑰是不透明的字串，從套件來源取得的使用者，並在用戶端設定。 沒有特定字串的格式託管，但 API 金鑰的長度不應超過合理的大小，如 HTTP 標頭值。
 
 ### <a name="request-body"></a>要求本文
 
-要求主體必須有下列形式：
+要求本文必須有下列形式：
 
 #### <a name="multipart-form-data"></a>多部分表單資料
 
-要求標頭`Content-Type`是`multipart/form-data`和要求主體中的第一個項目會被按下的.nupkg 未經處理位元組。 在多組件主體中的後續項目都會被忽略。 檔案名稱或其他任何標頭的多組件的項目都會被忽略。
+要求標頭`Content-Type`是`multipart/form-data`和要求本文中的第一個項目會被推入.nupkg 檔案的未經處理位元組。 在多組件的主體中的後續項目都會被忽略。 會忽略的檔案名稱或任何其他標頭的多組件的項目。
 
 ### <a name="response"></a>回應
 
 狀態碼 | 意義
 ----------- | -------
-201, 202    | 封裝已成功推入
-400         | 提供的封裝無效
-409         | 提供的識別碼和版本的封裝已經存在
+201, 202    | 已成功推送套件
+400         | 提供的套件無效
+409         | 使用提供的識別碼和版本的封裝已經存在
 
-當封裝成功推入時傳回成功狀態碼有所不同伺服器實作。
+伺服器實作會傳回已成功推送套件時的成功狀態碼而有所不同。
 
-## <a name="delete-a-package"></a>刪除的封裝
+## <a name="delete-a-package"></a>刪除套件
 
-nuget.org 會解譯為封裝刪除要求的"unlist"。 這表示封裝仍可供現有消費者的封裝，但封裝不會再出現在搜尋結果中或在 web 介面。 如需此作法的詳細資訊，請參閱[刪除封裝](../policies/deleting-packages.md)原則。 其他伺服器實作會解譯為永久刪除這個信號、 虛刪除，或 unlist 可用。 例如， [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) （只支援較舊的 V2 API 的伺服器實作） 支援處理此要求為 unlist 或永久刪除，根據組態選項。
+nuget.org 會解譯為套件刪除要求的 「 取消列出 」。 這表示封裝是仍然可供現有的取用者的封裝，但是封裝不會再出現在搜尋結果中或 web 介面中。 如需有關此做法的詳細資訊，請參閱[刪除套件](../policies/deleting-packages.md)原則。 其他伺服器實作會解譯為永久刪除此訊號、 虛刪除，或取消列出免費的。 例如， [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) （只支援較舊的 V2 API 的伺服器實作） 支援處理此要求以取消列出或永久刪除根據組態選項。
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -81,22 +80,22 @@ nuget.org 會解譯為封裝刪除要求的"unlist"。 這表示封裝仍可供�
 
 名稱           | In     | 類型   | 必要 | 注意
 -------------- | ------ | ------ | -------- | -----
-識別碼             | URL    | 字串 | 是      | 要刪除的封裝識別碼
-VERSION        | URL    | 字串 | 是      | 若要刪除封裝版本
+識別碼             | URL    | 字串 | 是      | 要刪除的套件識別碼
+VERSION        | URL    | 字串 | 是      | 若要刪除封裝的版本
 X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>回應
 
 狀態碼 | 意義
 ----------- | -------
-204         | 已刪除封裝
+204         | 已刪除的套件
 404         | 使用提供的封裝`ID`和`VERSION`存在
 
-## <a name="relist-a-package"></a>Relist 封裝
+## <a name="relist-a-package"></a>重新列出封裝
 
-如果封裝未列出，很可能要在搜尋結果中使用 「 relist 」 端點再次顯示該封裝。 此端點都有相同的圖形做為[刪除 (unlist) 端點](#delete-a-package)但使用`POST`HTTP 方法，而非`DELETE`方法。
+如果未列出的封裝，就能夠顯示該套件一次一次使用 「 重新列出 」 端點的搜尋結果中。 此端點具有一樣[刪除 （取消列出） 端點](#delete-a-package)使用，但`POST`HTTP 方法，而非`DELETE`方法。
 
-如果已列出封裝，請要求仍然會成功。
+如果已列出的封裝，請要求仍然會成功。
 
     POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -104,8 +103,8 @@ X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_AP
 
 名稱           | In     | 類型   | 必要 | 注意
 -------------- | ------ | ------ | -------- | -----
-識別碼             | URL    | 字串 | 是      | 要 relist 封裝的識別碼
-VERSION        | URL    | 字串 | 是      | 若要 relist 封裝版本
+識別碼             | URL    | 字串 | 是      | 要重新列出封裝的識別碼
+VERSION        | URL    | 字串 | 是      | 若要重新列出封裝的版本
 X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>回應

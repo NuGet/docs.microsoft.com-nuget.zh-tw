@@ -3,15 +3,14 @@ title: nuget.config 檔案參考
 description: NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 3d6741b2d724b967e76ba65547e84adcd461a521
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818395"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546911"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
@@ -43,13 +42,13 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 包含其他組態設定，可以使用 [`nuget config` 命令](../tools/cli-ref-config.md)設定。
 
-`dependencyVersion` 和`repositoryPath`僅適用於使用專案`packages.config`。 `globalPackagesFolder` 僅適用於使用 PackageReference 格式的專案。
+`dependencyVersion` 並`repositoryPath`僅適用於使用專案`packages.config`。 `globalPackagesFolder` 只適用於使用 PackageReference 格式的專案。
 
 | Key | 值 |
 | --- | --- |
 | dependencyVersion (僅 `packages.config`) | 當未直接指定 `-DependencyVersion` 參數時，套件安裝、還原及更新的預設 `DependencyVersion` 值。 NuGet 套件管理員 UI 也使用此值。 值為 `Lowest`、`HighestPatch`、`HighestMinor`、`Highest`。 |
-| globalPackagesFolder （僅限使用 PackageReference 專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
-| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定會覆寫 NUGET_PACKAGES 環境變數，其優先順序。 |
+| globalPackagesFolder （僅限使用 PackageReference 的專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 此設定會覆寫 NUGET_PACKAGES 環境變數，會優先使用。 |
+| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 此設定會覆寫 NUGET_PACKAGES 環境變數，會優先使用。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
 
@@ -124,7 +123,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ### <a name="packagesources"></a>packageSources
 
-列出所有已知的套件來源。 在還原作業期間，以及與任何使用 PackageReference 格式的專案，會忽略順序。 NuGet 尊重安裝的來源順序，並使用專案以更新 operations `packages.config`。
+列出所有已知的套件來源。 在還原作業期間，以及任何使用 PackageReference 格式的專案，會忽略順序。 NuGet 會遵守來源的順序進行安裝和更新作業使用的專案`packages.config`。
 
 | Key | 值 |
 | --- | --- |

@@ -1,51 +1,50 @@
 ---
 title: NuGet PowerShell 參考
-description: Visual Studio 中的 NuGet 封裝管理員主控台中可用的 PowerShell 命令的完整參考。
+description: 在 Visual Studio 中的 NuGet 套件管理員主控台中可用的 PowerShell 命令來完成的參考。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: ba9f5dc2b570298d9011f62a081631ec31623701
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816986"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546660"
 ---
 # <a name="powershell-reference"></a>PowerShell 參考
 
-Package Manager Console 提供下面所列的過特定的命令與 NuGet 互動的 Windows 上的 Visual Studio 中的 PowerShell 介面。 （[] 主控台不是目前可用在 Visual Studio for mac。）使用主控台的指引，請參閱[Package Manager Console](../tools/package-manager-console.md)主題。
+套件管理員主控台提供如下所示的 PowerShell 介面，以透過特定的命令與 NuGet 互動的 Windows 上的 Visual Studio 內。 （[] 主控台不是目前可在 Visual Studio for mac）如需使用主控台的指南，請參閱[Package Manager Console](../tools/package-manager-console.md)主題。
 
 > [!Tip]
-> 所有的 PowerShell 命令僅與封裝耗用量。 建立和發佈封裝以外，封裝也可以是其他封裝的消費者，與沒有 PowerShell 命令。
+> 所有的 PowerShell 命令只與套件耗用量。 建立及發行套件以外，封裝也可以是其他套件的取用者，與不相關任何 PowerShell 命令。
 
 > [!Important]
-> 此處所列的命令專屬於在 Visual Studio 中，在 Package Manager Console 而不同[封裝管理模組命令](/powershell/module/packagemanagement/?view=powershell-6)可在一般的 PowerShell 環境中。 具體來說，每個環境有不適用於其他的命令，並在其特定的引數中，可能也不同命令具有相同名稱。 當使用 Visual Studio 中的封裝管理主控台，指令及引數有本文所述套用。
+> 此處所列的命令是專用的 Package Manager Console，在 Visual Studio 中，而且不同於[套件管理模組命令](/powershell/module/packagemanagement/?view=powershell-6)所提供的一般的 PowerShell 環境。 具體來說，每個環境都不在另一個，可用的命令和其特定的引數具有相同名稱的命令可能也有不同。 當使用 Visual Studio 中的 [套件管理] 主控台，目前的這個主題所述的引數與命令套用。
 
-| 常見命令 | 描述 | NuGet 版本 |
+| 常用命令 | 描述 | NuGet 版本 |
 | --- | --- | --- |
-| [Install-Package](ps-ref-install-package.md) | 在專案中安裝封裝及其相依性。 | 全部 |
-| [Update-Package](ps-ref-update-package.md) | 更新封裝和其相依性或在專案中的所有封裝。 | 全部 |
-| [Find-Package](ps-ref-find-package.md) | 搜尋使用的封裝識別碼或關鍵字的封裝來源。 | 3.0+ |
-| [Get-Package](ps-ref-get-package.md) | 擷取安裝在本機儲存機制中，封裝的清單，或列出可用的封裝，從套件來源。 | 全部 |
+| [Install-Package](ps-ref-install-package.md) | 會封裝及其相依性安裝到專案中。 | 全部 |
+| [Update-Package](ps-ref-update-package.md) | 更新套件和其相依性或在專案中的所有封裝。 | 全部 |
+| [Find-Package](ps-ref-find-package.md) | 搜尋套件來源使用的封裝識別碼或關鍵字。 | 3.0+ |
+| [Get-Package](ps-ref-get-package.md) | 擷取安裝在本機的存放庫中的套件清單，或列出可用的封裝，從套件來源。 | 全部 |
 
 | 第二個命令 | 描述 | NuGet 版本 |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | 檢查專案的輸出路徑內的所有組件，並將繫結重新導向至`app.config`或`web.config`在需要時。 | 全部 |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | 會檢查專案的輸出路徑中的所有組件，並新增至繫結重新導向`app.config`或`web.config`在必要時。 | 全部 |
 | [Get-Project](ps-ref-get-project.md) | 顯示預設值或指定的專案相關資訊。 | 3.0+ |
-| [Open-PackagePage](ps-ref-open-packagepage.md) | 啟動預設瀏覽器中使用專案、 授權或指定之封裝的報表濫用 URL。 | 在 3.0 + 已被取代 |
-| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | 登錄參數的命令，可讓您建立的常用的參數值的自訂擴充功能的 tab 鍵擴充。 | 全部 |
-| [Sync-Package](ps-ref-sync-package.md) | 取得已安裝的版本封裝從指定專案和同步到解決方案中專案的其餘部分的版本。 | 3.0+ |
-| [Uninstall-Package](ps-ref-uninstall-package.md) | 移除封裝在專案中，選擇性地移除其相依性。 | 全部 |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | 會啟動預設瀏覽器中使用的專案、 授權或指定封裝的檢舉不當使用 URL。 | 3.0 + 中已被取代 |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | 註冊命令，讓您能夠建立常用的參數值的自訂擴充功能的參數索引標籤展開。 | 全部 |
+| [Sync-Package](ps-ref-sync-package.md) | 取得的版本已安裝的套件從指定專案，並同步處理到其他方案中專案的版本。 | 3.0+ |
+| [Uninstall-Package](ps-ref-uninstall-package.md) | 從專案中，選擇性地移除其相依性移除封裝。 | 全部 |
 
-如需這些命令主控台內的任何完整的詳細說明，只要有問題的命令名稱與執行下列命令：
+如需這些命令的主控台內的任何完整而詳細說明，只要有問題的命令名稱與執行下列命令：
 
 ```ps
 Get-Help <command> -full
 ```
 
-所有套件管理器主控台命令都支援下列[一般 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):
+所有的套件管理員主控台命令支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):
 
 - 偵錯
 - ErrorAction

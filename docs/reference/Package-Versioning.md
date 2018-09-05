@@ -1,39 +1,38 @@
 ---
-title: NuGet 封裝版本的參考
-description: 確切的指定版本號碼和範圍而定的 NuGet 封裝，並安裝相依性的方式在其他封裝的詳細資訊。
+title: NuGet 套件版本參考
+description: 需指定版本號碼和範圍而定的 NuGet 套件，並安裝相依性的方式在其他套件的確切詳細資料。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: db529a4aa92f0f0bce0b52b21d2a01bf973d01f2
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817593"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549769"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
-特定封裝永遠被指使用其封裝識別碼和確切的版本號碼。 例如， [Entity Framework](https://www.nuget.org/packages/EntityFramework/) nuget.org 上有數個數十種特定封裝可用，範圍從版本*4.1.10311*版本*6.1.3* （最新穩定發行） 和各種不同的發行前版本*6.2.0-beta1*。
+特定封裝一律被指使用其封裝識別碼和確切的版本號碼。 例如， [Entity Framework](https://www.nuget.org/packages/EntityFramework/) nuget.org 上有數個數十個特定套件可供使用，範圍從版本*4.1.10311*版本*6.1.3* （最新的穩定發行） 和各種不同的發行前版本*6.2.0-beta1*。
 
-在建立封裝時，您會指定特定版本號碼的選擇性發行前的文字尾碼。 當使用封裝，相反地，您可以指定確切的版本號碼或一個範圍的可接受的版本。
+在建立封裝時，您可以指派包含發行前版本的選擇性文字尾碼的特定版本號碼。 當使用套件，相反地，您可以指定確切的版本號碼或可接受的版本範圍。
 
 本主題內容：
 
 - [版本的基本概念](#version-basics)包括發行前版本尾碼。
-- [版本範圍與萬用字元](#version-ranges-and-wildcards)
+- [版本範圍和萬用字元](#version-ranges-and-wildcards)
 - [正規化的版本號碼](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>版本的基本概念
 
-特定版本號碼的格式為*Major.Minor.Patch [-後置詞]*、 其中的元件具有以下意義：
+特定版本號碼的格式*Major.Minor.Patch [-後置詞]*，其中的元件具有下列意義：
 
 - *主要*： 重大變更
-- *次要*： 新的功能，但回溯相容性
+- *次要*： 新功能，但具有回溯相容性
 - *修補程式*： 只有具備回溯相容性 bug 修正
-- *-尾碼*（選擇性）： 連字號後面接著此項表示應發行前版本字串 (下列[語意化版本控制或 SemVer 1.0 慣例](http://semver.org/spec/v1.0.0.html))。
+- *-後置詞*（選擇性）： 連字號後面接著用來表示發行前版本字串 (下列[語意版本控制或 SemVer 1.0 慣例](http://semver.org/spec/v1.0.0.html))。
 
 **範例：**
 
@@ -43,22 +42,22 @@ ms.locfileid: "34817593"
     2.2.44-beta1
 
 > [!Important]
-> nuget.org 會拒絕任何缺少的確切的版本號碼的封裝上傳。 必須在指定的版本`.nuspec`或用來建立封裝的專案檔。
+> nuget.org 會拒絕任何缺少的確切版本號碼的封裝上傳。 必須指定版本`.nuspec`或用來建立封裝的專案檔。
 
 ### <a name="pre-release-versions"></a>發行前版本
 
-就技術上來說，封裝建立者可以使用任何字串做為尾碼來代表發行前版本，如 NuGet 視為發行前版本的任何這類的版本，並讓其他的解譯方式。 也就是說，NuGet 會顯示任何 UI 中的完整版本字串涉及時，取用者留下任何解譯的後置詞的意義。
+就技術上而言，套件建立者可以使用任何字串做為尾碼來代表發行前版本，NuGet 任何這類版本視為發行前版本，並讓其他的解譯方式。 也就是說，NuGet 會顯示完整的版本字串中任何的 UI 與此有關，給取用者離開後置詞的意義的任何解譯。
 
-話雖如此，封裝開發人員通常會依照可辨識的命名慣例：
+話雖如此，封裝開發人員一般會遵循可辨識的命名慣例：
 
-- `-alpha`: Alpha 版本中，通常用於工作的進度和試驗。
+- `-alpha`: Alpha 版本，通常用來工作的進度和測試。
 - `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的 Bug。
 - `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，可支援使用點標記法，發行前版本號碼中*1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用的表單*1.0.1-build23*。
+> NuGet 4.3.0 + 支援[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，其支援發行前版本編號使用點標記法，如同*1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用的格式*1.0.1-build23*。
 
-解決時封裝會參照和多個封裝版本只有不同後置詞，NuGet 首先，選擇的版本不含尾碼，然後套用至發行前版本，以反向字母順序的優先順序。 例如，下列版本本來的順序顯示：
+當解析套件參考和多個封裝版本只有不同後置詞，NuGet 首先，選擇沒有尾碼的版本，則適用於發行前版本以反向字母順序的優先順序。 例如，下列版本會選擇正確的順序顯示：
 
     1.0.1
     1.0.1-zzz
@@ -69,60 +68,60 @@ ms.locfileid: "34817593"
     1.0.1-alpha
     1.0.1-aaa
 
-## <a name="semantic-versioning-200"></a>2.0.0 的語意版本設定
+## <a name="semantic-versioning-200"></a>Semantic Versioning 2.0.0
 
-使用 NuGet 4.3.0+ 和 Visual Studio 2017 15.3 + 版本，支援 NuGet[語意版本設定 2.0.0](http://semver.org/spec/v2.0.0.html)。
+NuGet 4.3.0 + 和 Visual Studio 2017 版本 15.3 +，NuGet 支援[Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html)。
 
-在舊版的用戶端不支援的 SemVer v2.0.0 特定語意。 NuGet 會考慮下列陳述式是否是 SemVer v2.0.0 特定的封裝版本：
+在舊版的用戶端不支援的 SemVer v2.0.0 特定語意。 NuGet 會考慮將封裝版本為特定的 SemVer v2.0.0，如果下列陳述式：
 
-- 發行前版本標籤是點分隔，例如*1.0.0-alpha.1*
-- 版本有建置中繼資料，例如*1.0.0+githash*
+- 發行前版本標籤是句點分隔，例如*1.0.0-alpha.1*
+- 版本具有組建中繼資料，例如*1.0.0+githash*
 
-對於 nuget.org，封裝定義為 SemVer v2.0.0 封裝如果為 true，下列陳述式：
+對於 nuget.org，封裝被定義為 SemVer v2.0.0 封裝，如果下列陳述式為 true:
 
-- 封裝自己版本是 SemVer v2.0.0 相容，但相容、 不 SemVer v1.0.0 上方所定義。
-- 所有封裝的相依性版本範圍有不相容 SemVer v2.0.0 但相容、 不 SemVer v1.0.0; 上述定義的最小值或最大版本例如， *[1.0.0-alpha.1,)*。
+- 封裝自己的版本為 SemVer v2.0.0 相容，但不是 SemVer 1.0.0 版相容，如上面所定義。
+- 中的任何套件的相依性版本範圍有的最小值或最大版本 SemVer v2.0.0 相容，但不是 SemVer 1.0.0 版相容的上述; 定義例如， *[1.0.0-alpha.1,)*。
 
-如果您要 nuget.org 傳 SemVer v2.0.0 特定封裝，封裝是看不到舊版的用戶端，並可供 只有下列 NuGet 用戶端：
+如果您上傳至 nuget.org 的 SemVer v2.0.0 特定套件，套件會是看不到舊的用戶端，並可供 只有下列的 NuGet 用戶端：
 
-- NuGet 4.3.0+
-- Visual Studio 2017 15.3 + 版本
+- NuGet 4.3.0 +
+- Visual Studio 2017 版本 15.3 +
 - Visual Studio 2015 [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet
   - dotnetcore.exe (.NET SDK 2.0.0+)
 
 第三方用戶端：
 
-- JetBrains 騎兵
-- Paket 5.0 + 版本
+- JetBrains Rider
+- Paket 版本 5.0 +
 
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>版本範圍與萬用字元
+## <a name="version-ranges-and-wildcards"></a>版本範圍和萬用字元
 
-當參照的套件相依性，NuGet 會支援使用間隔標記法來指定版本範圍，彙總，如下所示：
+當參考的套件相依性，NuGet 會支援使用間隔標記法來指定版本範圍，彙總，如下所示：
 
 | Notation | 套用的規則 | 描述 |
 |----------|--------------|-------------|
-| 1.0 | x ≥ 1.0 | 最小版本 （含） |
-| (1.0,) | x > 1.0 | 最小版本，而獨佔式 |
-| [1.0] | x == 1.0 | 確切的版本相符項目 |
-| (,1.0] | x ≤ 1.0 | 最大版本，（含） |
-| (,1.0) | x < 1.0 | 最大版本，而獨佔式 |
+| 1.0 | x ≥ 1.0 | 最小版本含 |
+| (1.0,) | x > 1.0 | 最小版本獨佔 |
+| [1.0] | x == 1.0 | 確切的版本相符 |
+| (,1.0] | x ≤ 1.0 | 最高版本內含 |
+| (,1.0) | x < 1.0 | 最高版本獨佔 |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | 確切的範圍內含 |
-| (1.0,2.0) | 1.0 < x < 2.0 | 確切的範圍，獨占 |
-| [1.0,2.0) | 1.0 ≤ x < 2.0 | 混合含最小值和獨佔式最大版本 |
+| (1.0,2.0) | 1.0 < x < 2.0 | 確切的範圍內獨佔 |
+| [1.0,2.0) | 1.0 ≤ x < 2.0 | 混合式內含最小值和專屬的最高版本 |
 | (1.0)    | 無效 | 無效 |
 
-使用 PackageReference 格式時，NuGet 也支援使用萬用字元標記法\*、 主要、 次要、 修補程式，和數字的發行前版本後置字元部分。 不支援萬用字元`packages.config`格式。
+使用 PackageReference 格式時，NuGet 也支援使用萬用字元標記法， \*、 為主要、 次要、 修補程式和數字的發行前版本後置詞部分。 不支援萬用字元`packages.config`格式。
 
 > [!Note]
-> 解決版本範圍時，不會包含發行前版本。 發行前版本*是*包含時使用萬用字元 (\*)。 版本範圍 *[1.0,2.0]*，比方說，不包括 2.0 beta 版，但萬用字元標記法_2.0-*_ 沒有。 請參閱[發出 912](https://github.com/NuGet/Home/issues/912)的進一步討論發行前版本萬用字元。
+> 解析版本範圍時，不包含發行前版本。 發行前版本*都*包含時使用萬用字元 (\*)。 版本範圍 *[1.0,2.0]*，比方說，不包含 2.0 beta 版，但萬用字元標記法_2.0-*_ 沒有。 請參閱[發出 912](https://github.com/NuGet/Home/issues/912)進一步討論需發行前版本的萬用字元。
 
 ### <a name="examples"></a>範例
 
-一律在專案檔中指定版本或封裝的相依性的版本範圍`packages.config`檔案，並`.nuspec`檔案。 不含版本或版本範圍，NuGet 2.8.x 稍早選擇最新可用的封裝版本時解析相依性，而 NuGet 3.x 及更新版本選擇最低的封裝版本。 指定的版本或版本範圍可避免此有助於減少不確定性。
+一定要在專案檔中指定的版本或版本範圍，如封裝相依性`packages.config`檔案，和`.nuspec`檔案。 不含版本或版本範圍，NuGet 2.8.x 和稍早選擇最新可用的套件版本時解析相依性，而 NuGet 3.x 和更新版本會選擇最低套件版本。 指定的版本或版本範圍可避免這種不確定性。
 
 #### <a name="references-in-project-files-packagereference"></a>專案檔 (PackageReference) 中的參考
 
@@ -152,7 +151,7 @@ ms.locfileid: "34817593"
 
 **在參考`packages.config`:**
 
-在`packages.config`，每個相依性列為完全`version`還原封裝時所使用的屬性。 `allowedVersions`屬性只有在更新作業期間用來限制可能會更新封裝的版本。
+在  `packages.config`，有列出每個相依性，且確切`version`還原套件時使用的屬性。 `allowedVersions`屬性僅更新作業期間用來限制可能會更新封裝版本。
 
 ```xml
 <!-- Install/restore version 6.1.0, accept any version 6.1.0 and above on update. -->
@@ -183,7 +182,7 @@ ms.locfileid: "34817593"
 
 **在參考`.nuspec`檔案**
 
-`version`屬性`<dependency>`元素描述可接受的相依性範圍版本。
+`version`屬性中`<dependency>`項目描述範圍的版本可接受相依性。
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -211,11 +210,11 @@ ms.locfileid: "34817593"
 ## <a name="normalized-version-numbers"></a>正規化的版本號碼
 
 > [!Note]
-> 這是一項重大變更及更新版本的 NuGet 3.4。
+> 這是一項重大變更適用於 NuGet 3.4 及更新版本。
 
-取得從儲存機制的封裝，在安裝期間，重新安裝，或還原作業，NuGet 3.4 + 會將版本號碼，如下所示：
+取得從存放庫的封裝，在安裝期間，重新安裝或還原作業，NuGet 3.4 + 會將版本號碼，如下所示：
 
-- 前置的零會從版本號碼：
+- 前置的零會自版本號碼：
 
         1.00 is treated as 1.0
         1.01.1 is treated as 1.1.1
@@ -226,6 +225,6 @@ ms.locfileid: "34817593"
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
 
-這個正規化不會影響封裝本身; 中的版本號碼它會影響只如何 NuGet 符合版本解析相依性時。
+這個正規化並不會影響套件本身; 中的版本號碼它會影響只如何 NuGet 會比對版本時解析相依性。
 
-不過，NuGet 封裝儲存機制必須與 NuGet 來避免封裝版本重複相同的方式處理這些值。 因此，包含版本的儲存機制*1.0*的封裝不應也裝載版本*1.0.0*個別且不同的套件。
+不過，NuGet 套件存放庫必須在與 NuGet 以避免套件版本重複相同的方式處理這些值。 因此包含版本的儲存機制*1.0*的封裝不應也裝載版本*1.0.0*為個別且不同的套件。

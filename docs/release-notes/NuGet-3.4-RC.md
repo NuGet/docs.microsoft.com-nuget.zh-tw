@@ -1,52 +1,51 @@
 ---
 title: NuGet 3.4 RC 版本資訊
-description: 包括已知的問題、 錯誤修正、 新增的功能，以及 Dcr NuGet 3.4 RC 版本資訊。
+description: 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 3.4 RC 版本資訊。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e40d685a5256fdfee818f0cc1f1bc352c698f3c2
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 795bdcfaa2e22447856b60d05807aeb0992cdfa0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820816"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546750"
 ---
 # <a name="nuget-34-rc-release-notes"></a>NuGet 3.4 RC 版本資訊
 
-[NuGet 3.3 版本資訊](../release-notes/nuget-3.3.md) | [NuGet 3.4 版本資訊](../release-notes/nuget-3.4.md)
+[NuGet 3.3 版本資訊](../release-notes/nuget-3.3.md) | [NuGet 3.4 的版本資訊](../release-notes/nuget-3.4.md)
 
-NuGet 3.4 RC 2016 年 3 月 3 日與 Visual Studio 2015 Update 2 RC 一起發行，並不在建置中對少數原則：
+NuGet 3.4 RC 發行 2016 年 3 月 3 日與 Visual Studio 2015 Update 2 RC，並在心中的幾個要件建置：
 
 * 跨平台支援
 * 效能改善
-* 次要的 UI 增強功能
+* 次要 UI 增強功能
 
-下列功能可用在 RC 中，具有多個計劃 3.4 最後發行版本。
+下列功能時才可在這個 RC 中，使用更有計劃 3.4 版的最終發行版本。
 
 ## <a name="new-features"></a>新功能
 
-* NuGet 用戶端現在支援 gzip 內容編碼方式從儲存機制
-* 支援從 xproj 專案封裝的 Pdb
-* 適用於 iOS 和 Android 的建置動作 contentFiles 元素中的支援
+* NuGet 用戶端現在支援 gzip 內容編碼方式從存放庫
+* 從 xproj 專案封裝的 Pdb 的支援
+* 適用於 iOS 和 Android 的建置動作 contentFiles 項目中的支援
 * 支援 netstandard 和 netstandardapp framework moniker
 
 ## <a name="new-user-interface-features"></a>新的使用者介面功能
 
 * 特別是在已安裝、 更新及合併彙算的索引標籤上的顯著效能改善
 * 安裝和更新索引標籤現在會依字母順序排序
-* 新增 [重新整理] 按鈕，可讓重新整理的搜尋
+* 新增 [重新整理] 按鈕，可搜尋，以重新整理
 
 ## <a name="updates-and-improvements"></a>更新和增強功能
 
-* 封裝中參考`project.json`具有浮點版本將不會在每次建置更新。 相反地，他們會更新只能在強制還原、 清除、 重建或修改時`project.json`。
-* 當您使用的 NuGet 組態 UI，nuget.org 儲存機制來源不會強制到專案組態。
-* NuGet 無法再還原共用的專案中的封裝，也寫入鎖定檔案。
-* 我們已改進網路失敗，然後重試處理連上或緩慢-到-回應的伺服器。
-* 鍵盤和滑鼠的行為會在 Visual Studio 封裝管理員 UI 改進。
+* 中參考的套件`project.json`具有浮點版本將不會在每個組建上更新。 相反地，它們會在其中更新時，只強制還原、 清除、 重建或修改`project.json`。
+* 當您使用的 NuGet 組態 UI，nuget.org 儲存機制來源不再強制到專案組態。
+* NuGet 不會再還原共用專案中的套件，或寫入鎖定的檔案。
+* 我們改進了網路連線失敗，並再試一次無法連線或緩慢回覆伺服器處理。
+* 鍵盤和滑鼠行為有改進 Visual Studio 套件管理員 UI 中。
 * 我們現在支援最新`project.json`DNX 中的結構描述。
 
 ## <a name="known-issues"></a>已知問題
 
-我們將繼續在我們的 GitHub 問題清單，可以在找到追蹤問題： [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+我們繼續追蹤，請參閱我們 GitHub 問題清單上的問題： [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

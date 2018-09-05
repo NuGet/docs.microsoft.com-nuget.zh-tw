@@ -3,21 +3,20 @@ title: NuGet CLI setapikey 命令
 description: Nuget.exe setapikey 命令參考
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 66fc62074b4e7c39ff2ed6b515eee9f821530536
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817680"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549216"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey 命令 (NuGet CLI)
 
-**適用於：** 封裝耗用量、 發行&bullet;**支援的版本：** 所有
+**適用於：** 套件耗用量、 發行&bullet;**支援的版本：** 所有
 
-將 API 金鑰儲存到給定的伺服器 url`NuGet.Config`使它不需要輸入後續命令。
+將 API 金鑰儲存到指定的伺服器 url `NuGet.Config` ，讓它不需要輸入後續命令。
 
 ## <a name="usage"></a>使用量
 
@@ -25,17 +24,17 @@ ms.locfileid: "34817680"
 nuget setapikey <key> -Source <url> [options]
 ```
 
-其中`<source>`識別伺服器並`<key>`是索引鍵或儲存的密碼。 如果`<source>`已省略，則會假設 nuget.org。
+何處`<source>`識別的伺服器和`<key>`是索引鍵或儲存的密碼。 如果`<source>`已省略，nuget.org 會假設。
 
 ## <a name="options"></a>選項
 
 | 選項 | 描述 |
 | --- | --- |
-| ConfigFile | 要套用的 NuGet 設定檔案。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux) 會使用。|
-| ForceEnglishOutput | *（3.5 +)* 強制 nuget.exe 使用不變，英文的文化特性來執行。 |
+| ConfigFile | 若要套用 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
+| ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
 | 說明 | 顯示說明命令的資訊。 |
-| NonInteractive | 抑制使用者輸入或確認提示。 |
-| 詳細資訊 | 指定在輸出中顯示詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| NonInteractive | 隱藏提示使用者輸入或確認。 |
+| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 

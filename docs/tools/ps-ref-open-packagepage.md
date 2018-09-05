@@ -1,23 +1,22 @@
 ---
-title: NuGet 開啟 PackagePage PowerShell 參考
-description: 在 Visual Studio 中的 NuGet 封裝管理員主控台中開啟 PackagePage PowerShell 命令的參考。
+title: NuGet 開放 PackagePage PowerShell 參考
+description: 在 NuGet 套件管理員主控台中，在 Visual Studio 中開啟 PackagePage PowerShell 命令參考。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e64a83c01a7baac330c99fe40ba52f328a2133b8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0325aa4ddd718a901dd6a09cdf86cae260e326ab
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817716"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547164"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Visual Studio 套件管理員主控台)
 
-*3.0 +; 中已被取代只能在[NuGet Package Manager Console](package-manager-console.md) Windows 上的 Visual Studio 中。*
+*在 3.0 + 中; 已被取代只能在[NuGet 套件管理員主控台](package-manager-console.md)在 Windows 上的 Visual Studio 中。*
 
-啟動預設瀏覽器中使用專案、 授權或指定之封裝的報表濫用 URL。
+會啟動預設瀏覽器中使用的專案、 授權或指定封裝的檢舉不當使用 URL。
 
 ## <a name="syntax"></a>語法
 
@@ -30,18 +29,18 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 | 參數 | 描述 |
 | --- | --- |
-| ID | 所要封裝之封裝 ID。 -Id 參數是選擇性的。 |
-| 版本 | 預設為最新版本的封裝版本。 |
-| 原始程式檔 | 封裝來源，將預設為 [來源] 下拉式清單中選取的來源。 |
-| 使用權 | 瀏覽器開啟至封裝的授權 URL。 如果指定-授權都-ReportAbuse，瀏覽器會開啟封裝的專案 URL。 |
-| ReportAbuse | 瀏覽器開啟至套件的報表濫用的 URL。 如果指定-授權都-ReportAbuse，瀏覽器會開啟封裝的專案 URL。 |
-| PassThru | 顯示的 URL。您可以使用與-WhatIf 隱藏開啟瀏覽器。 |
+| ID | 所需套件的套件識別碼。 -識別碼是選擇性參數本身。 |
+| 版本 | 將預設為最新版本的封裝版本。 |
+| 原始程式檔 | 封裝來源，將預設為來源下拉式清單中選取的來源。 |
+| 使用權 | 瀏覽器開啟至套件的授權 URL。 如果-授權和-ReportAbuse 都未指定，則瀏覽器會開啟套件的專案 URL。 |
+| ReportAbuse | 瀏覽器開啟至套件的檢舉不當使用 URL。 如果-授權和-ReportAbuse 都未指定，則瀏覽器會開啟套件的專案 URL。 |
+| PassThru | 顯示的 URL;若要隱藏開啟瀏覽器使用-WhatIf。 |
 
-這些參數接受管線輸入或萬用字元的字元。
+這些參數都不接受管線輸入或萬用字元的字元。
 
 ## <a name="common-parameters"></a>一般參數
 
-`Open-PackagePage` 支援下列[一般 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
+`Open-PackagePage` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 

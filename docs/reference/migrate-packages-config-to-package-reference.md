@@ -3,15 +3,14 @@ title: 從 package.config 移轉至 PackageReference 格式
 description: 如何從 package.config 管理格式的專案移轉至 PackageReference 所支援之 NuGet 4.0 + 和 VS2017 及.NET Core 2.0 的詳細資料
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508266"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546682"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從 packages.config 移轉至 PackageReference
 
@@ -41,7 +40,7 @@ Visual Studio 2017 15.7 與更新版本支援將專案從 [packages.config](./pa
 
 #### <a name="workaround"></a>因應措施 
 
-執行下列 NuGet 動作的任何一個： 
+執行以下任何一個 NuGet 動作： 
 * 開啟 [套件管理員] UI - 在 `References` 上按一下滑鼠右鍵，並選取 `Manage NuGet Packages...` 
 * 開啟 [套件管理員] 主控台 - 從 `Tools > NuGet Package Manager` 選取 `Package Manager Console` 
 * 執行 NuGet 還原 - 在 [方案總管] 中的方案節點上按一下滑鼠右鍵，並選取 `Restore NuGet Packages` 

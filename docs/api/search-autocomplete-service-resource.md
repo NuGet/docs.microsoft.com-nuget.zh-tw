@@ -1,22 +1,21 @@
 ---
-title: 自動完成，NuGet API
-description: 搜尋 「 自動完成 」 服務支援互動式尋找的封裝識別碼和版本。
+title: 自動完成、 NuGet API
+description: 搜尋自動完成服務支援的套件識別碼的互動式探索和版本。
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 01f919dc3bbfb6752c8f8e055a3cd473ad194e75
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822132"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549079"
 ---
 # <a name="autocomplete"></a>自動完成
 
-它是可以建置的套件識別碼和版本自動完成體驗使用 V3 API。 自動完成查詢所使用之資源是`SearchAutocompleteService`資源中找到[服務索引](service-index.md)。
+就可以建置的套件識別碼和版本自動完成體驗使用 V3 API。 用來進行自動完成查詢的資源`SearchAutocompleteService`資源中找到[服務索引](service-index.md)。
 
 ## <a name="versioning"></a>版本控制
 
@@ -24,21 +23,21 @@ ms.locfileid: "31822132"
 
 @type 值                          | 注意
 ------------------------------------ | -----
-SearchAutocompleteService            | 初版
+SearchAutocompleteService            | 初始版本
 SearchAutocompleteService/3.0.0-beta | 別名 `SearchAutocompleteService`
 SearchAutocompleteService/3.0.0-rc   | 別名 `SearchAutocompleteService`
 
 ## <a name="base-url"></a>基礎 URL
 
-下列應用程式開發介面的基底 URL 是值`@id`與其中一個先前提及的資源相關聯的屬性`@type`值。 下列文件預留位置基底 URL`{@id}`將使用。
+下列 Api 的基底 URL 是值`@id`其中一個先前提及的資源相關聯的屬性`@type`值。 在下列的文件中的預留位置基底 URL`{@id}`將使用。
 
 ## <a name="http-methods"></a>HTTP 方法
 
-位於登錄資源支援的 HTTP 方法的所有 Url`GET`和`HEAD`。
+所有 Url 的 HTTP 方法位於註冊資源的支援`GET`和`HEAD`。
 
-## <a name="search-for-package-ids"></a>搜尋封裝 Id
+## <a name="search-for-package-ids"></a>搜尋套件識別碼
 
-第一個自動完成應用程式開發介面支援搜尋的套件 ID 字串的一部分。 當您想要提供使用者介面整合在一起的 NuGet 封裝來源中的封裝 typeahead 功能時，這很適合。
+第一個自動完成 API 支援搜尋封裝 ID 字串的一部分。 當您想要提供使用者介面整合在一起的 NuGet 套件來源中的封裝自動提示功能時，這是很棒。
 
 只有未列出的版本的封裝不會出現在結果中。
 
@@ -48,33 +47,33 @@ SearchAutocompleteService/3.0.0-rc   | 別名 `SearchAutocompleteService`
 
 名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | 字串  | 否       | 要與封裝識別碼進行比較的字串
-skip        | URL    | 整數 | 否       | 若要略過，針對分頁的結果數目
-take        | URL    | 整數 | 否       | 若要傳回，針對分頁的結果數目
-發行前版本  | URL    | boolean | 否       | `true` 或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
+q           | URL    | 字串  | 否       | 要相比較的封裝識別碼的字串
+skip        | URL    | 整數 | 否       | 若要略過，進行分頁的結果數目
+Take        | URL    | 整數 | 否       | 若要傳回，進行分頁的結果數目
+發行前版本  | URL    | boolean | 否       | `true` 或是`false`決定是否要包含[發行前版本套件](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版本字串 
 
-自動完成查詢`q`剖析的方式，由伺服器實作所定義。 nuget.org 支援來查詢前置詞的封裝識別碼權杖是片段 spliting 所產生的識別碼，原始的 camel 命名法的大小寫和符號字元。
+自動完成查詢`q`剖析伺服器實作所定義的方式。 nuget.org 支援查詢的套件識別碼權杖中，也就是所產生的分割識別碼的前置詞的原始駝峰式命名法的大小寫和符號字元。
 
 `skip`參數預設值為 0。
 
-`take`參數應該大於零的整數。 伺服器實作可能會造成最大值。
+`take`參數應該是大於零的整數。 伺服器實作可能會造成最大值。
 
-如果`prerelease`未提供，會排除發行前版本的封裝。
+如果`prerelease`未提供，發行前版本套件中排除。
 
-`semVerLevel`查詢參數用來選擇加入以[SemVer 2.0.0 封裝](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)。
-如果此查詢參數被排除後，將會傳回與 SemVer 1.0.0 相容版本的唯一封裝識別碼 (與[標準的 NuGet 版本控制](../reference/package-versioning.md)警告，例如 4 整數片段具有的版本字串)。
-如果`semVerLevel=2.0.0`提供 SemVer 1.0.0 和 SemVer 2.0.0 相容封裝將會傳回。 請參閱[nuget.org 的 SemVer 2.0.0 支援](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)如需詳細資訊。
+`semVerLevel`查詢參數用來加入[SemVer 2.0.0 封裝](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)。
+如果排除此查詢參數，則會傳回唯一的套件識別碼與 SemVer 1.0.0 相容版本 (使用[標準的 NuGet 版本控制](../reference/package-versioning.md)需要注意的事項，例如 4 的整數部分的版本字串)。
+如果`semVerLevel=2.0.0`提供，將傳回 SemVer 1.0.0 和 SemVer 2.0.0 相容的套件。 請參閱[nuget.org 的 SemVer 2.0.0 支援](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)如需詳細資訊。
 
 ### <a name="response"></a>回應
 
-回應是含有最多的 JSON 文件`take`自動完成的結果。
+回應是 JSON 文件最多包含`take`自動完成結果。
 
 根 JSON 物件具有下列屬性：
 
 名稱      | 類型             | 必要 | 注意
 --------- | ---------------- | -------- | -----
-totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和 `take`
+totalHits | 整數          | 是      | 總數的相符項目，正在略過`skip`和 `take`
 資料      | 字串陣列 | 是      | 封裝符合所要求的識別碼
 
 ### <a name="sample-request"></a>範例要求
@@ -85,9 +84,9 @@ totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和
 
 [!code-JSON [autocomplete-id-result.json](./_data/autocomplete-id-result.json)]
 
-## <a name="enumerate-package-versions"></a>列舉封裝版本
+## <a name="enumerate-package-versions"></a>列舉套件版本
 
-一旦找到套件識別碼使用先前的應用程式開發介面，用戶端可以使用自動完成應用程式開發介面來列舉封裝版本提供的封裝識別碼。
+一旦找到套件識別碼使用先前的 API，用戶端可以使用自動完成 API 來列舉套件版本提供的套件識別碼。
 
 未列出的套件版本不會出現在結果中。
 
@@ -97,25 +96,25 @@ totalHits | 整數          | 是      | 總數的比對，正在略過`skip`和
 
 名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
-id          | URL    | 字串  | 是      | 要擷取的版本的套件識別碼
-發行前版本  | URL    | boolean | 否       | `true` 或`false`決定是否要包含[發行前版本的封裝](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | 字串  | 否       | SemVer 2.0.0 的版本字串 
+id          | URL    | 字串  | 是      | 要擷取的版本之封裝 ID
+發行前版本  | URL    | boolean | 否       | `true` 或是`false`決定是否要包含[發行前版本套件](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | 字串  | 否       | SemVer 2.0.0 版本字串 
 
-如果`prerelease`未提供，會排除發行前版本的封裝。
+如果`prerelease`未提供，發行前版本套件中排除。
 
-`semVerLevel`查詢參數用來選擇加入以 SemVer 2.0.0 的封裝。 如果此查詢參數被排除後，將會傳回只 SemVer 1.0.0 版本。 如果`semVerLevel=2.0.0`提供，將傳回 SemVer 1.0.0 和 SemVer 2.0.0 的版本。 請參閱[nuget.org 的 SemVer 2.0.0 支援](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)如需詳細資訊。
+`semVerLevel`查詢參數用來選擇加入的 SemVer 2.0.0 套件。 如果此查詢參數被排除後，就會傳回只 SemVer 1.0.0 版。 如果`semVerLevel=2.0.0`提供 SemVer 1.0.0 和 SemVer 2.0.0 版本將會傳回。 請參閱[nuget.org 的 SemVer 2.0.0 支援](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)如需詳細資訊。
 
 ### <a name="response"></a>回應
 
-回應是包含所有的篩選指定的查詢參數所提供的封裝識別碼的封裝版本的 JSON 文件。
+回應是 JSON 文件包含所有的篩選指定的查詢參數所提供的封裝識別碼的封裝版本。
 
 根 JSON 物件具有下列屬性：
 
 名稱      | 類型             | 必要 | 注意
 --------- | ---------------- | -------- | -----
-資料      | 字串陣列 | 是      | 封裝版本要求所比對
+資料      | 字串陣列 | 是      | 比對要求的套件版本
 
-中的封裝版本`data`陣列可能包含 SemVer 2.0.0 建置中繼資料 (例如`1.0.0+metadata`) 如果`semVerLevel=2.0.0`查詢字串中提供。
+中的套件版本`data`陣列可能包含 SemVer 2.0.0 組建中繼資料 (例如`1.0.0+metadata`) 如果`semVerLevel=2.0.0`提供查詢字串中。
 
 ### <a name="sample-request"></a>範例要求
 

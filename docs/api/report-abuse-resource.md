@@ -3,16 +3,15 @@ title: 報告不當使用 URL 範本，NuGet API
 description: 報告不當使用 URL 範本可讓用戶端在其 UI 中顯示的報表內容粗俗的文章連結。
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020436"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549335"
 ---
 # <a name="report-abuse-url-template"></a>報告不當使用 URL 範本
 

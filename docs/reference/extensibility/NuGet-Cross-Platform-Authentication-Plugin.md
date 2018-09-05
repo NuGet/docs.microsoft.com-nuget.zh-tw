@@ -3,15 +3,14 @@ title: NuGet 跨平台驗證外掛程式
 description: NuGet NuGet.exe、 dotnet.exe，msbuild.exe 和 Visual Studio 跨平台驗證外掛程式
 author: nkolev92
 ms.author: nikolev
-manager: rrelyea
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 02db20e72f67463fffc45f3cba891ae670d67067
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: 1258ca4b30cb674c3832f12262940729438dd5b0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42794164"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546630"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet 跨平台驗證外掛程式
 
