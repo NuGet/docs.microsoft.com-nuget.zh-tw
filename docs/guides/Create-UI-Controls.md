@@ -3,15 +3,14 @@ title: 如何使用 NuGet 封裝 UI 控制項
 description: 如何建立包含 UWP 或 WPF 控制項的 NuGet 套件，包含 Visual Studio 和 Blend 設計工具的必要中繼資料和支援檔案。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ab7499c415f63319fd314f33607f74d400b5f957
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818653"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548734"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 

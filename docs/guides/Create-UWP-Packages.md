@@ -3,15 +3,14 @@ title: 建立通用 Windows 平台的 NuGet 套件
 description: 有關如何使用適用於通用 Windows 平台之 Windows 執行階段元件來建立 NuGet 套件的端對端逐步解說。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: c5d5bf72b99f6c2fe1b0a708ddb314d5711bc73d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 16e19be0356bc1d2734ade5cd593ca3ef05bbe5a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818278"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546417"
 ---
 # <a name="create-uwp-packages"></a>建立 UWP 套件
 

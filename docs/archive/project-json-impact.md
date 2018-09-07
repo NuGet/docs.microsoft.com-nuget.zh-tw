@@ -3,15 +3,14 @@ title: project.json 對 NuGet 套件作者的影響
 description: NuGet 3.x 中的 project.json 實作如何影響套件作者的詳細資料，例如不支援的功能、內容以及套件格式。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3236846864483b2e4f8bdaca2fe285ecc571b415
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818525"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545569"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
 

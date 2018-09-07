@@ -3,15 +3,14 @@ title: 重新安裝和更新 NuGet 套件
 description: 何時需要重新安裝和更新套件的詳細資料，與 Visual Studio 中的損毀套件參考相同。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 86765b56c994c96635feb8e706ff794001a1c1dc
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c58cf38bab45793bef820e2c52914a91d745ec77
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818291"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551779"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 

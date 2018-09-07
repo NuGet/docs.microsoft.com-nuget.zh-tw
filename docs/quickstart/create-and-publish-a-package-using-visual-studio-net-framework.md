@@ -3,15 +3,14 @@ title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Framework 套件
 description: 在 Windows 上使用 Visual Studio 2017 建立及發行 .NET Framework NuGet 套件的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508253"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549624"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發行套件 (.NET Framework，Windows)
 

@@ -3,15 +3,14 @@ title: 尋找及選擇 NuGet 套件
 description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817898"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549411"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 

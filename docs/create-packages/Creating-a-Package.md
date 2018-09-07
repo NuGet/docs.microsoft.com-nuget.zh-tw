@@ -3,15 +3,14 @@ title: 如何建立 NuGet 套件
 description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 435db2d0cddcfd6b9db530cb384cf7facb9170dd
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818460"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547370"
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 

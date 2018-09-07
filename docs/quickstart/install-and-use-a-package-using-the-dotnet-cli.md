@@ -3,15 +3,14 @@ title: 透過 dotnet CLI 使用 NuGet 套件的入門指南
 description: 在 .NET Core 專案中安裝與使用 NuGet 套件程序的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 2fac013de5457f26bbbaeff37209316daedcdbb0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: bb24ccbfdd4a6a94cf7116f16b0862871e176e50
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816939"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549272"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>快速入門：利用 dotnet CLI 安裝並使用套件
 

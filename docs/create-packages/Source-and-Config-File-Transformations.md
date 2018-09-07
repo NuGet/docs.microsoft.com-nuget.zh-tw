@@ -3,16 +3,15 @@ title: NuGet 套件的原始程式檔和組態檔轉換
 description: NuGet 套件可在安裝時轉換原始程式檔和組態檔 (XML) 的詳細資料。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 7d011e9924f37175815efa70f5ae1947fb256912
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c2cd61b692b80cdc45fce399483cda3b57d12e5e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817641"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547681"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>轉換原始程式碼和組態檔
 

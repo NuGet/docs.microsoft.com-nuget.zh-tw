@@ -3,15 +3,14 @@ title: 使用 dotnet CLI 建立及發佈 NuGet 套件
 description: 使用 .NET Core CLI、dotnet 建立和發行 NuGet 套件的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
-ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
+ms.openlocfilehash: 02aa7bb9d27352bbecfc718ef5bd6ee33501018d
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069670"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548425"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發佈套件 (dotnet CLI)
 
