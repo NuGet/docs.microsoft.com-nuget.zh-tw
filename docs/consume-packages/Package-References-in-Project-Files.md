@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9ae8e8dc4e7e901acacffed8b7dfb4162c5ad2b6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
+ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551386"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44516200"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -18,7 +18,7 @@ ms.locfileid: "43551386"
 
 使用 PackageReference 也可讓您使用 MSBuild 條件，依目標 Framework、組態、平台或其他群組來選擇套件參考。 它也允許對相依性和內容流動進行細微控制。 (如需詳細資訊，請參閱 [NuGet pack and restore as MSBuild targetsNuGet](../reference/msbuild-targets.md) (NuGet 以 pack 與 restore 作為 MSBuild 目標)。)
 
-根據預設，PackageReference 會用於以 Windows 10 組建 15063 (Creators Update) 及更新版本為目標的 .NET Core 專案、.NET Standard 專案和 UWP 專案 (C++ UWP 專案除外)。 .NET 完整 Framework 專案支援 PackageReference，但目前預設為 `packages.config`。 若要使用 PackageReference，請將相依性從 `packages.config` 移轉至您的專案檔，然後移除 packages.config。
+根據預設，PackageReference 會用於以 Windows 10 組建 15063 (Creators Update) 及更新版本為目標的 .NET Core 專案、.NET Standard 專案和 UWP 專案 (C++ UWP 專案除外)。 .NET Framework 專案支援 PackageReference，但目前預設為 `packages.config`。 若要使用 PackageReference，請將相依性從 `packages.config` 移轉至您的專案檔，然後移除 packages.config。
 
 ## <a name="adding-a-packagereference"></a>新增 PackageReference
 
