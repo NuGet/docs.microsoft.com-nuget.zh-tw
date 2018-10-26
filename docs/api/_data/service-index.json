@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0",
+  "resources": [
+    {
+      "@id": "https://api.nuget.org/v3-flatcontainer/",
+      "@type": "PackageBaseAddress/3.0.0",
+      "comment": "基底 URL 的 Azure 儲存體儲存適用於 NET Core NuGet 封裝註冊資訊的地方，可在格式 https://api.nuget.org/v3-flatcontainer/ {低識別碼} / {id 較低}。{版本較低}.nupkg"
+    },
+    {
+      "@id": "https://www.nuget.org/api/v2/package",
+      "@type": "PackagePublish/2.0.0"
+    },
+    {
+      "@id": "https://api-v2v3search-0.nuget.org/query",
+      "@type": "SearchQueryService/3.0.0-rc",
+      "comment": "查詢 RC 用戶端使用 （主要） 的 NuGet 搜尋服務的端點"
+    },
+    {
+      "@id": "https://api-v2v3search-0.nuget.org/autocomplete",
+      "@type": "SearchAutocompleteService/3.0.0-rc",
+      "comment": "RC 的用戶端所使用的自動完成端點 NuGet 搜尋服務 （主要）"
+    },
+    {
+      "@id": "https://api.nuget.org/v3/registration2/",
+      "@type": "RegistrationsBaseUrl/3.0.0-rc",
+      "comment": "基底 URL 的 Azure 儲存體 NuGet 封裝註冊資訊的儲存位置 RC 用戶端使用。此基底 URL 不包含 SemVer 2.0.0 封裝。"
+    }
+  ]
+}
