@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
+ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548734"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49951742"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 
@@ -87,7 +87,9 @@ Visual Studio 2017 可讓您利用 NuGet 套件所傳遞 UWP 和 WPF 控制項�
 
 ## <a name="add-custom-icons-to-your-controls"></a>將自訂圖示新增至控制項
 
-若要在工具箱/資產窗格中顯示自訂圖示，請將影像新增至專案或名為 “Namespace.ControlName.extension” 的對應 `design.dll` 專案，並將建置動作新增至 [內嵌資源]。 支援的格式為 `.png`、`.jpg`、`.jpeg`、`.gif` 和 `.bmp`。 建議的影像大小為 64 x 64 個像素。
+若要在工具箱/資產窗格中顯示自訂圖示，請將影像新增至專案或名為 “Namespace.ControlName.extension” 的對應 `design.dll` 專案，並將建置動作新增至 [內嵌資源]。 您也必須確定關聯的 `AssemblyInfo.cs` 指定 ProvideMetadata 屬性 - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`。 請參閱此[範例](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)。
+
+支援的格式為 `.png`、`.jpg`、`.jpeg`、`.gif` 和 `.bmp`。 建議的影像大小為 64 x 64 個像素。
 
 在下列範例中，專案會包含名為 “ManagedPackage.MyCustomControl.png” 的影像檔。
 
