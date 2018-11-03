@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548087"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981128"
 ---
 # <a name="search"></a>搜尋
 
@@ -99,7 +99,7 @@ projectUrl     | 字串                     | 否       |
 totalDownloads | 整數                    | 否       | 此值來推斷的下載項目中的總和`versions`陣列
 驗證       | boolean                    | 否       | JSON 布林值，指出封裝是否[驗證](../reference/id-prefix-reservation.md)
 
-在 nuget.org 上，已驗證的套件是一種比對的保留的識別碼前置詞的套件識別碼和保留的命名空間的擁有者所擁有。 如需詳細資訊，請參閱 <<c0> [ 識別碼首碼保留項目相關的文件](../reference/id-prefix-reservation.md)。
+在 nuget.org 上，已驗證的套件是一種比對的保留的識別碼前置詞的套件識別碼和保留的前置詞的擁有者所擁有。 如需詳細資訊，請參閱 <<c0> [ 識別碼首碼保留項目相關的文件](../reference/id-prefix-reservation.md)。
 
 在搜尋結果物件中包含的中繼資料是來自最新的套件版本。 在每個項目`versions`陣列是具有下列屬性的 JSON 物件：
 
