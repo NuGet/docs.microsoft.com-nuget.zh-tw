@@ -31,7 +31,6 @@
 ## 輔助線
 ### [建立 UWP 套件](guides/create-uwp-packages.md)
 ### [建立 UI 控制項作為 NuGet 套件](guides/create-UI-controls.md)
-### [使用 Visual Studio 2015 建立 NET Standard/NET Framework 套件](guides/create-net-standard-packages-vs2015.md)
 ### [使用 Visual Studio 2015 建立 Xamarin 的套件](guides/create-packages-for-xamarin.md)
 # 裝載套件
 ## [概觀](hosting-packages/overview.md)
