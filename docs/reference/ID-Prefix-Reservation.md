@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546586"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980998"
 ---
 # <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目
 
@@ -65,7 +65,7 @@ ms.locfileid: "43546586"
 
 1. 檢閱接受[首碼識別碼保留項目準則](#id-prefix-reservation-criteria)。
 
-2. 決定您想要保留時，除了任何命名的空間[進階的前置詞保留案例](#advanced-prefix-reservation-scenarios)您可能需要。
+2. 決定您想要保留時，除了任何前置的詞[進階的前置詞保留案例](#advanced-prefix-reservation-scenarios)您可能需要。
 
 3. 傳送郵件給[ account@nuget.org ](mailto:account@nuget.org)擁有者顯示名稱上[nuget.org](https://www.nuget.org/)，以及您所要求的任何保留前置詞。 如果您多個擁有者委派前置詞的子集，請確定您提到所有擁有者顯示名稱和前置詞子集。
 

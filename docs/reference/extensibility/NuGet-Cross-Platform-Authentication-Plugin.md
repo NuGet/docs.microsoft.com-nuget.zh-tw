@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1258ca4b30cb674c3832f12262940729438dd5b0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d80339eb81ade1cf2c323a604cc4fac06dcb1012
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546630"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981050"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet 跨平台驗證外掛程式
 
@@ -36,7 +36,7 @@ Dotnet.exe 中的驗證機制是裝置流程。 當還原或新增作業封鎖�
 
 ## <a name="creating-a-cross-platform-authentication-plugin"></a>建立跨平台驗證外掛程式
 
-範例實作可在[MSCredProvider 外掛程式](https://github.com/Microsoft/mscredprovider)。
+範例實作可在[Microsoft 認證提供者外掛程式](https://github.com/Microsoft/artifacts-credprovider)。
 
 它是非常重要的外掛程式符合規定的 NuGet 用戶端工具的安全性需求。
 要驗證外掛程式的外掛程式版本所需的最小*2.0.0*。

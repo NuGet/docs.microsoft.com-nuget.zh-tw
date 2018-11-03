@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 651bbe63ec95fcedb8e9504022d08d6ba7f9219e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551753"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981180"
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 套件管理員 UI
 
@@ -70,7 +70,11 @@ ms.locfileid: "43551753"
 
     ![更新套件](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>某些封裝，如**更新**按鈕已停用，且會出現訊息指出，它會 「 隱含參考 SDK 」 （或 「 自動參考 」）。 訊息會指出封裝，例如 Microsoft.NETCore.App 或 Microsoft.NETStandard.Library，是較大的架構或 SDK 的一部分，而且不應獨立更新。 (這類套件會在內部標示與`<IsImplicitlyDefined>True</IsImplicitlyDefined>`。)若要更新封裝，更新的 SDK 及其所屬，推斷包含 SDK 從套件名稱。 比方說，例如 Microsoft.NETCore.App 封裝是.NET Core SDK 的一部分，因此，您需要更新您的.NET Core SDK 安裝。
+1. <a name="implicit_reference"></a>某些封裝，如**更新**按鈕已停用，且會出現訊息指出，它會 「 隱含參考 SDK 」 （或 「 自動參考 」）。 此訊息表示封裝是較大的架構或 SDK 的一部分，而且不應獨立更新。 (這類套件會在內部標示與`<IsImplicitlyDefined>True</IsImplicitlyDefined>`。)比方說，`Microsoft.NETCore.App`屬於.NET Core SDK 和套件版本不相同的應用程式所使用的執行階段 framework 版本。 您需要[更新您的.NET Core 安裝](https://aka.ms/dotnet-download)來取得新版本的 ASP.NET Core 和.NET Core 執行階段。 [請參閱這份文件，如需詳細資訊，.NET Core 中繼套件和版本控制](/dotnet/core/packages)。 這適用於下列常用的套件：
+    * Microsoft.AspNetCore.All
+    * Microsoft.AspNetCore.App
+    * Microsoft.NETCore.App
+    * NETStandard.Library
 
     ![範例封裝標示隱含參考或自動參考](media/PackageManagerUIAutoReferenced.png)
 
