@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547370"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981167"
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
@@ -170,8 +170,9 @@ nuget locals -list global-packages
 | 資料夾 | 描述 | 套件安裝時的動作 |
 | --- | --- | --- |
 | (root) | readme.txt 的位置 | 安裝套件時，Visual Studio 會顯示套件根目錄中的 readme.txt 檔案。 |
-| lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為參考；`.xml` 和 `.pdb` 則會複製至專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
-| runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件會新增為參考；其他檔案則會複製至專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)。 |
+| lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為編譯與執行階段的參考；`.xml` 與 `.pdb` 則會複製到專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
+| ref/{tfm} | 所指定目標 Framework Moniker (TFM) 的組件 (`.dll`) 與符號 (`.pdb`) 檔案 | 組件只會針對編譯階段新增為參考；因此不會有任何項目被複製到專案 bin 資料夾。 |
+| runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件只會針對執行階段新增為參考；其他檔案則會複製至專案資料夾。 `/ref/{tfm}` 資料夾下一律必須有對應的 (TFM) `AnyCPU` 特定組件，才能提供對應的編譯階段組件。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)。 |
 | content | 任意檔案 | 內容會複製至專案根目錄。 請將 **content** 資料夾視為最後使用套件的目標應用程式的根目錄。 若要讓套件在應用程式的 */images* 資料夾中新增映像，請將它放在套件的 *content/images* 資料夾中。 |
 | build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入專案檔或 `project.lock.json` (NuGet 3.x+) 中。 |
 | tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時「不」會新增至針對 MSBuild 所設定的 `PATH`)。 |

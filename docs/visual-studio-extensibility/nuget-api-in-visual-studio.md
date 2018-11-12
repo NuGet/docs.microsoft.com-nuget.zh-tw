@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: c2a6675472070b49c9c5b723b9d24a1fa59c2971
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546206"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980972"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio 中的 NuGet API
 
@@ -24,7 +24,7 @@ ms.locfileid: "43546206"
 - [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface)：套件安裝/解除安裝的批次事件。
 - [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface)：在目前解決方案中擷取已安裝套件，以及檢查指定套件是否安裝在專案中的方法。
 - [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface)：為 NuGet 套件提供替代之套件管理員建議的方法。
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface)；擷取已安裝套件之相關資訊的方法。
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface)：擷取已安裝套件之相關資訊的方法。
 - [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface)：擷取執行 NuGet 動作所在專案相關資訊的方法。
 - [`IVsPackageRestorer`](#ivspackagerestorer-interface)：還原專案中已安裝套件的方法。
 - [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface)：擷取 NuGet 套件來源清單的方法。
@@ -57,7 +57,7 @@ ms.locfileid: "43546206"
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-NuGet.VisualStudio 原始程式碼包含在 [NuGet.Clients 儲存機制](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio) 內，供您參考。
+NuGet.VisualStudio 原始程式碼包含在 [NuGet.Clients 存放庫](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio) 內，供您參考。
 
 ## <a name="iregistrykey-interface"></a>IRegistryKey 介面
 

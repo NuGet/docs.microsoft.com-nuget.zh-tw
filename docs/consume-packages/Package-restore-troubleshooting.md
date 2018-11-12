@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11acb90b45af73137faac1ec6bc403b109e6e808
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dacc95c557af016f535bc1b758473d7062f2ad3f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549596"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981011"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
@@ -42,7 +42,7 @@ This project references NuGet package(s) that are missing on this computer.
 Use NuGet Package Restore to download them. The missing file is {name}.
 ```
 
-當您嘗試建置包含一或多個 NuGet 套件參考的專案，但這些套件目前並未在電腦上或專案中安裝時，就會發生這項錯誤。
+當您嘗試建置包含一或多個 NuGet 套件參考的專案，但這些套件目前並未在電腦上或專案中安裝時，就會發生此錯誤。
 
 - 使用 PackageReference 管理格式時，此錯誤表示套件並未如[管理全域套件和快取資料夾](managing-the-global-packages-and-cache-folders.md)中所述安裝在 *global-packages* 資料夾中。
 - 當使用 `packages.config` 時，此錯誤表示套件並未安裝在解決方案跟目錄的 `packages` 資料夾中。

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551702"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981141"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>支援多個 .NET Framework 版本
 
@@ -65,7 +65,13 @@ ms.locfileid: "43551702"
             \native
             \lib\uap10.0
 
+這些組件只有在執行階段中可用，因此若您也要提供對應的編譯階段組件，`AnyCPU` 必須位於 `/ref{tfm}` 資料夾中。 
+
+請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣地，若有一些來自 `/runtime` 的相容資產，將也會針對執行階段忽略 `/lib`。
+
 如需在 `.nuspec` 資訊清單中參考這些檔案的範例，請參閱[建立 UWP 套件](../guides/create-uwp-packages.md)。
+
+此外，請參閱[使用 NuGet 封裝 Windows 市集應用程式](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>比對組件版本與專案中的目標架構
 
