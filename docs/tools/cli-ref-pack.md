@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: db236b0eaac34ca9f6f67fd15ca3ad6884f6a18d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549092"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580307"
 ---
 # <a name="pack-command-nuget-cli"></a>pack 命令 (NuGet CLI)
 
@@ -38,6 +38,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | 排除 | 指定建立封裝時所要排除的一個或多個萬用字元模式。 若要指定一個以上的模式，請重複-排除旗標。 請參閱以下的範例。 |
 | ExcludeEmptyDirectories | 建置套件時，可避免包含空的目錄。 |
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
+| ConfigFile | 指定組件命令的組態檔。 |
 | 說明 | 顯示說明命令的資訊。 |
 | IncludeReferencedProjects | 指出已建置的套件應包含參考的專案，做為相依性，或是做為封裝的一部分。 如果參考的專案都有對應`.nuspec`有同名的專案，則該參考的專案新增為相依性的檔案。 否則參考的專案新增為套件的一部分。 |
 | MinClientVersion | 設定*minClientVersion*屬性建立的封裝。 這個值會覆寫現有的值*minClientVersion*中的屬性 （如果有的話）`.nuspec`檔案。 |
@@ -48,7 +49,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | OutputDirectory | 指定建立的封裝儲存所在的資料夾。 如果未不指定任何資料夾，則會使用目前的資料夾。 |
 | 屬性 | 應該會出現在命令列上的最後一個之後的其他選項。 指定專案檔案中的值會覆寫的屬性的清單請參閱[通用的 MSBuild 專案屬性](/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份權杖 = 值 」 配對，並以分號區隔，其中出現的每個`$token$`在`.nuspec`檔案將會取代指定的值。 值可以是以引號的字串。 請注意，「 組態 」 屬性，預設值是"Debug"。 若要變更的發行組態，使用`-Properties Configuration=Release`。 |
 | 尾碼 | *(3.4.4+)* 將後置字元附加至內部產生的版本號碼，通常用來附加組建或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本號碼的按讚與`1.2.3-nightly`。 後置字元的開頭必須是字母，以避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
-| Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案和對應的符號套件。 |
+| Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案和對應的符號套件。 依預設它會建立[舊版的符號套件](../create-packages/Symbol-Packages.md)。 符號套件的新建議的格式是.snupkg。 請參閱[建立符號套件 (.snupkg)](../create-packages/Symbol-Packages-snupkg.md)。 |
 | 工具 | 指定專案的輸出檔案應該放在`tool`資料夾。 |
 | 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 | 版本 | 覆寫的版本號碼，從`.nuspec`檔案。 |
@@ -89,6 +90,9 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 
 # Create a package from project foo.csproj, using MSBuild version 12 to build the project
 nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
+
+# Create a package from project foo.nuspec and the corresponding symbol package using the new recommended format .snupkg
+nuget pack foo.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack foo.nuspec -Version 2.1.0
 

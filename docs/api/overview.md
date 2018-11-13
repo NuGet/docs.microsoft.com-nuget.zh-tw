@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547499"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580333"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,16 +49,17 @@ NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V
 
 **服務索引**說明各種不同的資源。 目前的一組支援資源如下所示：
 
-資源名稱                                                          | 必要 | 描述
----------------------------------------------------------------------- | -------- | -----------
+資源名稱                                                           | 必要 | 描述
+----------------------------------------------------------------------  | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | 是      | 推送和刪除 （或取消列出） 封裝。
 [`SearchQueryService`](search-query-service-resource.md)               | 是      | 篩選和關鍵字搜尋的封裝。
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | 是      | 取得套件中繼資料。
 [`PackageBaseAddress`](package-base-address-resource.md)               | 是      | 取得封裝的內容 (.nupkg)。
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | 否       | 探索的子字串的封裝識別碼和版本。
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | 否       | 建構存取 「 檢舉不當使用 」 網頁的 URL。
-[`RepositorySignatures`](repository-signatures-resource.md)            | 否       | 取得用來存放庫簽章的憑證。
-[`Catalog`](catalog-resource.md)                                       | 否       | 完整封裝的所有事件的記錄。
+[`RepositorySignatures`](repository-signatures-resource.md)             | 否      | 取得用來存放庫簽章的憑證。
+[`Catalog`](catalog-resource.md)                                         | 否      | 完整封裝的所有事件的記錄。
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | 否      | 推送符號套件。
 
 一般情況下，API 資源傳回的所有非二進位資料會使用 JSON 序列化的。 服務索引中每個資源所傳回的回應結構描述是個別針對該資源定義。 如需有關每個資源的詳細資訊，請參閱以上所列的主題。
 
