@@ -24,8 +24,8 @@
 ## [來源與設定檔轉換](create-packages/source-and-config-file-transformations.md)
 ## [建立當地語系化的套件](create-packages/creating-localized-packages.md)
 ## [發行前版本套件](create-packages/prerelease-packages.md)
-## [原生套件](create-packages/native-packages.md)
-## [符號套件](create-packages/symbol-packages.md)
+## [建立原生套件](create-packages/native-packages.md)
+## [建立符號套件](create-packages/symbol-packages-snupkg.md)
 ## [正在簽署套件](create-packages/sign-a-package.md)
 ## [發行套件](create-packages/publish-a-package.md)
 ## 輔助線
@@ -198,6 +198,7 @@
 ## [操作說明：查詢使用 API 的所有套件](guides/api/query-for-all-published-packages.md)
 ## [服務索引](api/service-index.md)
 ## [推送與刪除](api/package-publish-resource.md)
+## [推送符號套件](api/symbol-package-publish-resource.md)
 ## [搜尋](api/search-query-service-resource.md)
 ## [自動完成](api/search-autocomplete-service-resource.md)
 ## [套件中繼資料](api/registration-base-url-resource.md)
