@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548768"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580294"
 ---
 # <a name="package-restore"></a>套件還原
 
@@ -62,9 +62,9 @@ ms.locfileid: "43548768"
         </packageRestore>
     </configuration>
     ```
-    <br/>
-    > [!Note]
-    >  在啟動 Visual Studio 或啟動組建之前，可以設定稱為 **EnableNuGetPackageRestore** 且值為 TRUE 或 FALSE 的環境變數，以全域覆寫 `packageRestore/enabled` 設定。
+
+> [!Note]
+>  在啟動 Visual Studio 或啟動組建之前，可以設定稱為 **EnableNuGetPackageRestore** 且值為 TRUE 或 FALSE 的環境變數，以全域覆寫 `packageRestore/enabled` 設定。
 
 - **在 Visual Studio 建置期間自動檢查遺漏的套件**：變更 `NuGet.Config` 檔案中的 `packageRestore/automatic` 設定，以控制自動還原，如下所示 (在 Windows 上為 `%AppData%\NuGet\NuGet.Config`，在 Mac/Linux 上則為 `~/.nuget/NuGet/NuGet.Config`)。 設定此選項時，從 Visual Studio 中執行組建，會自動還原任何遺漏的套件。 此選項不會影響使用 MSBuild 從命令列執行的組建。
 
