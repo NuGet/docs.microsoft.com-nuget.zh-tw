@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981167"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580388"
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
@@ -51,7 +51,7 @@ ms.locfileid: "50981167"
 
 - 套件識別碼，其在裝載套件的資源庫內必須是唯一的。
 - *Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)
-- 它應該出現在主機上的套件標題 (例如 nuget.org)
+- 主機上應該會出現套件標題 (例如 nuget.org)
 - 作者和擁有者資訊。
 - 套件的詳細描述。
 
@@ -157,7 +157,7 @@ nuget locals -list global-packages
 
 ### <a name="from-a-convention-based-working-directory"></a>從以慣例為基礎的工作目錄
 
-因為 NuGet 套件只是使用 `.nupkg` 副檔名重新命名的 ZIP 檔案，所以很容易便能在本機檔案系統上建立所要的資料夾結構，然後直接從該結構建立 `.nuspec` 檔案。 `nuget pack` 命令接著會自動在該資料夾結構中新增所有檔案 (不含任何開頭為 `.` 的資料夾)，以讓您將私人檔案保留在相同的結構中)。
+因為 NuGet 套件只是使用 `.nupkg` 副檔名重新命名的 ZIP 檔案，所以通常很容易即可在本機檔系統上，建立所需的資料夾結構，然後直接從該結構建立 `.nuspec` 檔案。 `nuget pack` 命令接著會自動在該資料夾結構中新增所有檔案 (不包含任何以 `.` 開頭的資料夾，供您以相同的結構保留私人檔案)。
 
 這種方法的優點是您不需要在資訊清單中指定想要包含在套件中的檔案 (如本主題中稍後所述)。 您可以只讓建置程序產生套件中完全相同的資料夾結構，而且可以輕鬆地包含可能不屬於專案的其他檔案：
 
@@ -175,9 +175,9 @@ nuget locals -list global-packages
 | runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件只會針對執行階段新增為參考；其他檔案則會複製至專案資料夾。 `/ref/{tfm}` 資料夾下一律必須有對應的 (TFM) `AnyCPU` 特定組件，才能提供對應的編譯階段組件。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)。 |
 | content | 任意檔案 | 內容會複製至專案根目錄。 請將 **content** 資料夾視為最後使用套件的目標應用程式的根目錄。 若要讓套件在應用程式的 */images* 資料夾中新增映像，請將它放在套件的 *content/images* 資料夾中。 |
 | build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入專案檔或 `project.lock.json` (NuGet 3.x+) 中。 |
-| tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時「不」會新增至針對 MSBuild 所設定的 `PATH`)。 |
+| tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時 *「不」* 會新增至針對 MSBuild 所設定的 `PATH`)。 |
 
-因為您的資料夾結構可以包含任意數目之目標架構的任意數目組件，所以建立可支援多個架構的套件時需要這種方法 
+因為您的資料夾結構可包含任意數目之目標架構的任意數目組件，所以建立可支援多重架構的套件時，需要使用此種方法。
 
 在任何情況下，您擁有所要的資料夾結構之後，請在該資料夾中執行下列命令來建立 `.nuspec` 檔案：
 
@@ -321,7 +321,7 @@ nuget spec [<package-name>]
 
 在某些情況下，您可能想要在取用您套件的專案中新增自訂組建目標或屬性，例如在建置期間執行自訂工具或程序。 做法是在專案的 `\build` 資料夾內以 `<package_id>.targets` 或 `<package_id>.props` 形式放置檔案 (例如 `Contoso.Utility.UsefulStuff.targets`)。
 
-根 `\build` 資料夾中的檔案視為適合所有目標架構。 若要提供架構特定檔案，請先將這些檔案放入適當的子資料夾中，如下所示：
+根 `\build` 資料夾中的檔案視為適合所有目標架構。 若要提供架構專屬的檔案，請先將其置於適當的子資料夾中，如下所示：
 
     \build
         \netstandard1.4

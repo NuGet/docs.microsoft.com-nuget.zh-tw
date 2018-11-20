@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: c2cd61b692b80cdc45fce399483cda3b57d12e5e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 830714269ac422a4784c15b000e374195f02332f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547681"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580279"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>轉換原始程式碼和組態檔
 
@@ -114,7 +114,7 @@ NuGet 安裝套件之後，`web.config` 會顯示如下：
 
 ### <a name="xdt-transforms"></a>XDT 轉換
 
-您可以使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)來修改組態檔。 您也可以在 `$` 分隔符號內包含屬性名稱 (不區分大小寫)，讓 NuGet 將權杖取代為[專案屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。
+您可以使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)來修改組態檔。 您也可以在 `$` 分隔符號內，納入屬性名稱 (不區分大小寫)，讓 NuGet 將權杖取代為[專案屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。
 
 例如，下列 `app.config.install.xdt` 檔案會將 `appSettings` 項目從專案插入至包含 `FullPath`、`FileName` 和 `ActiveConfigurationSettings` 值的 `app.config`：
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548815"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580320"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 簡介
 
@@ -24,7 +24,7 @@ ms.locfileid: "43548815"
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>建立者、主機和取用者之間的套件流程
 
-NuGet 的角色是公用主機，因此本身會在 [nuget.org](https://www.nuget.org) \(英文\) 維護具有超過 100,000 個獨特套件的中央存放庫。每天都會有數百萬位 .NET/.NET Core 開發人員採用這些套件。 NuGet 也可以讓您在雲端中 (例如，在 Visual Studio Team Services 上)、在私人網路上，甚至只在您的本機檔案系統中，私下裝載套件。 如此一來，那些套件就只能供可存取該主機的開發人員使用，讓特定的取用者群組能夠使用套件。 [裝載您自己的 NuGet 摘要](hosting-packages/overview.md)會說明這些選項。 透過設定選項，您也可以完全控制哪些主機可以透過任何指定的電腦來存取，以確定可從諸如 nuget.org 之公用存放庫以外的特定來源取得套件。
+NuGet 的角色是公用主機，因此本身會在 [nuget.org](https://www.nuget.org) \(英文\) 維護具有超過 100,000 個獨特套件的中央存放庫。每天都會有數百萬位 .NET/.NET Core 開發人員採用這些套件。 NuGet 也讓您能夠在雲端 (例如在 Azure DevOps 上)、私人網路或甚至只是在本機檔案系統中，私下裝載套件。 如此一來，那些套件就只能供可存取該主機的開發人員使用，讓特定的取用者群組能夠使用套件。 [裝載您自己的 NuGet 摘要](hosting-packages/overview.md)會說明這些選項。 透過設定選項，您也可以完全控制哪些主機可以透過任何指定的電腦來存取，以確定可從諸如 nuget.org 之公用存放庫以外的特定來源取得套件。
 
 不管其本質為何，主機都是作為套件「建立者」與套件「取用者」之間的聯繫點。 建立者會建置有用的 NuGet 套件，並將其發行至主機。 取用者接著會搜尋可存取主機上的實用和相容套件，並下載這些套件且將其包含在專案中。 一旦安裝於專案，套件的 API 就可供專案程式碼的其餘部分使用。
 
@@ -50,7 +50,7 @@ NuGet 的角色是公用主機，因此本身會在 [nuget.org](https://www.nuge
 | [套件管理員主控台](tools/package-manager-console.md) | Windows 上的 Visual Studio | 使用 | 提供 [PowerShell 命令](tools/Powershell-Reference.md)，以在 Visual Studio 專案中安裝和管理套件。 |
 | [套件管理員 UI](tools/package-manager-ui.md) | Windows 上的 Visual Studio | 使用 | 提供易於使用的 UI，以在 Visual Studio 專案中安裝和管理套件。 |
 | [管理 NuGet UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 使用 | 提供易於使用的 UI，以在 Visual Studio for Mac 專案中安裝和管理套件。 |
-| [ MSBuild](reference/msbuild-targets.md) | Windows | 建立、使用 | 提供能夠建立套件，以及還原透過 MSBuild 工具鏈直接用於專案的套件的能力。 |
+| [MSBuild](reference/msbuild-targets.md) | Windows | 建立、使用 | 提供能夠建立套件，以及還原透過 MSBuild 工具鏈直接用於專案的套件的能力。 |
 
 如您所見，您所使用的 NuGet 工具大部分取決於您是否正在建立、取用或發行套件，以及您的工作所在平台。 套件建立者通常也是取用者，因為他們是以其他 NuGet 套件的現有功能為建置基礎。 當然，這些套件可能接著會與其他項目相依。
 
@@ -78,7 +78,7 @@ NuGet 會改為維護專案相依之套件的簡單參考清單，包括最上�
 
 只有參考清單時，NuGet 稍後隨時都可從公用和/或私人主機重新安裝&mdash;即「還原」&mdash;所有的那些套件。 將專案認可到原始檔控制，或以某種其他方式進行共用時，只需包含參考清單，並排除任何套件二進位檔 (請參閱[套件和原始檔控制](consume-packages/packages-and-source-control.md))。
 
-接收專案的電腦 (例如，在自動部署系統期間取得專案複本的組建伺服器) 只會要求 NuGet 在必要時還原相依性。 針對這個確切的用途，Visual Studio Team Services 這類組建系統會提供「NuGet 還原」步驟。 同樣地，當開發人員取得專案複本時 (像是在複製存放庫時)，可以叫用類似 `nuget restore` (NuGet CLI)、`dotnet restore` (dotnet CLI) 或 `Install-Package` (套件管理員主控台) 的命令來取得所有必要的套件。 在建置專案時，Visual Studio 會自動還原套件 (假設已啟用自動還原，如[套件還原](consume-packages/package-restore.md)中所述)。
+接收專案的電腦 (例如，在自動部署系統期間取得專案複本的組建伺服器) 只會要求 NuGet 在必要時還原相依性。 而建置像是 Azure DevOps 系統，可為此確切之目的，提供 "NuGet restore" 步驟。 同樣地，當開發人員取得專案複本時 (像是在複製存放庫時)，可以叫用類似 `nuget restore` (NuGet CLI)、`dotnet restore` (dotnet CLI) 或 `Install-Package` (套件管理員主控台) 的命令來取得所有必要的套件。 在建置專案時，Visual Studio 會自動還原套件 (假設已啟用自動還原，如[套件還原](consume-packages/package-restore.md)中所述)。
 
 清楚的是，開發人員所關注的 NuGet 主要角色將會代表您的專案維護該參考清單，並提供方式，以有效率地還原 (和更新) 這些參考的套件。 此清單會以兩種「套件管理格式」 (呼叫它們時) 之一來維護：
 

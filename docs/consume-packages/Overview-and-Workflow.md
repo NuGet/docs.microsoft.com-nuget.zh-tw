@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545044"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580242"
 ---
 # <a name="package-consumption-workflow"></a>套件使用工作流程
 
@@ -18,7 +18,7 @@ ms.locfileid: "43545044"
 
 ![移至套件來源、尋找套件、將它安裝至專案，然後新增 using 陳述式和套件 API 呼叫的流程](media/Overview-01-GeneralFlow.png)
 
-\* _僅限 Visual Studio 和 dotnet.ex`。Muget 安裝命令不會修改專案檔或 packages.config，項目必須手動管理。_
+僅限 \* _Visual Studio 和 `dotnet.exe`。`nuget install` 命令不會修改專案檔案或 `packages.config` 檔案；必須手動管理項目。_
 
 如需詳細資訊，請參閱[尋找及選擇套件](../consume-packages/finding-and-choosing-packages.md)和[安裝 NuGet 套件的不同方式](ways-to-install-a-package.md)。
 

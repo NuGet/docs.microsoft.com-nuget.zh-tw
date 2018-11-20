@@ -6,14 +6,18 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: ad1cf08437b4802d981f8c1a96ab9dc75425a2f0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3321cba9082eb35b53ba693e246db18e5d8e187b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550611"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580255"
 ---
-# <a name="creating-symbol-packages"></a>建立符號套件
+# <a name="creating-symbol-packages-legacy"></a>建立符號套件 (舊版)
+
+> [!Important]
+> 為符號套件新建議的格式為 .snupkg。 請參閱[建立符號套件 (.snupkg)](Symbol-Packages-snupkg.md)。 </br>
+> 目前仍然支援 .symbols.nupkg，只是為達到相容性而已。
 
 除了建置 nuget.org 或其他來源的套件之外，NuGet 也支援建立相關聯符號套件以及將它們發行至 SymbolSource 存放庫。
 

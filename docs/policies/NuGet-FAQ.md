@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548800"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580353"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -166,7 +166,7 @@ NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套�
 
 請注意，會自動從您套件本身產生針對套件所列出的相依性，而且無法進行編輯。
 
-此外，將套件上傳至 [staging.nuget.org](http://staging.nuget.org) 是測試和驗證套件的不錯方式，而不需要將套件設為可在公用資源庫中使用。
+此外，將套件上傳至 [int.nugettest.org](https://int.nugettest.org) 是測試及驗證您套件的好方法，完全無須將套件設為可在公開資源庫中使用。
 
 **可以保留將在未來發行之套件的名稱嗎？**
 
@@ -182,9 +182,9 @@ NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套�
 
 **建議將測試套件上傳至 nuget.org 嗎？**
 
-基於測試目的，您可以使用 [staging.nuget.org](http://staging.nuget.org) 或替代公用 NuGet 伺服器 (例如 [myget.org](https://myget.org) 或 [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/))。
+基於測試目的，您可以使用 [int.nugettest.org](https://int.nugettest.org) 或替代的公開 NuGet 伺服器，例如 [myget.org](https://myget.org) 或 [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/)。
 
-請注意，可能不會保留上傳至 staging.nuget.org 的套件。 請參閱 [Goodbye 預覽](http://blog.nuget.org/20130419/goodbye-preview.html)。
+請注意，上傳到 int.nugettest.org 的套件不會保留。
 
 **我可以上傳至 nuget.org 的套件大小上限為何？**
 
