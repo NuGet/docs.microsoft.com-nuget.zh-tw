@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580387"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944076"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -79,7 +79,49 @@ UI 顯示中的套件詳細描述。
 #### <a name="projecturl"></a>projectUrl
 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 
 #### <a name="licenseurl"></a>licenseUrl
+> [!Important]
+> licenseUrl 已被取代。 改為使用授權。
+
 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。
+#### <a name="license"></a>授權
+SPDX 授權運算式或套件，通常會顯示在 UI 顯示及 nuget.org 中的授權檔案的路徑。如果您要授權常見例如 BSD 2 子句或 MIT 授權底下的封裝，使用相關聯的 SPDX 授權識別碼。<br>例如： `<license type="expression">MIT</license>`
+
+以下是完整的清單[SPDX 授權識別碼](https://spdx.org/licenses/)。 NuGet.org 接受僅 OSI 或 FSF 核准授權時使用的授權類型的運算式。
+
+如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如： `<license type="expression">BSD-2-Clause OR MIT</license>`
+
+如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您就可以封裝授權文字的檔案。 例如: 
+```xml
+<package>
+  <metadata>
+    ...
+    <license type="file">LICENSE.txt</license>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="licenses\LICENSE.txt" target="" />
+    ...
+  </files>
+</package>
+```
+NuGet 的授權運算式的正確語法是如下中所述[ABNF](https://tools.ietf.org/html/rfc5234)。
+```cli
+license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
+
+license-exception-id  = <short form license exception identifier from https://spdx.org/spdx-specification-21-web-version#h.ruv3yl8g6czd>
+
+simple-expression = license-id / license-id”+”
+
+compound-expression =  1*1(simple-expression /
+                simple-expression "WITH" license-exception-id /
+                compound-expression "AND" compound-expression /
+                compound-expression "OR" compound-expression ) /                
+                "(" compound-expression ")" )
+
+license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
+```
+
 #### <a name="iconurl"></a>iconUrl
 具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 的映像，使用 原始檔 URL，如<em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 
 
@@ -614,7 +656,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
         <description>Sample exists only to show a sample .nuspec file.</description>
         <language>en-US</language>
         <projectUrl>http://xunit.codeplex.com/</projectUrl>
-        <licenseUrl>http://xunit.codeplex.com/license</licenseUrl>
+        <license type="expression">MIT</license>
     </metadata>
 </package>
 ```
