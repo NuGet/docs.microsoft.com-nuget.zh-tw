@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580388"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944063"
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
@@ -61,7 +61,8 @@ ms.locfileid: "51580388"
 - 著作權資訊
 - [Visual Studio 中的套件管理員 UI](../tools/package-manager-ui.md) 的簡短描述
 - 地區設定識別碼
-- 首頁和授權 URL
+- 專案 URL
+- 運算式或檔案形式的授權 (`licenseUrl` 即將淘汰，請使用 [`license` nuspec 中繼資料元素](../reference/nuspec.md#license))
 - 圖示 URL
 - 相依性和參考的清單
 - 協助進行資源庫搜尋的標記
@@ -86,10 +87,13 @@ ms.locfileid: "51580388"
             users to easily find other packages by the same owners.  
         -->
         <owners>dejanatc, rjdey</owners>
-
-         <!-- License and project URLs provide links for the gallery -->
-        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        
+         <!-- Project URL provides a link for the gallery -->
         <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
+
+         <!-- License information is displayed on the gallery -->
+        <license type="expression">Apache-2.0</license>
+        
 
         <!-- The icon is used in Visual Studio's package manager UI -->
         <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
