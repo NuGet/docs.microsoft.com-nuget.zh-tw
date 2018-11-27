@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546911"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303515"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
 NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)中所述。
 
-`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每一個區段包含零個或更多 `<add>` 項目與 `key` 和 `value` 屬性。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
+`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段包含零個以上的項目。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
 
 本主題內容：
 
@@ -30,6 +30,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
+- [trustedSigners 區段](#trustedsigners-section)
 - [使用環境變數](#using-environment-variables)
 - [設定檔範例](#example-config-file)
 
@@ -51,6 +52,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 | repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 此設定會覆寫 NUGET_PACKAGES 環境變數，會優先使用。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
+| signatureValidationMode | 指定用來驗證套件安裝的套件簽章和還原的驗證模式。 值為`accept`， `require`。 預設值為 `accept`。
 
 **範例**：
 
@@ -60,6 +62,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
     <add key="globalPackagesFolder" value="c:\packages" />
     <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
+    <add key="signatureValidationMode" value="require" />
 </config>
 ```
 
@@ -115,9 +118,9 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ## <a name="package-source-sections"></a>套件來源區段
 
-`packageSources`、`packageSourceCredentials`、`apikeys`、`activePackageSource` 和 `disabledPackageSources` 全部一起運作，以設定 NuGet 在安裝、還原及更新作業期間，如何處理套件儲存機制。
+`packageSources`， `packageSourceCredentials`， `apikeys`， `activePackageSource`，`disabledPackageSources`和`trustedSigners`一起，以設定 NuGet 在安裝、 還原及更新作業期間如何使用套件存放庫的所有工作。
 
-[`nuget sources` 命令](../tools/cli-ref-sources.md)通常用來管理這些設定，但 `apikeys` 例外，它是使用 [`nuget setapikey` 命令](../tools/cli-ref-setapikey.md)來管理。
+[ `nuget sources`命令](../tools/cli-ref-sources.md)通常用來管理這些設定，除了`apikeys`管理使用[`nuget setapikey`命令](../tools/cli-ref-setapikey.md)，以及`trustedSigners`管理使用[`nuget trusted-signers`命令](../tools/cli-ref-trusted-signers.md)。
 
 請注意，nuget.org 的來源 URL 是 `https://api.nuget.org/v3/index.json`。
 
@@ -237,6 +240,35 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+## <a name="trustedsigners-section"></a>trustedSigners 區段
+
+用來允許的同時，安裝或還原套件的簽署受信任的存放區。 使用者設定時，此清單不得為空白`signatureValidationMode`至`require`。 
+
+此區段可使用更新[`nuget trusted-signers`命令](../tools/cli-ref-trusted-signers.md)。
+
+**結構描述**:
+
+受信任簽署者具有集合`certificate`登錄找出指定的簽署者的所有憑證的項目。 受信任簽署者可以是`Author`或`Repository`。
+
+受信任*儲存機制*也會指定`serviceIndex`存放庫 (必須是有效`https`uri) 可以選擇性地指定以分號分隔的清單和`owners`來限制更多人員是信任從特定的存放庫中。
+
+使用憑證指紋的支援的雜湊演算法`SHA256`，`SHA384`和`SHA512`。
+
+如果`certificate`指定`allowUntrustedRoot`做為`true`建置憑證鏈結，做為簽章驗證的一部分時允許指定的憑證鏈結至不受信任的根。
+
+**範例**：
+
+```xml
+<trustedSigners>
+    <author name="microsoft">
+        <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+    </author>
+    <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+        <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <owners>microsoft;aspnet;nuget</owners>
+    </repository>
+</trustedSigners>
+```
 
 ## <a name="using-environment-variables"></a>使用環境變數
 
@@ -313,5 +345,19 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
     <apikeys>
         <add key="https://MyRepo/ES/api/v2/package" value="encrypted_api_key" />
     </apikeys>
+
+    <!--
+        Used to specify trusted signers to allow during signature verification.
+        See: nuget.exe help trusted-signers
+    -->
+    <trustedSigners>
+        <author name="microsoft">
+            <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        </author>
+        <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+            <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <owners>microsoft;aspnet;nuget</owners>
+        </repository>
+    </trustedSigners>
 </configuration>
 ```
