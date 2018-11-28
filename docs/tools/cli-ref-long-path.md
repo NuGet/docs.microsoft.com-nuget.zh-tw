@@ -5,12 +5,12 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 7cd387e3eb05d149da9a88cc1c76dc08588d04b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547822"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453490"
 ---
 # <a name="long-path-support-nuget-cli"></a>長路徑支援 (NuGet CLI)
 
@@ -39,6 +39,6 @@ NuGet.exe 4.8 及更新版本支援長路徑的檔案和目錄的案例，例如
 > 啟用其他的 NuGet 工具，以支援長路徑
 >
 > -   Dotnet CLI 支援不論作業系統或版本的完整路徑。
-> -   Visual Studio 或 msbuild /t: restore 尚不支援長路徑。
+> -   Visual Studio 或 msbuild-t： 還原尚不支援長路徑。
 > -   軟體使用 NuGet 程式庫來執行還原，以及其他命令，將支援長路徑的相同系統上，NuGet.exe 適用於，如果同時設定在其 windows longPathAware 並且設定 UseLegacyPathHandling 設為 false，透過 App.Config [請參閱詳細的資訊](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547389"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453581"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -213,7 +213,7 @@ requireLicenseAgreement | boolean                    | 否       | 假設`false`
 標題                   | 字串                     | 否       |
 verbatimVersion         | 字串                     | 否       | 版本字串，因為它原本位於.nuspec
 
-封裝`version`屬性是完整的正規化版本字串。 也就是說，SemVer 2.0.0 組建資料可能包含以下項目。
+封裝`version`屬性正規化後是完整的版本字串。 也就是說，SemVer 2.0.0 組建資料可能包含以下項目。
 
 `created`封裝來源，通常是短時間類別目錄項目的認可時間戳記之前先收到封裝時，時間戳記。
 

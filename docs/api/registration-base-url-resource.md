@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546780"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453555"
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -150,7 +150,9 @@ requireLicenseAcceptance | boolean                    | 否       |
 摘要                  | 字串                     | 否       | 
 標記                     | 字串或字串陣列  | 否       | 
 標題                    | 字串                     | 否       | 
-版本                  | 字串                     | 是      | 封裝的版本
+版本                  | 字串                     | 是      | 正規化之後，完整的版本字串
+
+封裝`version`屬性正規化後是完整的版本字串。 也就是說，SemVer 2.0.0 組建資料可能包含以下項目。
 
 `dependencyGroups`屬性是代表套件中，依目標 framework 的相依性物件的陣列。 如果封裝有沒有相依性，`dependencyGroups`屬性遺漏，空的陣列，或`dependencies`的所有群組的屬性是空的或遺漏。
 

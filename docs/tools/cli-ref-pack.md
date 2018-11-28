@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580307"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453360"
 ---
 # <a name="pack-command-nuget-cli"></a>pack 命令 (NuGet CLI)
 
 **適用於：** 封裝建立&bullet;**支援的版本：** 2.7 +
 
-建立根據指定的 NuGet 套件`.nuspec`或專案檔。 `dotnet pack`命令 (請參閱 < [dotnet 命令](dotnet-Commands.md)) 及`msbuild /t:pack`(請參閱[MSBuild 目標](../reference/msbuild-targets.md)) 可作為替代項目。
+建立根據指定的 NuGet 套件`.nuspec`或專案檔。 `dotnet pack`命令 (請參閱 < [dotnet 命令](dotnet-Commands.md)) 及`msbuild -t:pack`(請參閱[MSBuild 目標](../reference/msbuild-targets.md)) 可作為替代項目。
 
 > [!Important]
 > 在 Mono 下不支援從專案檔中建立封裝。 您也需要調整中的非區域路徑`.nuspec`檔案為 Unix 樣式的路徑，nuget.exe 不會將轉換本身的 Windows 路徑名稱。
@@ -49,7 +49,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | OutputDirectory | 指定建立的封裝儲存所在的資料夾。 如果未不指定任何資料夾，則會使用目前的資料夾。 |
 | 屬性 | 應該會出現在命令列上的最後一個之後的其他選項。 指定專案檔案中的值會覆寫的屬性的清單請參閱[通用的 MSBuild 專案屬性](/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份權杖 = 值 」 配對，並以分號區隔，其中出現的每個`$token$`在`.nuspec`檔案將會取代指定的值。 值可以是以引號的字串。 請注意，「 組態 」 屬性，預設值是"Debug"。 若要變更的發行組態，使用`-Properties Configuration=Release`。 |
 | 尾碼 | *(3.4.4+)* 將後置字元附加至內部產生的版本號碼，通常用來附加組建或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本號碼的按讚與`1.2.3-nightly`。 後置字元的開頭必須是字母，以避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
-| Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案和對應的符號套件。 依預設它會建立[舊版的符號套件](../create-packages/Symbol-Packages.md)。 符號套件的新建議的格式是.snupkg。 請參閱[建立符號套件 (.snupkg)](../create-packages/Symbol-Packages-snupkg.md)。 |
+| Symbol | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案和對應的符號套件。 依預設它會建立[舊版的符號套件](../create-packages/Symbol-Packages.md)。 為符號套件新建議的格式為 .snupkg。 請參閱[建立符號套件 (.snupkg)](../create-packages/Symbol-Packages-snupkg.md)。 |
 | 工具 | 指定專案的輸出檔案應該放在`tool`資料夾。 |
 | 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 | 版本 | 覆寫的版本號碼，從`.nuspec`檔案。 |
