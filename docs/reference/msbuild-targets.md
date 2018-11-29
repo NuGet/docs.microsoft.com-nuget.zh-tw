@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 07296ce5a9ba85d68eca5f4915d6efea00dc8980
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548868"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453542"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -37,7 +37,7 @@ ms.locfileid: "43548868"
 
 ## <a name="pack-target"></a>封裝目標
 
-.NET Standard 專案使用 PackageReference 格式，請使用`msbuild /t:pack`獲得從要用來建立 NuGet 套件的專案檔的輸入。
+.NET Standard 專案使用 PackageReference 格式，請使用`msbuild -t:pack`獲得從要用來建立 NuGet 套件的專案檔的輸入。
 
 下表描述可新增至第一個 `<PropertyGroup>` 節點內之專案檔的 MSBuild 屬性。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表是依 [`.nuspec` 檔案](../reference/nuspec.md)中的對等屬性進行組織。
 
@@ -55,7 +55,9 @@ ms.locfileid: "43548868"
 | 描述 | 描述 | "Package Description" | |
 | Copyright | Copyright | 空白 | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| LicenseUrl | PackageLicenseUrl | 空白 | |
+| 授權 | PackageLicenseExpression | 空白 | 對應至 `<license type="expression">` |
+| 授權 | PackageLicenseFile | 空白 | 對應至 `<license type="file">`。 您可能需要明確組件參考的授權檔案。 |
+| LicenseUrl | PackageLicenseUrl | 空白 | `licenseUrl` 已被取代，使用 [PackageLicenseExpression] 或 PackageLicenseFile 屬性 |
 | ProjectUrl | PackageProjectUrl | 空白 | |
 | IconUrl | PackageIconUrl | 空白 | |
 | Tags | PackageTags | 空白 | 以分號來分隔標記。 |
@@ -77,6 +79,8 @@ ms.locfileid: "43548868"
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
+- PackageLicenseExpression
+- PackageLicenseFile
 - PackageLicenseUrl
 - PackageProjectUrl
 - PackageIconUrl
@@ -177,7 +181,7 @@ ms.locfileid: "43548868"
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-使用 `MSBuild /t:pack /p:IncludeSymbols=true` 時，會複製對應的 `.pdb` 檔案與其他輸出檔案 (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`)。 請注意，設定 `IncludeSymbols=true` 時會建立一般套件「和」符號套件。
+使用 `MSBuild -t:pack -p:IncludeSymbols=true` 時，會複製對應的 `.pdb` 檔案與其他輸出檔案 (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`)。 請注意，設定 `IncludeSymbols=true` 時會建立一般套件「和」符號套件。
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -185,28 +189,46 @@ ms.locfileid: "43548868"
 
 若類型為 Compile 的檔案位於專案資料夾之外，就只會將其新增至 `src\<ProjectName>\`。
 
+### <a name="packing-a-license-expression-or-a-license-file"></a>封裝授權運算式或授權檔案
+
+使用授權運算式時，應該使用 PackageLicenseExpression 屬性。 
+[授權運算式範例](# https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
+
+當封裝的授權檔案，您需要使用 PackageLicenseFile 屬性來指定封裝路徑，相對於封裝根目錄。 此外，您需要確定在封裝中包含的檔案。 例如: 
+
+```xml
+<PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+</ItemGroup>
+```
+[授權生命週期範例](# https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
+
 ### <a name="istool"></a>IsTool
 
-使用 `MSBuild /t:pack /p:IsTool=true` 時，會將[輸出組件](#output-assemblies)案例中所指定的所有輸出檔案都複製至 `tools` 資料夾，而非 `lib` 資料夾。 請注意，這與 `DotNetCliTool` 不同，該項目是在 `.csproj` 檔案中設定 `PackageType` 所指定。
+使用 `MSBuild -t:pack -p:IsTool=true` 時，會將[輸出組件](#output-assemblies)案例中所指定的所有輸出檔案都複製至 `tools` 資料夾，而非 `lib` 資料夾。 請注意，這與 `DotNetCliTool` 不同，該項目是在 `.csproj` 檔案中設定 `PackageType` 所指定。
 
 ### <a name="packing-using-a-nuspec"></a>使用 .nuspec 封裝
 
 您可以使用`.nuspec`檔案來封裝您的專案，前提是您要匯入的 SDK 專案檔案`NuGet.Build.Tasks.Pack.targets`，這樣可以執行封裝工作。 您仍然需要先還原專案，才可以 pack nuspec 檔案。 專案檔的目標 framework 無關，不使用封裝 nuspec 時。 下列三個 MSBuild 屬性與使用 `.nuspec` 進行封裝有關：
 
 1. `NuspecFile`：將用於封裝之 `.nuspec` 檔案的相對或絕對路徑。
-1. `NuspecProperties`：以分號分隔的索引鍵=值組清單。 基於 MSBuild 命令列剖析的運作方式，必須如下指定多個屬性：`/p:NuspecProperties=\"key1=value1;key2=value2\"`。  
+1. `NuspecProperties`：以分號分隔的索引鍵=值組清單。 基於 MSBuild 命令列剖析的運作方式，必須如下指定多個屬性：`-p:NuspecProperties=\"key1=value1;key2=value2\"`。  
 1. `NuspecBasePath`：`.nuspec` 檔案的基底路徑。
 
 如果使用 `dotnet.exe` 來封裝您的專案，則請使用下列這類命令：
 
 ```cli
-dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 如果使用 MSBuild 來封裝您的專案，則請使用下列這類命令：
 
 ```cli
-msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 請注意，封裝 nuspec 使用 dotnet.exe 或 msbuild 也會導致建置預設的專案。 可以避免此一傳遞```--no-build```屬性就相當於設定的 dotnet.exe```<NoBuild>true</NoBuild> ```在您的專案檔，以及設定```<IncludeBuildOutput>false</IncludeBuildOutput> ```專案檔中
@@ -283,7 +305,7 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 
 ## <a name="restore-target"></a>還原目標
 
-`MSBuild /t:restore` (`nuget restore` 和 `dotnet restore` 與 .NET Core 專案搭配使用) 會還原專案檔中所參考的套件，如下所示：
+`MSBuild -t:restore` (`nuget restore` 和 `dotnet restore` 與 .NET Core 專案搭配使用) 會還原專案檔中所參考的套件，如下所示：
 
 1. 讀取所有專案對專案參考
 1. 讀取專案屬性來尋找中繼資料夾和目標架構
@@ -296,7 +318,7 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 
 ### <a name="restore-properties"></a>還原屬性
 
-其他還原設定可能來自專案檔中的 MSBuild 屬性。 您也可以從命令列，使用 `/p:` 參數設定值 (請參閱下列＜範例＞)。
+其他還原設定可能來自專案檔中的 MSBuild 屬性。 您也可以從命令列，使用 `-p:` 參數設定值 (請參閱下列＜範例＞)。
 
 | 屬性 | 描述 |
 |--------|--------|
@@ -315,7 +337,7 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 命令列：
 
 ```cli
-msbuild /t:restore /p:RestoreConfigFile=<path>
+msbuild -t:restore -p:RestoreConfigFile=<path>
 ```
 
 專案檔：
