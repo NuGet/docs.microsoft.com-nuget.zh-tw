@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547885"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615752"
 ---
 # <a name="package-creation-workflow"></a>套件建立工作流程
 
@@ -36,7 +36,7 @@ ms.locfileid: "43547885"
 - [建立當地語系化套件](../create-packages/creating-localized-packages.md)描述如何建構具有多個語言資源的套件，以及如何使用個別的當地語系化附屬套件。
 - [發行前套件](../create-packages/prerelease-packages.md)示範如何將 alpha、beta 和 rc 套件發行至感興趣的客戶。
 - [原始程式檔和組態檔轉換](../create-packages/source-and-config-file-transformations.md)描述如何在新增至專案的檔案中執行兩個單向權杖取代，以及使用會在解除安裝套件時取消的設定來修改 `web.config` 和 `app.config`。
-- [符號套件](../create-packages/symbol-packages.md)提供用於提供程式庫符號的指引，而符號允許取用者在偵錯時逐步執行程式碼。
+- [符號套件](../create-packages/symbol-packages-snupkg.md)提供用於提供程式庫符號的指引，而符號允許取用者在偵錯時逐步執行程式碼。
 - [套件版本控制](../reference/package-versioning.md)討論如何識別您相依性容許的確切版本 (從套件取用的其他套件)。
 - [原生套件](../create-packages/native-packages.md)描述用於建立 C++ 取用者之套件的程序。
 - [簽署套件](../create-packages/sign-a-package.md)描述用於在套件新增數位簽章的程序。

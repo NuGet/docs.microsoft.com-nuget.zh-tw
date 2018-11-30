@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7b30fce4a2d9ad0bd7bc2b97f69b8d5d25101b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545222"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671171"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>快速入門：在 Visual Studio 中安裝並使用套件
 
@@ -64,7 +64,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
     ![尋找 Newtonsoft.Json 套件](media/QS_Use-08-Console1.png)
 
-1. 輸入命令 `Install-Package Newtonsoft.json` (請參閱 [Install-Package](../tools/ps-ref-install-package.md))。 主控台視窗會顯示命令的輸出。 錯誤通常會指出套件與專案的目標 Framework 不相容。
+1. 輸入命令 `Install-Package Newtonsoft.Json` (請參閱 [Install-Package](../tools/ps-ref-install-package.md))。 主控台視窗會顯示命令的輸出。 錯誤通常會指出套件與專案的目標 Framework 不相容。
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>在應用程式中使用 Newtonsoft.Json API
 
@@ -107,7 +107,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 1. 即使在專案中新增了 Newtonsoft.Json 套件，`JsonConvert` 下方還是會出現紅色波浪線，因為您需要在程式碼檔案頂端使用 `using` 陳述式：
 
     ```cs
-    using Newtonsoft.json;
+    using Newtonsoft.Json;
     ```
 
 1. 按 F5 或選取 [偵錯] > [開始偵錯]，來建置並執行應用程式：

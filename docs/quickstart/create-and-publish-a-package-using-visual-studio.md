@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: a0bf174e3e27ad6d8fefe18f6213213a4bc77b53
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548934"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453516"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -95,12 +95,12 @@ namespace AppLogger
 當專案包含必要的套件資料時，NuGet 4.x+ 和 MSBuild 15.1+ 可支援 `pack` 目標，而這是使用 [封裝] 功能表命令的另一種替代方法。 請開啟命令提示字元，巡覽至專案資料夾並執行下列命令。 (若從 [開始] 功能表啟動 [適用於 Visual Studio 的開發人員命令提示字元]，其中就會設定好 MSBuild 的所有必要路徑，因此這是建議的做法。)
 
 ```cli
-msbuild /t:pack /p:Configuration=Release
+msbuild -t:pack -p:Configuration=Release
 ```
 
 接著可在 `bin\Release` 資料夾中找到套件。
 
-如需 `msbuild /t:pack` 的其他選項，請參閱 [NuGet 套件和還原為 MSBuild 目標](../reference/msbuild-targets.md#pack-target)。
+如需 `msbuild -t:pack` 的其他選項，請參閱 [NuGet 套件和還原為 MSBuild 目標](../reference/msbuild-targets.md#pack-target)。
 
 ## <a name="publish-the-package"></a>發行套件
 

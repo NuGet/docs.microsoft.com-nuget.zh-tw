@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 51dd78ef7cc427232982df15657d76d117146853
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580347"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453464"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
@@ -57,7 +57,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 - 在 Visual Studio 中，選取 [工具] > [NuGet 套件管理員] > [套件管理員設定] 功能表命令，設定 [套件還原] 下的兩個選項，然後選取 [確定]，以啟用套件還原。 然後再次建置解決方案。
 - 若是 .NET Core 專案，請執行 `dotnet restore` 或 `dotnet build` (會自動執行還原)。
 - 在命令列上執行 `nuget restore` (除了以 `dotnet` 建立的專案在此情況下會使用 `dotnet restore`)。
-- 對於使用 PackageReference 格式的專案，在命令列上執行 `msbuild /t:restore`。
+- 對於使用 PackageReference 格式的專案，在命令列上執行 `msbuild -t:restore`。
 
 成功還原之後，套件應該存在於 *global-packages* 資料夾中。 對於使用 PackageReference 的專案，還原應重新建立 `obj/project.assets.json` 檔案；針對使用 `packages.config` 的專案，套件應該會出現在專案的 `packages` 資料夾中。 專案現在應可順利建置。 如果沒有，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)以便我們與您連絡。
 
@@ -73,7 +73,7 @@ Assets file '<path>\project.assets.json' not found. Run a NuGet package restore 
 
 當使用 PackageReference 管理格式時，`project.assets.json` 檔案會維護專案的相依性關係圖，此圖是用來確認電腦上已安裝所有必要套件的。 因為此檔案是透過套件還原動態產生的，因此通常不會新增到原始檔控制。 因此當使用不會自動還原套件的 `msbuild` 之類的工具建立專案時，會發生此錯誤。
 
-在此情況下，請在執行 `msbuild /t:restore` 後接著執行 `msbuild`，或使用 `dotnet build` (會自動還原套件)。 您也可以使用[上一節](#missing)中的任何一個套件還原方法。
+在此情況下，請在執行 `msbuild -t:restore` 後接著執行 `msbuild`，或使用 `dotnet build` (會自動還原套件)。 您也可以使用[上一節](#missing)中的任何一個套件還原方法。
 
 <a name="consent"></a>
 
