@@ -1,18 +1,18 @@
 ---
 title: 尋找及選擇 NuGet 套件
-description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
+description: 如何尋找及選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
 author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549411"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671184"
 ---
-# <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
+# <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找及評估您專案的 NuGet 套件
 
 啟動任何 .NET 專案時，或只要識別到您應用程式或服務的功能需求時，就可以使用滿足這項需求的現有 NuGet 套件來節省大量時間和麻煩。 這些套件可以來自 [nuget.org](http://www.nuget.org/packages/) 上的公用集合，或是您組織或其他協力廠商所提供的私人來源。
 
@@ -100,6 +100,21 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 > [!Note]
 > 請一律留意套件的授權條款，而選取 nuget.org 的套件清單頁面上的 [授權資訊] 即可看到授權條款。如果套件未指定授權條款，請使用套件頁面上的 [連絡擁有者] 連結直接連絡套件擁有者。 Microsoft 不會將任何智慧財產權從協力廠商套件提供者授權給您，而且不負責協力廠商所提供的資訊。
+
+## <a name="license-url-deprecation"></a>授權 URL 過時
+當我們從 [licenseUrl](../reference/nuspec#licenseurl) 轉換到 [license](../reference/nuspec#license) 時，某些 NuGet 用戶端與 NuGet 摘要可能還沒有在某些案例中呈現授權資訊的能力。 為維護回溯相容性，授權 URL 會指向此文件，此文件說明如何在此案例中擷取授權資訊。
+
+若按一下套件的授權 URL 將您帶向此頁面，即表示套件包含授權檔案且
+* 您已連線到不知道如何解譯並呈現新授權資訊給用戶端的摘要 **或**
+* 您正在使用還不知道如何解譯並讀取可能由摘要提供之新授權資訊的用戶端 **或**
+* 上列兩者的組合
+
+以下說明如何讀取套件內之授權檔案中包含的資訊：
+1. 下載 NuGet 套件並將其內容解壓縮到資料夾。
+1. 開啟位於資料夾根目錄的 `.nuspec` 檔案。
+1. 它應該有如 `<license type="file">license\license.txt</license>` 的標記。 這意指授權檔案的名稱是 `license.txt` 且它位於稱為 `license` 的資料夾 (也位於資料夾的根目錄) 內。
+1. 瀏覽到 `license` 資料夾並開啟 `license.txt` 檔案。
+
 
 ## <a name="search-syntax"></a>搜尋語法
 

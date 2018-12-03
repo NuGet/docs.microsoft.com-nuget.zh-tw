@@ -16,12 +16,12 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: a72b59a391ed25e9617ba3ba3656301a2ed90ddc
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 48ca4b62e722988b3dfe69306565d7f159805962
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580431"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453451"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
@@ -41,12 +41,12 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 
-msbuild /t:pack MyPackage.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-根據預設，將不會產生 `.snupkgs`。 如果是 nuget.exe，您必須連同 `-Symbols` 傳遞 `SymbolsPackageFormat` 屬性，如果是 dotnet.exe 則傳遞 `--include-symbols`，如果是 msbuild 則傳遞 `/p:IncludeSymbols`。
+根據預設，將不會產生 `.snupkgs`。 如果是 nuget.exe，您必須連同 `-Symbols` 傳遞 `SymbolPackageFormat` 屬性，如果是 dotnet.exe 則傳遞 `--include-symbols`，如果是 msbuild 則傳遞 `-p:IncludeSymbols`。
 
-SymbolsPackageFormat 屬性可有以下兩個值的其中之一：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 SymbolsPackageFormat，它會預設為 `symbols.nupkg`，且會建立舊版符號套件。
+SymbolPackageFormat 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 SymbolPackageFormat，它會預設為 `symbols.nupkg`，且會建立舊版符號套件。
 
 > [!Note]
 > 目前仍然支援舊版格式 `.symbols.nupkg`，只是為達到相容性而已 (請參閱[舊版符號套件](Symbol-Packages.md))。 NuGet.org 符號伺服器只接受新的符號套件格式 - `.snupkg`。
@@ -65,13 +65,13 @@ SymbolsPackageFormat 屬性可有以下兩個值的其中之一：`symbols.nupkg
     nuget push MyPackage.snupkg
     ```
 
-1. 您也可以使用以下命令，同時推送主要套件與符號套件。 .nupkg 和 .snupkg 檔案都必須出現在目前的資料夾中。
+1. 您也可以使用以下命令，同時推送主要套件與符號套件。 .nupkg 與 .snupkg 檔案都必須出現在目前的資料夾中。
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
-在此情況下，NuGet 將會先將 `MyPackage.nupkg` 發佈至 nuget.org，然後再發佈 `MyPackage.snupkg`。
+NuGet 會將兩個套件發行到 nuget.org。將會先發行 `MyPackage.nupkg`，再發行 `MyPackage.snupkg`。
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org 符號伺服器
 

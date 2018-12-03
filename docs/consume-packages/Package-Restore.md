@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580294"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453529"
 ---
 # <a name="package-restore"></a>套件還原
 
@@ -39,7 +39,7 @@ ms.locfileid: "51580294"
 
 - **NuGet CLI**：使用 [nuget restore](../tools/cli-ref-restore.md) 命令來還原專案檔或 `packages.config`中所列的套件。 您也可以指定方案檔。
 
-- **MSBuild**：使用 [msbuild /t:restore](../reference/msbuild-targets.md#restore-target) 命令來還原專案檔中所列的套件 (僅限 PackageReference)。 只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017)。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。
+- **MSBuild**：使用 [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) 命令來還原專案檔中所列的套件 (僅限 PackageReference)。 只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017)。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。
 
 - **Visual Studio Team Services**：在 Team Services 上建立組建定義時，在定義中於任何建置工作之前包含 [NuGet 還原](/vsts/build-release/tasks/package/nuget#restore-nuget-packages)或 [.NET Core 還原](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages)工作。 在許多組建範本中，預設會包含此工作。
 
@@ -91,13 +91,13 @@ ms.locfileid: "51580294"
 
 透過任何方法還原套件時，NuGet 會遵循 `packages.config` 或專案檔中所指定的任何條件約束：
 
-- `packages.config`：指定相依性之 `allowedVersion` 屬性中的版本範圍。 請參閱[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)。 例如: 
+- `packages.config`：指定相依性之 `allowedVersion` 屬性中的版本範圍。 請參閱[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)。 例如：
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- 專案檔 (PackageReference)：直接使用相依性的版本號碼來指定版本範圍。 例如: 
+- 專案檔 (PackageReference)：直接使用相依性的版本號碼來指定版本範圍。 例如：
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />

@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981024"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453568"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
-套件參考使用 `PackageReference` 節點，直接在專案檔中管理 NuGet 相依性 (而不是在個別的 `packages.config` 檔案中)。 使用 PackageReference，就如同它的名稱一樣，不會影響 NuGet 的其他方面；例如 `NuGet.
-
-
-
-
-
-fig` 檔案中的設定 (包括套件來源) 仍會套用，如[設定 NuGet 行為](configuring-nuget-behavior.md)中所述。
+套件參考使用 `PackageReference` 節點，直接在專案檔中管理 NuGet 相依性 (而不是在個別的 `packages.config` 檔案中)。 使用 PackageReference 不會影響 NuGet 的其他方面；例如，仍會套用 `NuGet.config` 檔案中的設定 (包括套件來源)，如[設定 NuGet 行為](configuring-nuget-behavior.md)中所述。
 
 使用 PackageReference 也可讓您使用 MSBuild 條件，依目標 Framework、組態、平台或其他群組來選擇套件參考。 它也允許對相依性和內容流動進行細微控制。 (如需詳細資訊，請參閱 [NuGet pack and restore as MSBuild targetsNuGet](../reference/msbuild-targets.md) (NuGet 以 pack 與 restore 作為 MSBuild 目標)。)
 
@@ -193,7 +187,7 @@ fig` 檔案中的設定 (包括套件來源) 仍會套用，如[設定 NuGet 行
 ### <a name="restore-behavior-with-lock-file"></a>具有鎖定檔案的 `restore` 行為
 若專案有鎖定檔案存在，NuGet 會使用此所鎖定檔案來執行 `restore`。 NuGet 會執行快速檢查以查看套件相依性中是否有變更，如專案檔 (或相依專案的檔案) 所述，而且若沒有變更，它只會還原鎖定檔案中所述的套件。 不會重新評估套件相依性。
 
-若 NuGet 偵測到定義相依性中的變更，如專案檔中所述，它會重新評估套件圖表並更新鎖定檔案以專案的新套件終止。
+若 NuGet 偵測到定義相依性中的變更 (如專案檔中所述)，它會重新評估套件圖表並更新鎖定檔案以反映專案的新套件終止。
 
 針對 CI/CD 與其他案例，若不想即時變更套件相依性，您可以將 `lockedmode` 設定為 `true`：
 
@@ -204,7 +198,7 @@ fig` 檔案中的設定 (包括套件來源) 仍會套用，如[設定 NuGet 行
 
 針對 msbuild.exe，請執行：
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 您也可以在您的專案檔中設定此條件式 MSBuild 屬性：
@@ -238,6 +232,6 @@ ProjectA
 | 選項 | MSBuild 同等選項 | 
 |:---  |:--- |
 | `--use-lock-file` | 專案的鎖定檔案啟動程序使用。 或者，您可以在專案檔中設定 `RestorePackagesWithLockFile` 屬性 | 
-| `--locked-mode` | 針對還原啟用鎖定模式。 這在您想要取得重複建置的 CI/CD 案例中非常實用。 透過將 `RestoreLockedMode` MSBuild 屬性設定為 `true`，就可以達到這個目的 |  
+| `--locked-mode` | 針對還原啟用鎖定模式。 這在您想要取得可重複組建的 CI/CD 案例中非常實用。 透過將 `RestoreLockedMode` MSBuild 屬性設定為 `true`，就可以達到這個目的 |  
 | `--force-evaluate` | 對於專案中已定義浮動版本的套件而言，此選項非常實用。 根據預設，NuGet 還原將不會在每次還原時自動更新套件版本，除非您搭配 `--force-evaluate` 選項執行還原。 |
 | `--lock-file-path` | 為專案定義自訂鎖定檔案位置。 這也可以透過設定 MSBuild 屬性 `NuGetLockFilePath` 來完成。 根據預設，NuGet 支援根目錄的 `packages.lock.json`。 若您在相同的目錄中有多個專案，NuGet 支援專案特定鎖定檔案 `packages.<project_name>.lock.json` |
