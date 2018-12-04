@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453542"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831016"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -192,7 +192,7 @@ ms.locfileid: "52453542"
 ### <a name="packing-a-license-expression-or-a-license-file"></a>封裝授權運算式或授權檔案
 
 使用授權運算式時，應該使用 PackageLicenseExpression 屬性。 
-[授權運算式範例](# https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
+[授權運算式範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
 
 當封裝的授權檔案，您需要使用 PackageLicenseFile 屬性來指定封裝路徑，相對於封裝根目錄。 此外，您需要確定在封裝中包含的檔案。 例如: 
 
@@ -205,7 +205,7 @@ ms.locfileid: "52453542"
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[授權生命週期範例](# https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
+[授權檔案範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
 
 ### <a name="istool"></a>IsTool
 
