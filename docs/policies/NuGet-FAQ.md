@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 93a22b423b193874c4c69c37ff9c6d9b4489a48d
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580353"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977572"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -39,7 +39,7 @@ ms.locfileid: "51580353"
 - Windows 上的 Visual Studio 支援[套件管理員 UI](../tools/package-manager-ui.md) 和[套件管理員主控台](../tools/package-manager-console.md)。
 - Visual Studio for Mac 具有內建 NuGet 功能，如[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)中所述。
 - Visual Studio Code (所有平台) 沒有任何直接 NuGet 整合。 請使用 [NuGet CLI](../tools/nuget-exe-cli-reference.md) 或 [dotnet CLI](../tools/dotnet-commands.md)。
-- Visual Studio Team Services 提供[還原 NuGet 套件的建置步驟](/vsts/build-release/tasks/package/nuget)。 您也可以[在 Team Services 上裝載私用 NuGet 套件摘要](https://www.visualstudio.com/docs/package/nuget/publish)。
+- Azure DevOps 提供[還原 NuGet 套件的建置步驟](/vsts/build-release/tasks/package/nuget)。 您也可以[在 Azure DevOps 上裝載私人 NuGet 套件摘要](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish)。
 
 **如何檢查已安裝 NuGet 工具的確切版本？**
 
@@ -182,7 +182,7 @@ NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套�
 
 **建議將測試套件上傳至 nuget.org 嗎？**
 
-基於測試目的，您可以使用 [int.nugettest.org](https://int.nugettest.org) 或替代的公開 NuGet 伺服器，例如 [myget.org](https://myget.org) 或 [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/)。
+基於測試目的，您可以使用 [int.nugettest.org](https://int.nugettest.org) 或替代的公開 NuGet 伺服器，例如 [myget.org](https://myget.org) 或 [Azure DevOps](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/)。
 
 請注意，上傳到 int.nugettest.org 的套件不會保留。
 
