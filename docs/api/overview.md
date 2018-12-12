@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580333"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248425"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -62,6 +62,8 @@ NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V
 [`SymbolPackagePublish`](symbol-package-publish-resource.md)            | 否      | 推送符號套件。
 
 一般情況下，API 資源傳回的所有非二進位資料會使用 JSON 序列化的。 服務索引中每個資源所傳回的回應結構描述是個別針對該資源定義。 如需有關每個資源的詳細資訊，請參閱以上所列的主題。
+
+在未來，隨著通訊協定的發展，JSON 回應可能會增加新的屬性。 用戶端中是未來考驗，實作不應該假設回應結構描述為最終狀態，並不能包含額外的資料。 實作不了解的所有屬性都應該予以都忽略。
 
 > [!Note]
 > 當來源未實作`SearchAutocompleteService`應該依正常程序停用任何自動完成行為。 當`ReportAbuseUriTemplate`未實作，官方的 NuGet 用戶端會回到 nuget.org 的報告不當使用 URL (藉由追蹤[NuGet/Home #4924](https://github.com/NuGet/Home/issues/4924))。 其他用戶端也可以選擇只顯示檢舉不當使用 URL 給使用者。
