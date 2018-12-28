@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831016"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645668"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -65,7 +65,7 @@ ms.locfileid: "52831016"
 | 存放庫/Url | RepositoryUrl | 空白 | 用來複製或擷取原始程式碼存放庫 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* |
 | 存放庫/類型 | RepositoryType | 空白 | 存放庫類型。 範例： *git*， *tfs*。 |
 | 存放庫/分支 | RepositoryBranch | 空白 | 選擇性的存放庫分支資訊。 *RepositoryUrl*也必須指定要包含此屬性。 範例：*主要*(NuGet 4.7.0+) |
-| 存放庫/認可 | RepositoryCommit | 空白 | 選擇性的儲存機制認可或變更集，以表示其來源的套件建置。 *RepositoryUrl*也必須指定要包含此屬性。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| 存放庫/認可 | RepositoryCommit | 空白 | 選擇性的儲存機制認可或變更集，以表示其來源的套件建置。 *RepositoryUrl*也必須指定要包含此屬性。 範例：*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | 總結 | 不支援 | | |
 
@@ -117,7 +117,7 @@ ms.locfileid: "52831016"
 
 在專案檔或命令列中，您可以使用兩種 MSBuild 屬性來控制放置輸出組件的位置：
 
-- `IncludeBuildOutput`：布林值，決定是否應該在套件中包含組建輸出組件。
+- `IncludeBuildOutput`：布林值，決定是否要將組建輸出組件包含在封裝中。
 - `BuildOutputTargetFolder`：指定應該在其中放置輸出組件的資料夾。 輸出組件 (及其他輸出檔) 會複製到其相關的架構資料夾中。
 
 ### <a name="package-references"></a>套件參考
@@ -202,7 +202,7 @@ ms.locfileid: "52831016"
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [授權檔案範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
@@ -217,7 +217,7 @@ ms.locfileid: "52831016"
 
 1. `NuspecFile`：將用於封裝之 `.nuspec` 檔案的相對或絕對路徑。
 1. `NuspecProperties`：以分號分隔的索引鍵=值組清單。 基於 MSBuild 命令列剖析的運作方式，必須如下指定多個屬性：`-p:NuspecProperties=\"key1=value1;key2=value2\"`。  
-1. `NuspecBasePath`：`.nuspec` 檔案的基底路徑。
+1. `NuspecBasePath`：基底路徑`.nuspec`檔案。
 
 如果使用 `dotnet.exe` 來封裝您的專案，則請使用下列這類命令：
 
@@ -252,15 +252,15 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 
 `pack`目標會提供在內部的目標 framework 特定組建中執行的兩個擴充點。 包含特定內容的目標 framework 和組件載入封裝，支援的擴充點：
 
-- `TargetsForTfmSpecificBuildOutput` 目標： 檔案內使用`lib`資料夾或使用指定的資料夾`BuildOutputTargetFolder`。
-- `TargetsForTfmSpecificContentInPackage` 目標： 用於外部檔案`BuildOutputTargetFolder`。
+- `TargetsForTfmSpecificBuildOutput` 目標：使用檔案內`lib`資料夾或使用指定的資料夾`BuildOutputTargetFolder`。
+- `TargetsForTfmSpecificContentInPackage` 目標：用於外部檔案`BuildOutputTargetFolder`。
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 撰寫自訂目標，並將其指定的值為`$(TargetsForTfmSpecificBuildOutput)`屬性。 針對需要進入的任何檔案`BuildOutputTargetFolder`（預設程式庫），目標應該寫入 ItemGroup 的那些檔案`BuildOutputInPackage`並設定下列兩個中繼資料值：
 
-- `FinalOutputPath`: 檔案中; 的絕對路徑如果未提供，身分識別用來評估來源路徑。
-- `TargetPath`: （選擇性) 設定時必須將檔案移至的子資料夾內`lib\<TargetFramework>`，例如在其各自的文化特性資料夾底下，移至附屬組件。 預設值是檔案的名稱。
+- `FinalOutputPath`：檔案的絕對路徑如果未提供，身分識別用來評估來源路徑。
+- `TargetPath`：（選擇性）需要移至的子資料夾內的檔案時，設定`lib\<TargetFramework>`，例如在其各自的文化特性資料夾底下，移至附屬組件。 預設值是檔案的名稱。
 
 範例：
 
@@ -282,8 +282,8 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 
 撰寫自訂目標，並將其指定的值為`$(TargetsForTfmSpecificContentInPackage)`屬性。 要包含在封裝中的任何檔案，目標應該寫入這些檔案的 ItemGroup`TfmSpecificPackageFile`並設定下列選擇性的中繼資料：
 
-- `PackagePath`： 在封裝中的輸出檔案應該的儲存路徑。 如果多個檔案新增至相同的封裝路徑，NuGet 就會發出警告。
-- `BuildAction`： 建置動作將指派給該檔案，才需要的封裝路徑是否在`contentFiles`資料夾。 預設為 「 無 」。
+- `PackagePath`：其中的檔案應該是在封裝中的輸出路徑。 如果多個檔案新增至相同的封裝路徑，NuGet 就會發出警告。
+- `BuildAction`：若要指派給檔案的建置動作只需要封裝路徑是否在`contentFiles`資料夾。 預設為 「 無 」。
 
 範例：
 ```xml
