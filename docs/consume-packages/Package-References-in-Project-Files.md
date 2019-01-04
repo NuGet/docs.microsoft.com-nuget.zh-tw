@@ -90,8 +90,8 @@ ms.locfileid: "53248451"
 
 | 標記 | 說明 | 預設值 |
 | --- | --- | --- |
-| IncludeAssets | 會取用這些資產 | 全部 |
-| ExcludeAssets | 不會取用這些資產 | 無 |
+| IncludeAssets | 會取用這些資產 | all |
+| ExcludeAssets | 不會取用這些資產 | none |
 | PrivateAssets | 會取用這些資產，但不會流動至父專案 | contentfiles;分析器;建置 |
 
 這些標記的可允許值如下，使用分號隔開多個值，但 `all` 和 `none` 必須單獨出現：
