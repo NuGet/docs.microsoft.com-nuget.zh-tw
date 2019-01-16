@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453555"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324860"
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -141,7 +141,8 @@ dependencyGroups         | 物件的陣列           | 否       | 封裝中，�
 描述              | 字串                     | 否       | 
 iconUrl                  | 字串                     | 否       | 
 id                       | 字串                     | 是      | 封裝的識別碼
-licenseUrl               | 字串                     | 否       | 
+licenseUrl               | 字串                     | 否       |
+licenseExpression        | 字串                     | 否       | 
 列出的                   | boolean                    | 否       | 應視為列出如果不存在
 minClientVersion         | 字串                     | 否       | 
 projectUrl               | 字串                     | 否       | 
@@ -155,6 +156,8 @@ requireLicenseAcceptance | boolean                    | 否       |
 封裝`version`屬性正規化後是完整的版本字串。 也就是說，SemVer 2.0.0 組建資料可能包含以下項目。
 
 `dependencyGroups`屬性是代表套件中，依目標 framework 的相依性物件的陣列。 如果封裝有沒有相依性，`dependencyGroups`屬性遺漏，空的陣列，或`dependencies`的所有群組的屬性是空的或遺漏。
+
+值`licenseExpression`屬性符合[NuGet 授權運算式語法](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license)。
 
 #### <a name="package-dependency-group"></a>封裝相依性群組
 

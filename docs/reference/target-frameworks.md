@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0c76ea43e871009223cc4328449e21e5d02129bb
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547255"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324873"
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
 NuGet 在各種位置使用目標 Framework 參考，具體識別並隔離套件的 Framework 相依元件：
 
-- [.nuspec 資訊清單](../reference/nuspec.md)：套件可以根據專案的目標 Framework，指出專案要包含的確切套件。
-- [.nupkg 資料夾名稱](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)：套件的 `lib` 資料夾內的資料夾，可以根據目標 Framework 命名，各自包含 DLL 以及其他合適的內容。
-- [packages.config](../reference/packages-config.md)：相依性的 `targetframework` 屬性會指定要安裝的套件 Variant。
+- [.nuspec 資訊清單](../reference/nuspec.md):封裝可以指出要根據專案的目標 framework 專案中包含不同的封裝。
+- [.nupkg 資料夾名稱](../create-packages/creating-a-package.md#from-a-convention-based-working-directory):套件內資料夾`lib`資料夾可以命名為根據目標 framework，各自包含 Dll 以及其他合適的內容。
+- [packages.config](../reference/packages-config.md):`targetframework`相依性屬性會指定要安裝的套件 variant。
 
 > [!Note]
 > 計算下列表格的 NuGet 用戶端原始程式碼位在下列位置：
-> - 支援的 Framework 名稱：[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - 支援的 framework 名稱：[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
 > - Framework 優先順序和對應：[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>支援的架構
 
-Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在 .NET Standard 中，這也會一般化為 *TxM*，以允許對多個 Framework 的單一參考。
+Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在.NET Standard 中這也會一般化為*TxM*允許多個架構的單一參考。
 
 NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括弧內。 請注意，某些工具，例如 `dotnet`，可能會在某些檔案中使用標準的 TFM 變化。 例如，`dotnet pack` 在 `.nuspec` 檔案中使用 `.NETCoreApp2.0`，而非 `netcoreapp2.0`。 各種 NuGet 用戶端工具會正確處理這些變化，但直接編輯檔案時，您應該一律使用標準的 TFM。
 

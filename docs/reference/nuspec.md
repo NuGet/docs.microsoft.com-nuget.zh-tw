@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944076"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324899"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -105,6 +105,9 @@ SPDX 授權運算式或套件，通常會顯示在 UI 顯示及 nuget.org 中的
   </files>
 </package>
 ```
+
+基於 MSBuild 對等，看看[封裝授權運算式或授權檔案](msbuild-targets.md#packing-a-license-expression-or-a-license-file)。
+
 NuGet 的授權運算式的正確語法是如下中所述[ABNF](https://tools.ietf.org/html/rfc5234)。
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -149,7 +152,7 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 
 #### <a name="collection-elements"></a>集合項目
 
-#### <a name="packagetypes"></a>Packagetypes>
+#### <a name="packagetypes"></a>packageTypes
 *(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/creating-a-package.md#setting-a-package-type)。
 #### <a name="dependencies"></a>相依性
 零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
@@ -189,7 +192,7 @@ nuget pack MyProject.csproj
 | --- | --- | ---
 | **$id$** | 專案檔 | 從專案檔的 AssemblyName （標題） |
 | **$version$** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
-| **$authors $** | AssemblyInfo | AssemblyCompany |
+| **$authors$** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
@@ -219,18 +222,18 @@ nuget pack MyProject.csproj
 | --- | --- |
 | `id` | (必要) 相依性的套件識別碼，例如 "EntityFramework" 與 "NUnit"，是在套件頁面上顯示的套件 nuget.org 名稱。 |
 | `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../reference/package-versioning.md#version-ranges-and-wildcards)。 |
-| include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值是 `all`。 |
+| include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值為 `all`。 |
 | exclude | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值是`build,analyzers`可能會覆寫。 但`content/ ContentFiles`也會隱含地被排除在最終的套件無法覆寫。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
 
 | 包含/排除標記 | 目標的受影響資料夾 |
 | --- | --- |
 | contentFiles | 內容 |
-| 執行階段 | 執行階段、資源和 FrameworkAssemblies |
+| runtime | 執行階段、資源和 FrameworkAssemblies |
 | compile | lib |
 | build | 組建 (MSBuild props 和目標) |
 | native | native |
-| 無 | 無資料夾 |
-| 全部 | 全部資料夾 |
+| none | 無資料夾 |
+| all | 全部資料夾 |
 
 例如，下列幾行程式碼指出 `PackageA`1.1.0 版或更高版本與 `PackageB` 1.x 版的相依性。
 
@@ -250,7 +253,7 @@ nuget pack MyProject.csproj
 </dependencies>
 ```
 
-注意：從專案使用 `nuget spec` 建立 `.nuspec` 時，存在於該專案中的相依性會自動包含在產生的 `.nuspec` 檔案中。
+注意:建立時`.nuspec`專案，使用`nuget spec`，在該專案中存在的相依性會自動包含在產生`.nuspec`檔案。
 
 ### <a name="dependency-groups"></a>相依性群組
 

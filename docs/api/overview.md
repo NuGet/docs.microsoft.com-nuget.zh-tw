@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248425"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324834"
 ---
 # <a name="nuget-api"></a>NuGet API
 
 NuGet API 是一組可用來下載套件、 擷取中繼資料、 發行新的套件，以及執行大部分其他官方 NuGet 用戶端中可用的作業的 HTTP 端點。
 
-此 API 可由 NuGet 用戶端，在 Visual Studio 中，nuget.exe 和.NET CLI 來執行 NuGet 作業，例如[ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore)，在 Visual Studio UI 中，搜尋並[ `nuget.exe push` ](../tools/cli-ref-push.md)。
+此 API 可由 NuGet 用戶端，在 Visual Studio 中，nuget.exe 和.NET CLI 來執行 NuGet 作業，例如[ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)，在 Visual Studio UI 中，搜尋並[ `nuget.exe push` ](../tools/cli-ref-push.md)。
 
 請注意在某些情況下，nuget.org 不會強制執行由其他套件來源的其他需求。 這些差異都記錄所[nuget.org 通訊協定](nuget-protocols.md)。
 
@@ -35,7 +35,7 @@ API 的進入點是 JSON 文件中的已知的位置。 這份文件會呼叫**�
 
 ## <a name="versioning"></a>版本控制
 
-NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V3 API。 」 這些參考文件會參考到此版本的通訊協定，簡稱為 「 API 」。
+NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V3 API 」。 這些參考文件會參考到此版本的通訊協定，簡稱為 「 API 」。
 
 服務索引結構描述版本由`version`服務索引中的屬性。 API 要求的版本字串具有主要版本號碼`3`。 服務索引結構描述會進行非中斷變更，就會增加的版本字串的次要版本。
 
@@ -43,7 +43,7 @@ NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V
 
 因為它是已藉由將 2.x 版的官方 NuGet 用戶端的 OData 型通訊協定 V2 API 的後續版本，是這樣命名 NuGet V3 API。 V3 API 第一次支援官方 NuGet 用戶端 3.0 版，仍的最新的主要通訊協定版本的 NuGet 用戶端，4.0 和支援上。 
 
-非重大通訊協定已變更的 API 因為它是第一個版本。
+非重大通訊協定已變更的 API 因為首次發行。
 
 ## <a name="resources-and-schema"></a>資源和結構描述
 

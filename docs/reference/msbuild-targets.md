@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645668"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324847"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -72,6 +72,7 @@ ms.locfileid: "53645668"
 ### <a name="pack-target-inputs"></a>封裝目標輸入
 
 - IsPackable
+- SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
 - 作者
@@ -106,6 +107,10 @@ ms.locfileid: "53645668"
 - NuspecProperties
 
 ## <a name="pack-scenarios"></a>封裝案例
+
+### <a name="suppress-dependencies"></a>隱藏相依性
+
+若要抑制來自產生的 NuGet 套件的套件相依性，將`SuppressDependenciesWhenPacking`至`true`這會允許略過從產生的 nupkg 檔案的所有相依性。
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -193,6 +198,14 @@ ms.locfileid: "53645668"
 
 使用授權運算式時，應該使用 PackageLicenseExpression 屬性。 
 [授權運算式範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
+
+```xml
+<PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
+```
+
+[進一步了解授權運算式和接受的 NuGet.org 的授權](nuspec.md#license)。
 
 當封裝的授權檔案，您需要使用 PackageLicenseFile 屬性來指定封裝路徑，相對於封裝根目錄。 此外，您需要確定在封裝中包含的檔案。 例如: 
 

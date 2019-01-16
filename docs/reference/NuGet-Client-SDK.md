@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547085"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324678"
 ---
 # <a name="nuget-client-sdk"></a>NuGet 用戶端 SDK
 
@@ -29,10 +29,14 @@ GitHub 上發行的原始碼專案中[NuGet/NuGet.Client](https://github.com/NuG
 
 下列部落格系列由 Dave Glick，發行 2016年中，您可以找到範例和某些 API 的文件：
 
-- [瀏覽 NuGet v3 程式庫，第 1 部分： 簡介和概念](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [瀏覽 NuGet v3 程式庫，第 2 部分： 搜尋套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [瀏覽 NuGet v3 程式庫，第 3 部分： 安裝套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [瀏覽 NuGet v3 程式庫，第 1 部分：簡介和概念](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [瀏覽 NuGet v3 程式庫，第 2 部分：搜尋套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [瀏覽 NuGet v3 程式庫，第 3 部分：安裝套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > 這些部落格文章所撰寫後不久**3.4.3**發行用戶端 SDK 套件的 NuGet 版本。
 > 較新版本的封裝可能與部落格文章中的資訊不相容。
+
+Martin Björkström 未 Dave Glick 部落格系列的待處理的部落格文章，其中介紹他如何使用安裝 NuGet 套件的 NuGet 用戶端 SDK 不同的方法：
+
+- [重新認識 NuGet v3 程式庫](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
