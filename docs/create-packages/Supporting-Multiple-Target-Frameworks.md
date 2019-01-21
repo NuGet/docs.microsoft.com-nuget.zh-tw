@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981141"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324808"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>支援多個 .NET Framework 版本
 
@@ -117,7 +117,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 支援的設定檔如下所示：
 
 - `client`：用戶端設定檔
-- `full`：完整設定檔
+- `full`：用戶端設定檔
 - `wp`：Windows Phone
 - `cf`：Compact Framework
 
@@ -125,8 +125,8 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 
 封裝目標設為可攜式類別庫的程式庫時，可能很難判斷您應該在資料夾名稱和 `.nuspec` 檔案中使用的 NuGet 目標，特別是目標只設為 PCL 子集時。 下列外部資源將協助您進行下列作業：
 
-- [.NET 中的架構設定檔](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [可攜式類別庫設定檔](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co)：列舉 PCL 設定檔和其對等 NuGet 目標的資料表
+- [.NET 中的架構設定檔](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [可攜式類別庫設定檔](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co)：列舉 PCL 設定檔和其對等 NuGet 目標的表格
 - [可攜式類別庫設定檔工具](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com)：用於判斷系統上可用之 PCL 設定檔的命令列工具
 
 ## <a name="content-files-and-powershell-scripts"></a>內容檔案和 PowerShell 指令碼
@@ -134,7 +134,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 > [!Warning]
 > 只有使用 `packages.config` 格式才能使用可變動的內容檔案和指令碼執行；可變動的內容檔案和指令碼執行已隨所有其他格式遭取代，而且不應該用於任何新套件。
 
-使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如: 
+使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如：
 
     \content
         \net46

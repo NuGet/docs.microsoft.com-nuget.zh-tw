@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981115"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324821"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>NuGet 4.8 RTM 版本資訊
 
@@ -22,7 +22,7 @@ ms.locfileid: "50981115"
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>摘要：此版本的新功能
+## <a name="summary-whats-new-in-this-release"></a>摘要: 此版本中的新功能
 * NuGet.exe 現在可在 Windows 10 上支援 longfilenames - [#6937](https://github.com/NuGet/Home/issues/6937)
 * 驗證外掛程式現在可以在 MsBuild、DotNet.exe、NuGet.exe 和 Visual Studio 間運作，包括跨平台運作。 第一代的驗證外掛程式在 MsBuild DotNet.exe 中不受支援。 注意：VS 2017 15.9 預覽組建包含 VSTS 驗證外掛程式。 [#6486](https://github.com/NuGet/Home/issues/6486)
 * MsBuild 的 SDK 解析程式現在建置為 NuGet 的一部分，並使用 VS 的 NuGet 工具進行安裝。 這可避免版本不同步的情形。[#6799](https://github.com/NuGet/Home/issues/6799)
@@ -58,7 +58,7 @@ ms.locfileid: "50981115"
 您現在應該可以看到移轉選項。 請注意，ASP.NET 和 C++ 專案類型不支援且不顯示此選項。
 注意：此問題已在 VS 2017 15.9 Preview 3 中修正
 
-## <a name="issues-fixed-in-this-release"></a>本版已修正的問題
+## <a name="issues-fixed-in-this-release"></a>此版本已修正的問題
 
 ### <a name="bugs"></a>Bug
 #### <a name="signing"></a>簽署
@@ -104,4 +104,4 @@ ms.locfileid: "50981115"
 * 「清除所有 NuGet 快取」的狀態訊息可能會在調整視窗大小後隱藏 - [#5938](https://github.com/NuGet/Home/issues/5938)
 
 
-[本版修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.8")
+[此版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.8")

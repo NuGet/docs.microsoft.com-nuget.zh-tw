@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0338c3445b2a3d8169158171d97d1e874533a80a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ef4c45451cc52eb08dc627f8442c48e853d8ceaf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551795"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324730"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>在原始檔控制系統中省略 NuGet 套件
 
@@ -80,7 +80,7 @@ project.assets.json
 
 1. 如果您使用的是 TFS 2010 或更舊的版本，請隱匿工作區對應中的 `packages` 資料夾。
 
-1. 在 TFS 2012 或更新版本，或使用 Visual Studio Team Services 的版本上，依[新增檔案到伺服器](/vsts/tfvc/add-files-server.md?view=vsts#tfignore)所述建立 `.tfignore` 檔案。 在該檔案中納入以下內容，明確忽略在存放庫層級和其他幾個中繼檔案中對 `\packages` 資料夾的修改。 (您可以在 Windows 檔案總管中，使用 `.tfignore.` 加結尾後置點的名稱來建立檔案，但可能需要先停用 [Hide known file extensions] \(隱藏已知副檔名) 選項。)：
+1. 在 TFS 2012 或更新版本上，或使用 Visual Studio Team Services，建立 `.tfignore` 檔案，如[新增檔案到伺服器](/vsts/tfvc/add-files-server?view=vsts#tfignore) \(英文\) 所述。 在該檔案中納入以下內容，明確忽略在存放庫層級和其他幾個中繼檔案中對 `\packages` 資料夾的修改。 (您可以在 Windows 檔案總管中，使用 `.tfignore.` 加結尾後置點的名稱來建立檔案，但可能需要先停用 [Hide known file extensions] \(隱藏已知副檔名) 選項。)：
 
    ```cli
    # Ignore NuGet Packages
