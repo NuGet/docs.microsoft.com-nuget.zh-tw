@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580242"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403160"
 ---
 # <a name="package-consumption-workflow"></a>套件使用工作流程
 
@@ -35,7 +35,7 @@ NuGet 也會確保套件所支援的目標架構與您的專案相容。 如果�
 
 ![複製存放庫並使用還原命令來還原 NuGet 套件的流程](media/Overview-02-RestoreFlow.png)
 
-[套件還原](../consume-packages/package-restore.md)使用專案檔或 `packages.config` 中的資訊來重新安裝所有相依性。 請注意，所含的程序會有些差異，如[相依性解析](../consume-packages/dependency-resolution.md)中所述。 此外，上圖中未顯示套件管理員主控台的還原命令，因為您使用的是已在 Visual Studio 內容中的主控台，這通常會自動還原套件，並提供解決方案層級的命令，如下所示。
+[套件還原](../consume-packages/package-restore.md)使用專案檔或 `packages.config` 中的資訊來重新安裝所有相依性。 請注意，所含的程序會有些差異，如[相依性解析](../consume-packages/dependency-resolution.md)中所述。 此外，上圖並沒有顯示套件管理員主控台的還原命令，原因是如果您在使用主控台，就代表您已經在使用 Visual Studio，它通常會自動還原套件並提供如同圖示的解決方案層級命令。
 
 偶爾需要重新安裝已包含在專案中的套件，這也可能會重新安裝相依性。 使用 `nuget reinstall` 命令或 NuGet 套件管理員主控台，就可以輕鬆做到這項作業。 如需詳細資料，請參閱[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md)。
 
