@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fec6dd0fb97b565b364a7ffcb192d2eb99187e83
+ms.sourcegitcommit: b15fdd101aec13ea5fe9dd12845051d648034abd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324899"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480136"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -90,7 +90,7 @@ SPDX 授權運算式或套件，通常會顯示在 UI 顯示及 nuget.org 中的
 
 如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如： `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您就可以封裝授權文字的檔案。 例如: 
+如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt.`或`.md`) 使用授權的文字。 例如: 
 ```xml
 <package>
   <metadata>
