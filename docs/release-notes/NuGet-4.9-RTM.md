@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
-ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
+ms.openlocfilehash: 99578c5ed7e88b7269872bf88c465bbda462870a
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735132"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55045104"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 版本資訊
 
@@ -18,9 +18,11 @@ NuGet 配送車：
 
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
-| **4.9.0** | Visual Studio 2017 15.9.0 版 | 2.1.500、2.2.100 |
-| **4.9.1** | N/A | N/A |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 15.9.0 版](https://visualstudio.microsoft.com/downloads/) | [2.1.500、2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.1**](https://nuget.org/downloads) | N/A | N/A |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.4 版](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.6 版](https://visualstudio.microsoft.com/downloads/) | N/A |
+
 
 ## <a name="summary-whats-new-in-490"></a>摘要：4.9.0 中的新功能
 
@@ -36,7 +38,9 @@ NuGet 配送車：
 
 * 使用 NuGet 作業改進客戶成功 - [#7108](https://github.com/NuGet/Home/issues/7108)
 
-### <a name="issues-fixed-in-this-release"></a>此版本修正的問題
+* 使用鎖定檔案啟用可重複的套件還原 - [#5602](https://github.com/NuGet/Home/issues/5602)、[公告](https://github.com/NuGet/Announcements/issues/28)、[部落格文章](https://blog.nuget.org/20181217/Enable-repeatable-package-restores-using-a-lock-file.html)
+
+### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
 * 由 PackageExtraction 引發的警告提升為錯誤 (透過 WarnAsErrors) 不應該留下擷取的套件 - [#7445](https://github.com/NuGet/Home/issues/7445)
 
@@ -80,11 +84,11 @@ NuGet 配送車：
 
 [此 4.9.0 版中修更的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>摘要: 4.9.1 中的新功能
+## <a name="summary-whats-new-in-491"></a>摘要：4.9.1 中的新功能
 
 * 新增透過新的命令受信任簽署者將寫入項目讀取到 nuget.config 的支援 - [#7480](https://github.com/NuGet/Home/issues/7480)
 
-### <a name="issues-fixed-in-this-release"></a>此版本修正的問題
+### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
 * 修正授權連結產生 - [#7515](https://github.com/NuGet/Home/issues/7515)
 
@@ -94,9 +98,9 @@ NuGet 配送車：
 
 [此 4.9.1 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>摘要: 4.9.2 中的新功能
+## <a name="summary-whats-new-in-492"></a>摘要：4.9.2 中的新功能
 
-### <a name="issues-fixed-in-this-release"></a>此版本修正的問題
+### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
 * 當來源名稱包含空格時，VS/dotnet.exe/nuget.exe/msbuild.exe 資源未使用認證 - [#7517](https://github.com/NuGet/Home/issues/7517)
 
@@ -106,6 +110,35 @@ NuGet 配送車：
 
 [此 4.9.2 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+## <a name="summary-whats-new-in-493"></a>摘要：4.9.3 中的新功能
+
+### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
+#### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>「使用鎖定檔案的可重複的套件還原」問題
+
+* 針對先前的已快取套件，未以雜湊方式運作的鎖定模式計算錯誤 - [#7682](https://github.com/NuGet/Home/issues/7682)
+
+* 還原會解析為與 `packages.lock.json` 檔案中所定義之版本不同的版本 - [#7667](https://github.com/NuGet/Home/issues/7667)
+
+* '--locked-mode / RestoreLockedMode' 導致可疑的還原失敗 (當涉及 ProjectReferences 時) - [#7646](https://github.com/NuGet/Home/issues/7646)
+
+* MSBuild SDK 解析程式嘗試驗證 SDK 套件的 SHA (在使用 packages.lock.json 時，此套件還原失敗) - [#7599](https://github.com/NuGet/Home/issues/7599)
+
+#### <a name="lock-down-your-dependencies-using-configurable-trust-policies-issues"></a>「使用可設定的信任原則鎖定您的相依性」問題
+* 簽署不支援的套件時，dotnet.exe 不應該評估信任的簽署者 - [#7574](https://github.com/NuGet/Home/issues/7574)
+
+* 設定檔中 trustedSigners 的順序會影響信任評估 - [#7572](https://github.com/NuGet/Home/issues/7572)
+
+* 無法實作 ISettings [由重構 API 設定以支援信任原則功能引起] - [#7614](https://github.com/NuGet/Home/issues/7614)
+
+#### <a name="improved-debugging-experience-issues"></a>「改良的偵錯體驗」問題
+
+* 無法為 .NET Core 全域工具發行符號套件 - [#7632](https://github.com/NuGet/Home/issues/7632)
+
+#### <a name="self-contained-nuget-packages---license-issues"></a>「自封式 NuGet 套件 - 授權」問題
+
+* 使用內嵌授權檔案時，建置符號 .snupkg 套件發生錯誤 - [#7591](https://github.com/NuGet/Home/issues/7591)
+
+[此 4.9.3 版本修正的所有問題清單](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 ## <a name="known-issues"></a>已知問題
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive 在 Mac 上發生錯誤。 - [#7519](https://github.com/NuGet/Home/issues/7519)
