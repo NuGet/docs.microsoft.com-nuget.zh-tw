@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbdd171321c2560adc06feccbd60fc4e84dcf0a3
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
+ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403196"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648266"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -235,10 +235,17 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 如果該作業失敗，請嘗試[這篇 StackOverflow 文章所提及的祕訣](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall)。
 
-**nuget.org 的 API 端點為何？**
+## <a name="what-is-the-api-endpoint-for-nugetorg"></a>nuget.org 的 API 端點為何？
 
-- V3：`https://api.nuget.org/v3/index.json`
-- V2：`https://www.nuget.org/api/v2/` (請注意，V2 API 已淘汰，且無法與 NuGet 4+ 搭配使用。)
+若要對 NuGet 用戶端使用 nuget.org 作為套件存放庫，您必須使用以下 V3 API 端點： 
+
+**`https://api.nuget.org/v3/index.json`**
+
+舊版用戶端仍可以使用 v2 通訊協定連接到 nuget.org。但請注意，使用 v2 通訊協定會造成 NuGet 用戶端 3.0 或更新版本的服務變得緩慢且較不穩定：
+
+`https://www.nuget.org/api/v2/` (已淘汰！！！)**請注意：**"www." 非常重要。
+
+此外，*NuGet.exe List* 僅適用於 v2 通訊協定。
 
 ## <a name="nugetorg-account-management"></a>nuget.org 帳戶管理
 
