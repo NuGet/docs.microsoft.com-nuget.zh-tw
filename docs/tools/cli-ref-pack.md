@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324782"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145640"
 ---
 # <a name="pack-command-nuget-cli"></a>pack 命令 (NuGet CLI)
 
@@ -43,7 +43,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | IncludeReferencedProjects | 指出已建置的套件應包含參考的專案，做為相依性，或是做為封裝的一部分。 如果參考的專案都有對應`.nuspec`有同名的專案，則該參考的專案新增為相依性的檔案。 否則參考的專案新增為套件的一部分。 |
 | MinClientVersion | 設定*minClientVersion*屬性建立的封裝。 這個值會覆寫現有的值*minClientVersion*中的屬性 （如果有的話）`.nuspec`檔案。 |
 | MSBuildPath | *（4.0 +)* 指定要搭配命令，優先於使用 MSBuild 的路徑`-MSBuildVersion`。 |
-| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
+| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15.1、 15.3、 15.4、 15.5、 15.6、 15.7，15.8、 15.9。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
 | NoDefaultExcludes | 會防止預設排除的 NuGet 封裝檔案和檔案和資料夾從一個點，例如`.svn`和`.gitignore`。 |
 | NoPackageAnalysis | 指定封裝不應該在建置套件之後執行套件分析。 |
 | OutputDirectory | 指定建立的封裝儲存所在的資料夾。 如果未不指定任何資料夾，則會使用目前的資料夾。 |

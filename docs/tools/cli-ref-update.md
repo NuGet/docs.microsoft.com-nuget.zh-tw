@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545096"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145601"
 ---
 # <a name="update-command-nuget-cli"></a>update 命令 (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget update <configPath> [options]
 | 說明 | 顯示說明命令的資訊。 |
 | ID | 指定封裝識別碼，以更新的清單。 |
 | MSBuildPath | *（4.0 +)* 指定要搭配命令，優先於使用 MSBuild 的路徑`-MSBuildVersion`。 |
-| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
+| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15.1、 15.3、 15.4、 15.5、 15.6、 15.7，15.8、 15.9。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
 | 發行前版本 | 可讓更新為發行前版本。 更新已安裝的發行前版本套件時，則不需要此旗標。 |
 | RepositoryPath | 指定已安裝套件的本機資料夾。 |

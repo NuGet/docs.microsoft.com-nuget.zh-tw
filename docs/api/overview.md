@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324834"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145653"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,17 +49,17 @@ NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V
 
 **服務索引**說明各種不同的資源。 目前的一組支援資源如下所示：
 
-資源名稱                                                           | 必要 | 描述
-----------------------------------------------------------------------  | -------- | -----------
+資源名稱                                                          | 必要 | 描述
+---------------------------------------------------------------------- | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | 是      | 推送和刪除 （或取消列出） 封裝。
 [`SearchQueryService`](search-query-service-resource.md)               | 是      | 篩選和關鍵字搜尋的封裝。
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | 是      | 取得套件中繼資料。
 [`PackageBaseAddress`](package-base-address-resource.md)               | 是      | 取得封裝的內容 (.nupkg)。
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | 否       | 探索的子字串的封裝識別碼和版本。
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | 否       | 建構存取 「 檢舉不當使用 」 網頁的 URL。
-[`RepositorySignatures`](repository-signatures-resource.md)             | 否      | 取得用來存放庫簽章的憑證。
-[`Catalog`](catalog-resource.md)                                         | 否      | 完整封裝的所有事件的記錄。
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | 否      | 推送符號套件。
+[`RepositorySignatures`](repository-signatures-resource.md)            | 否       | 取得用來存放庫簽章的憑證。
+[`Catalog`](catalog-resource.md)                                       | 否       | 完整封裝的所有事件的記錄。
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | 否       | 推送符號套件。
 
 一般情況下，API 資源傳回的所有非二進位資料會使用 JSON 序列化的。 服務索引中每個資源所傳回的回應結構描述是個別針對該資源定義。 如需有關每個資源的詳細資訊，請參閱以上所列的主題。
 
@@ -67,6 +67,19 @@ NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V
 
 > [!Note]
 > 當來源未實作`SearchAutocompleteService`應該依正常程序停用任何自動完成行為。 當`ReportAbuseUriTemplate`未實作，官方的 NuGet 用戶端會回到 nuget.org 的報告不當使用 URL (藉由追蹤[NuGet/Home #4924](https://github.com/NuGet/Home/issues/4924))。 其他用戶端也可以選擇只顯示檢舉不當使用 URL 給使用者。
+
+### <a name="undocumented-resources-on-nugetorg"></a>未記載在 nuget.org 上的資源
+
+在 nuget.org 上的 V3 服務索引有一些上面未記載的資源。 有幾個原因未記載的資源。
+
+首先，我們沒有文件做為 nuget.org 的實作詳細資料的資源。`SearchGalleryQueryService`屬於此類別。 [NuGetGallery](https://github.com/NuGet/NuGetGallery)委派一些 V2 中使用這項資源 (OData) 查詢，以我們的搜尋索引，而不是使用資料庫。 此資源引進基於延展性考量，並不適合外部使用。
+
+其次，我們不記錄永遠不會隨附於官方的用戶端的 RTM 版本的資源。
+`PackageDisplayMetadataUriTemplate` 和`PackageVersionDisplayMetadataUriTemplate`歸類到此類別。
+
+之間的往返，我們不文件資源的緊密結合的 V2 通訊協定，而其本身是刻意未記載。 `LegacyGallery`資源屬於此類別。 此資源允許以相對應的 V2 來源 URL 所指向的 V3 服務索引。 此資源支援`nuget.exe list`。
+
+如果此處未記載有資源我們*強*建議，您執行不依存於它們。 我們可能會移除或變更這些未記載的資源，這可能會非預期的方式中斷您的實作的行為。
 
 ## <a name="timestamps"></a>時間戳記
 

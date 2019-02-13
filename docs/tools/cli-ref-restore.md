@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550348"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145627"
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
-**適用於：** 套件耗用量&bullet;**支援的版本：** 2.7 +
+**適用於：** 套件耗用量&bullet;**支援的版本：** 2.7+
 
 下載並安裝任何遺漏的套件`packages`資料夾。 NuGet 4.0 + 和 PackageReference 格式搭配使用時，會產生`<project>.nuget.props`檔案，如有需要在`obj`資料夾。 （從原始檔控制可以省略檔案）。
 
@@ -39,8 +39,8 @@ nuget restore <projectPath> [options]
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
 | 說明 | 顯示說明命令的資訊。 |
 | MSBuildPath | *（4.0 +)* 指定要搭配命令，優先於使用 MSBuild 的路徑`-MSBuildVersion`。 |
-| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
-| 無快取記憶體 | 禁止 NuGet 使用的快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
+| MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15.1、 15.3、 15.4、 15.5、 15.6、 15.7，15.8、 15.9。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
+| NoCache | 禁止 NuGet 使用的快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
 | OutputDirectory | 指定套件安裝所在的資料夾。 如果未不指定任何資料夾，則會使用目前的資料夾。 必要時以還原`packages.config`檔案，除非`PackagesDirectory`或`SolutionDirectory`用。|
 | PackageSaveMode | 指定要在套件安裝之後儲存的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
