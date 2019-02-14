@@ -5,20 +5,52 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: ed3294f88ff99d5e26f630bdbca03aa8446b6e7f
-ms.sourcegitcommit: 0cb4c9853cde3647291062eadee2298dd273311e
+ms.openlocfilehash: 5889ea52f993fa8fe841f8eb83b6da659cdede93
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084934"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247655"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview 版本資訊
+
+## <a name="nuget-50-preview-releases"></a>NuGet 5.0 Preview 版本
+
+* 2019 年 2 月 13 日- [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
+* 2019 年 1 月 23 日- [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+
+## <a name="summary-whats-new-in-nuget-50-preview-3"></a>摘要: 什麼是 NuGet 5.0 Preview 3 的新功能
+
+### <a name="issues-fixed-in-this-release"></a>本版已修正的問題 
+
+**錯誤：**
+
+* nuget.exe /? 應該會列出正確的 msbuild 版本- [#7794](https://github.com/NuGet/Home/issues/7794)
+
+* NuGet.targets(498,5)： 錯誤：找不到的部分路徑 ' / tmp/NuGetScratch--在 mono 上[#7793](https://github.com/NuGet/Home/issues/7793)
+
+* 還原不必要地列舉的所有版本的電腦快取中參照的套件內容[#7639](https://github.com/NuGet/Home/issues/7639)
+
+* MSBuild 的自動偵測一律選取 16.0 之後安裝 VS 2019 預覽- [#7621](https://github.com/NuGet/Home/issues/7621)
+
+* 在方案上的 dotnet 列出封裝輸出的架構-重複的項目[#7607](https://github.com/NuGet/Home/issues/7607)
+
+* 例外狀況 「 空的路徑名稱不合法 」 呼叫 IVsPackageInstaller.InstallPackage 舊專案，並封裝資料夾不存在。 - [#5936](https://github.com/NuGet/Home/issues/5936)
+
+* msbuild /t: restore 最少的詳細資訊應該很多小- [#4695](https://github.com/NuGet/Home/issues/4695)
+
+**DCRs**
+
+* 讓套件作者可以定義建置的資產轉移行為- [#6091](https://github.com/NuGet/Home/issues/6091)
+
+* 在成功的專案不是方案的一部分或未載入，但先前已還原-VS 中啟用還原[#5820](https://github.com/NuGet/Home/issues/5820)
+
 
 ## <a name="summary-whats-new-in-50-preview-2"></a>摘要: 什麼是 5.0 Preview 2 的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
-#### <a name="bugs"></a>錯誤：
+**錯誤：**
 
 * VS 16.0 的 NuGet UI 有無法讀取的索引標籤色彩的問題-由於[#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -60,7 +92,7 @@ ms.locfileid: "55084934"
 
 * dotnet 還原失敗，因為已停用全機器摘要- [#5410](https://github.com/NuGet/Home/issues/5410)
 
-#### <a name="dcrs"></a>DCR
+**DCRs**
 
 * NuGet 5.0 組件 （透過 TFM 變化）-需要.NET 4.7.2 [#7510](https://github.com/NuGet/Home/issues/7510)
 
@@ -76,21 +108,12 @@ ms.locfileid: "55084934"
 
 [在此版本 5.0.0-preview2 中修正的所有問題的清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+### <a name="known-issues"></a>已知問題
 
-## <a name="known-issues"></a>已知問題
+#### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive 在 Mac 上發生錯誤。 - [#7519](https://github.com/NuGet/Home/issues/7519)
+**問題**`--interactive`引數不轉送 dotnet cli 和錯誤會導致`error: Missing value for option 'interactive'` 
+**因應措施**以互動式的選項，例如執行任何其他的dotnet命令`dotnet restore --interactive`並進行驗證。 驗證接著可能會由認證提供者快取。 接著，執行 `dotnet nuget push`。
 
-### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive 在 Mac 上發生錯誤。 - [#7519](https://github.com/NuGet/Home/issues/7519)
-
-#### <a name="issue"></a>問題
-`--interactive` 引數未由 dotnet cli 轉送並導致錯誤 `error: Missing value for option 'interactive'`
-
-#### <a name="workaround"></a>因應措施
-使用互動式選項 (例如 `dotnet restore --interactive`) 執行任何其他 dotnet 命令並驗證。 驗證接著可能會由認證提供者快取。 接著，執行 `dotnet nuget push`。
-
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>FallbackFolders 中由 .NET Core SDK 所安裝的套件是使用自訂方式安裝，而且未通過簽章驗證。 - [#7414](https://github.com/NuGet/Home/issues/7414)
-
-#### <a name="issue"></a>問題
-使用 dotnet.exe 2.x 來還原以 netcoreapp 1.x 與 netcoreapp 2.x 為多目標的專案時，後援資料夾被視為檔案摘要。 這表示，當還原時，NuGet 將會從後援資料夾挑選套件並嘗試將它安裝到全域套件資料夾，而且會執行平常的簽署驗證並失敗。
-
-#### <a name="workaround"></a>因應措施
-透過將 `RestoreAdditionalProjectSources` 設定為空無一物以停用後援資料夾的使用。 `<RestoreAdditionalProjectSources/>` 請小心使用，因為它將會導致從 NuGet.org 下載許多套件，而不是從後援資料夾還原這些套件。
+#### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>FallbackFolders 中由 .NET Core SDK 所安裝的套件是使用自訂方式安裝，而且未通過簽章驗證。 - [#7414](https://github.com/NuGet/Home/issues/7414)
+**問題**使用 dotnet.exe 時還原專案的多重目標 netcoreapp 2.x 1.x 和 netcoreapp 2.x，後援的資料夾會被視為檔案摘要。 這表示，當還原時，NuGet 將會從後援資料夾挑選套件並嘗試將它安裝到全域套件資料夾，而且會執行平常的簽署驗證並失敗。
+**因應措施**停用的後援的資料夾使用方式設定`RestoreAdditionalProjectSources`為 nothing。 `<RestoreAdditionalProjectSources/>` 請小心使用，因為它將會導致從 NuGet.org 下載許多套件，而不是從後援資料夾還原這些套件。
