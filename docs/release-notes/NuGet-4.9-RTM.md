@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 99578c5ed7e88b7269872bf88c465bbda462870a
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: aa9bf87504477506dbb1e9ac10d5c1d5841c224f
+ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55045104"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56224940"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 版本資訊
 
@@ -21,10 +21,10 @@ NuGet 配送車：
 | [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 15.9.0 版](https://visualstudio.microsoft.com/downloads/) | [2.1.500、2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.1**](https://nuget.org/downloads) | N/A | N/A |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.4 版](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.6 版](https://visualstudio.microsoft.com/downloads/) | N/A |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.6 版](https://visualstudio.microsoft.com/downloads/) | [2.1.504、2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
-## <a name="summary-whats-new-in-490"></a>摘要：4.9.0 中的新功能
+## <a name="summary-whats-new-in-490"></a>摘要: 4.9.0 中的新功能
 
 * 簽署：讓 ClientPolicies 要求使用 NuGet.Config 中所列的一組受信任作者與存放庫 - [#6961](https://github.com/NuGet/Home/issues/6961)、[部落格文章](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
@@ -84,7 +84,7 @@ NuGet 配送車：
 
 [此 4.9.0 版中修更的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>摘要：4.9.1 中的新功能
+## <a name="summary-whats-new-in-491"></a>摘要: 4.9.1 中的新功能
 
 * 新增透過新的命令受信任簽署者將寫入項目讀取到 nuget.config 的支援 - [#7480](https://github.com/NuGet/Home/issues/7480)
 
@@ -98,7 +98,7 @@ NuGet 配送車：
 
 [此 4.9.1 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>摘要：4.9.2 中的新功能
+## <a name="summary-whats-new-in-492"></a>摘要: 4.9.2 中的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
@@ -110,7 +110,7 @@ NuGet 配送車：
 
 [此 4.9.2 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-## <a name="summary-whats-new-in-493"></a>摘要：4.9.3 中的新功能
+## <a name="summary-whats-new-in-493"></a>摘要: 4.9.3 中的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 #### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>「使用鎖定檔案的可重複的套件還原」問題
