@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: fec6dd0fb97b565b364a7ffcb192d2eb99187e83
-ms.sourcegitcommit: b15fdd101aec13ea5fe9dd12845051d648034abd
+ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480136"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852581"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -84,9 +84,9 @@ UI 顯示中的套件詳細描述。
 
 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。
 #### <a name="license"></a>授權
-SPDX 授權運算式或套件，通常會顯示在 UI 顯示及 nuget.org 中的授權檔案的路徑。如果您要授權常見例如 BSD 2 子句或 MIT 授權底下的封裝，使用相關聯的 SPDX 授權識別碼。<br>例如： `<license type="expression">MIT</license>`
+SPDX 授權運算式或套件內授權檔案的路徑，通常出現在 UI 顯示及 nuget.org 中。如果您要授權常見例如 BSD 2 子句或 MIT 授權底下的封裝，使用相關聯的 SPDX 授權識別碼。<br>例如： `<license type="expression">MIT</license>`
 
-以下是完整的清單[SPDX 授權識別碼](https://spdx.org/licenses/)。 NuGet.org 接受僅 OSI 或 FSF 核准授權時使用的授權類型的運算式。
+此處有 [SPDX 授權識別碼](https://spdx.org/licenses/)的完整清單。 在使用授權類型運算式時，NuGet.org 只接受 OSI 或 FSF 核准的授權。
 
 如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如： `<license type="expression">BSD-2-Clause OR MIT</license>`
 
@@ -192,7 +192,7 @@ nuget pack MyProject.csproj
 | --- | --- | ---
 | **$id$** | 專案檔 | 從專案檔的 AssemblyName （標題） |
 | **$version$** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
-| **$authors$** | AssemblyInfo | AssemblyCompany |
+| **$author$** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
@@ -228,7 +228,7 @@ nuget pack MyProject.csproj
 | 包含/排除標記 | 目標的受影響資料夾 |
 | --- | --- |
 | contentFiles | 內容 |
-| runtime | 執行階段、資源和 FrameworkAssemblies |
+| 執行階段 | 執行階段、資源和 FrameworkAssemblies |
 | compile | lib |
 | build | 組建 (MSBuild props 和目標) |
 | native | native |

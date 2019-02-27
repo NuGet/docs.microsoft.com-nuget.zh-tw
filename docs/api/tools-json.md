@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546931"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852529"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>tools.json 探索 nuget.exe 版本
 
@@ -48,11 +48,11 @@ nuget.exe | 物件的陣列 | 是
 版本  | 字串 | 是      | SemVer 2.0.0 字串
 URL      | 字串 | 是      | 絕對 URL 下載這個新版的 nuget.exe
 階段    | 字串 | 是      | 列舉字串
-上傳 | 字串 | 是      | 當版本所提供的大約時間戳記
+上傳 | 字串 | 是      | 版本時所提供之近似 ISO 8601 時間戳記
 
-陣列中的項目會以遞減，SemVer 2.0.0 順序來排序。 這項保證是要尋找最新版本的用戶端上減輕負擔。 
+陣列中的項目會以遞減，SemVer 2.0.0 順序來排序。 這項保證是要降低最高的版本號碼有興趣的用戶端的負擔。 不過這表示不依時間順序排序清單。 例如，如果較舊的主要版本服務在日期晚於更高版本的主要版本中，此服務的版本不會出現在清單頂端。 如果您想要發行的最新版本*時間戳記*，只是排序的陣列`uploaded`字串。 這是因為`uploaded`時間戳記是以[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)格式也可以使用詞彙編篡排序 （也就是簡單的字串排序） 來依時間先後順序排序。
 
-`stage`屬性會指出 vettect 這個版本的工具的方式。 
+`stage`屬性表示是如何經審核的此版本的工具。 
 
 階段              | 意義
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | 尚未顯示在[下載網頁](https://www.nuget.org/downloa
 已發行           | 下載站台上的可用但尚未建議用於普遍耗用量
 ReleasedAndBlessed | 下載站台上的可用建議在耗用量
 
-有最新一個簡單的作法，建議的版本是要採取的第一個版本的清單中，具有`stage`的值`ReleasedAndBlessed`。
+有最新一個簡單的作法，建議的版本是要採取的第一個版本的清單中，具有`stage`的值`ReleasedAndBlessed`。 這是因為 SemVer 2.0.0 順序排序的版本。
 
 `NuGet.CommandLine` Nuget.org 上的封裝通常只會更新與`ReleasedAndBlessed`版本。
 

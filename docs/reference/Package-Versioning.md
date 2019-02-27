@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549769"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852464"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
@@ -29,9 +29,9 @@ ms.locfileid: "43549769"
 
 特定版本號碼的格式*Major.Minor.Patch [-後置詞]*，其中的元件具有下列意義：
 
-- *主要*： 重大變更
-- *次要*： 新功能，但具有回溯相容性
-- *修補程式*： 只有具備回溯相容性 bug 修正
+- *主要*:重大變更
+- *次要*:新功能，但具回溯相容性
+- *修補程式*:僅具有回溯相容的錯誤 (Bug) 修正
 - *-後置詞*（選擇性）： 連字號後面接著用來表示發行前版本字串 (下列[語意版本控制或 SemVer 1.0 慣例](http://semver.org/spec/v1.0.0.html))。
 
 **範例：**
@@ -50,9 +50,9 @@ ms.locfileid: "43549769"
 
 話雖如此，封裝開發人員一般會遵循可辨識的命名慣例：
 
-- `-alpha`: Alpha 版本，通常用來工作的進度和測試。
-- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的 Bug。
-- `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
+- `-alpha`：Alpha 版本，通常用來工作的進度和測試。
+- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的錯誤 (Bug)。
+- `-rc`：候選版，除非出現重大的錯誤 (Bug)，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
 > NuGet 4.3.0 + 支援[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，其支援發行前版本編號使用點標記法，如同*1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用的格式*1.0.1-build23*。
@@ -84,7 +84,7 @@ NuGet 4.3.0 + 和 Visual Studio 2017 版本 15.3 +，NuGet 支援[Semantic Versi
 
 如果您上傳至 nuget.org 的 SemVer v2.0.0 特定套件，套件會是看不到舊的用戶端，並可供 只有下列的 NuGet 用戶端：
 
-- NuGet 4.3.0 +
+- NuGet 4.3.0+
 - Visual Studio 2017 版本 15.3 +
 - Visual Studio 2015 [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet
@@ -187,9 +187,6 @@ NuGet 4.3.0 + 和 Visual Studio 2017 版本 15.3 +，NuGet 支援[Semantic Versi
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->
