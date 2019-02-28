@@ -87,6 +87,7 @@
 ## [NuGet 用戶端 SDK](reference/nuget-client-sdk.md)
 ## [已簽署的套件](reference/signed-packages-reference.md)
 ## [NuGet.org 上的組織](reference/organizations-on-nuget-org.md)
+## [licenses.nuget.org](reference/licenses.nuget.org.md)
 ## [錯誤與警告](reference/Errors-and-Warnings.md)
 ### [NU1000](reference/errors-and-warnings/NU1000.md)
 ### [NU1001](reference/errors-and-warnings/NU1001.md)
