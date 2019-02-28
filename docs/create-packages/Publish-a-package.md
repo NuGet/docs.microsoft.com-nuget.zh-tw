@@ -6,21 +6,21 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd36ae311da1ec824726c5d73670b1232a3f89e0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549582"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852568"
 ---
 # <a name="publishing-packages"></a>發行套件
 
 建立套件且具有 `.nupkg` 檔案之後，只要透過簡單的流程，其他開發人員就能使用此套件 (不論公開或私用)：
 
 - 如本文中所述，所有開發人員都可以透過 [nuget.org](https://www.nuget.org/packages/manage/upload) 全域使用公用套件 (需要 NuGet 4.1.0+)。
-- 私用套件僅適用於小組或組織，方法是將它們裝載在檔案共用、私用 NuGet 伺服器、[Visual Studio Team Services 套件管理](https://www.visualstudio.com/docs/package/nuget/publish)或協力廠商存放庫 (例如 myget、ProGet、Nexus Repository 和 Artifactory)。 如需其他詳細資料，請參閱[裝載套件概觀](../hosting-packages/overview.md)。
+- 私用套件僅適用於小組或組織，方法是將它們裝載在檔案共用、私用 NuGet 伺服器、[Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish) 協力廠商存放庫 (例如 myget、ProGet、Nexus Repository 和 Artifactory)。 如需其他詳細資料，請參閱[裝載套件概觀](../hosting-packages/overview.md)。
 
-本文涵蓋發行至 nuget.org；若要發行至 Visual Studio Team Services，請參閱[套件管理](https://www.visualstudio.com/docs/package/nuget/publish)。
+此文章涵蓋發行至 nuget.org 的方法；若要發行至 Azure Artifacts，請參閱[套件管理](https://www.visualstudio.com/docs/package/nuget/publish)。
 
 ## <a name="publish-to-nugetorg"></a>發行至 nuget.org
 
@@ -28,7 +28,7 @@ ms.locfileid: "43549582"
 
 ![NuGet 登入位置](media/publish_NuGetSignIn.png)
 
-接下來，您可以透過 nuget.org Web 入口網站上傳套件、從命令列推送至 nuget.org (需要 `nuget.exe` 4.1.0+)，或透過 Visual Studio Team Services 在 CI/CD 流程期間發行，如下列各節中所述。
+接下來，您可以透過 nuget.org Web 入口網站上傳套件、從命令列推送至 nuget.org (需要 `nuget.exe` 4.1.0+)，或透過 Azure DevOps Services 在 CI/CD 流程期間發行，如下列各節中所述。
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web 入口網站：使用 nuget.org 上的 [Upload Package] \(上傳套件\) 索引標籤
 
@@ -93,9 +93,9 @@ ms.locfileid: "43549582"
 
 ![指出套件尚未發行的訊息](media/publish_NotYetIndexed.png)
 
-### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
+### <a name="azure-devops-services-cicd"></a>Azure DevOps Services (CI/CD)
 
-如果您在持續整合/部署處理序期間，使用 Visual Studio Team Services 將套件推送至 nuget.org，則必須在 NuGet 工作中使用 `nuget.exe` 4.1 或以上版本。 在[於您的組建中使用最新的 NuGet](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (Microsoft DevOps blog) 上可以找到詳細資料。
+如果您在持續整合/部署處理序期間，使用 Azure DevOps Services 將套件推送至 nuget.org，則必須在 NuGet 工作中使用 `nuget.exe` 4.1 或以上版本。 在[於您的組建中使用最新的 NuGet](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/) (Microsoft DevOps blog) 上可以找到詳細資料。
 
 ## <a name="managing-package-owners-on-nugetorg"></a>在 nuget.org 上管理套件擁有者
 

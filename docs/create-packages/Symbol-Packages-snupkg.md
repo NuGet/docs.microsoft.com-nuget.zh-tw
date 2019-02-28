@@ -16,37 +16,45 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645655"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852438"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
-## <a name="prerequisites"></a>必要條件
+符號套件可讓您改進對 NuGet 套件的偵錯體驗。
+
+## <a name="prerequisites"></a>先決條件
 
 [nuget.exe 第 4.9.0 版或更高版本](https://www.nuget.org/downloads)或是 [dotnet.exe 第 2.2.0 版或更高版本](https://www.microsoft.com/net/download/dotnet-core/2.2)，其實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。
 
 ## <a name="creating-a-symbol-package"></a>建立符號套件
 
-您可以從 .nuspec 檔案或 .csproj 檔案，建立 snupkg 符號套件。 同時支援 NuGet.exe 與 dotnet.exe。 當選項 ```-Symbols -SymbolPackageFormat snupkg``` 用於 nuget.exe 套件命令時，除了 .nupkg 檔案之外，還會建立 .snupkg 檔案。
+您可以使用 dotnet.exe、NuGet.exe 或 MSBuild 建立 snupkg 符號套件。 若使用 NuGet.exe，則除了.nupkg 檔案之外，您還可以使用下列命令來建立 .snupkg 檔案：
 
-建立 .snupkg 檔案的命令範例
 ```
-dotnet pack MyPackage.csproj --include-symbols -p:SymbolPackageFormat=snupkg
-
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
-
-msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-根據預設，將不會產生 `.snupkgs`。 如果是 nuget.exe，您必須連同 `-Symbols` 傳遞 `SymbolPackageFormat` 屬性，如果是 dotnet.exe 則傳遞 `--include-symbols`，如果是 msbuild 則傳遞 `-p:IncludeSymbols`。
+若使用 dotnet.exe 或 MSBuild，則除了.nupkg 檔案之外，您還可以使用下列步驟來建立 .snupkg 檔案：
 
-SymbolPackageFormat 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 SymbolPackageFormat，它會預設為 `symbols.nupkg`，且會建立舊版符號套件。
+1. 新增下列屬性到您的 .csproj 檔案：
+
+    ```xml
+    <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    ```
+
+1. 使用 `dotnet pack MyPackage.csproj` 或 `msbuild -t:pack MyPackage.csproj` 封裝您的專案。
+
+`SymbolPackageFormat` 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 `SymbolPackageFormat`，它會預設為 `symbols.nupkg`，且會建立舊版符號套件。
 
 > [!Note]
 > 目前仍然支援舊版格式 `.symbols.nupkg`，只是為達到相容性而已 (請參閱[舊版符號套件](Symbol-Packages.md))。 NuGet.org 符號伺服器只接受新的符號套件格式 - `.snupkg`。
