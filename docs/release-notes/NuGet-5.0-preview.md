@@ -5,19 +5,61 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5889ea52f993fa8fe841f8eb83b6da659cdede93
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247655"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196196"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview 版本資訊
 
 ## <a name="nuget-50-preview-releases"></a>NuGet 5.0 Preview 版本
 
+* 2010 年 2 月 27 日- [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
 * 2019 年 2 月 13 日- [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
 * 2019 年 1 月 23 日- [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+
+## <a name="summary-whats-new-in-nuget-50-preview-4"></a>摘要: 什麼是 NuGet 5.0 Preview 4 的新功能
+
+### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
+
+**錯誤：**
+
+* NuGet.VisualStudio.IVsPackageInstaller-求助於未封裝的專案參考一律會使用 packages.config，即使預設設定為 PackageReference- [#7005](https://github.com/NuGet/Home/issues/7005)
+
+* PMC:更新套件重新取消列入套件安裝失敗 （「 無法找到的套件 」）。 - [#7268](https://github.com/NuGet/Home/issues/7268)
+
+* 在我們的存放庫和 VSIX 內-新增第三方注意事項[#7409](https://github.com/NuGet/Home/issues/7409)
+
+* NuGet.VisualStudio.IVsPackageInstaller.InstallPackage 應該安裝最新版本時指定-任何版本[#7493](https://github.com/NuGet/Home/issues/7493)
+
+* -dotnet nuget push 互動式支援- [#7519](https://github.com/NuGet/Home/issues/7519)
+
+* 還原時鎖定檔案，就不應該引發 NU1603 警告。 - [#7529](https://github.com/NuGet/Home/issues/7529)
+
+* NuGet 不應該使用最低限度記錄-還原期間會列印專案路徑[#7647](https://github.com/NuGet/Home/issues/7647)
+
+* -dotnet 提供互動式支援移除封裝- [#7727](https://github.com/NuGet/Home/issues/7727)
+
+* 新增與 TypeForwardedTo attrs-回 NuGet.Packaging.Core [#7768](https://github.com/NuGet/Home/issues/7768)
+
+* plugins_cache 需要短的路徑無法正常運作- [#7770](https://github.com/NuGet/Home/issues/7770)
+
+* 偏好使用 msbuild 探索的路徑，如果使用者未要求特定的 msbuild 版本- [#7786](https://github.com/NuGet/Home/issues/7786)
+
+**Dcr:**
+
+* 每個來源 NuGet.Config-透過 http 要求數目限制[#4538](https://github.com/NuGet/Home/issues/4538)
+
+* NuGet 應為目標 （以協助清除 VSIX 16.0 組建） Net472- [#7143](https://github.com/NuGet/Home/issues/7143)
+
+* PMC:移除 OpenPackagePage 命令- [#7384](https://github.com/NuGet/Home/issues/7384)
+
+* 請 NetCoreApp 3.0 對應為 NetStandard 2.1- [#7762](https://github.com/NuGet/Home/issues/7762)
+
+* 將 netstandard2.0 支援新增至 NuGet.* 封裝- [#6516](https://github.com/NuGet/Home/issues/6516)
+
 
 ## <a name="summary-whats-new-in-nuget-50-preview-3"></a>摘要: 什麼是 NuGet 5.0 Preview 3 的新功能
 
@@ -39,7 +81,7 @@ ms.locfileid: "56247655"
 
 * msbuild /t: restore 最少的詳細資訊應該很多小- [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**DCRs**
+**Dcr:**
 
 * 讓套件作者可以定義建置的資產轉移行為- [#6091](https://github.com/NuGet/Home/issues/6091)
 
@@ -92,7 +134,7 @@ ms.locfileid: "56247655"
 
 * dotnet 還原失敗，因為已停用全機器摘要- [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**DCRs**
+**Dcr:**
 
 * NuGet 5.0 組件 （透過 TFM 變化）-需要.NET 4.7.2 [#7510](https://github.com/NuGet/Home/issues/7510)
 
@@ -109,10 +151,6 @@ ms.locfileid: "56247655"
 [在此版本 5.0.0-preview2 中修正的所有問題的清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
 ### <a name="known-issues"></a>已知問題
-
-#### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive 在 Mac 上發生錯誤。 - [#7519](https://github.com/NuGet/Home/issues/7519)
-**問題**`--interactive`引數不轉送 dotnet cli 和錯誤會導致`error: Missing value for option 'interactive'` 
-**因應措施**以互動式的選項，例如執行任何其他的dotnet命令`dotnet restore --interactive`並進行驗證。 驗證接著可能會由認證提供者快取。 接著，執行 `dotnet nuget push`。
 
 #### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>FallbackFolders 中由 .NET Core SDK 所安裝的套件是使用自訂方式安裝，而且未通過簽章驗證。 - [#7414](https://github.com/NuGet/Home/issues/7414)
 **問題**使用 dotnet.exe 時還原專案的多重目標 netcoreapp 2.x 1.x 和 netcoreapp 2.x，後援的資料夾會被視為檔案摘要。 這表示，當還原時，NuGet 將會從後援資料夾挑選套件並嘗試將它安裝到全域套件資料夾，而且會執行平常的簽署驗證並失敗。
