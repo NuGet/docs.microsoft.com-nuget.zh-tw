@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980998"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225871"
 ---
 # <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目
 
@@ -31,7 +31,7 @@ ms.locfileid: "50980998"
 
 1. 封裝每次提交給[nuget.org](https://www.nuget.org/)識別碼符合的保留的識別碼前置詞，除非它來自擁有者保留識別碼前置詞，會拒絕封裝。
 
-1. 在 Visual Studio 2017 15.4 版或更新版本，和任何符合保留的識別碼前置詞，以及所有源自保留識別碼前置詞的擁有者的套件會有視覺指示器[nuget.org](https://www.nuget.org/)指出封裝正在進行保留的識別碼前置詞。 這是新的封裝提交以及現有的封裝，在擁有者，則為 true。 **注意：** 單一摘要選取作為封裝來源時，才會出現在 Visual Studio 中的指標。
+1. 在 Visual Studio 2017 15.4 版或更新版本，和任何符合保留的識別碼前置詞，以及所有源自保留識別碼前置詞的擁有者的套件會有視覺指示器[nuget.org](https://www.nuget.org/)指出封裝正在進行保留的識別碼前置詞。 這是新的封裝提交以及現有的封裝，在擁有者，則為 true。 **注意：** Visual Studio 中的指標，僅會在單一的摘要已選取作為套件來源時出現。
 
 1. 所有先前已經有套件符合保留的識別碼前置詞，但會*不*保留的擁有者所擁有的前置詞將維持不變 （它們不會列出，但它們也不會具有視覺指標）。 此外，這些套件的擁有者將仍然可以提交給封裝的新版本。
 
@@ -84,6 +84,8 @@ ms.locfileid: "50980998"
 1. 想*不*保留的套件識別碼前置詞會造成模稜兩可和社群的混淆嗎？
 
 1. 會識別符合的套件識別碼前置詞清楚且一致 （尤其是封裝作者） 的封裝的內容嗎？
+
+1. 封裝沒有授權 (使用[授權](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license)中繼資料元素和不正被取代的 licenseUrl)？
 
 ## <a name="third-party-feed-provider-scenarios"></a>摘要提供者案例的第三方
 

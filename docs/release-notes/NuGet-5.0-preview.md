@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196196"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225884"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview 版本資訊
 
 ## <a name="nuget-50-preview-releases"></a>NuGet 5.0 Preview 版本
 
-* 2010 年 2 月 27 日- [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
-* 2019 年 2 月 13 日- [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
-* 2019 年 1 月 23 日- [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+* 2019 年 2 月 27 日- [NuGet 5.0 Preview 4](#whats-new-in-nuget-50-preview-4)
+* 2019 年 2 月 13 日- [NuGet 5.0 Preview 3](#whats-new-in-nuget-50-preview-3)
+* 2019 年 1 月 23 日- [NuGet 5.0 Preview 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>摘要: 什麼是 NuGet 5.0 Preview 4 的新功能
+## <a name="whats-new-in-nuget-50-preview-4"></a>什麼是 NuGet 5.0 Preview 4 的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
-**錯誤：**
+**Bug**
 
 * NuGet.VisualStudio.IVsPackageInstaller-求助於未封裝的專案參考一律會使用 packages.config，即使預設設定為 PackageReference- [#7005](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196196"
 
 * 偏好使用 msbuild 探索的路徑，如果使用者未要求特定的 msbuild 版本- [#7786](https://github.com/NuGet/Home/issues/7786)
 
-**Dcr:**
+**DCRs**
 
 * 每個來源 NuGet.Config-透過 http 要求數目限制[#4538](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196196"
 * 將 netstandard2.0 支援新增至 NuGet.* 封裝- [#6516](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>摘要: 什麼是 NuGet 5.0 Preview 3 的新功能
+## <a name="whats-new-in-nuget-50-preview-3"></a>什麼是 NuGet 5.0 Preview 3 的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題 
 
-**錯誤：**
+**Bug**
 
 * nuget.exe /? 應該會列出正確的 msbuild 版本- [#7794](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196196"
 
 * msbuild /t: restore 最少的詳細資訊應該很多小- [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**Dcr:**
+**DCRs**
 
 * 讓套件作者可以定義建置的資產轉移行為- [#6091](https://github.com/NuGet/Home/issues/6091)
 
 * 在成功的專案不是方案的一部分或未載入，但先前已還原-VS 中啟用還原[#5820](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>摘要: 什麼是 5.0 Preview 2 的新功能
+## <a name="whats-new-in-nuget-50-preview-2"></a>什麼是 NuGet 5.0 Preview 2 的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
-**錯誤：**
+**Bug**
 
 * VS 16.0 的 NuGet UI 有無法讀取的索引標籤色彩的問題-由於[#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196196"
 
 * dotnet 還原失敗，因為已停用全機器摘要- [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**Dcr:**
+**DCRs**
 
 * NuGet 5.0 組件 （透過 TFM 變化）-需要.NET 4.7.2 [#7510](https://github.com/NuGet/Home/issues/7510)
 
