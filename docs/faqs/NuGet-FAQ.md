@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852542"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196209"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -158,7 +158,7 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 如果套件未指定授權條款，請使用 nuget.org 套件頁面上的 [連絡擁有者] 連結直接連絡套件擁有者。 Microsoft 不會將任何智慧財產權從協力廠商套件提供者授權給您，而且不負責協力廠商所提供的資訊。
 
-## <a name="managing-packages-on-nugetorg"></a>在 nuget.org 上管理套件
+## <a name="managing-packages-on-nugetorg"></a>在 Nuget.org 上管理套件
 
 **我可以在上傳套件之後編輯套件中繼資料嗎？**
 
@@ -167,6 +167,10 @@ NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套�
 請注意，會自動從您套件本身產生針對套件所列出的相依性，而且無法進行編輯。
 
 此外，將套件上傳至 [int.nugettest.org](https://int.nugettest.org) 是測試及驗證您套件的好方法，完全無須將套件設為可在公開資源庫中使用。 API 端點： https://apiint.nugettest.org/v3/index.json
+
+**我可以刪除已經發行至 NuGet.org 的套件嗎？**
+
+一般來說，我們不支援刪除已經發行到 NuGet.org 的套件。閱讀更多關於我們[刪除套件原則](../policies/deleting-packages)的資訊。
 
 **可以保留將在未來發行之套件的名稱嗎？**
 

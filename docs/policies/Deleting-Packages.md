@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548124"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196183"
 ---
 # <a name="deleting-packages"></a>刪除套件
 
@@ -23,7 +23,7 @@ nuget.org 不支援「取消列出」套件，此作業可在網站的套件管�
 
 ## <a name="exceptions"></a>例外狀況
 
-在發生著作權侵權和有潛在危險內容等例外情況下，NuGet 小組可以手動刪除套件。 透過 [NuGet 資源庫](http://www.nuget.org)提交支援要求以啟動程序。
+在發生著作權侵權和有潛在危險內容等例外情況下，NuGet 小組可以手動刪除套件。 您可使用 NuGet.org 套件詳細資料頁面上的 [檢舉不當使用] 按鈕來回報套件。 若您為套件擁有者，請登入 NuGet.org 帳戶，使用 NuGet.org 套件詳細資料頁面上的 [連絡支援人員] 按鈕來尋求 NuGet 的支援。
 
 ## <a name="prohibited-use"></a>禁止使用
 
