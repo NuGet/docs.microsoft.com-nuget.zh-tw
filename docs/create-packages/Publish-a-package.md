@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852568"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432539"
 ---
 # <a name="publishing-packages"></a>發行套件
 
@@ -74,7 +74,7 @@ ms.locfileid: "56852568"
 
 #### <a name="publish-signed-packages"></a>發行已簽署的套件
 
-若要提交已簽署的套件，必須先[註冊用來簽署套件的憑證](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg)。 
+若要提交已簽署的套件，必須先[註冊用來簽署套件的憑證](../create-packages/Sign-a-Package.md#register-the-certificate-on-nugetorg)。 
 
 > [!Warning]
 > nuget.org 會拒絕不符合[簽署的套件需求](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg)的套件。
@@ -83,7 +83,7 @@ ms.locfileid: "56852568"
 
 推送至 nuget.org 的套件會歷經數次驗證，例如病毒檢查。 (nuget.org 上的所有套件都會定期掃描)。
 
-。 套件通過所有驗證檢查時，可能需要一些時間進行編製索引，並顯示在搜尋結果中。 編製索引完成之後，您會收到一封電子郵件，確認已成功發行套件。 如果套件讓驗證檢查失敗，則會更新套件詳細資料頁面以顯示相關聯的錯誤，而且您也會收到一封電子郵件通知您有關該錯誤。
+套件通過所有驗證檢查時，可能需要一些時間進行編製索引，並顯示在搜尋結果中。 編製索引完成之後，您會收到一封電子郵件，確認已成功發行套件。 如果套件讓驗證檢查失敗，則會更新套件詳細資料頁面以顯示相關聯的錯誤，而且您也會收到一封電子郵件通知您有關該錯誤。
 
 套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發佈所需的時間超出預期，請前往 [status.nuget.org](https://status.nuget.org/)，以檢查 nuget.org 是否發生任何中斷。 如果所有系統都可以正常運作，但未在一個小時內成功發佈套件，請登入 nuget.org，並使用套件頁面上的 [連絡客戶支援] 連結與我們連絡。
 
