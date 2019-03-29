@@ -1,16 +1,16 @@
 ---
 title: NuGet 套件中的發行前版本
-description: 建置發行前版本套件的指導方針
+description: 建置發行前版本套件的指引
 author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645629"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432448"
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -56,7 +56,7 @@ NuGet 使用套件時預設不包含發行前版本，但是您可以如下所�
 
 ## <a name="semantic-versioning"></a>語意版本控制
 
-[語意版本控制或 SemVer 慣例](http://semver.org/spec/v1.0.0.html)描述如何利用版本號碼中的字串傳遞其表示的基礎程式碼。
+[語意化版本控制系統或 SemVer 慣例](http://semver.org/spec/v1.0.0.html)描述如何利用版本號碼中的字串傳遞基礎程式碼的意涵。
 
 在此慣例中，每個版本都有三個部分 `Major.Minor.Patch`，代表意義如下：
 

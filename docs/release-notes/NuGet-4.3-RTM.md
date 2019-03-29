@@ -6,16 +6,23 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 4bee32995884f4c003ebb963d2fd5b2d04363bab
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551620"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432474"
 ---
-# <a name="nuget-43-rtm-release-notes"></a>NuGet 4.3 RTM 版本資訊
+# <a name="nuget-43-release-notes"></a>NuGet 4.3 版本資訊
 
 [Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 附有 NuGet 4.3 RTM，它新增新案例的支援，例如 .NET Standard 2.0/.NET Core 2.0、包含許多品質修正，並且改善效能。 此版本也帶來數項改善，像是支援語意化版本控制系統 2.0.0、NuGet 警告和錯誤的 MSBuild 整合等等。
+
+## <a name="summary-whats-new-in-430"></a>摘要: 4.3.0 中的新功能
+
+## <a name="summary-whats-new-in-431"></a>摘要: 4.3.1 中的新功能
+
+* 安全性修正：在 ~/.nuget 內建立的檔案權限過於開放 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全性修正：NUPKG 內的檔案可以有 NUPKG 目錄上層的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
@@ -79,7 +86,7 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 - NET Core 2.0：向資產檔案註冊所有警告/錯誤 (包括 PackageTargetFallback) - [#4895](https://github.com/NuGet/Home/issues/4895)
 
-- 啟用 TFM 支援：NetStandard2.0、Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
+- 啟用 TFM 支援：NetStandard2.0，Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
 
 - 減少 NuGet.Core 和 NuGet.Client 專案數 (以及 DLL) - [#2446](https://github.com/NuGet/Home/issues/2446)
 

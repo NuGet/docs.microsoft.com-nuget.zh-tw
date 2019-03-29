@@ -5,22 +5,30 @@ author: anangaur
 ms.author: anangaur
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3c71d05144aa2b92b916d4ebf319c5a4e321581f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: eacd29d4c9340a0f015fcdf6c5b9dd41bf781419
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549840"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432552"
 ---
-# <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM 版本資訊
+# <a name="nuget-46-release-notes"></a>NuGet 4.6 版本資訊
 
 [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 隨附 [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe)。
 
-## <a name="summary-whats-new-in-this-release"></a>摘要：此版本的新功能
+## <a name="summary-whats-new-in-460"></a>摘要: 4.6.0 中的新功能
 
 * 新增了[簽署套件](../create-packages/sign-a-package.md)的支援。
 * Visual Studio 2017 和 nuget.exe 現在會在安裝之前驗證套件的完整性，為[簽署的套件](../reference/signed-packages-reference.md)還原套件。
 * 改善了後續還原的效能。
+
+## <a name="summary-whats-new-in-463"></a>摘要: 4.6.3 中的新功能
+
+* 安全性修正：在 ~/.nuget 內建立的檔案權限過於開放 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-464"></a>摘要: 4.6.4 中的新功能
+
+* 安全性修正：NUPKG 內的檔案可以有 NUPKG 目錄上層的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
