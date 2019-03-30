@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852581"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637645"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -90,7 +90,7 @@ SPDX 授權運算式或套件內授權檔案的路徑，通常出現在 UI 顯�
 
 如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如： `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt.`或`.md`) 使用授權的文字。 例如: 
+如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt`或`.md`) 使用授權的文字。 例如: 
 ```xml
 <package>
   <metadata>

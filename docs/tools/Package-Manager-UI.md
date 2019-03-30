@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981180"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637619"
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet 套件管理員 UI
 
@@ -127,7 +127,7 @@ ms.locfileid: "50981180"
 1. 若要變更的套件來源，請選取它，進行中的編輯**名稱**並**來源**方塊中，然後選取**Update**。
 1. 若要停用的套件來源，請清除方塊左邊的清單中的名稱。
 1. 若要移除的套件來源，請選取它，然後按**X**  按鈕。
-1. 使用向上和向下箭號按鈕以變更套件來源的優先順序。 還原專案的套件時，visual Studio 會搜尋這些來源中的優先順序。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。
+1. 使用向上和向下箭號按鈕不會變更的套件來源的優先順序。 Visual Studio 會忽略套件來源的順序，使用從任一個來源是一個最先回應要求。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。
 
 > [!Tip]
 > 如果套件來源之後刪除它再次發生，表示它可能會列在電腦層級或使用者層級`NuGet.Config`檔案。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)這些檔案的位置，然後移除來源以手動方式編輯檔案，或使用[nuget 來源命令](../tools/nuget-exe-CLI-reference.md)。

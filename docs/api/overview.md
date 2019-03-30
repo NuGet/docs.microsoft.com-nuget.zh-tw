@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145653"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637658"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,17 +49,18 @@ NuGet 的 HTTP 通訊協定第 3 版的 API。 此通訊協定有時稱為 「 V
 
 **服務索引**說明各種不同的資源。 目前的一組支援資源如下所示：
 
-資源名稱                                                          | 必要 | 描述
----------------------------------------------------------------------- | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | 是      | 推送和刪除 （或取消列出） 封裝。
-[`SearchQueryService`](search-query-service-resource.md)               | 是      | 篩選和關鍵字搜尋的封裝。
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | 是      | 取得套件中繼資料。
-[`PackageBaseAddress`](package-base-address-resource.md)               | 是      | 取得封裝的內容 (.nupkg)。
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | 否       | 探索的子字串的封裝識別碼和版本。
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | 否       | 建構存取 「 檢舉不當使用 」 網頁的 URL。
-[`RepositorySignatures`](repository-signatures-resource.md)            | 否       | 取得用來存放庫簽章的憑證。
-[`Catalog`](catalog-resource.md)                                       | 否       | 完整封裝的所有事件的記錄。
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | 否       | 推送符號套件。
+資源名稱                                                        | 必要 | 描述
+-------------------------------------------------------------------- | -------- | -----------
+[目錄](catalog-resource.md)                                       | 否       | 完整封裝的所有事件的記錄。
+[PackageBaseAddress](package-base-address-resource.md)               | 是      | 取得封裝的內容 (.nupkg)。
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | 否       | 建構一個 URL 以存取套件詳細資料網頁。
+[PackagePublish](package-publish-resource.md)                        | 是      | 推送和刪除 （或取消列出） 封裝。
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | 是      | 取得套件中繼資料。
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | 否       | 建構存取報告不當的文章內容網頁的 URL。
+[RepositorySignatures](repository-signatures-resource.md)            | 否       | 取得用來存放庫簽章的憑證。
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | 否       | 探索的子字串的封裝識別碼和版本。
+[SearchQueryService](search-query-service-resource.md)               | 是      | 篩選和關鍵字搜尋的封裝。
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | 否       | 推送符號套件。
 
 一般情況下，API 資源傳回的所有非二進位資料會使用 JSON 序列化的。 服務索引中每個資源所傳回的回應結構描述是個別針對該資源定義。 如需有關每個資源的詳細資訊，請參閱以上所列的主題。
 
@@ -123,7 +124,9 @@ DELETE | 刪除或取消列出的資源。
 X-NuGet-ApiKey           | 所需的推送和刪除，請參閱[`PackagePublish`資源](package-publish-resource.md)
 X-NuGet-Client-Version   | **已被取代**而被取代 `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | 在某些情況下，只能在 nuget.org 上有需要，請參閱[nuget.org 通訊協定](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *選擇性*。 NuGet 用戶端 v4.7 + 識別屬於相同的 NuGet 用戶端工作階段的 HTTP 要求。 針對`PackageReference`有還原作業是單一工作階段識別碼，其他情況下自動完成，例如和`packages.config`可能有數個不同的工作階段識別碼的由於重整程式碼的方式還原。
+X-NuGet-Session-Id       | *選擇性*。 NuGet 用戶端 v4.7 + 識別屬於相同的 NuGet 用戶端工作階段的 HTTP 要求。
+
+`X-NuGet-Session-Id`中的單一還原相關的所有作業的單一值`PackageReference`。 如需其他案例，例如自動完成和`packages.config`還原可能會有數個不同的工作階段識別碼由於重整程式碼的方式。
 
 ## <a name="authentication"></a>驗證
 
