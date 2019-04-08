@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977559"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921568"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -29,7 +29,7 @@ ms.locfileid: "52977559"
 
   ![憑證匯出精靈](../reference/media/CertificateExportWizard.png)
 
-* 您也可以使用 [Export-Certificate PowerShell 命令](/powershell/module/pkiclient/export-certificate.md)匯出認證。
+* 您也可以使用 [Export-Certificate PowerShell 命令](/powershell/module/pkiclient/export-certificate)匯出認證。
 
 ## <a name="sign-the-package"></a>簽署套件
 
@@ -39,8 +39,11 @@ ms.locfileid: "52977559"
 使用 [nuget sign](../tools/cli-ref-sign.md) 簽署套件：
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> 憑證提供者通常也會提供時間戳記伺服器 URL，可用於上方顯示的 `Timestamper` 選擇性引數。 請洽詢提供者的文件及 (或) 支援人員，以取得該服務 URL。
 
 * 您可以使用憑證存放區中可用的憑證，或使用檔案中的憑證。 請參閱 [nuget sign](../tools/cli-ref-sign.md) 的 CLI 參考。
 * 簽署的套件應包含時間戳記，以確定簽署憑證過期時，簽章仍保持有效。 若不包含時間戳記，則簽署作業會產生[警告](../reference/errors-and-warnings/NU3002.md)。
@@ -56,7 +59,7 @@ nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestam
 1. 瀏覽並選取稍早匯出的憑證檔案。
   ![已註冊憑證](../reference/media/registered-certs.png)
 
-**注意**
+**注意事項**
 * 一位使用者可以提交多個憑證，且多位使用者可以註冊同一個憑證。
 * 使用者在註冊憑證後，往後提交的所有套件都**必須**使用其中一項憑證簽署。 請參閱[在 NuGet.org 上管理您套件的簽署需求](#manage-signing-requirements-for-your-package-on-nugetorg)
 * 使用者也可以從帳戶移除已註冊憑證。 移除憑證後，使用該憑證簽署的新套件將會提交失敗。 現有的套件則不會受影響。
@@ -67,7 +70,7 @@ nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestam
 
 ## <a name="create-a-test-certificate"></a>建立測試憑證
 
-您可以基於測試目的使用自動發行的憑證。 若要建立自動發行的憑證，請使用 [New-SelfSignedCertificate PowerShell 命令](/powershell/module/pkiclient/new-selfsignedcertificate.md)。
+您可以基於測試目的使用自動發行的憑證。 若要建立自動發行的憑證，請使用 [New-SelfSignedCertificate PowerShell 命令](/powershell/module/pkiclient/new-selfsignedcertificate)。
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -89,7 +92,7 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>在 NuGet.org 上管理您套件的簽署需求
 1. [登入](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org。
 
-1. 前往 `Manage Packages` 
+1. 前往`Manage Packages` 
    ![設定套件簽署者](../reference/media/configure-package-signers.png)
 
 * 若您為套件的唯一擁有者，那麼您就是必要的簽署者，這表示您可以使用任何已註冊憑證，來簽署自己的套件並發佈至 NuGet.org。
@@ -101,4 +104,4 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 ## <a name="related-articles"></a>相關文章
 
 - [安裝已簽署套件](../consume-packages/installing-signed-packages.md)
-- [簽署的套件參考](../reference/Signed-Packages-Reference.md)
+- [已簽署套件的參考](../reference/Signed-Packages-Reference.md)
