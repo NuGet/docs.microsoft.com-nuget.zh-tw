@@ -8,12 +8,12 @@ description: 存放庫簽章資源可讓用戶端地宣布其簽署功能的存�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248438"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509018"
 ---
 # <a name="repository-signatures"></a>存放庫簽章
 
@@ -28,7 +28,8 @@ ms.locfileid: "53248438"
 @type 值                | 注意
 -------------------------- | -----
 RepositorySignatures/4.7.0 | 初始版本
-RepositorySignatures/4.9.0 | 可讓啟用 `allRepositorySigned`
+RepositorySignatures/4.9.0 | NuGet 4.9 + 用戶端支援
+RepositorySignatures/5.0.0 | 可讓啟用`allRepositorySigned`。 NuGet v5.0 + 用戶端支援
 
 ## <a name="base-url"></a>基礎 URL
 
@@ -59,13 +60,13 @@ RepositorySignatures/4.9.0 | 可讓啟用 `allRepositorySigned`
 
 名稱                | 類型             | 必要 | 注意
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | boolean          | 是      | 必須是`false`上 4.7.0 資源
+allRepositorySigned | boolean          | 是      | 必須是`false`4.7.0 和 4.9.0 資源
 signingCertificates | 物件的陣列 | 是      | 
 
 `allRepositorySigned`布林值為 false，如果套件來源具有一些套件有沒有存放庫簽章。 如果布林值會設為 true，在所有的封裝來源必須具有存放庫簽章所述的簽章憑證的其中一個產生`signingCertificates`。
 
 > [!Warning]
-> `allRepositorySigned`布林值必須為偽上 4.7.0 資源。 NuGet v4.7 和 v4.8 用戶端無法從來源安裝套件`allRepositorySigned`設為 true。
+> `allRepositorySigned`布林值必須為偽 4.7.0 和 4.9.0 資源上。 NuGet v4.7、 v4.8 和 4.9 用戶端無法從來源安裝套件`allRepositorySigned`設為 true。
 
 應該有一或多個中的簽署憑證`signingCertificates`陣列，如果`allRepositorySigned`布林值會設為 true。 如果是空的陣列和`allRepositorySigned`設為 true，所有的封裝來源的資料應視為無效，雖然用戶端原則仍然允許套件耗用量。 此陣列中的每個項目是具有下列屬性的 JSON 物件。
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637645"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509096"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -84,13 +84,15 @@ UI 顯示中的套件詳細描述。
 
 套件授權的 URL，通常會顯示在 UI 顯示及 nuget.org 中。
 #### <a name="license"></a>授權
-SPDX 授權運算式或套件內授權檔案的路徑，通常出現在 UI 顯示及 nuget.org 中。如果您要授權常見例如 BSD 2 子句或 MIT 授權底下的封裝，使用相關聯的 SPDX 授權識別碼。<br>例如： `<license type="expression">MIT</license>`
+SPDX 授權運算式或套件內授權檔案的路徑，通常出現在 UI 顯示及 nuget.org 中。如果您要授權常見例如 BSD 2 子句或 MIT 授權底下的封裝，使用相關聯的 SPDX 授權識別碼。<br>例如: 
+`<license type="expression">MIT</license>`
 
 此處有 [SPDX 授權識別碼](https://spdx.org/licenses/)的完整清單。 在使用授權類型運算式時，NuGet.org 只接受 OSI 或 FSF 核准的授權。
 
-如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如： `<license type="expression">BSD-2-Clause OR MIT</license>`
+如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如：
+`<license type="expression">BSD-2-Clause OR MIT</license>`
 
-如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt`或`.md`) 使用授權的文字。 例如: 
+如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt`或`.md`) 使用授權的文字。 例如：
 ```xml
 <package>
   <metadata>
@@ -159,7 +161,7 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2+)* 零或多個 `<frameworkAssembly>` 項目的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下文的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。 |
 #### <a name="references"></a>參考
-*(1.5+)* 在套件的 `lib` 資料夾中命名組件的零或多個 `<reference>` 項目集合，這些項目可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含具有 *targetFramework* 屬性的 `<group>` 項目，然後即可包含 `<reference>` 項目。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。
+*(1.5+)* 在套件的 `lib` 資料夾中命名組件的零或多個 `<reference>` 項目集合，這些項目可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含`<group>`具有項目*targetFramework*屬性，則會包含`<reference>`項目。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。
 #### <a name="contentfiles"></a>contentFiles
 *(3.3+)* `<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。
 #### <a name="files"></a>個檔案 
@@ -190,13 +192,13 @@ nuget pack MyProject.csproj
 
 | 語彙基元 | 值來源 | 值
 | --- | --- | ---
-| **$id$** | 專案檔 | 從專案檔的 AssemblyName （標題） |
-| **$version$** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
-| **$author$** | AssemblyInfo | AssemblyCompany |
-| **$title$** | AssemblyInfo | AssemblyTitle |
-| **$description$** | AssemblyInfo | AssemblyDescription |
-| **$copyright$** | AssemblyInfo | AssemblyCopyright |
-| **$configuration$** | 組件 DLL | 用以建置組件的組態，預設為偵錯。 請注意，若要建立使用版本組態的套件，命令列上一律要使用 `-properties Configuration=Release`。 |
+| **$id $** | 專案檔 | 從專案檔的 AssemblyName （標題） |
+| **$version $** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
+| **$author $** | AssemblyInfo | AssemblyCompany |
+| **$title $** | AssemblyInfo | AssemblyTitle |
+| **$description $** | AssemblyInfo | AssemblyDescription |
+| **$copyright $** | AssemblyInfo | AssemblyCopyright |
+| **$configuration $** | 組件 DLL | 用以建置組件的組態，預設為偵錯。 請注意，若要建立使用版本組態的套件，命令列上一律要使用 `-properties Configuration=Release`。 |
 
 當您包含[組件檔](#including-assembly-files)和[內容檔](#including-content-files)時，也可使用權杖來解析路徑。 權杖和 MSBuild 屬性有相同的名稱，所以您才能夠根據目前的組建組態選取要包含的檔案。 例如，如果在 `.nuspec` 檔案中使用下列權杖：
 
@@ -257,7 +259,7 @@ nuget pack MyProject.csproj
 
 ### <a name="dependency-groups"></a>相依性群組
 
-*2.0+ 版*
+*版本 2.0 +*
 
 當作單一一般清單的替代方案，您可以使用 `<dependencies>` 內的 `<group>` 項目，根據目標專案的 Framework 設定檔指定相依性。
 
@@ -385,8 +387,8 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 | 屬性 | 描述 |
 | --- | --- |
 | **src** | 要包含的檔案位置，會受到 `exclude` 屬性指定的排除項目約束。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
-| **目標** | 套件內資料夾的相對路徑是放置原始程式檔的位置，其開頭必須是 `lib`、`content`、`build` 或 `tools`。 請參閱[從慣例的工作目錄建立 .nuspec](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)。 |
-| **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
+| **target** | 套件內資料夾的相對路徑是放置原始程式檔的位置，其開頭必須是 `lib`、`content`、`build` 或 `tools`。 請參閱[從慣例的工作目錄建立 .nuspec](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)。 |
+| **exclude** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 
 ### <a name="examples"></a>範例
 
@@ -401,7 +403,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
     Packaged result:
         lib\library.dll
 
-**目標 Framework 的特定單一組件**
+**目標 framework 的特定單一組件**
 
     Source file:
         library.dll
@@ -412,7 +414,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
     Packaged result:
         lib\net40\library.dll
 
-**使用萬用字元的 DLL 集合**
+**使用萬用字元的 Dll 組**
 
     Source files:
         bin\release\libraryA.dll
@@ -425,7 +427,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
         lib\libraryA.dll
         lib\libraryB.dll
 
-**不同 Framework 的 DLL**
+**不同 framework 的 Dll**
 
     Source files:
         lib\net40\library.dll
@@ -483,7 +485,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
         content\css\mobile\style1.css
         content\css\mobile\style2.css
 
-**具有目錄結構的內容檔**
+**目錄結構的內容檔案**
 
     Source files:
         css\mobile\style.css
@@ -498,7 +500,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
         content\css\mobile\wp7\style.css
         content\css\browser\style.css
 
-**目標 Framework 的特定內容檔案**
+**目標 framework 的特定的內容檔案**
 
     Source file:
         css\cool\style.css
@@ -509,7 +511,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
     Packaged result:
         content\style.css
 
-**複製到資料夾，名稱中有點的內容檔**
+**複製到資料夾名稱中有點的內容檔案**
 
 在此情況下，NuGet 會看到 `target` 的副檔名與 `src` 的副檔名不相符，因此會將 `target` 名稱的該部分視為資料夾：
 
@@ -522,7 +524,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
     Packaged result:
         content\images\package.icons\picture.png
 
-**無副檔名的內容檔**
+**沒有擴充程式的內容檔案**
 
 若要包含不含副檔名的檔案，請使用 `*` 或 `**` 萬用字元：
 
@@ -535,7 +537,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
     Packaged result:
         flags\installed
 
-**有深路徑和深層目標的內容檔**
+**有深路徑和深層目標的內容檔案**
 
 在此情況下，因為原始程式檔的副檔名和目標相符，所以 NuGet 會假設目標是檔案名稱，不是資料夾：
 
@@ -550,7 +552,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
     Packaged result:
         content\css\cool\style.css
 
-**重新命名套件中的內容檔**
+**重新命名封裝中的內容檔案**
 
     Source file:
         ie\css\style.css
@@ -579,7 +581,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 ### <a name="using-the-contentfiles-element-for-content-files"></a>內容檔使用 contentFiles 項目
 
-*NuGet 4.0+ 與 PackageReference*
+*NuGet 4.0 + 與 PackageReference*
 
 根據預設，套件會將內容放在 `contentFiles` 資料夾 (請參閱下文)，而 `nuget pack` 包含使用預設屬性資料夾中的所有檔案。 在此情況下，`.nuspec` 完全不需要包含 `contentFiles` 節點。
 
@@ -590,10 +592,10 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 | 屬性 | 描述 |
 | --- | --- |
 | **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
-| **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
+| **exclude** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **buildAction** | 要指派給 MSBuild 內容項目的建置動作，例如 `Content`、`None`、`Embedded Resource`、`Compile` 等等。預設為 `Compile`。 |
 | **copyToOutput** | 布林值，指出是否要將內容項目複製到組建 （或發行） 的輸出資料夾。 預設為 false。 |
-| **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設為 false。 |
+| **壓平合併** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設為 false。 |
 
 安裝套件時，NuGet 會由上而下套用 `<contentFiles>` 的子項目。 如有多個項目符合同一檔案，則套用所有項目。 如果相同的屬性發生衝突，則最上層項目會覆寫較低的項目。
 
@@ -603,8 +605,8 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages` 可能是 `cs`、`vb`、`fs`、`any`，或指定的 `$(ProjectLanguage)` 小寫對等項
-- `TxM` 是 NuGet 支援的任何合法目標 Framework Moniker (請參閱[目標 Framework](../reference/target-frameworks.md))。
+- `codeLanguages` 可能`cs`， `vb`， `fs`， `any`，或對等小寫; 的指定 `$(ProjectLanguage)`
+- `TxM` 是 NuGet 支援任何合法目標 framework moniker (請參閱[目標 framework](../reference/target-frameworks.md))。
 - 這個語法的結尾可以附加任何資料夾結構。
 
 例如: 
@@ -647,7 +649,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 ## <a name="example-nuspec-files"></a>範例 nuspec 檔案
 
-**簡單的 `.nuspec` 不指定相依性或檔案**
+**簡單`.nuspec`不指定相依性或檔案**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -664,7 +666,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 </package>
 ```
 
-**具有相依性的 `.nuspec`**
+**A`.nuspec`具有相依性**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -681,7 +683,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 </package>
 ```
 
-**具有檔案的 `.nuspec`**
+**A`.nuspec`檔案**
 
 ```xml
 <?xml version="1.0"?>
@@ -699,7 +701,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 </package>
 ```
 
-**具有 Framework 組件的 `.nuspec`**
+**A`.nuspec`具有 framework 組件**
 
 ```xml
 <?xml version="1.0"?>
@@ -725,8 +727,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 在此範例中，特定專案目標會安裝下列項目：
 
-- .NET4 -> `System.Web`、`System.Net`
+- .NET4 -> `System.Web`, `System.Net`
 - .NET4 Client Profile -> `System.Net`
 - Silverlight 3 -> `System.Json`
-- Silverlight 4 -> `System.Windows.Controls.DomainServices`
 - WindowsPhone -> `Microsoft.Devices.Sensors`
