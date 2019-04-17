@@ -44,9 +44,9 @@ nuget add <packagePath> -Source <sourcePath> [options]
 | ConfigFile | 若要套用 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
 | Expand | 將封裝中的所有檔案，加入套件來源。 |
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
-| 說明 | 顯示說明命令的資訊。 |
+| Help | 顯示說明命令的資訊。 |
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 

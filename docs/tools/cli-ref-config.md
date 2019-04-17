@@ -38,9 +38,9 @@ nuget config -AsPath <name> [options]
 | AsPath | 傳回組態值做為路徑，會忽略時`-Set`用。 |
 | ConfigFile | 要修改的 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
-| 說明 | 顯示說明命令的資訊。 |
+| Help | 顯示說明命令的資訊。 |
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
