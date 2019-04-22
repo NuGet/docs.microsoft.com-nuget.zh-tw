@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
 ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911084"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
 NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)中所述。
 
-`nuget.config` 是 XML 檔案包含最上層`<configuration>`節點，則會包含在本主題中所述的區段項目。 每個區段包含零個以上的項目。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
+`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段包含零個以上的項目。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
 
 本主題內容：
 
@@ -32,7 +32,7 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
   - [activePackageSource](#activepackagesource)
 - [trustedSigners 區段](#trustedsigners-section)
 - [使用環境變數](#using-environment-variables)
-- [範例設定檔](#example-config-file)
+- [設定檔範例](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -221,13 +221,13 @@ NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*（僅限 2.x; 3.x+ 中已被取代）*
+*(僅 2.x，在 3.x+ 中已被取代)*
 
 識別目前作用中的來源，或表示所有來源的彙總。
 
 | Key | 值 |
 | --- | --- |
-| （來源名稱） 或 `All` | 如果金鑰是來源的名稱，則值是來源路徑或 URL。 若為 `All`，值應該是 `(Aggregate source)` 以結合未以其他方式停用的所有套件來源。 |
+| (來源名稱) 或 `All` | 如果金鑰是來源的名稱，則值是來源路徑或 URL。 若為 `All`，值應該是 `(Aggregate source)` 以結合未以其他方式停用的所有套件來源。 |
 
 **範例**：
 

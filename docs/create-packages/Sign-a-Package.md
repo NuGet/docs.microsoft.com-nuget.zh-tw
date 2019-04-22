@@ -7,10 +7,10 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58921568"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
@@ -59,7 +59,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 1. 瀏覽並選取稍早匯出的憑證檔案。
   ![已註冊憑證](../reference/media/registered-certs.png)
 
-**注意事項**
+**注意**
 * 一位使用者可以提交多個憑證，且多位使用者可以註冊同一個憑證。
 * 使用者在註冊憑證後，往後提交的所有套件都**必須**使用其中一項憑證簽署。 請參閱[在 NuGet.org 上管理您套件的簽署需求](#manage-signing-requirements-for-your-package-on-nugetorg)
 * 使用者也可以從帳戶移除已註冊憑證。 移除憑證後，使用該憑證簽署的新套件將會提交失敗。 現有的套件則不會受影響。
@@ -92,7 +92,7 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>在 NuGet.org 上管理您套件的簽署需求
 1. [登入](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org。
 
-1. 前往`Manage Packages` 
+1. 前往 `Manage Packages` 
    ![設定套件簽署者](../reference/media/configure-package-signers.png)
 
 * 若您為套件的唯一擁有者，那麼您就是必要的簽署者，這表示您可以使用任何已註冊憑證，來簽署自己的套件並發佈至 NuGet.org。
@@ -104,4 +104,4 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 ## <a name="related-articles"></a>相關文章
 
 - [安裝已簽署套件](../consume-packages/installing-signed-packages.md)
-- [已簽署套件的參考](../reference/Signed-Packages-Reference.md)
+- [簽署的套件參考](../reference/Signed-Packages-Reference.md)
