@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145627"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931991"
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
@@ -37,7 +37,7 @@ nuget restore <projectPath> [options]
 | DisableParallelProcessing | 還原多個封裝，以平行方式停用。 |
 | FallbackSource | *（3.2 +)* 作為後援，以防主要中找不到封裝的封裝來源清單或預設來源。 |
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
-| 說明 | 顯示說明命令的資訊。 |
+| Help | 顯示說明命令的資訊。 |
 | MSBuildPath | *（4.0 +)* 指定要搭配命令，優先於使用 MSBuild 的路徑`-MSBuildVersion`。 |
 | MSBuildVersion | *（3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為 4、 12、 14、 15.1、 15.3、 15.4、 15.5、 15.6、 15.7，15.8、 15.9。 根據您的路徑中的 MSBuild 會挑出的預設值，否則，預設已安裝的最高的 MSBuild 版本。 |
 | NoCache | 禁止 NuGet 使用的快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
@@ -49,8 +49,8 @@ nuget restore <projectPath> [options]
 | 遞迴 | *（4.0 +)* 還原適用於 UWP 和.NET Core 專案的所有參考專案。 不適用於使用專案`packages.config`。 |
 | RequireConsent | 確認，然後再下載並安裝封裝中啟用還原套件。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。 |
 | SolutionDirectory | 指定的方案資料夾。 還原套件的解決方案時，則不正確。 必要時以還原`packages.config`檔案，除非`PackagesDirectory`或`OutputDirectory`用。 |
-| 原始程式檔 | 指定封裝來源清單 （Url) 要用於還原。 如果省略，則此命令會使用組態檔中提供的來源，請參閱 <<c0> [ 設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
-| 詳細資訊 |> 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Source | 指定封裝來源清單 （Url) 要用於還原。 如果省略，則此命令會使用組態檔中提供的來源，請參閱 <<c0> [ 設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
+| Verbosity |> 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
@@ -71,7 +71,7 @@ Restore 命令會執行下列步驟：
 2. 決定使用下列優先順序 （NuGet 如果找不到任何這些資料夾會顯示錯誤） 的 [packages] 資料夾：
 
     - 使用指定的資料夾`-PackagesDirectory`。
-    - `repositoryPath`值中的，此值 `Nuget.Config`
+    - `repositoryPath`中的值 `Nuget.Config`
     - 使用指定的資料夾 `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 

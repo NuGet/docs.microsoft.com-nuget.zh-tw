@@ -5,18 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: fd5824d1c5e05df08301dac1cf656ba1d5ca75cd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551734"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931978"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI 環境變數
 
 Nuget.exe CLI 的行為可以透過幾個環境變數，這會影響整個電腦的使用者，nuget.exe 或處理序層級的設定。 環境變數一律會覆寫中的任何設定`NuGet.Config`檔案，讓組建伺服器，以變更適當的設定，而不需修改任何檔案。
 
 一般情況下，直接在命令列上或在 NuGet 組態檔中指定的選項的優先順序，但有少數的例外狀況的這類*FORCE_NUGET_EXE_INTERACTIVE*。 如果您發現該 nuget.exe，表現不同的電腦之間，環境變數可能是原因。 例如，Azure Web Apps Kudu （在部署期間使用） 具有*NUGET_XMLDOC_MODE*設為*略過*提升套件還原效能並節省磁碟空間。
+
+NuGet CLI 使用 MSBuild，來讀取專案檔。 所有的環境變數都可作為[屬性](/visualstudio/msbuild/msbuild-command-line-reference)MSBuild 評估期間。
+中所列的屬性清單[NuGet 包裝及還原為 MSBuild 目標](../reference/msbuild-targets.md#restore-properties)也可以設定為環境變數。
 
 | 變數 | 描述 | 備註 |
 | --- | --- | --- |
@@ -34,4 +37,5 @@ Nuget.exe CLI 的行為可以透過幾個環境變數，這會影響整個電腦
 | NUGET_RESTORE_MSBUILD_VERBOSITY | 設定 MSBuild 記錄詳細資訊。 | 預設值是*安靜*("/ v: q")。 可能的值*q [uiet]*， *m [inimal]*， *n [ormal]*， *d [etailed]*，以及*diag [nostic]*。 |
 | NUGET_SHOW_STACK | 判斷是否應該向使用者顯示完整的例外狀況 （包括堆疊追蹤）。 | 指定為*真*或是*false* （預設值）。 |
 | NUGET_XMLDOC_MODE | 決定應該如何處理組件 XML 文件檔解壓縮。 | 支援的模式如下*略過*（不要擷取 XML 文件檔案），*壓縮*（儲存為 zip 封存的 XML 文件檔案） 或*none* （預設值，視為一般的 XML 文件檔案檔案）。 |
-| NUGET_CERT_REVOCATION_MODE | 決定如何撤銷狀態檢查用來簽署封裝的憑證，簽署的套件會安裝或還原時，pefromed。 如果未設定，預設為`online`。| 可能的值*線上*（預設值），*離線*。  相關[NU3028](../reference/errors-and-warnings/NU3028.md) |
+| NUGET_CERT_REVOCATION_MODE | 決定如何撤銷狀態檢查用來簽署封裝的憑證，簽署的套件會安裝或還原時，會執行。 如果未設定，預設為`online`。| 可能的值*線上*（預設值），*離線*。  相關[NU3028](../reference/errors-and-warnings/NU3028.md) |
+

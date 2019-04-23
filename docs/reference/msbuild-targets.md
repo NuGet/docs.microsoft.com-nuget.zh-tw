@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324847"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932095"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -322,7 +322,7 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 
 1. 讀取所有專案對專案參考
 1. 讀取專案屬性來尋找中繼資料夾和目標架構
-1. 將 msbuild 資料傳遞至 NuGet.Build.Tasks.dll
+1. 將 MSBuild 資料傳遞至 NuGet.Build.Tasks.dll
 1. 執行還原
 1. 下載套件
 1. 撰寫資產檔案、目標和屬性
@@ -341,9 +341,14 @@ Csproj 檔案組件 nuspec 檔案的範例為：
 | RestoreConfigFile | 要套用之 `Nuget.Config` 檔案的路徑。 |
 | RestoreNoCache | 如果為 true，可避免使用快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | RestoreIgnoreFailedSources | 如果為 true，請忽略失敗或遺漏的套件來源。 |
+| RestoreFallbackFolders | 後援的資料夾，使用相同的方式使用資料夾的使用者封裝。 |
+| RestoreAdditionalProjectSources | 要在還原期間使用的其他來源。 |
+| RestoreAdditionalProjectFallbackFolders | 若要在還原期間使用的其他後援資料夾。 |
+| RestoreAdditionalProjectFallbackFoldersExcludes | 排除後援中指定的資料夾 `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` 的路徑。 |
 | RestoreGraphProjectInput | 要還原的專案清單 (以分號分隔)，其中應包含絕對路徑。 |
-| RestoreOutputPath | 輸出資料夾，預設為 `obj` 資料夾。 |
+| RestoreUseSkipNonexistentTargets  | 當專案均會透過它會判斷是否會回收它們使用的 MSBuild`SkipNonexistentTargets`最佳化。 如果未設定，預設為`true`。 無法匯入專案的目標時，結果會是立即失敗行為。 |
+| MSBuildProjectExtensionsPath | 輸出資料夾中，預設為`BaseIntermediateOutputPath`而`obj`資料夾。 |
 
 #### <a name="examples"></a>範例
 
@@ -370,6 +375,23 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 | `project.assets.json` | 包含封裝的所有參考的相依性圖形。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | 套件中所含 MSBuild 屬性的參考 |
 | `{projectName}.projectFileExtension.nuget.g.targets` | 套件中所含 MSBuild 目標的參考 |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>還原及建置以一個 MSBuild 命令
+
+因為，NuGet 可以還原關閉的 MSBuild 目標與 props 的套件，請還原和組建的評估會執行不同的全域屬性。
+這表示，以下會造成無法預期且通常不正確的行為。
+
+```cli
+msbuild -t:restore,build
+```
+
+ 而是建議的方法是：
+
+```cli
+msbuild -t:build -restore
+```
+
+相同的邏輯適用於類似於其他目標`build`。
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
