@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548339"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877949"
 ---
 # <a name="push-command-nuget-cli"></a>推送命令 (NuGet CLI)
 
@@ -39,14 +39,14 @@ nuget push <packagePath> [options]
 | ConfigFile | 若要套用 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
 | DisableBuffering | 停用緩衝處理時將推送至 http （s） 伺服器，以減少記憶體使用方式。 注意： 使用此選項時，整合式的 Windows 驗證可能無法運作。 |
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
-| 說明 | 顯示說明命令的資訊。 |
+| Help | 顯示說明命令的資訊。 |
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
 | NoSymbols | *（3.5 +)* 有符號套件時，它將不會推送至符號伺服器。 |
-| 原始程式檔 | 指定伺服器 URL。 NuGet 會識別的 UNC 或本機資料夾的來源，並只會複製檔案而非發送它使用 HTTP。  此外，從開始 NuGet 3.4.2，這是必要參數除非`NuGet.Config`檔案會指定*DefaultPushSource*值 (請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md))。 |
+| Source | 指定伺服器 URL。 NuGet 會識別的 UNC 或本機資料夾的來源，並只會複製檔案而非發送它使用 HTTP。  此外，從開始 NuGet 3.4.2，這是必要參數除非`NuGet.Config`檔案會指定*DefaultPushSource*值 (請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md))。 |
 | SymbolSource | *（3.5 +)* 指定符號伺服器 URL，當 nuget.smbsrc.net 推送至 nuget.org 時，會使用 |
 | SymbolApiKey | *（3.5 +)* 指定 URL 中指定的 API 金鑰`-SymbolSource`。 |
-| 等候逾時 | 指定的逾時 （秒），推送至伺服器。 預設值為 300 秒 （5 分鐘）。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| 逾時 | 指定的逾時 （秒），推送至伺服器。 預設值為 300 秒 （5 分鐘）。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
@@ -67,5 +67,5 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
-nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -s https://customsource/
+nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
 ```
