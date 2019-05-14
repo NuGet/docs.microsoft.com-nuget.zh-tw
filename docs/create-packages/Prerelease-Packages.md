@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432448"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877947"
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -22,7 +22,7 @@ ms.locfileid: "58432448"
 
 為支援軟體發行生命週期，NuGet 1.6 和更新版本允許散發發行前套件，它們的版本號碼包含語意版本尾碼，例如 `-alpha`、`-beta` 或 `-rc`。 如需詳細資訊，請參閱[套件版本控制](../reference/package-versioning.md#pre-release-versions)。
 
-有兩種方式可以指定這類版本：
+您可以透過三種方式來指定這類版本：
 
 - `.nuspec` 檔案：`version` 項目中包含語意版本尾碼：
 
@@ -30,7 +30,15 @@ ms.locfileid: "58432448"
     <version>1.0.1-alpha</version>
     ```
 
-- 組件屬性：從 Visual Studio 專案建置套件時 (`.csproj` 或 `.vbproj`)，使用 `AssemblyInformationalVersionAttribute` 指定版本：
+- `.csproj` 檔案：`PackageVersion` 項目中包含語意版本尾碼：
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- 組件屬性：使用 `AssemblyInformationalVersionAttribute` 指定版本：
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
