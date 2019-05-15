@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e48ff19ea5c4908d7eb0a3cb19a31b738e348eb
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 7e719a3bb5069c461820c6f884487af1eb04bf86
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921581"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610667"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5.0 版本資訊
 
@@ -19,6 +19,7 @@ NuGet 配送車：
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
 | [**5.0.0**](https://nuget.org/downloads) | [Visual Studio 2019 版本 16.0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.0.2**](https://nuget.org/downloads) | [Visual Studio 2019 版本 16.0.4](https://visualstudio.microsoft.com/downloads/) | [2.1.60X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>， [2.2.20X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
 <sup>1</sup>安裝的 Visual Studio 2019 是使用.NET Core 工作負載 
 
@@ -153,6 +154,13 @@ NuGet 配送車：
 * 啟用 EmbedInteropTypes packagereference （比對 Packages.Config 功能）- [# 2365年](https://github.com/NuGet/Home/issues/2365)
 
 **[此版本為 5.0 RTM 修正的所有問題的清單](https://github.com/NuGet/Home/milestone/84?closed=1)**
+
+## <a name="summary-whats-new-in-502"></a>摘要: 5.0.2 中最新消息
+
+* （當透過 dotnet.exe 或 mono.exe 執行） 的安全性-obj 資料夾應該建立具有正確權限[#7908](https://github.com/NuGet/Home/issues/7908)
+
+* 在 mono/MacOS 上的 nuget.exe 還原失敗自訂 nuget.config 並`PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
+
 
 ## <a name="known-issues"></a>已知問題
 

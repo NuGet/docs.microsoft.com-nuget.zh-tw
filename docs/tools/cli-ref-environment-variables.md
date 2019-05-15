@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 9f26f75a70a996cad158fd125e86d98e10c3dac1
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931978"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610633"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI 環境變數
 
@@ -33,7 +33,7 @@ NuGet CLI 使用 MSBuild，來讀取專案檔。 所有的環境變數都可作�
 | NUGET_HTTP_CACHE_PATH | 若要使用的路徑*http 快取*資料夾上所述[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 | 指定為絕對路徑。 |
 | NUGET_PERSIST_DG | 表示是否應該保存 dg 檔案 （從 MSBuild 所收集的資料） 的旗標。 | 指定為 *，則為 true*或是*false* （預設值），如果未設定 NUGET_PERSIST_DG_PATH 會儲存到暫存目錄 （NuGetScratch 資料夾在目前環境的暫存目錄中）。 |
 | NUGET_PERSIST_DG_PATH | 保存通訊群組檔案的路徑。 | 指定為絕對路徑，此選項時才會使用*NUGET_PERSIST_DG*設為 true。 |
-| NUGET_RESTORE_MSBUILD_ARGS | 設定額外的 MSBuild 引數。 | |
+| NUGET_RESTORE_MSBUILD_ARGS | 設定額外的 MSBuild 引數。 | 傳遞引數的相同方式您會將其傳遞給 msbuild.exe。 從命令列設定專案屬性 Foo，值列的範例是 /p:Foo = 列 |
 | NUGET_RESTORE_MSBUILD_VERBOSITY | 設定 MSBuild 記錄詳細資訊。 | 預設值是*安靜*("/ v: q")。 可能的值*q [uiet]*， *m [inimal]*， *n [ormal]*， *d [etailed]*，以及*diag [nostic]*。 |
 | NUGET_SHOW_STACK | 判斷是否應該向使用者顯示完整的例外狀況 （包括堆疊追蹤）。 | 指定為*真*或是*false* （預設值）。 |
 | NUGET_XMLDOC_MODE | 決定應該如何處理組件 XML 文件檔解壓縮。 | 支援的模式如下*略過*（不要擷取 XML 文件檔案），*壓縮*（儲存為 zip 封存的 XML 文件檔案） 或*none* （預設值，視為一般的 XML 文件檔案檔案）。 |
