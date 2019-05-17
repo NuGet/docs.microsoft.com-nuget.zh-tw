@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944063"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610582"
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
@@ -166,12 +166,12 @@ nuget locals -list global-packages
 這種方法的優點是您不需要在資訊清單中指定想要包含在套件中的檔案 (如本主題中稍後所述)。 您可以只讓建置程序產生套件中完全相同的資料夾結構，而且可以輕鬆地包含可能不屬於專案的其他檔案：
 
 - 應該插入至目標專案的內容和原始程式碼。
-- PowerShell 指令碼 (NuGet 2.x 中所使用的套件也可以包含 NuGet 3.x 和更新版本不支援的安裝指令碼)。
+- PowerShell 指令碼
 - 專案中現有組態檔和原始程式碼檔案的轉換。
 
 資料夾慣例如下：
 
-| 資料夾 | 描述 | 套件安裝時的動作 |
+| 資料夾 | 說明 | 套件安裝時的動作 |
 | --- | --- | --- |
 | (root) | readme.txt 的位置 | 安裝套件時，Visual Studio 會顯示套件根目錄中的 readme.txt 檔案。 |
 | lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為編譯與執行階段的參考；`.xml` 與 `.pdb` 則會複製到專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
@@ -252,7 +252,7 @@ nuget spec [<package-name>]
 
 - **唯一性**：在 nuget.org 內，或只要資源庫裝載套件時，識別碼就必須是唯一的。 決定識別碼之前，請搜尋適用的資源庫，檢查是否已在使用名稱。 若要避免衝突，不錯的模式是使用您的公司名稱作為識別碼的第一個部分，例如 `Contoso.`。
 - **命名空間類似名稱**：遵循與 .NET 中命名空間類似的模式，即使用點標記法，而非連字號。 例如，使用 `Contoso.Utility.UsefulStuff`，而非 `Contoso-Utility-UsefulStuff` 或 `Contoso_Utility_UsefulStuff`。 套件識別碼符合程式碼中所使用的命名空間時，取用者也會發現它十分有用。
-- **範例套件**：如果您產生的範例程式碼套件示範如何使用另一個套件，請將 `.Sample` 附加為識別碼的尾碼，如 `Contoso.Utility.UsefulStuff.Sample` 所示  (範例套件當然會有與另一個套件的相依性)。建立範例套件時，請使用稍早所述以慣例為基礎的工作目錄方法。 在 `content` 資料夾中，於稱為 `\Samples\<identifier>` 的資料夾中排列範例程式碼，而這與 `\Samples\Contoso.Utility.UsefulStuff.Sample` 中相同。
+- **範例套件**：如果您產生的範例程式碼套件示範如何使用另一個套件，請將 `.Sample` 附加為識別碼的尾碼，如 `Contoso.Utility.UsefulStuff.Sample` 所示 (範例套件當然會有與另一個套件的相依性)。建立範例套件時，請使用稍早所述以慣例為基礎的工作目錄方法。 在 `content` 資料夾中，於稱為 `\Samples\<identifier>` 的資料夾中排列範例程式碼，而這與 `\Samples\Contoso.Utility.UsefulStuff.Sample` 中相同。
 
 **套件版本的最佳做法：**
 
@@ -261,9 +261,9 @@ nuget spec [<package-name>]
 
 > 下面一系列的簡短部落格文章也有助於了解版本控制：
 >
-> - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [第 3 部分：透過繫結重新導向的統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html) \(英文\)
+> - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html) \(英文\)
+> - [第 3 部分：透過繫結重新導向的統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html) \(英文\)
 
 ## <a name="setting-a-package-type"></a>設定套件類型
 
@@ -277,7 +277,7 @@ nuget spec [<package-name>]
 
 套件類型是設定在 `.nuspec` 檔案中。 針對回溯相容性，最好「不要」明確設定 `Dependency` 類型，而是在未指定類型時改為依賴採用此類型的 NuGet。
 
-- `.nuspec`：指出 `<metadata>` 項目的 `packageTypes\packageType` 節點內的套件類型：
+- `.nuspec`：指出 `<metadata>` 元素之 `packageTypes\packageType` 節點內的套件類型：
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -357,7 +357,7 @@ nuget spec [<package-name>]
 
 當 NuGet 安裝含有 `\build` 檔案的套件時，會在指向 `.targets` 和 `.props` 檔案的專案檔中新增 MSBuild `<Import>` 項目。 (`.props` 新增於專案檔頂端；`.targets` 則新增於底端)。針對每個目標框架新增不同的條件式 MSBuild`<Import>` 元素。
 
-用於跨框架目標的 MSBuild `.props` 和 `.targets` 檔案可以放在 `\buildCrossTargeting` 資料夾中。 在套件安裝期間，NuGet 會將對應的 `<Import>` 元素新增到有條件的專案檔中，即未設定目標框架 (MSBuild 屬性 `$(TargetFramework)` 必須是空的)。
+用於跨框架目標的 MSBuild `.props` 和 `.targets` 檔案可以放在 `\buildMultiTargeting` 資料夾中。 在套件安裝期間，NuGet 會將對應的 `<Import>` 元素新增到有條件的專案檔中，即未設定目標框架 (MSBuild 屬性 `$(TargetFramework)` 必須是空的)。
 
 使用 NuGet 3.x 時，目標不會新增至專案，但可透過 `project.lock.json` 提供。
 

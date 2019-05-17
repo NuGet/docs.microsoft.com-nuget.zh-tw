@@ -16,18 +16,18 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852438"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610565"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
 符號套件可讓您改進對 NuGet 套件的偵錯體驗。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [nuget.exe 第 4.9.0 版或更高版本](https://www.nuget.org/downloads)或是 [dotnet.exe 第 2.2.0 版或更高版本](https://www.microsoft.com/net/download/dotnet-core/2.2)，其實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。
 
@@ -54,10 +54,10 @@ nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 
 1. 使用 `dotnet pack MyPackage.csproj` 或 `msbuild -t:pack MyPackage.csproj` 封裝您的專案。
 
-`SymbolPackageFormat` 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 `SymbolPackageFormat`，它會預設為 `symbols.nupkg`，且會建立舊版符號套件。
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat)，會建立舊版符號套件。
 
 > [!Note]
-> 目前仍然支援舊版格式 `.symbols.nupkg`，只是為達到相容性而已 (請參閱[舊版符號套件](Symbol-Packages.md))。 NuGet.org 符號伺服器只接受新的符號套件格式 - `.snupkg`。
+> 目前仍然支援舊版格式 `.symbols.nupkg`，只是為達到相容性而已 (請參閱[舊版符號套件](Symbol-Packages.md))。 NuGet.org 的符號伺服器只接受新的符號套件格式 - `.snupkg`。
 
 ## <a name="publishing-a-symbol-package"></a>發行符號套件
 
@@ -80,6 +80,9 @@ nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
     ```
 
 NuGet 會將兩個套件發行到 nuget.org。將會先發行 `MyPackage.nupkg`，再發行 `MyPackage.snupkg`。
+
+> [!Note]
+> 若符號套件未發行，請檢查您是否已將 NuGet.org 來源設定為 `https://api.nuget.org/v3/index.json`。 只有 [NuGet V3 API](../api/overview.md#versioning) 才支援符號套件發行。
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org 符號伺服器
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c23b464ca39fd8d872f21846a7d6d34edf9dce93
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088912"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610575"
 ---
 # <a name="configuring-nuget-behavior"></a>設定 NuGet 行為
 
@@ -18,7 +18,7 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 
 ## <a name="config-file-locations-and-uses"></a>組態檔位置和使用
 
-| 範圍 | NuGet.Config 檔案位置 | 描述 |
+| 範圍 | NuGet.Config 檔案位置 | 說明 |
 | --- | --- | --- |
 | 專案 | 目前的資料夾 (也稱為專案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在專案資料夾中，設定僅適用於該專案。 在包含多個專案子資料夾的父資料夾中，設定適用於這些子資料夾中的所有專案。 |
 | 使用者 | Windows：`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (依 OS 發行版本而異) | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
@@ -186,13 +186,13 @@ NuGet 在這些檔案中找到設定時，會如下套用設定：
 
 NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 
-- **從 disk_drive_1/users 叫用**：只會使用使用者層級組態檔 (A) 中所列的預設存放庫，因為這是 disk_drive_1 上找到的唯一檔案。
+- **從 disk_drive_1/users 叫用**：只會使用使用者層級設定檔 (A) 中所列的預設存放庫，因為這是 disk_drive_1 上找到的唯一檔案。
 
 - **從 disk_drive_2/ 或 disk_drive_/tmp 叫用**：會先載入使用者層級檔案 (A)，接著 NuGet 會移至 disk_drive_2 的根目錄，並找到檔案 (B)。 NuGet 也會在 /tmp 中尋找組態檔，但會找不到。 因此，會使用 nuget.org 上的預設存放庫、啟用套件還原，並展開 disk_drive_2/tmp 中的套件。
 
 - **從 disk_drive_2/Project1 或 disk_drive_2/Project1/Source 叫用**：會先載入使用者層級檔案 (A)，接著 NuGet 會從 disk_drive_2 的根目錄依序載入檔案 (B) 和檔案 (C)。 (C) 中的設定會覆寫 (B) 和 (A) 中的設定，因此在其中安裝套件的 `repositoryPath` 是 disk_drive_2/Project1/External/Packages，而不是 *disk_drive_2/tmp*。 此外，因為 (C) 會清除 `<packageSources>`，所以 nuget.org 不再是來源，並且只留下 `https://MyPrivateRepo/ES/nuget`。
 
-- **從 disk_drive_2/Project2 或 disk_drive_2/Project2/Source 叫用**：會先載入使用者層級檔案 (A)，接著載入檔案 (B) 和檔案 (D)。 因為未清除 `packageSources`，所以 `nuget.org` 和 `https://MyPrivateRepo/DQ/nuget` 都可以當成來源使用。 套件會在 (B) 中所指定的 disk_drive_2/tmp 內展開。
+-  **disk_drive_2/Project2 或 disk_drive_2/Project2/Source 叫用**：會先載入使用者層級檔案 (A)，接著載入檔案 (B) 與檔案 (D)。 因為未清除 `packageSources`，所以 `nuget.org` 和 `https://MyPrivateRepo/DQ/nuget` 都可以當成來源使用。 套件會在 (B) 中所指定的 disk_drive_2/tmp 內展開。
 
 ## <a name="nuget-defaults-file"></a>NuGet 預設檔案
 
