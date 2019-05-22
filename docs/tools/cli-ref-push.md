@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
+ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877949"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65974995"
 ---
 # <a name="push-command-nuget-cli"></a>推送命令 (NuGet CLI)
 
@@ -43,6 +43,7 @@ nuget push <packagePath> [options]
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
 | NoSymbols | *（3.5 +)* 有符號套件時，它將不會推送至符號伺服器。 |
 | Source | 指定伺服器 URL。 NuGet 會識別的 UNC 或本機資料夾的來源，並只會複製檔案而非發送它使用 HTTP。  此外，從開始 NuGet 3.4.2，這是必要參數除非`NuGet.Config`檔案會指定*DefaultPushSource*值 (請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md))。 |
+| SkipDuplicate | 如果套件和版本已經存在，略過它並繼續進行下一個封裝，在推播，如果有的話。 |
 | SymbolSource | *（3.5 +)* 指定符號伺服器 URL，當 nuget.smbsrc.net 推送至 nuget.org 時，會使用 |
 | SymbolApiKey | *（3.5 +)* 指定 URL 中指定的 API 金鑰`-SymbolSource`。 |
 | 逾時 | 指定的逾時 （秒），推送至伺服器。 預設值為 300 秒 （5 分鐘）。 |
@@ -68,4 +69,7 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
+
+:: In the example below -SkipDuplicate will skip pushing the package if package "Foo" version "5.0.2" already exists on NuGet.org
+nuget push Foo.5.0.2.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://api.nuget.org/v3/index.json -SkipDuplicate
 ```
