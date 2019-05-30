@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453581"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266350"
 ---
 # <a name="catalog"></a>Catalog
 
-**目錄**是記錄上的套件來源，例如建立和刪除作業的所有封裝作業的資源。 目錄資源有`Catalog`中輸入[服務索引](service-index.md)。
+**目錄**是記錄上的套件來源，例如建立和刪除作業的所有封裝作業的資源。 目錄資源有`Catalog`中輸入[服務索引](service-index.md)。 您可以使用此資源，以[查詢所有已發佈的套件](../guides/api/query-for-all-published-packages.md)。
 
 > [!Note]
 > 目錄不官方 NuGet 用戶端使用，因為並非所有的套件來源實作類別目錄。
@@ -72,7 +72,7 @@ Catalog/3.0.0 | 初始版本
 commitId        | 字串           | 是      | 使用最新認可相關聯的唯一識別碼
 commitTimeStamp | 字串           | 是      | 最新的認可時間戳記
 count           | 整數          | 是      | 在索引中的頁面數目
-項目           | 物件的陣列 | 是      | 物件的陣列，每個物件，表示頁面
+items           | 物件的陣列 | 是      | 物件的陣列，每個物件，表示頁面
 
 在每個項目`items`陣列是具有一些關於每個頁面的最少詳細資料的物件。 這些頁面物件不包含目錄分葉 （項目）。 未定義此陣列中項目的順序。 頁面可以依照中的記憶體使用的用戶端來排序其`commitTimeStamp`屬性。
 
@@ -114,7 +114,7 @@ count           | 整數 | 是      | 在 [目錄] 頁面中的項目數
 commitId        | 字串           | 是      | 使用此頁面中的最新認可相關聯的唯一識別碼
 commitTimeStamp | 字串           | 是      | 在此頁面中的最新的認可時間戳記
 count           | 整數          | 是      | 在頁面中的項目數
-項目           | 物件的陣列 | 是      | 在此頁面中的類別目錄項目
+items           | 物件的陣列 | 是      | 在此頁面中的類別目錄項目
 父代          | 字串           | 是      | 類別目錄索引 URL
 
 在每個項目`items`陣列是具有一些最小類別目錄項目詳細資料的物件。 這些項目物件並包含所有目錄項目的資料。 在頁面中的項目順序`items`陣列未定義。 項目可以依照中的記憶體使用的用戶端來排序其`commitTimeStamp`屬性。

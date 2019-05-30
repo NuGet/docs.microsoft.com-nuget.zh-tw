@@ -1,4 +1,15 @@
+---
+ms.openlocfilehash: 1f65939493cf423a76c024607264acee6c7e9050
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271505"
+---
 #### <a name="windows"></a>Windows
+
+> [!Note]
+> NuGet.exe 5.0 及更新版本需要.NET Framework 4.7.2 或更新版本才能執行。
 
 1. 請瀏覽 [nuget.org/downloads](https://nuget.org/downloads) 並選取 NuGet 3.3 或更高版本 (2.8.6 與 Mono 不相容)。 一律建議使用最新版本，需要 4.1.0 以上版本才能將套件發行至 nuget.org。
 1. 每個下載項目直接是 `nuget.exe` 檔案。 指示您的瀏覽器將檔案儲存到您選擇的資料夾。 該檔案*不是*安裝程式；如果直接從瀏覽器執行，您將不會看到任何項目。
