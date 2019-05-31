@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610575"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266344"
 ---
 # <a name="configuring-nuget-behavior"></a>設定 NuGet 行為
 
@@ -20,13 +20,13 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 
 | 範圍 | NuGet.Config 檔案位置 | 說明 |
 | --- | --- | --- |
-| 專案 | 目前的資料夾 (也稱為專案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在專案資料夾中，設定僅適用於該專案。 在包含多個專案子資料夾的父資料夾中，設定適用於這些子資料夾中的所有專案。 |
+| 方案 | 目前的資料夾 (也稱為解決方案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在解決方案資料夾中，設定會套用到子資料夾中的所有專案。 請注意，若設定檔放在專案資料夾中，它對於該專案沒有任何影響。 |
 | 使用者 | Windows：`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (依 OS 發行版本而異) | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
 | 電腦 | Windows：`%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux：`$XDG_DATA_HOME`。 如果 `$XDG_DATA_HOME` 為 Null 或空白，則會使用 `~/.local/share` 或 `/usr/local/share` (依 OS 發行版本而異)  | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
 
 舊版 NuGet 的注意事項：
 - NuGet 3.3 和更早版本使用整個方案設定的 `.nuget` 資料夾。 NuGet 3.4+ 中不會使用這個檔案。
-- 針對 NuGet 2.6 到 3.x，Windows 上的電腦層級組態檔位於 %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config，其中 *{IDE}* 可以是 *VisualStudio*、*{Version}* 是 Visual Studio 版本 (例如 *14.0*)，而 *{SKU}* 是 *Community*、*Pro* 或 *Enterprise*。 若要將設定移轉至 NuGet 4.0+，只需要將組態檔複製至 %ProgramFiles(x86)%\NuGet\Config。在 Linux 上，前述的這個位置是 /etc/opt，在 Mac 上則是 /Library/Application Support。
+- 針對 NuGet 2.6 到 3.x，Windows 上的電腦層級組態檔位於 %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config，其中 *{IDE}* 可以是 *VisualStudio*、 *{Version}* 是 Visual Studio 版本 (例如 *14.0*)，而 *{SKU}* 是 *Community*、*Pro* 或 *Enterprise*。 若要將設定移轉至 NuGet 4.0+，只需要將組態檔複製至 %ProgramFiles(x86)%\NuGet\Config。在 Linux 上，前述的這個位置是 /etc/opt，在 Mac 上則是 /Library/Application Support。
 
 ## <a name="changing-config-settings"></a>變更組態設定
 
@@ -110,7 +110,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 NuGet 在這些檔案中找到設定時，會如下套用設定：
 
-1. 針對單一項目的項目，NuGet 已取代相同索引鍵的任何先前找到的值。 這表示「最接近」目前資料夾或專案的設定會覆寫任何其他稍早找到的設定。 例如，如果任何其他組態檔中有 `NuGetDefaults.Config` 中的 `defaultPushSource` 設定，則會予以覆寫。
+1. 針對單一個目的項目，NuGet 已取代相同索引鍵的任何先前找到的值。 這表示「最接近」目前資料夾或專案的設定會覆寫任何其他稍早找到的設定。 例如，如果任何其他組態檔中有 `NuGetDefaults.Config` 中的 `defaultPushSource` 設定，則會予以覆寫。
 
 1. 針對集合項目 (例如 `<packageSources>`)，NuGet 會將所有組態檔中的值結合成單一集合。
 
@@ -129,7 +129,7 @@ NuGet 在這些檔案中找到設定時，會如下套用設定：
          Source
        tmp
 
-則在下列位置中會有四個具有指定內容的 `NuGet.Config` 檔案  (此範例未包含電腦層級檔案，但其行為與使用者層級檔案類似)。
+則在下列位置中會有四個具有指定內容的 `NuGet.Config` 檔案 (此範例未包含電腦層級檔案，但其行為與使用者層級檔案類似)。
 
 檔案 A。使用者層級檔案 (在 Windows 上為 `%appdata%\NuGet\NuGet.Config`，在 Mac/Linux 上則為 `~/.config/NuGet/NuGet.Config`)：
 
@@ -192,7 +192,7 @@ NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 
 - **從 disk_drive_2/Project1 或 disk_drive_2/Project1/Source 叫用**：會先載入使用者層級檔案 (A)，接著 NuGet 會從 disk_drive_2 的根目錄依序載入檔案 (B) 和檔案 (C)。 (C) 中的設定會覆寫 (B) 和 (A) 中的設定，因此在其中安裝套件的 `repositoryPath` 是 disk_drive_2/Project1/External/Packages，而不是 *disk_drive_2/tmp*。 此外，因為 (C) 會清除 `<packageSources>`，所以 nuget.org 不再是來源，並且只留下 `https://MyPrivateRepo/ES/nuget`。
 
--  **disk_drive_2/Project2 或 disk_drive_2/Project2/Source 叫用**：會先載入使用者層級檔案 (A)，接著載入檔案 (B) 與檔案 (D)。 因為未清除 `packageSources`，所以 `nuget.org` 和 `https://MyPrivateRepo/DQ/nuget` 都可以當成來源使用。 套件會在 (B) 中所指定的 disk_drive_2/tmp 內展開。
+- **disk_drive_2/Project2 或 disk_drive_2/Project2/Source 叫用**：會先載入使用者層級檔案 (A)，接著載入檔案 (B) 與檔案 (D)。 因為未清除 `packageSources`，所以 `nuget.org` 和 `https://MyPrivateRepo/DQ/nuget` 都可以當成來源使用。 套件會在 (B) 中所指定的 disk_drive_2/tmp 內展開。
 
 ## <a name="nuget-defaults-file"></a>NuGet 預設檔案
 
