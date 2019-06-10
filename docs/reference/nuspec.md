@@ -3,15 +3,15 @@ title: NuGet 的.nuspec 檔案參考
 description: .nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。
 author: karann-msft
 ms.author: karann
-ms.date: 08/29/2017
+ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509096"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812935"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -27,6 +27,16 @@ ms.locfileid: "59509096"
 - [包含組件檔](#including-assembly-files)
 - [包含內容檔](#including-content-files)
 - [範例 nuspec 檔案](#example-nuspec-files)
+
+## <a name="project-type-compatibility"></a>專案類型相容性
+
+- 使用 `.nuspec`具有`nuget.exe pack`非 SDK 樣式專案使用`packages.config`。
+
+- A`.nuspec`檔案不需要建立封裝的 SDK 樣式專案 (.NET Core 和.NET Standard 專案，使用[SDK 屬性](/dotnet/core/tools/csproj#additions))。 (請注意，`.nuspec`建立封裝時，會產生。)
+
+   如果您要建立封裝，使用`dotnet.exe pack`或`msbuild pack target`，我們建議您[包含的所有屬性](../reference/msbuild-targets.md#pack-target)是通常在`.nuspec`改為專案檔中的檔案。 不過，您可以改為選擇[使用`.nuspec`檔案來封裝使用`dotnet.exe`或是`msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec)。
+
+- 針對從移轉專案`packages.config`要[PackageReference](../consume-packages/package-references-in-project-files.md)、`.nuspec`檔案不需要建立封裝。 請改用[msbuild 組件](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
 
 ## <a name="general-form-and-schema"></a>一般格式和結構描述
 
@@ -51,7 +61,7 @@ ms.locfileid: "59509096"
 </package>
 ```
 
-為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管] 連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)。 任一方式都可取得類似以下的檢視 (大部分展開時)：
+為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管]  連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)  。 任一方式都可取得類似以下的檢視 (大部分展開時)：
 
 ![開啟了 nuspec.xsd 的 Visual Studio 結構描述總管](media/SchemaExplorer.png)
 
@@ -90,7 +100,7 @@ SPDX 授權運算式或套件內授權檔案的路徑，通常出現在 UI 顯�
 
 如果您的套件係依據多個常見的授權，您可以指定複合的授權，使用[SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)。<br>例如： `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt`或`.md`) 使用授權的文字。 例如: 
+如果您使用授權未被指派 SPDX 識別項，或是自訂的授權，您可以將封裝檔案 (僅`.txt`或`.md`) 使用授權的文字。 例如:
 ```xml
 <package>
   <metadata>
@@ -126,7 +136,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
 #### <a name="iconurl"></a>iconUrl
-具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 的映像，使用 原始檔 URL，如<em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 
+具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」  ，不是包含影像的網頁 URL。 例如，若要使用 GitHub 的映像，使用 原始檔 URL，如<em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。
@@ -135,7 +145,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 #### <a name="summary"></a>摘要
 UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。
 #### <a name="releasenotes"></a>releaseNotes
-*(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新] 索引標籤等 UI 中，以取代套件描述。
+*(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新]  索引標籤等 UI 中，以取代套件描述。
 #### <a name="copyright"></a>Copyright
 *(1.5+)* 套件的著作權詳細資料。
 #### <a name="language"></a>語言
@@ -145,17 +155,17 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 #### <a name="serviceable"></a>可自行維修 
 *(3.3+)* 僅供內部 NuGet 使用。
 #### <a name="repository"></a>儲存機制
-存放庫的中繼資料，其中包含四個選擇性屬性：*型別*並*url* *（4.0 +）*，以及*分支*和*認可* *（4.6 +）*。 這些屬性可讓您將對應至儲存機制，建置它，以取得可能的.nupkg 為個別的分支或認可建置套件所述。 這應該是公開可用的 url，可以是直接由叫用版本控制軟體。 因為這適用於電腦，它不應該是 html 網頁。 對於連結至專案的頁面，使用`projectUrl`欄位中，改為。
+存放庫的中繼資料，其中包含四個選擇性屬性：*型別*並*url* *（4.0 +）* ，以及*分支*和*認可* *（4.6 +）* 。 這些屬性可讓您將對應至儲存機制，建置它，以取得可能的.nupkg 為個別的分支或認可建置套件所述。 這應該是公開可用的 url，可以是直接由叫用版本控制軟體。 因為這適用於電腦，它不應該是 html 網頁。 對於連結至專案的頁面，使用`projectUrl`欄位中，改為。
 
 #### <a name="minclientversion"></a>minClientVersion
-指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。
+指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」  拒絕安裝套件，無論 `minClientVersion` 包含什麼。
 
 #### <a name="collection-elements"></a>集合項目
 
 #### <a name="packagetypes"></a>packageTypes
-*(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/creating-a-package.md#setting-a-package-type)。
+*(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」  和「版本」  屬性。 請參閱[設定套件類型](../create-packages/creating-a-package.md#setting-a-package-type)。
 #### <a name="dependencies"></a>相依性
-零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
+零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」  、「版本」  、「包含」  (3.x+) 和「排除」  (3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2+)* 零或多個 `<frameworkAssembly>` 項目的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下文的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。 |
 #### <a name="references"></a>參考
@@ -364,9 +374,9 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 如果遵循[建立套件](../create-packages/creating-a-package.md)中所述的慣例，即不必在 `.nuspec` 檔案中明確指定檔案清單。 `nuget pack` 命令會自動挑選必要的檔案。
 
 > [!Important]
-> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
+> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」  那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
 
-為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 項目當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 項目的檔案。 例如：
+為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 項目當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 項目的檔案。 例如:
 
 ```xml
 <files>
@@ -607,7 +617,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 - `TxM` 是 NuGet 支援的任何合法目標 Framework Moniker (請參閱[目標 Framework](../reference/target-frameworks.md))。
 - 這個語法的結尾可以附加任何資料夾結構。
 
-例如: 
+例如:
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml
@@ -626,23 +636,29 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 #### <a name="example-contentfiles-section"></a>contentFiles 區段範例
 
 ```xml
-<contentFiles>
-    <!-- Embed image resources -->
-    <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
-    <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        ...
+        <contentFiles>
+            <!-- Embed image resources -->
+            <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
+            <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
 
-    <!-- Embed all image resources under contentFiles/cs/ -->
-    <files include="cs/**/*.png" buildAction="EmbeddedResource" />
+            <!-- Embed all image resources under contentFiles/cs/ -->
+            <files include="cs/**/*.png" buildAction="EmbeddedResource" />
 
-    <!-- Copy config.xml to the root of the output folder -->
-    <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
+            <!-- Copy config.xml to the root of the output folder -->
+            <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
 
-    <!-- Copy run.cmd to the output folder and keep the directory structure -->
-    <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
+            <!-- Copy run.cmd to the output folder and keep the directory structure -->
+            <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
 
-    <!-- Include everything in the scripts folder except exe files -->
-    <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
-</contentFiles>
+            <!-- Include everything in the scripts folder except exe files -->
+            <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
+        </contentFiles>
+        </metadata>
+</package>
 ```
 
 ## <a name="example-nuspec-files"></a>範例 nuspec 檔案
