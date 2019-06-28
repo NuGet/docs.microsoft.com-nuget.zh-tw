@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981128"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426737"
 ---
 # <a name="search"></a>搜尋
 
@@ -97,7 +97,7 @@ projectUrl     | 字串                     | 否       |
 標記           | 字串或字串陣列 | 否       | 
 標題          | 字串                     | 否       | 
 totalDownloads | 整數                    | 否       | 此值來推斷的下載項目中的總和`versions`陣列
-驗證       | boolean                    | 否       | JSON 布林值，指出封裝是否[驗證](../reference/id-prefix-reservation.md)
+驗證       | boolean                    | 否       | JSON 布林值，指出封裝是否[驗證](../nuget-org/id-prefix-reservation.md)
 
 在 nuget.org 上，已驗證的套件是一種比對的保留的識別碼前置詞的套件識別碼和保留的前置詞的擁有者所擁有。 如需詳細資訊，請參閱 <<c0> [ 識別碼首碼保留項目相關的文件](../reference/id-prefix-reservation.md)。
 

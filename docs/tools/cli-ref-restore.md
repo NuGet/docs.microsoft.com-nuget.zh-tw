@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931991"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425964"
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
@@ -50,7 +50,7 @@ nuget restore <projectPath> [options]
 | RequireConsent | 確認，然後再下載並安裝封裝中啟用還原套件。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。 |
 | SolutionDirectory | 指定的方案資料夾。 還原套件的解決方案時，則不正確。 必要時以還原`packages.config`檔案，除非`PackagesDirectory`或`OutputDirectory`用。 |
 | Source | 指定封裝來源清單 （Url) 要用於還原。 如果省略，則此命令會使用組態檔中提供的來源，請參閱 <<c0> [ 設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
-| Verbosity |> 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547517"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426728"
 ---
 # <a name="push-and-delete"></a>推送與刪除
 
@@ -48,7 +48,7 @@ nuget.org 支援使用下列 API 推送新的套件。 如果提供的識別碼�
 
 名稱           | In     | 類型   | 必要 | 注意
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如： `X-NuGet-ApiKey: {USER_API_KEY}`
 
 API 金鑰是不透明的字串，從套件來源取得的使用者，並在用戶端設定。 沒有特定字串的格式託管，但 API 金鑰的長度不應超過合理的大小，如 HTTP 標頭值。
 
@@ -72,7 +72,7 @@ API 金鑰是不透明的字串，從套件來源取得的使用者，並在用�
 
 ## <a name="delete-a-package"></a>刪除套件
 
-nuget.org 會解譯為套件刪除要求的 「 取消列出 」。 這表示封裝是仍然可供現有的取用者的封裝，但是封裝不會再出現在搜尋結果中或 web 介面中。 如需有關此做法的詳細資訊，請參閱[刪除套件](../policies/deleting-packages.md)原則。 其他伺服器實作會解譯為永久刪除此訊號、 虛刪除，或取消列出免費的。 例如， [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) （只支援較舊的 V2 API 的伺服器實作） 支援處理此要求以取消列出或永久刪除根據組態選項。
+nuget.org 會解譯為套件刪除要求的 「 取消列出 」。 這表示封裝是仍然可供現有的取用者的封裝，但是封裝不會再出現在搜尋結果中或 web 介面中。 如需有關此做法的詳細資訊，請參閱[刪除套件](../nuget-org/policies/deleting-packages.md)原則。 其他伺服器實作會解譯為永久刪除此訊號、 虛刪除，或取消列出免費的。 例如， [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) （只支援較舊的 V2 API 的伺服器實作） 支援處理此要求以取消列出或永久刪除根據組態選項。
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -82,7 +82,7 @@ nuget.org 會解譯為套件刪除要求的 「 取消列出 」。 這表示封
 -------------- | ------ | ------ | -------- | -----
 識別碼             | URL    | 字串 | 是      | 要刪除的套件識別碼
 VERSION        | URL    | 字串 | 是      | 若要刪除封裝的版本
-X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如： `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>回應
 
@@ -105,7 +105,7 @@ X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_AP
 -------------- | ------ | ------ | -------- | -----
 識別碼             | URL    | 字串 | 是      | 要重新列出封裝的識別碼
 VERSION        | URL    | 字串 | 是      | 若要重新列出封裝的版本
-X-NuGet-ApiKey | 頁首 | 字串 | 是      | 例如：`X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如： `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>回應
 

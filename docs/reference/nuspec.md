@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812935"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426196"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -85,7 +85,7 @@ UI 顯示中的套件詳細描述。
 #### <a name="title"></a>標題
 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 如未指定，則使用套件識別碼。 
 #### <a name="owners"></a>owners
-以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)。 
+以逗號分隔的套件作者清單，使用 nuget.org 上的設定檔名稱。這通常和 `authors` 是同一份清單，將套件上傳至 nuget.org 時會忽略。請參閱[在 nuget.org 上管理套件擁有者](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)。 
 #### <a name="projecturl"></a>projectUrl
 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 
 #### <a name="licenseurl"></a>licenseUrl
@@ -300,7 +300,7 @@ nuget pack MyProject.csproj
 
 ## <a name="explicit-assembly-references"></a>明確的組件參考
 
-`<references>` 項目明確指定使用套件時，目標專案應該參考的組件。 有此項目時，NuGet 只會將參考新增至列出的組件。它不會在套件的 `lib` 資料夾中新增任何其他組件的參考。
+`<references>`項目由專案使用`packages.config`明確指定使用套件時，目標專案應該參考的組件。 明確參考通常只用於設計階段的組件。 如需詳細資訊，請參閱網頁[選取專案所參考的組件](../create-packages/select-assemblies-referenced-by-projects.md)如需詳細資訊。
 
 例如，以下 `<references>` 項目會指示 NuGet 只將參考新增至 `xunit.dll` 和 `xunit.extensions.dll`，即使套件中有其他組件：
 
@@ -310,10 +310,6 @@ nuget pack MyProject.csproj
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-明確參考通常只用於設計階段的組件。 例如使用 [Code Contracts](/dotnet/framework/debug-trace-profile/code-contracts) (程式碼合約) 時，合約組件必須在它們擴大的執行階段組件旁邊，讓 Visual Studio 可以找到它們，但是合約組件不需要被專案參考，或複製到專案的 `bin` 資料夾。
-
-同樣地，明確參考可以用於單元測試 Framework ，例如 XUnit，這需要它的工具組件位在執行階段組件旁邊，但它們不需要包含為專案參考。
 
 ### <a name="reference-groups"></a>參考群組
 

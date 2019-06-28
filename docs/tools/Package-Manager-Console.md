@@ -1,24 +1,26 @@
 ---
-title: NuGet 套件管理員主控台指南
+title: 安裝和管理在 Visual Studio 中使用 PowerShell 的 NuGet 套件
 description: 使用 Visual Studio 中的 NuGet 套件管理員主控台，使用封裝的指示。
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546874"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426211"
 ---
-# <a name="package-manager-console"></a>套件管理員主控台
+# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>安裝和管理封裝在 Visual Studio 中使用 PowerShell
 
-Windows 2012 及更新版本的版本上的 Visual Studio 內建 NuGet 套件管理員主控台。 （它不包含在 Visual Studio for Mac 或 Visual Studio Code）。
+NuGet 套件管理員主控台可讓您使用[NuGet PowerShell 命令](../tools/powershell-reference.md)尋找、 安裝、 解除安裝和更新 NuGet 套件。 必須在套件管理員 UI 不會提供方法，來執行作業的情況下使用主控台。 若要使用`nuget.exe`CLI 命令，在主控台中，請參閱[使用 nuget.exe CLI，在主控台中](#using-the-nugetexe-cli-in-the-console)。
 
-主控台可讓您使用[NuGet PowerShell 命令](../tools/powershell-reference.md)尋找、 安裝、 解除安裝和更新 NuGet 套件。 必須在套件管理員 UI 不會提供方法，來執行作業的情況下使用主控台。 若要使用`nuget.exe`命令在主控台中，請參閱[使用 nuget.exe CLI，在主控台中](#using-the-nugetexe-cli-in-the-console)。
+主控台內建在 Windows 上的 Visual Studio。 不隨附於 Visual Studio for Mac 或 Visual Studio Code。
+
+## <a name="find-and-install-a-package"></a>尋找並安裝封裝
 
 例如，尋找及安裝套件是使用三個簡單步驟：
 
@@ -74,7 +76,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 請參閱[Install-package](../tools/ps-ref-install-package.md)。
 
-在主控台中安裝的套件執行相同的步驟，在所述[安裝套件時，會發生什麼事](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed)，加上下列各項：
+在主控台中安裝的套件執行相同的步驟，在所述[安裝套件時，會發生什麼事](../concepts/package-installation-process.md)，加上下列各項：
 
 - 主控台會顯示適用的授權條款，在其視窗中使用隱含的合約。 如果您不同意這些條款，您應該立即解除安裝封裝。
 - 套件的參考也會新增至專案檔，而且會出現在**方案總管**下方**參考** 節點，您需要儲存專案，以直接查看專案檔中的變更。
@@ -139,7 +141,7 @@ Find-Package jquery -AllVersions -ExactMatch
 
 ## <a name="availability-of-the-console"></a>在主控台的可用性
 
-在 Visual Studio 2017，NuGet 和 NuGet 套件管理員會自動安裝時選取任何。NET 相關的工作負載;您也可以安裝其個別檢查**個別元件 > 程式碼工具 > NuGet 套件管理員**Visual Studio 2017 安裝程式中的選項。
+從 Visual Studio 2017，NuGet 和 NuGet 套件管理員會自動安裝時選取任何。NET 相關的工作負載;您也可以安裝其個別檢查**個別元件 > 程式碼工具 > NuGet 套件管理員**Visual Studio 安裝程式中的選項。
 
 此外，如果您缺少的 NuGet 套件管理員，在 Visual Studio 2015 和更早版本，請檢查**工具 > 擴充功能和更新...** 並搜尋 NuGet 套件管理員延伸模組。 如果您無法使用 Visual Studio 中的延伸模組安裝程式，您可以下載的擴充功能，直接從[ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html)。
 

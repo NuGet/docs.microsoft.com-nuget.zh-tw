@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911084"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426152"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
-NuGet 行為受到不同 `NuGet.Config` 檔案中的設定所控制，如[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)中所述。
+由不同的設定控制 NuGet 行為`NuGet.Config`檔案中所述[常見的 NuGet 組態](../consume-packages/configuring-nuget-behavior.md)。
 
 `nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段包含零個以上的項目。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
 

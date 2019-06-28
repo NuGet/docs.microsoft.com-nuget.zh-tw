@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3ea2dc3e87d0a626704fe5623d39eaf5bd3f3446
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548506"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426113"
 ---
 # <a name="delete-command-nuget-cli"></a>delete 命令 (NuGet CLI)
 
 **適用於：** 封裝發行&bullet;**支援的版本：** 所有
 
-刪除或取消列出套件從套件來源。 對於 nuget.org，delete 命令[取消列出套件](../policies/deleting-packages.md)。
+刪除或取消列出套件從套件來源。 對於 nuget.org，delete 命令[取消列出套件](../nuget-org/policies/deleting-packages.md)。
 
 ## <a name="usage"></a>使用量
 

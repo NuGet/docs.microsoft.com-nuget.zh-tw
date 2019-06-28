@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 486bf4032e156168f9b2fef57ccdae0c372b2eff
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977507"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426182"
 ---
 # <a name="signed-packages"></a>已簽署的套件
 
@@ -20,7 +20,7 @@ ms.locfileid: "52977507"
 NuGet 套件可以包含數位簽章可防止遭竄改的內容。 此簽章會產生來自 X.509 憑證，也將真實性證明，加上實際的套件來源。
 
 已簽署的套件會提供最強的端對端驗證。 有兩種不同的 NuGet 簽章：
-- **撰寫簽章**。 作者簽章可保證，封裝不之後已修改作者已登入的封裝，不論其儲存機制，或傳輸封裝傳遞的方法。 此外，作者簽署的套件提供額外的驗證機制以 nuget.org 發行管線，因為必須事先註冊簽署憑證。 如需詳細資訊，請參閱 <<c0> [ 登錄憑證](#register-certificate-on-nugetorg)。
+- **撰寫簽章**。 作者簽章可保證，封裝不之後已修改作者已登入的封裝，不論其儲存機制，或傳輸封裝傳遞的方法。 此外，作者簽署的套件提供額外的驗證機制以 nuget.org 發行管線，因為必須事先註冊簽署憑證。 如需詳細資訊，請參閱 <<c0> [ 登錄憑證](#signature-requirements-on-nugetorg)。
 - **存放庫簽章**。 存放庫簽章提供完整性保證**所有**套件存放庫中，不論它們是作者帶正負號或不是，即使這些套件會取自原始它們所在的存放庫不同的位置帶正負號。   
 
 如需建立作者已簽署的封裝的詳細資訊，請參閱 <<c0> [ 簽署封裝](../create-packages/Sign-a-package.md)並[nuget 登命令](../tools/cli-ref-sign.md)。
@@ -57,4 +57,4 @@ nuget.org 具有接受已簽署的封裝的額外需求：
 ## <a name="related-articles"></a>相關文章
 
 - [簽署 NuGet 套件](../create-packages/Sign-a-Package.md)
-- [安裝已簽署的套件](../consume-packages/installing-signed-packages.md)
+- [管理封裝的信任界限](../consume-packages/installing-signed-packages.md)

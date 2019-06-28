@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545683"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426195"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 版本資訊
 
@@ -54,7 +54,7 @@ NuGet 1.2 於 2011 年 3 月 30 日發行。
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe 現在已能夠儲存 API 金鑰認證
 
-使用 nuget.exe 命令列工具時，您現在可以使用 SetApiKey 命令來儲存您的 API 金鑰。 如此一來，您不需要指定它，每次您將封裝推送。 如需有關使用 nuget.exe，儲存您的 API 金鑰[閱讀相關文件發行套件](../create-packages/publish-a-package.md)。
+使用 nuget.exe 命令列工具時，您現在可以使用 SetApiKey 命令來儲存您的 API 金鑰。 如此一來，您不需要指定它，每次您將封裝推送。 如需有關使用 nuget.exe，儲存您的 API 金鑰[閱讀相關文件發行套件](../nuget-org/publish-a-package.md)。
 
 ### <a name="package-explorer"></a>封裝總管
 封裝總管 已更新為支援 NuGet 1.2。 如需詳細資訊，請參閱[封裝總管版本資訊](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)。
@@ -65,6 +65,6 @@ NuGet 1.2 於 2011 年 3 月 30 日發行。
 
 ## <a name="known-issues"></a>已知問題
 
-* **1.2 封裝不相容**： 使用命令列工具的最新版本建置的套件，nuget.exe (> 1.2) 無法搭配舊版的 NuGet VS 增益集 （例如 1.1)。 如果您遇到錯誤訊息，說明不相容的結構描述相關的項目時，您遇到這個錯誤。 請更新至最新版的 NuGet。
-* **NuGet.Server 不相容**： 如果您正在裝載內部的 NuGet 摘要使用 NuGet.Server 的專案，您必須使用最新版的 NuGet.Server 更新該專案。
-* **簽章不相符錯誤**： 如果您使用相關的簽章不相符的訊息升級期間遇到錯誤，您需要先解除安裝 NuGet，然後再安裝。 這會列在我們[已知問題頁面](../release-notes/known-issues.md)提供更多詳細資料。 此問題只會影響執行 Visual Studio 2010 SP1，且資料不正確地簽署 NuGet 1.0 一起安裝的版本。 此版本已僅能從 CodePlex 網站在短時間內讓此問題，應該不會影響太多人。
+* **1.2 封裝不相容**:使用命令列工具的最新版本建置的套件，nuget.exe (> 1.2) 不適用於舊版的 NuGet VS 增益集 （例如 1.1)。 如果您遇到錯誤訊息，說明不相容的結構描述相關的項目時，您遇到這個錯誤。 請更新至最新版的 NuGet。
+* **NuGet.Server 不相容**:如果您正在裝載內部的 NuGet 摘要使用 NuGet.Server 的專案，您必須使用最新版的 NuGet.Server 更新該專案。
+* **簽章不相符錯誤**:如果您使用相關的簽章不相符的訊息升級期間遇到錯誤，必須先解除安裝 NuGet，然後再進行安裝。 這會列在我們[已知問題頁面](../release-notes/known-issues.md)提供更多詳細資料。 此問題只會影響執行 Visual Studio 2010 SP1，且資料不正確地簽署 NuGet 1.0 一起安裝的版本。 此版本已僅能從 CodePlex 網站在短時間內讓此問題，應該不會影響太多人。

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549132"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426000"
 ---
 # <a name="install-command-nuget-cli"></a>install 命令 (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "43549132"
 > [!Tip]
 > 若要下載封裝，以直接在專案的內容之外，請瀏覽套件頁面上[nuget.org](https://www.nuget.org) ，然後選取**下載**連結。
 
-如果未不指定任何來源，所列在 全域設定檔中， `%appdata%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，會使用。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)如需詳細資訊。
+如果未不指定任何來源，所列在 全域設定檔中， `%appdata%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`(Mac/Linux)，會使用。 請參閱[常見的 NuGet 組態](../consume-packages/configuring-nuget-behavior.md)如需詳細資訊。
 
 如果未不指定任何特定的套件，`install`會安裝在專案中所列出的所有套件`packages.config`檔案，讓它變成類似[ `restore` ](cli-ref-restore.md)。
 
@@ -48,16 +48,16 @@ nuget install <packageID | configFilePath> [options]
 | FallbackSource | *（3.2 +)* 作為後援，以防主要中找不到封裝的封裝來源清單或預設來源。 |
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
 | 架構 | *（4.4 +)* 用於選取相依性的目標 framework。 預設值是 'Any' 如果未指定。 |
-| 說明 | 顯示說明命令的資訊。 |
-| 無快取記憶體 | 禁止 NuGet 使用的快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
+| Help | 顯示說明命令的資訊。 |
+| NoCache | 禁止 NuGet 使用的快取的套件。 請參閱[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)。 |
 | NonInteractive | 隱藏提示使用者輸入或確認。 |
 | OutputDirectory | 指定套件安裝所在的資料夾。 如果未不指定任何資料夾，則會使用目前的資料夾。 |
 | PackageSaveMode | 指定要在套件安裝之後儲存的檔案類型： 其中一個`nuspec`， `nupkg`，或`nuspec;nupkg`。 |
 | 發行前版本 | 允許發行前版本套件進行安裝。 還原套件時，不需要此旗標`packages.config`。 |
 | RequireConsent | 確認，然後再下載並安裝封裝中啟用還原套件。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。 |
 | SolutionDirectory | 指定要還原套件解決方案的根資料夾。 |
-| 原始程式檔 | 指定封裝來源清單 （Url) 來使用。 如果省略，則此命令會使用組態檔中提供的來源，請參閱 <<c0> [ 設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Source | 指定封裝來源清單 （Url) 來使用。 如果省略，則此命令會使用組態檔中提供的來源，請參閱 <<c0> [ 常見的 NuGet 組態](../consume-packages/configuring-nuget-behavior.md)。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 | 版本 | 指定要安裝的套件版本。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

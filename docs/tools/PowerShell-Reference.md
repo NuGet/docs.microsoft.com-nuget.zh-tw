@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546660"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426130"
 ---
 # <a name="powershell-reference"></a>PowerShell 參考
 
-套件管理員主控台提供如下所示的 PowerShell 介面，以透過特定的命令與 NuGet 互動的 Windows 上的 Visual Studio 內。 （[] 主控台不是目前可在 Visual Studio for mac）如需使用主控台的指南，請參閱[Package Manager Console](../tools/package-manager-console.md)主題。
+套件管理員主控台提供如下所示的 PowerShell 介面，以透過特定的命令與 NuGet 互動的 Windows 上的 Visual Studio 內。 （[] 主控台不是目前可在 Visual Studio for mac）如需使用主控台的指南，請參閱[安裝和管理使用 PowerShell 套件](../tools/package-manager-console.md)主題。
 
 > [!Tip]
 > 所有的 PowerShell 命令只與套件耗用量。 建立及發行套件以外，封裝也可以是其他套件的取用者，與不相關任何 PowerShell 命令。
@@ -24,19 +24,19 @@ ms.locfileid: "43546660"
 
 | 常用命令 | 描述 | NuGet 版本 |
 | --- | --- | --- |
-| [Install-Package](ps-ref-install-package.md) | 會封裝及其相依性安裝到專案中。 | 全部 |
-| [Update-Package](ps-ref-update-package.md) | 更新套件和其相依性或在專案中的所有封裝。 | 全部 |
+| [Install-Package](ps-ref-install-package.md) | 會封裝及其相依性安裝到專案中。 | All |
+| [Update-Package](ps-ref-update-package.md) | 更新套件和其相依性或在專案中的所有封裝。 | All |
 | [Find-Package](ps-ref-find-package.md) | 搜尋套件來源使用的封裝識別碼或關鍵字。 | 3.0+ |
-| [Get-Package](ps-ref-get-package.md) | 擷取安裝在本機的存放庫中的套件清單，或列出可用的封裝，從套件來源。 | 全部 |
+| [Get-Package](ps-ref-get-package.md) | 擷取安裝在本機的存放庫中的套件清單，或列出可用的封裝，從套件來源。 | All |
 
 | 第二個命令 | 描述 | NuGet 版本 |
 | --- | --- | --- |
-| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | 會檢查專案的輸出路徑中的所有組件，並新增至繫結重新導向`app.config`或`web.config`在必要時。 | 全部 |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | 會檢查專案的輸出路徑中的所有組件，並新增至繫結重新導向`app.config`或`web.config`在必要時。 | All |
 | [Get-Project](ps-ref-get-project.md) | 顯示預設值或指定的專案相關資訊。 | 3.0+ |
-| [Open-PackagePage](ps-ref-open-packagepage.md) | 會啟動預設瀏覽器中使用的專案、 授權或指定封裝的檢舉不當使用 URL。 | 3.0 + 中已被取代 |
-| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | 註冊命令，讓您能夠建立常用的參數值的自訂擴充功能的參數索引標籤展開。 | 全部 |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | 會啟動預設瀏覽器中使用的專案、 授權或指定封裝的檢舉不當使用 URL。 | 3\.0 + 中已被取代 |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | 註冊命令，讓您能夠建立常用的參數值的自訂擴充功能的參數索引標籤展開。 | All |
 | [Sync-Package](ps-ref-sync-package.md) | 取得的版本已安裝的套件從指定專案，並同步處理到其他方案中專案的版本。 | 3.0+ |
-| [Uninstall-Package](ps-ref-uninstall-package.md) | 從專案中，選擇性地移除其相依性移除封裝。 | 全部 |
+| [Uninstall-Package](ps-ref-uninstall-package.md) | 從專案中，選擇性地移除其相依性移除封裝。 | All |
 
 如需這些命令的主控台內的任何完整而詳細說明，只要有問題的命令名稱與執行下列命令：
 

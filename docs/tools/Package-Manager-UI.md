@@ -1,5 +1,5 @@
 ---
-title: NuGet 套件管理員 UI 參考
+title: 安裝和管理 Visual Studio 中的 NuGet 套件
 description: 使用 Visual Studio 中的 NuGet 套件管理員 UI，使用 NuGet 套件的指示。
 author: karann-msft
 ms.author: karann
@@ -10,34 +10,25 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637619"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426242"
 ---
-# <a name="nuget-package-manager-ui"></a>NuGet 套件管理員 UI
+# <a name="install-and-manage-packages-in-visual-studio"></a>安裝和管理 Visual Studio 中的封裝
 
 在 Windows 上的 Visual Studio 中的 NuGet 套件管理員 UI 可讓您輕鬆地安裝、 解除安裝，並更新專案和方案中的 NuGet 套件。 在 Visual Studio for Mac 的體驗，請參閱 <<c0> [ 在專案中的包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。 找不到隨附於 Visual Studio Code 的套件管理員 UI。
 
-本主題內容：
-
-- [尋找及安裝套件 （瀏覽 索引標籤）](#finding-and-installing-a-package)
-- [解除安裝套件 （已安裝 索引標籤）](#uninstalling-a-package)
-- [更新套件 （已安裝和更新 索引標籤）](#updating-a-package) (包括[「 隱含參考的 sdk 」 或 「 自動 」 參考訊息](#implicit_reference))
-- [管理解決方案套件](#managing-packages-for-the-solution)（在同一時間方式處理多個專案）。
-- [套件來源](#package-sources)
-- [套件管理員選項控制](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > 如果您缺少的 NuGet 套件管理員，在 Visual Studio 2015，請檢查**工具 > 擴充功能和更新...** 並搜尋*NuGet 套件管理員*延伸模組。 如果您無法使用 Visual Studio 中的延伸模組安裝程式，請下載擴充功能直接從[ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html)。
 >
-> 在 Visual Studio 2017，NuGet 和 NuGet 套件管理員會自動會與任何安裝。NET 相關的工作負載。 藉由選取個別安裝**個別元件 > 程式碼工具 > NuGet 套件管理員**Visual Studio 2017 安裝程式中的選項。
+> 從 Visual Studio 2017，NuGet 和 NuGet 套件管理員會自動安裝任何。NET 相關的工作負載。 藉由選取個別安裝**個別元件 > 程式碼工具 > NuGet 套件管理員**Visual Studio 安裝程式中的選項。
 
 ## <a name="finding-and-installing-a-package"></a>尋找和安裝封裝
 
-1. 在 **方案總管**，以滑鼠右鍵按一下其中一個**參考**或專案，然後選取**管理 NuGet 套件...**.
+1. 在 **方案總管**，以滑鼠右鍵按一下其中一個**參考**或專案，然後選取**管理 NuGet 套件...** .
 
     ![管理 NuGet 套件 功能表選項](media/ManagePackagesUICommand.png)
 
@@ -54,7 +45,7 @@ ms.locfileid: "58637619"
 
 ## <a name="uninstalling-a-package"></a>解除安裝套件
 
-1. 在 [**方案總管] 中**，以滑鼠右鍵按一下其中一個**參考**或所需的專案，然後選取**管理 NuGet 套件...**.
+1. 在 [**方案總管] 中**，以滑鼠右鍵按一下其中一個**參考**或所需的專案，然後選取**管理 NuGet 套件...** .
 1. 選取 [**已安裝**] 索引標籤。
 1. 選取要解除安裝 （使用搜尋來篩選清單，如有必要） 的封裝，然後選取**解除安裝**。
 
@@ -64,7 +55,7 @@ ms.locfileid: "58637619"
 
 ## <a name="updating-a-package"></a>更新套件
 
-1. 在 [**方案總管] 中**，以滑鼠右鍵按一下其中一個**參考**或所需的專案，然後選取**管理 NuGet 套件...**.(在網站專案中，以滑鼠右鍵按一下**Bin**資料夾。)
+1. 在 [**方案總管] 中**，以滑鼠右鍵按一下其中一個**參考**或所需的專案，然後選取**管理 NuGet 套件...** .(在網站專案中，以滑鼠右鍵按一下**Bin**資料夾。)
 1. 選取 [**更新**] 索引標籤，查看有可用的更新，從選取的封裝來源的封裝。 選取 **包含發行前版本**包含發行前版本的套件清單中的更新。
 1. 選取要更新，從右邊的下拉式清單中選取所需的版本，並選取封裝**更新**。
 
@@ -85,7 +76,7 @@ ms.locfileid: "58637619"
 
 管理解決方案封裝是同時使用多個專案的便利方法。
 
-1. 選取**工具 > NuGet 套件管理員 > 管理方案的 NuGet 套件...** 功能表命令，或以滑鼠右鍵按一下方案，然後選取**管理 NuGet 套件...**:
+1. 選取**工具 > NuGet 套件管理員 > 管理方案的 NuGet 套件...** 功能表命令，或以滑鼠右鍵按一下方案，然後選取**管理 NuGet 套件...** :
 
     ![管理解決方案的 NuGet 封裝](media/ManagePackagesSolutionUICommand.png)
 
@@ -130,7 +121,7 @@ ms.locfileid: "58637619"
 1. 使用向上和向下箭號按鈕不會變更的套件來源的優先順序。 Visual Studio 會忽略套件來源的順序，使用從任一個來源是一個最先回應要求。 如需詳細資訊，請參閱 <<c0> [ 套件還原](../consume-packages/package-restore.md)。
 
 > [!Tip]
-> 如果套件來源之後刪除它再次發生，表示它可能會列在電腦層級或使用者層級`NuGet.Config`檔案。 請參閱[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)這些檔案的位置，然後移除來源以手動方式編輯檔案，或使用[nuget 來源命令](../tools/nuget-exe-CLI-reference.md)。
+> 如果套件來源之後刪除它再次發生，表示它可能會列在電腦層級或使用者層級`NuGet.Config`檔案。 請參閱[常見的 NuGet 組態](../consume-packages/configuring-nuget-behavior.md)這些檔案的位置，然後移除來源以手動方式編輯檔案，或使用[nuget 來源命令](../tools/nuget-exe-CLI-reference.md)。
 
 ## <a name="package-manager-options-control"></a>套件管理員選項控制
 

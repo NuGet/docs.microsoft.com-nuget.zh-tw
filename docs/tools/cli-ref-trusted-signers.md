@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324704"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425986"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>受信任簽署命令 (NuGet CLI)
 
 **適用於：** 套件耗用量&bullet;**支援的版本：** 4.9.1+
 
-取得或設定受信任的簽署人的 NuGet 組態。 額外的使用量，請參閱 <<c0> [ 設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)。 如需有關如何 nuget.config 結構描述的樣貌，請參閱[NuGet 組態檔參考](../reference/nuget-config-file.md)。
+取得或設定受信任的簽署人的 NuGet 組態。 額外的使用量，請參閱 <<c0> [ 常見的 NuGet 組態](../consume-packages/configuring-nuget-behavior.md)。 如需有關如何 nuget.config 結構描述的樣貌，請參閱[NuGet 組態檔參考](../reference/nuget-config-file.md)。
 
 ## <a name="usage"></a>使用量
 
@@ -118,8 +118,8 @@ _注意_：此動作會刪除目前的憑證清單，並取代從存放庫的最
 | --- | --- |
 | ConfigFile | 若要套用 NuGet 組態檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config`用 (Mac/Linux)。|
 | ForceEnglishOutput | 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
-| 說明 | 顯示說明命令的資訊。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Help | 顯示說明命令的資訊。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 
 ## <a name="examples"></a>範例
 
