@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 399e4f80afb3e3d6278618055dde38a87184e3ff
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403147"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426647"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -81,7 +81,7 @@ ms.locfileid: "54403147"
                             </a>
                         </li>
                         <li>
-                            <a href="create-packages/overview-and-workflow.md">
+                            <a href="create-packages/creating-a-package.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -148,7 +148,7 @@ ms.locfileid: "54403147"
                     <a href="#tools-all"></a>
                     <ul id="tools-all" class="cardsC">
                         <li>
-                            <a href="tools/nuget-exe-cli-reference.md">
+                            <a href="install-nuget-client-tools.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -159,7 +159,7 @@ ms.locfileid: "54403147"
                                         </div>
                                         <div class="cardText">
                                             <h3>工具</h3>
-                                            <p>完整的 nuget.exe 命令列工具以及 Visual Studio 中的套件管理員 UI 及套件管理員主控台指南。</p>
+                                            <p>可以用來處理 NuGet 的工具相關資訊及取得方式。</p>
                                         </div>
                                     </div>
                                 </div>
