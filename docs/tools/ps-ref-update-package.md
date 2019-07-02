@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5b5a11ee11d9e2cf6a90d56ac63b1f7bad750ea
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546072"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496483"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio 套件管理員主控台)
 
@@ -41,12 +41,12 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | 專案包含要更新的封裝，將預設為所有專案的名稱。 |
 | 版本 | 要用於升級，將預設為最新版本的版本。 在 NuGet 3.0 + 中，版本值必須是其中一個*Lowest、 最高、 HighestMinor*，或*HighestPatch* （相當於-安全）。 |
 | 安全 | 限制升級至相同的主要和次要版本與目前已安裝封裝的唯一版本。 |
-| 原始程式檔 | 要搜尋的套件來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Update-Package`搜尋目前選取的套件來源。 |
+| Source | 要搜尋的套件來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Update-Package`搜尋目前選取的套件來源。 |
 | IncludePrerelease | 包含更新的發行前版本套件。 |
 | 重新安裝 | Resintalls 封裝，使用其目前安裝的版本。 請參閱[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md)。 |
 | FileConflictAction | 當詢問您要覆寫或略過專案所參考的現有檔案時要採取的動作。 可能的值為*覆寫，忽略、 None、 OverwriteAll*，並*IgnoreAll* （3.0 +）。 |
 | DependencyVersion | 若要使用，相依性套件可以是下列其中一種版本：<br/><ul><li>*最低*（預設值）： 最低版本</li><li>*HighestPatch*： 具有最低的主要、 次要最低、 最高的修補程式版本</li><li>*HighestMinor*： 具有最低的主要版本、 最小、 最高的修補程式</li><li>*最高*（預設值更新套件不含任何參數）： 最高版本</li></ul>您可以設定預設值使用[ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)中設定`Nuget.Config`檔案。 |
-| ToHighestPatch | 限制升級至相同的次要版本與目前安裝的套件的版本。 |
+| ToHighestPatch | 相當於-安全。 |
 | ToHighestMinor | 限制升級至相同主要版本與目前安裝的套件的版本。 |
 | WhatIf | 顯示執行命令，而不實際執行更新時，會發生什麼情況。 |
 
@@ -54,7 +54,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ### <a name="common-parameters"></a>一般參數
 
-`Update-Package` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
+`Update-Package` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable，詳細資訊、 WarningAction 和 WarningVariable。
 
 ### <a name="examples"></a>範例
 

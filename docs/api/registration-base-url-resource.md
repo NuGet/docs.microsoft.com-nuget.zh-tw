@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324860"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496508"
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -89,7 +89,7 @@ LOWER_ID | URL    | 字串  | 是      | 封裝識別碼、 小寫
 名稱  | 類型             | 必要 | 注意
 ----- | ---------------- | -------- | -----
 count | 整數          | 是      | 在索引中的註冊頁面數目
-項目 | 物件的陣列 | 是      | 陣列的註冊頁面
+items | 物件的陣列 | 是      | 陣列的註冊頁面
 
 在索引物件的每個項目`items`陣列是 JSON 物件，代表註冊頁面。
 
@@ -101,7 +101,7 @@ count | 整數          | 是      | 在索引中的註冊頁面數目
 ------ | ---------------- | -------- | -----
 @id    | 字串           | 是      | 註冊頁面 URL
 count  | 整數          | 是      | 離開頁面中的註冊數目
-項目  | 物件的陣列 | 否       | 註冊分葉和其關聯的中繼資料的陣列
+items  | 物件的陣列 | 否       | 註冊分葉和其關聯的中繼資料的陣列
 較低  | 字串           | 是      | （含） 頁面中最低的 SemVer 2.0.0 版本
 父代 | 字串           | 否       | 要註冊索引 URL
 上限  | 字串           | 是      | （含） 頁面中最高的 SemVer 2.0.0 版本
@@ -138,6 +138,7 @@ packageContent | 字串 | 是      | 封裝內容 (.nupkg) URL
 @id                      | 字串                     | 是      | 要用來產生這個物件的文件的 URL
 authors                  | 字串或字串陣列 | 否       | 
 dependencyGroups         | 物件的陣列           | 否       | 封裝中，依目標 framework 的相依性
+已被取代              | object                     | 否       | 與封裝相關聯的已被取代
 描述              | 字串                     | 否       | 
 iconUrl                  | 字串                     | 否       | 
 id                       | 字串                     | 是      | 封裝的識別碼
@@ -184,6 +185,26 @@ range        | object | 否       | 允許[版本範圍](../reference/package-ve
 
 如果`range`屬性已被排除，或空字串，用戶端應該預設版本範圍`(, )`。 也就被允許任何版本的相依性。
 
+#### <a name="package-deprecation"></a>封裝已被取代
+
+每個套件取代具有下列屬性：
+
+名稱             | 類型             | 必要 | 注意
+---------------- | ---------------- | -------- | -----
+原因          | 字串陣列 | 是      | 為什麼封裝已被取代的原因
+訊息          | 字串           | 否       | 有關此取代其他詳細資料
+alternatePackage | object           | 否       | 應該改用套件相依性
+
+`reasons`屬性必須包含至少一個字串，而且應該只包含下表中的字串：
+
+原因       | 描述             
+------------ | -----------
+舊版       | 封裝已不再維護
+CriticalBugs | 封裝有 bug，使其更適合使用 使用方式
+其他        | 封裝已被取代，原因為不在此清單上
+
+如果`reasons`屬性包含不是來自已知集合的字串，應該予以忽略。 字串不區分大小寫，因此`legacy`應視同`Legacy`。 陣列沒有順序限制，因此字串可以以任何任意的順序排列。 此外，如果屬性包含不是來自已知集合的字串，則應該被視為它只包含 「 其他 」 字串。
+
 ### <a name="sample-request"></a>範例要求
 
     GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
@@ -204,7 +225,7 @@ range        | object | 否       | 允許[版本範圍](../reference/package-ve
 ------ | ---------------- | -------- | -----
 @id    | 字串           | 是      | 註冊頁面 URL
 count  | 整數          | 是      | 離開頁面中的註冊數目
-項目  | 物件的陣列 | 是      | 註冊分葉和其關聯的中繼資料的陣列
+items  | 物件的陣列 | 是      | 註冊分葉和其關聯的中繼資料的陣列
 較低  | 字串           | 是      | （含） 頁面中最低的 SemVer 2.0.0 版本
 父代 | 字串           | 是      | 要註冊索引 URL
 上限  | 字串           | 是      | （含） 頁面中最高的 SemVer 2.0.0 版本

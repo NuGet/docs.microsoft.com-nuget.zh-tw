@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426793"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496523"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -194,7 +194,8 @@ id                      | 字串                     | 是      | 類別目錄�
 ----------------------- | -------------------------- | -------- | -----
 authors                 | 字串                     | 否       |
 created                 | 字串                     | 否       | 第一次建立封裝時的時間戳記。 後援屬性： `published`。
-dependencyGroups        | 物件的陣列           | 否       | 相同的格式設定為[套件中繼資料資源](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | 物件的陣列           | 否       | 相依性套件，依目標架構 ([相同的格式封裝中繼資料資源](registration-base-url-resource.md#package-dependency-group))
+已被取代             | object                     | 否       | 與封裝相關聯的取代 ([相同的格式封裝中繼資料資源](registration-base-url-resource.md#package-deprecation))
 描述             | 字串                     | 否       |
 iconUrl                 | 字串                     | 否       |
 isPrerelease            | boolean                    | 否       | Zda bude 封裝版本是發行前版本。 可以偵測到從`version`。
