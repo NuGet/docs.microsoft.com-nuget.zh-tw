@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453464"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467779"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
-本文著重於還原套件時常見的錯誤及其解決步驟。 如需還原套件的完整詳細資料，請參閱[套件還原](../consume-packages/package-restore.md#enabling-and-disabling-package-restore)。
+本文著重於還原套件時常見的錯誤及其解決步驟。 如需還原套件的完整詳細資料，請參閱[套件還原](../consume-packages/package-restore.md#enable-and-disable-package-restore)。
 
 如果此處的指示不適用於您的情況，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)，讓我們能更仔細審視您的案例。 請勿使用可能出現在本頁面的「本頁對您有幫助嗎？」 控制項，因為這無法讓我們與您連絡以取得詳細資訊。
 
@@ -22,9 +22,9 @@ ms.locfileid: "52453464"
 
 如果您使用 Visual Studio，請先以下列方式啟用套件還原。 否則，請繼續瀏覽後續各節。
 
-1. 選取 [工具] > [NuGet 套件管理員] > [套件管理員設定] 功能表命令。
-1. 設定 [套件還原] 下的兩個選項。
-1. 選取 [確定]。
+1. 選取 [工具] > [NuGet 套件管理員] > [套件管理員設定]  功能表命令。
+1. 設定 [套件還原]  下的兩個選項。
+1. 選取 [確定]  。
 1. 再次建置您的專案。
 
 ![在 [工具/選項] 中啟用 NuGet 套件還原](../consume-packages/media/restore-01-autorestoreoptions.png)
@@ -54,7 +54,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 請使用下列其中一種方法來還原套件：
 
 - 如果您移動了專案檔，請直接編輯檔案以更新套件參考。
-- 在 Visual Studio 中，選取 [工具] > [NuGet 套件管理員] > [套件管理員設定] 功能表命令，設定 [套件還原] 下的兩個選項，然後選取 [確定]，以啟用套件還原。 然後再次建置解決方案。
+- 在 Visual Studio 中，選取 [工具] > [NuGet 套件管理員] > [套件管理員設定]  功能表命令，設定 [套件還原]  下的兩個選項，然後選取 [確定]  ，以啟用套件還原。 然後再次建置解決方案。
 - 若是 .NET Core 專案，請執行 `dotnet restore` 或 `dotnet build` (會自動執行還原)。
 - 在命令列上執行 `nuget restore` (除了以 `dotnet` 建立的專案在此情況下會使用 `dotnet restore`)。
 - 對於使用 PackageReference 格式的專案，在命令列上執行 `msbuild -t:restore`。

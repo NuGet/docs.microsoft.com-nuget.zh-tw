@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: c43f4e80d456214ca354e136db6419a95fc797a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551904"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426834"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立適用於 Xamarin 的套件
 
@@ -36,7 +36,7 @@ ms.locfileid: "43551904"
 ## <a name="create-the-project-structure-and-abstraction-code"></a>建立專案結構和抽象程式碼
 
 1. 針對 Visual Studio，下載並執行 [ Xamarin 範本延伸模組外掛程式](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)。 這些範本可讓您輕鬆建立此逐步解說的必要專案結構。
-1. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案]、搜尋 `Plugin`、選取 [Plugin for Xamarin ] (Xamarin 的外掛程式) 範本、將名稱變更為 LoggingLibrary，然後按一下 [確定]。
+1. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案]  、搜尋 `Plugin`、選取 [Plugin for Xamarin ] (Xamarin 的外掛程式)  範本、將名稱變更為 LoggingLibrary，然後按一下 [確定]。
 
     ![Visual Studio 中的新空白應用程式 (Xamarin.Forms 可攜式) 專案](media/CrossPlatform-NewProject.png)
 
@@ -95,9 +95,9 @@ namespace Plugin.LoggingLibrary.Abstractions
     ```
 
 1. 針對每個您想要支援的平台，重複專案中的這個實作。
-1. 以滑鼠右鍵按一下 iOS 專案、選取 [屬性]、按一下 [建置] 索引標籤，然後從 [輸出路徑] 和 [XML 文件檔案] 設定中移除 "\iPhone"。 在本逐步解說中，這只是方便之後使用。 在完成時儲存檔案。
-1. 以滑鼠右鍵按一下方案，並選取 [組態管理員]，然後為 PCL 和每個所支援的平台核取 [建置] 方塊。
-1. 以滑鼠右鍵按一下方案，然後選取 [建置方案] 檢查您的工作，並產生之後將封裝的成品。 如果您收到有關遺漏參考的錯誤，請以滑鼠右鍵按一下方案，然後選取 [還原 NuGet 套件] 以安裝相依性並重建。
+1. 以滑鼠右鍵按一下 iOS 專案、選取 [屬性]  、按一下 [建置]  索引標籤，然後從 [輸出路徑]  和 [XML 文件檔案]  設定中移除 "\iPhone"。 在本逐步解說中，這只是方便之後使用。 在完成時儲存檔案。
+1. 以滑鼠右鍵按一下方案，並選取 [組態管理員]  ，然後為 PCL 和每個所支援的平台核取 [建置]  方塊。
+1. 以滑鼠右鍵按一下方案，然後選取 [建置方案]  檢查您的工作，並產生之後將封裝的成品。 如果您收到有關遺漏參考的錯誤，請以滑鼠右鍵按一下方案，然後選取 [還原 NuGet 套件]  以安裝相依性並重建。
 
 > [!Note]
 > 若要針對 iOS 建置，您需要連線至 Visual Studio 的網路 Mac，如　[Xamarin.iOS for Visual Studio 簡介](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)上所述。 如果您沒有可用的 Mac，請在組態管理員中清除 iOS 專案 (上述步驟 3)。
@@ -162,7 +162,7 @@ namespace Plugin.LoggingLibrary.Abstractions
 ```
 
 > [!Note]
-> 若要縮短 DLL 和 XML 檔案的名稱，請以滑鼠右鍵按一下任何指定的專案，並選取 [程式庫] 索引標籤，然後變更組件名稱。
+> 若要縮短 DLL 和 XML 檔案的名稱，請以滑鼠右鍵按一下任何指定的專案，並選取 [程式庫]  索引標籤，然後變更組件名稱。
 
 ### <a name="add-dependencies"></a>新增相依性
 
@@ -260,7 +260,7 @@ nuget pack LoggingLibrary.nuspec
 > [!Tip]
 > `.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。 然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。
 
-若要讓其他開發人員使用您的套件，請遵循[發行套件](../create-packages/publish-a-package.md)上的指示。
+若要讓其他開發人員使用您的套件，請遵循[發行套件](../nuget-org/publish-a-package.md)上的指示。
 
 ## <a name="related-topics"></a>相關主題
 

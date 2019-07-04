@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921568"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426815"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -66,7 +66,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="publish-the-package"></a>發行套件
 
-您現在已準備好將套件發佈至 NuGet.org。請參閱[發佈套件](Publish-a-package.md)。
+您現在已準備好將套件發佈至 NuGet.org。請參閱[發佈套件](../nuget-org/Publish-a-package.md)。
 
 ## <a name="create-a-test-certificate"></a>建立測試憑證
 
@@ -103,5 +103,5 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 
 ## <a name="related-articles"></a>相關文章
 
-- [安裝已簽署套件](../consume-packages/installing-signed-packages.md)
+- [管理套件的信任界限](../consume-packages/installing-signed-packages.md)
 - [簽署的套件參考](../reference/Signed-Packages-Reference.md)

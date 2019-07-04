@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
-ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
+ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52615752"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425723"
 ---
 # <a name="package-creation-workflow"></a>套件建立工作流程
 
@@ -41,6 +41,6 @@ ms.locfileid: "52615752"
 - [原生套件](../create-packages/native-packages.md)描述用於建立 C++ 取用者之套件的程序。
 - [簽署套件](../create-packages/sign-a-package.md)描述用於在套件新增數位簽章的程序。
 
-當您準備好將套件發行至 nuget.org 時，請遵循[發行套件](../create-packages/publish-a-package.md)中的簡單程序。
+當您準備好將套件發行至 nuget.org 時，請遵循[發行套件](../nuget-org/publish-a-package.md)中的簡單程序。
 
 如果您想要使用私人摘要，而非 nuget.org，請參閱[裝載套件概觀](../hosting-packages/overview.md)

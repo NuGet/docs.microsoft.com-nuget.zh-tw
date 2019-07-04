@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812959"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426868"
 ---
 # <a name="create-uwp-packages"></a>建立 UWP 套件
 
@@ -248,7 +248,7 @@ nuget pack ImageEnhancer.nuspec
 > [!Tip]
 > `.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。 然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。
 
-若要讓其他開發人員使用您的套件，請遵循[發行套件](../create-packages/publish-a-package.md)上的指示。
+若要讓其他開發人員使用您的套件，請遵循[發行套件](../nuget-org/publish-a-package.md)上的指示。
 
 ## <a name="related-topics"></a>相關主題
 
