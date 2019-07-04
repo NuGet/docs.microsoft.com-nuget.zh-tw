@@ -5,60 +5,60 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812959"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426868"
 ---
-# <a name="create-uwp-packages"></a><span data-ttu-id="294c9-103">建立 UWP 套件</span><span class="sxs-lookup"><span data-stu-id="294c9-103">Create UWP packages</span></span>
+# <a name="create-uwp-packages"></a><span data-ttu-id="7098a-103">建立 UWP 套件</span><span class="sxs-lookup"><span data-stu-id="7098a-103">Create UWP packages</span></span>
 
-<span data-ttu-id="294c9-104">[通用 Windows 平台 (UWP)](https://developer.microsoft.com/windows) 會為每個執行 Windows 10 的裝置提供通用應用程式平台。</span><span class="sxs-lookup"><span data-stu-id="294c9-104">The [Universal Windows Platform (UWP)](https://developer.microsoft.com/windows) provides a common app platform for every device that runs Windows 10.</span></span> <span data-ttu-id="294c9-105">在此模型內，UWP 應用程式可以呼叫所有裝置通用的 WinRT API，也可以呼叫應用程式執行所在裝置系列特有的 API (包含 Win32 和 .NET)。</span><span class="sxs-lookup"><span data-stu-id="294c9-105">Within this model, UWP apps can call both the WinRT APIs that are common to all devices, and also APIs (including Win32 and .NET) that are specific to the device family on which the app is running.</span></span>
+<span data-ttu-id="7098a-104">[通用 Windows 平台 (UWP)](https://developer.microsoft.com/windows) 會為每個執行 Windows 10 的裝置提供通用應用程式平台。</span><span class="sxs-lookup"><span data-stu-id="7098a-104">The [Universal Windows Platform (UWP)](https://developer.microsoft.com/windows) provides a common app platform for every device that runs Windows 10.</span></span> <span data-ttu-id="7098a-105">在此模型內，UWP 應用程式可以呼叫所有裝置通用的 WinRT API，也可以呼叫應用程式執行所在裝置系列特有的 API (包含 Win32 和 .NET)。</span><span class="sxs-lookup"><span data-stu-id="7098a-105">Within this model, UWP apps can call both the WinRT APIs that are common to all devices, and also APIs (including Win32 and .NET) that are specific to the device family on which the app is running.</span></span>
 
-<span data-ttu-id="294c9-106">在本逐步解說中，您將使用可在受控和原生專案中使用的原生 UWP 元件 (包含 XAML 控制項) 來建立 NuGet 套件。</span><span class="sxs-lookup"><span data-stu-id="294c9-106">In this walkthrough you create a NuGet package with a native UWP component (including a XAML control) that can be used in both Managed and Native projects.</span></span>
+<span data-ttu-id="7098a-106">在本逐步解說中，您將使用可在受控和原生專案中使用的原生 UWP 元件 (包含 XAML 控制項) 來建立 NuGet 套件。</span><span class="sxs-lookup"><span data-stu-id="7098a-106">In this walkthrough you create a NuGet package with a native UWP component (including a XAML control) that can be used in both Managed and Native projects.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="294c9-107">必要條件</span><span class="sxs-lookup"><span data-stu-id="294c9-107">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="7098a-107">必要條件</span><span class="sxs-lookup"><span data-stu-id="7098a-107">Prerequisites</span></span>
 
-1. <span data-ttu-id="294c9-108">Visual Studio 2017 或 Visual Studio 2015.</span><span class="sxs-lookup"><span data-stu-id="294c9-108">Visual Studio 2017 or Visual Studio 2015.</span></span> <span data-ttu-id="294c9-109">從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2017 Community Edition，也可以使用 Professional Edition 和 Enterprise Edition。</span><span class="sxs-lookup"><span data-stu-id="294c9-109">Install the 2017 Community edition for free from [visualstudio.com](https://www.visualstudio.com/); you can use the Professional and Enterprise editions as well.</span></span>
+1. <span data-ttu-id="7098a-108">Visual Studio 2017 或 Visual Studio 2015.</span><span class="sxs-lookup"><span data-stu-id="7098a-108">Visual Studio 2017 or Visual Studio 2015.</span></span> <span data-ttu-id="7098a-109">從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2017 Community Edition，也可以使用 Professional Edition 和 Enterprise Edition。</span><span class="sxs-lookup"><span data-stu-id="7098a-109">Install the 2017 Community edition for free from [visualstudio.com](https://www.visualstudio.com/); you can use the Professional and Enterprise editions as well.</span></span>
 
-1. <span data-ttu-id="294c9-110">NuGet CLI。</span><span class="sxs-lookup"><span data-stu-id="294c9-110">NuGet CLI.</span></span> <span data-ttu-id="294c9-111">從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 `nuget.exe`，並將它儲存至您選擇的位置 (直接下載為 `.exe`)。</span><span class="sxs-lookup"><span data-stu-id="294c9-111">Download the latest version of `nuget.exe` from [nuget.org/downloads](https://nuget.org/downloads), saving it to a location of your choice (the download is the `.exe` directly).</span></span> <span data-ttu-id="294c9-112">如果尚未新增，則請將該位置新增至您的 PATH 環境變數。</span><span class="sxs-lookup"><span data-stu-id="294c9-112">Then add that location to your PATH environment variable if it isn't already.</span></span>
+1. <span data-ttu-id="7098a-110">NuGet CLI。</span><span class="sxs-lookup"><span data-stu-id="7098a-110">NuGet CLI.</span></span> <span data-ttu-id="7098a-111">從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 `nuget.exe`，並將它儲存至您選擇的位置 (直接下載為 `.exe`)。</span><span class="sxs-lookup"><span data-stu-id="7098a-111">Download the latest version of `nuget.exe` from [nuget.org/downloads](https://nuget.org/downloads), saving it to a location of your choice (the download is the `.exe` directly).</span></span> <span data-ttu-id="7098a-112">如果尚未新增，則請將該位置新增至您的 PATH 環境變數。</span><span class="sxs-lookup"><span data-stu-id="7098a-112">Then add that location to your PATH environment variable if it isn't already.</span></span>
 
-## <a name="create-a-uwp-windows-runtime-component"></a><span data-ttu-id="294c9-113">建立 UWP Windows 執行階段元件</span><span class="sxs-lookup"><span data-stu-id="294c9-113">Create a UWP Windows Runtime component</span></span>
+## <a name="create-a-uwp-windows-runtime-component"></a><span data-ttu-id="7098a-113">建立 UWP Windows 執行階段元件</span><span class="sxs-lookup"><span data-stu-id="7098a-113">Create a UWP Windows Runtime component</span></span>
 
-1. <span data-ttu-id="294c9-114">在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]  ，並展開 [Visual C++] > [Windows] > [通用]  節點，然後選取 [Windows 執行階段元件 (通用 Windows)]  範本，並將名稱變更為 ImageEnhancer，然後按一下 [確定]。</span><span class="sxs-lookup"><span data-stu-id="294c9-114">In Visual Studio, choose **File > New > Project**, expand the **Visual C++ > Windows > Universal** node, select the **Windows Runtime Component (Universal Windows)** template, change the name to ImageEnhancer, and click OK.</span></span> <span data-ttu-id="294c9-115">當系統出現提示時，請接受目標版本和最低版本的預設值。</span><span class="sxs-lookup"><span data-stu-id="294c9-115">Accept the default values for Target Version and Minimum Version when prompted.</span></span>
+1. <span data-ttu-id="7098a-114">在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]  ，並展開 [Visual C++] > [Windows] > [通用]  節點，然後選取 [Windows 執行階段元件 (通用 Windows)]  範本，並將名稱變更為 ImageEnhancer，然後按一下 [確定]。</span><span class="sxs-lookup"><span data-stu-id="7098a-114">In Visual Studio, choose **File > New > Project**, expand the **Visual C++ > Windows > Universal** node, select the **Windows Runtime Component (Universal Windows)** template, change the name to ImageEnhancer, and click OK.</span></span> <span data-ttu-id="7098a-115">當系統出現提示時，請接受目標版本和最低版本的預設值。</span><span class="sxs-lookup"><span data-stu-id="7098a-115">Accept the default values for Target Version and Minimum Version when prompted.</span></span>
 
     ![建立新 UWP Windows 執行階段元件專案](media/UWP-NewProject.png)
 
-1. <span data-ttu-id="294c9-117">以滑鼠右鍵按一下方案總管中的專案，選取 [新增] > [新增項目]  、按一下 [Visual C++] > [XAML]  節點、選取 [樣板化控制項]  、將名稱變更為 AwesomeImageControl.cpp，然後按一下 [新增]  ：</span><span class="sxs-lookup"><span data-stu-id="294c9-117">Right click the project in Solution Explorer, select **Add > New Item**, click the **Visual C++ > XAML** node, select **Templated Control**, change the name to AwesomeImageControl.cpp, and click **Add**:</span></span>
+1. <span data-ttu-id="7098a-117">以滑鼠右鍵按一下方案總管中的專案，選取 [新增] > [新增項目]  、按一下 [Visual C++] > [XAML]  節點、選取 [樣板化控制項]  、將名稱變更為 AwesomeImageControl.cpp，然後按一下 [新增]  ：</span><span class="sxs-lookup"><span data-stu-id="7098a-117">Right click the project in Solution Explorer, select **Add > New Item**, click the **Visual C++ > XAML** node, select **Templated Control**, change the name to AwesomeImageControl.cpp, and click **Add**:</span></span>
 
     ![將新的 XAML 樣板化控制項項目新增至專案](media/UWP-NewXAMLControl.png)
 
-1. <span data-ttu-id="294c9-119">以滑鼠右鍵按一下方案總管，然後選取 [屬性]  。</span><span class="sxs-lookup"><span data-stu-id="294c9-119">Right-click the project in Solution Explorer and select **Properties.**</span></span> <span data-ttu-id="294c9-120">在 [屬性] 頁面中，展開 [組態屬性] > [C/C++]  ，然後按一下 [輸出檔案]  。</span><span class="sxs-lookup"><span data-stu-id="294c9-120">In the Properties page, expand **Configuration Properties > C/C++** and click **Output Files**.</span></span> <span data-ttu-id="294c9-121">在右窗格中，將 [產生 XML 文件檔]  的值變更為 [是]：</span><span class="sxs-lookup"><span data-stu-id="294c9-121">In the pane on the right, change the value for **Generate XML Documentation Files** to Yes:</span></span>
+1. <span data-ttu-id="7098a-119">以滑鼠右鍵按一下方案總管，然後選取 [屬性]  。</span><span class="sxs-lookup"><span data-stu-id="7098a-119">Right-click the project in Solution Explorer and select **Properties.**</span></span> <span data-ttu-id="7098a-120">在 [屬性] 頁面中，展開 [組態屬性] > [C/C++]  ，然後按一下 [輸出檔案]  。</span><span class="sxs-lookup"><span data-stu-id="7098a-120">In the Properties page, expand **Configuration Properties > C/C++** and click **Output Files**.</span></span> <span data-ttu-id="7098a-121">在右窗格中，將 [產生 XML 文件檔]  的值變更為 [是]：</span><span class="sxs-lookup"><span data-stu-id="7098a-121">In the pane on the right, change the value for **Generate XML Documentation Files** to Yes:</span></span>
 
     ![將 [產生 XML 文件檔] 設定為 [是]](media/UWP-GenerateXMLDocFiles.png)
 
-1. <span data-ttu-id="294c9-123">現在以滑鼠右鍵按一下「方案」  ，並選取 [批次建置]  ，然後核取對話方塊中的三個 [偵錯] 方塊，如下顯示。</span><span class="sxs-lookup"><span data-stu-id="294c9-123">Right click the *solution* now, select **Batch Build**, check the three Debug boxes in the dialog as shown below.</span></span> <span data-ttu-id="294c9-124">這確保當您執行建置時，會為 Windows 所支援的每個目標系統產生一組完整成品。</span><span class="sxs-lookup"><span data-stu-id="294c9-124">This makes sure that when you do a build, you generate a full set of artifacts for each of the target systems that Windows supports.</span></span>
+1. <span data-ttu-id="7098a-123">現在以滑鼠右鍵按一下「方案」  ，並選取 [批次建置]  ，然後核取對話方塊中的三個 [偵錯] 方塊，如下顯示。</span><span class="sxs-lookup"><span data-stu-id="7098a-123">Right click the *solution* now, select **Batch Build**, check the three Debug boxes in the dialog as shown below.</span></span> <span data-ttu-id="7098a-124">這確保當您執行建置時，會為 Windows 所支援的每個目標系統產生一組完整成品。</span><span class="sxs-lookup"><span data-stu-id="7098a-124">This makes sure that when you do a build, you generate a full set of artifacts for each of the target systems that Windows supports.</span></span>
 
     ![批次建置](media/UWP-BatchBuild.png)
 
-1. <span data-ttu-id="294c9-126">在 [批次建置] 對話方塊中，按一下 [建置]  確認專案，並建立 NuGet 套件所需的輸出檔案。</span><span class="sxs-lookup"><span data-stu-id="294c9-126">In the Batch Build dialog, and click **Build** to verify the project and create the output files that you need for the NuGet package.</span></span>
+1. <span data-ttu-id="7098a-126">在 [批次建置] 對話方塊中，按一下 [建置]  確認專案，並建立 NuGet 套件所需的輸出檔案。</span><span class="sxs-lookup"><span data-stu-id="7098a-126">In the Batch Build dialog, and click **Build** to verify the project and create the output files that you need for the NuGet package.</span></span>
 
 > [!Note]
-> <span data-ttu-id="294c9-127">在本逐步解說中，您將偵錯成品用於套件。</span><span class="sxs-lookup"><span data-stu-id="294c9-127">In this walkthrough you use the Debug artifacts for the package.</span></span> <span data-ttu-id="294c9-128">針對非偵錯套件，請改為檢查 [批次建置] 對話方塊中的 [發行] 選項，並參照所遵循步驟中產生的發行資料夾。</span><span class="sxs-lookup"><span data-stu-id="294c9-128">For non-debug package, check the Release options in the Batch Build dialog instead, and refer to the resulting Release folders in the steps that follow.</span></span>
+> <span data-ttu-id="7098a-127">在本逐步解說中，您將偵錯成品用於套件。</span><span class="sxs-lookup"><span data-stu-id="7098a-127">In this walkthrough you use the Debug artifacts for the package.</span></span> <span data-ttu-id="7098a-128">針對非偵錯套件，請改為檢查 [批次建置] 對話方塊中的 [發行] 選項，並參照所遵循步驟中產生的發行資料夾。</span><span class="sxs-lookup"><span data-stu-id="7098a-128">For non-debug package, check the Release options in the Batch Build dialog instead, and refer to the resulting Release folders in the steps that follow.</span></span>
 
-## <a name="create-and-update-the-nuspec-file"></a><span data-ttu-id="294c9-129">建立和更新 .nuspec 檔案</span><span class="sxs-lookup"><span data-stu-id="294c9-129">Create and update the .nuspec file</span></span>
+## <a name="create-and-update-the-nuspec-file"></a><span data-ttu-id="7098a-129">建立和更新 .nuspec 檔案</span><span class="sxs-lookup"><span data-stu-id="7098a-129">Create and update the .nuspec file</span></span>
 
-<span data-ttu-id="294c9-130">若要建立初始 `.nuspec` 檔案，請執行下列三個步驟。</span><span class="sxs-lookup"><span data-stu-id="294c9-130">To create the initial `.nuspec` file, do the three steps below.</span></span> <span data-ttu-id="294c9-131">下列各節接著會引導您完成其他必要更新。</span><span class="sxs-lookup"><span data-stu-id="294c9-131">The sections that follow then guide you through other necessary updates.</span></span>
+<span data-ttu-id="7098a-130">若要建立初始 `.nuspec` 檔案，請執行下列三個步驟。</span><span class="sxs-lookup"><span data-stu-id="7098a-130">To create the initial `.nuspec` file, do the three steps below.</span></span> <span data-ttu-id="7098a-131">下列各節接著會引導您完成其他必要更新。</span><span class="sxs-lookup"><span data-stu-id="7098a-131">The sections that follow then guide you through other necessary updates.</span></span>
 
-1. <span data-ttu-id="294c9-132">開啟命令提示字元，並巡覽至包含 `ImageEnhancer.vcxproj` 的資料夾 (這是低於方案檔一階的子資料夾)。</span><span class="sxs-lookup"><span data-stu-id="294c9-132">Open a command prompt and navigate to the folder containing `ImageEnhancer.vcxproj` (this will be a subfolder below where the solution file is).</span></span>
-1. <span data-ttu-id="294c9-133">執行 NuGet `spec` 命令來產生 `ImageEnhancer.nuspec` (檔案名稱取自 `.vcxproj` 檔案的名稱)：</span><span class="sxs-lookup"><span data-stu-id="294c9-133">Run the NuGet `spec` command to generate `ImageEnhancer.nuspec` (the name of the file is taken from the name of the `.vcxproj` file):</span></span>
+1. <span data-ttu-id="7098a-132">開啟命令提示字元，並巡覽至包含 `ImageEnhancer.vcxproj` 的資料夾 (這是低於方案檔一階的子資料夾)。</span><span class="sxs-lookup"><span data-stu-id="7098a-132">Open a command prompt and navigate to the folder containing `ImageEnhancer.vcxproj` (this will be a subfolder below where the solution file is).</span></span>
+1. <span data-ttu-id="7098a-133">執行 NuGet `spec` 命令來產生 `ImageEnhancer.nuspec` (檔案名稱取自 `.vcxproj` 檔案的名稱)：</span><span class="sxs-lookup"><span data-stu-id="7098a-133">Run the NuGet `spec` command to generate `ImageEnhancer.nuspec` (the name of the file is taken from the name of the `.vcxproj` file):</span></span>
 
     ```cli
     nuget spec
     ```
 
-1. <span data-ttu-id="294c9-134">在編輯器中開啟 `ImageEnhancer.nuspec`，然後進行更新使其符合下列內容，並使用適當的值取代 YOUR_NAME。</span><span class="sxs-lookup"><span data-stu-id="294c9-134">Open `ImageEnhancer.nuspec` in an editor and update it to match the following, replacing YOUR_NAME with an appropriate value.</span></span> <span data-ttu-id="294c9-135">尤其是在整個 nuget.org 中，`<id>` 值必須為唯一 (請參閱[建立套件](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。</span><span class="sxs-lookup"><span data-stu-id="294c9-135">The `<id>` value, specifically, must be unique across nuget.org (see the naming conventions described in [Creating a package](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)).</span></span> <span data-ttu-id="294c9-136">另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。</span><span class="sxs-lookup"><span data-stu-id="294c9-136">Also note that you must also update the author and description tags or you get an error during the packing step.</span></span>
+1. <span data-ttu-id="7098a-134">在編輯器中開啟 `ImageEnhancer.nuspec`，然後進行更新使其符合下列內容，並使用適當的值取代 YOUR_NAME。</span><span class="sxs-lookup"><span data-stu-id="7098a-134">Open `ImageEnhancer.nuspec` in an editor and update it to match the following, replacing YOUR_NAME with an appropriate value.</span></span> <span data-ttu-id="7098a-135">尤其是在整個 nuget.org 中，`<id>` 值必須為唯一 (請參閱[建立套件](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。</span><span class="sxs-lookup"><span data-stu-id="7098a-135">The `<id>` value, specifically, must be unique across nuget.org (see the naming conventions described in [Creating a package](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)).</span></span> <span data-ttu-id="7098a-136">另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。</span><span class="sxs-lookup"><span data-stu-id="7098a-136">Also note that you must also update the author and description tags or you get an error during the packing step.</span></span>
 
     ```xml
     <?xml version="1.0"?>
@@ -79,13 +79,13 @@ ms.locfileid: "66812959"
     ```
 
 > [!Note]
-> <span data-ttu-id="294c9-137">針對公眾使用而建置的套件，請特別注意 `<tags>` 項目，因為這些標籤可協助其他人找到您的套件，並了解其用途。</span><span class="sxs-lookup"><span data-stu-id="294c9-137">For packages built for public consumption, pay special attention to the `<tags>` element, as these tags help others find your package and understand what it does.</span></span>
+> <span data-ttu-id="7098a-137">針對公眾使用而建置的套件，請特別注意 `<tags>` 項目，因為這些標籤可協助其他人找到您的套件，並了解其用途。</span><span class="sxs-lookup"><span data-stu-id="7098a-137">For packages built for public consumption, pay special attention to the `<tags>` element, as these tags help others find your package and understand what it does.</span></span>
 
-### <a name="adding-windows-metadata-to-the-package"></a><span data-ttu-id="294c9-138">將 Windows 中繼資料新增至套件</span><span class="sxs-lookup"><span data-stu-id="294c9-138">Adding Windows metadata to the package</span></span>
+### <a name="adding-windows-metadata-to-the-package"></a><span data-ttu-id="7098a-138">將 Windows 中繼資料新增至套件</span><span class="sxs-lookup"><span data-stu-id="7098a-138">Adding Windows metadata to the package</span></span>
 
-<span data-ttu-id="294c9-139">Windows 執行階段元件需要描述其所有公開可用類型的中繼資料，讓其他應用程式和程式庫可以使用元件。</span><span class="sxs-lookup"><span data-stu-id="294c9-139">A Windows Runtime Component requires metadata that describes all of its publicly available types, which makes it possible for other apps and libraries to consume the component.</span></span> <span data-ttu-id="294c9-140">此中繼資料包含在 .winmd 檔案中，而此檔案是在您編譯專案時建立，並且必須併入 NuGet 套件中。</span><span class="sxs-lookup"><span data-stu-id="294c9-140">This metadata is contained in a .winmd file, which is created when you compile the project and must be included in your NuGet package.</span></span> <span data-ttu-id="294c9-141">具有 IntelliSense 資料的 XML 檔案也會在相同的時間建置，同時應該予以包含。</span><span class="sxs-lookup"><span data-stu-id="294c9-141">An XML file with IntelliSense data is also built at the same time, and should be included as well.</span></span>
+<span data-ttu-id="7098a-139">Windows 執行階段元件需要描述其所有公開可用類型的中繼資料，讓其他應用程式和程式庫可以使用元件。</span><span class="sxs-lookup"><span data-stu-id="7098a-139">A Windows Runtime Component requires metadata that describes all of its publicly available types, which makes it possible for other apps and libraries to consume the component.</span></span> <span data-ttu-id="7098a-140">此中繼資料包含在 .winmd 檔案中，而此檔案是在您編譯專案時建立，並且必須併入 NuGet 套件中。</span><span class="sxs-lookup"><span data-stu-id="7098a-140">This metadata is contained in a .winmd file, which is created when you compile the project and must be included in your NuGet package.</span></span> <span data-ttu-id="7098a-141">具有 IntelliSense 資料的 XML 檔案也會在相同的時間建置，同時應該予以包含。</span><span class="sxs-lookup"><span data-stu-id="7098a-141">An XML file with IntelliSense data is also built at the same time, and should be included as well.</span></span>
 
-<span data-ttu-id="294c9-142">將下列 `<files>` 節點新增至 `.nuspec` 檔案：</span><span class="sxs-lookup"><span data-stu-id="294c9-142">Add the following `<files>` node to the `.nuspec` file:</span></span>
+<span data-ttu-id="7098a-142">將下列 `<files>` 節點新增至 `.nuspec` 檔案：</span><span class="sxs-lookup"><span data-stu-id="7098a-142">Add the following `<files>` node to the `.nuspec` file:</span></span>
 
 ```xml
 <package>
@@ -101,9 +101,9 @@ ms.locfileid: "66812959"
 </package>
 ```
 
-### <a name="adding-xaml-content"></a><span data-ttu-id="294c9-143">新增 XAML 內容</span><span class="sxs-lookup"><span data-stu-id="294c9-143">Adding XAML content</span></span>
+### <a name="adding-xaml-content"></a><span data-ttu-id="7098a-143">新增 XAML 內容</span><span class="sxs-lookup"><span data-stu-id="7098a-143">Adding XAML content</span></span>
 
-<span data-ttu-id="294c9-144">若要包含 XAML 控制項與您的元件，您需要新增包含控制項的預設範本 (如專案範本所產生)。</span><span class="sxs-lookup"><span data-stu-id="294c9-144">To include a XAML control with your component, you need to add the XAML file that has the default template for the control (as generated by the project template).</span></span> <span data-ttu-id="294c9-145">在 `<files>` 區段中也包含這項內容：</span><span class="sxs-lookup"><span data-stu-id="294c9-145">This also goes in the `<files>` section:</span></span>
+<span data-ttu-id="7098a-144">若要包含 XAML 控制項與您的元件，您需要新增包含控制項的預設範本 (如專案範本所產生)。</span><span class="sxs-lookup"><span data-stu-id="7098a-144">To include a XAML control with your component, you need to add the XAML file that has the default template for the control (as generated by the project template).</span></span> <span data-ttu-id="7098a-145">在 `<files>` 區段中也包含這項內容：</span><span class="sxs-lookup"><span data-stu-id="7098a-145">This also goes in the `<files>` section:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -121,9 +121,9 @@ ms.locfileid: "66812959"
 </package>
 ```
 
-### <a name="adding-the-native-implementation-libraries"></a><span data-ttu-id="294c9-146">新增原生實作程式庫</span><span class="sxs-lookup"><span data-stu-id="294c9-146">Adding the native implementation libraries</span></span>
+### <a name="adding-the-native-implementation-libraries"></a><span data-ttu-id="7098a-146">新增原生實作程式庫</span><span class="sxs-lookup"><span data-stu-id="7098a-146">Adding the native implementation libraries</span></span>
 
-<span data-ttu-id="294c9-147">在您的元件內，ImageEnhancer 類型的核心邏輯是原生程式碼，包含在為每個目標執行階段 (ARM、x86 和 x64) 產生的各種 `ImageEnhancer.dll` 組件。</span><span class="sxs-lookup"><span data-stu-id="294c9-147">Within your component, the core logic of the ImageEnhancer type is in native code, which is contained in the various `ImageEnhancer.dll` assemblies that are generated for each target runtime (ARM, x86, and x64).</span></span> <span data-ttu-id="294c9-148">若要將這些併入套件中，請在 `<files>` 區段和其相關聯 .pri 資源檔中參考它們：</span><span class="sxs-lookup"><span data-stu-id="294c9-148">To include these in the package, reference them in the `<files>` section along with their associated .pri resource files:</span></span>
+<span data-ttu-id="7098a-147">在您的元件內，ImageEnhancer 類型的核心邏輯是原生程式碼，包含在為每個目標執行階段 (ARM、x86 和 x64) 產生的各種 `ImageEnhancer.dll` 組件。</span><span class="sxs-lookup"><span data-stu-id="7098a-147">Within your component, the core logic of the ImageEnhancer type is in native code, which is contained in the various `ImageEnhancer.dll` assemblies that are generated for each target runtime (ARM, x86, and x64).</span></span> <span data-ttu-id="7098a-148">若要將這些併入套件中，請在 `<files>` 區段和其相關聯 .pri 資源檔中參考它們：</span><span class="sxs-lookup"><span data-stu-id="7098a-148">To include these in the package, reference them in the `<files>` section along with their associated .pri resource files:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -151,9 +151,9 @@ ms.locfileid: "66812959"
 </package>
 ```
 
-### <a name="adding-targets"></a><span data-ttu-id="294c9-149">新增 .targets</span><span class="sxs-lookup"><span data-stu-id="294c9-149">Adding .targets</span></span>
+### <a name="adding-targets"></a><span data-ttu-id="7098a-149">新增 .targets</span><span class="sxs-lookup"><span data-stu-id="7098a-149">Adding .targets</span></span>
 
-<span data-ttu-id="294c9-150">接下來，可能使用 NuGet 套件的 C++ 和 JavaScript 專案需要有 .targets 檔案，才能識別必要組件和 winmd 檔案</span><span class="sxs-lookup"><span data-stu-id="294c9-150">Next, C++ and JavaScript projects that might consume your NuGet package need a .targets file to identify the necessary assembly and winmd files.</span></span> <span data-ttu-id="294c9-151">(C# 和 Visual Basic 專案會自動執行這項作業)。將下方文字複製到 `ImageEnhancer.targets` 以建立此檔案，然後將其儲存到與 `.nuspec` 檔案相同的資料夾中。</span><span class="sxs-lookup"><span data-stu-id="294c9-151">(C# and Visual Basic projects do this automatically.) Create this file by copying the text below into `ImageEnhancer.targets` and save it in the same folder as the `.nuspec` file.</span></span> <span data-ttu-id="294c9-152">_注意_：此 `.targets` 檔案的名稱必須與套件識別碼相同 (例如 `.nupspec` 檔案中的 `<Id>` 元素)：</span><span class="sxs-lookup"><span data-stu-id="294c9-152">_Note_: This `.targets` file needs to be the same name as the package ID (e.g. the `<Id>` element in the `.nupspec` file):</span></span>
+<span data-ttu-id="7098a-150">接下來，可能使用 NuGet 套件的 C++ 和 JavaScript 專案需要有 .targets 檔案，才能識別必要組件和 winmd 檔案</span><span class="sxs-lookup"><span data-stu-id="7098a-150">Next, C++ and JavaScript projects that might consume your NuGet package need a .targets file to identify the necessary assembly and winmd files.</span></span> <span data-ttu-id="7098a-151">(C# 和 Visual Basic 專案會自動執行這項作業)。將下方文字複製到 `ImageEnhancer.targets` 以建立此檔案，然後將其儲存到與 `.nuspec` 檔案相同的資料夾中。</span><span class="sxs-lookup"><span data-stu-id="7098a-151">(C# and Visual Basic projects do this automatically.) Create this file by copying the text below into `ImageEnhancer.targets` and save it in the same folder as the `.nuspec` file.</span></span> <span data-ttu-id="7098a-152">_注意_：此 `.targets` 檔案的名稱必須與套件識別碼相同 (例如 `.nupspec` 檔案中的 `<Id>` 元素)：</span><span class="sxs-lookup"><span data-stu-id="7098a-152">_Note_: This `.targets` file needs to be the same name as the package ID (e.g. the `<Id>` element in the `.nupspec` file):</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -171,7 +171,7 @@ ms.locfileid: "66812959"
 </Project>
 ```
 
-<span data-ttu-id="294c9-153">然後在 `.nuspec` 檔案中參照 `ImageEnhancer.targets`：</span><span class="sxs-lookup"><span data-stu-id="294c9-153">Then refer to `ImageEnhancer.targets` in your `.nuspec` file:</span></span>
+<span data-ttu-id="7098a-153">然後在 `.nuspec` 檔案中參照 `ImageEnhancer.targets`：</span><span class="sxs-lookup"><span data-stu-id="7098a-153">Then refer to `ImageEnhancer.targets` in your `.nuspec` file:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -189,9 +189,9 @@ ms.locfileid: "66812959"
 </package>
 ```
 
-### <a name="final-nuspec"></a><span data-ttu-id="294c9-154">最終 .nuspec</span><span class="sxs-lookup"><span data-stu-id="294c9-154">Final .nuspec</span></span>
+### <a name="final-nuspec"></a><span data-ttu-id="7098a-154">最終 .nuspec</span><span class="sxs-lookup"><span data-stu-id="7098a-154">Final .nuspec</span></span>
 
-<span data-ttu-id="294c9-155">最終 `.nuspec` 檔案現在看起來應該如下所示，並且應該將 YOUR_NAME 取代為適當值：</span><span class="sxs-lookup"><span data-stu-id="294c9-155">Your final `.nuspec` file should now look like the following, where again YOUR_NAME should be replaced with an appropriate value:</span></span>
+<span data-ttu-id="7098a-155">最終 `.nuspec` 檔案現在看起來應該如下所示，並且應該將 YOUR_NAME 取代為適當值：</span><span class="sxs-lookup"><span data-stu-id="7098a-155">Your final `.nuspec` file should now look like the following, where again YOUR_NAME should be replaced with an appropriate value:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -233,28 +233,28 @@ ms.locfileid: "66812959"
 </package>
 ```
 
-## <a name="package-the-component"></a><span data-ttu-id="294c9-156">封裝元件</span><span class="sxs-lookup"><span data-stu-id="294c9-156">Package the component</span></span>
+## <a name="package-the-component"></a><span data-ttu-id="7098a-156">封裝元件</span><span class="sxs-lookup"><span data-stu-id="7098a-156">Package the component</span></span>
 
-<span data-ttu-id="294c9-157">只要已完成的 `.nuspec` 參考您需要包含在套件中的所有檔案，就可隨時執行 `pack` 命令：</span><span class="sxs-lookup"><span data-stu-id="294c9-157">With the completed `.nuspec` referencing all the files you need to include in the package, you're ready to run the `pack` command:</span></span>
+<span data-ttu-id="7098a-157">只要已完成的 `.nuspec` 參考您需要包含在套件中的所有檔案，就可隨時執行 `pack` 命令：</span><span class="sxs-lookup"><span data-stu-id="7098a-157">With the completed `.nuspec` referencing all the files you need to include in the package, you're ready to run the `pack` command:</span></span>
 
 ```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
-<span data-ttu-id="294c9-158">這會產生 `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`。</span><span class="sxs-lookup"><span data-stu-id="294c9-158">This generates `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`.</span></span> <span data-ttu-id="294c9-159">在如 [NuGet 套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)的工具中開啟此檔案，並展開所有節點，您將會看到下列內容：</span><span class="sxs-lookup"><span data-stu-id="294c9-159">Opening this file in a tool like the [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) and expanding all the nodes, you see the following contents:</span></span>
+<span data-ttu-id="7098a-158">這會產生 `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`。</span><span class="sxs-lookup"><span data-stu-id="7098a-158">This generates `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`.</span></span> <span data-ttu-id="7098a-159">在如 [NuGet 套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)的工具中開啟此檔案，並展開所有節點，您將會看到下列內容：</span><span class="sxs-lookup"><span data-stu-id="7098a-159">Opening this file in a tool like the [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) and expanding all the nodes, you see the following contents:</span></span>
 
 ![顯示 ImageEnhancer 套件的 NuGet 套件總管](media/UWP-PackageExplorer.png)
 
 > [!Tip]
-> <span data-ttu-id="294c9-161">`.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。</span><span class="sxs-lookup"><span data-stu-id="294c9-161">A `.nupkg` file is just a ZIP file with a different extension.</span></span> <span data-ttu-id="294c9-162">然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。</span><span class="sxs-lookup"><span data-stu-id="294c9-162">You can also examine package contents, then, by changing `.nupkg` to `.zip`, but remember to restore the extension before uploading a package to nuget.org.</span></span>
+> <span data-ttu-id="7098a-161">`.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。</span><span class="sxs-lookup"><span data-stu-id="7098a-161">A `.nupkg` file is just a ZIP file with a different extension.</span></span> <span data-ttu-id="7098a-162">然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。</span><span class="sxs-lookup"><span data-stu-id="7098a-162">You can also examine package contents, then, by changing `.nupkg` to `.zip`, but remember to restore the extension before uploading a package to nuget.org.</span></span>
 
-<span data-ttu-id="294c9-163">若要讓其他開發人員使用您的套件，請遵循[發行套件](../create-packages/publish-a-package.md)上的指示。</span><span class="sxs-lookup"><span data-stu-id="294c9-163">To make your package available to other developers,  follow the instructions on [Publish a package](../create-packages/publish-a-package.md).</span></span>
+<span data-ttu-id="7098a-163">若要讓其他開發人員使用您的套件，請遵循[發行套件](../nuget-org/publish-a-package.md)上的指示。</span><span class="sxs-lookup"><span data-stu-id="7098a-163">To make your package available to other developers,  follow the instructions on [Publish a package](../nuget-org/publish-a-package.md).</span></span>
 
-## <a name="related-topics"></a><span data-ttu-id="294c9-164">相關主題</span><span class="sxs-lookup"><span data-stu-id="294c9-164">Related topics</span></span>
+## <a name="related-topics"></a><span data-ttu-id="7098a-164">相關主題</span><span class="sxs-lookup"><span data-stu-id="7098a-164">Related topics</span></span>
 
-- [<span data-ttu-id="294c9-165">.nuspec 參考</span><span class="sxs-lookup"><span data-stu-id="294c9-165">.nuspec Reference</span></span>](../reference/nuspec.md)
-- [<span data-ttu-id="294c9-166">符號套件</span><span class="sxs-lookup"><span data-stu-id="294c9-166">Symbol packages</span></span>](../create-packages/symbol-packages.md)
-- [<span data-ttu-id="294c9-167">套件版本控制</span><span class="sxs-lookup"><span data-stu-id="294c9-167">Package versioning</span></span>](../reference/package-versioning.md)
-- [<span data-ttu-id="294c9-168">支援多個 .NET Framework 版本</span><span class="sxs-lookup"><span data-stu-id="294c9-168">Supporting Multiple .NET Framework Versions</span></span>](../create-packages/supporting-multiple-target-frameworks.md)
-- [<span data-ttu-id="294c9-169">在套件中包含 MSBuild 屬性和目標</span><span class="sxs-lookup"><span data-stu-id="294c9-169">Include MSBuild props and targets in a package</span></span>](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
-- [<span data-ttu-id="294c9-170">建立當地語系化的套件</span><span class="sxs-lookup"><span data-stu-id="294c9-170">Creating Localized Packages</span></span>](../create-packages/creating-localized-packages.md)
+- [<span data-ttu-id="7098a-165">.nuspec 參考</span><span class="sxs-lookup"><span data-stu-id="7098a-165">.nuspec Reference</span></span>](../reference/nuspec.md)
+- [<span data-ttu-id="7098a-166">符號套件</span><span class="sxs-lookup"><span data-stu-id="7098a-166">Symbol packages</span></span>](../create-packages/symbol-packages.md)
+- [<span data-ttu-id="7098a-167">套件版本控制</span><span class="sxs-lookup"><span data-stu-id="7098a-167">Package versioning</span></span>](../reference/package-versioning.md)
+- [<span data-ttu-id="7098a-168">支援多個 .NET Framework 版本</span><span class="sxs-lookup"><span data-stu-id="7098a-168">Supporting Multiple .NET Framework Versions</span></span>](../create-packages/supporting-multiple-target-frameworks.md)
+- [<span data-ttu-id="7098a-169">在套件中包含 MSBuild 屬性和目標</span><span class="sxs-lookup"><span data-stu-id="7098a-169">Include MSBuild props and targets in a package</span></span>](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [<span data-ttu-id="7098a-170">建立當地語系化的套件</span><span class="sxs-lookup"><span data-stu-id="7098a-170">Creating Localized Packages</span></span>](../create-packages/creating-localized-packages.md)
