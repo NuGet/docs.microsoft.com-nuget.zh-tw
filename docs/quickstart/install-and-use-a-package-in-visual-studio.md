@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812902"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426223"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>快速入門：在 Visual Studio 中安裝並使用套件
 
@@ -123,6 +123,6 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 ## <a name="related-articles"></a>相關文章
 
 - [套件耗用量的概觀及工作流程](../consume-packages/overview-and-workflow.md)
+- [使用 Visual Studio 安裝和管理套件](../tools/package-manager-ui.md)
 - [尋找及選擇套件](../consume-packages/finding-and-choosing-packages.md)
-- [安裝套件的方式](../consume-packages/ways-to-install-a-package.md)
-- [設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)
+- [常用的 NuGet 設定](../consume-packages/configuring-nuget-behavior.md)

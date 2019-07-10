@@ -3,25 +3,25 @@ title: 安裝 NuGet 用戶端工具
 description: 有關安裝用戶端工具、dotnet 和 nuget 命令列介面 (CLI)，以及適用於 Visual Studio 的套件管理員的指導方針。
 author: karann-msft
 ms.author: karann
-ms.date: 05/24/2019
+ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4336377ee90f2187234c0f637620c5fac1f05fb1
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 6e3011493b7b89bc43cd9a267aea7fd32d668cec
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812850"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426563"
 ---
-# <a name="installing-nuget-client-tools"></a>安裝 NuGet 用戶端工具
+# <a name="install-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
-> **想要安裝套件？請參閱[安裝 NuGet 套件的方式](consume-packages/ways-to-install-a-package.md)。**
+> **想要安裝套件？請參閱[安裝 NuGet 套件的方式](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)。**
 
 若要以套件取用者或建立者身分使用 NuGet，您可以使用命令列介面 (CLI) 工具以及 Visual Studio 中的 NuGet 功能。 本文簡要概述不同工具的功能、安裝它們的方式，以及它們相對的[功能可用性](#feature-availability)。 若要開始使用 NuGet 來取用套件，請參閱[安裝並使用套件 (.NET CLI)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) 和[安裝並使用套件 (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)。 若要開始建立 NuGet 套件，請參閱[建立及發佈 .NET Standard 套件 (dotnet CLI)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) 和[建立及發佈 .NET Standard 套件 (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
 | 工具&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 說明 | 下載&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | 適用於 .NET Core 與 .NET Standard 程式庫，以及以 .NET Framework 為目標之 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 隨附於 .NET Core SDK，並提供所有平台上的核心 NuGet 功能。 | [.NET Core SDK](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | 適用於 .NET Framework 程式庫與以 .NET Standard 程式庫為目標之非 SDK 樣式專案的 CLI 工具。 在 Windows 上提供所有的 NuGet 功能，於 Mono 執行時在 Mac 和 Linux 上提供大部分功能。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [dotnet.exe](#dotnetexe-cli) | 適用於 .NET Core 與 .NET Standard 程式庫，以及適用於以 .NET Framework 為目標等 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 隨附於 .NET Core SDK，並提供所有平台上的核心 NuGet 功能。 | [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [nuget.exe](#nugetexe-cli) | 適用於 .NET Framework 程式庫以及適用於以 .NET Standard 程式庫為目標的非 SDK 樣式專案 CLI 工具。 在 Windows 上提供所有的 NuGet 功能，於 Mono 執行時在 Mac 和 Linux 上提供大部分功能。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | 在 Windows 上，透過套件管理員 UI 和套件管理員主控台提供 NuGet 功能；隨附 .NET 相關的工作負載。 在 Mac 上，透過 UI 提供特定功能。 在 Visual Studio Code 中，會透過延伸模組來提供 NuGet 功能。 | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 [MSBuild CLI](reference/msbuild-targets.md) 也提供還原和建立套件的能力，這主要用於組建伺服器。 MSBuild 並非適合用來搭配 NuGet 使用的一般用途工具。
@@ -31,7 +31,7 @@ ms.locfileid: "66812850"
 這兩個 NuGet CLI 工具是 `dotnet.exe` 和 `nuget.exe`。 請參閱[功能可用性](#feature-availability)以進行比較。
 
 * 若要以 .NET Core 或 .NET Standard 為目標，請使用 dotnet CLI。 SDK 樣式的專案格式需要 dotnet CLI，該格式使用 [SDK 屬性](/dotnet/core/tools/csproj#additions)。
-* 若要以您專案中的 .NET Framework 為目標，請使用 `nuget.exe CLI`。
+* 若以 .NET Framework 為目標 (限非 SDK 樣式專案)，請使用 `nuget.exe CLI`。 專案若已移轉至 `packages.config`，請使用 dotnet CLI。
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 
@@ -42,11 +42,11 @@ ms.locfileid: "66812850"
 - 在開發人員電腦上，安裝 [.NET Core SDK](https://aka.ms/dotnetcoregs)。
 - 針對組建伺服器，依照[在持續整合中使用 .NET Core SDK 和工具](/dotnet/core/tools/using-ci-with-cli)中的指示執行。
 
-如需詳細資訊，請參閱 [.NET Core 命令列介面工具](/dotnet/core/tools/index?tabs=netcore2x#tabpanel_fXL5YCOYDa_netcore2x)。
+若要了解如何使用 dotnet CLI 的基本命令，請參閱[使用 dotnet CLI 安裝和使用套件](consume-packages/install-use-packages-dotnet-cli.md)。
 
 ### <a name="nugetexe-cli"></a>nuget.exe CLI
 
-NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供所有 NuGet 功能，也可以在 Mac OSX 與 Linux 上使用 [Mono](http://www.mono-project.com/docs/getting-started/install/) 來執行，但有一些限制。 不同於 `dotnet`，`nuget.exe` CLI 不會影響專案檔，也不會在安裝套件時更新 `packages.config`。
+`nuget.exe` CLI (`nuget.exe`) 是適用於 Windows 的命令列公用程式，它提供所有 NuGet 功能，也可以在 Mac OSX 與 Linux 上使用 [Mono](http://www.mono-project.com/docs/getting-started/install/) 來執行，但有一些限制。
 
 安裝：
 
@@ -54,6 +54,8 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 
 > [!Tip]
 > 在 Windows 上使用 `nuget update -self`，將現有的 nuget.exe 更新為最新版本。
+
+若要了解如何使用 `nuget.exe` CLI 的基本命令，請參閱[使用 nuget.exe CLI 安裝和使用套件](consume-packages/install-use-packages-nuget-cli.md)。
 
 > [!Note]
 > 最新建議的 NuGet CLI 一律可在 `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` 找到。 為了與舊版持續整合系統相容，先前的 URL `https://nuget.org/nuget.exe` 目前會提供[已被取代的 2.8.6 CLI 工具](https://github.com/NuGet/NuGetGallery/issues/5381)。
@@ -64,8 +66,8 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 
 - Visual Studio for Mac：已直接內建特定的 NuGet 功能。 如需逐步解說，請參閱[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。 針對其他功能，請使用 `dotnet.exe` 或 `nuget.exe` CLI 工具。
 
-- Windows 上的 Visual Studio：**NuGet 套件管理員**隨附於 Visual Studio 2012 與更新版本。 套件管理員提供[套件管理員 UI](tools/package-manager-ui.md) 和[套件管理員主控台](tools/package-manager-console.md)，您可以透過它們執行大部分 NuGet 作業。
-  - Visual Studio 2017 安裝程式會在採用 .NET 的任何工作負載包含 NuGet 套件管理員。 若要個別安裝，或確認已安裝套管理員，請執行 Visual Studio 2017 安裝程式，並核取 [個別元件] > [程式碼工具] > [NuGet 套件管理員]  下方選項。
+- Windows 上的 Visual Studio：**NuGet 套件管理員**隨附於 Visual Studio 2012 與更新版本。 Visual Studio 提供[套件管理員 UI](tools/package-manager-ui.md) 和[套件管理員主控台](tools/package-manager-console.md)，您可以透過它們執行大部分 NuGet 作業。
+  - 在 Visual Studio 2017 中啟動，此安裝程式包含 NuGet 套件管理員以及採用 .NET 的任何工作負載。 若要個別安裝或驗證已安裝套件管理員，請執行 Visual Studio 安裝程式，並核取 [個別元件] > [程式碼工具] > [NuGet 套件管理員]  下的選項。
   - 套件管理員 UI 和主控台對 Windows 上的 Visual Studio 而言是不同的。 它們目前無法供 Visual Studio for Mac 使用。
   - 需要 CLI 工具，以支援 IDE 中的 NuGet 功能。 您可以使用 `dotnet` CLI 或 `nuget.exe` CLI。 `dotnet` CLI 會隨一些 Visual Studio 工作負載一起安裝，例如 .NET Core。 `nuget.exe` CLI 必須單獨安裝，如先前所述。
   - 套件管理員主控台命令只能在 Windows 上的 Visual Studio 內運作，無法在其他 PowerShell 環境中運作。
@@ -100,12 +102,12 @@ NuGet CLI `nuget.exe` 是適用於 Windows 的命令列公用程式，它提供�
 
 ### <a name="related-topics"></a>相關主題
 
-- [dotnet 命令](tools/dotnet-commands.md)
-- [NuGet CLI 參考](tools/nuget-exe-cli-reference.md)
-- [套件管理員 UI 參考](tools/package-manager-ui.md)
-- [套件管理員主控台參考](tools/package-manager-console.md)
+- [使用 Visual Studio 安裝和管理套件](tools/package-manager-ui.md)
+- [使用 PowerShell 安裝和管理套件](tools/package-manager-console.md)
+- [使用 dotnet CLI 安裝和管理套件](consume-packages/install-use-packages-dotnet-cli.md)
+- [使用 nuget.exe CLI 安裝和管理套件](consume-packages/install-use-packages-nuget-cli.md)
 - [套件管理員主控台 PowerShell 參考](tools/powershell-reference.md)
 - [建立套件](create-packages/creating-a-package.md)
-- [發行套件](create-packages/publish-a-package.md)
+- [發行套件](nuget-org/publish-a-package.md)
 
 在 Windows 上工作的開發人員也可以探索 [NuGet 套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) \(英文\)，這是一個開放原始碼的獨立工具，可讓您以視覺化方式瀏覽、建立和編輯 NuGet 套件。 例如，它非常適合用來對套件結構進行實驗性變更，而不需重建套件。

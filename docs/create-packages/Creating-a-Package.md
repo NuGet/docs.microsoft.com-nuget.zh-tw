@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812915"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425809"
 ---
 # <a name="creating-nuget-packages"></a>建立 NuGet 套件
 
 不論套件的功能或所含程式碼為何，您都可以使用其中一個 CLI 工具 (`nuget.exe` 或 `dotnet.exe`) 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。 若要安裝 NuGet CLI 工具，請參閱[安裝 NuGet 用戶端工具](../install-nuget-client-tools.md)。 請注意，Visual Studio 不會自動包含 CLI 工具。
 
-- 針對使用 SDK 樣式格式 ([SDK 屬性](/dotnet/core/tools/csproj#additions)) 和任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。 如需詳細資料，請參閱[使用 Visual Studio 2017 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)和 [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)。
+- 針對使用 SDK 樣式格式 ([SDK 屬性](/dotnet/core/tools/csproj#additions)) 和任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。 如需詳細資料，請參閱[使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)和 [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)。
 
 - 針對非 SDK 樣式的專案，請依照此文章中所述的步驟建立套件。
 
@@ -27,7 +27,7 @@ ms.locfileid: "66812915"
 封裝開始於已編譯的程式碼 (組件)、符號 (和) 您想要以套件形式傳遞的其他檔案 (請參閱[概觀和工作流程](overview-and-workflow.md))。 此流程與編譯或產生進入套件的檔案無關，但您可以擷取專案檔中的資訊保持已編譯的組件與套件同步。
 
 > [!Note]
-> 此主題適用於非 SDK 樣式的專案，通常是使用 Visual Studio 2017 與 NuGet 4.0+ 的 .NET Core 與 .NET Standard 專案以外的專案。
+> 此主題適用於非 SDK 樣式的專案，通常是使用 Visual Studio 2017 及更新版本與 NuGet 4.0+ 的 .NET Core 與 .NET Standard 專案以外的專案。
 
 ## <a name="deciding-which-assemblies-to-package"></a>決定要封裝的組件
 
@@ -408,7 +408,7 @@ nuget pack <project-name>.csproj
 
 NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，忘記變更資訊清單中的預留位置值。
 
-`nuget pack` 成功之後，您會有可發行至適合資源庫的 `.nupkg` 檔案，如[發行套件](../create-packages/publish-a-package.md)中所述。
+`nuget pack` 成功之後，您會有可發行至適合資源庫的 `.nupkg` 檔案，如[發行套件](../nuget-org/publish-a-package.md)中所述。
 
 > [!Tip]
 > 套件在建立後對其檢查的有用方式是在[套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)工具中開啟它。 這可提供套件內容和其資訊清單的圖形化檢視。 您也可以將所產生的 `.nupkg` 檔案重新命名為 `.zip` 檔案，並直接探索其內容。
@@ -445,7 +445,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 發行套件之前，您通常會想要測試將套件安裝至專案的程序。 測試可確定必要檔案最後都在專案的正確位置。
 
-您可以使用一般[套件安裝步驟](../consume-packages/ways-to-install-a-package.md)，以在 Visual Studio 中或命令列上手動測試安裝。
+您可以使用一般[套件安裝步驟](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)，以在 Visual Studio 中或命令列上手動測試安裝。
 
 自動化測試的基本程序如下：
 
@@ -456,7 +456,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 ## <a name="next-steps"></a>後續步驟
 
-建立套件 (即 `.nupkg` 檔案) 之後，即可將它發行至您選擇的資源庫，如[發行套件](../create-packages/publish-a-package.md)中所述。
+建立套件 (即 `.nupkg` 檔案) 之後，即可將它發行至您選擇的資源庫，如[發行套件](../nuget-org/publish-a-package.md)中所述。
 
 您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：
 

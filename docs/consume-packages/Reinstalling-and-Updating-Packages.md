@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: c58cf38bab45793bef820e2c52914a91d745ec77
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551779"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426673"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 
@@ -21,8 +21,11 @@ ms.locfileid: "43551779"
 | 方法 | 更新 | 重新安裝 |
 | --- | --- | --- |
 | 套件管理員主控台 (如[使用 Update-Package](#using-update-package) 中所述) | `Update-Package` 命令 | `Update-Package -reinstall` 命令 |
-| 套件管理員 UI | 在 [更新] 索引標籤上，選取一或多個套件，然後選取 [更新] | 在 [已安裝] 索引標籤上，選取套件，並記錄其名稱，然後選取 [解除安裝]。 切換至 [瀏覽] 索引標籤，並搜尋套件名稱，再選取它，然後選取 [安裝]。 |
+| 套件管理員 UI | 在 [更新]  索引標籤上，選取一或多個套件，然後選取 [更新]  | 在 [已安裝]  索引標籤上，選取套件，並記錄其名稱，然後選取 [解除安裝]  。 切換至 [瀏覽]  索引標籤，並搜尋套件名稱，再選取它，然後選取 [安裝]  。 |
 | nuget.exe CLI | `nuget update` 命令 | 針對所有套件，刪除套件資料夾，然後執行 `nuget install`。 針對單一套件，刪除套件資料夾，然後使用 `nuget install <id>` 重新安裝相同套件。 |
+
+> [!NOTE]
+> 若為 dotnet CLI，則不需要相同的程序。 在類似案例中，您可以[使用 dotnet CLI 還原套件](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages)。
 
 本文內容：
 
@@ -31,15 +34,15 @@ ms.locfileid: "43551779"
 
 ## <a name="when-to-reinstall-a-package"></a>重新安裝套件的時機
 
-1. **套件還原之後參考損毀**：如果您已開啟專案並還原 NuGet 套件，但仍看到損毀參考，請嘗試重新安裝所有這些套件。
-1. **專案因已刪除檔案而中斷**：NuGet 不會防止您移除已從套件新增的項目，因此很容易不慎修改從套件安裝的內容，並中斷您的專案。 若要還原專案，請重新安裝受影響的套件。
-1. **套件更新中斷了專案**：如果套件的更新會中斷專案，失敗的原因通常是也曾經更新的相依性套件所造成。 若要還原相依性的狀態，請重新安裝該特定套件。
-1. **保護重設目標或升級**：已對專案重設目標或升級時，以及套件因目標架構變更而需要重新安裝時，這可能十分好用。 在這類情況下，NuGet 會在專案重定目標之後立即顯示建置錯誤，而後續的建置警告可讓您知道可能需要重新安裝套件。 針對專案升級，NuGet 會在專案升級記錄中顯示錯誤。
-1. **在開發套件期間重新安裝套件**：套件作者通常需要重新安裝他們所開發以測試該行為之相同版本的套件。 `Install-Package` 命令未提供選項來強制重新安裝，因此請改用 `Update-Package -reinstall`。
+1. **套件還原之後參考損毀**：如果您已開啟專案並還原 NuGet 套件，但仍看到損毀的參考，請嘗試重新安裝所有這些套件。
+1. **專案因已刪除檔案而中斷**：NuGet 不會防止您移除從套件新增的項目，因此容易不慎修改從套件安裝的內容並中斷專案。 若要還原專案，請重新安裝受影響的套件。
+1. **套件更新中斷專案**：如果套件更新中斷了專案，則此失敗一般是因為也更新了相依性套件所造成。 若要還原相依性的狀態，請重新安裝該特定套件。
+1. **專案重定目標或升級**：這適用於專案已重定目標或升級且套件因目標架構變更而需要重新安裝時。 在這類情況下，NuGet 會在專案重定目標之後立即顯示建置錯誤，而後續的建置警告可讓您知道可能需要重新安裝套件。 針對專案升級，NuGet 會在專案升級記錄中顯示錯誤。
+1. **在開發套件期間重新安裝套件**：套件作者通常需要重新安裝他們正在開發的相同版本套件，以測試行為。 `Install-Package` 命令未提供選項來強制重新安裝，因此請改用 `Update-Package -reinstall`。
 
 ## <a name="constraining-upgrade-versions"></a>限制升級版本
 
-重新安裝或更新套件預設「一律」會安裝套件來源中可用的最新版本。
+重新安裝或更新套件預設「一律」  會安裝套件來源中可用的最新版本。
 
 不過，在使用 `packages.config` 管理格式的專案中，您可以特別限制版本範圍。 例如，如果您知道您的應用程式僅適用於 1.x 版的套件，而不是 2.0 和更新版本 (可能是套件 API 中的主要變更所造成)，則會想要限制 1.x 版的升級。 這可避免破壞應用程式的意外更新。
 
@@ -58,7 +61,7 @@ ms.locfileid: "43551779"
 
 ## <a name="using-update-package"></a>使用 Update-Package
 
-請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../Tools/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具] > [NuGet 套件管理員] > [套件管理員主控台])：
+請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../Tools/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  )：
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -79,7 +82,7 @@ Update-Package <package_name>
 Update-Package <package_name> -ProjectName MyProject -reinstall
 ```
 
-若要「更新」專案中的所有套件 (或使用 `-reinstall` 重新安裝)，請使用 `-ProjectName`，而不指定任何特定套件：
+若要「更新」  專案中的所有套件 (或使用 `-reinstall` 重新安裝)，請使用 `-ProjectName`，而不指定任何特定套件：
 
 ```ps
 Update-Package -ProjectName MyProject

@@ -1,18 +1,18 @@
 ---
-title: 安裝已簽署 NuGet 套件
+title: 管理套件的信任界限
 description: 描述安裝已簽署 NuGet 套件及進行套件簽章信任設定的程序。
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11ffaee96b6f6a9260f38c534328b6631cd96abf
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977832"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426626"
 ---
-# <a name="install-a-signed-package"></a>安裝簽署的套件
+# <a name="manage-package-trust-boundaries"></a>管理套件的信任界限
 
 已簽署套件不需要任何特定動作就能安裝；不過，如果內容在簽署後已經過修改，就會顯示錯誤 [NU3008](../reference/errors-and-warnings/NU3008.md) 並禁止安裝。
 
@@ -24,7 +24,7 @@ ms.locfileid: "52977832"
 > [!Note]
 > 需要在 Windows 上安裝 NuGet 4.9.0+ 及 Visual Studio 15.9 或更新版本
 
-您可以透過使用 [`nuget config`](../tools/cli-ref-config) 命令將 [nuget.config](../reference/nuget-config-file) 檔案中的 `signatureValidationMode` 設定為 `require`。
+您可以透過使用 [`nuget config`](../tools/cli-ref-config.md) 命令將 [nuget.config](../reference/nuget-config-file.md) 檔案中的 `signatureValidationMode` 設定為 `require`。
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ nuget.exe config -set signatureValidationMode=require
 
 ### <a name="trust-package-author"></a>信任套件作者
 
-若要依據作者憑證信任套件，請使用 [`trusted-signers`](..tools/cli-ref-trusted-signers) 命令設定 nuget.config 中的 `author` 屬性。
+若要依據作者憑證信任套件，請使用 [`trusted-signers`](../tools/cli-ref-trusted-signers.md) 命令設定 nuget.config 中的 `author` 屬性。
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->使用 `nuget.exe` [verify command](https://docs.microsoft.com/en-us/nuget/tools/cli-ref-verify) (驗證命令) 以取得憑證指紋的 `SHA256` 值。
+>使用 `nuget.exe` [verify command](../tools/cli-ref-verify.md) (驗證命令) 以取得憑證指紋的 `SHA256` 值。
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>信任存放庫中所有的套件
@@ -95,14 +95,13 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 
 ### <a name="sync-repository-certificates"></a>同步存放庫憑證
 
-套件存放庫應宣告其在[服務所引](https://docs.microsoft.com/en-us/nuget/api/service-index)中使用的憑證。 不論如何，存放庫都會更新這些憑證，例如，當憑證到期時。 當發生這種情況時，使用特定原則的用戶端會需要更新組態以包含新增的憑證。 您可以使用 `nuget.exe` [受信任簽署者同步處理命令](/nuget/tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)輕易地升級與存放庫建立關聯的受信任簽署者。
+套件存放庫應宣告其在[服務所引](../api/service-index.md)中使用的憑證。 不論如何，存放庫都會更新這些憑證，例如，當憑證到期時。 當發生這種情況時，使用特定原則的用戶端會需要更新組態以包含新增的憑證。 您可以使用 `nuget.exe` [受信任簽署者同步處理命令](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)輕易地升級與存放庫建立關聯的受信任簽署者。
 
 ### <a name="schema-reference"></a>結構描述參考
 
-用戶端原則的完整結構描述參考可在 [nuget.config 參考](/nuget/reference/nuget-config-file#trustedsigners-section)中找到
+用戶端原則的完整結構描述參考可在 [nuget.config 參考](../reference/nuget-config-file.md#trustedsigners-section)中找到
 
 ## <a name="related-articles"></a>相關文章
 
-- [安裝 NuGet 套件的各種方式](ways-to-install-a-package.md)
 - [簽署 NuGet 套件](../create-packages/Sign-a-Package.md)
 - [簽署的套件參考](../reference/Signed-Packages-Reference.md)

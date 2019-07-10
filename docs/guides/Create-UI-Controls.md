@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580268"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426858"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 
-Visual Studio 2017 可讓您利用 NuGet 套件所傳遞 UWP 和 WPF 控制項的新增功能。 本指南會使用 [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)，在 UWP 控制項內容中，逐步介紹這些功能。 除非另外提及，否則所述內容也適用於 WPF 控制項。
+自 Visual Studio 2017 開始，您可利用 NuGet 套件所傳遞的 UWP 和 WPF 控制項新增功能。 本指南會使用 [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)，在 UWP 控制項內容中，逐步介紹這些功能。 除非另外提及，否則所述內容也適用於 WPF 控制項。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -60,9 +60,9 @@ Visual Studio 2017 可讓您利用 NuGet 套件所傳遞 UWP 和 WPF 控制項�
 其中：
 
 - *your_package_file*：您控制檔案的名稱，例如 `ManagedPackage.winmd` ("ManagedPackage" 是用於此範例的任意名稱，沒有任何其他意義)。
-- *vs_category*：Visual Studio 設計工具工具箱中控制項應該出現在其中的群組標籤。 需要有 `VSCategory`，控制項才會出現在工具箱中。
-- *blend_category*：Blend 設計工具 [資產] 窗格中控制項應該出現在其中的群組標籤。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
-- *type_full_name_n*：每個控制項的完整名稱，包含命名空間 (例如 `ManagedPackage.MyCustomControl`)。 請注意，點格式適用於 Managed 和原生類型。
+- *vs_category*：群組標籤，Visual Studio 設計工具工具箱控制項應該出現在此群組中。 需要有 `VSCategory`，控制項才會出現在工具箱中。
+- *blend_category*：群組標籤，Blend 設計工具 [資產] 窗格控制項應該出現在此群組。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
+- *type_full_name_n*：每個控制項的完整名稱，包含命名空間，例如 `ManagedPackage.MyCustomControl`。 請注意，點格式適用於 Managed 和原生類型。
 
 在更進階的情況下，您也可以在單一套件包含多個控制項組件時，於 `<FileList>` 內包含多個 `<File>` 項目。 如果您想要將您的控制項組織成不同的類別，則也可以在單一 `<File>` 內有多個 `<ToolboxItems>` 節點。
 
@@ -120,7 +120,7 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 
 ## <a name="add-design-time-support"></a>新增設計階段支援
 
-若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。 (此檔案不會影響控制項的執行階段行為)。資料夾結構會因此出現，如下所示：
+若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)  功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。 (此檔案不會影響控制項的執行階段行為)。資料夾結構會因此出現，如下所示：
 
     \lib
       \uap10.0.14393
@@ -146,7 +146,7 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 
 ## <a name="use-strings-and-resources"></a>使用字串和資源
 
-您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作] 屬性設定為 [PRIResource]。
+您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作]  屬性設定為 [PRIResource]  。
 
 如需範例，請參閱 ExtensionSDKasNuGetPackage 範例中的 [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs)。
 

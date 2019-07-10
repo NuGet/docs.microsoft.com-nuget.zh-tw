@@ -1,18 +1,18 @@
 ---
-title: 設定 NuGet 行為
+title: 常用的 NuGet 組態
 description: NuGet.Config 檔案可全面和根據每個專案來控制 NuGet 行為，並使用 nuget config 命令進行修改。
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266344"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426658"
 ---
-# <a name="configuring-nuget-behavior"></a>設定 NuGet 行為
+# <a name="common-nuget-configurations"></a>常用的 NuGet 組態
 
 NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一或多個 `NuGet.Config` (XML) 檔案中的累積設定來驅動。 全域 `NuGetDefaults.Config` 檔案還會特別設定套件來源。 設定適用於 CLI、套件管理員主控台和套件管理員 UI 中發出的所有命令。
 
@@ -110,7 +110,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 NuGet 在這些檔案中找到設定時，會如下套用設定：
 
-1. 針對單一個目的項目，NuGet 已取代相同索引鍵的任何先前找到的值。 這表示「最接近」目前資料夾或專案的設定會覆寫任何其他稍早找到的設定。 例如，如果任何其他組態檔中有 `NuGetDefaults.Config` 中的 `defaultPushSource` 設定，則會予以覆寫。
+1. 針對單一項目的項目，NuGet 已取代相同索引鍵的任何先前找到的值。 這表示「最接近」目前資料夾或專案的設定會覆寫任何其他稍早找到的設定。 例如，如果任何其他組態檔中有 `NuGetDefaults.Config` 中的 `defaultPushSource` 設定，則會予以覆寫。
 
 1. 針對集合項目 (例如 `<packageSources>`)，NuGet 會將所有組態檔中的值結合成單一集合。
 

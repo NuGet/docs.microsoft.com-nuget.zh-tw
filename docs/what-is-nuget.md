@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66813006"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426136"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 簡介
 
 任何新式開發平台的基本工具都是一種機制，而開發人員可以透過此機制建立、共用和使用實用的程式碼。 這類程式碼通常會打包成「套件」，其中包含已編譯程式碼 (如 DLL)，以及在取用這些套件之專案中所需的其他內容。
 
-針對 .NET (包括 .NET Core)，Microsoft 支援共用程式碼的機制是 **NuGet**，它定義了如何建立、裝載和取用 .NET 的套件，並提供適用於所有這些角色的工具。
+針對 .NET (包括 .NET Core)，Microsoft 支援的共用程式碼機制是 **NuGet**，它定義如何建立、裝載和取用 .NET 套件，並為這些角色的每一個[提供工具](install-nuget-client-tools.md)。
 
 簡言之，NuGet 套件就是副檔名為 `.nupkg` 的單一 ZIP 檔案，內含已編譯程式碼 (DLL)、其他與該程式碼相關的檔案，以及包含套件版本號碼這類資訊的描述性資訊清單。 擁有要共用之程式碼的開發人員會建立套件，並將它們發行至公用或私人主機。 套件取用者會從適當的主機取得那些套件、將它們新增至其專案，然後在其專案程式碼中呼叫套件的功能。 NuGet 本身接著會處理所有中間詳細資料。
 
@@ -45,8 +45,8 @@ NuGet 的角色是公用主機，因此本身會在 [nuget.org](https://www.nuge
 
 | 工具 | 平台 | 適用的案例 | 說明 |
 | --- | --- | --- | --- |
-| [dotnet CLI](tools/dotnet-Commands.md) | All | 建立、使用 | 適用於 .NET Core 與 .NET Standard 程式庫，以及以 .NET Framework 為目標之 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 在 .NET Core 工具鏈內，直接提供特定 NuGet CLI 功能。 就像 NuGet CLI，dotnet CLI 不會與 Visual Studio 專案互動。 |
-| [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | All | 建立、使用 | 適用於 .NET Framework 程式庫與以 .NET Standard 程式庫為目標之非 SDK 樣式專案的 CLI 工具。 提供所有 NuGet 功能，而且有些命令專門套用至套件建立者、有些命令只套用至取用者，其他命令則套用至兩者。 例如，套件建立者使用 `nuget pack` 命令以從各種組件和相關檔案建立套件、套件取用者使用 `nuget install` 以將套件納入專案資料夾，而每個人都使用 `nuget config` 來設定 NuGet 組態變數。 作為無從驗證平台的工具，NuGet CLI 不會與 Visual Studio 專案互動。 |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | All | 建立、使用 | 適用於 .NET Core 與 .NET Standard 程式庫，以及以 .NET Framework 為目標之 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 在 .NET Core 工具鏈內，直接提供特定 NuGet CLI 功能。 就像 NuGet CLI，dotnet CLI 不會與 Visual Studio 專案互動。 |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | All | 建立、使用 | 適用於 .NET Framework 程式庫與以 .NET Standard 程式庫為目標之非 SDK 樣式專案的 CLI 工具。 提供所有 NuGet 功能，而且有些命令專門套用至套件建立者、有些命令只套用至取用者，其他命令則套用至兩者。 例如，套件建立者使用 `nuget pack` 命令以從各種組件和相關檔案建立套件、套件取用者使用 `nuget install` 以將套件納入專案資料夾，而每個人都使用 `nuget config` 來設定 NuGet 組態變數。 作為無從驗證平台的工具，NuGet CLI 不會與 Visual Studio 專案互動。 |
 | [套件管理員主控台](tools/package-manager-console.md) | Windows 上的 Visual Studio | 使用 | 提供 [PowerShell 命令](tools/Powershell-Reference.md)，以在 Visual Studio 專案中安裝和管理套件。 |
 | [套件管理員 UI](tools/package-manager-ui.md) | Windows 上的 Visual Studio | 使用 | 提供易於使用的 UI，以在 Visual Studio 專案中安裝和管理套件。 |
 | [管理 NuGet UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 使用 | 提供易於使用的 UI，以在 Visual Studio for Mac 專案中安裝和管理套件。 |

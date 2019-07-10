@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 7b1ccfbede4cec53cee3ec7d1c023e4c5be60bf0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426872"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET Standard 和 .NET Framework 套件
 
@@ -31,17 +31,17 @@ ms.locfileid: "43545909"
 
 ## <a name="create-the-class-library-project"></a>建立類別庫專案
 
-1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]，依序展開 [Visual C#] > [Windows] 節點，選取 [類別庫 (可攜式)]將名稱變更為 AppLogger，然後選取 [確定]。
+1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]  ，依序展開 [Visual C#] > [Windows]  節點，選取 [類別庫 (可攜式)]  將名稱變更為 AppLogger，然後選取 [確定]  。
 
     ![建立新的類別庫專案](media/NetStandard-NewProject.png)
 
-1. 在顯示的 [加入可攜式類別庫] 對話方塊中，選取 `.NET Framework 4.6` 和 `ASP.NET Core 1.0` 的選項。 (如果目標是 .NET Framework，您可以選取任何適當的選項。)
+1. 在顯示的 [加入可攜式類別庫]  對話方塊中，選取 `.NET Framework 4.6` 和 `ASP.NET Core 1.0` 的選項。 (如果目標是 .NET Framework，您可以選取任何適當的選項。)
 
-1. 如果目標是 .NET Standard，在 [方案總管] 中，以滑鼠右鍵按一下 [`AppLogger (Portable)`]，選取 [屬性]，選取 [程式庫] 索引標籤，然後在 [目標] 區段中選取 [目標 .NET 平台標準]。 此動作會提示您確認，之後您就可以從下拉式清單中選取 `.NET Standard 1.4` (或其他可用版本)：
+1. 如果目標是 .NET Standard，在 [方案總管] 中，以滑鼠右鍵按一下 [`AppLogger (Portable)`]，選取 [屬性]  ，選取 [程式庫]  索引標籤，然後在 [目標]  區段中選取 [目標 .NET 平台標準]  。 此動作會提示您確認，之後您就可以從下拉式清單中選取 `.NET Standard 1.4` (或其他可用版本)：
 
     ![將目標設定為 .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
 
-1. 按一下 [組建] 索引標籤，將 [組態] 變更為 `Release`，並核取 [XML 文件檔] 方塊。
+1. 按一下 [組建]  索引標籤，將 [組態]  變更為 `Release`，並核取 [XML 文件檔]  方塊。
 
 1. 將程式碼新增至元件，例如：
 
@@ -110,7 +110,7 @@ ms.locfileid: "43545909"
     </files>
     ```
 
-1. 以滑鼠右鍵按一下解決方案，然後選取 [組建方案] 產生套件的所有檔案。
+1. 以滑鼠右鍵按一下解決方案，然後選取 [組建方案]  產生套件的所有檔案。
 
 ### <a name="declaring-dependencies"></a>宣告相依性
 
@@ -159,7 +159,7 @@ nuget pack AppLogger.nuspec
 > [!Tip]
 > `.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。 然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。
 
-若要讓其他開發人員使用您的套件，請遵循[發佈套件](../create-packages/publish-a-package.md)上的指示。
+若要讓其他開發人員使用您的套件，請遵循[發佈套件](../nuget-org/publish-a-package.md)上的指示。
 
 請注意，`pack` 在 Mac OS X 上需要 Mono 4.4.2，而且無法在 Linux 系統上運作。 在 Mac 上，您也必須將 `.nuspec` 檔案中的 Windows 路徑名稱轉換成 Unix 模式路徑。
 
