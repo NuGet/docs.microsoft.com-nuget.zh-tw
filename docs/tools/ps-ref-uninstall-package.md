@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: ae60473fbb716b23f40b0605be8aaa8515802315
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c95479103be2cba3b4eb6964ea761870477863bd
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551639"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842479"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (Visual Studio 套件管理員主控台)
 
-*本主題描述內的命令[NuGet 套件管理員主控台](package-manager-console.md)在 Windows 上的 Visual Studio 中。一般的 PowerShell 封裝解除安裝命令中，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題描述內的命令[Package Manager Console](package-manager-console.md)在 Windows 上的 Visual Studio 中。一般的 PowerShell 封裝解除安裝命令中，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
 從專案中，選擇性地移除其相依性移除封裝。 如果其他套件相依於此套件，則命令會失敗，除非選項指定 – Force。
 
@@ -42,7 +42,7 @@ Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [
 
 ## <a name="common-parameters"></a>一般參數
 
-`Uninstall-Package` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
+`Uninstall-Package` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable，詳細資訊、 WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 

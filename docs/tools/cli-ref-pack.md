@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: c3a01b7747be96f02f7b93b3bf66f5d1783ceed7
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145640"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842545"
 ---
 # <a name="pack-command-nuget-cli"></a>pack 命令 (NuGet CLI)
 
@@ -31,7 +31,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 
 ## <a name="options"></a>選項
 
-| 選項 | 描述 |
+| 選項 | 說明 |
 | --- | --- |
 | BasePath | 設定檔案中定義的基底路徑`.nuspec`檔案。 |
 | 組建 | 指定應該在建置封裝之前建置專案。 |
@@ -39,7 +39,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | ExcludeEmptyDirectories | 建置套件時，可避免包含空的目錄。 |
 | ForceEnglishOutput | *（3.5 +)* 會強制執行使用的非變異的英文文化特性的 nuget.exe。 |
 | ConfigFile | 指定組件命令的組態檔。 |
-| 說明 | 顯示說明命令的資訊。 |
+| Help | 顯示說明命令的資訊。 |
 | IncludeReferencedProjects | 指出已建置的套件應包含參考的專案，做為相依性，或是做為封裝的一部分。 如果參考的專案都有對應`.nuspec`有同名的專案，則該參考的專案新增為相依性的檔案。 否則參考的專案新增為套件的一部分。 |
 | MinClientVersion | 設定*minClientVersion*屬性建立的封裝。 這個值會覆寫現有的值*minClientVersion*中的屬性 （如果有的話）`.nuspec`檔案。 |
 | MSBuildPath | *（4.0 +)* 指定要搭配命令，優先於使用 MSBuild 的路徑`-MSBuildVersion`。 |
@@ -50,8 +50,9 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | 屬性 | 應該會出現在命令列上的最後一個之後的其他選項。 指定專案檔案中的值會覆寫的屬性的清單請參閱[通用的 MSBuild 專案屬性](/visualstudio/msbuild/common-msbuild-project-properties)屬性名稱。 屬性引數是一份權杖 = 值 」 配對，並以分號區隔，其中出現的每個`$token$`在`.nuspec`檔案將會取代指定的值。 值可以是以引號的字串。 請注意，「 組態 」 屬性，預設值是"Debug"。 若要變更的發行組態，使用`-Properties Configuration=Release`。 |
 | 尾碼 | *(3.4.4+)* 將後置字元附加至內部產生的版本號碼，通常用來附加組建或其他發行前版本識別項。 例如，使用`-suffix nightly`將建立一個封裝的版本號碼的按讚與`1.2.3-nightly`。 後置字元的開頭必須是字母，以避免警告、 錯誤和潛在的不相容，使用不同版本的 NuGet 和 NuGet 套件管理員。 |
 | 符號 | 指定封裝包含來源和符號。 當搭配`.nuspec`檔案，這會建立一般的 NuGet 封裝檔案和對應的符號套件。 依預設它會建立[舊版的符號套件](../create-packages/Symbol-Packages.md)。 為符號套件新建議的格式為 .snupkg。 請參閱[建立符號套件 (.snupkg)](../create-packages/Symbol-Packages-snupkg.md)。 |
+| SymbolPackageFormat | 指定符號套件的格式： *.symbols.nupkg* （舊版） 或*snupkg* （建議選項）。 依預設它會建立[舊版的符號套件](../create-packages/Symbol-Packages.md)。 請參閱[建立符號套件 (.snupkg)](../create-packages/Symbol-Packages-snupkg.md)。 |
 | 工具 | 指定專案的輸出檔案應該放在`tool`資料夾。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
+| Verbosity | 指定輸出中顯示的詳細資料的數量：*正常*，*安靜*，*詳細*。 |
 | 版本 | 覆寫的版本號碼，從`.nuspec`檔案。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

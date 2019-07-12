@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 98171c598bd4a3468bd23e2d6060e267c38021b4
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8adb80af85e2e32fa8c35e5272cf90ff0c0ddcbb
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546601"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842488"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>註冊 TabExpansion （在 Visual Studio 中的套件管理員主控台）
 
-*只能在[NuGet 套件管理員主控台](package-manager-console.md)在 Windows 上的 Visual Studio 中。*
+*只能在[Package Manager Console](package-manager-console.md)在 Windows 上的 Visual Studio 中。*
 
 註冊指定的命令參數的 tab 鍵擴充，這類輸入命令時使用索引標籤時，擴充的值會顯示為可用的選項，如有問題的參數。 會覆寫任何先前的展開命令。
 
@@ -35,7 +35,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 ## <a name="common-parameters"></a>一般參數
 
-`Register-TabExpansion` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
+`Register-TabExpansion` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable，詳細資訊、 WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 

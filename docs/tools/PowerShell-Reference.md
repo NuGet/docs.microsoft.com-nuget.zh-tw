@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 425ba736eba4609ebd6b5185ae3f1f976ab07a67
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426130"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842569"
 ---
 # <a name="powershell-reference"></a>PowerShell 參考
 
-套件管理員主控台提供如下所示的 PowerShell 介面，以透過特定的命令與 NuGet 互動的 Windows 上的 Visual Studio 內。 （[] 主控台不是目前可在 Visual Studio for mac）如需使用主控台的指南，請參閱[安裝和管理使用 PowerShell 套件](../tools/package-manager-console.md)主題。
+套件管理員主控台提供如下所示的 PowerShell 介面，以透過特定的命令與 NuGet 互動的 Windows 上的 Visual Studio 內。 （[] 主控台不是目前可在 Visual Studio for mac）如需使用主控台的指南，請參閱[安裝和管理套件使用 Package Manager Console](../tools/package-manager-console.md)主題。
 
 > [!Tip]
 > 所有的 PowerShell 命令只與套件耗用量。 建立及發行套件以外，封裝也可以是其他套件的取用者，與不相關任何 PowerShell 命令。

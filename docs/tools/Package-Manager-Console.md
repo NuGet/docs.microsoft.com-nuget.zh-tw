@@ -1,5 +1,5 @@
 ---
-title: 安裝和管理在 Visual Studio 中使用 PowerShell 的 NuGet 套件
+title: 安裝和管理 Visual Studio 中使用主控台的 NuGet 套件
 description: 使用 Visual Studio 中的 NuGet 套件管理員主控台，使用封裝的指示。
 author: karann-msft
 ms.author: karann
@@ -7,14 +7,14 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 91ab3859994e5ae738c6637219681ebbfc92d420
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426211"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842588"
 ---
-# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>安裝和管理封裝在 Visual Studio 中使用 PowerShell
+# <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>安裝和管理封裝與封裝管理員主控台在 Visual Studio (PowerShell)
 
 NuGet 套件管理員主控台可讓您使用[NuGet PowerShell 命令](../tools/powershell-reference.md)尋找、 安裝、 解除安裝和更新 NuGet 套件。 必須在套件管理員 UI 不會提供方法，來執行作業的情況下使用主控台。 若要使用`nuget.exe`CLI 命令，在主控台中，請參閱[使用 nuget.exe CLI，在主控台中](#using-the-nugetexe-cli-in-the-console)。
 

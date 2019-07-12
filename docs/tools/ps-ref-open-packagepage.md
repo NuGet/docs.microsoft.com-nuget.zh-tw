@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 0325aa4ddd718a901dd6a09cdf86cae260e326ab
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd738f15b461051c4e9413b3035456c687979b97
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547164"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842271"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Visual Studio 套件管理員主控台)
 
-*在 3.0 + 中; 已被取代只能在[NuGet 套件管理員主控台](package-manager-console.md)在 Windows 上的 Visual Studio 中。*
+*在 3.0 + 中; 已被取代只能在[Package Manager Console](package-manager-console.md)在 Windows 上的 Visual Studio 中。*
 
 會啟動預設瀏覽器中使用的專案、 授權或指定封裝的檢舉不當使用 URL。
 
@@ -27,11 +27,11 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | ID | 所需套件的套件識別碼。 -識別碼是選擇性參數本身。 |
 | 版本 | 將預設為最新版本的封裝版本。 |
-| 原始程式檔 | 封裝來源，將預設為來源下拉式清單中選取的來源。 |
+| Source | 封裝來源，將預設為來源下拉式清單中選取的來源。 |
 | 使用權 | 瀏覽器開啟至套件的授權 URL。 如果-授權和-ReportAbuse 都未指定，則瀏覽器會開啟套件的專案 URL。 |
 | ReportAbuse | 瀏覽器開啟至套件的檢舉不當使用 URL。 如果-授權和-ReportAbuse 都未指定，則瀏覽器會開啟套件的專案 URL。 |
 | PassThru | 顯示的 URL;若要隱藏開啟瀏覽器使用-WhatIf。 |
@@ -40,7 +40,7 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 ## <a name="common-parameters"></a>一般參數
 
-`Open-PackagePage` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
+`Open-PackagePage` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable，詳細資訊、 WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 

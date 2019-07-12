@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 755c87bbc68d3b688c81e16edbc1faabdc9e0520
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546022"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842505"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio 套件管理員主控台)
 
-*本主題描述內的命令[NuGet 套件管理員主控台](package-manager-console.md)在 Windows 上的 Visual Studio 中。一般的 PowerShell Install-package 命令，請參閱 < [PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題描述內的命令[Package Manager Console](package-manager-console.md)在 Windows 上的 Visual Studio 中。一般的 PowerShell Install-package 命令，請參閱 < [PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
 會封裝及其相依性安裝到專案中。
 
@@ -34,12 +34,12 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
-| ID | （必要）若要安裝封裝的識別碼。 (*3.0 +*) 的識別碼可以是路徑或 URL`packages.config`檔案或`.nupkg`檔案。 -識別碼是選擇性參數本身。 |
+| ID | （必要）若要安裝封裝的識別碼。 (*3.0 +* ) 的識別碼可以是路徑或 URL`packages.config`檔案或`.nupkg`檔案。 -識別碼是選擇性參數本身。 |
 | IgnoreDependencies | 安裝只需將此套件不及其相依性。 |
 | ProjectName | 要安裝套件，將預設為預設專案的專案。 |
-| 原始程式檔 | 要搜尋的套件來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Install-Package`搜尋目前選取的套件來源。 |
+| Source | 要搜尋的套件來源 URL 或資料夾的路徑。 本機資料夾路徑可以是絕對的或相對於目前的資料夾。 如果省略，`Install-Package`搜尋目前選取的套件來源。 |
 | 版本 | 若要安裝，封裝的版本預設為最新版本。 |
 | IncludePrerelease | 會視為發行前版本套件進行安裝。 如果省略，則會被視為穩定的封裝。 |
 | FileConflictAction | 當詢問您要覆寫或略過專案所參考的現有檔案時要採取的動作。 可能的值為*覆寫，忽略、 None、 OverwriteAll*，並 *（3.0 +）* *IgnoreAll*。 |
@@ -50,7 +50,7 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ## <a name="common-parameters"></a>一般參數
 
-`Install-Package` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216)： 偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable、 Verbose、 WarningAction 和 WarningVariable。
+`Install-Package` 支援下列[常用 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):偵錯、 錯誤動作、 ErrorVariable、 OutBuffer、 OutVariable、 PipelineVariable，詳細資訊、 WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 
