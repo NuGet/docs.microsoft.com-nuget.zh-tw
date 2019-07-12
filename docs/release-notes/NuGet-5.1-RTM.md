@@ -1,10 +1,16 @@
 ---
-ms.openlocfilehash: 48306e77a017c11fa7dc0d695e0177edf4e79d1e
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+title: NuGet 5.1 RTM 版本資訊
+description: 其中包括新功能、 bug 修正和 Dcr NuGet 5.1 版本資訊。
+author: karann-msft
+ms.author: karann
+ms.date: 05/21/2019
+ms.topic: conceptual
+ms.openlocfilehash: 384145947b19af6577dc1255985df1a361c72bb5
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65975832"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842573"
 ---
 # <a name="nuget-51-release-notes"></a>NuGet 5.1 版本資訊
 
@@ -12,7 +18,7 @@ NuGet 配送車：
 
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
-| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 版本 16.1](https://visualstudio.microsoft.com/downloads/) | [2.1.70X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>， [2.2.30X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.1 版](https://visualstudio.microsoft.com/downloads/) | [2.1.70X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>， [2.2.30X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
 <sup>1</sup>安裝的 Visual Studio 2019 是使用.NET Core 工作負載 
 
