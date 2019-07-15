@@ -15,7 +15,7 @@
 ### [Visual Studio for Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md)
 ### [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md)
-### [PowerShell](tools/package-manager-console.md)
+### [套件管理員主控台 (PowerShell)](tools/package-manager-console.md)
 ## 設定 NuGet
 ### 套件還原選項
 #### [還原選項](consume-packages/package-restore.md)
@@ -31,21 +31,23 @@
 ### [packages.config](reference/packages-config.md)
 # 建立套件
 ## [概觀和工作流程](create-packages/overview-and-workflow.md)
-## [建立套件 - nuget.exe CLI](create-packages/creating-a-package.md)
+## [建立套件](create-packages/creating-a-package.md)
 ## [使用 MSBuild 建立套件](reference/msbuild-targets.md)
 ## [支援多個目標架構](create-packages/supporting-multiple-target-frameworks.md)
 ## [建置發行前版本套件](create-packages/prerelease-packages.md)
 ## [建立符號套件](create-packages/symbol-packages-snupkg.md)
 ## 進階工作
 ### [修改原始程式碼和組態檔](create-packages/source-and-config-file-transformations.md)
-### [建立當地語系化的套件](create-packages/creating-localized-packages.md)
 ### [選取專案所參考的組件](create-packages/select-assemblies-referenced-by-projects.md)
+### [設定套件類型](create-packages/set-package-type.md)
+### [建立當地語系化的套件](create-packages/creating-localized-packages.md)
 ## 特定內容的指南
 ### [建立 UWP 套件](guides/create-uwp-packages.md)
 ### [建立原生套件](create-packages/native-packages.md)
 ### [將 UI 控制項建立為 NuGet 套件](guides/create-UI-controls.md)
 ### [將分析器建立為 NuGet 套件](reference/analyzers-conventions.md)
 ### [使用 Visual Studio 2015 建立適用於 Xamarin 的套件](guides/create-packages-for-xamarin.md)
+### [建立包含 COM Interop 組件的套件](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## 簽署套件
 ### [簽署套件](create-packages/sign-a-package.md)
 ### [簽署的套件簽章與要求](reference/signed-packages-reference.md)
@@ -335,4 +337,5 @@
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
 ## [常見問題集](faqs/nuget-faq.md)
+## [專案格式](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
