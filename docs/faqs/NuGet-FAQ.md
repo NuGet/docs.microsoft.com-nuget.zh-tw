@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8bc6af90638408847af6e97cebcbf428f1d5d886
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 20a55c6ba89478e70d8e6837aaebc1b7b7754a93
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467755"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842429"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -135,7 +135,7 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 **如何關閉套件還原？**
 
-請參閱[啟用和停用套件還原](../consume-packages/package-restore.md#enable-and-disable-package-restore)。
+請參閱[啟用和停用套件還原](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio)。
 
 **安裝含遠端相依性的本機套件時，為什麼收到「無法解決相依性錯誤」？**
 
