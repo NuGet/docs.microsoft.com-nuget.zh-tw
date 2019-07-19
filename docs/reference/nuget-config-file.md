@@ -1,22 +1,22 @@
 ---
-title: nuget.config 檔案參考
+title: nuget.exe 檔案參考
 description: NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426152"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317212"
 ---
-# <a name="nugetconfig-reference"></a>nuget.config 參考
+# <a name="nugetconfig-reference"></a>nuget.exe 參考
 
-由不同的設定控制 NuGet 行為`NuGet.Config`檔案中所述[常見的 NuGet 組態](../consume-packages/configuring-nuget-behavior.md)。
+Nuget 行為是由不同`NuGet.Config`檔案中的設定所控制, 如[一般 NuGet](../consume-packages/configuring-nuget-behavior.md)設定中所述。
 
-`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段包含零個以上的項目。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
+`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段都包含零個或多個專案。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
 
 本主題內容：
 
@@ -41,18 +41,18 @@ ms.locfileid: "67426152"
 
 ## <a name="config-section"></a>config 區段
 
-包含其他組態設定，可以使用 [`nuget config` 命令](../tools/cli-ref-config.md)設定。
+包含其他組態設定，可以使用 [`nuget config` 命令](../reference/cli-reference/cli-ref-config.md)設定。
 
-`dependencyVersion` 並`repositoryPath`僅適用於使用專案`packages.config`。 `globalPackagesFolder` 只適用於使用 PackageReference 格式的專案。
+`dependencyVersion`和`repositoryPath`僅適用于使用`packages.config`的專案。 `globalPackagesFolder`僅適用于使用 PackageReference 格式的專案。
 
 | Key | 值 |
 | --- | --- |
 | dependencyVersion (僅 `packages.config`) | 當未直接指定 `-DependencyVersion` 參數時，套件安裝、還原及更新的預設 `DependencyVersion` 值。 NuGet 套件管理員 UI 也使用此值。 值為 `Lowest`、`HighestPatch`、`HighestMinor`、`Highest`。 |
-| globalPackagesFolder （僅限使用 PackageReference 的專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 此設定會覆寫 NUGET_PACKAGES 環境變數，會優先使用。 |
-| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 此設定會覆寫 NUGET_PACKAGES 環境變數，會優先使用。 |
+| globalPackagesFolder (僅使用 PackageReference 的專案) | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 NUGET_PACKAGES 環境變數會覆寫此設定, 其優先順序較高。 |
+| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 NUGET_PACKAGES 環境變數會覆寫此設定, 其優先順序較高。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
-| signatureValidationMode | 指定用來驗證套件安裝的套件簽章和還原的驗證模式。 值為`accept`， `require`。 預設值為 `accept`。
+| signatureValidationMode | 指定驗證模式, 用來驗證封裝安裝和還原的封裝簽章。 值為`accept`、 `require`。 預設值為 `accept`。
 
 **範例**：
 
@@ -118,15 +118,15 @@ ms.locfileid: "67426152"
 
 ## <a name="package-source-sections"></a>套件來源區段
 
-`packageSources`， `packageSourceCredentials`， `apikeys`， `activePackageSource`，`disabledPackageSources`和`trustedSigners`一起，以設定 NuGet 在安裝、 還原及更新作業期間如何使用套件存放庫的所有工作。
+`packageSources`、 、`packageSourceCredentials` 、`disabledPackageSources`和全都會共同運作, 以設定 NuGet 在安裝、還原和更新作業期間如何與套件存放庫搭配運作。 `trustedSigners` `apikeys` `activePackageSource`
 
-[ `nuget sources`命令](../tools/cli-ref-sources.md)通常用來管理這些設定，除了`apikeys`管理使用[`nuget setapikey`命令](../tools/cli-ref-setapikey.md)，以及`trustedSigners`管理使用[`nuget trusted-signers`命令](../tools/cli-ref-trusted-signers.md)。
+此`apikeys` `trustedSigners` [ `nuget sources`命令](../reference/cli-reference/cli-ref-sources.md)通常用來管理這些設定, 但使用[ `nuget setapikey`命令](../reference/cli-reference/cli-ref-setapikey.md)管理, 並使用[ `nuget trusted-signers`命令](../reference/cli-reference/cli-ref-trusted-signers.md)來管理。
 
 請注意，nuget.org 的來源 URL 是 `https://api.nuget.org/v3/index.json`。
 
 ### <a name="packagesources"></a>packageSources
 
-列出所有已知的套件來源。 在還原作業期間，以及任何使用 PackageReference 格式的專案，會忽略順序。 NuGet 會遵守來源的順序進行安裝和更新作業使用的專案`packages.config`。
+列出所有已知的套件來源。 在還原作業期間, 以及使用 PackageReference 格式的任何專案, 都會忽略順序。 NuGet 會遵循使用`packages.config`的專案進行安裝和更新作業的來源順序。
 
 | Key | 值 |
 | --- | --- |
@@ -186,7 +186,7 @@ ms.locfileid: "67426152"
 
 ### <a name="apikeys"></a>apikeys
 
-為使用 API 金鑰驗證的來源儲存金鑰，如同以 [`nuget setapikey` 命令](../tools/cli-ref-setapikey.md)所設。
+為使用 API 金鑰驗證的來源儲存金鑰，如同以 [`nuget setapikey` 命令](../reference/cli-reference/cli-ref-setapikey.md)所設。
 
 | Key | 值 |
 | --- | --- |
@@ -242,19 +242,19 @@ ms.locfileid: "67426152"
 ```
 ## <a name="trustedsigners-section"></a>trustedSigners 區段
 
-用來允許的同時，安裝或還原套件的簽署受信任的存放區。 使用者設定時，此清單不得為空白`signatureValidationMode`至`require`。 
+在安裝或還原時, 儲存用來允許套件的受信任簽署者。 當使用者將設定`signatureValidationMode`為`require`時, 此清單不可以是空的。 
 
-此區段可使用更新[`nuget trusted-signers`命令](../tools/cli-ref-trusted-signers.md)。
+您可以使用[ `nuget trusted-signers`命令](../reference/cli-reference/cli-ref-trusted-signers.md)來更新此區段。
 
-**結構描述**:
+**架構**:
 
-受信任簽署者具有集合`certificate`登錄找出指定的簽署者的所有憑證的項目。 受信任簽署者可以是`Author`或`Repository`。
+受信任的簽署者具有`certificate`專案集合, 可登錄識別指定簽署者的所有憑證。 受信任的簽署者可以`Author`是`Repository`或。
 
-受信任*儲存機制*也會指定`serviceIndex`存放庫 (必須是有效`https`uri) 可以選擇性地指定以分號分隔的清單和`owners`來限制更多人員是信任從特定的存放庫中。
+受信任的存放*庫*也`serviceIndex`會指定存放庫的 (必須是有效`https`的 uri), 而且可以選擇性地指定以分號分隔的`owners`清單, 以限制更多受該特定的信任者repository.
 
-使用憑證指紋的支援的雜湊演算法`SHA256`，`SHA384`和`SHA512`。
+用於憑證指紋的支援雜湊演算法為`SHA256`、 `SHA384`和`SHA512`。
 
-如果`certificate`指定`allowUntrustedRoot`做為`true`建置憑證鏈結，做為簽章驗證的一部分時允許指定的憑證鏈結至不受信任的根。
+`certificate`如果指定`allowUntrustedRoot`為,則在將憑證鏈建立為簽章驗證的一部分時,允許將該憑證連結到不受信任的根。`true`
 
 **範例**：
 
