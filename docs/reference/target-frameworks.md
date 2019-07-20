@@ -1,34 +1,35 @@
 ---
-title: NuGet 的目標架構參考
+title: NuGet 的目標 Framework 參考
 description: NuGet 目標 Framework 參考會識別並隔離套件的 Framework 相依元件。
 author: karann-msft
 ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610644"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342436"
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
 NuGet 在各種位置使用目標 Framework 參考，具體識別並隔離套件的 Framework 相依元件：
 
-- [.nuspec 資訊清單](../reference/nuspec.md):封裝可以指出要根據專案的目標 framework 專案中包含不同的封裝。
-- [.nupkg 資料夾名稱](../create-packages/creating-a-package.md#from-a-convention-based-working-directory):套件內資料夾`lib`資料夾可以命名為根據目標 framework，各自包含 Dll 以及其他合適的內容。
-- [packages.config](../reference/packages-config.md):`targetframework`相依性屬性會指定要安裝的套件 variant。
+- [專案](../create-packages/multiple-target-frameworks-project-file.md)檔:針對 SDK 樣式的專案, *.csproj*包含目標 framework 參考。
+- [nuspec 資訊清單](../reference/nuspec.md):封裝可以根據專案的目標架構, 指出要包含在專案中的不同套件。
+- [. nupkg 資料夾名稱](../create-packages/creating-a-package.md#from-a-convention-based-working-directory):封裝`lib`資料夾內的資料夾可以根據目標 framework 命名, 其中每一個都包含 dll 和適用于該架構的其他內容。
+- [封裝 .config](../reference/packages-config.md):相依`targetframework`性的屬性會指定要安裝之封裝的變體。
 
 > [!Note]
 > 計算下列表格的 NuGet 用戶端原始程式碼位在下列位置：
-> - 支援的 framework 名稱：[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Framework 優先順序和對應：[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - 支援的架構名稱:[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - 架構優先順序和對應:[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>支援的架構
 
-Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在.NET Standard 中這也會一般化為*TxM*允許多個架構的單一參考。
+Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在 .NET Standard 中, 這也會一般化為*TxM* , 以允許單一參考多個架構。
 
 NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括弧內。 請注意，某些工具，例如 `dotnet`，可能會在某些檔案中使用標準的 TFM 變化。 例如，`dotnet pack` 在 `.nuspec` 檔案中使用 `.NETCoreApp2.0`，而非 `netcoreapp2.0`。 各種 NuGet 用戶端工具會正確處理這些變化，但直接編輯檔案時，您應該一律使用標準的 TFM。
 
@@ -54,7 +55,7 @@ NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括�
 | | | netcore451 [win81] |
 | | | netcore50 |
 |.NET MicroFramework | netmf | netmf |
-|Windows | win | win [win8, netcore45] |
+|視窗 | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (Windows 10 平台不支援) |
@@ -68,7 +69,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 通用 Windows 平台 | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | uap10.0.xxxxx （10.0.xxxxx 是使用的應用程式的目標平台最小版本） |
+| | | uap 10.0 (其中 10.0. xxxxx 是取用應用程式的目標平臺最小版本) |
 .NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -120,9 +121,9 @@ Tizen | tizen | tizen3 |
 | win (Microsoft Store) | winrt |
 | | |
 
-## <a name="net-platform-standard"></a>.NET 平台標準
+## <a name="net-standard"></a>NET Standard
 
-[.NET 平台標準](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md)可簡化二進位相容 Framework 之間的參考，讓單一目標 Framework 參考其他項目的組合。 (背景請參閱 [.NET 入門](/dotnet/articles/standard/index)。)
+[.NET Standard](/dotnet/standard/net-standard)可簡化二進位相容架構之間的參考, 讓單一目標架構能夠參考其他專案的組合。 (背景請參閱 [.NET 入門](/dotnet/articles/standard/index)。)
 
 [NuGet 取得最接近的 Framework 工具](https://aka.ms/s2m3th)會模擬 NuGet 使用的方法，從以專案 Framework 為基礎之套件中的許多可用 Framework 資產中選取一個 Framework。
 
@@ -131,7 +132,7 @@ NuGet 3.3 和更舊版本中應該使用 moniker 的 `dotnet` 系列，v3.4 及�
 ## <a name="portable-class-libraries"></a>可攜式類別庫
 
 > [!Warning]
-> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 .NET 平台標準是進化的 Pcl 和跨平台使用單一 moniker 未繫結至靜態程式庫，如代表二進位可攜性*可攜式-a + b + c* moniker。
+> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 .NET 平臺標準是 Pcl 的演進, 並使用未系結至靜態程式庫 (例如*便攜-a + b + c)* 的單一名字標記, 來代表跨平臺的二進位可攜性。
 
 若要定義參考多個子目標 Framework 的目標 Framework，會使用 `portable` 關鍵字 作為參考之 Framework 清單的首碼。 避免以人為方式包含不會直接編譯的額外 Framework ，因為它會導致這些 Framework 出現非預期的副作用。
 
