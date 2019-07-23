@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: e60bca8fe2f80b044e466db2a100d6c6d167edb7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a7177b956930835693921163e634321548c22462
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427373"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842374"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 管理套件
 
 CLI 工具可讓您輕鬆地在專案和解決方案中更新及還原 NuGet 套件。 此工具會在 Windows 上提供所有的 NuGet 功能，在 Mono 底下執行時也在 Mac 和 Linux 上提供大部分功能。
 
-Nuget.exe CLI 適用於您的 .NET Framework 專案和非 SDK 樣式專案 (例如，以 .NET Standard 程式庫為目標的專案)。 如果您使用已移轉到 `PackageReference` 的非 SDK 樣式專案，請改為使用 dotnet CLI。 NuGet CLI 需要 [packages.config](../reference/packages-config.md) 檔案來進行套件參考。
+Nuget.exe CLI 適用於 .NET Framework 專案和非 SDK 樣式專案 (例如，以 .NET Standard 程式庫為目標的非 SDK 樣式專案)。 如果您使用已移轉到 `PackageReference` 的非 SDK 樣式專案，請改為使用 dotnet CLI。 NuGet CLI 需要 [packages.config](../reference/packages-config.md) 檔案來進行套件參考。
 
 > [!NOTE]
 > 在大部分情況下，我們建議將使用 `packages.config` 的[非 SDK 樣式專案移轉](../reference/migrate-packages-config-to-package-reference.md)至 PackageReference，然後您便可以使用 dotnet CLI 而不是 `nuget.exe` CLI。 移轉目前不適用於 C++ 和 ASP.NET 專案。
@@ -113,6 +113,8 @@ nuget update
 使用 [restore](../tools/cli-ref-restore.md) 命令，它會下載並安裝 *packages* 資料夾遺漏的任何套件。
 
 `restore` 只會將套件新增至磁碟，但不會變更專案的相依性。 若要還原專案相依性，請修改 `packages.config`，然後使用 `restore` 命令。
+
+如同其他 `dotnet` CLI 命令，請先開啟命令列並切換至包含您專案檔的目錄。
 
 使用 `restore` 還原套件：
 

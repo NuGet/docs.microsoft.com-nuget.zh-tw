@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3b64c035886818496339fe1bdd8f9abce060278a
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467801"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842346"
 ---
-# <a name="package-restore"></a>套件還原
+# <a name="package-restore-options"></a>套件還原選項
 
 為了提倡更乾淨的開發環境，以及降低存放庫大小，NuGet **套件還原**會依專案檔或 `packages.config` 中所列，安裝專案的所有相依性。 .NET Core 2.0+ `dotnet build` 和 `dotnet run` 命令會執行自動套件還原。 Visual Studio 可以在建置專案時自動還原套件，您可以隨時透過 Visual Studio、`nuget restore`、`dotnet restore` 和 Mono 上的 xbuild 來還原套件。
 
@@ -27,25 +27,29 @@ ms.locfileid: "67467801"
 > [!Note]
 > 在所有來源檢查完畢前，NuGet 不會指出還原套件失敗。 到那時候，NuGet 只會針對清單中的最後一個來源回報失敗。 這項錯誤表示套件未出現在其他「任何」  來源上，即使那些來源都未個別出現錯誤亦然。
 
+## <a name="restore-packages"></a>還原套件
+
 您可以用下列任一方式來觸發套件還原：
 
-- **dotnet CLI**：使用 [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) 命令，利用 [PackageReference](../consume-packages/package-references-in-project-files.md) 來還原專案檔中所列套件。 使用 .NET Core 2.0 和更新版本時，會使用 `dotnet build` 和 `dotnet run` 命令自動完成還原。  
+- **Visual Studio**：在 Windows 的 Visual Studio 中，可以使用下列方法之一。
 
-- **套件管理員**：在 Windows 上的 Visual Studio，套件還原會自動在您從範本建立專案或建置專案時自動進行，且受限於[啟用和停用套件還原](#enable-and-disable-package-restore)中的選項。 在 NuGet 4.0+ 中，還原也會在對 .NET Core SDK 專案進行變更時自動進行。
+    - 自動還原套件。 套件還原會在您從範本建立專案或建置專案時自動進行，且受限於[啟用和停用套件還原](#enable-and-disable-package-restore-visual-studio)中的選項。 在 NuGet 4.0+ 中，還原也會在您變更 SDK 樣式專案 (通常是 .NET Core 或 .NET Standard 專案) 時自動進行。
 
-    若要手動還原套件，請以滑鼠右鍵按一下 [方案總管]  中的解決方案，然後選取 [還原 NuGet 套件]  。 如果一或多個個別套件仍未正確安裝，則 [方案總管]  會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]  ，且使用 [套件管理員]  先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
+    - 手動還原套件。 若要手動還原，請以滑鼠右鍵按一下 [方案總管]  中的解決方案，然後選取 [還原 NuGet 套件]  。 如果一或多個個別套件仍未正確安裝，則 [方案總管]  會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]  ，且使用 [套件管理員]  先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
 
-    如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore)。 另請參閱[針對套件還原進行疑難排解](Package-restore-troubleshooting.md)。
+    如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-visual-studio)。 此外，請參閱[遷移至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)和[套件還原疑難排解](Package-restore-troubleshooting.md)。
 
-- **nuget.exe CLI**：使用 [nuget restore](../tools/cli-ref-restore.md) 命令來還原專案或解決方案檔或 `packages.config` 中所列的套件。 
+- **dotnet CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) 命令來還原專案檔中以 [PackageReference](../consume-packages/package-references-in-project-files.md) 列出的套件。 使用 .NET Core 2.0 和更新版本時，會使用 `dotnet build` 和 `dotnet run` 命令自動完成還原。  
+
+- **nuget.exe CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [nuget restore](../tools/cli-ref-restore.md) 命令來還原專案檔或解決方案檔中 (或 `packages.config` 中) 列出的套件。 
 
 - **MSBuild**：使用 [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) 命令，利用 PackageReference 來還原專案檔中所列套件。 這個命令只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017 和更新版本)。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。
 
-- **Azure Pipelines**：在 Azure Pipelines 中建立組建定義時，在定義中於任何建置工作之前包含 NuGet [還原](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)或 .NET Core [還原](/azure/devops/pipelines/tasks/build/dotnet-core#restore-nuget-packages)工作。 根據預設，一些建置範本已包含還原工作。
+- **Azure Pipelines**：在 Azure Pipelines 中建立組建定義時，在定義中於任何建置工作之前包含 NuGet [還原](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)或 .NET Core [還原](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops)工作。 根據預設，一些建置範本已包含還原工作。
 
 - **Azure DevOps Server**：Azure DevOps Server 和 TFS 2013 及更新版本會在建置期間自動還原套件，前提是您使用 TFS 2013 或更新版本的 Team Build 範本。 針對較舊的 TFS 版本，您可以包含一個建置步驟來執行命令列還原選項，或選擇性地將建置範本移轉至較新版本。 如需詳細資訊，請參閱[使用 Team Foundation Build 的套件還原設定](../consume-packages/team-foundation-build.md)。
 
-## <a name="enable-and-disable-package-restore"></a>啟用和停用套件還原
+## <a name="enable-and-disable-package-restore-visual-studio"></a>啟用和停用套件還原 (Visual Studio)
 
 在 Visual Studio 中，您主要是透過 [工具]   > [選項]   > [NuGet 套件管理員]  來控制套件還原：
 
@@ -120,6 +124,25 @@ NuGet 透過任何方法還原套件時，會使用 `packages.config` 或專案�
 - 使用 `-NoCache` 選項搭配 `nuget restore`，或 `--no-cache` 選項搭配 `dotnet restore`。 這些選項不會影響透過 Visual Studio 套件管理員或主控台進行的還原作業。
 - 使用 `nuget locals http-cache -clear` 或 `dotnet nuget locals http-cache --clear`清除快取。
 - 暫時將 NUGET_HTTP_CACHE_PATH 環境變數設定為不同資料夾。
+
+## <a name="migrate-to-automatic-package-restore-visual-studio"></a>遷移至自動套件還原 (Visual Studio)
+
+針對 NuGet 2.6 和更早版本，先前支援的 MSBuild 整合套件還原已不再適用。 (通常是在 Visual Studio 中以滑鼠右鍵按一下解決方案，然後選取 [啟用 NuGet 套件還原]  來啟用)。 如果您的專案是使用整合 MSBuild 套件還原，請遷移至自動套件還原。
+
+使用整合 MSBuild 套件還原的專案通常會包含 [.nuget]  資料夾和三個檔案：*NuGet.config*、*nuget.exe* 和 *NuGet.targets*。 *NuGet.targets* 檔案的存在會決定 NuGet 是否繼續使用整合 MSBuild 方法，所以進行遷移時必須移除該檔案。
+
+若要遷移至自動套件還原：
+
+1. 關閉 Visual Studio。
+2. 刪除 *.nuget/nuget.exe* 和 *.nuget/NuGet.targets*。
+3. 針對每個專案檔，移除 `<RestorePackages>` 元素，並移除任何對 *NuGet.targets* 的參考。
+
+若要測試自動套件還原：
+
+1. 將 [packages]  資料夾從解決方案中移除。
+2. 在 Visual Studio 中開啟方案，並啟動建置。
+
+   自動套件還原應該會下載並安裝每個相依性套件，而不會將他們新增至原始檔控制。
 
 ## <a name="troubleshooting"></a>疑難排解
 

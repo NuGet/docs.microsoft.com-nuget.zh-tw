@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426330"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842057"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發佈套件 (.NET Framework，Windows)
 
@@ -145,7 +145,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
 
 ### <a name="publish-with-nuget-push"></a>使用 nuget push 發行
 
-1. 變更為包含 `.nupkg` 檔案的資料夾。
+1. 開啟命令列並變更到包含 `.nupkg` 檔案的資料夾。
 
 1. 執行下列命令，指定套件名稱並使用您的 API 金鑰來取代金鑰值：
 

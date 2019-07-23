@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467779"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842376"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
-本文著重於還原套件時常見的錯誤及其解決步驟。 如需還原套件的完整詳細資料，請參閱[套件還原](../consume-packages/package-restore.md#enable-and-disable-package-restore)。
+本文著重於還原套件時常見的錯誤及其解決步驟。 如需還原套件的完整詳細資料，請參閱[套件還原](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio)。
 
 如果此處的指示不適用於您的情況，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)，讓我們能更仔細審視您的案例。 請勿使用可能出現在本頁面的「本頁對您有幫助嗎？」 控制項，因為這無法讓我們與您連絡以取得詳細資訊。
 
@@ -29,7 +29,7 @@ ms.locfileid: "67467779"
 
 ![在 [工具/選項] 中啟用 NuGet 套件還原](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-這些設定也可以在您的 `NuGet.config` 檔案中變更；請參閱[同意](#consent)一節。
+這些設定也可以在您的 `NuGet.config` 檔案中變更；請參閱[同意](#consent)一節。 如果您的專案是使用整合 MSBuild 套件還原的舊版專案，您可能需要[遷移](package-restore.md#migrate-to-automatic-package-restore-visual-studio)至自動套件還原。
 
 <a name="missing"></a>
 
@@ -54,10 +54,10 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 請使用下列其中一種方法來還原套件：
 
 - 如果您移動了專案檔，請直接編輯檔案以更新套件參考。
-- 在 Visual Studio 中，選取 [工具] > [NuGet 套件管理員] > [套件管理員設定]  功能表命令，設定 [套件還原]  下的兩個選項，然後選取 [確定]  ，以啟用套件還原。 然後再次建置解決方案。
-- 若是 .NET Core 專案，請執行 `dotnet restore` 或 `dotnet build` (會自動執行還原)。
-- 在命令列上執行 `nuget restore` (除了以 `dotnet` 建立的專案在此情況下會使用 `dotnet restore`)。
-- 對於使用 PackageReference 格式的專案，在命令列上執行 `msbuild -t:restore`。
+- (Visual Studio) 選取 [工具] > [NuGet 套件管理員] > [套件管理員設定]  功能表命令，設定 [套件還原]  下的兩個選項，然後選取 [確定]  ，以啟用套件還原。 然後再次建置解決方案。
+- (dotnet CLI) 在命令列中，切換至包含專案的資料夾，然後執行 `dotnet restore` 或 `dotnet build` (會自動執行還原)。
+- (nuget.exe CLI) 在命令列中，切換至包含專案的資料夾，然後執行 `nuget restore` (除了使用 `dotnet` CLI 建置的專案，此情況需使用 `dotnet restore`)。
+- (已遷移至 PackageReference 的專案) 在命令列上，執行 `msbuild -t:restore`。
 
 成功還原之後，套件應該存在於 *global-packages* 資料夾中。 對於使用 PackageReference 的專案，還原應重新建立 `obj/project.assets.json` 檔案；針對使用 `packages.config` 的專案，套件應該會出現在專案的 `packages` 資料夾中。 專案現在應可順利建置。 如果沒有，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)以便我們與您連絡。
 

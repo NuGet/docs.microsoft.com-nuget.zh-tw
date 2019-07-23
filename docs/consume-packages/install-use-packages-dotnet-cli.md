@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a8fd525f2446f9468664f1d80ef8808127a24be7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427413"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842352"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>使用 dotnet CLI 安裝和管理套件
 
@@ -95,6 +95,8 @@ dotnet remove package Newtonsoft.Json
 ## <a name="restore-packages"></a>還原套件
 
 使用 [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) 命令來還原專案檔 (請參閱 [PackageReference](../consume-packages/package-references-in-project-files.md)) 中所列的套件。 使用 .NET Core 2.0 和更新版本時，會使用 `dotnet build` 和 `dotnet run` 自動完成還原。 截至 NuGet 4.0，這會執行與 `nuget restore` 相同的程式碼。
+
+如同其他 `dotnet` CLI 命令，請先開啟命令列並切換至包含您專案檔的目錄。
 
 使用 `dotnet restore` 還原套件：
 

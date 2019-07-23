@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425723"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842393"
 ---
 # <a name="package-creation-workflow"></a>套件建立工作流程
 
@@ -21,9 +21,7 @@ ms.locfileid: "67425723"
 > [!Note]
 > 當您建立供其他開發人員使用的套件時，請務必了解它們會與您的工作相依。 因此，建立並發行套件也表示承諾修正 Bug 以及進行其他更新，或在極少的情況下將套件設為開放原始碼，以讓其他人可以協助進行維護。
 
-不管是哪種情況，建立套件都是從決定要封裝的組件和其他檔案開始。 您接著會建立資訊清單檔案 (稱為 `.nuspec` 檔案)，以描述套件的內容以及其識別碼、版本號碼、著作權資訊、MSBuild pros 和 targets 等等。
-
-當您在適當的資料夾中準備好所有必要檔案並建立適當的 `.nuspec` 檔案時，則會使用 `nuget pack` 命令 (或 [MSBuild 封裝目標](../reference/msbuild-targets.md)) 以將所有項目都放入 `.nupkg` 檔案中。 您準備好將套件部署至可讓其他開發人員使用它的主機。
+不論是哪種情況，建立套件一開始都是先決定其識別碼、版本號碼、授權、著作權資訊，以及任何其他必要內容。 完成後，您可以使用 "pack" 命令將所有項目都放在一個 `.nupkg` 檔案中。 您可以將這個檔案發佈至 NuGet 摘要，像是 nuget.org。
 
 > [!Tip]
 > 副檔名為 `.nupkg` 的 NuGet 套件就是 ZIP 檔案。 若要輕鬆地檢查任何套件的內容，請將副檔名變更為 `.zip`，並如常展開其內容。 只要確定先將副檔名變更回 `.nupkg`，再嘗試將它重新載入至主機。
