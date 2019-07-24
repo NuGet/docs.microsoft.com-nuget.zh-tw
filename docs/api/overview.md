@@ -1,21 +1,21 @@
 ---
-title: NuGet API 的總覽
-description: NuGet API 是一組 HTTP 端點, 可用來下載封裝、提取中繼資料、發佈新套件等等。
+title: NuGet 伺服器 API 總覽
+description: NuGet 伺服器 API 是一組 HTTP 端點, 可用來下載封裝、提取中繼資料、發佈新套件等等。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317003"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419827"
 ---
-# <a name="nuget-api"></a>NuGet API
+# <a name="nuget-server-api"></a>NuGet 伺服器 API
 
-NuGet API 是一組 HTTP 端點, 可用來下載封裝、提取中繼資料、發佈新封裝, 以及執行官方 NuGet 用戶端中的大部分其他作業。
+NuGet 伺服器 API 是一組 HTTP 端點, 可用來下載封裝、提取中繼資料、發佈新封裝, 以及執行官方 NuGet 用戶端中的大部分其他作業。
 
 Visual Studio、nuget.exe 和 .net CLI 中的 nuget 用戶端會使用此 API 來執行 nuget 作業[`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), 例如, 在 Visual Studio UI 中搜尋和。 [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)
 
@@ -119,7 +119,7 @@ DELETE | 刪除或取消列出資源。
 
 ## <a name="http-request-headers"></a>HTTP 要求標頭
 
-名稱                     | 說明
+名稱                     | 描述
 ------------------------ | -----------
 X-NuGet-ApiKey           | 需要進行推送和刪除, 請參閱[ `PackagePublish`資源](package-publish-resource.md)
 X-NuGet-Client-Version   | 已**淘汰**並取代成`X-NuGet-Protocol-Version`

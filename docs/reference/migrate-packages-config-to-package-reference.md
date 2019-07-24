@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 39f260835989cbbcc7293d9db27ac7b2c32debaa
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: d1c32f4a926f1f688db3ea6a9ca2eed1a21b2dec
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317227"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433283"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從封裝中遷移至 PackageReference
 
@@ -26,7 +26,7 @@ Visual Studio 2017 15.7 與更新版本支援將專案從 [packages.config](./pa
 
 ### <a name="limitations"></a>限制
 
-* Visual Studio 2015 和更早版本中未提供 NuGet PackageReference。 只可以在 Visual Studio 2017 中開啟已移轉的專案。
+* Visual Studio 2015 和更早版本中未提供 NuGet PackageReference。 遷移的專案只能在 Visual Studio 2017 和更新版本中開啟。
 * 移轉目前不適用於 C++ 和 ASP.NET 專案。
 * 某些套件可能無法與 PackageReference 完全相容。 如需詳細資訊, 請參閱[套件相容性問題](#package-compatibility-issues)。
 

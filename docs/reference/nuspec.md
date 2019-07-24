@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317243"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433364"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -61,7 +61,7 @@ ms.locfileid: "68317243"
 </package>
 ```
 
-為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管]  連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)  。 任一方式都可取得類似以下的檢視 (大部分展開時)：
+為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管] 連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)。 任一方式都可取得類似以下的檢視 (大部分展開時)：
 
 ![開啟了 nuspec.xsd 的 Visual Studio 結構描述總管](media/SchemaExplorer.png)
 
@@ -143,7 +143,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
 #### <a name="iconurl"></a>iconUrl
-具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」  ，不是包含影像的網頁 URL。 例如, 若要使用來自 GitHub 的映射, 請使用原始檔案 URL, <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>例如。 
+具有透明背景之 64x64 映像的 URL，該映像會用作套件在 UI 顯示中的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如, 若要使用來自 GitHub 的映射, 請使用原始檔案 URL, <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>例如。 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。
@@ -155,7 +155,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。
 
 #### <a name="releasenotes"></a>releaseNotes
-*(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新]  索引標籤等 UI 中，以取代套件描述。
+*(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新] 索引標籤等 UI 中，以取代套件描述。
 
 #### <a name="copyright"></a>Copyright
 *(1.5+)* 套件的著作權詳細資料。
@@ -170,10 +170,22 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 *(3.3+)* 僅供內部 NuGet 使用。
 
 #### <a name="repository"></a>儲存機制
-存放庫中繼資料, 由四個選擇性屬性組成:*類型*和*url* *(4.0 +)* , 以及*分支*和*認可* *(4.6 +)* 。 這些屬性可讓您將 nupkg 對應至建立它的存放庫, 而且可能會如建立封裝的個別分支或認可的詳細資訊來取得。 這應該是公開可用的 url, 可直接由版本控制軟體叫用。 它不應該是 html 網頁, 因為這適用于電腦。 針對 [ `projectUrl`連結至專案] 頁面, 請改為使用欄位。
+存放庫中繼資料, 由四個選擇性`type`屬性`url`所組成: `branch`和 *(4.0 +)* , 以及和`commit` *(4.6 +)* 。 這些屬性可讓您將對應`.nupkg`至建立它的存放庫, 而且可能會如個別分支名稱和/或認可建立封裝的 sha-1 雜湊來取得詳細資訊。 這應該是公開可用的 url, 可直接由版本控制軟體叫用。 它不應該是 html 網頁, 因為這適用于電腦。 針對 [ `projectUrl`連結至專案] 頁面, 請改為使用欄位。
+
+例如：
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
+    <metadata>
+        ...
+        <repository type="git" url="https://github.com/NuGet/NuGet.Client.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+        ...
+    </metadata>
+</package>
+```
 
 #### <a name="minclientversion"></a>minClientVersion
-指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」  拒絕安裝套件，無論 `minClientVersion` 包含什麼。
+指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。
 
 #### <a name="title"></a>標題
 可在某些 UI 中使用之套件的人易記標題。 (nuget.org 和 Visual Studio 中的套件管理員不會顯示標題)
@@ -181,9 +193,9 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 #### <a name="collection-elements"></a>集合項目
 
 #### <a name="packagetypes"></a>packageTypes
-*(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」  和「版本」  屬性。 請參閱[設定套件類型](../create-packages/set-package-type.md)。
+*(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/set-package-type.md)。
 #### <a name="dependencies"></a>相依性
-零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」  、「版本」  、「包含」  (3.x+) 和「排除」  (3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
+零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2+)* 零或多個 `<frameworkAssembly>` 項目的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下文的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。 |
 #### <a name="references"></a>參考
@@ -388,7 +400,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 如果遵循[建立套件](../create-packages/creating-a-package.md)中所述的慣例，即不必在 `.nuspec` 檔案中明確指定檔案清單。 `nuget pack` 命令會自動挑選必要的檔案。
 
 > [!Important]
-> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」  那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
+> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
 
 為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 項目當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 項目的檔案。 例如：
 
