@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426658"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317723"
 ---
 # <a name="common-nuget-configurations"></a>常用的 NuGet 組態
 
@@ -32,7 +32,7 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 
 `NuGet.Config` 檔案是包含索引鍵/值組的簡單 XML 文字檔，如 [NuGet 組態設定](../reference/nuget-config-file.md)主題中所述。
 
-設定是使用 NuGet CLI [config 命令](../tools/cli-ref-config.md)進行管理：
+設定是使用 NuGet CLI [config 命令](../reference/cli-reference/cli-ref-config.md)進行管理：
 - 預設會變更使用者層級組態檔。
 - 若要變更不同檔案中的設定，請使用 `-configFile` 參數。 在此情況下，檔案可以使用任何檔案名稱。
 - 索引鍵一定要區分大小寫。

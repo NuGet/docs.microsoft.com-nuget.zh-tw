@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426626"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317763"
 ---
 # <a name="manage-package-trust-boundaries"></a>管理套件的信任界限
 
@@ -24,7 +24,7 @@ ms.locfileid: "67426626"
 > [!Note]
 > 需要在 Windows 上安裝 NuGet 4.9.0+ 及 Visual Studio 15.9 或更新版本
 
-您可以透過使用 [`nuget config`](../tools/cli-ref-config.md) 命令將 [nuget.config](../reference/nuget-config-file.md) 檔案中的 `signatureValidationMode` 設定為 `require`。
+您可以透過使用 [`nuget config`](../reference/cli-reference/cli-ref-config.md) 命令將 [nuget.config](../reference/nuget-config-file.md) 檔案中的 `signatureValidationMode` 設定為 `require`。
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ nuget.exe config -set signatureValidationMode=require
 
 ### <a name="trust-package-author"></a>信任套件作者
 
-若要依據作者憑證信任套件，請使用 [`trusted-signers`](../tools/cli-ref-trusted-signers.md) 命令設定 nuget.config 中的 `author` 屬性。
+若要依據作者憑證信任套件，請使用 [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) 命令設定 nuget.config 中的 `author` 屬性。
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->使用 `nuget.exe` [verify command](../tools/cli-ref-verify.md) (驗證命令) 以取得憑證指紋的 `SHA256` 值。
+>使用 `nuget.exe` [verify command](../reference/cli-reference/cli-ref-verify.md) (驗證命令) 以取得憑證指紋的 `SHA256` 值。
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>信任存放庫中所有的套件
@@ -95,7 +95,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 
 ### <a name="sync-repository-certificates"></a>同步存放庫憑證
 
-套件存放庫應宣告其在[服務所引](../api/service-index.md)中使用的憑證。 不論如何，存放庫都會更新這些憑證，例如，當憑證到期時。 當發生這種情況時，使用特定原則的用戶端會需要更新組態以包含新增的憑證。 您可以使用 `nuget.exe` [受信任簽署者同步處理命令](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)輕易地升級與存放庫建立關聯的受信任簽署者。
+套件存放庫應宣告其在[服務所引](../api/service-index.md)中使用的憑證。 不論如何，存放庫都會更新這些憑證，例如，當憑證到期時。 當發生這種情況時，使用特定原則的用戶端會需要更新組態以包含新增的憑證。 您可以使用 `nuget.exe` [受信任簽署者同步處理命令](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)輕易地升級與存放庫建立關聯的受信任簽署者。
 
 ### <a name="schema-reference"></a>結構描述參考
 

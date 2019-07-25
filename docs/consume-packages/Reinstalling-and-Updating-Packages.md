@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426673"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316968"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 
@@ -61,7 +61,7 @@ ms.locfileid: "67426673"
 
 ## <a name="using-update-package"></a>使用 Update-Package
 
-請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../Tools/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  )：
+請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../reference/ps-reference/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  )：
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -97,7 +97,7 @@ Update-Package
 
 使用 [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) 來更新專案或解決方案中的套件，一律會更新為最新版本的套件 (發行前套件除外)。 如有需要，使用 `packages.config` 的專案可以限制下面[限制升級版本](#constraining-upgrade-versions)中所述的更新版本。
 
-如需命令的完整詳細資料，請參閱 [Update-Package](../Tools/ps-ref-update-package.md) 參考。
+如需命令的完整詳細資料，請參閱 [Update-Package](../reference/ps-reference/ps-ref-update-package.md) 參考。
 
 ### <a name="considerations"></a>考量
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842346"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316993"
 ---
 # <a name="package-restore-options"></a>套件還原選項
 
@@ -41,7 +41,7 @@ ms.locfileid: "67842346"
 
 - **dotnet CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) 命令來還原專案檔中以 [PackageReference](../consume-packages/package-references-in-project-files.md) 列出的套件。 使用 .NET Core 2.0 和更新版本時，會使用 `dotnet build` 和 `dotnet run` 命令自動完成還原。  
 
-- **nuget.exe CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [nuget restore](../tools/cli-ref-restore.md) 命令來還原專案檔或解決方案檔中 (或 `packages.config` 中) 列出的套件。 
+- **nuget.exe CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [nuget restore](../reference/cli-reference/cli-ref-restore.md) 命令來還原專案檔或解決方案檔中 (或 `packages.config` 中) 列出的套件。 
 
 - **MSBuild**：使用 [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) 命令，利用 PackageReference 來還原專案檔中所列套件。 這個命令只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017 和更新版本)。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。
 

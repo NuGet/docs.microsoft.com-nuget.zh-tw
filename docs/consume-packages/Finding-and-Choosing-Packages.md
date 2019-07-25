@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426743"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317032"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -40,7 +40,7 @@ ms.locfileid: "67426743"
 
 幸運的是，您可以透過其他兩種方法來判斷支援的架構：
 
-1. 嘗試在 NuGet 套件管理員主控台中使用 [`Install-Package`](../tools/ps-ref-install-package.md) 命令，以將套件安裝至專案。 如果套件不相容，則此命令會顯示套件所支援的架構。
+1. 嘗試在 NuGet 套件管理員主控台中使用 [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) 命令，以將套件安裝至專案。 如果套件不相容，則此命令會顯示套件所支援的架構。
 
 1. 使用 [資訊]  下的 [手動下載]  連結，以從套件在 nuget.org 上的頁面下載套件。 將副檔名從 `.nupkg` 變更為 `.zip`，並開啟檔案來檢查其 `lib` 資料夾的內容。 您會在那裡看到每個所支援架構的子資料夾，其中使用目標 Framework Moniker (TFM；請參閱[目標 Framework](../reference/target-frameworks.md)) 來命名每個子資料夾。 如果您在 `lib` 下看不到任何子資料夾，而且只有單一 DLL，則必須嘗試將套件安裝至您的專案，以探索其相容性。
 
@@ -58,9 +58,9 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
     ![Visual Studio 中的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
-- **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 與 `Update-Package` 命令。 請參閱 [PowerShell 參考](../tools/powershell-reference.md)。
+- **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 與 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
 
-- **nuget.exe CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 與 `mirror` 命令。 請參閱 [NuGet CLI 參考](../tools/nuget-exe-cli-reference.md)
+- **nuget.exe CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 與 `mirror` 命令。 請參閱 [NuGet CLI 參考](../reference/nuget-exe-cli-reference.md)
 
 - **dotnet.exe CLI**：使用 `-v` 引數指定確切的發行前版本。 請參閱 [dotnet 新增套件參考](/dotnet/core/tools/dotnet-add-package)。
 

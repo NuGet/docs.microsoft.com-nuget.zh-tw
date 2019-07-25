@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 85a862852761b68db882abdc1ca0e84d83d95f07
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426815"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317632"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -36,7 +36,7 @@ ms.locfileid: "67426815"
 > [!note]
 > 需要 nuget.exe 4.6.0 或更新版本
 
-使用 [nuget sign](../tools/cli-ref-sign.md) 簽署套件：
+使用 [nuget sign](../reference/cli-reference/cli-ref-sign.md) 簽署套件：
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
@@ -45,9 +45,9 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 > [!Tip]
 > 憑證提供者通常也會提供時間戳記伺服器 URL，可用於上方顯示的 `Timestamper` 選擇性引數。 請洽詢提供者的文件及 (或) 支援人員，以取得該服務 URL。
 
-* 您可以使用憑證存放區中可用的憑證，或使用檔案中的憑證。 請參閱 [nuget sign](../tools/cli-ref-sign.md) 的 CLI 參考。
+* 您可以使用憑證存放區中可用的憑證，或使用檔案中的憑證。 請參閱 [nuget sign](../reference/cli-reference/cli-ref-sign.md) 的 CLI 參考。
 * 簽署的套件應包含時間戳記，以確定簽署憑證過期時，簽章仍保持有效。 若不包含時間戳記，則簽署作業會產生[警告](../reference/errors-and-warnings/NU3002.md)。
-* 您可以使用 [nuget verify](../tools/cli-ref-verify.md) 查看指定套件的簽章詳細資料。
+* 您可以使用 [nuget verify](../reference/cli-reference/cli-ref-verify.md) 查看指定套件的簽章詳細資料。
 
 ## <a name="register-the-certificate-on-nugetorg"></a>在 NuGet.org 上註冊憑證
 

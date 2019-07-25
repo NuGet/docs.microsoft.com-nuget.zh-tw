@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 20a55c6ba89478e70d8e6837aaebc1b7b7754a93
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9094d6b4a2dbd6ea1899b4470624948ce7c21f43
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842429"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317627"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -36,9 +36,9 @@ ms.locfileid: "67842429"
 
 **在不同的 Visual Studio 產品中，如何支援 NuGet？**
 
-- Windows 上的 Visual Studio 支援[套件管理員 UI](../tools/package-manager-ui.md) 和[套件管理員主控台](../tools/package-manager-console.md)。
+- Windows 上的 Visual Studio 支援[套件管理員 UI](../consume-packages/install-use-packages-visual-studio.md) 和[套件管理員主控台](../consume-packages/install-use-packages-powershell.md)。
 - Visual Studio for Mac 具有內建 NuGet 功能，如[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)中所述。
-- Visual Studio Code (所有平台) 沒有任何直接 NuGet 整合。 請使用 [NuGet CLI](../tools/nuget-exe-cli-reference.md) 或 [dotnet CLI](../tools/dotnet-commands.md)。
+- Visual Studio Code (所有平台) 沒有任何直接 NuGet 整合。 請使用 [NuGet CLI](../reference/nuget-exe-cli-reference.md) 或 [dotnet CLI](../reference/dotnet-commands.md)。
 - Azure DevOps 提供[還原 NuGet 套件的建置步驟](/vsts/build-release/tasks/package/nuget)。 您也可以[在 Azure DevOps 上裝載私人 NuGet 套件摘要](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish)。
 
 **如何檢查已安裝 NuGet 工具的確切版本？**
@@ -59,13 +59,13 @@ NuGet 完整支援各種專案範本，例如 Windows、Web、Cloud、SharePoint
 
 **如何更新屬於 Visual Studio 範本的套件？**
 
-移至套件管理員 UI 中的 [更新]  索引標籤，然後選取 [全部更新]  ，或使用套件管理員主控台中的 [`Update-Package` 命令](../tools/ps-ref-update-package.md)。
+移至套件管理員 UI 中的 [更新]  索引標籤，然後選取 [全部更新]  ，或使用套件管理員主控台中的 [`Update-Package` 命令](../reference/ps-reference/ps-ref-update-package.md)。
 
 若要更新範本本身，您需要手動更新範本存放庫。 請參閱有關本主題的 [Xavier Decoster 部落格](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages)。 請注意，您必須自負這項作業的風險；因為，如果所有相依性的最新版本彼此不相容，則手動更新可能會損毀範本。
 
 **可以在 Visual Studio 外部使用 NuGet 嗎？**
 
-是，NuGet 只能直接從命令列運作。 請參閱[安裝指南](../install-nuget-client-tools.md)和 [CLI 參考](../tools/nuget-exe-cli-reference.md)。
+是，NuGet 只能直接從命令列運作。 請參閱[安裝指南](../install-nuget-client-tools.md)和 [CLI 參考](../reference/nuget-exe-cli-reference.md)。
 
 ## <a name="nuget-command-line"></a>NuGet 命令列
 

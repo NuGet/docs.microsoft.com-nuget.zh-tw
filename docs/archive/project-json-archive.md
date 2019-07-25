@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467792"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317007"
 ---
 # <a name="projectjson-archive"></a>project.json 封存
 
@@ -142,7 +142,7 @@ PackageReference 的行為也適用於 `project.json`。 NuGet restore 將相依
 
 ### <a name="package-manager-options-control"></a>套件管理員選項控制
 
-原本在[套件管理員 UI 參考](../tools/package-manager-ui.md)中。 
+原本在[套件管理員 UI 參考](../consume-packages/install-use-packages-visual-studio.md)中。 
 
 使用 `project.json` 管理格式的專案只顯示 [顯示預覽視窗]  選項。
 
