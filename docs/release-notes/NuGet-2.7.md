@@ -1,71 +1,71 @@
 ---
 title: NuGet 2.7 版本資訊
-description: 版本資訊適用於 NuGet 2.7 包括已知的問題、 bug 修正、 新增的功能和 Dcr。
+description: NuGet 2.7 的版本資訊, 包括已知問題、bug 修正、新增功能和 Dcr。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 97d3e5f0238fd6947a54e5eb3229b89b6746f18c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f26ac80046ec321ce5bdbf2bac23c0e1939cd69a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550961"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317073"
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 版本資訊
 
-[NuGet 2.6.1 for WebMatrix 版本資訊](../release-notes/nuget-2.6.1-for-webmatrix.md) | [NuGet 2.7.1 版本資訊](../release-notes/nuget-2.7.1.md)
+[Nuget 2.6.1 for WebMatrix 版本](../release-notes/nuget-2.6.1-for-webmatrix.md) | 資訊[nuget 2.7.1 版本](../release-notes/nuget-2.7.1.md)資訊
 
-NuGet 2.7 已於 2013 年 8 月 22 日發行。
+NuGet 2.7 已于2013年8月22日發行。
 
 ## <a name="acknowledgements"></a>謝誌
 
-我們想要感謝下列外部參與者，NuGet 2.7 到重大貢獻：
+我們想要感謝下列外部參與者對 NuGet 2.7 的重大貢獻:
 
-1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
-    - 當詳細列出封裝和詳細資訊會顯示授權 url。
-2. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
-    - [# 1956年](http://nuget.codeplex.com/workitem/1956)-developmentDependency 將屬性新增至`packages.config`並使其只包含執行階段套件組件命令中使用它
-3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
-    - 避免重複 nuget.exe pack 命令的屬性索引鍵。
-4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
-    - [# 2610年](http://nuget.codeplex.com/workitem/2610)-machine 快取大小增加至 200。
-5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
-    - [#3217](http://nuget.codeplex.com/workitem/3217) -修正 NuGet 對話方塊顯示 [錯誤] 索引標籤中的更新
-    - 修正 Project.TargetFramework 在可以是 null ProjectManager
-    - [#3248](http://nuget.codeplex.com/workitem/3248) -修正 SharedPackageRepository FindPackage/FindPackagesById 上不存在 packageId，將會失敗
-6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
-    - [#3234](http://nuget.codeplex.com/workitem/3234) -啟用遊牧專案的支援
-7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
-    - [#3252](http://nuget.codeplex.com/workitem/3252) -修正推送命令會失敗，並結束程式碼 0，當檔案不存在。
-8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
-    - [#3226](http://nuget.codeplex.com/workitem/3226) -修正 bug，以新增 BindingRedirect 命令時參考資料庫專案的專案。
-9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
-    - [# 2891年](http://nuget.codeplex.com/workitem/2891)-修正 bug 的 nuget.pack 不正確剖析 'exclude' 屬性中的萬用字元。
-10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-     - [#3307](http://nuget.codeplex.com/workitem/3307) -修正 bug`NuGet.targets`不會通過 $ （platform） nuget.exe 還原套件時。
+1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss)([@mxrss](https://twitter.com/mxrss))
+    - 列出套件和詳細資訊時, 顯示授權 url。
+2. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph)([@adamralph](https://twitter.com/adamralph))
+    - [#1956](http://nuget.codeplex.com/workitem/1956) -將 developmentDependency 屬性新增`packages.config`至, 並在 pack 命令中使用它, 只包含執行時間封裝
+3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael)([@tkrafael](https://twitter.com/tkrafael))
+    - 避免在 nuget.exe pack 命令中出現重複的屬性索引鍵。
+4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan)([@BenPhegan](https://twitter.com/benphegan))
+    - [#2610](http://nuget.codeplex.com/workitem/2610) -將電腦快取大小增加至200。
+5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel)([@derigel](https://twitter.com/derigel))
+    - [#3217](http://nuget.codeplex.com/workitem/3217) -修正在錯誤索引標籤中顯示更新的 NuGet 對話方塊
+    - 修正專案。在 ProjectManager 中, TargetFramework 可以是 null
+    - [#3248](http://nuget.codeplex.com/workitem/3248)修正 SharedPackageRepository FindPackage/FindPackagesById 將會在不存在的 packageId 上失敗
+6. [古柯 Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG)([@kevfromireland](https://twitter.com/kevfromireland))
+    - [#3234](http://nuget.codeplex.com/workitem/3234) -啟用 Nomad 專案的支援
+7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie)([@corinblaikie](https://twitter.com/corinblaikie))
+    - 當檔案不存在時, [#3252](http://nuget.codeplex.com/workitem/3252)修正推送命令會失敗, 並出現結束代碼0。
+8. [聖馬丁 Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+    - [#3226](http://nuget.codeplex.com/workitem/3226) -當專案參考資料庫專案時, 使用 BindingRedirect 命令修正 bug。
+9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos)([@bajtos](https://twitter.com/bajtos))
+    - [#2891](http://nuget.codeplex.com/workitem/2891) -修正 nuget 的錯誤。套件的 ' exclude ' 屬性中的萬用字元剖析錯誤。
+10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981)([@zippy1981](https://twitter.com/zippy1981))
+     - [](http://nuget.codeplex.com/workitem/3307)在還原套件時`NuGet.targets` , #3307 修正錯誤 (bug) 不會將 $ (Platform) 傳遞至 nuget.exe。
 11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-     - [#3294](http://nuget.codeplex.com/workitem/3294) -nuget.exe package 命令，這可讓您新增具有相同名稱但大小寫不同的最終導致 「 項目已經存在 」 的例外狀況的檔案中的修正 bug。
-12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-     - [# 2990年](http://nuget.codeplex.com/workitem/2990)-NetPortableProfile 類別的 [新增版本] 屬性。
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -修正 nuget.exe package 命令中的 bug, 這會允許加入具有相同名稱但大小寫不同的檔案, 最後造成「專案已存在」例外狀況。
+12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino)([@kzu](https://twitter.com/kzu))
+     - [#2990](http://nuget.codeplex.com/workitem/2990) -將版本屬性新增至 NetPortableProfile 類別。
 13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-     - [#3460](https://nuget.codeplex.com/workitem/3460) -如果修正錯誤 NullReferenceException requireApiKey = true，但標頭 X-NUGET-APIKEY 不存在
-14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-     - [#3278](https://nuget.codeplex.com/workitem/3278) -修正 NuGet.Build 目標檔案，以讓它 MonoDevelop 上正常運作
-15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-     - 改善還原命令效能增加平行處理
+     - [#3460](https://nuget.codeplex.com/workitem/3460) -修正 requireApiKey = true 時的 bug NullReferenceException, 但標頭 X-APIKEY 不存在
+14. [Michael Friis](https://www.codeplex.com/site/users/view/friism)([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -修正 NuGet. 組建目標檔案, 使其在 MonoDevelop 上正常運作
+15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm)([@pranav_km](https://twitter.com/pranav_km))
+     - 藉由增加平行處理來改善還原命令效能
 
-## <a name="notable-features-in-the-release"></a>在版本中值得注意的功能
+## <a name="notable-features-in-the-release"></a>版本中值得注意的功能
 
-### <a name="package-restore-by-default-with-implicit-consent"></a>根據預設 （隱含地同意） 的套件還原
+### <a name="package-restore-by-default-with-implicit-consent"></a>預設封裝還原 (具有隱含同意)
 
-NuGet 2.7 導入了新的套件還原，方法，也能夠克服的主要障礙： 套件還原同意現在預設為開啟 ！ 新的方法和隱含地同意的組合會大幅簡化套件還原案例。
+NuGet 2.7 引進封裝還原的新方法, 同時也克服了一大障礙:套件還原同意現在預設為開啟! 新方法和隱含同意的結合, 可大幅簡化封裝還原案例。
 
-#### <a name="implicit-consent"></a>隱含地同意
+#### <a name="implicit-consent"></a>隱含同意
 
-NuGet 版本 2.0、 2.1、 2.2、 2.5 和 2.6，明確地允許 NuGet 下載遺漏的套件期間所需的使用者來建立。 如果此同意有未被明確授，則必須啟用套件還原的解決方案無法建立，直到使用者已授與同意。
+使用 NuGet 版本2.0、2.1、2.2、2.5 和2.6 時, 使用者需要明確允許 NuGet 在組建期間下載遺漏的套件。 如果未明確指定此同意, 則已啟用封裝還原的解決方案將無法建立, 直到使用者授與同意為止。
 
-從 NuGet 2.7 開始，套件還原同意預設值是 ON 時明確地讓使用者能夠*退出*的套件還原，如有需要，在 Visual Studio 中的 NuGet 的設定中使用核取方塊。 隱含地同意此變更會影響 NuGet 在下列環境：
+從 NuGet 2.7 開始, 封裝還原同意預設為開啟, 並允許使用者在需要時使用 NuGet 設定 Visual Studio 中的核取方塊, 明確*退出宣告*套件還原。 這項隱含同意變更會影響下列環境中的 NuGet:
 
 * Visual Studio 2013 Preview
 * Visual Studio 2012
@@ -74,93 +74,93 @@ NuGet 版本 2.0、 2.1、 2.2、 2.5 和 2.6，明確地允許 NuGet 下載遺�
 
 #### <a name="automatic-package-restore-in-visual-studio"></a>Visual Studio 中的自動套件還原
 
-從 NuGet 2.7 開始，NuGet 會自動下載遺漏的套件在 Visual Studio 建置期間即使套件還原尚未明確啟用的解決方案。 此自動套件還原會在 Visual Studio 中，當您建置專案或方案，但之前叫用 MSBuild。 這會產生幾個重要優點：
+從 NuGet 2.7 開始, NuGet 會在 Visual Studio 組建期間自動下載遺漏的套件, 即使尚未針對解決方案明確啟用套件還原也一樣。 當您建立專案或方案時, 但在叫用 MSBuild 之前, 會在 Visual Studio 中進行這項自動封裝還原。 這會產生幾個重要的優點:
 
-1. 不再需要在您的方案使用 [啟用 NuGet 封裝還原] 筆勢
-1. 專案不需要進行修改，而且 NuGet 不會對您的專案，以確保啟用套件還原的變更
-1. 所有的 NuGet 套件，包括包含 MSBuild 屬性/目標檔案的匯入將會還原*之前*MSBuild 會叫用，確保在建置期間，都會正確地辨識這些屬性/目標
+1. 不再需要在您的解決方案上使用 [啟用 NuGet 套件還原] 手勢
+1. 不需要修改專案, NuGet 也不會對您的專案進行變更, 以確保已啟用封裝還原
+1. 所有 NuGet 套件 (包括包含 .props/目標檔案的 MSBuild 匯入) 都將在叫用 msbuild*之前*還原, 以確保在組建期間能夠正確辨識這些 .props/目標
 
-若要在 Visual Studio 中，使用自動套件還原，您只需要接受下列其中一個 (in) 動作：
+若要在 Visual Studio 中使用自動封裝還原, 您只需要採取一個 (in) 動作:
 
-1. 未簽入您`packages`資料夾
+1. 不要簽入您`packages`的資料夾
 
-有數種方式，以省略您`packages`從原始檔控制資料夾。 如需詳細資訊，請參閱 <<c0> [ 套件和原始檔控制](../consume-packages/packages-and-source-control.md)主題。
+有數種方式可以從原始`packages`檔控制中省略您的資料夾。 如需詳細資訊, 請參閱[套件和原始檔控制](../consume-packages/packages-and-source-control.md)主題。
 
-雖然所有使用者都是隱含加入自動套件還原的同意，您可以輕鬆地選擇退出透過 Visual Studio 中的套件管理員設定。
+雖然所有使用者都會隱含地加入宣告自動套件還原同意, 但是您可以輕鬆地透過 Visual Studio 中的套件管理員設定來退出。
 
 ![套件管理員設定](./media/NuGet-2.7/package-manager-settings.png)
 
-#### <a name="simplified-package-restore-from-the-command-line"></a>從命令列的簡化的套件還原
+#### <a name="simplified-package-restore-from-the-command-line"></a>從命令列簡化套件還原
 
-NuGet 2.7 導入了 nuget.exe 的新功能： `nuget.exe restore`
+NuGet 2.7 引進了適用于 nuget.exe 的新功能:`nuget.exe restore`
 
-這個新的還原命令可讓您輕鬆地還原所接受的解決方案檔案或資料夾，做為引數的 使用單一命令中，解決方案的所有封裝。 此外，在目前的資料夾只是單一的解決方案時，就會隱含該引數。 這表示從包含單一的方案檔 (MySolution.sln) 的資料夾的所有下列都工作：
+這個新的 Restore 命令可讓您使用單一命令, 輕鬆還原解決方案的所有套件, 方法是接受方案檔案或資料夾做為引數。 此外, 當目前的資料夾中只有一個方案時, 就會隱含該引數。 這表示下列所有工作都是從包含單一方案檔 (Csharpconsoleapp .sln) 的資料夾中執行:
 
-1. nuget.exe restore MySolution.sln
-1. nuget.exe restore。
-1. nuget.exe restore
+1. nuget.exe restore Csharpconsoleapp .sln
+1. nuget.exe 還原。
+1. nuget.exe 還原
 
-Restore 命令會開啟方案檔，並尋找方案內的所有專案。 從該處，就可以找出`packages.config`針對每個專案和還原的所有封裝所找到的檔案。 它也會還原位於方案層級套件`.nuget\packages.config`檔案。 新的 Restore 命令的詳細資訊可在[命令列參考](../tools/cli-ref-restore.md)。
+Restore 命令會開啟方案檔, 並尋找方案中的所有專案。 它會從該處尋找每個`packages.config`專案的檔案, 並還原所有找到的套件。 它也會還原在檔案中找到的`.nuget\packages.config`解決方案層級封裝。 如需新的 Restore 命令的詳細資訊, 請參閱[命令列參考](../reference/cli-reference/cli-ref-restore.md)。
 
-#### <a name="the-new-package-restore-workflow"></a>新的套件還原工作流程
+#### <a name="the-new-package-restore-workflow"></a>新的封裝還原工作流程
 
-我們很榮幸套件還原，這些變更的相關的因為它導入了新的工作流程。 如果您想要忽略您的套件，從原始檔控制您只需不認可`packages`資料夾。 Visual Studio 使用者開啟及建置方案會自動還原套件。 命令列建置，只需叫用`nuget.exe restore`叫用之前`msbuild`。 您不再需要在您的方案中，使用 [啟用 NuGet 封裝還原] 筆勢，請記得，我們不再需要修改您的專案，來改變組建。 這也會產生很多改善的套件，包括匯入的 MSBuild，特別是針對透過 NuGet 的最新功能新增匯入並[自動匯入屬性/目標檔案](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files)\build 資料夾中。
+我們對套件還原的這些變更很興奮, 因為它引進了新的工作流程。 如果您想要從原始檔控制中省略封裝, 您只需`packages`認可資料夾。 開啟並建立解決方案 Visual Studio 使用者會看到套件已自動還原。 針對命令列組建, 只需`nuget.exe restore` `msbuild`在叫用前叫用。 您不再需要記得在解決方案上使用 [啟用 NuGet 套件還原] 手勢, 而且我們不再需要修改您的專案來改變組建。 此外, 這也為包含 MSBuild 匯入的套件提供了更好的體驗, 特別是透過 NuGet 最近功能新增的匯入, 以自動從 \build 資料夾匯[入 .props/目標](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files)檔案。
 
-除了我們自行完成的工作，我們也正在使用一些重要的夥伴，若要完成這個新方法。我們目前沒有具體的時間表的任一，但每個夥伴相關的新方法正如我們的榮幸。
+除了我們自己完成的工作之外, 我們也會與一些重要的合作夥伴合作, 將這種新方法舍入。我們尚無具體的時程表, 但每個夥伴都是我們對新方法的興奮。
 
-* Team Foundation Service-他們正在整合呼叫`nuget.exe restore`的預設建置案例。
-* Windows Azure 網站-他們正在可讓您將您的專案推送至 Azure，並讓`nuget.exe restore`建置您的網站之前呼叫。
-* TeamCity-它們會更新其 NuGet 安裝程式外掛程式的 TeamCity 8.x
-* AppHarbor-他們正在可讓您將您的存放庫推送至 AppHarbor 還有`nuget.exe restore`建置您的解決方案之前呼叫。
+* Team Foundation Service-他們正在努力將的呼叫`nuget.exe restore`整合到預設的組建案例中。
+* Windows Azure 網站-他們正致力於讓您將專案推送至 Azure, 並`nuget.exe restore`在建立網站之前呼叫。
+* TeamCity-他們正在更新其 TeamCity 8.x 的 NuGet 安裝程式外掛程式
+* AppHarbor-他們正致力於讓您將存放庫推送至 AppHarbor, 並`nuget.exe restore`在您的解決方案建立之前呼叫。
 
-與每個上述協力廠商，他們會使用自己的 nuget.exe 複本，以及您不需要在您的方案中執行 nuget.exe。
+在上述每個合作夥伴中, 他們會使用自己的 nuget.exe 複本, 而且您不需要在解決方案中攜帶 nuget.exe。
 
 #### <a name="known-issues"></a>已知問題
 
-發生初始 2.7 版本中，nuget.exe 還原兩個已知的問題，但它們在 9/6/2013 與更新已修正[NuGet.CommandLine 封裝](http://www.nuget.org/packages/NuGet.CommandLine/)。  此更新也是位於[NuGet 2.7 下載頁面](https://nuget.codeplex.com/releases/view/107605)CodePlex 上。  執行`nuget.exe update -self`會更新至最新版本。
+使用初始2.7 版本進行 nuget.exe 還原有兩個已知問題, 但在9/6/2013 上已修正[nuget. 命令列套件](http://www.nuget.org/packages/NuGet.CommandLine/)的更新。  此更新也適用于 CodePlex 上的[NuGet 2.7 下載頁面](https://nuget.codeplex.com/releases/view/107605)。  執行`nuget.exe update -self`會更新至最新版本。
 
-已修正所示：
+修正的內容為:
 
-1. [使用 SLN 檔案時，新的套件還原無法在 Mono 上運作](https://nuget.codeplex.com/workitem/3596)
-1. [新的套件還原不適用於 Wix 專案](https://nuget.codeplex.com/workitem/3598)
+1. [使用 SLN 檔案時, 新的套件還原無法在 Mono 上使用](https://nuget.codeplex.com/workitem/3596)
+1. [新的封裝還原不適用於 Wix 專案](https://nuget.codeplex.com/workitem/3598)
 
-另外還有新的套件還原工作流程的已知的問題讓[自動套件還原不適用於專案的方案資料夾底下](https://nuget.codeplex.com/workitem/3625)。 在 NuGet 2.7.1 中已經修正這個問題。
+新的封裝還原工作流程也有一個已知的問題, 也就是[自動封裝還原不適用於解決方案資料夾下的專案](https://nuget.codeplex.com/workitem/3625)。 此問題已在 NuGet 2.7.1 中修正。
 
-### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>重定專案目標與升級組建錯誤/警告
+### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>專案重定和升級組建錯誤/警告
 
-多次之後重設目標或升級您的專案，您發現某些 NuGet 套件未正常運作。 不幸的是，這不表示，並就沒有指引如何處理它。 NuGet 2.7，我們現在使用某些 Visual Studio 事件來識別您已重設目標或升級您的專案中的方式會影響您已安裝的 NuGet 套件。
+在重定或升級您的專案之後, 您發現部分 NuGet 套件無法正常運作。 可惜的是, 這並不表示這種情況, 因此不提供如何解決此情況的指引。 使用 NuGet 2.7, 我們現在會使用一些 Visual Studio 事件來辨識您的專案是以影響已安裝之 NuGet 套件的方式重定或升級。
 
-如果我們偵測到任何封裝的影響重設目標或升級，我們將會產生立即的建置錯誤，讓您知道。 除了立即的建置錯誤，我們也保存`requireReinstallation="true"`加上旗標在您`packages.config`檔案已受到重定目標，以及每個後續的所有套件建置在 Visual Studio 中將會引發這些套件的建置警告。
+如果我們偵測到您的任何套件受到重定或升級影響, 我們將會產生立即的組建錯誤, 讓您知道。 除了立即組建錯誤之外, 我們也會在您`requireReinstallation="true"` `packages.config`的檔案中保存受重定影響之所有封裝的旗標, 而 Visual Studio 中的每個後續組建都會引發這些封裝的組建警告。
 
-雖然 NuGet 無法採取自動動作來重新安裝受影響的套件，我們希望此指示和警告會引導協助您了解當您需要重新安裝套件。 我們也正在努力[套件重新安裝指引文件](../consume-packages/reinstalling-and-updating-packages.md)這些錯誤訊息引導您。
+雖然 NuGet 無法採取自動動作來重新安裝受影響的套件, 但我們希望此指示和警告會引導您瞭解何時需要重新安裝套件。 我們也會使用[套件重新安裝指引檔](../consume-packages/reinstalling-and-updating-packages.md), 這些錯誤訊息會引導您前往。
 
-### <a name="nuget-configuration-defaults"></a>NuGet 組態預設值
+### <a name="nuget-configuration-defaults"></a>NuGet 設定預設值
 
-許多公司就內部而言，使用 NuGet，但有難引導其開發人員若要使用內部的套件來源，而非 nuget.org。NuGet 2.7 引進了可讓整個電腦的預設值為指定的組態預設值功能：
+許多公司都在內部使用 NuGet, 但是已經很難引導其開發人員使用內部套件來源, 而不是 nuget.org。NuGet 2.7 引進了設定預設功能, 可針對下列各項指定全電腦的預設值:
 
-1. 已啟用的套件來源
-1. 已註冊，但已停用套件來源
+1. 已啟用套件來源
+1. 已註冊但已停用套件來源
 1. 預設的 nuget.exe 推送來源
 
-每一種現在位於檔案中設定`%ProgramData%\NuGet\NuGetDefaults.Config`。 如果此組態檔指定套件來源，則預設值 nuget.org 封裝來源不會自動登錄和中的虛擬機器`NuGetDefaults.Config`會改為註冊。
+您現在可以在位於`%ProgramData%\NuGet\NuGetDefaults.Config`的檔案內設定這些檔案。 如果此設定檔指定封裝來源, 則預設的 nuget.org 封裝來源將不會自動註冊, 而且中`NuGetDefaults.Config`的將會改為註冊。
 
-雖然不一定要使用這項功能，我們會預期要部署的公司`NuGetDefaults.Config`檔案所使用的群組原則。
+雖然不需要使用這項功能, 但我們預期公司會`NuGetDefaults.Config`使用群組原則來部署檔案。
 
-*請注意，這項功能將會永遠不會導致從開發人員的 NuGet 設定中移除的套件來源。這表示如果開發人員已經使用 NuGet，且因此 nuget.org 套件來源註冊，它不會移除建立之後`NuGetDefaults.Config`檔案。*
+*請注意, 這項功能永遠不會使套件來源從開發人員的 NuGet 設定中移除。這表示, 如果開發人員已使用 NuGet, 因此已註冊 nuget.org 套件來源, 則在檔案建立`NuGetDefaults.Config`後不會將它移除。*
 
-請參閱[NuGet 組態預設值](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file)如需有關這項功能。
+如需這項功能的詳細資訊, 請參閱[NuGet 設定預設值](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file)。
 
-### <a name="renaming-the-default-package-source"></a>重新命名的預設套件來源
+### <a name="renaming-the-default-package-source"></a>重新命名預設封裝來源
 
-NuGet 一律已登錄呼叫 「 NuGet 官方封裝來源 」 指向 nuget.org 的預設套件來源。該名稱的詳細資訊，它也未指定，它實際上已指向。 若要解決這些兩個問題，我們已重新命名為只是"nuget.org"在 UI 中此套件來源。 套件來源 URL 也已變更為包含"www"。 前置詞的「套件組合識別碼」。 使用 NuGet 2.7 之後, 您現有 「 NuGet 官方封裝來源 」 會自動更新為"nuget.org"作為其名稱和"<https://www.nuget.org/api/v2/>」 做為其 URL。
+NuGet 一律會註冊名為「NuGet 官方套件來源」的預設套件來源, 其指向 nuget.org。該名稱是 verbose, 而且也沒有指定實際指向的位置。 為了解決這兩個問題, 我們已將此套件來源重新命名為 UI 中的 "nuget.org"。 套件來源的 URL 也已變更為包含 "www"。 前置詞的「套件組合識別碼」。 使用 NuGet 2.7 之後, 您現有的「NuGet 官方套件來源」將自動更新為「nuget.org」, 作為其 URL 的<https://www.nuget.org/api/v2/>名稱和「」。
 
-### <a name="performance-improvements"></a>效能改善
+### <a name="performance-improvements"></a>效能改進
 
-我們將會產生較小的記憶體使用量、 較少的磁碟使用量和速度的套件安裝 2.7 中進行一些效能改進。 我們也對 OData 為基礎的摘要，用來減少整體的承載更聰明的查詢。
+我們在2.7 中做了一些效能改進, 這會產生較小的記憶體耗用量、磁片使用量較少, 以及更快速的套件安裝。 我們也對以 OData 為基礎的摘要進行了更聰明的查詢, 這將會減少整體裝載。
 
 ### <a name="new-extensibility-apis"></a>新的擴充性 Api
 
-我們加入我們的擴充性服務來填補遺漏功能的差異，在舊版中的某些新的 Api。
+我們已在擴充性服務中新增一些新的 Api, 以填補舊版中遺漏功能的差距。
 
 #### <a name="ivspackageinstallerservices"></a>IVsPackageInstallerServices
 
@@ -182,18 +182,18 @@ NuGet 一律已登錄呼叫 「 NuGet 官方封裝來源 」 指向 nuget.org �
     void InstallPackagesFromVSExtensionRepository(string extensionId, bool isPreUnzipped, bool skipAssemblyReferences, Project project, IDictionary<string, string> packageVersions);
     ```
 
-### <a name="development-only-dependencies"></a>僅限開發相依性
+### <a name="development-only-dependencies"></a>僅限開發的相依性
 
-這項功能已由發表[Adam Ralph](https://twitter.com/adamralph) ，它可讓套件作者將宣告只用於在開發階段的相依性的時間，而且不需要套件相依性。 藉由新增`developmentDependency="true"`屬性中的封裝`packages.config`，`nuget.exe pack`將不會再包括該套件作為相依性。
+這項功能是由[Adam Ralph](https://twitter.com/adamralph)所提供, 可讓套件作者宣告只在開發階段使用, 而不需要封裝相依性的相依性。 藉由將`developmentDependency="true"`屬性新增至中`packages.config`的封裝`nuget.exe pack` , 將不再包含該封裝做為相依性。
 
-### <a name="removed-support-for-visual-studio-2010-express-for-windows-phone"></a>移除 Visual Studio 2010 Express for Windows Phone 的支援
+### <a name="removed-support-for-visual-studio-2010-express-for-windows-phone"></a>已移除 Visual Studio 2010 Express for Windows Phone 的支援
 
-新的套件還原模型，在 2.7 是由新的 VSPackage，不同於主要 NuGet VSPackage 實作。 因為技術問題，這個新的 VSPackage 無法正確運作*Visual Studio 2010 Express for Windows Phone* SKU，以與其他共用相同的程式碼基底支援 Visual Studio Sku。 因此，從 NuGet 2.7 開始，我們會卸除的支援*Visual Studio 2010 Express for Windows Phone*從已發佈的延伸模組。 支援*Visual Studio 2010 Express for Web*仍然包含在發行至 Visual Studio 延伸模組組件庫的主要延伸模組。
+2\.7 中新的封裝還原模型是由與主要 NuGet VSPackage 不同的新 VSPackage 所執行。 由於技術問題的緣故, 這個新的 VSPackage 在 Windows Phone SKU 的*Visual Studio 2010 Express*中無法正常運作, 因為我們與其他支援的 Visual Studio sku 共用相同的程式碼基底。 因此, 從 NuGet 2.7 開始, 我們將從已發行的延伸模組中卸載*Visual Studio 2010 Express Windows Phone*的支援。 *Visual Studio 2010 Express For Web*的支援仍包含在發行至 Visual Studio 延伸模組資源庫的主要延伸模組中。
 
-因為我們不確定如何許多開發人員仍在使用 NuGet 在該版本的 Visual Studio 中，我們所發佈個別的 Visual Studio 擴充功能，專為這些使用者，並將其發佈在 CodePlex （而不是 Visual Studio 延伸模組程式庫）. 我們不打算繼續維護該延伸模組，但如果這會影響您，請讓我們知道藉由在 CodePlex 上提出問題。
+由於我們不確定有多少開發人員仍在該版本/版的 Visual Studio 中使用 NuGet, 因此我們會特別發佈個別的 Visual Studio 延伸模組, 供這些使用者使用, 並在 CodePlex 上發佈 (而不是 Visual Studio 的延伸模組資源庫). 我們不打算繼續維護該延伸模組, 但如果這會影響您, 請在 CodePlex 上提出問題以讓我們知道。
 
-若要下載 NuGet 套件管理員 （適用於 Visual Studio 2010 Express for Windows Phone)，請瀏覽[NuGet 2.7 下載](https://nuget.codeplex.com/releases/view/107605)頁面。
+若要下載 NuGet 套件管理員 (適用于 Windows Phone 的 Visual Studio 2010 Express), 請造訪[nuget 2.7 下載](https://nuget.codeplex.com/releases/view/107605)頁面。
 
-### <a name="bug-fixes"></a>Bug 修正
+### <a name="bug-fixes"></a>錯誤修正
 
-除了這些功能，這一版的 NuGet 也會包含其他許多 bug 修正。 發生在版本中解決的 97 總問題。 如需完整的工作清單項目中已修正 NuGet 2.7，請檢視[此版本的 NuGet Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all)。
+除了這些功能之外, 這一版的 NuGet 也包含其他許多 bug 修正。 發行中解決了97的總問題。 如需 NuGet 2.7 中已修正之工作專案的完整清單, 請參閱[此版本的 NuGet 問題追蹤程式](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all)。
