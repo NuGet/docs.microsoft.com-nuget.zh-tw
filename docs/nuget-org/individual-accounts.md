@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427133"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419886"
 ---
 # <a name="individual-accounts"></a>個人帳戶
 
@@ -45,3 +45,27 @@ ms.locfileid: "67427133"
 1. 按一下 [註冊]  按鈕。
 
 您現在擁有 NuGet.org 帳戶。 您可以在[帳戶設定](https://www.nuget.org/account)頁面上進行帳戶管理。
+
+## <a name="enable-two-factor-authentication-2fa"></a>使用雙重要素驗證 (2FA)
+
+若要更有效地保護您的帳戶，請啟用雙重要素驗證 (建議)。
+
+1. 登入您的帳戶後，開啟您的設定檔，然後選擇 [登入帳戶]  下的 [啟用]  。
+
+   ![啟用 2FA](media/nuget-org-register-2fa.png)
+
+   您會看到一則訊息，告訴您下一次登入 *nuget.org* 時，系統會要求您提供額外的認證。
+
+2. 若要立即完成驗證，請先登出，然後再重新登入一次。
+
+3. 當您登入時，請選擇簡訊或電子郵件做為第二種形式的驗證。
+
+   確認已與 Microsoft 帳戶相關聯的電話號碼或電子郵件。 您可能需要為您的帳戶輸入新的電話號碼或電子郵件。 如果是這樣，請依照指示輸入必要資訊，然後按一下 [下一步]  。
+
+   ![啟用 2FA](media/nuget-org-sign-in-2fa.png)
+
+4. 檢查您的裝置或電子郵件帳戶，然後輸入我們剛傳送給您的代碼。
+
+   ![啟用 2FA](media/nuget-org-enter-code-2fa.png)
+
+5. 請遵循任何其他指示來完成雙重要素驗證。

@@ -1,16 +1,16 @@
 ---
-title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Framework 套件
+title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Framework NuGet 套件
 description: 在 Windows 上使用 Visual Studio 建立及發佈 .NET Framework NuGet 套件的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842057"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342517"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發佈套件 (.NET Framework，Windows)
 
@@ -70,7 +70,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
     >
     > 如果您嘗試發行名稱已經存在的套件，則會看到錯誤。
 
-1. 選取 [組件資訊...]  按鈕會顯示對話方塊，您可以在其中輸入會帶入資訊清單中的其他屬性 (請參閱 [.nuspec 檔案參考 - 替代權杖](../reference/nuspec.md#replacement-tokens))。 最常使用的欄位是**標題**、**描述**、**公司**、**著作權** 和 **組件版本**。 這些屬性最後會在主機上 (例如 nuget.org) 與您的套件一起顯示，因此請確認屬性的描述完整。
+1. 選取 [組件資訊]  按鈕會顯示對話方塊，您可以在其中輸入會帶入資訊清單中的其他屬性 (請參閱 [.nuspec 檔案參考 - 替代權杖](../reference/nuspec.md#replacement-tokens))。 最常使用的欄位是**標題**、**描述**、**公司**、**著作權** 和 **組件版本**。 這些屬性最後會在主機上 (例如 nuget.org) 與您的套件一起顯示，因此請確認屬性的描述完整。
 
     ![Visual Studio 中 .NET Framework 專案的組件資訊](media/qs_create-vs-01b-project-properties.png)
 
@@ -162,7 +162,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
     Your package was pushed.
     ```
 
-請參閱 [nuget push](../tools/cli-ref-push.md)。
+請參閱 [nuget push](../reference/cli-reference/cli-ref-push.md)。
 
 ### <a name="publish-errors"></a>發行錯誤
 
@@ -172,9 +172,15 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>相關主題
+## <a name="next-steps"></a>後續步驟
 
-- [建立套件](../create-packages/creating-a-package.md)
+恭喜，您建立了您的第一個 NuGet 套件！
+
+> [!div class="nextstepaction"]
+> [建立套件](../create-packages/creating-a-package.md)
+
+若要深入探索 NuGet 所提供的功能，請選取下列連結。
+
 - [套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
 - [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)

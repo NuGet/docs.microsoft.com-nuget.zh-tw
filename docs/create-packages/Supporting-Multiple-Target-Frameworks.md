@@ -3,22 +3,22 @@ title: NuGet 套件的多目標
 description: 將目標設為單一 NuGet 套件內多個 .NET Framework 版本之各種方法的描述。
 author: karann-msft
 ms.author: karann
-ms.date: 09/27/2017
+ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324808"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342509"
 ---
-# <a name="supporting-multiple-net-framework-versions"></a>支援多個 .NET Framework 版本
+# <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
-*針對使用 NuGet 4.0+ 的 .NET Core 專案，請參閱 [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)，以取得跨目標的詳細資料。*
+許多程式庫的目標都設為特定 .NET Framework 版本。 例如，您可能有一版的程式庫是 UWP 特有的，而另一個版本則利用 .NET Framework 4.6 中的功能。 為了配合此功能，NuGet 支援在單一套件中放置相同程式庫的多個版本。
 
-許多程式庫的目標都設為特定 .NET Framework 版本。 例如，您可能有一版的程式庫是 UWP 特有的，而另一個版本則利用 .NET Framework 4.6 中的功能。
+此文章說明 NuGet 套件的配置，且不考慮套件或元件的建立方式為何 (即不論使用多個非 SDK 樣式 *.csproj* 檔案和自訂 *.nuspec* 檔案，或使用單一多目標 SDK 樣式 *.csproj* 版面配置都相同)。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
 
-為了完成此作業，使用[建立套件](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)中所述的慣例工作目錄方法時，NuGet 會支援將相同程式庫的多個版本放入單一套件中。
+如果您使用[建立套件](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)中所述的傳統型工作目錄方法，就必須如此文章中所述手動配置套件。 針對 SDK 樣式專案，建議使用自動化方法，但您也可以選擇如此文章中所述手動配置套件。
 
 ## <a name="framework-version-folder-structure"></a>架構版本資料夾結構
 
@@ -28,7 +28,7 @@ ms.locfileid: "54324808"
 
 如需所支援名稱的完整清單，請參閱[目標架構參考](../reference/target-frameworks.md#supported-frameworks)。
 
-您的程式庫版本絕對不應該是架構特有的，而且會直接放在根 `lib` 資料夾中  (過去只有 `packages.config` 才支援此功能)。 如此會讓程式庫與任何目標架構相容，並且能夠安裝在任何位置，因而可能導致意外的執行階段錯誤。 使用 PackagesReference 格式時，已取代並忽略在根資料夾 (例如 `lib\abc.dll`) 或子資料夾 (例如 `lib\abc\abc.dll`) 中新增組件。
+您的程式庫版本絕對不應該是架構特有的，而且會直接放在根 `lib` 資料夾中 (過去只有 `packages.config` 才支援此功能)。 如此會讓程式庫與任何目標架構相容，並且能夠安裝在任何位置，因而可能導致意外的執行階段錯誤。 使用 PackagesReference 格式時，已取代並忽略在根資料夾 (例如 `lib\abc.dll`) 或子資料夾 (例如 `lib\abc\abc.dll`) 中新增組件。
 
 例如，下列資料夾結構支援架構特有的四種版本的組件：
 

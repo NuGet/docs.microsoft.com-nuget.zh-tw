@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842599"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419993"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發行套件 (dotnet CLI)
 
@@ -101,12 +101,18 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>相關主題
+## <a name="next-steps"></a>後續步驟
 
-- [建立套件](../create-packages/creating-a-package.md)
+恭喜，您建立了您的第一個 NuGet 套件！
+
+> [!div class="nextstepaction"]
+> [建立套件](../create-packages/creating-a-package-dotnet-cli.md)
+
+若要深入探索 NuGet 所提供的功能，請選取下列連結。
+
 - [套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
-- [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
+- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [套件版本控制](../reference/package-versioning.md)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
 - [建立符號套件](../create-packages/symbol-packages-snupkg.md)

@@ -1,16 +1,16 @@
 ---
-title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard 套件
+title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard NuGet 套件
 description: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard NuGet 套件的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: d9eccfa373a5a283542fd158e76ba74b1872f3d6
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842131"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419911"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -21,9 +21,9 @@ ms.locfileid: "67842131"
 
 ## <a name="prerequisites"></a>必要條件
 
-1. 使用任何 .NET 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017 或更高版本。 Visual Studio 2017 與更高版本會在安裝 .NET 工作負載時，自動包含 NuGet 功能。
+1. 使用 .NET Core 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017 或更高版本。
 
-1. 安裝 `dotnet` CLI。
+1. 安裝 `dotnet` CLI (若尚未安裝)。
 
    針對 `dotnet` CLI，從 Visual Studio 2017 開始，`dotnet` CLI 會自動與任何 .NET Core 相關工作負載一起安裝。 否則，請安裝 [.NET Core SDK](https://www.microsoft.com/net/download/) 以取得 `dotnet` CLI。 使用 [SDK 樣式格式](../resources/check-project-format.md) (SDK 屬性) 的 .NET Standard 專案需要 `dotnet` CLI。 此文章中使用的 Visual Studio 2017 與更高版本中的預設類別庫範本使用 SDK 屬性。
    
@@ -150,7 +150,7 @@ msbuild -t:pack -p:Configuration=Release
     Your package was pushed.
     ```
 
-請參閱 [nuget push](../tools/cli-ref-push.md)。
+請參閱 [nuget push](../reference/cli-reference/cli-ref-push.md)。
 
 ### <a name="publish-errors"></a>發行錯誤
 
@@ -185,7 +185,7 @@ msbuild -t:pack -p:Configuration=Release
 - [建立套件](../create-packages/creating-a-package.md)
 - [套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
-- [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
+- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [套件版本控制](../reference/package-versioning.md)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
 - [.NET Standard 程式庫文件](/dotnet/articles/standard/library)

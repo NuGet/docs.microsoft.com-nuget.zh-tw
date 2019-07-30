@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548470"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317135"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
 
@@ -29,7 +29,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 **因應措施：**
 
-使用 [-StorePasswordInClearText](../tools/cli-ref-sources.md) 選項以純文字儲存密碼。
+使用 [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md) 選項以純文字儲存密碼。
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>使用 NuGet 3.4、3.4.1 安裝套件時發生錯誤
 
@@ -45,7 +45,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 **問題：**
 
-在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息 **「輸入字串格式不正確。」**，如下：
+在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息 **「輸入字串格式不正確。」** ，如下：
 
 ```ps
 install-package log4net
@@ -75,7 +75,7 @@ install-package log4net
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>在 VS 2012 中更新套件後組建失敗
 
-問題：您使用的是 VS 2012 RTM。 更新 NuGet 套件時，您會收到這個訊息：「解除安裝一或多個套件無法完成。」 而且系統會提示重新啟動 Visual Studio。 VS 重新啟動之後，您會收到奇怪的組建錯誤。
+問題：您使用的是 VS 2012 RTM。 更新 NuGet 套件時，您收到下列訊息：「一或多個套件無法完成解除安裝。」 而且系統會提示重新啟動 Visual Studio。 VS 重新啟動之後，您會收到奇怪的組建錯誤。
 
 原因是背景 MSBuild 處理序鎖定了舊套件中的某些檔案。 即使重新啟動 VS 之後，背景 MSBuild 處理序仍在使用舊套件中的檔案，導致組建失敗。
 
@@ -134,7 +134,7 @@ install-package log4net
 
 我們已連絡增益集的作者，希望能找到解決之道。
 
-<p class="info">更新：我們已確認最新版的反射程式 6.5 不會讓主控台再出現這個例外狀況。</p>
+<p class="info">更新：我們已確認最新版的反射程式 6.5 不再讓主控台出現這個例外狀況。</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>開啟套件管理員主控台因 ObjectSecurity 例外狀況而失敗
 
@@ -151,7 +151,7 @@ install-package log4net
 
 ## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>如果解決方案包含 InstallShield 限量版專案，[Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況
 
-我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
+我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考)  對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[解除安裝] 按鈕呈現灰色？ 需要有系統管理員權限才能安裝/解除安裝 NuGet
 

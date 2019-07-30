@@ -1,32 +1,31 @@
 ---
-title: 從 Visual Studio 使用 NuGet 套件的入門指南
+title: 在 Visual Studio 中安裝並使用 NuGet 套件
 description: 在 Visual Studio 專案中安裝並使用 NuGet 套件程序的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
+ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426223"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68462487"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>快速入門：在 Visual Studio 中安裝並使用套件
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>快速入門：在 Visual Studio 中安裝並使用套件 (僅限 Windows)
 
-NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 套件使用套件管理員 UI 或套件管理員主控台安裝到 Visual Studio 專案中。 本文示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 套件和通用 Windows 平台 (UWP) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
+NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 套件使用 NuGet 套件管理員或套件管理員主控台安裝到 Visual Studio 專案中。 此文章示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件與 Windows Presentation Foundation (WPF) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
 
 安裝之後，請使用 `using <namespace>` 參考程式碼中的套件，其中 \<namespace\> 為您使用的套件專用。 建立參考之後，您可以透過其 API 呼叫套件。
 
 > [!Tip]
-> **從 nuget.org 開始**：瀏覽 nuget.org 是 .NET 開發人員通常用來尋找可在自己應用程式中重複使用之元件的方式。 您可以直接搜尋 nuget.org，或在 Visual Studio 中尋找並安裝套件，如本文所示。
+> **從 nuget.org 開始**：.NET 開發人員通常是透過瀏覽 *nuget.org* 來尋找可在自己應用程式中重複使用的元件。 您可以直接搜尋 *nuget.org*，或在 Visual Studio 中尋找並安裝套件，如此文章所示。 如需一般資訊，請參閱[尋找和評估 NuGet 套件](../consume-packages/finding-and-choosing-packages.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- Visual Studio 2017，包含通用 Windows 平台開發工作負載，或
-- Visual Studio 2015 Update 3，包含通用 Windows 應用程式的工具。
+- 包含 .NET 桌面開發工作負載的 Visual Studio 2019。
 
-您可以從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2017 Community Edition，或使用 Professional Edition 或 Enterprise Edition。
+您可以從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2019 Community Edition，或使用 Professional Edition 或 Enterprise Edition。
 
 如果您使用的是 Visual Studio for Mac，請參閱[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。
 
@@ -34,13 +33,15 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 假設 NuGet 套件 支援與專案相同的目標架構，則該套件就可安裝到任何的 .NET 專案中。
 
-針對這個逐步解說，請使用簡單的通用 Windows (UWP) 應用程式。 使用 [檔案] > [新增專案]  ，然後選取 [Windows 通用] > [空白應用程式 (通用 Windows)]  ，在 Visual Studio 中建立專案。 當系統出現提示時，請接受目標版本和最低版本的預設值。
+在此逐步解說中，請使用簡單的 WPF 應用程式。 使用 [檔案] > [新增專案]  在 Visual Studio 中建立專案、在搜尋方塊中輸入 **.NET**，然後選取 [WPF 應用程式 (.NET Framework)]  。 按一下 [下一步]  。 出現提示時，接受 [架構]  的預設值。
+
+Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>新增 Newtonsoft.Json NuGet 套件
 
-若要安裝套件，您可以使用套件管理員 UI 或套件管理員主控台。 當您安裝套件時，NuGet 會在您的專案檔或 `packages.config` 檔案中記錄相依性。 如需詳細資訊，請參閱[套件使用概觀和工作流程](../consume-packages/Overview-and-Workflow.md)。
+若要安裝套件，您可以使用 NuGet 套件管理員或套件管理員主控台。 當您安裝套件時，NuGet 會在您的專案檔或 `packages.config` 檔案中 (視專案格式而定) 記錄相依性。 如需詳細資訊，請參閱[套件使用概觀和工作流程](../consume-packages/Overview-and-Workflow.md)。
 
-### <a name="package-manager-ui"></a>套件管理員 UI
+### <a name="nuget-package-manager"></a>NuGet 封裝管理員
 
 1. 在方案總管中以滑鼠右鍵按一下 [參考]  ，選擇 [管理 NuGet 套件]  。
 
@@ -50,9 +51,11 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
     ![尋找 Newtonsoft.Json 套件](media/QS_Use-03-NewtonsoftJson.png)
 
+    如果您需要 NuGet 套件管理員的詳細資訊，請參閱[使用 Visual Studio 安裝及管理套件](../consume-packages/install-use-packages-visual-studio.md)。
+
 1. 接受任何授權提示。
 
-1. (Visual Studio 2017) 如果系統提示您選取套件管理格式，請選取 [專案檔中的 PackageReference]  ：
+1. (僅限 Visual Studio 2017) 如果系統提示您選取套件管理格式，請選取 [專案檔中的 PackageReference]  ：
 
     ![選取套件管理格式](media/QS_Use-03b-SelectFormat.png)
 
@@ -66,24 +69,26 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
     ![尋找 Newtonsoft.Json 套件](media/QS_Use-08-Console1.png)
 
-1. 輸入命令 `Install-Package Newtonsoft.Json` (請參閱 [Install-Package](../tools/ps-ref-install-package.md))。 主控台視窗會顯示命令的輸出。 錯誤通常會指出套件與專案的目標 Framework 不相容。
+1. 輸入命令 `Install-Package Newtonsoft.Json` (請參閱 [Install-Package](../reference/ps-reference/ps-ref-install-package.md))。 主控台視窗會顯示命令的輸出。 錯誤通常會指出套件與專案的目標 Framework 不相容。
+
+   如果您需要套件管理員主控台的詳細資訊，請參閱[使用套件管理員主控台安裝及管理套件](../consume-packages/install-use-packages-powershell.md)。
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>在應用程式中使用 Newtonsoft.Json API
 
 在專案中使用 Newtonsoft.Json 套件，您可以呼叫其 `JsonConvert.SerializeObject` 方法，將物件轉換成人類可閱讀的字串。
 
-1. 開啟 `MainPage.xaml` 並使用下列內容取代現有的 `Grid` 元素：
+1. 開啟 `MainWindow.xaml` 並使用下列內容取代現有的 `Grid` 元素：
 
     ```xaml
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="White">
         <StackPanel VerticalAlignment="Center">
-            <Button Click="Button_Click" Content="Click Me" Margin="10"/>
-            <TextBlock Name="TextBlock" Text="TextBlock" Margin="10"/>
+            <Button Click="Button_Click" Width="100px" HorizontalAlignment="Center" Content="Click Me" Margin="10"/>
+            <TextBlock Name="TextBlock" HorizontalAlignment="Center" Text="TextBlock" Margin="10"/>
         </StackPanel>
     </Grid>
     ```
 
-1. 開啟 `MainPage.xaml.cs` 檔案 (位於方案總管的 `MainPage.xaml` 節點下方)，然後將下列程式碼插入 `MainPage` 建構函式內：
+1. 開啟 `MainWindow.xaml.cs` 檔案 (位於方案總管的 `MainWindow.xaml` 節點下方)，然後將下列程式碼插入 `MainWindow` 類別內：
 
     ```cs
     public class Account
@@ -114,15 +119,24 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 1. 按 F5 或選取 [偵錯] > [開始偵錯]  ，來建置並執行應用程式：
 
-    ![UWP 應用程式的初始輸出](media/QS_Use-06-AppStart.png)
+    ![WPF 應用程式的初始輸出](media/QS_Use-06-AppStart.png)
 
 1. 選取按鈕以查看使用一些 JSON 文字取代的 TextBlock 內容：
 
-    ![選取按鈕之後的 UWP 應用程式輸出](media/QS_Use-07-AppEnd.png)
+    ![選取按鈕之後的 WPF 應用程式輸出](media/QS_Use-07-AppEnd.png)
 
-## <a name="related-articles"></a>相關文章
+## <a name="next-steps"></a>後續步驟
+
+恭喜，您安裝並使用了您的第一個 NuGet 套件！
+
+> [!div class="nextstepaction"]
+> [使用 Visual Studio 安裝及管理套件](../consume-packages/install-use-packages-visual-studio.md)
+
+> [!div class="nextstepaction"]
+> [使用套件管理員主控台安裝及合併套件](../consume-packages/install-use-packages-powershell.md)
+
+若要深入探索 NuGet 所提供的功能，請選取下列連結。
 
 - [套件耗用量的概觀及工作流程](../consume-packages/overview-and-workflow.md)
-- [使用 Visual Studio 安裝和管理套件](../tools/package-manager-ui.md)
 - [尋找及選擇套件](../consume-packages/finding-and-choosing-packages.md)
-- [常用的 NuGet 設定](../consume-packages/configuring-nuget-behavior.md)
+- [專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)

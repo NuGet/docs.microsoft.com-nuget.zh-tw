@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426620"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419968"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>管理全域套件、快取和暫存資料夾
 
@@ -18,7 +18,7 @@ ms.locfileid: "67426620"
 
 | 名稱 | 描述和位置 (依使用者)|
 | --- | --- |
-| global&#8209;packages | *global-packages* 資料夾是 NuGet 安裝下載套件的位置。 每個套件已經完全展開至符合套件識別碼和版本號碼的子資料夾。 使用 PackageReference 格式的專案一律使用直接從這個資料夾取得的套件。 當使用 `packages.config` 時，套件會安裝到 *global-packages* 資料夾，然後複製到專案的 `packages` 資料夾。<br/><ul><li>Windows：`%userprofile%\.nuget\packages`</li><li>Mac/Linux：`~/.nuget/packages`</li><li>使用 NUGET_PACKAGES 環境變數、`globalPackagesFolder` 或 `repositoryPath` [組態設定](../reference/nuget-config-file.md#config-section) (當分別使用 PackageReference 和 `packages.config` 時)，或 `RestorePackagesPath` MSBuild 屬性 (僅限 MSBuild) 來覆寫。 環境變數的優先性高於組態設定。</li></ul> |
+| global&#8209;packages | *global-packages* 資料夾是 NuGet 安裝下載套件的位置。 每個套件已經完全展開至符合套件識別碼和版本號碼的子資料夾。 使用 [PackageReference](package-references-in-project-files.md) 格式的專案一律使用直接從此資料夾取得的套件。 當使用 [packages.config](../reference/packages-config.md) 時，套件會安裝到 *global-packages* 資料夾，然後複製到專案的 `packages` 資料夾。<br/><ul><li>Windows：`%userprofile%\.nuget\packages`</li><li>Mac/Linux：`~/.nuget/packages`</li><li>使用 NUGET_PACKAGES 環境變數、`globalPackagesFolder` 或 `repositoryPath` [組態設定](../reference/nuget-config-file.md#config-section) (當分別使用 PackageReference 和 `packages.config` 時)，或 `RestorePackagesPath` MSBuild 屬性 (僅限 MSBuild) 來覆寫。 環境變數的優先性高於組態設定。</li></ul> |
 | http&#8209;cache | Visual Studio 套件管理員 (NuGet 3.x+) 和 `dotnet` 工具會將下載的套件複本存放在此快取中 (另存為 `.dat` 檔案)，並組織到每個套件來源的子資料夾。 套件不會展開，而且快取的到期時間為 30 分鐘。<br/><ul><li>Windows：`%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux：`~/.local/share/NuGet/v3-cache`</li><li>使用 NUGET_HTTP_CACHE_PATH 環境變數來覆寫。</li></ul> |
 | temp | NuGet 在其各種作業期間存放暫存檔的資料夾。<br/><li>Windows：`%temp%\NuGetScratch`</li><li>Mac/Linux：`/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | NuGet 在此資料夾中儲存來自作業宣告要求的結果。<br/><ul><li>Windows：`%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux：`~/.local/share/NuGet/plugins-cache`</li><li>使用 NUGET_PLUGINS_CACHE_PATH 環境變數來覆寫。</li></ul> |
@@ -34,7 +34,7 @@ NuGet 需要擷取套件時，首先會尋找 *global-packages* 資料夾。 如
 
 ## <a name="viewing-folder-locations"></a>檢視資料夾位置
 
-您可以使用 [nuget locals 命令](../tools/cli-ref-locals.md)來檢視位置：
+您可以使用 [nuget locals 命令](../reference/cli-reference/cli-ref-locals.md)來檢視位置：
 
 ```cli
 # Display locals for all folders: global-packages, http cache, temp and plugins cache

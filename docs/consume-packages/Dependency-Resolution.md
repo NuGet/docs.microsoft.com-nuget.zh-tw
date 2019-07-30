@@ -5,28 +5,29 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 178af1975fc4e6fcde8988d773812820f1f1bb84
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247642"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433351"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet 如何解析套件相依性
 
 只要安裝或重新安裝套件 (包含安裝為[還原](../consume-packages/package-restore.md)程序一部分的套件)，NuGet 也會安裝與這個第一個套件相依的任何其他套件。
 
-這些立即相依性接著會有其自己的相依性，而這會繼續到任意深度。 這會產生所謂的「相依性圖形」，以描述所有層級上套件之間的關聯性。
+這些立即相依性接著會有其自己的相依性，而這會繼續到任意深度。 這會產生所謂的「相依性圖形」  ，以描述所有層級上套件之間的關聯性。
 
 多個套件具有相同的相依性時，同一個套件識別碼可能會多次出現在圖形中，但可能具有不同版本的條件約束。 不過，專案中只能使用一個指定套件的版本，因此 NuGet 必須選擇要使用的版本。 確切的處理序取決於所使用的套件管理格式。
 
 ## <a name="dependency-resolution-with-packagereference"></a>使用 PackageReference 的相依性解析
 
-使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用萬用字元 (浮動) 版本 (例如 2.8.\*)，避免用戶端電腦和組建伺服器上對 `nuget update` 的昂貴且容易出錯的呼叫。
+使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」  。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用萬用字元 (浮動) 版本 (例如 2.8.\*)，避免用戶端電腦和組建伺服器上對 `nuget update` 的昂貴且容易出錯的呼叫。
 
-若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 資產檔案位於 `MSBuildProjectExtensionsPath`，其預設為專案的 'obj' 資料夾。 MSBuild 接著會讀取這個檔案，並將它轉譯成一組可找到可能參考的資料夾，然後將它們新增至記憶體中的專案樹狀結構。
+若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 如果[已啟用鎖定檔案功能](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies)，它也會將已解析的相依性寫入名為 `packages.lock.json` 的鎖定檔案。
+資產檔案位於 `MSBuildProjectExtensionsPath`，其預設為專案的 'obj' 資料夾。 MSBuild 接著會讀取這個檔案，並將它轉譯成一組可找到可能參考的資料夾，然後將它們新增至記憶體中的專案樹狀結構。
 
-鎖定檔案是暫時的，不應該新增至原始檔控制。 它預設會列在 `.gitignore` 和 `.tfignore` 中。 請參閱[套件和原始檔控制](packages-and-source-control.md)。
+`project.assets.json` 檔案是暫時的，不應該新增至原始程式碼控制。 它預設會列在 `.gitignore` 和 `.tfignore` 中。 請參閱[套件和原始檔控制](packages-and-source-control.md)。
 
 ### <a name="dependency-resolution-rules"></a>相依性解析規則
 
@@ -133,7 +134,7 @@ ms.locfileid: "56247642"
 
 在套件還原作業期間，您可能會看到「一或多個套件不相容...」錯誤，或套件與專案目標架構「不相容」。
 
-專案中參考的一或多個套件未指出它們支援專案的目標架構時，會發生此錯誤；也就是說，套件在其 `lib` 資料夾中未包含與專案相容之目標架構的適合 DLL  (如需清單，請參閱[目標架構](../reference/target-frameworks.md))。 
+專案中參考的一或多個套件未指出它們支援專案的目標架構時，會發生此錯誤；也就是說，套件在其 `lib` 資料夾中未包含與專案相容之目標架構的適合 DLL (如需清單，請參閱[目標架構](../reference/target-frameworks.md))。 
 
 例如，如果專案的目標設為 `netstandard1.6`，而且您嘗試安裝只包含 `lib\net20` 和 `\lib\net45` 資料夾中 DLL 的套件，則會看到套件和其相依項的下列這類訊息：
 

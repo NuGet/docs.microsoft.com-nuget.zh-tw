@@ -1,16 +1,16 @@
 ---
-title: 透過 dotnet CLI 使用 NuGet 套件的入門指南
+title: 利用 dotnet CLI 安裝並使用 NuGet 套件
 description: 在 .NET Core 專案中安裝與使用 NuGet 套件程序的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67841661"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342467"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>快速入門：利用 dotnet CLI 安裝並使用套件
 
@@ -101,9 +101,15 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
     }
     ```
 
-## <a name="related-articles"></a>相關文章
+## <a name="next-steps"></a>後續步驟
 
-- [使用 dotnet CLI 安裝和使用套件](../consume-packages/install-use-packages-dotnet-cli.md)
+恭喜，您安裝並使用了您的第一個 NuGet 套件！
+
+> [!div class="nextstepaction"]
+> [使用 dotnet CLI 安裝和使用套件](../consume-packages/install-use-packages-dotnet-cli.md)
+
+若要深入探索 NuGet 所提供的功能，請選取下列連結。
+
 - [套件耗用量的概觀及工作流程](../consume-packages/overview-and-workflow.md)
 - [尋找及選擇套件](../consume-packages/finding-and-choosing-packages.md)
-- [常用的 NuGet 設定](../consume-packages/configuring-nuget-behavior.md)
+- [專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)

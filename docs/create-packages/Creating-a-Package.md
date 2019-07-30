@@ -1,24 +1,24 @@
 ---
-title: 如何建立 NuGet 套件
-description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
+title: 使用 nuget.exe CLI 建立 NuGet 套件
+description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類關鍵決策點。
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842298"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419824"
 ---
-# <a name="create-nuget-packages"></a>建立 NuGet 套件
+# <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
 不論套件的功能或所含程式碼為何，您都可以使用其中一個 CLI 工具 (`nuget.exe` 或 `dotnet.exe`) 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。 若要安裝 NuGet CLI 工具，請參閱[安裝 NuGet 用戶端工具](../install-nuget-client-tools.md)。 請注意，Visual Studio 不會自動包含 CLI 工具。
 
-- 針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。 如需詳細步驟，請參閱[使用 dotnet CLI 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)、[使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)或[NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md) \(部分機器翻譯\)。
+- 針對非 SDK 樣式的專案 (通常是 .NET Framework 專案)，請依照此文章中所述的步驟建立套件。 如需使用 Visual Studio 與 `nuget.exe` CLI 的逐步指示，請參閱[建立及發佈 .NET Framework 套件](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)。
 
-- 針對非 SDK 樣式的專案 (通常是 .NET Framework 專案)，請依照此文章中所述的步驟建立套件。 您也可以依照[建立及發行 .NET Framework 套件](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)中的步驟使用 `nuget.exe` CLI 與 Visual Studio 來建立套件。
+- 針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，請參閱[使用 dotnet CLI 建立 NuGet 套件](creating-a-package-dotnet-cli.md)。
 
 - 針對從 `packages.config` 移轉至 [PackageReference](../consume-packages/package-references-in-project-files.md) 的專案，請使用 [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
 
@@ -65,7 +65,7 @@ ms.locfileid: "67842298"
 
 - 版本資訊
 - 著作權資訊
-- [Visual Studio 中的套件管理員 UI](../tools/package-manager-ui.md) 的簡短描述
+- [Visual Studio 中的套件管理員 UI](../consume-packages/install-use-packages-visual-studio.md) 的簡短描述
 - 地區設定識別碼
 - 專案 URL
 - 運算式或檔案形式的授權 (`licenseUrl` 即將淘汰，請使用 [`license` nuspec 中繼資料元素](../reference/nuspec.md#license))
@@ -369,7 +369,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 ### <a name="additional-options"></a>其他選項
 
-您可以搭配使用各種命令列參數與 `nuget pack` 來排除檔案、覆寫資訊清單中的版本號碼、變更輸出資料夾，以及其他功能。 如需完整清單，請參閱 [pack 命令參考](../tools/cli-ref-pack.md)。
+您可以搭配使用各種命令列參數與 `nuget pack` 來排除檔案、覆寫資訊清單中的版本號碼、變更輸出資料夾，以及其他功能。 如需完整清單，請參閱 [pack 命令參考](../reference/cli-reference/cli-ref-pack.md)。
 
 下列選項是 Visual Studio 專案通用的幾個選項：
 
@@ -404,7 +404,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 自動化測試的基本程序如下：
 
 1. 將 `.nupkg` 檔案複製至本機資料夾。
-1. 使用 `nuget sources add -name <name> -source <path>` 命令，將資料夾新增至套件來源 (請參閱 [nuget sources](../tools/cli-ref-sources.md))。 請注意，您只需要在任何指定電腦上設定此本機來源一次。
+1. 使用 `nuget sources add -name <name> -source <path>` 命令，將資料夾新增至套件來源 (請參閱 [nuget sources](../reference/cli-reference/cli-ref-sources.md))。 請注意，您只需要在任何指定電腦上設定此本機來源一次。
 1. 使用 `nuget install <packageID> -source <name>` 以從該來源安裝套件，其中 `<name>` 符合您指定至 `nuget sources` 的來源名稱。 指定來源可確保單獨從該來源安裝套件。
 1. 檢查您的檔案系統，確認已正確安裝檔案。
 
