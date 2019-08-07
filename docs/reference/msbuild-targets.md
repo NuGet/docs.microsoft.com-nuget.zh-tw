@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e662194fffc031d0cfc0aa129a5a15b555a4231
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420019"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817529"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -18,7 +18,7 @@ ms.locfileid: "68420019"
 
 使用[PackageReference](../consume-packages/package-references-in-project-files.md)格式時, NuGet 4.0 + 可以直接在專案檔中儲存所有資訊清單中繼資料, 而不`.nuspec`是使用個別的檔案。
 
-使用 MSBuild 15.1+，NuGet 也是含 `pack` 和 `restore` 目標的第一級 MSBuild 公民，如下所述。 這些目標可讓您使用 NuGet，就像使用任何其他 MSBuild 工作或目標一樣。 (在 NuGet 3.x 和更早版本中，您可以改成透過 NuGet CLI 來使用 [pack](../reference/cli-reference/cli-ref-pack.md) 和 [restore](../reference/cli-reference/cli-ref-restore.md) 命令)。
+使用 MSBuild 15.1+，NuGet 也是含 `pack` 和 `restore` 目標的第一級 MSBuild 公民，如下所述。 這些目標可讓您使用 NuGet，就像使用任何其他 MSBuild 工作或目標一樣。 如需使用 MSBuild 建立 NuGet 套件的指示, 請參閱[使用 Msbuild 建立 nuget 套件](../create-packages/creating-a-package-msbuild.md)。 (在 NuGet 3.x 和更早版本中，您可以改成透過 NuGet CLI 來使用 [pack](../reference/cli-reference/cli-ref-pack.md) 和 [restore](../reference/cli-reference/cli-ref-restore.md) 命令)。
 
 ## <a name="target-build-order"></a>目標組建順序
 
@@ -52,7 +52,7 @@ ms.locfileid: "68420019"
 | 作者 | 作者 | 目前使用者的使用者名稱 | |
 | Owners | N/A | NuSpec 中沒有 | |
 | 標題 | 標題 | PackageId| |
-| 描述 | 說明 | "Package Description" | |
+| 說明 | 描述 | "Package Description" | |
 | Copyright | Copyright | 空白 | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | 執照 | PackageLicenseExpression | 空白 | 對應至`<license type="expression">` |
@@ -329,7 +329,7 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 1. 下載套件
 1. 撰寫資產檔案、目標和屬性
 
-目標僅適用于使用 PackageReference 格式的專案。  `restore` 其不適用於使用格式的`packages.config`專案; 請改用[nuget 還原](../reference/cli-reference/cli-ref-restore.md)。
+目標僅適用于使用 PackageReference 格式的專案。 `restore` 其不適用於使用格式的`packages.config`專案; 請改用[nuget 還原](../reference/cli-reference/cli-ref-restore.md)。
 
 ### <a name="restore-properties"></a>還原屬性
 
@@ -372,7 +372,7 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 
 還原會在組建 `obj` 資料夾中建立下列檔案：
 
-| 檔案 | 說明 |
+| 檔案 | 描述 |
 |--------|--------|
 | `project.assets.json` | 包含所有封裝參考的相依性圖形。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | 套件中所含 MSBuild 屬性的參考 |
