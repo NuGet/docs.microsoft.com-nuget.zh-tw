@@ -39,7 +39,6 @@
 ## [建立符號套件](create-packages/symbol-packages-snupkg.md)
 ## 進階工作
 ### [支援多個目標架構](create-packages/supporting-multiple-target-frameworks.md)
-### [指定 MSBuild 套件和還原目標](reference/msbuild-targets.md)
 ### [修改原始程式碼和組態檔](create-packages/source-and-config-file-transformations.md)
 ### [選取專案所參考的組件](create-packages/select-assemblies-referenced-by-projects.md)
 ### [設定套件類型](create-packages/set-package-type.md)
@@ -71,6 +70,7 @@
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config 檔案](reference/nuget-config-file.md)
 ## [目標架構](reference/target-frameworks.md)
+## [封裝及還原為 MSBuild 目標](reference/msbuild-targets.md)
 ## [dotnet CLI](reference/dotnet-Commands.md)
 ## [nuget.exe CLI 參考](reference/nuget-exe-cli-reference.md)
 ### [add](reference/cli-reference/cli-ref-add.md)
