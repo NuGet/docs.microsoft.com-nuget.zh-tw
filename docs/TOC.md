@@ -18,7 +18,7 @@
 ### [套件管理員主控台 (PowerShell)](consume-packages/install-use-packages-powershell.md)
 ## 設定 NuGet
 ### 套件還原選項
-#### [還原選項](consume-packages/package-restore.md)
+#### [還原套件](consume-packages/package-restore.md)
 #### [疑難排解](consume-packages/package-restore-troubleshooting.md)
 ### [重新安裝及更新套件](consume-packages/reinstalling-and-updating-packages.md)
 ### [管理全域套件與快取資料夾](consume-packages/managing-the-global-packages-and-cache-folders.md)
