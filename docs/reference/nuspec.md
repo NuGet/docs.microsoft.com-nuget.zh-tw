@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433364"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912576"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -293,7 +293,8 @@ nuget pack MyProject.csproj
 </dependencies>
 ```
 
-注意:使用`.nuspec` `.nuspec`從專案建立時, 存在於該專案中的相依性會自動包含在產生的檔案中。 `nuget spec`
+> [!Important]
+> 使用`.nuspec` `.nuspec`從專案建立時, 存在於該專案中的相依性不會自動包含在產生的檔案中。 `nuget spec` 相反地, `nuget pack myproject.csproj`請使用, 並從產生的*nupkg*檔案中取得*nuspec*檔案。 *Nuspec*包含相依性。
 
 ### <a name="dependency-groups"></a>相依性群組
 
@@ -378,7 +379,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 `<frameworkAssemblies>` 項目包含零或多個 `<frameworkAssembly>` 項目，它們每一個都會指定下列屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **assemblyName** | (必要) 完整組件名稱。 |
 | **targetFramework** | (選擇性) 指定要套用這個參考的目標 Framework。 如果省略，則表示參考適用於所有 Framework。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。 |
