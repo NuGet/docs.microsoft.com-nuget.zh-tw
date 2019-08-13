@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: e8e806e0a893d62d9d3189396dc47250ae9c8cf3
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f16cc6f66bc12727a4ec8eb5da4ff44a9eeb1764
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420025"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833339"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 簡介
 
@@ -45,8 +45,8 @@ NuGet 的角色是公用主機，因此本身會在 [nuget.org](https://www.nuge
 
 | 工具 | 平台 | 適用的案例 | 說明 |
 | --- | --- | --- | --- |
-| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | 全部 | 建立、使用 | 適用於 .NET Core 與 .NET Standard 程式庫，以及以 .NET Framework 為目標之 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 在 .NET Core 工具鏈內，直接提供特定 NuGet CLI 功能。 就像 `nuget.exe` CLI，dotnet CLI 不會與 Visual Studio 專案互動。 |
-| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | 全部 | 建立、使用 | 適用於 .NET Framework 程式庫與以 .NET Standard 程式庫為目標之非 SDK 樣式專案的 CLI 工具。 提供所有 NuGet 功能，而且有些命令專門套用至套件建立者、有些命令只套用至取用者，其他命令則套用至兩者。 例如，套件建立者使用 `nuget pack` 命令以從各種組件和相關檔案建立套件、套件取用者使用 `nuget install` 以將套件納入專案資料夾，而每個人都使用 `nuget config` 來設定 NuGet 組態變數。 作為無從驗證平台的工具，NuGet CLI 不會與 Visual Studio 專案互動。 |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | All | 建立、使用 | 適用於 .NET Core 與 .NET Standard 程式庫，以及以 .NET Framework 為目標之 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 在 .NET Core 工具鏈內，直接提供特定 NuGet CLI 功能。 就像 `nuget.exe` CLI，dotnet CLI 不會與 Visual Studio 專案互動。 |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | All | 建立、使用 | 適用於 .NET Framework 程式庫與以 .NET Standard 程式庫為目標之非 SDK 樣式專案的 CLI 工具。 提供所有 NuGet 功能，而且有些命令專門套用至套件建立者、有些命令只套用至取用者，其他命令則套用至兩者。 例如，套件建立者使用 `nuget pack` 命令以從各種組件和相關檔案建立套件、套件取用者使用 `nuget install` 以將套件納入專案資料夾，而每個人都使用 `nuget config` 來設定 NuGet 組態變數。 作為無從驗證平台的工具，NuGet CLI 不會與 Visual Studio 專案互動。 |
 | [套件管理員主控台](consume-packages/install-use-packages-powershell.md) | Windows 上的 Visual Studio | 使用 | 提供 [PowerShell 命令](reference/Powershell-Reference.md)，以在 Visual Studio 專案中安裝和管理套件。 |
 | [套件管理員 UI](consume-packages/install-use-packages-visual-studio.md) | Windows 上的 Visual Studio | 使用 | 提供易於使用的 UI，以在 Visual Studio 專案中安裝和管理套件。 |
 | [管理 NuGet UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 使用 | 提供易於使用的 UI，以在 Visual Studio for Mac 專案中安裝和管理套件。 |
@@ -105,7 +105,7 @@ NuGet 會改為維護專案相依之套件的簡單參考清單，包括最上�
 
 在個別專案中，NuGet 會管理整體相依性關係圖，同樣包含將多個參考解析為相同套件的不同版本。 專案經常需要採用與一或多個本身具有相同相依性之套件的相依性。 許多其他套件都會採用 nuget.org 上的一些最實用公用程式套件。 在整個相依性關係圖中，您接著就能輕鬆地擁有相同套件之不同版本的十個不同參考。 為了避免將該套件的多個版本帶入應用程式本身，NuGet 會找出所有取用者都可使用的單一版本 (如需詳細資訊，請參閱[相依性解析](consume-packages/dependency-resolution.md))。
 
-此外，NuGet 會維護所有與套件建構方式相關的規格 (包含[當地語系化](create-packages/creating-localized-packages.md)和[偵錯符號](create-packages/symbol-packages.md)) 和其參考方式 (包含[版本範圍](reference/package-versioning.md#version-ranges-and-wildcards)和[發行前版本](create-packages/prerelease-packages.md))。NuGet 提供各種 API 供其他應用程式以程式設計方式使用其服務，並為撰寫 Visual Studio 擴充功能和專案範本的開發人員提供支援。
+此外，NuGet 會維護所有與套件建構方式相關的規格 (包含[當地語系化](create-packages/creating-localized-packages.md)和[偵錯符號](create-packages/symbol-packages.md)) 及其[參考](consume-packages/package-references-in-project-files.md)方式 (包含[版本範圍](reference/package-versioning.md#version-ranges-and-wildcards)和[發行前版本](create-packages/prerelease-packages.md))。NuGet 提供各種 API 供其他應用程式以程式設計方式使用其服務，並為撰寫 Visual Studio 擴充功能和專案範本的開發人員提供支援。
 
 請花一點時間瀏覽此文件的目錄，您會在那裡看到所有呈現的功能，以及回溯到 NuGet 開始的版本資訊。
 

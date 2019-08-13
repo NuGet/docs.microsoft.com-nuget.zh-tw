@@ -1,24 +1,24 @@
 ---
 title: 使用 dotnet CLI 建立 NuGet 套件
-description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類關鍵決策點。
+description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: da5dbc8b1659cef66e8439b9a3c3bb2c9205cbe6
-ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
+ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68462462"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833297"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
 
 不論套件的功能或所含程式碼為何，您都可以使用其中一個 CLI 工具 (`nuget.exe` 或 `dotnet.exe`) 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。 此文章說明如何使用 dotnet CLI 建立套件。 若要安裝 `dotnet` CLI，請參閱[安裝 NuGet 用戶端工具](../install-nuget-client-tools.md)。 從 Visual Studio 2017 開始，dotnet CLI 隨附於 .NET Core工作負載中。
 
-針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。 如需逐步教學課程，請參閱[使用 dotnet CLI 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)、[使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
+針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。 如需逐步執行教學課程，請參閱[使用 dotnet CLI 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)或[使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
-`msbuild -t:pack` 在功能上相當於 `dotnet pack`。 若要使用 MSBuild 進行建置，概念與此文章中所述相同，但是命令列命令會稍有不同。 同樣地，對於非 SDK 樣式的專案與 `<PackageReference>`，您可以使用 `msbuild /t:pack`。 在這些情節中，您需要將 NuGet.Build.Tasks.Pack 套件新增至其相依性。 請參閱 [NuGet 套件和還原為 MSBuild 目標](../reference/msbuild-targets.md)。
+`msbuild -t:pack` 在功能上相當於 `dotnet pack`。 若要使用 MSBuild 進行建置，請參閱[使用 MSBuild 建立 NuGet 套件](creating-a-package-msbuild.md)。
 
 > [!IMPORTANT]
 > 此主題適用於 [SDK 樣式](../resources/check-project-format.md)的專案，這通常是 .NET Core 與 .NET Standard 專案。
@@ -35,46 +35,42 @@ ms.locfileid: "68462462"
 
 在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]  ，然後選取 [套件]  索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
 
-    ```xml
-    <PropertyGroup>
-      ...
-      <PackageId>AppLogger</PackageId>
-      <Version>1.0.0</Version>
-      <Authors>your_name</Authors>
-      <Company>your_company</Company>
-    </PropertyGroup>
-    ```
+```xml
+<PropertyGroup>
+  <PackageId>AppLogger</PackageId>
+  <Version>1.0.0</Version>
+  <Authors>your_name</Authors>
+  <Company>your_company</Company>
+</PropertyGroup>
+```
 
 > [!Important]
 > 為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何套件資源上都必須是唯一的。
+
+下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性 (您可以使用 `dotnet new classlib` 命令來建立新的預設專案)。
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>AppLogger</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>your_name</Authors>
+    <Company>your_company</Company>
+  </PropertyGroup>
+</Project>
+```
 
 您還可以設定選擇性屬性，例如`Title`、`PackageDescription` 與 `PackageTags`，如 [MSBuild 套件目標](../reference/msbuild-targets.md#pack-target)、[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)，以及 [NuGet 中繼資料屬性](/dotnet/core/tools/csproj#nuget-metadata-properties)中所述。
 
 > [!NOTE]
 > 針對公眾取用而建置的套件，請特別注意 **PackageTags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。
 
-如需宣告相依性以及指定版本號碼的詳細資料，請參閱[套件版本控制](../reference/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
+如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../reference/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>選擇唯一的套件識別碼並設定版本號碼
 
-套件識別碼與版本號碼是專案中的兩個最重要值，因為它們可以唯一識別套件中所含的確切程式碼。
-
-**套件識別碼的最佳做法：**
-
-- **唯一性**：在 nuget.org 內，或只要資源庫裝載套件時，識別碼就必須是唯一的。 決定識別碼之前，請搜尋適用的資源庫，檢查是否已在使用名稱。 若要避免衝突，不錯的模式是使用您的公司名稱作為識別碼的第一個部分，例如 `Contoso.`。
-- **命名空間類似名稱**：遵循與 .NET 中命名空間類似的模式，即使用點標記法，而非連字號。 例如，使用 `Contoso.Utility.UsefulStuff`，而非 `Contoso-Utility-UsefulStuff` 或 `Contoso_Utility_UsefulStuff`。 套件識別碼符合程式碼中所使用的命名空間時，取用者也會發現它十分有用。
-- **範例套件**：如果您產生的範例程式碼套件示範如何使用另一個套件，請將 `.Sample` 附加為識別碼的尾碼，如 `Contoso.Utility.UsefulStuff.Sample` 所示 (範例套件當然會有與另一個套件的相依性)。建立範例套件時，請使用 `<IncludeAssets>` 中的 `contentFiles` 值。 在 `content` 資料夾中，於稱為 `\Samples\<identifier>` 的資料夾中排列範例程式碼，而這與 `\Samples\Contoso.Utility.UsefulStuff.Sample` 中相同。
-
-**套件版本的最佳做法：**
-
-- 一般而言，請設定套件版本，使其符合專案 (或組件)，但這不是絕對必要。 當您將套件限制為單一組件時，這很簡單。 整體來說，請記住，解析相依性時，NuGet 本身會處理套件版本，而非組件版本。
-- 使用非標準版本方式時，請務必考慮使用 NuGet 版本控制規則，如[套件版本控制](../reference/package-versioning.md)中所述。 NuGet 大多[符合 semver 2 規範](../reference/package-versioning.md#semantic-versioning-200)。
-
-> 如需相依性解析的相關資訊，請參閱[使用 PackageReference 的相依性解析](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)。 如需更深入了解版本控制的較舊資訊，請參閱這一系列的部落格文章。
->
-> - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html) \(英文\)
-> - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html) \(英文\)
-> - [第 3 部分：透過繫結重新導向的統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html) \(英文\)
+[!INCLUDE [choose-package-id](includes/choose-package-id.md)]
 
 ## <a name="run-the-pack-command"></a>執行 pack 命令
 
@@ -85,7 +81,7 @@ ms.locfileid: "68462462"
 dotnet pack
 ```
 
-輸出將顯示 `.nupkg` 檔案的路徑：
+輸出將顯示 `.nupkg` 檔案的路徑。
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -104,7 +100,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-當您在方案上執行 `dotnet pack` 時，這會封裝方案中可封裝的所有專案 ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性設定為 `true`)。
+當您在解決方案上執行 `dotnet pack` 時，這會封裝解決方案中可封裝的所有專案 ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性會設定為 `true`)。
 
 > [!NOTE]
 > 當您自動產生套件時，封裝的時間會增加專案的建置時間。

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f663b1b2176a5f0ae5bc6d82873193638e0efdaa
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419993"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833379"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發行套件 (dotnet CLI)
 
@@ -26,9 +26,15 @@ ms.locfileid: "68419993"
 
 您可以針對要封裝的程式碼使用現有的 .NET 類別庫專案，或建立一個簡單的專案，如下所示：
 
-1. 建立名為 `AppLogger` 的資料夾並變更成它。
+1. 建立一個名為 `AppLogger` 的資料夾。
 
-1. 使用 `dotnet new classlib` 建立專案，它會針對專案使用目前資料夾的名稱。
+1. 開啟命令提示字元並切換至 `AppLogger` 資料夾。
+
+1. 輸入 `dotnet new classlib`，它會針對專案使用目前資料夾的名稱。
+
+   這會建立新的專案。
+
+1. 使用 `dotnet run` 來測試應用程式已正確建立。
 
 ## <a name="add-package-metadata-to-the-project-file"></a>將套件中繼資料新增至專案檔
 

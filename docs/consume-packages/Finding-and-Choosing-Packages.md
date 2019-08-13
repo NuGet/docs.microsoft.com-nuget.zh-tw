@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317032"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817582"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -82,6 +82,10 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
     ![下載套件清單頁面上的統計資料](media/Finding-03-Downloads.png)
 
+- Github 使用方式  ：在套件頁面上，[GitHub 使用方式]  區段會列出前幾個相依於此套件的 GitHub 存放庫。 許多常用 GitHub 存放庫相依的套件通常是較佳的選擇。
+
+    ![GitHub 使用方式](media/GitHub-Usage.png)
+
 - *版本歷程記錄*：在套件頁面上，查看 [資訊]  下的最新更新日期，並檢查 [版本歷程記錄]  。 維護良好的套件具有新的更新和豐富的版本歷程記錄。 忽略的套件有幾個更新，而且有時通常尚未更新。
 
     ![套件清單頁面上的版本歷程記錄](media/Finding-04-VersionHistory.png)
@@ -115,6 +119,7 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 1. 它應該有如 `<license type="file">license\license.txt</license>` 的標記。 這意指授權檔案的名稱是 `license.txt` 且它位於稱為 `license` 的資料夾 (也位於資料夾的根目錄) 內。
 1. 瀏覽到 `license` 資料夾並開啟 `license.txt` 檔案。
 
+如果 MSBuild 相當於在 `.nuspec` 中設定授權，請參閱[封裝授權運算式或授權檔案](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)。
 
 ## <a name="search-syntax"></a>搜尋語法
 

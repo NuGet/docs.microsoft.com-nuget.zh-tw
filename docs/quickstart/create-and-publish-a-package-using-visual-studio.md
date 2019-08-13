@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
+ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419911"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68821431"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -99,17 +99,24 @@ namespace AppLogger
     ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
     ```
 
-### <a name="alternate-option-pack-with-msbuild"></a>替代選項：使用 MSBuild 封裝
+### <a name="optional-generate-package-on-build"></a>(選擇性) 建置時產生套件
+
+您可以設定 Visual Studio，在建置專案時自動產生 NuGet 套件。
+
+1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [屬性]  。
+
+2. 在 [套件]  索引標籤中，選取 [在建置時產生 NuGet 套件]  。
+
+   ![建置時自動產生套件](media/qs_create-vs-05-generate-on-build.png)
+
+> [!NOTE]
+> 當您自動產生套件時，封裝的時間會增加專案的建置時間。
+
+### <a name="optional-pack-with-msbuild"></a>(選擇性) 使用 MSBuild 進行封裝
 
 當專案包含必要的套件資料時，NuGet 4.x+ 和 MSBuild 15.1+ 可支援 `pack` 目標，而這是使用 [封裝]  功能表命令的另一種替代方法。 請開啟命令提示字元，巡覽至專案資料夾並執行下列命令。 (若從 [開始] 功能表啟動 [適用於 Visual Studio 的開發人員命令提示字元]，其中就會設定好 MSBuild 的所有必要路徑，因此這是建議的做法。)
 
-```cli
-msbuild -t:pack -p:Configuration=Release
-```
-
-接著可在 `bin\Release` 資料夾中找到套件。
-
-如需 `msbuild -t:pack` 的其他選項，請參閱 [NuGet 套件和還原為 MSBuild 目標](../reference/msbuild-targets.md#pack-target)。
+如需詳細資訊，請參閱[使用 MSBuild 建立套件](../create-packages/creating-a-package-msbuild.md)。
 
 ## <a name="publish-the-package"></a>發行套件
 

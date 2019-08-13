@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 47593cc65ad707b8880d854dc43824b9234fd44a
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342467"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833309"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>快速入門：利用 dotnet CLI 安裝並使用套件
 
@@ -30,6 +30,8 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 您可以將 NuGet 套件安裝到某種類型的 .NET 專案。 針對這個逐步解說，建立簡單的 .NET Core 主控台專案，如下所示：
 
 1. 建立專案的資料夾。
+
+1. 開啟命令提示字元並切換至新的資料夾。
 
 1. 使用下列命令來建立專案：
 

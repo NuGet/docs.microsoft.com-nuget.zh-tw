@@ -1,16 +1,16 @@
 ---
 title: 使用 nuget.exe CLI 建立 NuGet 套件
-description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類關鍵決策點。
+description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f33624cf50248d8a137216ed0d725ed88c0defd2
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419824"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833370"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
@@ -138,7 +138,7 @@ ms.locfileid: "68419824"
 </package>
 ```
 
-如需宣告相依性以及指定版本號碼的詳細資料，請參閱[套件版本控制](../reference/package-versioning.md)。 在 `dependency` 項目上使用 `include` 和 `exclude` 屬性，也可以將相依性中的資產直接用於套件中。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
+如需宣告相依性及指定版本號碼的詳細資料，請參閱 [packages.config](../reference/packages-config.md) 和[套件版本控制](../reference/package-versioning.md)。 在 `dependency` 項目上使用 `include` 和 `exclude` 屬性，也可以將相依性中的資產直接用於套件中。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
 
 因為資訊清單會包含在透過它所建立的套件中，所以檢查現有套件就可以找到任意數目的其他範例。 不錯的來源是您電腦上的 *global-packages* 資料夾，即下列命令所傳回的位置：
 
