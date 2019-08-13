@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 076d7a480e2f07149e4ec7ac58c7ab37040e7a8f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327665"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959716"
 ---
 # <a name="mirror-command-nuget-cli"></a>mirror 命令 (NuGet CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "68327665"
 將封裝及其相依性從指定的來源存放庫鏡像到目標儲存機制。
 
 > [!NOTE]
-> 若要在3.2 之前的 NuGet 版本啟用此命令, [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)請移至, 選取最新的`NuGet.ServerExtensions.dll` 穩定`Nuget-Signed.exe` 版本, 將和下載到`Nuget-Signed.exe` 您`nuget.exe` 的本機磁片, 並將重新命名為。
+> 先前在 NuGet 2.x 中支援此命令的 ServerExtensions .dll 和 NuGet-Signed (藉由將 NuGet-Signed 重新命名為 nuget.exe) 已不再提供下載。 若要使用類似的命令, 請嘗試[NuGetMirror](https://www.nuget.org/packages/NuGetMirror/)。
 
 ## <a name="usage"></a>使用量
 
@@ -35,7 +35,7 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 
 ## <a name="options"></a>選項
 
-| 選項 | 描述 |
+| 選項 | 說明 |
 | --- | --- |
 | ApiKey | 目標存放庫的 API 金鑰。 如果不存在, 則會使用設定檔中指定的檔案 (`%AppData%\NuGet\NuGet.Config` (Windows) 或`~/.nuget/NuGet/NuGet.Config` (Mac/Linux))。 |
 | Help | 顯示命令的說明資訊。 |

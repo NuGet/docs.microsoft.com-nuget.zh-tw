@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327635"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959735"
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令 (NuGet CLI)
 
@@ -35,7 +35,7 @@ nuget restore <projectPath> [options]
 | ConfigFile | 要套用的 NuGet 設定檔。 如果未指定, `%AppData%\NuGet\NuGet.Config`則會使用 ( `~/.nuget/NuGet/NuGet.Config` Windows) 或 (Mac/Linux)。|
 | DirectDownload | *(4.0 +)* 直接下載封裝, 而不需以任何二進位檔或中繼資料填入快取。 |
 | DisableParallelProcessing | 停用平行還原多個封裝。 |
-| FallbackSource | *(3.2 +)* 在主要或預設來源中找不到封裝時, 用來做為回退的套件來源清單。 |
+| FallbackSource | *(3.2 +)* 在主要或預設來源中找不到封裝時, 用來做為回退的套件來源清單。 請使用分號來分隔清單專案。 |
 | ForceEnglishOutput | *(3.5 +)* 強制使用非變異的英文文化特性來執行 nuget.exe。 |
 | Help | 顯示命令的說明資訊。 |
 | MSBuildPath | *(4.0 +)* 指定要搭配命令使用之 MSBuild 的路徑, 其優先順序高於`-MSBuildVersion`。 |
@@ -49,8 +49,8 @@ nuget restore <projectPath> [options]
 | 式 | *(4.0 +)* 還原 UWP 和 .NET Core 專案的所有參考專案。 不適用於使用`packages.config`的專案。 |
 | RequireConsent | 確認在下載並安裝封裝之前, 已啟用還原封裝。 如需詳細資訊, 請參閱[套件還原](../../consume-packages/package-restore.md)。 |
 | SolutionDirectory | 指定解決方案資料夾。 還原方案的封裝時無效。 使用檔案進行還原時`packages.config` , 除非`PackagesDirectory`使用`OutputDirectory`或, 否則為必要。 |
-| Source | 指定要用於還原的套件來源清單 (如 Url)。 如果省略, 此命令會使用設定檔中提供的來源, 請參閱設定[NuGet 行為](../../consume-packages/configuring-nuget-behavior.md)。 |
-| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]  、[無訊息]、[*詳細*]。 |
+| Source | 指定要用於還原的套件來源清單 (如 Url)。 如果省略, 此命令會使用設定檔中提供的來源, 請參閱設定[NuGet 行為](../../consume-packages/configuring-nuget-behavior.md)。 請使用分號來分隔清單專案。 |
+| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]、[無訊息]、[*詳細*]。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 

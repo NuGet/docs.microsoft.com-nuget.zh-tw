@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327655"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959729"
 ---
 # <a name="pack-command-nuget-cli"></a>pack 命令 (NuGet CLI)
 
 **適用于:** 套件建立&bullet; **支援的版本:** 2.7+
 
-根據指定`.nuspec`的或專案檔, 建立 NuGet 套件。 命令 (請參閱[dotnet 命令](../dotnet-Commands.md)) 和`msbuild -t:pack` (請參閱[MSBuild 目標](../msbuild-targets.md)) 可用來做為替代。 `dotnet pack`
+根據指定的[nuspec](../nuspec.md)或專案檔, 建立 NuGet 套件。 命令 (請參閱[dotnet 命令](../dotnet-Commands.md)) 和`msbuild -t:pack` (請參閱[MSBuild 目標](../msbuild-targets.md)) 可用來做為替代。 `dotnet pack`
 
 > [!Important]
 > 在 Mono 底下, 不支援從專案檔建立封裝。 您也需要將檔案中的`.nuspec`非本機路徑調整為 Unix 樣式的路徑, 因為 nuget.exe 不會轉換 Windows 路徑類型本身。
@@ -33,7 +33,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 
 | 選項 | 描述 |
 | --- | --- |
-| BasePath | 設定檔案中`.nuspec`定義之檔案的基底路徑。 |
+| BasePath | 設定[nuspec](../nuspec.md)檔案中定義之檔案的基底路徑。 |
 | 組建 | 指定在建立封裝之前, 應該先建立專案。 |
 | 排除 | 指定建立封裝時要排除的一或多個萬用字元模式。 若要指定一個以上的模式, 請重複-Exclude 旗標。 請參閱下列範例。 |
 | ExcludeEmptyDirectories | 在建立封裝時, 防止包含空的目錄。 |
@@ -51,7 +51,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | 尾碼 | *(3.4.4 +)* 將尾碼附加至內部產生的版本號碼, 通常用於附加組建或其他預先發行識別碼。 例如, 使用`-suffix nightly`將會建立具有版本號碼 (例如`1.2.3-nightly`) 的套件。 尾碼必須以字母開頭, 以避免與不同版本 NuGet 和 NuGet 套件管理員的警告、錯誤和潛在的不相容。 |
 | 符號 | 指定封裝包含來源和符號。 搭配檔案使用`.nuspec`時, 這會建立一般的 NuGet 套件檔案和對應的符號套件。 根據預設, 它會建立[舊版符號套件](../../create-packages/Symbol-Packages.md)。 為符號套件新建議的格式為 .snupkg。 請參閱[建立符號套件 (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md)。 |
 | 工具 | 指定專案的輸出檔案應該放在`tool`資料夾中。 |
-| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]  、[無訊息]、[*詳細*]。 |
+| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]、[無訊息]、[*詳細*]。 |
 | 版本 | 覆寫檔案中`.nuspec`的版本號碼。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)

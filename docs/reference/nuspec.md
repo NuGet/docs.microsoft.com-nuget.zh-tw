@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
-ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
+ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912576"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959695"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -184,9 +184,6 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 </package>
 ```
 
-#### <a name="minclientversion"></a>minClientVersion
-指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。
-
 #### <a name="title"></a>標題
 可在某些 UI 中使用之套件的人易記標題。 (nuget.org 和 Visual Studio 中的套件管理員不會顯示標題)
 
@@ -204,6 +201,29 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 *(3.3+)* `<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。
 #### <a name="files"></a>個檔案 
 `<metadata>` `<contentFiles>` `<metadata>`節點可能會包含一個`<files>`節點做為的兄弟, 而一個子系在下, 用來指定要包含在封裝中的元件和內容檔案。 `<package>` 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
+
+### <a name="metadata-attributes"></a>中繼資料屬性
+
+#### <a name="minclientversion"></a>minClientVersion
+指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="100.0.0.1">
+        <id>dasdas</id>
+        <version>2.0.0</version>
+        <title />
+        <authors>dsadas</authors>
+        <owners />
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>My package description.</description>
+    </metadata>
+    <files>
+        <file src="content\one.txt" target="content\one.txt" />
+    </files>
+</package>
+```
 
 ## <a name="replacement-tokens"></a>取代權杖
 
@@ -258,10 +278,10 @@ nuget pack MyProject.csproj
 
 `<metadata>` 內的 `<dependencies>` 項目包含任意數目的 `<dependency>` 項目，可識別最上層套件依存的其他套件。 每個 `<dependency>` 的屬性如下：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | `id` | (必要) 相依性的套件識別碼，例如 "EntityFramework" 與 "NUnit"，是在套件頁面上顯示的套件 nuget.org 名稱。 |
-| `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../reference/package-versioning.md#version-ranges-and-wildcards)。 |
+| `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../reference/package-versioning.md#version-ranges-and-wildcards)。 不支援萬用字元 (浮動) 版本。 |
 | include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值為 `all`。 |
 | exclude | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值是`build,analyzers`可覆寫的。 但`content/ ContentFiles`也會在最終封裝中以隱含方式排除, 而無法覆寫。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
 
@@ -318,8 +338,8 @@ nuget pack MyProject.csproj
     </group>
 
     <group targetFramework="net40">
-        <dependency id="jQuery" />
-        <dependency id="WebActivator" />
+        <dependency id="jQuery" version="1.6.2" />
+        <dependency id="WebActivator" version="1.4.4" />
     </group>
 
     <group targetFramework="sl30">
@@ -379,7 +399,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 `<frameworkAssemblies>` 項目包含零或多個 `<frameworkAssembly>` 項目，它們每一個都會指定下列屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **assemblyName** | (必要) 完整組件名稱。 |
 | **targetFramework** | (選擇性) 指定要套用這個參考的目標 Framework。 如果省略，則表示參考適用於所有 Framework。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。 |
@@ -626,7 +646,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 | 屬性 | 描述 |
 | --- | --- |
-| **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
+| **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 除非指定絕對路徑, 否則`contentFiles`路徑會相對於資料夾。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **buildAction** | 要指派給 MSBuild 內容項目的建置動作，例如 `Content`、`None`、`Embedded Resource`、`Compile` 等等。預設為 `Compile`。 |
 | **copyToOutput** | 布林值, 指出是否要將內容專案複製到組建 (或發行) 輸出檔案夾。 預設為 false。 |

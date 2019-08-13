@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817529"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959685"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -35,6 +35,9 @@ ms.locfileid: "68817529"
 
 同樣地，您可以撰寫 MSBuild 工作、撰寫您自己的目標，以及在 MSBuild 工作中使用 NuGet 屬性。
 
+> [!NOTE]
+> `$(OutputPath)`是相對的, 而且預期您是從專案根目錄執行命令。
+
 ## <a name="pack-target"></a>封裝目標
 
 對於使用 PackageReference 格式的 .NET Standard 專案, 使用`msbuild -t:pack`會從專案檔繪製輸入, 以用來建立 NuGet 套件。
@@ -52,7 +55,7 @@ ms.locfileid: "68817529"
 | 作者 | 作者 | 目前使用者的使用者名稱 | |
 | Owners | N/A | NuSpec 中沒有 | |
 | 標題 | 標題 | PackageId| |
-| 說明 | 描述 | "Package Description" | |
+| 描述 | 描述 | "Package Description" | |
 | Copyright | Copyright | 空白 | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | 執照 | PackageLicenseExpression | 空白 | 對應至`<license type="expression">` |
