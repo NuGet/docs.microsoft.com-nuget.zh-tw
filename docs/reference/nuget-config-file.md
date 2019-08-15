@@ -3,36 +3,20 @@ title: nuget.exe 檔案參考
 description: NuGet.Config 檔案參考，包括 config、bindingRedirects、packageRestore、solution 和 packageSource 區段。
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317212"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020045"
 ---
 # <a name="nugetconfig-reference"></a>nuget.exe 參考
 
 Nuget 行為是由不同`NuGet.Config`檔案中的設定所控制, 如[一般 NuGet](../consume-packages/configuring-nuget-behavior.md)設定中所述。
 
 `nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段都包含零個或多個專案。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
-
-本主題內容：
-
-- [config 區段](#config-section)
-- [bindingRedirects 區段](#bindingredirects-section)
-- [packageRestore 區段](#packagerestore-section)
-- [solution 區段](#solution-section)
-- [套件來源區段](#package-source-sections)：
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [trustedSigners 區段](#trustedsigners-section)
-- [使用環境變數](#using-environment-variables)
-- [設定檔範例](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -149,7 +133,7 @@ Nuget 行為是由不同`NuGet.Config`檔案中的設定所控制, 如[一般 Nu
 | Key | 值 |
 | --- | --- |
 | username | 純文字的來源使用者名稱。 |
-| password | 加密的來源密碼。 |
+| 密碼 | 加密的來源密碼。 |
 | cleartextpassword | 未加密的來源密碼。 |
 
 **範例：**
@@ -240,6 +224,7 @@ Nuget 行為是由不同`NuGet.Config`檔案中的設定所控制, 如[一般 Nu
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>trustedSigners 區段
 
 在安裝或還原時, 儲存用來允許套件的受信任簽署者。 當使用者將設定`signatureValidationMode`為`require`時, 此清單不可以是空的。 
@@ -268,6 +253,50 @@ Nuget 行為是由不同`NuGet.Config`檔案中的設定所控制, 如[一般 Nu
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders 區段
+
+*(3.5 +)* 提供方法來預先安裝封裝, 因此如果在回溯資料夾中找到封裝, 則不需要執行任何工作。 Fallback 封裝資料夾與全域封裝資料夾的資料夾和檔案結構完全相同: *。 nupkg*存在, 而且所有檔案都會解壓縮。
+
+此設定的查閱邏輯如下:
+
+- 查看全域封裝資料夾, 查看套件/版本是否已下載。
+
+- 查看 [fallback] 資料夾中是否有套件/版本相符。
+
+如果其中一項查閱成功, 則不需要下載。
+
+如果找不到相符項, 則 NuGet 會檢查檔案來源, 然後再進行 HTTP 來源, 然後下載封裝。
+
+| Key | 值 |
+| --- | --- |
+| (fallback 資料夾的名稱) | Fallback 資料夾的路徑。 |
+
+**範例**：
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>packageManagement 區段
+
+設定預設的封裝管理格式, 也就是 PackageReference。 SDK 樣式專案一律使用 PackageReference。
+
+| Key | 值 |
+| --- | --- |
+| 格式 | 布林值, 指出預設的封裝管理格式。 如果`1`為, 則格式為 PackageReference。 如果`0`為, 則格式為*封裝 .config*。 |
+| 停用 | 布林值, 指出是否要在第一次封裝安裝時顯示選取預設封裝格式的提示。 `False`隱藏提示。 |
+
+**範例**：
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>使用環境變數
