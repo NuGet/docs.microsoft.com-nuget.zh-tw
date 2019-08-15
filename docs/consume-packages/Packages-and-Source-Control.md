@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef4c45451cc52eb08dc627f8442c48e853d8ceaf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324730"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019985"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>在原始檔控制系統中省略 NuGet 套件
 
@@ -58,12 +58,12 @@ project.assets.json
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>使用 Team Foundation 版本設定略過套件
 
 > [!Note]
-> 如果可能，請先遵循下列指示再將專案新增至原始檔控制。 否則，請手動刪除存放庫的 `packages` 資料夾，並先簽入該變更再繼續。
+> 如果可能，請先遵循下列指示再  將專案新增至原始檔控制。 否則，請手動刪除存放庫的 `packages` 資料夾，並先簽入該變更再繼續。
 
 停用原始檔控制與所選檔案的 TFVC 整合：
 
 1. 在解決方案資料夾 (`.sln` 檔案所在的資料夾) 中建立名為 `.nuget` 的資料夾。
-    - 提示：在 Windows 中，在 Windows 檔案總管中建立這個資料夾，要使用名稱 `.nuget.`「加」結尾後置點。
+    - 提示：在 Windows 中，在 Windows 檔案總管中建立這個資料夾，要使用名稱 `.nuget.`「加」  結尾後置點。
 
 1. 在該資料夾中，建立名為 `NuGet.Config` 的檔案，再開啟進行編輯。
 
@@ -89,9 +89,6 @@ project.assets.json
    # Ignore the NuGet packages folder in the root of the repository. If needed, prefix 'packages'
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
-
-   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
-   !packages/*.targets
 
    # Omit temporary files
    project.lock.json
