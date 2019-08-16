@@ -27,7 +27,7 @@
 ### [常用的 NuGet 設定](consume-packages/configuring-nuget-behavior.md)
 ## 專案中的參考套件
 ### [專案檔中的套件參考](consume-packages/package-references-in-project-files.md)
-### [將 packages.config 移轉至 PackageReference](reference/migrate-packages-config-to-package-reference.md)
+### [將 packages.config 移轉至 PackageReference](consume-packages/migrate-packages-config-to-package-reference.md)
 ### [packages.config](reference/packages-config.md)
 # 建立套件
 ## [概觀和工作流程](create-packages/overview-and-workflow.md)
@@ -45,9 +45,9 @@
 ### [建立當地語系化的套件](create-packages/creating-localized-packages.md)
 ## 特定內容的指南
 ### [建立 UWP 套件](guides/create-uwp-packages.md)
-### [建立原生套件](create-packages/native-packages.md)
+### [建立原生套件](guides/native-packages.md)
 ### [將 UI 控制項建立為 NuGet 套件](guides/create-UI-controls.md)
-### [將分析器建立為 NuGet 套件](reference/analyzers-conventions.md)
+### [將分析器建立為 NuGet 套件](guides/analyzers-conventions.md)
 ### [使用 Visual Studio 2015 建立適用於 Xamarin 的套件](guides/create-packages-for-xamarin.md)
 ### [建立包含 COM Interop 組件的套件](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## 簽署套件
@@ -64,8 +64,8 @@
 ### [本機摘要](hosting-packages/local-feeds.md)
 # 概念
 ## [套件安裝流程](concepts/package-installation-process.md)
-## [套件版本控制](reference/package-versioning.md)
-## [相依性解析](consume-packages/dependency-resolution.md)
+## [套件版本控制](concepts/package-versioning.md)
+## [相依性解析](concepts/dependency-resolution.md)
 # 參考資料
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config 檔案](reference/nuget-config-file.md)
@@ -342,6 +342,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [常見問題集](faqs/nuget-faq.md)
+## [常見問題集](resources/nuget-faq.md)
 ## [專案格式](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)

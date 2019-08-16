@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317168"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488701"
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 版本資訊
 
@@ -60,7 +60,7 @@ NuGet 1.4 加入了在多個專案中同時安裝/卸載/更新套件的支援�
 根據預設, 在封裝上`Update-Package`執行命令 (或使用對話方塊更新封裝) 時, 它會更新為摘要中的最新版本。 有了更新所有封裝的新支援, 您可能會想要將封裝鎖定至特定版本範圍。 例如, 您可能事先知道, 您的應用程式只會使用版本 2. * 的套件, 而不是3.0 和更新版本。 為了避免不小心將套件更新為 3, NuGet 1.4 加入了限制封裝可升級的版本的支援, 方法是使用新`packages.config` `allowedVersions`的屬性手動編輯該檔案。
 
 例如, 下列範例示範如何鎖定`SomePackage`版本範圍 2.0-3.0 (獨佔) 的套件。
-屬性會接受使用[版本範圍格式](../reference/package-versioning.md#version-ranges-and-wildcards)的值。 `allowedVersions`
+屬性會接受使用[版本範圍格式](../concepts/package-versioning.md#version-ranges-and-wildcards)的值。 `allowedVersions`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

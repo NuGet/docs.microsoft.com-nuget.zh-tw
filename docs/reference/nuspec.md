@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959695"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488676"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -36,7 +36,7 @@ ms.locfileid: "68959695"
 
    如果您要`dotnet.exe pack`使用或`msbuild pack target`建立封裝, 建議您改為在專案檔中包含檔案中通常`.nuspec`是的[所有屬性](../reference/msbuild-targets.md#pack-target)。 不過, 您可以改為選擇[使用`.nuspec`檔案來`dotnet.exe`使用或`msbuild pack target`來](../reference/msbuild-targets.md#packing-using-a-nuspec)封裝。
 
-- 若為從`packages.config`遷移至 `.nuspec` [PackageReference](../consume-packages/package-references-in-project-files.md) 的專案, 則不需要檔案來建立封裝。 請改用[msbuild-t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
+- 若為從`packages.config`遷移至 `.nuspec` [PackageReference](../consume-packages/package-references-in-project-files.md) 的專案, 則不需要檔案來建立封裝。 請改用[msbuild-t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
 
 ## <a name="general-form-and-schema"></a>一般格式和結構描述
 
@@ -74,7 +74,7 @@ ms.locfileid: "68959695"
 #### <a name="id"></a>id 
 不區分大小寫的套件識別碼，在整個 nuget.org 或套件所在的任何組件庫中都必須是唯一的。 識別碼可能不包含對 URL 而言無效的空格或字元，而且通常會遵循 .NET 命名空間規則。 如需指導方針，請參閱[選擇唯一的套件識別碼](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)。
 #### <a name="version"></a>版本
-套件版本，遵循 *major.minor.patch* 模式。 版本號碼可以包含預先發行版本的後置詞，如[套件版本控制](../reference/package-versioning.md#pre-release-versions)中所述。 
+套件版本，遵循 *major.minor.patch* 模式。 版本號碼可以包含預先發行版本的後置詞，如[套件版本控制](../concepts/package-versioning.md#pre-release-versions)中所述。 
 #### <a name="description"></a>描述
 UI 顯示中的套件詳細描述。 
 #### <a name="authors"></a>authors
@@ -278,10 +278,10 @@ nuget pack MyProject.csproj
 
 `<metadata>` 內的 `<dependencies>` 項目包含任意數目的 `<dependency>` 項目，可識別最上層套件依存的其他套件。 每個 `<dependency>` 的屬性如下：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | `id` | (必要) 相依性的套件識別碼，例如 "EntityFramework" 與 "NUnit"，是在套件頁面上顯示的套件 nuget.org 名稱。 |
-| `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../reference/package-versioning.md#version-ranges-and-wildcards)。 不支援萬用字元 (浮動) 版本。 |
+| `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../concepts/package-versioning.md#version-ranges-and-wildcards)。 不支援萬用字元 (浮動) 版本。 |
 | include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值為 `all`。 |
 | exclude | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值是`build,analyzers`可覆寫的。 但`content/ ContentFiles`也會在最終封裝中以隱含方式排除, 而無法覆寫。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
 
@@ -399,7 +399,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 `<frameworkAssemblies>` 項目包含零或多個 `<frameworkAssembly>` 項目，它們每一個都會指定下列屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **assemblyName** | (必要) 完整組件名稱。 |
 | **targetFramework** | (選擇性) 指定要套用這個參考的目標 Framework。 如果省略，則表示參考適用於所有 Framework。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。 |
@@ -439,7 +439,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 每個 `<file>` 項目都會指定下列屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **src** | 要包含的檔案位置，會受到 `exclude` 屬性指定的排除項目約束。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **目標** | 套件內資料夾的相對路徑是放置原始程式檔的位置，其開頭必須是 `lib`、`content`、`build` 或 `tools`。 請參閱[從慣例的工作目錄建立 .nuspec](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)。 |
@@ -649,8 +649,8 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 | **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 除非指定絕對路徑, 否則`contentFiles`路徑會相對於資料夾。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **buildAction** | 要指派給 MSBuild 內容項目的建置動作，例如 `Content`、`None`、`Embedded Resource`、`Compile` 等等。預設為 `Compile`。 |
-| **copyToOutput** | 布林值, 指出是否要將內容專案複製到組建 (或發行) 輸出檔案夾。 預設為 false。 |
-| **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設為 false。 |
+| **copyToOutput** | 布林值, 指出是否要將內容專案複製到組建 (或發行) 輸出檔案夾。 預設值為 false。 |
+| **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設值為 false。 |
 
 安裝套件時，NuGet 會由上而下套用 `<contentFiles>` 的子項目。 如有多個項目符合同一檔案，則套用所有項目。 如果相同的屬性發生衝突，則最上層項目會覆寫較低的項目。
 
