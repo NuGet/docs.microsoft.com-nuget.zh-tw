@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: f33624cf50248d8a137216ed0d725ed88c0defd2
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833370"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020077"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
@@ -184,7 +184,9 @@ nuget locals -list global-packages
 | ref/{tfm} | 所指定目標 Framework Moniker (TFM) 的組件 (`.dll`) 與符號 (`.pdb`) 檔案 | 組件只會針對編譯階段新增為參考；因此不會有任何項目被複製到專案 bin 資料夾。 |
 | runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件只會針對執行階段新增為參考；其他檔案則會複製至專案資料夾。 `/ref/{tfm}` 資料夾下一律必須有對應的 (TFM) `AnyCPU` 特定組件，才能提供對應的編譯階段組件。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)。 |
 | content | 任意檔案 | 內容會複製至專案根目錄。 請將 **content** 資料夾視為最後使用套件的目標應用程式的根目錄。 若要讓套件在應用程式的 */images* 資料夾中新增映像，請將它放在套件的 *content/images* 資料夾中。 |
-| build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入專案檔或 `project.lock.json` (NuGet 3.x+) 中。 |
+| build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入到專案中 (NuGet 3.x+)。 |
+| buildMultiTargeting | 用於跨架構目標的 MSBuild `.targets` 與 `.props` 檔案 | 自動插入到專案中。 |
+| buildTransitive | *(5.0+)* 可傳遞至任何取用專案的 MSBuild `.targets` 與 `.props` 檔案。 請參閱[功能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)頁面 \(英文\)。 | 自動插入到專案中。 |
 | tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時 *「不」* 會新增至針對 MSBuild 所設定的 `PATH`)。 |
 
 因為您的資料夾結構可包含任意數目之目標架構的任意數目組件，所以建立可支援多重架構的套件時，需要使用此種方法。
@@ -218,7 +220,15 @@ nuget spec
 
 產生的 `<project-name>.nuspec` 檔案包含「權杖」  ，而權杖會在封裝時取代為專案中的值，包含已安裝之任何其他套件的參考。
 
-在專案屬性的兩側，使用 `$` 符號分隔權杖。 例如，透過此方式產生之資訊清單中的 `<id>` 值一般會顯示如下：
+如果您有要包含在 *.nuspec* 中的套件相依性，請改為使用 `nuget pack` 並從產生的 *.nupkg* 檔案內取得 *.nuspec* 檔案。 例如，使用下列命令。
+
+```cli
+# Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
+nuget pack myproject.csproj
+```
+```
+
+A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
 
 ```xml
 <id>$id$</id>
@@ -339,7 +349,7 @@ nuget spec [<package-name>]
 
 用於跨框架目標的 MSBuild `.props` 和 `.targets` 檔案可以放在 `\buildMultiTargeting` 資料夾中。 在套件安裝期間，NuGet 會將對應的 `<Import>` 元素新增到有條件的專案檔中，即未設定目標框架 (MSBuild 屬性 `$(TargetFramework)` 必須是空的)。
 
-使用 NuGet 3.x 時，目標不會新增至專案，但可透過 `project.lock.json` 提供。
+使用 NuGet 3.x 時，目標不會新增至專案，但會透過 `{projectName}.nuget.g.targets` 與 `{projectName}.nuget.g.props` 提供。
 
 ## <a name="run-nuget-pack-to-generate-the-nupkg-file"></a>執行 nuget pack 以產生 .nupkg 檔案
 

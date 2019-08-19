@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426701"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020016"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -105,7 +105,9 @@ ms.locfileid: "67426701"
 | compile | `lib` 資料夾的內容，以及專案是否能對該資料夾內的組件進行編譯的控制項 |
 | runtime | `lib` 與 `runtimes` 資料夾的內容，以及是否能將這些組件複製到組建輸出目錄的控制項 |
 | contentFiles | `contentfiles` 資料夾的內容 |
-| build | `build` 資料夾中的 props 和目標 |
+| build | `build` 資料夾中的 `.props` 與 `.targets` |
+| buildMultitargeting | `buildMultitargeting` 資料夾中用於跨架構目標的 `.props` 與 `.targets` |
+| buildTransitive | *(5.0+)* `buildTransitive` 資料夾中的 `.props` 與 `.targets`，用於可傳遞至任何取用專案的資產。 請參閱[功能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)頁面 \(英文\)。 |
 | analyzers | .NET 分析器 |
 | native | `native` 資料夾的內容 |
 | none | 以上皆不使用。 |

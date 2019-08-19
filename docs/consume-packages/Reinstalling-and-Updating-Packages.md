@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316968"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860533"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
 
 在[重新安裝套件的時機](#when-to-reinstall-a-package)下方所述的許多情況中，Visual Studio 專案內套件的參考可能損毀。 在這些情況下，解除安裝後重新安裝相同版本的套件，將會還原這些工作順序參考。 更新套件，只是表示安裝更新的版本，這通常會還原套件的工作順序。
+
+在 Visual Studio 中，套件管理員主控台會提供許多彈性的選項來更新及重新安裝套件。
 
 更新和重新安裝套件已完成，如下所示：
 
@@ -25,7 +27,7 @@ ms.locfileid: "68316968"
 | nuget.exe CLI | `nuget update` 命令 | 針對所有套件，刪除套件資料夾，然後執行 `nuget install`。 針對單一套件，刪除套件資料夾，然後使用 `nuget install <id>` 重新安裝相同套件。 |
 
 > [!NOTE]
-> 若為 dotnet CLI，則不需要相同的程序。 在類似案例中，您可以[使用 dotnet CLI 還原套件](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages)。
+> 若為 dotnet CLI，則不需要相同的程序。 在類似案例中，您可以[使用 dotnet CLI 還原套件](package-restore.md#restore-using-the-dotnet-cli)。
 
 本文內容：
 
@@ -61,7 +63,7 @@ ms.locfileid: "68316968"
 
 ## <a name="using-update-package"></a>使用 Update-Package
 
-請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../reference/ps-reference/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  )：
+請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../reference/ps-reference/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  )。
 
 ```ps
 Update-Package -Id <package_name> –reinstall

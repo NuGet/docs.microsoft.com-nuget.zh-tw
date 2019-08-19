@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842376"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860616"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
-本文著重於還原套件時常見的錯誤及其解決步驟。 如需還原套件的完整詳細資料，請參閱[套件還原](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio)。
+本文著重於還原套件時常見的錯誤及其解決步驟。 
+
+套件還原會嘗試將所有套件相依性安裝到符合專案檔 ( *.csproj*) 或您的 *packages.config* 檔案中套件參考的正確狀態。 (在 Visual Studio 中，參考會出現在 [方案總管] 的 [相依性 \ NuGet]  或 [參考]  節點下。)若要遵循還原套件所需的步驟，請參閱[還原套件](../consume-packages/package-restore.md#restore-packages)。 如果專案檔 ( *.csproj*) 或您的 *packages.config* 檔案中的套件參考不正確 (不符合您在套件還原之後所需的狀態)，則您需要安裝套件或更新套件，而不是使用套件還原。
 
 如果此處的指示不適用於您的情況，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)，讓我們能更仔細審視您的案例。 請勿使用可能出現在本頁面的「本頁對您有幫助嗎？」 控制項，因為這無法讓我們與您連絡以取得詳細資訊。
 
@@ -44,8 +46,8 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 當您嘗試建置包含一或多個 NuGet 套件參考的專案，但這些套件目前並未安裝在電腦上或位於專案中時，就會發生這項錯誤。
 
-- 使用 PackageReference 管理格式時，此錯誤表示套件並未如[管理全域套件和快取資料夾](managing-the-global-packages-and-cache-folders.md)中所述安裝在 *global-packages* 資料夾中。
-- 當使用 `packages.config` 時，此錯誤表示套件並未安裝在解決方案跟目錄的 `packages` 資料夾中。
+- 使用 [PackageReference](package-references-in-project-files.md) 管理格式時，此錯誤表示套件並未如[管理全域套件和快取資料夾](managing-the-global-packages-and-cache-folders.md)中所述安裝在 *global-packages* 資料夾中。
+- 當使用 [packages.config](../reference/packages-config.md) 時，此錯誤表示套件並未安裝在解決方案根目錄的 `packages` 資料夾中。
 
 當您從原始檔控制或另一個下載處取得專案的原始程式碼時，通常就會發生這種情況。 套件通常會從原始檔控制或下載中省略，因為可以從類似 nuget.org 的套件摘要中還原 (請參閱[套件和原始檔控制](Packages-and-Source-Control.md))。 包含套件反而會使存放庫膨脹，或建立不必要的大型 .zip 檔案。
 
@@ -54,10 +56,12 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 請使用下列其中一種方法來還原套件：
 
 - 如果您移動了專案檔，請直接編輯檔案以更新套件參考。
-- (Visual Studio) 選取 [工具] > [NuGet 套件管理員] > [套件管理員設定]  功能表命令，設定 [套件還原]  下的兩個選項，然後選取 [確定]  ，以啟用套件還原。 然後再次建置解決方案。
-- (dotnet CLI) 在命令列中，切換至包含專案的資料夾，然後執行 `dotnet restore` 或 `dotnet build` (會自動執行還原)。
-- (nuget.exe CLI) 在命令列中，切換至包含專案的資料夾，然後執行 `nuget restore` (除了使用 `dotnet` CLI 建置的專案，此情況需使用 `dotnet restore`)。
-- (已遷移至 PackageReference 的專案) 在命令列上，執行 `msbuild -t:restore`。
+- [Visual Studio](package-restore.md#restore-using-visual-studio) ([自動還原](package-restore.md#restore-packages-automatically-using-visual-studio)或[手動還原](package-restore.md#restore-packages-manually-using-visual-studio))
+- [dotnet CLI](package-restore.md#restore-using-the-dotnet-cli)
+- [nuget.exe CLI](package-restore.md#restore-using-the-nugetexe-cli)
+- [MSBuild](package-restore.md#restore-using-msbuild)
+- [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
 成功還原之後，套件應該存在於 *global-packages* 資料夾中。 對於使用 PackageReference 的專案，還原應重新建立 `obj/project.assets.json` 檔案；針對使用 `packages.config` 的專案，套件應該會出現在專案的 `packages` 資料夾中。 專案現在應可順利建置。 如果沒有，[請在 GitHub 上提出發生的問題](https://github.com/NuGet/docs.microsoft.com-nuget/issues)以便我們與您連絡。
 

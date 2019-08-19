@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 14483264030dd3bb32c7295886f2d37d52e735cc
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342509"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020038"
 ---
 # <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
@@ -120,6 +120,32 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 - `full`：用戶端設定檔
 - `wp`：Windows Phone
 - `cf`：Compact Framework
+
+## <a name="declaring-dependencies-advanced"></a>宣告相依性 (進階)
+
+封裝專案檔時，NuGet 會嘗試自動從專案產生相依性。 此節中有關使用 *.nuspec* 檔案來宣告相依性的資訊，通常只有進階情節才需要。
+
+*(2.0 版+)* 您可以使用 `<dependencies>` 元素內的 `<group>` 元素，在對應至目標專案之目標 Framework 的 *.nuspec* 中宣告套件相依性。 如需詳細資訊，請參閱[相依性元素](../reference/nuspec.md#dependencies-element)。
+
+每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<dependency>` 項目。 當目標 Framework 與專案的 Framework 設定檔相容時，會同時安裝那些相依性。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。
+
+針對 *lib/* 與 *ref/* 資料夾中的檔案，建議針對每個目標 Framework Moniker (TFM) 使用一個群組。
+
+下列範例示範 `<group>` 項目的不同變化：
+
+```xml
+<dependencies>
+
+    <group targetFramework="net472">
+        <dependency id="jQuery" version="1.10.2" />
+        <dependency id="WebActivatorEx" version="2.2.0" />
+    </group>
+
+    <group targetFramework="net20">
+    </group>
+
+</dependencies>
+```
 
 ## <a name="determining-which-nuget-target-to-use"></a>判斷要使用的 NuGet 目標
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833224"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860640"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
@@ -105,14 +105,14 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 
 若要從專案建置 NuGet 套件 (`.nupkg` 檔案)，請執行 `msbuild -t:pack` 命令，該命令也會自動建置專案：
 
-在開發人員命令提示字元中，輸入下列命令：
+在 Visual Studio 開發人員命令提示字元中，輸入下列命令：
 
 ```cmd
 # Uses the project file in the current folder by default
 msbuild -t:pack
 ```
 
-輸出會顯示 `.nupkg` 檔案的路徑。
+輸出將顯示 `.nupkg` 檔案的路徑。
 
 ```output
 Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework

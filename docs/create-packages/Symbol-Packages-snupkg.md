@@ -1,11 +1,7 @@
 ---
 title: 如何使用新的符號套件格式 '.snupkg' 發行 NuGet 符號套件 | Microsoft Docs
-author:
-- cristinamanu
-- kraigb
-ms.author:
-- cristinamanu
-- kraigb
+author: cristinamanu
+ms.author: cristinamanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -16,12 +12,12 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842458"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959669"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
@@ -112,14 +108,17 @@ NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套�
 
 1) .snupkg 會與相對應的 .nupkg 有相同的識別碼與版本。
 2) .snupkg 會與所有具差異性的 DLL 或 EXE 檔案之 nupkg，有完全相同的資料夾結構，而不會和相同資料夾階層內包含其相對應 PDB 的 DLL/EXE 相同。 含有非 PDB 延伸模組的檔案與資料夾，將會排除在 snupkg 之外。
-3) .snupkg 中的 .nuspec 檔案，也會指定新的 PackageType，如下所示。 其應為唯一指定的 PackageType。 
-``` 
-<packageTypes>
-  <packageType name="SymbolsPackage"/>
-</packageTypes>
-```
+3) .snupkg 中的 .nuspec 檔案，也會指定新的 PackageType，如下所示。 其應為唯一指定的 PackageType。
+
+   ```xml
+   <packageTypes>
+      <packageType name="SymbolsPackage"/>
+   </packageTypes>
+   ```
+
 4) 如果作者決定使用自訂 nuspec 來建置他們的 nupkg 和 snupkg，snupkg 應會有相同的資料夾階層與檔案，詳細資料位於 2)。
 5) ```authors``` 與 ```owners``` 欄位將會從 snupkg 的 nuspec 中排除。
+6) 請勿使用 <license> 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupk 相同。
 
 ## <a name="see-also"></a>另請參閱
 

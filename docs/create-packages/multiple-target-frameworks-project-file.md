@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616772"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020064"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>在您的專案檔中支援多個 .NET Framework 版本
 
@@ -27,9 +27,13 @@ ms.locfileid: "68616772"
 
    我們建議您建立 .NET Standard 類別庫，以獲得最佳相容性。
 
-2. 編輯 *.csproj* 檔案以支援目標 Framework。
-
-   例如，將 `<TargetFramework>netstandard2.0</TargetFramework>` 變更為 `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`。
+2. 編輯 *.csproj* 檔案以支援目標 Framework。 例如，
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   變更為：
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    請務必將 XML 元素從單數變更為複數 (將 "s" 新增至開頭和結束標籤)。
 

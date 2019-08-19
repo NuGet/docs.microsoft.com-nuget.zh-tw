@@ -3,16 +3,16 @@ title: NuGet 套件還原
 description: NuGet 如何還原專案相依套件的概觀，包括如何停用還原和限制版本。
 author: karann-msft
 ms.author: karann
-ms.date: 06/24/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316993"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860674"
 ---
-# <a name="package-restore-options"></a>套件還原選項
+# <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
 為了提倡更乾淨的開發環境，以及降低存放庫大小，NuGet **套件還原**會依專案檔或 `packages.config` 中所列，安裝專案的所有相依性。 .NET Core 2.0+ `dotnet build` 和 `dotnet run` 命令會執行自動套件還原。 Visual Studio 可以在建置專案時自動還原套件，您可以隨時透過 Visual Studio、`nuget restore`、`dotnet restore` 和 Mono 上的 xbuild 來還原套件。
 
@@ -29,27 +29,58 @@ ms.locfileid: "68316993"
 
 ## <a name="restore-packages"></a>還原套件
 
-您可以用下列任一方式來觸發套件還原：
+套件還原會嘗試將所有套件相依性安裝到符合專案檔 ( *.csproj*) 或您的 *packages.config* 檔案中套件參考的正確狀態。 (在 Visual Studio 中，參考會出現在 [方案總管] 的 [相依性 \ NuGet]  或 [參考]  節點下。)
 
-- **Visual Studio**：在 Windows 的 Visual Studio 中，可以使用下列方法之一。
+1. 如果專案檔中的套件參考是正確的，請使用您慣用的工具來還原套件。
 
-    - 自動還原套件。 套件還原會在您從範本建立專案或建置專案時自動進行，且受限於[啟用和停用套件還原](#enable-and-disable-package-restore-visual-studio)中的選項。 在 NuGet 4.0+ 中，還原也會在您變更 SDK 樣式專案 (通常是 .NET Core 或 .NET Standard 專案) 時自動進行。
+   - [Visual Studio](#restore-using-visual-studio) ([自動還原](#restore-packages-automatically-using-visual-studio)或[手動還原](#restore-packages-manually-using-visual-studio))
+   - [dotnet CLI](#restore-using-the-dotnet-cli)
+   - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
+   - [MSBuild](#restore-using-msbuild)
+   - [Azure Pipelines](#restore-using-azure-pipelines)
+   - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-    - 手動還原套件。 若要手動還原，請以滑鼠右鍵按一下 [方案總管]  中的解決方案，然後選取 [還原 NuGet 套件]  。 如果一或多個個別套件仍未正確安裝，則 [方案總管]  會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]  ，且使用 [套件管理員]  先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
+   如果專案檔 ( *.csproj*) 或您的 *packages.config* 檔案中的套件參考不正確 (不符合您在套件還原之後所需的狀態)，則您需要改為安裝套件或更新套件。
 
-    如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-visual-studio)。 此外，請參閱[遷移至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)和[套件還原疑難排解](Package-restore-troubleshooting.md)。
+   針對使用 PackageReference 的專案，在成功還原之後，套件應該會出現在 [global-packages]  資料夾中，而且 `obj/project.assets.json` 檔案會重新建立。 針對使用 `packages.config` 的專案，套件應該會出現在專案的 `packages` 資料夾中。 專案現在應可順利建置。 
 
-- **dotnet CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) 命令來還原專案檔中以 [PackageReference](../consume-packages/package-references-in-project-files.md) 列出的套件。 使用 .NET Core 2.0 和更新版本時，會使用 `dotnet build` 和 `dotnet run` 命令自動完成還原。  
+2. 執行套件還原之後，如果您仍然遇到遺失套件或套件相關錯誤 (例如 Visual Studio 中 [方案總管] 中的錯誤圖示)，您可能需要[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md)。
 
-- **nuget.exe CLI**：在命令列中，切換至包含專案的資料夾，然後使用 [nuget restore](../reference/cli-reference/cli-ref-restore.md) 命令來還原專案檔或解決方案檔中 (或 `packages.config` 中) 列出的套件。 
+   在 Visual Studio 中，套件管理員主控台提供幾個彈性的選項來重新安裝套件。 請參閱[使用 Package-Update](reinstalling-and-updating-packages.md#using-update-package)。
 
-- **MSBuild**：使用 [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) 命令，利用 PackageReference 來還原專案檔中所列套件。 這個命令只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017 和更新版本)。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。
+## <a name="restore-using-visual-studio"></a>使用 Visual Studio 進行還原
 
-- **Azure Pipelines**：在 Azure Pipelines 中建立組建定義時，在定義中於任何建置工作之前包含 NuGet [還原](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)或 .NET Core [還原](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops)工作。 根據預設，一些建置範本已包含還原工作。
+在 Windows 的 Visual Studio 中：
 
-- **Azure DevOps Server**：Azure DevOps Server 和 TFS 2013 及更新版本會在建置期間自動還原套件，前提是您使用 TFS 2013 或更新版本的 Team Build 範本。 針對較舊的 TFS 版本，您可以包含一個建置步驟來執行命令列還原選項，或選擇性地將建置範本移轉至較新版本。 如需詳細資訊，請參閱[使用 Team Foundation Build 的套件還原設定](../consume-packages/team-foundation-build.md)。
+- 自動還原套件，或
 
-## <a name="enable-and-disable-package-restore-visual-studio"></a>啟用和停用套件還原 (Visual Studio)
+- 手動還原套件
+
+### <a name="restore-packages-automatically-using-visual-studio"></a>使用 Visual Studio 自動還原套件
+
+套件還原會在您從範本建立專案或建置專案時自動進行，且受限於[啟用和停用套件還原](#enable-and-disable-package-restore-in-visual-studio)中的選項。 在 NuGet 4.0+ 中，還原也會在您變更 SDK 樣式專案 (通常是 .NET Core 或 .NET Standard 專案) 時自動進行。
+
+1. 選擇 [工具]   > [選項]   > [NuGet 套件管理員]  ，然後選取 [套件還原]  下的 [在 Visual Studio 建置期間自動檢查遺漏的套件 ]  。
+
+   針對非 SDK 樣式的專案，您必須先選取 [允許 NuGet 下載遺漏的套件 ]  以啟用自動還原選項。
+
+1. 建置專案。
+
+   如果一或多個個別套件仍未正確安裝，則 [方案總管]  會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]  ，且使用 [套件管理員]  先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
+
+   如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-in-visual-studio)。 針對較舊的專案，另請參閱[移轉至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)。 另請參閱[針對套件還原進行疑難排解](Package-restore-troubleshooting.md)。
+
+### <a name="restore-packages-manually-using-visual-studio"></a>使用 Visual Studio 手動還原套件
+
+1. 選擇 [工具]   > [選項]   > [NuGet 套件管理員]  以啟用套件還原。 在 [套件還原]  選項下，選取 [允許 NuGet 下載遺漏的套件]  。
+
+1. 在 [方案總管]  中，請以滑鼠右鍵按一下解決方案，然後選取 [還原 NuGet 套件]  。
+
+   如果一或多個個別套件仍未正確安裝，則 [方案總管]  會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]  ，然後使用 [套件管理員]  先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
+
+   如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-in-visual-studio)。 針對較舊的專案，另請參閱[移轉至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)。 另請參閱[針對套件還原進行疑難排解](Package-restore-troubleshooting.md)。
+
+### <a name="enable-and-disable-package-restore-in-visual-studio"></a>在 Visual Studio 中啟用及停用套件還原
 
 在 Visual Studio 中，您主要是透過 [工具]   > [選項]   > [NuGet 套件管理員]  來控制套件還原：
 
@@ -88,6 +119,51 @@ ms.locfileid: "68316993"
 
 > [!Important]
 > 如果您直接在 `nuget.config` 中編輯 `packageRestore` 設定，請重新啟動 Visual Studio，讓 [選項]  對話方塊顯示目前的值。
+
+## <a name="restore-using-the-dotnet-cli"></a>使用 dotnet CLI 進行還原
+
+[!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
+
+> [!IMPORTANT]
+> 若要將遺漏的套件參考新增至專案檔，請使用 [dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x)，這也會執行 `restore` 命令。
+
+## <a name="restore-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 進行還原
+
+[!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+> [!IMPORTANT]
+> 此 `restore` 命令不會修改專案檔或 *packages.config*。若要新增相依性，請在 Visual Studio 中透過套件管理員 UI 或主控台來新增套件，或是修改 *packages.config*，然後執行 `install` 或 `restore`。
+
+## <a name="restore-using-msbuild"></a>使用 MSBuild 進行還原
+
+若要使用 PackageReference 來還原專案檔中所列的套件，請使用 [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) 命令。 這個命令只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017 和更新版本)。 `nuget restore` 和 `dotnet restore` 都會將這個命令用於適用的專案。
+
+1. 開啟開發人員命令提示字元 (在 [搜尋]  方塊中，輸入**開發人員命令提示字元**)。
+
+   您通常想要從 [開始]  功能表啟動適用於 Visual Studio 的開發人員命令提示字元，因為它將使用適用於 MSBuild 的所有必要路徑來設定。
+
+2. 切換至包含專案檔的資料夾，並輸入下列命令。
+
+   ```cmd
+   # Uses the project file in the current folder by default
+   msbuild -t:restore
+   ```
+
+3. 輸入下列命令以重建專案。
+
+   ```cmd
+   msbuild
+   ```
+
+   確定 MSBuild 輸出會指出組建已順利完成。
+
+## <a name="restore-using-azure-pipelines"></a>使用 Azure Pipelines 進行還原
+
+在 Azure Pipelines 中建立組建定義時，在定義中於任何建置工作之前包含 NuGet [還原](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)或 .NET Core [還原](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops)工作。 根據預設，一些建置範本已包含還原工作。
+
+## <a name="restore-using-azure-devops-server"></a>使用 Azure DevOps Server 進行還原
+
+Azure DevOps Server 和 TFS 2013 及更新版本會在建置期間自動還原套件，前提是您使用 TFS 2013 或更新版本的 Team Build 範本。 針對較舊的 TFS 版本，您可以包含一個建置步驟來執行命令列還原選項，或選擇性地將建置範本移轉至較新版本。 如需詳細資訊，請參閱[使用 Team Foundation Build 的套件還原設定](../consume-packages/team-foundation-build.md)。
 
 ## <a name="constrain-package-versions-with-restore"></a>使用還原來限制套件版本
 
