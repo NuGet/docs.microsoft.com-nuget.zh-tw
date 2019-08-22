@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842393"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488850"
 ---
 # <a name="package-creation-workflow"></a>套件建立工作流程
 
@@ -35,8 +35,8 @@ ms.locfileid: "67842393"
 - [發行前套件](../create-packages/prerelease-packages.md)示範如何將 alpha、beta 和 rc 套件發行至感興趣的客戶。
 - [原始程式檔和組態檔轉換](../create-packages/source-and-config-file-transformations.md)描述如何在新增至專案的檔案中執行兩個單向權杖取代，以及使用會在解除安裝套件時取消的設定來修改 `web.config` 和 `app.config`。
 - [符號套件](../create-packages/symbol-packages-snupkg.md)提供用於提供程式庫符號的指引，而符號允許取用者在偵錯時逐步執行程式碼。
-- [套件版本控制](../reference/package-versioning.md)討論如何識別您相依性容許的確切版本 (從套件取用的其他套件)。
-- [原生套件](../create-packages/native-packages.md)描述用於建立 C++ 取用者之套件的程序。
+- [套件版本控制](../concepts/package-versioning.md)討論如何識別您相依性容許的確切版本 (從套件取用的其他套件)。
+- [原生套件](../guides/native-packages.md)描述用於建立 C++ 取用者之套件的程序。
 - [簽署套件](../create-packages/sign-a-package.md)描述用於在套件新增數位簽章的程序。
 
 當您準備好將套件發行至 nuget.org 時，請遵循[發行套件](../nuget-org/publish-a-package.md)中的簡單程序。

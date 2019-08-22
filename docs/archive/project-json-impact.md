@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545569"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488202"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
 
@@ -25,7 +25,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 ### <a name="install-and-uninstall-scripts-are-ignored"></a>安裝和解除安裝指令碼都予以忽略
 
-過渡的還原模型，如[相依性解析](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)中所述，沒有「套件安裝時間」的概念。 無論套件是否存在，安裝套件時，都不會出現任何一致的程序。
+過渡的還原模型，如[相依性解析](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)中所述，沒有「套件安裝時間」的概念。 無論套件是否存在，安裝套件時，都不會出現任何一致的程序。
 
 此外，僅 Visual Studio 支援安裝指令碼。 其他 IDE 必須模擬 Visual Studio 擴充性 API 嘗試支援這類指令碼，一般編輯器和命令列工具中不提供支援。
 
@@ -63,7 +63,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 ## <a name="3x-package-format"></a>3.x 套件格式
 
-3.x 套件格式允許數個超越 NuGet 2.x 的其他功能：
+3\.x 套件格式允許數個超越 NuGet 2.x 的其他功能：
 
 1. 定義用於編譯的參考組件，和一組用於不同平台/裝置執行階段的實作組件。 可讓您充分利用平台特定的 API，同時為您的取用者提供常見的介面區。 具體而言，這讓撰寫中繼可攜式程式庫變得更容易。
 

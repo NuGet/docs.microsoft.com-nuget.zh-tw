@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 344c8d764180d0f33c1bce77b721e3657297e74e
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 1683349faacdf5ad47baafeef3457bbb3bb1baa9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842128"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488984"
 ---
 # <a name="create-uwp-packages"></a>建立 UWP 套件
 
@@ -254,7 +254,7 @@ nuget pack ImageEnhancer.nuspec
 
 - [.nuspec 參考](../reference/nuspec.md)
 - [符號套件](../create-packages/symbol-packages.md)
-- [套件版本控制](../reference/package-versioning.md)
+- [套件版本控制](../concepts/package-versioning.md)
 - [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
 - [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)

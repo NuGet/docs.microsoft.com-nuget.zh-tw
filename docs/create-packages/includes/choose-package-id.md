@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e8949e9964ed19d342df53f08f59bb0f89e5feb0
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817476"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488955"
 ---
 套件識別碼與版本號碼是專案中的兩個最重要值，因為它們可以唯一識別套件中所含的確切程式碼。
 
@@ -17,9 +17,9 @@ ms.locfileid: "68817476"
 **套件版本的最佳做法：**
 
 - 一般而言，請設定套件版本，使其符合專案 (或組件)，但這不是絕對必要。 當您將套件限制為單一組件時，這很簡單。 整體來說，請記住，解析相依性時，NuGet 本身會處理套件版本，而非組件版本。
-- 使用非標準版本方式時，請務必考慮使用 NuGet 版本控制規則，如[套件版本控制](../../reference/package-versioning.md)中所述。 NuGet 大多[符合 semver 2 規範](../../reference/package-versioning.md#semantic-versioning-200)。
+- 使用非標準版本方式時，請務必考慮使用 NuGet 版本控制規則，如[套件版本控制](../../concepts/package-versioning.md)中所述。 NuGet 大多[符合 semver 2 規範](../../concepts/package-versioning.md#semantic-versioning-200)。
 
-> 如需相依性解析的相關資訊，請參閱[使用 PackageReference 的相依性解析](../../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)。 如需更深入了解版本控制的較舊資訊，請參閱這一系列的部落格文章。
+> 如需相依性解析的相關資訊，請參閱[使用 PackageReference 的相依性解析](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)。 如需更深入了解版本控制的較舊資訊，請參閱這一系列的部落格文章。
 >
 > - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html) \(英文\)
 > - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html) \(英文\)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317007"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488251"
 ---
 # <a name="projectjson-archive"></a>project.json 封存
 
@@ -54,19 +54,19 @@ ms.locfileid: "68317007"
 
 ## <a name="dependency-resolution-with-packagereference"></a>使用 PackageReference 的相依性解析
 
-原本在[相依性解析](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)中。 
+原本在[相依性解析](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)中。 
 
 PackageReference 的行為也適用於 `project.json`。 NuGet restore 將相依性關係圖寫入名為 `project.lock.json` 和 `project.json` 的檔案中。
 
 ## <a name="managing-dependency-assets"></a>管理相依性資產
 
-原本在[相依性解析](../consume-packages/dependency-resolution.md#managing-dependency-assets)中。 
+原本在[相依性解析](../concepts/dependency-resolution.md#managing-dependency-assets)中。 
 
 使用 `project.json` 格式時，您可以控制從相依性流入最上層專案的資產。 如需詳細資訊，請參閱 [project.json](project-json.md)。
 
 ## <a name="excluding-references"></a>排除參考
 
-原本在[相依性解析](../consume-packages/dependency-resolution.md#excluding-references)中。 
+原本在[相依性解析](../concepts/dependency-resolution.md#excluding-references)中。 
 
 - `project.json`：在套件 C 的相依性中新增 `"exclude" : "all"`：
 
@@ -83,7 +83,7 @@ PackageReference 的行為也適用於 `project.json`。 NuGet restore 將相依
 
 ## <a name="resolving-incompatible-package-errors"></a>解決不相容的套件錯誤
 
-原本在[相依性解析](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors)中。 
+原本在[相依性解析](../concepts/dependency-resolution.md#resolving-incompatible-package-errors)中。 
 
 新增解決錯誤的方法：
 
@@ -124,7 +124,7 @@ PackageReference 的行為也適用於 `project.json`。 NuGet restore 將相依
 
 ### <a name="package-versioning"></a>套件版本控制
 
-原本在[套件版本控制](../reference/package-versioning.md)中。 
+原本在[套件版本控制](../concepts/package-versioning.md)中。 
 
 當使用 `project.json` 格式時，針對編號的主要、次要、修補和發行前版本後置詞部分，NuGet 也支援使用萬用字元標記法 (\*)。
 

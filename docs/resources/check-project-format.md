@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d8745ea30115a2d7f3954d171d92b75a434a55b
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843440"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488485"
 ---
 # <a name="identify-the-project-format"></a>識別專案格式
 
@@ -23,7 +23,7 @@ NuGet 可搭配所有 .NET 專案使用。 不過，專案格式 (SDK 樣式或�
 | .NET Standard | SDK 樣式 | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | 使用 Visual Studio 2017 之前版本建立的專案是非 SDK 樣式。 使用 `nuget.exe` CLI。 |
 | .NET Core | SDK 樣式 | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | 使用 Visual Studio 2017 之前版本建立的專案是非 SDK 樣式。 使用 `nuget.exe` CLI。 |
 | .NET Framework | 非 SDK 樣式 | [nuget.exe CLI](../install-nuget-client-tools.md#nugetexe-cli) | 使用其他方法建立的 .NET Framework 專案可能是 SDK 樣式專案。 針對那些專案，請改為使用 [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli)。 |
-| [已移轉](../reference/migrate-packages-config-to-package-reference.md) .NET 專案 | 非 SDK 樣式| 若要建立套件，請使用 [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) 來建立套件。 | 若要建立套件，建議使用 `msbuild -t:pack`。 否則，請使用 [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli)。 已移轉的專案不是 SDK 樣式專案。 |
+| [已移轉](../consume-packages/migrate-packages-config-to-package-reference.md) .NET 專案 | 非 SDK 樣式| 若要建立套件，請使用 [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) 來建立套件。 | 若要建立套件，建議使用 `msbuild -t:pack`。 否則，請使用 [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli)。 已移轉的專案不是 SDK 樣式專案。 |
 
 ## <a name="check-the-project-format"></a>檢查專案格式
 

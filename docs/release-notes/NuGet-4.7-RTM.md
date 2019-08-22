@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1397e2f42fd65c3a883c864bd430ba5892c12b2
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: fe769f95e3eda4bc07db4369544472c00b35363d
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432522"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488646"
 ---
 # <a name="nuget-47-release-notes"></a>NuGet 4.7 版本資訊
 
@@ -20,7 +20,7 @@ ms.locfileid: "58432522"
 
 * 我們已增強套件簽署，以啟用[存放庫簽署套件](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
-* Visual Studio Version 15.7 引進了一個功能，[讓使用 packages.config 格式的現有專案移轉成改為使用 PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)。
+* Visual Studio Version 15.7 引進了一個功能，[讓使用 packages.config 格式的現有專案移轉成改為使用 PackageReference](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference)。
 
 ## <a name="summary-whats-new-in-472"></a>摘要: 4.7.2 中的新功能
 

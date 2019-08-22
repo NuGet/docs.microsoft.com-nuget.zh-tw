@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860640"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488965"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
@@ -68,7 +68,7 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 > [!NOTE]
 > 針對公眾取用而建置的套件，請特別注意 **PackageTags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。
 
-如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../reference/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
+如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>選擇唯一的套件識別碼並設定版本號碼
 
@@ -170,7 +170,7 @@ Time Elapsed 00:00:01.21
 您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：
 
 - [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)
-- [套件版本控制](../reference/package-versioning.md)
+- [套件版本控制](../concepts/package-versioning.md)
 - [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
@@ -180,5 +180,5 @@ Time Elapsed 00:00:01.21
 
 最後，請注意其他套件類型：
 
-- [原生套件](../create-packages/native-packages.md)
+- [原生套件](../guides/native-packages.md)
 - [符號套件](../create-packages/symbol-packages.md)

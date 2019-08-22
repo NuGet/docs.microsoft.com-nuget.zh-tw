@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5676239bedb7f8fbe9f74725864afd297405d5c1
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 69ef02e3c935287759b4012aadcfb1cb9811367c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842325"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488440"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>安裝 NuGet 套件時會發生什麼事？
 
@@ -39,7 +39,7 @@ ms.locfileid: "67842325"
 
 4. 如果已下載，則將套件安裝到每個使用者的 *global-packages* 資料夾中。 NuGet 會針對每個套件識別碼建立子資料夾，然後針對每個已安裝的套件版本建立子資料夾。
 
-5. NuGet 會視需要安裝套件相依性。 此程序可能更新流程中的套件版本，如[相依性解析](../consume-packages/dependency-resolution.md)中所述。
+5. NuGet 會視需要安裝套件相依性。 此程序可能更新流程中的套件版本，如[相依性解析](../concepts/dependency-resolution.md)中所述。
 
 6. 更新其他專案檔和資料夾：
 

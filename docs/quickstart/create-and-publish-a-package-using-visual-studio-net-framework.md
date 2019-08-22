@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342517"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488905"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發佈套件 (.NET Framework，Windows)
 
@@ -70,7 +70,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
     >
     > 如果您嘗試發行名稱已經存在的套件，則會看到錯誤。
 
-1. 選取 [組件資訊]  按鈕會顯示對話方塊，您可以在其中輸入會帶入資訊清單中的其他屬性 (請參閱 [.nuspec 檔案參考 - 替代權杖](../reference/nuspec.md#replacement-tokens))。 最常使用的欄位是**標題**、**描述**、**公司**、**著作權** 和 **組件版本**。 這些屬性最後會在主機上 (例如 nuget.org) 與您的套件一起顯示，因此請確認屬性的描述完整。
+1. 選取 [組件資訊...]  按鈕會顯示對話方塊，您可以在其中輸入會帶入資訊清單中的其他屬性 (請參閱 [.nuspec 檔案參考 - 替代權杖](../reference/nuspec.md#replacement-tokens))。 最常使用的欄位是**標題**、**描述**、**公司**、**著作權** 和 **組件版本**。 這些屬性最後會在主機上 (例如 nuget.org) 與您的套件一起顯示，因此請確認屬性的描述完整。
 
     ![Visual Studio 中 .NET Framework 專案的組件資訊](media/qs_create-vs-01b-project-properties.png)
 
@@ -184,5 +184,5 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
 - [套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
 - [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
-- [套件版本控制](../reference/package-versioning.md)
+- [套件版本控制](../concepts/package-versioning.md)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)

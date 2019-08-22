@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547780"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488289"
 ---
 # <a name="projectjson-reference"></a>project.json 參考
 
@@ -47,7 +47,7 @@ ms.locfileid: "43547780"
 "PackageID" : "version_constraint"
 ```
 
-例如: 
+例如：
 
 ```json
 "dependencies": {
@@ -62,7 +62,7 @@ ms.locfileid: "43547780"
 
 還原套件時，`"5.0.0"` 的版本條件約束意味著 `>= 5.0.0`。 也就是說，如果伺服器上未提供 5.0.0，但有提供 5.0.1，則 NuGet 會安裝 5.0.1，而且會警告您有關此升級。 否則 NuGet 會在符合條件約束的伺服器上挑選最低的可能版本。
 
-如需解析規則的詳細資料，請參閱[相依性解析](../consume-packages/dependency-resolution.md)。
+如需解析規則的詳細資料，請參閱[相依性解析](../concepts/dependency-resolution.md)。
 
 ### <a name="managing-dependency-assets"></a>管理相依性資產
 
@@ -75,8 +75,8 @@ ms.locfileid: "43547780"
 | compile | lib |
 | build | 組建 (MSBuild props 和目標) |
 | native | native |
-| 無 | 無資料夾 |
-| 全部 | 全部資料夾 |
+| none | 無資料夾 |
+| all | 全部資料夾 |
 
 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。
 

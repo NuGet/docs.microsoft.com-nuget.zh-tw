@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433347"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488858"
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -20,7 +20,7 @@ ms.locfileid: "68433347"
 
 穩定版本是認為足夠可靠能在生產環境中使用的版本。 最新的穩定版本也是會安裝為套件更新或在套件還原期間安裝的版本 (受[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)中所述的條件約束)。
 
-為支援軟體發行生命週期，NuGet 1.6 和更新版本允許散發發行前套件，它們的版本號碼包含語意版本尾碼，例如 `-alpha`、`-beta` 或 `-rc`。 如需詳細資訊，請參閱[套件版本控制](../reference/package-versioning.md#pre-release-versions)。
+為支援軟體發行生命週期，NuGet 1.6 和更新版本允許散發發行前套件，它們的版本號碼包含語意版本尾碼，例如 `-alpha`、`-beta` 或 `-rc`。 如需詳細資訊，請參閱[套件版本控制](../concepts/package-versioning.md#pre-release-versions)。
 
 您可以使用下列其中一種方式指定此版本：
 
@@ -38,7 +38,7 @@ ms.locfileid: "68433347"
     <version>1.0.1-alpha</version>
     ```
 
-當您準備好要發行穩定版本時，只要移除尾碼，套件就會優先於任何發行前版本。 請再次參考[套件版本控制](../reference/package-versioning.md#pre-release-versions)。
+當您準備好要發行穩定版本時，只要移除尾碼，套件就會優先於任何發行前版本。 請再次參考[套件版本控制](../concepts/package-versioning.md#pre-release-versions)。
 
 ## <a name="installing-and-updating-pre-release-packages"></a>安裝和更新發行前版本套件
 

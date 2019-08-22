@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: 81f78de02d9b6510f195e04c78436e38f9b7353d
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 927991429d8d4ce54aa35be3e450475a38141b11
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842426"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488917"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立適用於 Xamarin 的套件
 
@@ -266,7 +266,7 @@ nuget pack LoggingLibrary.nuspec
 
 - [Nuspec 參考](../reference/nuspec.md)
 - [符號套件](../create-packages/symbol-packages.md)
-- [套件版本控制](../reference/package-versioning.md)
+- [套件版本控制](../concepts/package-versioning.md)
 - [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
 - [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
