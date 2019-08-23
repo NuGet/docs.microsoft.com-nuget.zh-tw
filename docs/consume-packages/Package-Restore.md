@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860674"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488813"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -181,7 +181,7 @@ NuGet 透過任何方法還原套件時，會使用 `packages.config` 或專案�
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
-在所有情況下，都請使用[套件版本控制](../reference/package-versioning.md)中所述的標記法。
+在所有情況下，都請使用[套件版本控制](../concepts/package-versioning.md)中所述的標記法。
 
 ## <a name="force-restore-from-package-sources"></a>強制從套件來源還原
 
