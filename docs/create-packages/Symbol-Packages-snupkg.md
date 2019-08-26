@@ -12,12 +12,12 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959669"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564541"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
@@ -118,7 +118,7 @@ NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套�
 
 4) 如果作者決定使用自訂 nuspec 來建置他們的 nupkg 和 snupkg，snupkg 應會有相同的資料夾階層與檔案，詳細資料位於 2)。
 5) ```authors``` 與 ```owners``` 欄位將會從 snupkg 的 nuspec 中排除。
-6) 請勿使用 <license> 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupk 相同。
+6) 請勿使用 <license> 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupkg 相同。
 
 ## <a name="see-also"></a>另請參閱
 

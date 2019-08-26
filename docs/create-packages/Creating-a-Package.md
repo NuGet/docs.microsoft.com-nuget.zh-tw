@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020077"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564583"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
@@ -20,7 +20,7 @@ ms.locfileid: "69020077"
 
 - 針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，請參閱[使用 dotnet CLI 建立 NuGet 套件](creating-a-package-dotnet-cli.md)。
 
-- 針對從 `packages.config` 移轉至 [PackageReference](../consume-packages/package-references-in-project-files.md) 的專案，請使用 [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
+- 針對從 `packages.config` 移轉至 [PackageReference](../consume-packages/package-references-in-project-files.md) 的專案，請使用 [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
 
 技術上而言，NuGet 套件就只是已重新命名為 `.nupkg` 副檔名且其內容符合特定慣例的 ZIP 檔案。 本主題描述如何建立符合這些慣例之套件的詳細程序。
 
@@ -138,7 +138,7 @@ ms.locfileid: "69020077"
 </package>
 ```
 
-如需宣告相依性及指定版本號碼的詳細資料，請參閱 [packages.config](../reference/packages-config.md) 和[套件版本控制](../reference/package-versioning.md)。 在 `dependency` 項目上使用 `include` 和 `exclude` 屬性，也可以將相依性中的資產直接用於套件中。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
+如需宣告相依性及指定版本號碼的詳細資料，請參閱 [packages.config](../reference/packages-config.md) 和[套件版本控制](../concepts/package-versioning.md)。 在 `dependency` 項目上使用 `include` 和 `exclude` 屬性，也可以將相依性中的資產直接用於套件中。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
 
 因為資訊清單會包含在透過它所建立的套件中，所以檢查現有套件就可以找到任意數目的其他範例。 不錯的來源是您電腦上的 *global-packages* 資料夾，即下列命令所傳回的位置：
 
@@ -184,8 +184,8 @@ nuget locals -list global-packages
 | ref/{tfm} | 所指定目標 Framework Moniker (TFM) 的組件 (`.dll`) 與符號 (`.pdb`) 檔案 | 組件只會針對編譯階段新增為參考；因此不會有任何項目被複製到專案 bin 資料夾。 |
 | runtimes | 架構特定組件 (`.dll`)、符號 (`.pdb`) 和原生資源 (`.pri`) 檔案 | 組件只會針對執行階段新增為參考；其他檔案則會複製至專案資料夾。 `/ref/{tfm}` 資料夾下一律必須有對應的 (TFM) `AnyCPU` 特定組件，才能提供對應的編譯階段組件。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)。 |
 | content | 任意檔案 | 內容會複製至專案根目錄。 請將 **content** 資料夾視為最後使用套件的目標應用程式的根目錄。 若要讓套件在應用程式的 */images* 資料夾中新增映像，請將它放在套件的 *content/images* 資料夾中。 |
-| build | MSBuild `.targets` 和 `.props` 檔案 | 自動插入到專案中 (NuGet 3.x+)。 |
-| buildMultiTargeting | 用於跨架構目標的 MSBuild `.targets` 與 `.props` 檔案 | 自動插入到專案中。 |
+| build | *(3.x+)* MSBuild `.targets` 與 `.props` 檔案 | 自動插入到專案中。 |
+| buildMultiTargeting | 用於跨架構目標的 *(4.0+)* MSBuild `.targets` 與 `.props` 檔案 | 自動插入到專案中。 |
 | buildTransitive | *(5.0+)* 可傳遞至任何取用專案的 MSBuild `.targets` 與 `.props` 檔案。 請參閱[功能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)頁面 \(英文\)。 | 自動插入到專案中。 |
 | tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時 *「不」* 會新增至針對 MSBuild 所設定的 `PATH`)。 |
 
@@ -226,9 +226,8 @@ nuget spec
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+在專案屬性的兩側，使用 `$` 符號分隔權杖。 例如，透過此方式產生之資訊清單中的 `<id>` 值一般會顯示如下：
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ nuget spec [<package-name>]
 **套件版本的最佳做法：**
 
 - 一般而言，請設定套件版本，使其符合程式庫，但這不是絕對必要。 將套件限制為單一組件時，這相當簡單，如[決定要封裝的組件](#decide-which-assemblies-to-package)稍早所述。 整體來說，請記住，解析相依性時，NuGet 本身會處理套件版本，而非組件版本。
-- 使用非標準版本方式時，請務必考慮使用 NuGet 版本控制規則，如[套件版本控制](../reference/package-versioning.md)中所述。
+- 使用非標準版本方式時，請務必考慮使用 NuGet 版本控制規則，如[套件版本控制](../concepts/package-versioning.md)中所述。
 
 > 下面一系列的簡短部落格文章也有助於了解版本控制：
 >
@@ -424,7 +423,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：
 
-- [套件版本控制](../reference/package-versioning.md)
+- [套件版本控制](../concepts/package-versioning.md)
 - [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
 最後，請注意其他套件類型：
 
-- [原生套件](../create-packages/native-packages.md)
+- [原生套件](../guides/native-packages.md)
 - [符號套件](../create-packages/symbol-packages.md)

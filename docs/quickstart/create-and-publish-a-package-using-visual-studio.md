@@ -1,16 +1,16 @@
 ---
-title: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard NuGet 套件
+title: 建立及發行 .NET Standard NuGet 套件 - Windows 上的 Visual Studio
 description: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard NuGet 套件的逐步解說教學課程。
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
-ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
+ms.openlocfilehash: 9552f6c5291f950430bfb723cb713bf76a79ea66
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68821431"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564608"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -21,14 +21,14 @@ ms.locfileid: "68821431"
 
 ## <a name="prerequisites"></a>必要條件
 
-1. 使用 .NET Core 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017 或更高版本。
+1. 使用 .NET Core 相關工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2019。
 
 1. 安裝 `dotnet` CLI (若尚未安裝)。
 
-   針對 `dotnet` CLI，從 Visual Studio 2017 開始，`dotnet` CLI 會自動與任何 .NET Core 相關工作負載一起安裝。 否則，請安裝 [.NET Core SDK](https://www.microsoft.com/net/download/) 以取得 `dotnet` CLI。 使用 [SDK 樣式格式](../resources/check-project-format.md) (SDK 屬性) 的 .NET Standard 專案需要 `dotnet` CLI。 此文章中使用的 Visual Studio 2017 與更高版本中的預設類別庫範本使用 SDK 屬性。
+   針對 `dotnet` CLI，從 Visual Studio 2017 開始，`dotnet` CLI 會自動與任何 .NET Core 相關工作負載一起安裝。 否則，請安裝 [.NET Core SDK](https://www.microsoft.com/net/download/) 以取得 `dotnet` CLI。 使用 [SDK 樣式格式](../resources/check-project-format.md) (SDK 屬性) 的 .NET Standard 專案需要 `dotnet` CLI。 此文章中使用的 Visual Studio 2017 與更高版本中的預設 .NET Standard 類別庫範本使用 SDK 屬性。
    
    > [!Important]
-   > 針對此文章，建議使用 `dotnet` CLI。 雖然您可以使用 `nuget.exe` CLI 發行任何 NuGet 套件，此文章中的某些步驟僅適用於 SDK 專案與 dotnet CLI。 nuget.exe CLI 是用於[非 SDK 樣式專案](../resources/check-project-format.md) (通常是 .NET Framework)。 若您正在處理非 SDK 樣式專案，請依照[建立及發行 .NET Framework 套件 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) 中的程序建立及發行套件。
+   > 若您正在處理非 SDK 樣式專案，請改為依照[建立及發行 .NET Framework 套件 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) 中的程序建立及發行套件。 針對此文章，建議使用 `dotnet` CLI。 雖然您可以使用 `nuget.exe` CLI 發行任何 NuGet 套件，此文章中的某些步驟僅適用於 SDK 專案與 dotnet CLI。 nuget.exe CLI 是用於[非 SDK 樣式專案](../resources/check-project-format.md) (通常是 .NET Framework)。
 
 1. 如果您還沒有帳戶，請[在 nuget.org 上註冊一個免費帳戶](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) \(英文\)。 建立新的帳戶會傳送一封確認電子郵件。 您必須確認帳戶，才可以上傳套件。
 
@@ -37,6 +37,9 @@ ms.locfileid: "68821431"
 您可以針對要封裝的程式碼使用現有的 .NET Standard 類別庫專案，或建立一個簡單的專案，如下所示：
 
 1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]  、展開 [Visual C#] > [.NET Standard]  節點、選取 [類別庫 (.NET Standard)] 範本、將專案命名為 AppLogger，然後按一下 [確定]  。
+
+   > [!Tip]
+   > 除非您有理由選擇，否則 .NET Standard 是 NuGet 套件的慣用目標，因為它能與範圍最廣泛的取用專案相容。
 
 1. 在產生的專案檔上按一下滑鼠右鍵，然後選取 [建置]  以確定已適當建立專案。 DLL 位於 Debug 資料夾 (如果您改為建置該組態則為 Release)。
 
@@ -55,28 +58,25 @@ namespace AppLogger
 }
 ```
 
-> [!Tip]
-> 除非您有理由選擇，否則 .NET Standard 是 NuGet 套件的慣用目標，因為它能與範圍最廣泛的取用專案相容。
-
 ## <a name="configure-package-properties"></a>設定套件屬性
 
 1. 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選擇 [屬性]  功能表命令，然後選取 [套件]  索引標籤。
 
-   [套件]  索引標籤只會針對 Visual Studio 中的 SDK 樣式專案 (通常是 .NET Standard 或 .NET Core 類別庫專案) 顯示；若您是以非 SDK 樣式專案 (通常是 .NET Framework) 為目標，請[移轉專案](../reference/migrate-packages-config-to-package-reference.md)並使用 `dotnet` CLIL，或改為參閱[建立及發行 .NET Framework 套件](create-and-publish-a-package-using-visual-studio-net-framework.md)或參閱[建立及發行 .NET Framework 套件](create-and-publish-a-package-using-visual-studio-net-framework.md)以取得逐步指示。
+   [套件]  索引標籤只會針對 Visual Studio 中的 SDK 樣式專案 (通常是 .NET Standard 或 .NET Core 類別庫專案) 顯示；若您是以非 SDK 樣式專案 (通常是 .NET Framework) 為目標，請[移轉專案](../consume-packages/migrate-packages-config-to-package-reference.md)或改為參閱[建立及發行 .NET Framework 套件](create-and-publish-a-package-using-visual-studio-net-framework.md)以取得逐步指示。
 
     ![Visual Studio 專案中的 NuGet 套件屬性](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
     > 針對公眾取用而建置的套件，請特別注意 **Tags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。
 
-1. 為套件指定唯一識別碼，並填入任何其他所需的屬性。 如需不同屬性的說明，請參閱 [.nuspec 檔案參考](../reference/nuspec.md)。 此處的所有屬性都會移入 Visual Studio 針對專案建立的 `.nuspec` 資訊清單。
+1. 為套件指定唯一識別碼，並填入任何其他所需的屬性。 針對將 MSBuild 屬性 (SDK 樣式專案) 對應到 *.nuspec* 中的屬性，請參閱[封裝目標](../reference/msbuild-targets.md#pack-target)。 如需有關屬性的說明, 請參閱 [.nuspec 檔案參考](../reference/nuspec.md)。 此處的所有屬性都會移入 Visual Studio 針對專案建立的 `.nuspec` 資訊清單。
 
     > [!Important]
     > 您必須為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何主機上都必須是唯一的。 針對此逐步解說，我們建議在名稱中包含 "Sample" 或 "Test" (如同稍後發行步驟所做的)，讓套件能夠成為公開可見的 (儘管實際上不太可能會有人使用它)。
     >
     > 如果您嘗試發行名稱已經存在的套件，則會看到錯誤。
 
-1. 選擇性：若要直接查看專案檔中的屬性，請以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [編輯 AppLogger.csproj]  。
+1. (選擇性) 若要直接查看專案檔中的屬性，請以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [編輯 AppLogger.csproj]  。
 
    只有使用 SDK 樣式屬性的專案 (且必須使用 Visual Studio 2017 與更新版本) 才能使用此選項。 否則，以滑鼠右鍵按一下專案並選擇 [卸載專案]  。 接著，以滑鼠右鍵按一下卸載的專案並選擇 [編輯 AppLogger.csproj]  。
 
@@ -88,7 +88,7 @@ namespace AppLogger
 
     ![Visual Studio 專案捷徑功能表上的 NuGet 封裝命令](media/qs_create-vs-02-pack-command.png)
 
-    若您沒有看到 **Pack** 命令，您的專案可能並不是 SDK 樣式專案，且您必須使用 `nuget.exe` CLI。 請[移轉專案](../reference/migrate-packages-config-to-package-reference.md) 並使用 `dotnet` CLI，或改為參閱[建立及發行 .NET Framework 套件](create-and-publish-a-package-using-visual-studio-net-framework.md)以取得逐步指示。
+    若您沒有看到 **Pack** 命令，您的專案可能並不是 SDK 樣式專案，且您必須使用 `nuget.exe` CLI。 請[移轉專案](../consume-packages/migrate-packages-config-to-package-reference.md) 並使用 `dotnet` CLI，或改為參閱[建立及發行 .NET Framework 套件](create-and-publish-a-package-using-visual-studio-net-framework.md)以取得逐步指示。
 
 1. Visual Studio 會建置專案並建立 `.nupkg` 檔案。 檢查 [輸出]  視窗以取得詳細資料 (如下所示)，其中包含套件檔案的路徑。 另請注意，建置的組建是位於 `bin\Release\netstandard2.0`，以適用 .NET Standard 2.0 目標。
 
@@ -128,7 +128,11 @@ namespace AppLogger
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>使用 dotnet nuget push 發行 (dotnet CLI)
+### <a name="publish-with-the-dotnet-cli-or-nugetexe-cli"></a>使用 dotnet CLI 或 nuget.exe CLI 發佈
+
+選取您 CLI 工具的索引標籤，它可能是 **.NET Core CLI** (dotnet CLI) 或 **NuGet** (nuget.exe CLI)。
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 此步驟是建議用於取代 `nuget.exe`的步驟。
 
@@ -136,7 +140,7 @@ namespace AppLogger
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-### <a name="publish-with-nuget-push-nugetexe-cli"></a>使用 nuget push 發行 (nuget.exe CLI)
+# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
 
 這個步驟是使用 `dotnet.exe` 的替代方案。
 
@@ -158,6 +162,8 @@ namespace AppLogger
     ```
 
 請參閱 [nuget push](../reference/cli-reference/cli-ref-push.md)。
+
+---
 
 ### <a name="publish-errors"></a>發行錯誤
 
@@ -189,11 +195,11 @@ namespace AppLogger
 
 ## <a name="related-topics"></a>相關主題
 
-- [建立套件](../create-packages/creating-a-package.md)
+- [建立套件](../create-packages/creating-a-package-dotnet-cli.md)
 - [套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
 - [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
-- [套件版本控制](../reference/package-versioning.md)
+- [套件版本控制](../concepts/package-versioning.md)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
 - [.NET Standard 程式庫文件](/dotnet/articles/standard/library)
 - [從 .NET Framework 移轉到 .NET Core](/dotnet/articles/core/porting/index)
