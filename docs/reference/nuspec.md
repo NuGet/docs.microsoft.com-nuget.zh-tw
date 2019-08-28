@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488676"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060240"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -76,7 +76,7 @@ ms.locfileid: "69488676"
 #### <a name="version"></a>版本
 套件版本，遵循 *major.minor.patch* 模式。 版本號碼可以包含預先發行版本的後置詞，如[套件版本控制](../concepts/package-versioning.md#pre-release-versions)中所述。 
 #### <a name="description"></a>描述
-UI 顯示中的套件詳細描述。 
+UI 顯示的封裝描述。
 #### <a name="authors"></a>authors
 以逗號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些名稱會顯示在 nuget.org 的 NuGet 組件庫中，並用來交互參照相同作者的其他套件。 
 
@@ -152,6 +152,9 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 *(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 使用 PackageReference (NuGet 4.8 +) 時, 此旗標也表示它會從編譯中排除編譯時間資產。 請參閱[DevelopmentDependency support For PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>摘要
+> [!Important]
+> `summary`即將被取代。 請改用 `description`。
+
 UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。
 
 #### <a name="releasenotes"></a>releaseNotes
@@ -399,7 +402,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 `<frameworkAssemblies>` 項目包含零或多個 `<frameworkAssembly>` 項目，它們每一個都會指定下列屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **assemblyName** | (必要) 完整組件名稱。 |
 | **targetFramework** | (選擇性) 指定要套用這個參考的目標 Framework。 如果省略，則表示參考適用於所有 Framework。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。 |
@@ -439,7 +442,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 每個 `<file>` 項目都會指定下列屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **src** | 要包含的檔案位置，會受到 `exclude` 屬性指定的排除項目約束。 路徑相對於 `.nuspec` 檔案，除非指定絕對路徑。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **目標** | 套件內資料夾的相對路徑是放置原始程式檔的位置，其開頭必須是 `lib`、`content`、`build` 或 `tools`。 請參閱[從慣例的工作目錄建立 .nuspec](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)。 |
@@ -644,7 +647,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 除非指定絕對路徑, 否則`contentFiles`路徑會相對於資料夾。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
