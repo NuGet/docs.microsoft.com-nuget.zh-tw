@@ -1,18 +1,18 @@
 ---
-title: 個人帳戶
+title: 個人帳戶 - NuGet.org
 description: 必須要有 NuGet.org 上的個人帳戶才能發佈套件
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419886"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999971"
 ---
-# <a name="individual-accounts"></a>個人帳戶
+# <a name="individual-accounts-on-nugetorg"></a>NuGet.org 上的個人帳戶
 
 您必須建立個人帳戶，才能在 NuGet.org 上發佈和管理套件。
 
@@ -69,3 +69,7 @@ ms.locfileid: "68419886"
    ![啟用 2FA](media/nuget-org-enter-code-2fa.png)
 
 5. 請遵循任何其他指示來完成雙重要素驗證。
+
+## <a name="delete-a-nugetorg-account"></a>刪除 NuGet.org 帳戶
+
+如需其他帳戶相關工作 (例如刪除 NuGet.org 帳戶) 的說明，請參閱 [NuGet.org 帳戶管理](nuget-org-faq.md#nugetorg-account-management)。
