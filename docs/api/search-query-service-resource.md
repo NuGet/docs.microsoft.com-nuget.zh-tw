@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488204"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235119"
 ---
 # <a name="search"></a>搜尋
 
@@ -21,7 +21,7 @@ ms.locfileid: "69488204"
 
 會使用`@type`下列值:
 
-@type 值                   | 附註
+@type 值                   | 注意
 ----------------------------- | -----
 SearchQueryService            | 初始版本
 SearchQueryService/3.0.0-beta | 別名`SearchQueryService`
@@ -45,7 +45,7 @@ SearchQueryService/3.0.0-rc   | 別名`SearchQueryService`
 
 ### <a name="request-parameters"></a>要求參數
 
-名稱        | In     | 類型    | 必要 | 附註
+名稱        | In     | 類型    | 必要 | 注意
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | 字串  | 否       | 用來篩選封裝的搜尋字詞
 skip        | URL    | integer | 否       | 要略過的結果數目, 用於分頁
@@ -111,7 +111,7 @@ totalDownloads | integer                    | 否       | 這個值可以由`ver
 
 ### <a name="sample-request"></a>範例要求
 
-    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
+    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
 
 ### <a name="sample-response"></a>範例回應
 
