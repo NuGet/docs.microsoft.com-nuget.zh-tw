@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488905"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384488"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發佈套件 (.NET Framework，Windows)
 
 從 .NET Framework 類別庫中建立 NuGet 套件，會涉及在 Windows 上於 Visual Studio 中建立 DLL，進而使用 nuget.exe 命令列工具來建立及發行套件。
 
 > [!Note]
-> 本快速入門僅適用於 Windows 版 Visual Studio 2017。 Visual Studio for Mac 不包含這裡描述的功能。 請改為使用 [dotnet CLI 工具](create-and-publish-a-package-using-the-dotnet-cli.md)。
+> 本快速入門僅適用于 Windows Visual Studio 2017 和更高版本。 Visual Studio for Mac 不包含這裡描述的功能。 請改為使用 [dotnet CLI 工具](create-and-publish-a-package-using-the-dotnet-cli.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-1. 使用任何 .NET 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017。 Visual Studio 2017 會在安裝 .NET 工作負載時，自動包含 NuGet 功能。
+1. 使用任何 .NET 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017 或更高版本。 Visual Studio 2017 會在安裝 .NET 工作負載時，自動包含 NuGet 功能。
 
 1. 安裝 `nuget.exe` CLI，作法是從 [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) 下載它、將該 `.exe` 檔案儲存至適當的資料夾，然後將該資料夾新增至您的 PATH 環境變數。
 
@@ -31,9 +31,9 @@ ms.locfileid: "69488905"
 
 您可以對要封裝的程式碼使用現有的 .NET Framework 類別庫專案，或建立一個簡單的專案，如下所示：
 
-1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]  ，選取 [Visual C#]  節點，選取 [類別庫 (.NET Framework)] 範本，將專案命名為 AppLogger，然後按一下 [確定]  。
+1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]，選取 [Visual C#] 節點，選取 [類別庫 (.NET Framework)] 範本，將專案命名為 AppLogger，然後按一下 [確定]。
 
-1. 在產生的專案檔上按一下滑鼠右鍵，然後選取 [建置]  以確定已適當建立專案。 DLL 位於 Debug 資料夾 (如果您改為建置該組態則為 Release)。
+1. 在產生的專案檔上按一下滑鼠右鍵，然後選取 [建置] 以確定已適當建立專案。 DLL 位於 Debug 資料夾 (如果您改為建置該組態則為 Release)。
 
 當然，在真實的 NuGet 套件中，您會實作其他人可以用來建置應用程式的許多實用功能。 您也可以用任何方式設定目標 Framework。 請參閱 [UWP](../guides/create-uwp-packages.md) 和 [Xamarin](../guides/create-packages-for-xamarin.md) 指南以取得指導。
 
@@ -61,16 +61,16 @@ namespace AppLogger
 
 NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料如套件識別碼、版本號碼、描述等等。 其中某些可以直接從專案屬性取得，如此就不必在專案和資訊清單中分別予以更新。 本章節說明應於何處設定適用的屬性。
 
-1. 選取 [專案] > [屬性]  功能表命令，然後選取 [應用程式]  索引標籤。
+1. 選取 [專案] > [屬性] 功能表命令，然後選取 [應用程式] 索引標籤。
 
-1. 在 [組件名稱]  欄位中，為您的套件指定唯一識別碼。
+1. 在 [組件名稱] 欄位中，為您的套件指定唯一識別碼。
 
     > [!Important]
     > 您必須為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何主機上都必須是唯一的。 針對此逐步解說，我們建議在名稱中包含 "Sample" 或 "Test" (如同稍後發行步驟所做的)，讓套件能夠成為公開可見的 (儘管實際上不太可能會有人使用它)。
     >
     > 如果您嘗試發行名稱已經存在的套件，則會看到錯誤。
 
-1. 選取 [組件資訊...]  按鈕會顯示對話方塊，您可以在其中輸入會帶入資訊清單中的其他屬性 (請參閱 [.nuspec 檔案參考 - 替代權杖](../reference/nuspec.md#replacement-tokens))。 最常使用的欄位是**標題**、**描述**、**公司**、**著作權** 和 **組件版本**。 這些屬性最後會在主機上 (例如 nuget.org) 與您的套件一起顯示，因此請確認屬性的描述完整。
+1. 選取 [組件資訊...] 按鈕會顯示對話方塊，您可以在其中輸入會帶入資訊清單中的其他屬性 (請參閱 [.nuspec 檔案參考 - 替代權杖](../reference/nuspec.md#replacement-tokens))。 最常使用的欄位是**標題**、**描述**、**公司**、**著作權** 和 **組件版本**。 這些屬性最後會在主機上 (例如 nuget.org) 與您的套件一起顯示，因此請確認屬性的描述完整。
 
     ![Visual Studio 中 .NET Framework 專案的組件資訊](media/qs_create-vs-01b-project-properties.png)
 
