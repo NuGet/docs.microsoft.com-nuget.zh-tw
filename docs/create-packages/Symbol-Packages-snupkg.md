@@ -12,12 +12,12 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
+ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564541"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749034"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
@@ -29,7 +29,30 @@ ms.locfileid: "69564541"
 
 ## <a name="creating-a-symbol-package"></a>建立符號套件
 
-您可以使用 dotnet.exe、NuGet.exe 或 MSBuild 建立 snupkg 符號套件。 若使用 NuGet.exe，則除了.nupkg 檔案之外，您還可以使用下列命令來建立 .snupkg 檔案：
+如果您使用的是 dotnet 或 MSBuild，則除了 nupkg 檔案之外， `IncludeSymbols`您`SymbolPackageFormat`還需要設定和屬性來建立 .snupkg 檔案。
+
+* 請將下列屬性新增至 .csproj 檔案：
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* 或在命令列上指定這些屬性：
+
+     ```cli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  或
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+若使用 NuGet.exe，則除了.nupkg 檔案之外，您還可以使用下列命令來建立 .snupkg 檔案：
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -37,20 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-若使用 dotnet.exe 或 MSBuild，則除了.nupkg 檔案之外，您還可以使用下列步驟來建立 .snupkg 檔案：
-
-1. 新增下列屬性到您的 .csproj 檔案：
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. 使用 `dotnet pack MyPackage.csproj` 或 `msbuild -t:pack MyPackage.csproj` 封裝您的專案。
-
-[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 若未指定 [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat)，會建立舊版符號套件。
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) 屬性可有以下兩個值的其中一個：`symbols.nupkg` (預設值) 或 `snupkg`。 如果未指定此屬性，則會建立舊版符號套件。
 
 > [!Note]
 > 目前仍然支援舊版格式 `.symbols.nupkg`，只是為達到相容性而已 (請參閱[舊版符號套件](Symbol-Packages.md))。 NuGet.org 的符號伺服器只接受新的符號套件格式 - `.snupkg`。
@@ -118,8 +128,8 @@ NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套�
 
 4) 如果作者決定使用自訂 nuspec 來建置他們的 nupkg 和 snupkg，snupkg 應會有相同的資料夾階層與檔案，詳細資料位於 2)。
 5) ```authors``` 與 ```owners``` 欄位將會從 snupkg 的 nuspec 中排除。
-6) 請勿使用 <license> 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupkg 相同。
+6) 請勿使用 ```<license>``` 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupkg 相同。
 
 ## <a name="see-also"></a>另請參閱
 
-[NuGet-Package-Debugging-&-Symbols-Improvements](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[NuGet 套件調試 & 符號改善](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
