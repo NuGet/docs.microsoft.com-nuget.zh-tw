@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385896"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815341"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -55,7 +55,7 @@ ms.locfileid: "70385896"
 | 作者 | 作者 | 目前使用者的使用者名稱 | |
 | Owners | N/A | NuSpec 中沒有 | |
 | 標題 | 標題 | PackageId| |
-| 描述 | 說明 | "Package Description" | |
+| 說明 | 描述 | "Package Description" | |
 | Copyright | Copyright | 空白 | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | 執照 | PackageLicenseExpression | 空白 | 對應至`<license type="expression">` |
@@ -109,6 +109,7 @@ ms.locfileid: "70385896"
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Deterministic
 
 ## <a name="pack-scenarios"></a>封裝案例
 
@@ -172,6 +173,18 @@ ms.locfileid: "70385896"
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Deterministic
+
+使用`MSBuild -t:pack -p:Deterministic=true`時，多個 pack 目標的調用會產生完全相同的封裝。
+套件命令的輸出不會受到機器環境狀態的影響。 特別的是，zip 專案的時間戳記為1980-01-01。 若要達到完整確定性，應以個別的編譯器選項（具[決定性](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)）來建立元件。
+建議您指定具決定性的屬性，如下所示，讓編譯器和 NuGet 都能遵守它。
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>在套件內包含內容

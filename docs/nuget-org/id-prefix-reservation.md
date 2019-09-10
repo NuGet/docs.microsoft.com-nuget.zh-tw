@@ -1,17 +1,17 @@
 ---
 title: 識別碼首碼保留項目
 description: 套件識別碼首碼保留項目功能的描述和作者指南。
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
-ms.translationtype: HT
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616797"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815275"
 ---
 # <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目
 
@@ -33,7 +33,7 @@ ms.locfileid: "68616797"
 
 1. 任何符合保留識別碼首碼的套件，且套件是源自保留該識別碼首碼的擁有者時，在 Visual Studio 2017 15.4 版或更新版本以及 [nuget.org](https://www.nuget.org/) 上會有一個視覺指標，指出套件位於保留識別碼首碼底下。 對於新套件提交和擁有者底下的現有套件而言，都是如此。 **注意：** Visual Studio 中的指標僅會在單一摘要選取為套件來源時出現。
 
-1. 符合保留識別碼首碼，但「不」  是由保留首碼擁有者所擁有的任何先前現有套件將維持不變 (它們不會被列出，但也不會有視覺指標)。 此外，這些套件的擁有者將仍然可以將新版本提交至套件。
+1. 符合保留識別碼首碼，但「不」是由保留首碼擁有者所擁有的任何先前現有套件將維持不變 (它們不會被列出，但也不會有視覺指標)。 此外，這些套件的擁有者將仍然可以將新版本提交至套件。
 
 這些變更是根據下列條件，且加上幾個額外的限制：
 
@@ -41,7 +41,7 @@ ms.locfileid: "68616797"
 
 - 如果有多位套件擁有者，其中一或多位擁有者具有保留首碼，而一或多位擁有者沒有保留首碼，則只有具有保留首碼的擁有者可以移除具有保留首碼的其他擁有者。 沒有保留首碼之擁有者不能移除具有保留首碼的擁有者。 他們仍然可以移除也沒有保留首碼的其他擁有者。
 
-- 套件有了視覺指標之後，它應該「一律」  有視覺指標 (保證一律會有至少一位具有保留首碼的擁有者保持為擁有者)
+- 套件有了視覺指標之後，它應該「一律」有視覺指標 (保證一律會有至少一位具有保留首碼的擁有者保持為擁有者)
 
 ### <a name="advanced-prefix-reservation-scenarios"></a>進階首碼保留案例
 
@@ -83,11 +83,13 @@ ms.locfileid: "68616797"
 
 1. 套件識別碼首碼是否和不應該屬於任何個別擁有者或組織有某些雷同嗎？
 
-1. 保留套件識別碼首碼「不會」  造成模稜兩可和社群的混淆嗎？
+1. 保留套件識別碼首碼「不會」造成模稜兩可和社群的混淆嗎？
 
 1. 符合套件識別碼首碼的套件識別屬性是否清楚且一致 (尤其是套件作者)？
 
 1. 套件是否有授權 (使用 [license](../reference/nuspec.md#license) 中繼資料元素，而非即將淘汰的 licenseUrl)？
+
+1. 如果封裝有圖示（使用 iconUrl 中繼資料元素），它們是否也會使用[圖示](../reference/nuspec.md#icon)中繼資料元素（不需要移除 iconUrl）？
 
 ## <a name="third-party-feed-provider-scenarios"></a>第三方摘要提供者案例
 

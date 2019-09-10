@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 10651e2cc26f7df4115e4de5dac8c91c93af7374
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317557"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815299"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>裝載您自己的 NuGet 摘要
 
@@ -23,19 +23,20 @@ ms.locfileid: "68317557"
 - NuGet.Server：套件可以透過本機 HTTP 伺服器提供。 如需詳細資料，請參閱 [NuGet.Server](../hosting-packages/nuget-server.md)。
 - NuGet 資源庫：套件會裝載在使用 [NuGet Gallery Project](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (NuGet 資源庫專案) 的網際網路伺服器上 (github.com)。 NuGet 資源庫讓使用者能夠管理及使用功能，例如大量 web UI，在瀏覽器中搜尋和瀏覽套件，類似 nuget.org。
 
-另外還有數個 NuGet 裝載產品支援遠端私用摘要，包括：
+另外還有數個其他的 NuGet 裝載產品，例如[Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish) ，以及支援遠端私人摘要的[GitHub package registry](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry) 。 以下是這類產品的清單：
 
-- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish)，也適用於 Team Foundation Server 2017 及更新版本。
-- [MyGet](http://myget.org)
-- Inedo 的 [ProGet](http://inedo.com/proget)
-- [GitHub 套件登錄](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
-- [NuGet 伺服器](http://nugetserver.net/)，Inedo 社群專案
-- [NuGet 伺服器 (開放原始碼)](http://nuget-server.net)，類似於 Inedo NuGet 伺服器的開放原始碼實作
-- [LiGet](https://github.com/ai-traders/liget)，這是一個在 docker 中的 kestrel 上執行的 NuGet V2 伺服器開放原始碼實作
-- [BaGet](https://github.com/loic-sharma/BaGet)，這是建置於 ASP.NET Core 之上的 NuGet V3 伺服器開放原始碼實作
-- [Sleet](https://github.com/emgarten/sleet)，這是開放原始碼 NuGet V3 靜態摘要產生器
 - JFrog 的 [Artifactory](https://www.jfrog.com/artifactory/)。
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish)，也適用於 Team Foundation Server 2017 及更新版本。
+- [BaGet](https://github.com/loic-sharma/BaGet)，這是建置於 ASP.NET Core 之上的 NuGet V3 伺服器開放原始碼實作
+- [Cloudsmith](https://cloudsmith.io/l/nuget-feed/)是完全受控的套件管理 SaaS
+- [GitHub 套件登錄](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
+- [LiGet](https://github.com/ai-traders/liget)，這是一個在 docker 中的 kestrel 上執行的 NuGet V2 伺服器開放原始碼實作
+- [MyGet](http://myget.org)
 - Sonatype 的 [Nexus](http://www.sonatype.org/nexus/)。
+- [NuGet 伺服器 (開放原始碼)](http://nuget-server.net)，類似於 Inedo NuGet 伺服器的開放原始碼實作
+- [NuGet 伺服器](http://nugetserver.net/)，Inedo 社群專案
+- Inedo 的 [ProGet](http://inedo.com/proget)
+- [Sleet](https://github.com/emgarten/sleet)，這是開放原始碼 NuGet V3 靜態摘要產生器
 - JetBrains 的 [TeamCity](https://www.jetbrains.com/teamcity/)。
 
 不論套件的裝載方式為何，您都要將它們新增至 `NuGet.Config` 的可用來源清單中，才能存取它們。 如[套件來源](../consume-packages/install-use-packages-visual-studio.md#package-sources)中所述在 Visual Studio 中完成，或從命令列使用 [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) 完成。 來源的路徑可以是本機資料夾的路徑名稱、網路名稱或 URL。
