@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488225"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094118"
 ---
 # <a name="package-content"></a>封裝內容
 
@@ -60,7 +60,7 @@ LOWER_ID | URL    | 字串  | 是      | 封裝識別碼，小寫
 
 名稱     | 類型             | 必要 | 注意
 -------- | ---------------- | -------- | -----
-版本 | 字串陣列 | 是      | 可用的套件識別碼
+版本 | 字串陣列 | 是      | 可用的版本
 
 `versions`陣列中的字串都是小寫、[正規化的 NuGet 版本字串](../concepts/package-versioning.md#normalized-version-numbers)。 版本字串不包含任何 SemVer 的2.0.0 組建中繼資料。
 

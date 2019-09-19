@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317723"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094085"
 ---
 # <a name="common-nuget-configurations"></a>常用的 NuGet 組態
 
@@ -18,14 +18,14 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 
 ## <a name="config-file-locations-and-uses"></a>組態檔位置和使用
 
-| 範圍 | NuGet.Config 檔案位置 | 說明 |
+| `Scope` | NuGet.Config 檔案位置 | 說明 |
 | --- | --- | --- |
 | 方案 | 目前的資料夾 (也稱為解決方案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在解決方案資料夾中，設定會套用到子資料夾中的所有專案。 請注意，若設定檔放在專案資料夾中，它對於該專案沒有任何影響。 |
 | 使用者 | Windows：`%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux：`~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (依 OS 發行版本而異) | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
 | 電腦 | Windows：`%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux：`$XDG_DATA_HOME`。 如果 `$XDG_DATA_HOME` 為 Null 或空白，則會使用 `~/.local/share` 或 `/usr/local/share` (依 OS 發行版本而異)  | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
 
 舊版 NuGet 的注意事項：
-- NuGet 3.3 和更早版本使用整個方案設定的 `.nuget` 資料夾。 NuGet 3.4+ 中不會使用這個檔案。
+- NuGet 3.3 和更早版本使用整個方案設定的 `.nuget` 資料夾。 此資料夾不會在 NuGet 3.4 + 中使用。
 - 針對 NuGet 2.6 到 3.x，Windows 上的電腦層級組態檔位於 %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config，其中 *{IDE}* 可以是 *VisualStudio*、 *{Version}* 是 Visual Studio 版本 (例如 *14.0*)，而 *{SKU}* 是 *Community*、*Pro* 或 *Enterprise*。 若要將設定移轉至 NuGet 4.0+，只需要將組態檔複製至 %ProgramFiles(x86)%\NuGet\Config。在 Linux 上，前述的這個位置是 /etc/opt，在 Mac 上則是 /Library/Application Support。
 
 ## <a name="changing-config-settings"></a>變更組態設定

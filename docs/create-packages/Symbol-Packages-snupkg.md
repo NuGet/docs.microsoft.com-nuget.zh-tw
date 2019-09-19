@@ -12,12 +12,12 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749034"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094103"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
@@ -92,25 +92,25 @@ NuGet 會將兩個套件發行到 nuget.org。將會先發行 `MyPackage.nupkg`�
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org 符號伺服器
 
-NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套件格式 - `.snupkg`。 套件取用者可將 `https://symbols.nuget.org/download/symbols` 新增至其在 Visual Studio 中的符號來源，使用發佈至 nuget.org 符號伺服器的符號，如此即可在 Visual Studio 偵錯工具中，介入套件程式碼。 如需該程序的詳細資料，請參閱[在 Visual Studio Debugger 中指定符號 (.pdb) 和原始程式檔](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017)。
+NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套件格式 - `.snupkg`。 套件取用者可將 `https://symbols.nuget.org/download/symbols` 新增至其在 Visual Studio 中的符號來源，使用發佈至 nuget.org 符號伺服器的符號，如此即可在 Visual Studio 偵錯工具中，介入套件程式碼。 如需該程序的詳細資料，請參閱[在 Visual Studio Debugger 中指定符號 (.pdb) 和原始程式檔](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。
 
-### <a name="nugetorg-symbol-package-constraints"></a>Nuget.org 符號套件條件約束
+### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org 符號套件條件約束
 
-在 nuget.org 上支援的符號套件，具有以下的條件約束
+NuGet.org 具有下列符號套件的條件約束：
 
-- 只允許將以下副檔名新增至符號套件。 ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- 目前在 nuget 符號伺服器上，只支援受控[可攜式 PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md)。
-- PDB 與相關聯的 nupkg dll，必須以 Visual Studio 15.9 版或更高版本中的編譯器建置 (請參閱 [pdb 加密雜湊](https://github.com/dotnet/roslyn/issues/24429))
+- 符號套件中只允許下列副檔名： `.pdb`、 `.nuspec`、 `.xml`、 `.psmdcp`、 `.rels`、`.p7s`
+- NuGet. 組織的符號伺服器上僅支援受管理的[可移植 pdb](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) 。
+- Pdb 及其相關聯的. nupkg Dll 必須以 Visual Studio 15.9 版或更新版本中的編譯器建立（請參閱[PDB 加密雜湊](https://github.com/dotnet/roslyn/issues/24429)）
 
-若 .snupkg 中包含任何其他檔案類型，則在 nuget.org 上進行符號套件發佈將會失敗。
+如果不符合這些條件約束，發行至 NuGet.org 的符號套件將無法通過驗證。 
 
 ### <a name="symbol-package-validation-and-indexing"></a>符號套件的驗證與製作索引
 
-發佈至 [NuGet.org](https://www.nuget.org/) 的符號套件，會經過多道驗證，例如病毒檢查。
+發佈至[NuGet.org](https://www.nuget.org/)的符號套件會經歷數個驗證，包括惡意程式碼掃描。 如果封裝無法通過驗證檢查，其 [套件詳細資料] 頁面將會顯示錯誤訊息。 此外，套件的擁有者會收到一封電子郵件，其中包含如何修正已識別問題的指示。
 
-當套件通過所有驗證檢查，符號可能需要花費一些時間才可製作索引，以及從 NuGet.org 符號伺服器取用。 若套件無法通過驗證檢查，.nupkg 的套件詳細資料頁面將會更新，並會顯示出相關錯誤，而您也會收到相關的電子郵件通知。
+當符號套件通過所有驗證時，這些符號會由 NuGet. 組織的符號伺服器編制索引。 索引之後，就可以從 NuGet.org 符號伺服器取用符號。
 
-套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發佈所需的時間超出預期，請前往 [status.nuget.org](https://status.nuget.org/)，以檢查 nuget.org 是否發生任何中斷。 若所有系統皆可運作，但套件未在一小時內成功發佈，請登入 nuget.org 並使用套件詳細資料頁面上的聯絡支援連結，連絡我們。
+套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發行所需的時間超出預期，請前往[status.nuget.org](https://status.nuget.org/)，以檢查 NuGet.org 是否發生任何中斷。 若所有系統皆可運作，但套件未在一小時內成功發佈，請登入 nuget.org 並使用套件詳細資料頁面上的聯絡支援連結，連絡我們。
 
 ## <a name="symbol-package-structure"></a>符號套件結構
 
@@ -132,4 +132,6 @@ NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套�
 
 ## <a name="see-also"></a>另請參閱
 
-[NuGet 套件調試 & 符號改善](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+請考慮使用來源連結來啟用 .NET 元件的原始程式碼偵錯工具。 如需詳細資訊，請參閱[來源連結指引](/dotnet/standard/library-guidance/sourcelink.md)。
+
+如需符號套件的詳細資訊，請參閱[NuGet 套件的偵錯工具 & 符號改進](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)設計規格。
