@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774098"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248167"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 版本資訊
 
@@ -18,11 +18,11 @@ NuGet 配送車：
 
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
-| [**5.3.0-preview3**](https://nuget.org/downloads) | [Visual Studio 2019 16.3 版 Preview 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100-preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.3 版](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
 
 <sup>1</sup>以含 .NET Core 工作負載的 Visual Studio 2019 安裝
 
-## <a name="summary-whats-new-in-53-preview-3"></a>摘要: 5.3 preview 3 的新功能
+## <a name="summary-whats-new-in-53"></a>摘要: 5.3 中的新功能
 
 * [封裝圖示可以內嵌在封裝中](../reference/msbuild-targets.md#packing-an-icon-image-file)，而不需要外部 URL。 - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ NuGet 配送車：
 
 **Bug**
 
+* 2\.2 SDK 使用者無法使用 3.0.100-preview9 SDK 所產生的 NuGet 套件 .。。視您的時區而定[#8603](https://github.com/NuGet/Home/issues/8603)
+
+* `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)中的「路徑中的字元」引號「路徑中出現不合法的字元」
+
 * VS：元件完全是 ngen-ed，不是部分 ngen [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * 減少記憶體使用量（取消訂閱事件）- [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ NuGet 配送車：
 
 * NU1403 改進-驗證所有套件，包括預期/實際的 sha 值- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* NuGetPackageManager 中的多個列舉： PreviewUpdatePackagesAsync- [#8401](https://github.com/NuGet/Home/issues/8401)
+* [#8401](https://github.com/NuGet/Home/issues/8401)中的`NuGetPackageManager.PreviewUpdatePackagesAsync`  - 多個列舉
 
 * 還原 PluginProcess 中的「公用 > 內部」變更- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -64,7 +68,7 @@ NuGet 配送車：
 
 * 在 VS lazy [#8156](https://github.com/NuGet/Home/issues/8156)中進行讀取設定
 
-* 「Nuget 來源新增」中的回歸會導致「'： ' 字元，十六進位值0x3A 無法包含在名稱中」錯誤- [#7948](https://github.com/NuGet/Home/issues/7948)
+* 中`Nuget sources add`的回歸會導致 "'： ' 字元（十六進位值0x3A）不能包含在名稱" errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * NuGet 外掛程式認證提供者-隱藏進程視窗- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ NuGet 配送車：
 
 * 將-SolutionDirectory 和-PackageDirectory 選項新增至 nuget.exe pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
-* 啟用 NuGet 套件以具決定性的[#6229](https://github.com/NuGet/Home/issues/6229)
-
-**[此版本中已修正的所有問題清單-5.3 preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[此版本中已修正的所有問題清單-5。3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**

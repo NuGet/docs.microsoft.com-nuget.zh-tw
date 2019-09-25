@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815275"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248127"
 ---
 # <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目
 
-套件擁有者可以藉由保留識別碼首碼，保留並保護他們的身分識別。 套件取用者在取用套件時會得到額外的資訊，指出他們取用的套件在其識別屬性中沒有欺騙成分。 
+套件擁有者可以藉由保留識別碼首碼，保留並保護他們的身分識別。 當套件取用者使用的封裝在其識別屬性中不是欺騙性時，會提供其他資訊給他們。 
 
 [nuget.org](https://www.nuget.org/) 和 Visual Studio 2017 15.4 版或更新版本，對於由擁有者所提交、具有保留套件識別碼首碼的套件，只要套件符合保留識別碼首碼命名模式，便會顯示一個視覺指標。 以下參考說明識別碼首碼保留項目需要什麼，以及擁有者如何申請識別碼首碼。
 
