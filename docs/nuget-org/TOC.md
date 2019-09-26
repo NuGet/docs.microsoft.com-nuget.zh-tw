@@ -5,7 +5,8 @@
 ## [API 金鑰](scoped-api-keys.md)
 # 管理 NuGet.org 上的套件
 ## [發行套件](publish-a-package.md)
-## [封裝識別碼前置詞保留](id-prefix-reservation.md)
+## [套件識別碼前置詞保留](id-prefix-reservation.md)
+## [套件淘汰](deprecate-packages.md)
 # 原則
 ## [資料要求](policies/Data-requests.md)
 ## [爭議解決方法](policies/dispute-resolution.md)
