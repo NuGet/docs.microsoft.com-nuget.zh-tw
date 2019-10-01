@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
+ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248167"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687893"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 版本資訊
 
@@ -27,6 +27,8 @@ NuGet 配送車：
 * [封裝圖示可以內嵌在封裝中](../reference/msbuild-targets.md#packing-an-icon-image-file)，而不需要外部 URL。 - [#352](https://github.com/NuGet/Home/issues/352)
 
 * 針對封裝進行 SHA 追蹤和強制執行的增強安全性- [#7281](https://github.com/NuGet/Home/issues/7281)
+
+* 啟用淘汰/舊版 NuGet 套件的取代[#2867](https://github.com/NuGet/Home/issues/2867)@no__t 1 的[Blog 文章](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/)@no__t[-3 個](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)檔
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
