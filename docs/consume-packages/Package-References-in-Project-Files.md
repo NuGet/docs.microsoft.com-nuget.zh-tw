@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
+ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564561"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72510808"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -51,7 +51,7 @@ ms.locfileid: "69564561"
 在上述範例中，3.6.0 表示 >=3.6.0 的任何版本，但偏好最低版本，如[套件版本控制](../concepts/package-versioning.md#version-ranges-and-wildcards)中所述。
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>針對沒有任何 PackageReference 的專案使用 PackageReference
-進階：如果專案中未安裝任何套件 (專案檔中沒有 PackageReference，也沒有 packages.config 檔案)，但希望專案能還原為 PackageReference 樣式，您可以在您的專案檔中將專案屬性 RestoreProjectStyle 設定為 PackageReference。
+進階：如果專案中未安裝任何套件 (專案檔中沒有 PackageReference，也沒有 packages.config 檔案)，但希望專案能還原為 PackageReference 樣式，您可以在您的專案檔中將專案屬性 RestoreProjectStyle 設為 PackageReference。
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -92,7 +92,7 @@ ms.locfileid: "69564561"
 
 下列中繼資料標記控制相依性資產：
 
-| 標記 | 說明 | 預設值 |
+| Tag | 描述 | 預設值 |
 | --- | --- | --- |
 | IncludeAssets | 會取用這些資產 | all |
 | ExcludeAssets | 不會取用這些資產 | none |
@@ -100,7 +100,7 @@ ms.locfileid: "69564561"
 
 這些標記的可允許值如下，使用分號隔開多個值，但 `all` 和 `none` 必須單獨出現：
 
-| 值 | 說明 |
+| 值 | 描述 |
 | --- | ---
 | compile | `lib` 資料夾的內容，以及專案是否能對該資料夾內的組件進行編譯的控制項 |
 | runtime | `lib` 與 `runtimes` 資料夾的內容，以及是否能將這些組件複製到組建輸出目錄的控制項 |
@@ -129,7 +129,7 @@ ms.locfileid: "69564561"
 </ItemGroup>
 ```
 
-請注意，因為 `build` 不隨附於 `PrivateAssets`，所以目標與 props「會」  流動至父專案。 例如，考慮到上述參考會用在建置名為 AppLogger 之 NuGet 套件的專案中。 AppLogger 可從 `Contoso.Utility.UsefulStuff` 取用目標與 props，如同專案可以取用 AppLogger。
+請注意，因為 `build` 不隨附於 `PrivateAssets`，所以目標與 props「會」流動至父專案。 例如，考慮到上述參考會用在建置名為 AppLogger 之 NuGet 套件的專案中。 AppLogger 可從 `Contoso.Utility.UsefulStuff` 取用目標與 props，如同專案可以取用 AppLogger。
 
 > [!NOTE]
 > 在 `.nuspec` 檔案中，當 `developmentDependency` 設定為 `true` 時可讓套件成為僅限開發相依性，這可防止套件被包含為其他套件的相依性。 使用 PackageReference *(NuGet 4.8+)* 時，此旗標也表示它在編譯時會排除編譯時間資產。 如需詳細資訊，請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) \(英文\)。
@@ -166,7 +166,7 @@ ms.locfileid: "69564561"
 ## <a name="locking-dependencies"></a>鎖定相依性
 *NuGet **4.9** 或更新版本搭配 Visual Studio 2017 **15.9** 或更新版本提供此功能。*
 
-對 NuGet 還原的輸入是一組來自專案檔 (頂層或直接相依性) 的套件參考，而輸出是完整的套件相依性終止，包括可轉移相依性。 若輸入 PackageReference 清單未變更，NuGet 會嘗試一律產生相同的完整套件相依性終止。 不過，在一些情況下，無法這樣做。 例如：
+對 NuGet 還原的輸入是一組來自專案檔 (頂層或直接相依性) 的套件參考，而輸出是完整的套件相依性終止，包括可轉移相依性。 若輸入 PackageReference 清單未變更，NuGet 會嘗試一律產生相同的完整套件相依性終止。 不過，在一些情況下，無法這樣做。 例如:
 
 * 當您使用如 `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` 的浮動版本時。 雖然這裡的目的是在次套件還原時浮動到最新版本，在某些案例中，使用者在收到明確手勢時需要圖形鎖定為特定最新版本並浮動到更新的版本 (如果可用)。
 * 會發行符合 PackageReference 版本需求的的較新套件版本。 例如， 
@@ -236,11 +236,12 @@ ProjectA
 若 `ProjectA` 有對 `PackageX` 版本 `2.0.0` 的相依性，而且也參考相依於 `PackageX` 版本 `1.0.0` 的 `ProjectB`，則 `ProjectB` 的鎖定檔案將會列出對 `PackageX` 版本 `1.0.0` 的相依性。 不過，當建置 `ProjectA` 時，其鎖定檔案將會包含對 `PackageX` 版本 **`2.0.0`** 的相依性，而**非** `1.0.0` (如 `ProjectB` 的鎖定檔案所列)。 因此，一般程式碼專案的鎖定檔案對於相依於它之專案的解析套件沒有多大決定權。
 
 ### <a name="lock-file-extensibility"></a>鎖定檔案擴充性
+
 您使用鎖定檔案來控制還原的各種行為，如下所述：
 
-| 選項 | MSBuild 同等選項 | 
-|:---  |:--- |
-| `--use-lock-file` | 專案的鎖定檔案啟動程序使用。 或者，您可以在專案檔中設定 `RestorePackagesWithLockFile` 屬性 | 
-| `--locked-mode` | 針對還原啟用鎖定模式。 這在您想要取得可重複組建的 CI/CD 案例中非常實用。 透過將 `RestoreLockedMode` MSBuild 屬性設定為 `true`，就可以達到這個目的 |  
-| `--force-evaluate` | 對於專案中已定義浮動版本的套件而言，此選項非常實用。 根據預設，NuGet 還原將不會在每次還原時自動更新套件版本，除非您搭配 `--force-evaluate` 選項執行還原。 |
-| `--lock-file-path` | 為專案定義自訂鎖定檔案位置。 這也可以透過設定 MSBuild 屬性 `NuGetLockFilePath` 來完成。 根據預設，NuGet 支援根目錄的 `packages.lock.json`。 若您在相同的目錄中有多個專案，NuGet 支援專案特定鎖定檔案 `packages.<project_name>.lock.json` |
+| 選項 | MSBuild 同等選項 | 描述|
+|:---  |:--- |:--- |
+| `--use-lock-file` | RestorePackagesWithLockFile | 選擇使用鎖定檔案。 | 
+| `--locked-mode` | RestoreLockedMode | 針對還原啟用鎖定模式。 這在您想要可重複組建的 CI/CD 案例中很有用。|   
+| `--force-evaluate` | RestoreForceEvaluate | 對於專案中已定義浮動版本的套件而言，此選項非常實用。 根據預設，除非您使用此選項執行還原，否則 NuGet 還原將不會在每次還原時自動更新套件版本。 |
+| `--lock-file-path` | NuGetLockFilePath | 為專案定義自訂鎖定檔案位置。 根據預設，NuGet 支援根目錄的 `packages.lock.json`。 若您在相同的目錄中有多個專案，NuGet 支援專案特定鎖定檔案 `packages.<project_name>.lock.json` |
