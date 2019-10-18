@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 14483264030dd3bb32c7295886f2d37d52e735cc
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
-ms.translationtype: HT
+ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020038"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380739"
 ---
 # <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
 許多程式庫的目標都設為特定 .NET Framework 版本。 例如，您可能有一版的程式庫是 UWP 特有的，而另一個版本則利用 .NET Framework 4.6 中的功能。 為了配合此功能，NuGet 支援在單一套件中放置相同程式庫的多個版本。
 
-此文章說明 NuGet 套件的配置，且不考慮套件或元件的建立方式為何 (即不論使用多個非 SDK 樣式 *.csproj* 檔案和自訂 *.nuspec* 檔案，或使用單一多目標 SDK 樣式 *.csproj* 版面配置都相同)。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
+本文描述 NuGet 套件的配置，不論封裝或元件的建立方式為何（也就是，不論使用多個非 SDK 樣式的 .csproj 檔案和自訂*nuspec*檔案，或單一多目標的版面配置都相同） *。* SDK 樣式 *.csproj*）。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
 
 如果您使用[建立套件](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)中所述的傳統型工作目錄方法，就必須如此文章中所述手動配置套件。 針對 SDK 樣式專案，建議使用自動化方法，但您也可以選擇如此文章中所述手動配置套件。
 
@@ -65,9 +65,9 @@ ms.locfileid: "69020038"
             \native
             \lib\uap10.0
 
-這些組件只有在執行階段中可用，因此若您也要提供對應的編譯階段組件，`AnyCPU` 必須位於 `/ref{tfm}` 資料夾中。 
+這些組件只有在執行階段中可用，因此若您也要提供對應的編譯階段組件，`AnyCPU` 必須位於 `/ref/{tfm}` 資料夾中。 
 
-請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣地，若有一些來自 `/runtime` 的相容資產，將也會針對執行階段忽略 `/lib`。
+請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣地，如果 `/runtime` 有一些相容的資產，則執行時間也會忽略 `/lib`。
 
 如需在 `.nuspec` 資訊清單中參考這些檔案的範例，請參閱[建立 UWP 套件](../guides/create-uwp-packages.md)。
 
@@ -117,7 +117,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 支援的設定檔如下所示：
 
 - `client`：用戶端設定檔
-- `full`：用戶端設定檔
+- `full`：完整設定檔
 - `wp`：Windows Phone
 - `cf`：Compact Framework
 
@@ -152,7 +152,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 封裝目標設為可攜式類別庫的程式庫時，可能很難判斷您應該在資料夾名稱和 `.nuspec` 檔案中使用的 NuGet 目標，特別是目標只設為 PCL 子集時。 下列外部資源將協助您進行下列作業：
 
 - [.NET 中的架構設定檔](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [可攜式類別庫設定檔](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co)：列舉 PCL 設定檔和其對等 NuGet 目標的表格
+- [可攜式類別庫設定檔](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co)：列舉 PCL 設定檔和其對等 NuGet 目標的資料表
 - [可攜式類別庫設定檔工具](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com)：用於判斷系統上可用之 PCL 設定檔的命令列工具
 
 ## <a name="content-files-and-powershell-scripts"></a>內容檔案和 PowerShell 指令碼
@@ -160,7 +160,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 > [!Warning]
 > 只有使用 `packages.config` 格式才能使用可變動的內容檔案和指令碼執行；可變動的內容檔案和指令碼執行已隨所有其他格式遭取代，而且不應該用於任何新套件。
 
-使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如：
+使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如:
 
     \content
         \net46

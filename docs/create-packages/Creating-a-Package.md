@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 353654d12e137222ab24417f30fd22e9f027c324
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564583"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380702"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
@@ -39,7 +39,7 @@ ms.locfileid: "69564583"
 
 - 同樣地，如果 `Utilities.dll` 與 `Utilities.resources.dll` 相依 (再提醒一次，後者無法單獨使用)，則請將這兩個放在相同的套件中。
 
-資源其實是特殊案例。 將套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，但「排除」  名為 `.resources.dll` 的參考，因為它們假設為當地語系化附屬組件 (請參閱[建立當地語系化套件](creating-localized-packages.md))。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
+資源其實是特殊案例。 將套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，但「排除」名為 `.resources.dll` 的參考，因為它們假設為當地語系化附屬組件 (請參閱[建立當地語系化套件](creating-localized-packages.md))。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
 
 如果您的程式庫包含 COM Interop 組件，請遵循[建立包含 COM Interop 組件的套件](author-packages-with-com-interop-assemblies.md)中的其他指導方針。
 
@@ -177,7 +177,7 @@ nuget locals -list global-packages
 
 資料夾慣例如下：
 
-| 資料夾 | 說明 | 套件安裝時的動作 |
+| 資料夾 | 描述 | 套件安裝時的動作 |
 | --- | --- | --- |
 | (root) | readme.txt 的位置 | 安裝套件時，Visual Studio 會顯示套件根目錄中的 readme.txt 檔案。 |
 | lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為編譯與執行階段的參考；`.xml` 與 `.pdb` 則會複製到專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)，以了解如何建立架構目標特定子資料夾。 |
@@ -187,7 +187,7 @@ nuget locals -list global-packages
 | build | *(3.x+)* MSBuild `.targets` 與 `.props` 檔案 | 自動插入到專案中。 |
 | buildMultiTargeting | 用於跨架構目標的 *(4.0+)* MSBuild `.targets` 與 `.props` 檔案 | 自動插入到專案中。 |
 | buildTransitive | *(5.0+)* 可傳遞至任何取用專案的 MSBuild `.targets` 與 `.props` 檔案。 請參閱[功能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)頁面 \(英文\)。 | 自動插入到專案中。 |
-| tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時 *「不」* 會新增至針對 MSBuild 所設定的 `PATH`)。 |
+| tools | 可從套件管理員主控台存取的 Powershell 指令碼和程式 | `tools` 資料夾只會新增至套件管理員主控台的 `PATH` 環境變數 (具體而言，建置專案時「不」會新增至針對 MSBuild 所設定的 `PATH`)。 |
 
 因為您的資料夾結構可包含任意數目之目標架構的任意數目組件，所以建立可支援多重架構的套件時，需要使用此種方法。
 
@@ -218,7 +218,7 @@ nuget spec <assembly-name>.dll
 nuget spec
 ```
 
-產生的 `<project-name>.nuspec` 檔案包含「權杖」  ，而權杖會在封裝時取代為專案中的值，包含已安裝之任何其他套件的參考。
+產生的 `<project-name>.nuspec` 檔案包含「權杖」，而權杖會在封裝時取代為專案中的值，包含已安裝之任何其他套件的參考。
 
 如果您有要包含在 *.nuspec* 中的套件相依性，請改為使用 `nuget pack` 並從產生的 *.nupkg* 檔案內取得 *.nuspec* 檔案。 例如，使用下列命令。
 
@@ -241,7 +241,7 @@ nuget pack myproject.csproj
 
 #### <a name="solution-level-packages"></a>方案層級套件
 
-*僅限 NuGet 2.x。在 NuGet 3.0+ 中無法使用。*
+*僅限 NuGet 2.x。不適用於 NuGet 3.0 +。*
 
 NuGet 2.x 支援可安裝套件管理員主控台工具或其他命令的方案層級套件概念 (`tools` 資料夾內容)，但不會將參考、內容或組建自訂新增至方案中的任何專案。 這類套件在其直接 `lib`、`content` 或 `build` 資料夾中未包含任何檔案，而其相依性在各自的 `lib`、`content` 或 `build` 資料夾中沒有檔案。
 
@@ -267,7 +267,7 @@ nuget spec [<package-name>]
 
 - **唯一性**：在 nuget.org 內，或只要資源庫裝載套件時，識別碼就必須是唯一的。 決定識別碼之前，請搜尋適用的資源庫，檢查是否已在使用名稱。 若要避免衝突，不錯的模式是使用您的公司名稱作為識別碼的第一個部分，例如 `Contoso.`。
 - **命名空間類似名稱**：遵循與 .NET 中命名空間類似的模式，即使用點標記法，而非連字號。 例如，使用 `Contoso.Utility.UsefulStuff`，而非 `Contoso-Utility-UsefulStuff` 或 `Contoso_Utility_UsefulStuff`。 套件識別碼符合程式碼中所使用的命名空間時，取用者也會發現它十分有用。
-- **範例套件**：如果您產生的範例程式碼套件示範如何使用另一個套件，請將 `.Sample` 附加為識別碼的尾碼，如 `Contoso.Utility.UsefulStuff.Sample` 所示 (範例套件當然會有與另一個套件的相依性)。建立範例套件時，請使用稍早所述以慣例為基礎的工作目錄方法。 在 `content` 資料夾中，於稱為 `\Samples\<identifier>` 的資料夾中排列範例程式碼，而這與 `\Samples\Contoso.Utility.UsefulStuff.Sample` 中相同。
+- **範例套件**：如果您產生的範例程式碼套件示範如何使用另一個套件，請將 `.Sample` 附加為識別碼的尾碼，如 `Contoso.Utility.UsefulStuff.Sample` 所示 （範例封裝當然會相依于另一個套件）。建立範例封裝時，請使用稍早所述的以慣例為基礎的工作目錄方法。 在 `content` 資料夾中，於稱為 `\Samples\<identifier>` 的資料夾中排列範例程式碼，而這與 `\Samples\Contoso.Utility.UsefulStuff.Sample` 中相同。
 
 **套件版本的最佳做法：**
 
@@ -276,13 +276,13 @@ nuget spec [<package-name>]
 
 > 下面一系列的簡短部落格文章也有助於了解版本控制：
 >
-> - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html) \(英文\)
-> - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html) \(英文\)
-> - [第 3 部分：透過繫結重新導向的統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html) \(英文\)
+> - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [第 3 部分：透過繫結重新導向的統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="add-a-readme-and-other-files"></a>新增讀我檔案和其他檔案
 
-若要直接指定要包含在套件中的檔案，請在 `.nuspec` 檔案中使用 `<files>` 節點，而這在 `<metadata>` 標記「後面」  ：
+若要直接指定要包含在套件中的檔案，請在 `.nuspec` 檔案中使用 `<files>` 節點，而這在 `<metadata>` 標記「後面」：
 
 ```xml
 <?xml version="1.0"?>
@@ -344,7 +344,7 @@ nuget spec [<package-name>]
 
 [NuGet 2.5 引進了](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files)在套件中包含 MSBuild pros 和 targets 的做法，因此建議您將 `minClientVersion="2.5"` 屬性新增到 `metadata` 元素，以指出使用套件所需的最低 NuGet 用戶端版本。
 
-當 NuGet 安裝含有 `\build` 檔案的套件時，會在指向 `.targets` 和 `.props` 檔案的專案檔中新增 MSBuild `<Import>` 項目。 (`.props` 新增於專案檔頂端；`.targets` 則新增於底端)。針對每個目標框架新增不同的條件式 MSBuild`<Import>` 元素。
+當 NuGet 安裝含有 `\build` 檔案的套件時，會在指向 `.targets` 和 `.props` 檔案的專案檔中新增 MSBuild `<Import>` 項目。 （`.props` 會新增至專案檔的頂端; `.targets` 會新增至底部）。針對每個目標 framework 加入個別的條件式 MSBuild `<Import>` 專案。
 
 用於跨框架目標的 MSBuild `.props` 和 `.targets` 檔案可以放在 `\buildMultiTargeting` 資料夾中。 在套件安裝期間，NuGet 會將對應的 `<Import>` 元素新增到有條件的專案檔中，即未設定目標框架 (MSBuild 屬性 `$(TargetFramework)` 必須是空的)。
 
@@ -392,7 +392,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 
     如果參考的專案包含專屬 `.nuspec` 檔案，則 NuGet 會改為將該參考的專案新增為相依性。  您需要個別封裝和發行該專案。
 
-- **組建組態**：NuGet 預設會使用專案檔中所設定的預設組建組態，通常是「偵錯」  。 若要從不同組建組態來封裝檔案 (例如「發行」  )，請搭配使用 `-properties` 選項與下列組態：
+- **組建組態**：NuGet 預設會使用專案檔中所設定的預設組建組態，通常是「偵錯」。 若要從不同組建組態來封裝檔案 (例如「發行」)，請搭配使用 `-properties` 選項與下列組態：
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
@@ -424,7 +424,7 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：
 
 - [套件版本控制](../concepts/package-versioning.md)
-- [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
+- [支援多個目標 Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
 - [發行前版本](../create-packages/prerelease-packages.md)
@@ -434,4 +434,4 @@ NuGet 指出 `.nuspec` 檔案中是否有任何需要修正的錯誤；例如，
 最後，請注意其他套件類型：
 
 - [原生套件](../guides/native-packages.md)
-- [符號套件](../create-packages/symbol-packages.md)
+- [符號套件](../create-packages/symbol-packages-snupkg.md)

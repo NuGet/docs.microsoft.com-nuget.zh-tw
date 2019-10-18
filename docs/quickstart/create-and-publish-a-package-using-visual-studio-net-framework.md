@@ -5,21 +5,21 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384488"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380637"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發佈套件 (.NET Framework，Windows)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>快速入門：使用 Visual Studio 建立及發行套件 (.NET Framework，Windows)
 
 從 .NET Framework 類別庫中建立 NuGet 套件，會涉及在 Windows 上於 Visual Studio 中建立 DLL，進而使用 nuget.exe 命令列工具來建立及發行套件。
 
 > [!Note]
 > 本快速入門僅適用于 Windows Visual Studio 2017 和更高版本。 Visual Studio for Mac 不包含這裡描述的功能。 請改為使用 [dotnet CLI 工具](create-and-publish-a-package-using-the-dotnet-cli.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. 使用任何 .NET 相關的工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2017 或更高版本。 Visual Studio 2017 會在安裝 .NET 工作負載時，自動包含 NuGet 功能。
 
@@ -94,18 +94,17 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
     <?xml version="1.0"?>
     <package >
       <metadata>
-        <id>$id$</id>
-        <version>$version$</version>
-        <title>$title$</title>
-        <authors>$author$</authors>
-        <owners>$author$</owners>
-        <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+        <id>Package</id>
+        <version>1.0.0</version>
+        <authors>YourUsername</authors>
+        <owners>YourUsername</owners>
+        <license type="expression">MIT</license>
         <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
         <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>Package description</description>
         <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-        <copyright>Copyright 2018</copyright>
+        <copyright>Copyright 2019</copyright>
         <tags>Tag1 Tag2</tags>
       </metadata>
     </package>
@@ -135,7 +134,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
 
 ## <a name="publish-the-package"></a>發行套件
 
-一旦擁有 `.nupkg` 檔案之後，您會使用 `nuget.exe` 以及從 nuget.org 取得的 API 金鑰，將其發佈到 nuget.org。對於 nuget.org，您必須使用 `nuget.exe` 4.1.0 或更高版本。
+有了 `.nupkg` 檔案之後，您就可以使用 `nuget.exe` 搭配從 nuget.org 取得的 API 金鑰，將它發佈至 nuget.org。針對 nuget.org，您必須使用 `nuget.exe` 4.1.0 或更高版本。
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -181,7 +180,7 @@ NuGet 套件含有資訊清單 (`.nuspec` 檔案)，包含相關的中繼資料�
 
 若要深入探索 NuGet 所提供的功能，請選取下列連結。
 
-- [套件](../nuget-org/publish-a-package.md)
+- [發行套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
 - [支援多個目標架構](../create-packages/supporting-multiple-target-frameworks.md)
 - [套件版本控制](../concepts/package-versioning.md)

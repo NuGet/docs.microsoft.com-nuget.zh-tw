@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815313"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380505"
 ---
 # <a name="nuget-cross-platform-plugins"></a>NuGet 跨平臺外掛程式
 
@@ -27,7 +27,7 @@ NuGet 用戶端和外掛程式之間已建立版本的通訊協定。 在啟動�
 | 用戶端工具  | 架構 |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet.exe | .NET Core |
+| dotnet .exe | .NET Core |
 | Nuget.exe | .NET Framework |
 | Msbuild.exe | .NET Framework |
 | Mono 上的 Nuget.exe | .NET Framework |
@@ -70,12 +70,12 @@ NuGet 用戶端工具和外掛程式之間的通訊是雙向的。 每個要求�
 ## <a name="plugin-installation-and-discovery"></a>外掛程式安裝與探索
 
 這些外掛程式會透過以慣例為基礎的目錄結構來探索。
-CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注意， `NUGET_NETCORE_PLUGIN_PATHS`和僅適用于 5.3 + 版本的 NuGet 工具和更新版本。 `NUGET_NETFX_PLUGIN_PATHS`
+CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 使用環境變數時，只允許絕對路徑。 請注意，`NUGET_NETFX_PLUGIN_PATHS` 和 `NUGET_NETCORE_PLUGIN_PATHS` 僅適用于 5.3 + 版的 NuGet 工具和更新版本。
 
-- `NUGET_NETFX_PLUGIN_PATHS`-定義以 .NET Framework 為基礎的工具（Nuget.exe/Msbuild.exe/Visual Studio）將使用的外掛程式。 優先于`NUGET_PLUGIN_PATHS`。 （僅限 NuGet 5.3 版 +）
-- `NUGET_NETCORE_PLUGIN_PATHS`-定義將由 .NET Core 工具（dotnet）使用的外掛程式。 優先于`NUGET_PLUGIN_PATHS`。 （僅限 NuGet 5.3 版 +）
-- `NUGET_PLUGIN_PATHS`-定義將用於該 NuGet 進程的外掛程式，保留優先順序。 如果設定此環境變數，則會覆寫以慣例為基礎的探索。 如果指定了其中一個架構特定的變數，則會忽略。
--  使用者位置，是中`%UserProfile%/.nuget/plugins`的 NuGet 首頁位置。 無法覆寫此位置。 .NET Core 和 .NET Framework 外掛程式將會使用不同的根目錄。
+- `NUGET_NETFX_PLUGIN_PATHS`-定義 .NET Framework 為基礎的工具（Nuget.exe/Msbuild.exe/Visual Studio）將使用的外掛程式。 優先于 `NUGET_PLUGIN_PATHS`。 （僅限 NuGet 5.3 版 +）
+- `NUGET_NETCORE_PLUGIN_PATHS`-定義將由 .NET Core 工具（dotnet）使用的外掛程式。 優先于 `NUGET_PLUGIN_PATHS`。 （僅限 NuGet 5.3 版 +）
+- `NUGET_PLUGIN_PATHS`-定義將用於該 NuGet 進程的外掛程式，並保留優先順序。 如果設定此環境變數，則會覆寫以慣例為基礎的探索。 如果指定了其中一個架構特定的變數，則會忽略。
+-  使用者位置，`%UserProfile%/.nuget/plugins` 中的 NuGet 首頁位置。 無法覆寫此位置。 .NET Core 和 .NET Framework 外掛程式將會使用不同的根目錄。
 
 | 架構 | 根探索位置  |
 | ------- | ------------------------ |
@@ -123,20 +123,20 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
 外掛程式的安全性驗證和具現化成本很高。 下載作業的執行頻率比驗證作業更頻繁，但平均 NuGet 使用者只可能有驗證外掛程式。
 為了改善此體驗，NuGet 會快取指定要求的作業宣告。 此快取是每個外掛程式，其中外掛程式的索引鍵為外掛程式路徑，而此功能快取的到期時間為30天。 
 
-快取位於中`%LocalAppData%/NuGet/plugins-cache` ，並使用環境變數`NUGET_PLUGINS_CACHE_PATH`來覆寫。 若要清除[此快](../../consume-packages/managing-the-global-packages-and-cache-folders.md)取，可以使用`plugins-cache`選項來執行 [區域變數] 命令。
-[ `all`區域變數] 選項現在也會刪除外掛程式快取。 
+快取位於 `%LocalAppData%/NuGet/plugins-cache` 中，並以環境變數 `NUGET_PLUGINS_CACHE_PATH` 覆寫。 若要清除[此快](../../consume-packages/managing-the-global-packages-and-cache-folders.md)取，可以使用 `plugins-cache` 選項來執行 [區域變數] 命令。
+[@No__t_0 區域變數] 選項現在也會刪除外掛程式快取。 
 
 ## <a name="protocol-messages-index"></a>通訊協定訊息索引
 
 通訊協定*1.0.0*版訊息：
 
 1.  關閉
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求不會包含任何承載
     * 不需要回應。  適當的回應是讓外掛程式進程立即結束。
 
 2.  複製封裝中的檔案
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 套件識別碼和版本
         * 封裝來源存放庫位置
@@ -147,7 +147,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
         * 如果作業成功，則為目的地目錄中複製之檔案的完整路徑列舉
 
 3.  複製套件檔案（. nupkg）
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 套件識別碼和版本
         * 封裝來源存放庫位置
@@ -166,7 +166,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
         * 密碼（如果有的話）
 
 5.  取得封裝中的檔案
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 套件識別碼和版本
         * 封裝來源存放庫位置
@@ -175,7 +175,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
         * 如果作業成功，則為封裝中檔案路徑的可列舉
 
 6.  取得作業宣告 
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 封裝來源的服務索引. json
         * 封裝來源存放庫位置
@@ -187,7 +187,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
 > 此訊息已在版本*2.0.0*中更新。 它是在用戶端上，以保留回溯相容性。
 
 7.  取得封裝雜湊
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 套件識別碼和版本
         * 封裝來源存放庫位置
@@ -197,7 +197,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
         * 如果作業成功，則使用要求的雜湊演算法來封裝檔案雜湊
 
 8.  取得套件版本
-    * 要求方向：NuGet-> 外掛程式
+    * 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 套件識別碼
         * 封裝來源存放庫位置
@@ -214,7 +214,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
         * 作業成功時的服務索引
 
 10.  交握
-     * 要求方向：NuGet <-> 外掛程式
+     * 要求方向： NuGet <-> 外掛程式
      * 要求將包含：
          * 目前的外掛程式通訊協定版本
          * 支援的最小外掛程式通訊協定版本
@@ -223,7 +223,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
          * 如果作業成功，則為已協商的通訊協定版本。  失敗會導致外掛程式終止。
 
 11.  Initialize
-     * 要求方向：NuGet-> 外掛程式
+     * 要求方向： NuGet-> 外掛程式
      * 要求將包含：
          * NuGet 用戶端工具版本
          * NuGet 用戶端工具有效語言。  這會將 ForceEnglishOutput 設定納入考慮（如果使用的話）。
@@ -240,14 +240,14 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
          * 表示作業結果的回應碼。
 
 13.  監視 NuGet 進程結束
-     * 要求方向：NuGet-> 外掛程式
+     * 要求方向： NuGet-> 外掛程式
      * 要求將包含：
          * NuGet 處理序識別碼
      * 回應會包含：
          * 表示作業結果的回應碼。
 
 14.  預先提取套件
-     * 要求方向：NuGet-> 外掛程式
+     * 要求方向： NuGet-> 外掛程式
      * 要求將包含：
          * 套件識別碼和版本
          * 封裝來源存放庫位置
@@ -255,7 +255,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
          * 指出作業結果的回應碼
 
 15.  設定認證
-     * 要求方向：NuGet-> 外掛程式
+     * 要求方向： NuGet-> 外掛程式
      * 要求將包含：
          * 封裝來源存放庫位置
          * 最後已知的套件來源使用者名稱（如果有的話）
@@ -266,7 +266,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
          * 指出作業結果的回應碼
 
 16.  設定記錄層級
-     * 要求方向：NuGet-> 外掛程式
+     * 要求方向： NuGet-> 外掛程式
      * 要求將包含：
          * 預設記錄層級
      * 回應會包含：
@@ -276,7 +276,7 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
 
 17. 取得作業宣告
 
-* 要求方向：NuGet-> 外掛程式
+* 要求方向： NuGet-> 外掛程式
     * 要求將包含：
         * 封裝來源的服務索引. json
         * 封裝來源存放庫位置
@@ -288,11 +288,11 @@ CI/CD 案例和 power 使用者可以使用環境變數來覆寫行為。 請注
 
 18. 取得驗證認證
 
-* 要求方向：NuGet-> 外掛程式
+* 要求方向： NuGet-> 外掛程式
 * 要求將包含：
     * URI
     * isRetry
-    * NonInteractive
+    * 非
     * CanShowDialog
 * 回應會包含
     * 使用者名稱

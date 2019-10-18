@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488979"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380715"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET Standard 和 .NET Framework 套件
 
@@ -20,7 +20,7 @@ ms.locfileid: "69488979"
 
 本指南引導您建立以 .NET Standard Library 1.4 為目標的 NuGet 套件，或是以 .NET Framework 4.6 為目標的套件。 .NET Standard 1.4 程式庫可用於 .NET Framework 4.6.1、Universal Windows Platform 10、.NET Core 和 Mono/Xamarin。 如需詳細資訊，請參閱 [.NET Standard 對應表](/dotnet/standard/net-standard#net-implementation-support) (.NET 文件)。 您可以依需求選擇其他版本的 .NET Standard 程式庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2015 Update 3
 1. (僅限 .NET Standard) [.NET Core SDK](https://www.microsoft.com/net/download/) \(英文\)
@@ -31,17 +31,17 @@ ms.locfileid: "69488979"
 
 ## <a name="create-the-class-library-project"></a>建立類別庫專案
 
-1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]  ，依序展開 [Visual C#] > [Windows]  節點，選取 [類別庫 (可攜式)]  將名稱變更為 AppLogger，然後選取 [確定]  。
+1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]，依序展開 [Visual C#] > [Windows] 節點，選取 [類別庫 (可攜式)]將名稱變更為 AppLogger，然後選取 [確定]。
 
     ![建立新的類別庫專案](media/NetStandard-NewProject.png)
 
-1. 在顯示的 [加入可攜式類別庫]  對話方塊中，選取 `.NET Framework 4.6` 和 `ASP.NET Core 1.0` 的選項。 (如果目標是 .NET Framework，您可以選取任何適當的選項。)
+1. 在顯示的 [加入可攜式類別庫] 對話方塊中，選取 `.NET Framework 4.6` 和 `ASP.NET Core 1.0` 的選項。 (如果目標是 .NET Framework，您可以選取任何適當的選項。)
 
-1. 如果目標是 .NET Standard，在 [方案總管] 中，以滑鼠右鍵按一下 [`AppLogger (Portable)`]，選取 [屬性]  ，選取 [程式庫]  索引標籤，然後在 [目標]  區段中選取 [目標 .NET 平台標準]  。 此動作會提示您確認，之後您就可以從下拉式清單中選取 `.NET Standard 1.4` (或其他可用版本)：
+1. 如果目標是 .NET Standard，在 [方案總管] 中，以滑鼠右鍵按一下 [`AppLogger (Portable)`]，選取 [屬性]，選取 [程式庫] 索引標籤，然後在 [目標] 區段中選取 [目標 .NET 平台標準]。 此動作會提示您確認，之後您就可以從下拉式清單中選取 `.NET Standard 1.4` (或其他可用版本)：
 
     ![將目標設定為 .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
 
-1. 按一下 [組建]  索引標籤，將 [組態]  變更為 `Release`，並核取 [XML 文件檔]  方塊。
+1. 按一下 [組建] 索引標籤，將 [組態] 變更為 `Release`，並核取 [XML 文件檔] 方塊。
 
 1. 將程式碼新增至元件，例如：
 
@@ -110,7 +110,7 @@ ms.locfileid: "69488979"
     </files>
     ```
 
-1. 以滑鼠右鍵按一下解決方案，然後選取 [組建方案]  產生套件的所有檔案。
+1. 以滑鼠右鍵按一下解決方案，然後選取 [組建方案] 產生套件的所有檔案。
 
 ### <a name="declaring-dependencies"></a>宣告相依性
 
@@ -169,7 +169,7 @@ nuget pack AppLogger.nuspec
 - [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
 - [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
-- [符號套件](../create-packages/symbol-packages.md)
+- [符號套件](../create-packages/symbol-packages-snupkg.md)
 - [套件版本控制](../concepts/package-versioning.md)
 - [.NET Standard 程式庫文件](/dotnet/articles/standard/library)
 - [從 .NET Framework 移轉到 .NET Core](/dotnet/articles/core/porting/index)

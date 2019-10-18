@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488965"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380696"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
@@ -29,13 +29,13 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 
 建立套件時需要下列屬性。
 
-- `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 若未指定，則預設值為 `AssemblyName`。
+- `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 如果未指定，則預設值為 `AssemblyName`。
 - `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
 - 主機上應該會出現套件標題 (例如 nuget.org)
-- `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
-- `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
+- `Authors`，作者與擁有者資訊。 如果未指定，則預設值為 `AssemblyName`。
+- `Company`，您的公司名稱。 如果未指定，則預設值為 `AssemblyName`。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]  ，然後選取 [套件]  索引標籤)。 您也可以直接在專案檔 ( *.csproj*) 中設定這些屬性。
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 ( *.csproj*) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>
@@ -49,7 +49,7 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 > [!Important]
 > 為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何套件資源上都必須是唯一的。
 
-下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性。
+下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -88,9 +88,9 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
    </ItemGroup>
    ```
 
-2. 開啟開發人員命令提示字元 (在 [搜尋]  方塊中，輸入**開發人員命令提示字元**)。
+2. 開啟開發人員命令提示字元 (在 [搜尋] 方塊中，輸入**開發人員命令提示字元**)。
 
-   您通常想要從 [開始]  功能表啟動適用於 Visual Studio 的開發人員命令提示字元，因為它將使用適用於 MSBuild 的所有必要路徑來設定。
+   您通常想要從 [開始] 功能表啟動適用於 Visual Studio 的開發人員命令提示字元，因為它將使用適用於 MSBuild 的所有必要路徑來設定。
 
 3. 切換至包含專案檔的資料夾，並輸入下列命令以安裝 NuGet.Build.Tasks.Pack 套件。
 
@@ -181,4 +181,4 @@ Time Elapsed 00:00:01.21
 最後，請注意其他套件類型：
 
 - [原生套件](../guides/native-packages.md)
-- [符號套件](../create-packages/symbol-packages.md)
+- [符號套件](../create-packages/symbol-packages-snupkg.md)

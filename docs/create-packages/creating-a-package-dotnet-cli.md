@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69489017"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380745"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
 
@@ -27,13 +27,13 @@ ms.locfileid: "69489017"
 
 建立套件時需要下列屬性。
 
-- `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 若未指定，則預設值為 `AssemblyName`。
+- `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 如果未指定，則預設值為 `AssemblyName`。
 - `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
 - 主機上應該會出現套件標題 (例如 nuget.org)
-- `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
-- `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
+- `Authors`，作者與擁有者資訊。 如果未指定，則預設值為 `AssemblyName`。
+- `Company`，您的公司名稱。 如果未指定，則預設值為 `AssemblyName`。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]  ，然後選取 [套件]  索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>
@@ -131,4 +131,4 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 最後，請注意其他套件類型：
 
 - [原生套件](../guides/native-packages.md)
-- [符號套件](../create-packages/symbol-packages.md)
+- [符號套件](../create-packages/symbol-packages-snupkg.md)
