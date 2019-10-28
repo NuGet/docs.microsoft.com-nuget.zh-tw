@@ -1,42 +1,40 @@
 ---
 title: NuGet 用戶端 SDK
-description: API 是不斷演變以及不尚未記載，但 Dave Glick 部落格上的範例可用。
+description: API 不斷演進，尚未記載，但範例可在 Dave Glick 的 blog 中取得。
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 873bde467a39653b818b49173d53bc983e99d1b9
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911032"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924610"
 ---
 # <a name="nuget-client-sdk"></a>NuGet 用戶端 SDK
 
+*Nuget 用戶端 SDK*是指以[nuget. 命令](https://www.nuget.org/packages/NuGet.Commands)、 [nuget、封裝](https://www.nuget.org/packages/NuGet.Packaging)和[NuGet. 通訊協定](https://www.nuget.org/packages/NuGet.Protocol)為中心的 nuget 套件群組。 這些套件會取代先前的[NuGet. 核心](https://www.nuget.org/packages/NuGet.Core/)程式庫。
+
 > [!Note]
-> 不到與混淆[NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)
-
-*NuGet 用戶端 SDK*參考為主的.NET 程式庫的一組[NuGet.Commands](https://www.nuget.org/packages/NuGet.Commands)， [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging)，和[NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol). 這些套件取代舊版[NuGet.Core](https://www.nuget.org/packages/NuGet.Core/)程式庫。
-
-我們正努力有穩定的介面區，我們很快就可以文件。
+>  如需 NuGet 伺服器通訊協定的相關檔，請參閱[Nuget 伺服器 API](~/api/overview.md)。
 
 ## <a name="source-code"></a>原始程式碼
 
-GitHub 上發行的原始碼專案中[NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client)。
+原始程式碼發佈于 GitHub 上的專案[NuGet/nuget. 用戶端](https://github.com/NuGet/NuGet.Client)。
 
-## <a name="third-party-documentation"></a>協力廠商文件
+## <a name="third-party-documentation"></a>協力廠商檔
 
-下列部落格系列由 Dave Glick，發行 2016年中，您可以找到範例和某些 API 的文件：
+您可以在下列 blog 系列中找到一些 API 的範例和檔： Dave Glick，發佈的2016：
 
-- [瀏覽 NuGet v3 程式庫，第 1 部分：簡介和概念](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [瀏覽 NuGet v3 程式庫，第 2 部分：搜尋套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [瀏覽 NuGet v3 程式庫，第 3 部分：安裝套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [探索 NuGet v3 程式庫，第1部分：簡介和概念](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [探索 NuGet v3 程式庫，第2部分：搜尋封裝](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [探索 NuGet v3 程式庫，第3部分：安裝套件](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
-> 這些部落格文章所撰寫後不久**3.4.3**發行用戶端 SDK 套件的 NuGet 版本。
-> 較新版本的封裝可能與部落格文章中的資訊不相容。
+> 這些 blog 文章是在 NuGet 用戶端 SDK 套件的**3.4.3**版本發行後不久撰寫。
+> 較新版本的套件可能與 blog 文章中的資訊不相容。
 
-Martin Björkström 未 Dave Glick 部落格系列的待處理的部落格文章，其中介紹他如何使用安裝 NuGet 套件的 NuGet 用戶端 SDK 不同的方法：
+聖馬丁 Björkström 在 Dave Glick 的 blog 系列文章中，介紹了使用 NuGet 用戶端 SDK 來安裝 NuGet 套件的不同方法：
 
-- [重新認識 NuGet v3 程式庫](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
+- [重新訪 NuGet v3 程式庫](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)
