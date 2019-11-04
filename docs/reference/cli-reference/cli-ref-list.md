@@ -36,9 +36,9 @@ nuget list [search terms] [options]
 | Help | 顯示命令的說明資訊。 |
 | IncludeDelisted | *(3.2 +)* 顯示未列出的套件。 |
 | NonInteractive | 抑制使用者輸入或確認的提示。 |
-| 版 | 包含清單中的發行前版本套件。 |
+| PreRelease | 包含清單中的發行前版本套件。 |
 | Source | 指定要搜尋的封裝來源清單。 |
-| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]  、[無訊息]、[*詳細*]。 |
+| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]、[無訊息]、[*詳細*]。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
