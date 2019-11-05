@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488840"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610945"
 ---
 # <a name="creating-localized-nuget-packages"></a>建立當地語系化 NuGet 套件
 
@@ -71,20 +71,20 @@ ms.locfileid: "69488840"
 </package>
 ```
 
-使用此方法的其中一個範例套件是 [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0)。
+使用此方法的其中一個範例套件是 [Microsoft.Data.OData 5.4.0](https://nuget.org/packages/Microsoft.Data.OData/5.4.0)。
 
 ### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>優點和缺點 (當地語系化的資源組件)
 
 將所有語言組合在單一套件中有幾個缺點：
 
 1. **共用中繼資料**：因為 NuGet 套件只能包含單一 `.nuspec` 檔案，所以您只能為單一語言提供中繼資料。 也就是說，NuGet 不會支援當地語系化中繼資料。
-1. **套件大小**：視您支援的語言數目而定，程式庫可能會變得相當大，這會減慢安裝和還原套件的速度。
+1. **套件大小**：根據您所支援的語言數目，程式庫可能會變得相當大，這會減慢安裝和還原套件的速度。
 1. **同時發行**：將當地語系化檔案組合成單一套件，需要您同時發行該套件中的所有資產，而不是可以個別發行每個當地語系化。 此外，任何一個當地語系化的任何更新都需要整個套件的新版本。
 
 不過，它也有幾個優點：
 
 1. **簡單**：套件的取用者會取得單一安裝中所有支援的語言，而不需要個別安裝每種語言。 在 nuget.org 上也較容易找到單一套件。
-1. **耦合版本**：因為所有資源組件都位在與主要組件相同的套件中，所以它們全都會共用相同的版本號碼，而且沒有錯誤分離的風險。
+1. **結合版本**：因為所有資源組件都位在與主要組件相同的套件中，所以它們全都會共用相同的版本號碼，而且沒有錯誤分離的風險。
 
 ## <a name="localized-satellite-packages"></a>當地語系化附屬套件
 
@@ -119,11 +119,11 @@ ms.locfileid: "69488840"
 
 您可以使用相同的方式，針對每個支援的語言建立其他附屬組件。 如需範例，請檢查 ASP.NET MVC 套件集：
 
-- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (英文主要)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (德文)
-- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (日文)
-- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (簡體中文)
-- [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (繁體中文)
+- [Microsoft.AspNet.Mvc](https://nuget.org/packages/Microsoft.AspNet.Mvc) (英文主要)
+- [Microsoft.AspNet.Mvc.de](https://nuget.org/packages/Microsoft.AspNet.Mvc.de) (德文)
+- [Microsoft.AspNet.Mvc.ja](https://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (日文)
+- [Microsoft.AspNet.Mvc.zh-Hans](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (簡體中文)
+- [Microsoft.AspNet.Mvc.zh-Hant](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (繁體中文)
 
 ### <a name="summary-of-required-conventions"></a>必要慣例的摘要
 
@@ -138,11 +138,11 @@ ms.locfileid: "69488840"
 使用附屬套件有幾個優點：
 
 1. **套件大小**：主要套件的整體使用量會降到最低，而且取用者只會造成他們想要使用之每種語言的成本。
-1. **區隔中繼資料**：每個附屬套件都有它自己的 `.nuspec` 檔案，因此包含它的專屬當地語系化中繼資料。 這可讓部分取用者使用當地語系化詞彙來搜尋 nuget.org，更輕鬆地找到套件。
-1. **去耦合版本**：可在一段時間內 (而非同時) 發行附屬組件，以讓您散發當地語系化工作。
+1. **區隔中繼資料**：每個附屬套件都有它的專屬 `.nuspec` 檔案，因此包含它的專屬當地語系化中繼資料。 這可讓部分取用者使用當地語系化詞彙來搜尋 nuget.org，更輕鬆地找到套件。
+1. **低耦合版本**：可在一段時間內 (而非同時) 發行附屬組件，以讓您散發當地語系化工作。
 
 不過，附屬套件有自己的一組缺點：
 
-1. **雜亂**：如果不是使用單一套件，而是使用許多套件，可能會導致 nuget.org 的搜尋結果雜亂，而且 Visual Studio 專案中的參考清單會較長。
+1. **雜亂**：您有許多套件可能導致 nuget.org 的搜尋結果雜亂，以及 Visual Studio 專案中的參考清單較長，而不是單一套件。
 1. **嚴格慣例**. 附屬套件必須完全遵循慣例，否則無法正確反映當地語系化版本。
-1. **版本控制**：每個附屬套件都必須具有與主要套件版本完全相同的相依性。 這表示，即使資源未變更，更新主要套件時也可能需要更新所有附屬套件。
+1. **版本控制**：每個附屬套件都必須具有與主要套件的確切版本相依性。 這表示，即使資源未變更，更新主要套件時也可能需要更新所有附屬套件。

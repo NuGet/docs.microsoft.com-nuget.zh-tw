@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0e69491525fce03e504d9d455bee2718510c83c2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549881"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610995"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>使用 Team Foundation Build 設定套件還原
 
@@ -31,7 +31,7 @@ ms.locfileid: "43549881"
 
 使用 NuGet 的優點在於，您可以使用它來避免將二進位檔簽入到版本設定系統。
 
-因為開發人員必須在本機上開始工作之前複製整個存放庫 (包含完整歷程記錄)，所以如果您使用[分散式版本設定](http://en.wikipedia.org/wiki/Distributed_revision_control)系統 (例如 git)，則這特別有趣。 因為二進位檔案在儲存時通常不會進行差異壓縮，所以簽入二進位檔可能會造成明顯存放庫膨脹。
+因為開發人員必須在本機上開始工作之前複製整個存放庫 (包含完整歷程記錄)，所以如果您使用[分散式版本設定](https://en.wikipedia.org/wiki/Distributed_revision_control)系統 (例如 git)，則這特別有趣。 因為二進位檔案在儲存時通常不會進行差異壓縮，所以簽入二進位檔可能會造成明顯存放庫膨脹。
 
 NuGet 現在已支援在建置期間[還原套件](../consume-packages/package-restore.md)較長的時間。 先前的實作具有要擴充建置流程之套件的無解問題，因為 NuGet 已在建置專案時還原套件。 不過，MSBuild 不允許在建置期間擴充建置；有人可能會認為這是 MSBuild 中的問題，但我認為這是無法避免的問題。 根據您需要擴充的層面，在還原套件時註冊可能會太晚。
 
@@ -50,7 +50,7 @@ nuget restore path\to\solution.sln
 
 ## <a name="repository-structure"></a>存放庫結構
 
-我們的示範專案是一種簡單命令列工具，可使用命令列引數來查詢 Bing。 它的目標設為 .NET Framework 4，並使用許多 [BCL 套件](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http)、[Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl)、[Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async) 和 [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build))。
+我們的示範專案是一種簡單命令列工具，可使用命令列引數來查詢 Bing。 它的目標設為 .NET Framework 4，並使用許多 [BCL 套件](https://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http)、[Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl)、[Microsoft.Bcl.Async](https://www.nuget.org/packages/Microsoft.Bcl.Async) 和 [Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build))。
 
 存放庫的結構如下：
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432513"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611359"
 ---
 # <a name="nuget-48-release-notes"></a>NuGet 4.8 版本資訊
 
@@ -22,21 +22,21 @@ ms.locfileid: "58432513"
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>摘要: 4.8.0 中的新功能
+## <a name="summary-whats-new-in-480"></a>摘要：4.8.0 的新功能
 * NuGet.exe 現在可在 Windows 10 上支援 longfilenames - [#6937](https://github.com/NuGet/Home/issues/6937)
-* 驗證外掛程式現在可以在 MsBuild、DotNet.exe、NuGet.exe 和 Visual Studio 間運作，包括跨平台運作。 第一代的驗證外掛程式在 MsBuild DotNet.exe 中不受支援。 注意:VS 2017 15.9 預覽組建包含 VSTS 驗證外掛程式。 [#6486](https://github.com/NuGet/Home/issues/6486)
+* 驗證外掛程式現在可以在 MsBuild、DotNet.exe、NuGet.exe 和 Visual Studio 間運作，包括跨平台運作。 第一代的驗證外掛程式在 MsBuild DotNet.exe 中不受支援。 注意：VS 2017 15.9 預覽組建包含 VSTS 驗證外掛程式。 [#6486](https://github.com/NuGet/Home/issues/6486)
 * MsBuild 的 SDK 解析程式現在建置為 NuGet 的一部分，並使用 VS 的 NuGet 工具進行安裝。 這可避免版本不同步的情形。[#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference 現在支援 DevelopmentDependency 中繼資料 - [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>摘要: 4.8.2 中的新功能
+## <a name="summary-whats-new-in-482"></a>摘要：4.8.2 的新功能
 
-* 安全性修正：在 ~/.nuget 內建立的檔案權限過於開放 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全性修正：在 ~/.nuget 中建立之檔案的許可權太過開啟[#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>已知問題
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>在 CI 電腦上或在離線環境中安裝已簽署的套件需要較多時間
 
 #### <a name="issue"></a>問題
-如果電腦的網際網路存取受到限制 (例如，CI/CD 案例中的組建電腦)，在安裝/還原已簽署的 Nuget 套件時將會因為撤銷伺服器無法連線而出現警告 ([NU3028](https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu3028))。 這是預期的行為。 但在某些情況下，這可能會有非預期的後果，例如套件安裝/還原耗時較長。
+如果電腦的網際網路存取受到限制 (例如，CI/CD 案例中的組建電腦)，在安裝/還原已簽署的 Nuget 套件時將會因為撤銷伺服器無法連線而出現警告 ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028))。 這是預期的行為。 但在某些情況下，這可能會有非預期的後果，例如套件安裝/還原耗時較長。
 
 #### <a name="workaround"></a>因應措施
 在 Visual Studio 15.8.4 和 NuGet.exe 4.8.1 的更新中，我們引進了可切換撤銷檢查模式的環境變數。
@@ -60,7 +60,7 @@ ms.locfileid: "58432513"
 * 建置專案也會觸發 NuGet 還原
 
 您現在應該可以看到移轉選項。 請注意，ASP.NET 和 C++ 專案類型不支援且不顯示此選項。
-注意:此問題已在 VS 2017 15.9 Preview 3 中修正
+注意：此問題已在 VS 2017 15.9 Preview 3 中修正
 
 ## <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
@@ -84,7 +84,7 @@ ms.locfileid: "58432513"
 * 在 NuspecProperties 中允許空的取代權杖 - [#6722](https://github.com/NuGet/Home/issues/6722)
 * 已指定 NuspecProperties 時，PackTask 會擲回 NullReferenceException - [#4649](https://github.com/NuGet/Home/issues/4649)
 
-#### <a name="accessibility"></a>協助工具選項
+#### <a name="accessibility"></a>Accessibility
 * [協助工具] 在 PM UI 中，套件按鈕下的字串「發行前版本」被其套件描述遮住 - [#4504](https://github.com/NuGet/Home/issues/4504)
 * [協助工具] 在 PM UI 中選取 [Microsoft Visual Studio 離線套件] 時，套件來源下拉式清單和設定按鈕會截斷 - [#4502](https://github.com/NuGet/Home/issues/4502)
 

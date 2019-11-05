@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520348"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610982"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
@@ -27,14 +27,14 @@ ms.locfileid: "69520348"
 
 ## <a name="version-basics"></a>版本基本概念
 
-特定版本號碼的格式為「主要.次要.修補程式[-尾碼]」  ，其中的元件具有下列意義：
+特定版本號碼的格式為「主要.次要.修補程式[-尾碼]」，其中的元件具有下列意義：
 
-- 主要  ：重大變更
-- 次要  ：新功能，但具回溯相容性
-- 修補程式  ：僅具有回溯相容的錯誤 (Bug) 修正
-- 「-尾碼」  (選擇性)：後面接著字串的連字號，表示發行前版本 (遵循[語意化版本控制系統或 SemVer 1.0 慣例](http://semver.org/spec/v1.0.0.html))。
+- *主要*：重大變更
+- *次要*：新功能，但回溯相容
+- *Patch*：僅回溯相容的 bug 修正
+- 「-尾碼」(選擇性)：後面接著字串的連字號，表示發行前版本 (遵循[語意化版本控制系統或 SemVer 1.0 慣例](https://semver.org/spec/v1.0.0.html))。
 
-**範例：**
+**典型**
 
     1.0.1
     6.11.1231
@@ -50,12 +50,12 @@ ms.locfileid: "69520348"
 
 話雖如此，套件開發人員通常會遵循公認的命名慣例：
 
-- `-alpha`：Alpha 版本，通常用於進行中的工作和實驗。
-- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的錯誤 (Bug)。
-- `-rc`：候選版，除非出現重大的錯誤 (Bug)，不然通常是準最終版本 (穩定版)。
+- `-alpha`： Alpha 版本，通常用於進行中的工作和實驗。
+- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的 Bug。
+- `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援 [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23*。 4\.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
+> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23*。 4\.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
 
 解析套件參考且多個套件版本只有尾碼不同時，NuGet 會先選擇不含尾碼的版本，然後再依相反字母順序套用發行前版本。 例如，系統會依照所示的順序選擇下列版本：
 
@@ -70,7 +70,7 @@ ms.locfileid: "69520348"
 
 ## <a name="semantic-versioning-200"></a>語意化版本控制系統 2.0.0
 
-使用 NuGet 4.3.0+ 與 Visual Studio 2017 15.3+ 版，NuGet 支援[語意化版本控制系統 2.0.0](http://semver.org/spec/v2.0.0.html)。
+使用 NuGet 4.3.0+ 與 Visual Studio 2017 15.3+ 版，NuGet 支援[語意化版本控制系統 2.0.0](https://semver.org/spec/v2.0.0.html)。
 
 較舊的用戶端不支援 SemVer v2.0.0 的某些語意。 如果下列其中一個敘述成立，則 NuGet 會將套件版本視為 SemVer v2.0.0 特定：
 
@@ -102,7 +102,7 @@ ms.locfileid: "69520348"
 
 在參考套件相依性時，NuGet 支援使用間隔標記法來指定版本範圍，摘要說明如下：
 
-| 標記法 | 套用的規則 | 描述說明 |
+| Notation | 套用的規則 | 描述 |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | 最小版本 (包含) |
 | (1.0,) | x > 1.0 | 最小版本 (不包含) |

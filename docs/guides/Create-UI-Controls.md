@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426858"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610623"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 
 自 Visual Studio 2017 開始，您可利用 NuGet 套件所傳遞的 UWP 和 WPF 控制項新增功能。 本指南會使用 [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)，在 UWP 控制項內容中，逐步介紹這些功能。 除非另外提及，否則所述內容也適用於 WPF 控制項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2017
 1. 了解如何[建立 UWP 套件](create-uwp-packages.md)
@@ -60,9 +60,9 @@ ms.locfileid: "67426858"
 其中：
 
 - *your_package_file*：您控制檔案的名稱，例如 `ManagedPackage.winmd` ("ManagedPackage" 是用於此範例的任意名稱，沒有任何其他意義)。
-- *vs_category*：群組標籤，Visual Studio 設計工具工具箱控制項應該出現在此群組中。 需要有 `VSCategory`，控制項才會出現在工具箱中。
-- *blend_category*：群組標籤，Blend 設計工具 [資產] 窗格控制項應該出現在此群組。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
-- *type_full_name_n*：每個控制項的完整名稱，包含命名空間，例如 `ManagedPackage.MyCustomControl`。 請注意，點格式適用於 Managed 和原生類型。
+- *vs_category*：Visual Studio 設計工具工具箱中控制項應該出現在其中的群組標籤。 需要有 `VSCategory`，控制項才會出現在工具箱中。
+- *blend_category*：Blend 設計工具 [資產] 窗格中控制項應該出現在其中的群組標籤。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
+- *type_full_name_n*：每個控制項的完整名稱，包含命名空間 (例如 `ManagedPackage.MyCustomControl`)。 請注意，點格式適用於 Managed 和原生類型。
 
 在更進階的情況下，您也可以在單一套件包含多個控制項組件時，於 `<FileList>` 內包含多個 `<File>` 項目。 如果您想要將您的控制項組織成不同的類別，則也可以在單一 `<File>` 內有多個 `<ToolboxItems>` 節點。
 
@@ -93,7 +93,7 @@ ms.locfileid: "67426858"
 
 ![工具箱圖示範例](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-執行階段會更換粉紅色背景。 變更 Visual Studio 佈景主題時，圖示將會更換顏色，且應會出現背景顏色。 如需詳細資訊，請參考 [Visual Studio 的映像與圖示](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)。
+執行階段會更換粉紅色背景。 變更 Visual Studio 佈景主題時，圖示將會更換顏色，且應會出現背景顏色。 如需詳細資訊，請參考 [Visual Studio 的映像與圖示](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)。
 
 在下列範例中，專案會包含名為 “ManagedPackage.MyCustomControl.png” 的影像檔。
 
@@ -120,7 +120,7 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 
 ## <a name="add-design-time-support"></a>新增設計階段支援
 
-若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)  功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。 (此檔案不會影響控制項的執行階段行為)。資料夾結構會因此出現，如下所示：
+若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。 （這個檔案不會影響控制項的執行時間行為）。因此，資料夾結構會如下所示：
 
     \lib
       \uap10.0.14393
@@ -146,14 +146,14 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 
 ## <a name="use-strings-and-resources"></a>使用字串和資源
 
-您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作]  屬性設定為 [PRIResource]  。
+您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作] 屬性設定為 [PRIResource]。
 
 如需範例，請參閱 ExtensionSDKasNuGetPackage 範例中的 [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs)。
 
 > [!Note]
 > 這僅適用於 UWP 控制項。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [建立 UWP 套件](create-uwp-packages.md)
 - [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)

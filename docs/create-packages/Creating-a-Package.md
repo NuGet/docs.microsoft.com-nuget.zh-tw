@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 353654d12e137222ab24417f30fd22e9f027c324
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380702"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610696"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
@@ -276,9 +276,9 @@ nuget spec [<package-name>]
 
 > 下面一系列的簡短部落格文章也有助於了解版本控制：
 >
-> - [第 1 部分：接受 DLL 挑戰](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [第 2 部分：核心演算法](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [第 3 部分：透過繫結重新導向的統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [第 1 部分：接受 DLL 挑戰](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [第 2 部分：核心演算法](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [第 3 部分：透過繫結重新導向的統一](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="add-a-readme-and-other-files"></a>新增讀我檔案和其他檔案
 

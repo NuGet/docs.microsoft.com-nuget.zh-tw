@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 1fb12c6cb9f7702c05990f79a6d43b9dd739e8cc
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328065"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611103"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>在 Visual Studio 中使用套件管理員主控台安裝及管理套件 (PowerShell)
 
@@ -24,7 +24,7 @@ Nuget 套件管理員主控台可讓您使用 [NuGet PowerShell 命令](../refer
 
 例如，尋找並安裝套件是透過三個簡單的步驟來完成：
 
-1. 在 Visual Studio 中開啟專案/方案，然後使用 [工具] > [NuGet 套件管理員] > [套件管理器主控台]  命令來開啟主控台。
+1. 在 Visual Studio 中開啟專案/方案，然後使用 [工具] > [NuGet 套件管理員] > [套件管理器主控台] 命令來開啟主控台。
 
 1. 尋找您要安裝的套件。 如果您已經知道這一點，請跳到步驟 3。
 
@@ -48,7 +48,7 @@ Nuget 套件管理員主控台可讓您使用 [NuGet PowerShell 命令](../refer
 
 ## <a name="opening-the-console-and-console-controls"></a>開啟主控台與主控台控制項
 
-1. 在 Visual Studio 中，使用 [工具] > [NuGet 套件管理員] > [套件管理器主控台]  命令來開啟主控台。 主控台是一個 Visual Studio 視窗，可依您的需要進行排列和定位 (請參閱[在 Visual Studio 中自訂視窗版面配置](/visualstudio/ide/customizing-window-layouts-in-visual-studio))。
+1. 在 Visual Studio 中，使用 [工具] > [NuGet 套件管理員] > [套件管理器主控台] 命令來開啟主控台。 主控台是一個 Visual Studio 視窗，可依您的需要進行排列和定位 (請參閱[在 Visual Studio 中自訂視窗版面配置](/visualstudio/ide/customizing-window-layouts-in-visual-studio))。
 
 1. 根據預設，主控台命令會針對視窗頂端的控制項中設定的特定套件來源與專案進行操作：
 
@@ -56,7 +56,7 @@ Nuget 套件管理員主控台可讓您使用 [NuGet PowerShell 命令](../refer
 
 1. 選取不同的套件來源和/或專案會變更後續命令的預設值。 若要在不變更預設值的情況下覆寫這些設定，大部分的命令都支援 `-Source` 與 `-ProjectName` 選項。
 
-1. 若要管理套件來源，請選取齒輪圖示。 這是 [工具] > [選項] > [NuGet 套件管理員] > [套件來源]  對話方塊的捷徑，如[套件管理員 UI](install-use-packages-visual-studio.md#package-sources) 頁面所述。 此外，專案選取器右側的控制項可清除主控台的內容：
+1. 若要管理套件來源，請選取齒輪圖示。 這是 [工具] > [選項] > [NuGet 套件管理員] > [套件來源] 對話方塊的捷徑，如[套件管理員 UI](install-use-packages-visual-studio.md#package-sources) 頁面所述。 此外，專案選取器右側的控制項可清除主控台的內容：
 
     ![套件管理員主控台設定與清除控制項](media/PackageManagerConsoleControls2.png)
 
@@ -79,7 +79,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 在主控台中安裝套件時執行的步驟，與[安裝套件時會發生什麼事](../concepts/package-installation-process.md)中所述相同，此外還會：
 
 - 主控台會在其視窗中顯示適用的授權條款，並附帶隱含的合約。 如果您不同意這些條款，則應該立即將套件解除安裝。
-- 此外，對套件的參考也會加入至專案檔中，並顯示在 [方案總管]  中的 [參考]  節點下，您必須儲存專案才能直接查看專案檔中的變更。
+- 此外，對套件的參考也會加入至專案檔中，並顯示在 [方案總管] 中的 [參考] 節點下，您必須儲存專案才能直接查看專案檔中的變更。
 
 ## <a name="uninstall-a-package"></a>解除安裝套件
 
@@ -98,7 +98,7 @@ Uninstall-Package Elmah -Force
 
 解除安裝套件會執行下列動作：
 
-- 從專案中移除套件的參考 (以及任何使用中的管理格式)。 參考不會再出現在 [方案總管]  中。 (您可能需要重建專案，才能看到它已從 **Bin** 資料夾中移除。)
+- 從專案中移除套件的參考 (以及任何使用中的管理格式)。 參考不會再出現在 [方案總管] 中。 (您可能需要重建專案，才能看到它已從 **Bin** 資料夾中移除。)
 - 反轉安裝套件時對 `app.config` 或 `web.config` 所做的任何變更。
 - 如果沒有剩餘的套件使用這些相依性，則移除先前安裝的相依性。
 
@@ -141,9 +141,9 @@ Find-Package jquery -AllVersions -ExactMatch
 
 ## <a name="availability-of-the-console"></a>主控台的可用性
 
-從 Visual Studio 2017 開始，當您選取任何與 .NET 相關的工作負載時，會自動安裝 NuGet 和 NuGet 套件管理員；您還可以透過檢查 Visual Studio 安裝程式中的 [個別元件] > [程式碼工具] > [NuGet 套件管理員]  選項來個別安裝。
+從 Visual Studio 2017 開始，當您選取任何與 .NET 相關的工作負載時，會自動安裝 NuGet 和 NuGet 套件管理員；您還可以透過檢查 Visual Studio 安裝程式中的 [個別元件] > [程式碼工具] > [NuGet 套件管理員] 選項來個別安裝。
 
-此外，如果您想在 Visual Studio 2015 和更早版本中使用 NuGet 套件管理員，請查看 [工具] > [擴充功能和更新]  ，然後搜尋 NuGet 套件管理員擴充功能。 如果您無法在 Visual Studio 中使用擴充功能安裝程式，您可以直接從 [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) \(英文\) 下載擴充功能。
+此外，如果您想在 Visual Studio 2015 和更早版本中使用 NuGet 套件管理員，請查看 [工具] > [擴充功能和更新]，然後搜尋 NuGet 套件管理員擴充功能。 如果您無法在 Visual Studio 中使用擴充功能安裝程式，您可以直接從 [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) \(英文\) 下載擴充功能。
 
 Visual Studio for Mac 目前不提供套件管理員主控台。 但是，對等的命令則可透過 [NuGet CLI](../reference/nuget-exe-CLI-reference.md) 取得。 Visual Studio for Mac 確實有一個用於管理 NuGet 套件的 UI。 請參閱[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。
 
@@ -172,9 +172,9 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>在主控台中使用 nuget.exe CLI
 
-若要讓 [`nuget.exe` CLI](../reference/nuget-exe-cli-reference.md) 可在套件管理員主控台中使用，請從主控台安裝 [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) 套件：
+若要讓 [`nuget.exe` CLI](../reference/nuget-exe-cli-reference.md) 可在套件管理員主控台中使用，請從主控台安裝 [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) 套件：
 
 ```ps
-# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+# Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/
 Install-Package NuGet.CommandLine -Version 4.4.1
 ```

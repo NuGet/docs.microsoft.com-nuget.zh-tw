@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 994a0da3728e05a09b5537d150f2203477922efc
-ms.sourcegitcommit: 904cbee57770af04efcae0b3709301685475bf64
+ms.openlocfilehash: e77219d355f73f3bf01f68283ffb2759813af563
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2019
-ms.locfileid: "72962297"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611318"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 版本資訊
 
@@ -29,7 +29,7 @@ NuGet 配送車：
 
 * 針對封裝進行 SHA 追蹤和強制執行的增強安全性- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* 啟用淘汰/舊版 NuGet 套件的取代[#2867](https://github.com/NuGet/Home/issues/2867) | [Blog 文章](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [檔](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+* 啟用淘汰/舊版 NuGet 套件的取代[#2867](https://github.com/NuGet/Home/issues/2867) | [Blog 文章](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [檔](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages)
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 

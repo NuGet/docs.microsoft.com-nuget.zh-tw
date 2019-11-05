@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380739"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610643"
 ---
 # <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
@@ -151,8 +151,8 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 
 封裝目標設為可攜式類別庫的程式庫時，可能很難判斷您應該在資料夾名稱和 `.nuspec` 檔案中使用的 NuGet 目標，特別是目標只設為 PCL 子集時。 下列外部資源將協助您進行下列作業：
 
-- [.NET 中的架構設定檔](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [可攜式類別庫設定檔](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co)：列舉 PCL 設定檔和其對等 NuGet 目標的資料表
+- [.NET 中的架構設定檔](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [可攜式類別庫設定檔](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co)：列舉 PCL 設定檔和其對等 NuGet 目標的資料表
 - [可攜式類別庫設定檔工具](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com)：用於判斷系統上可用之 PCL 設定檔的命令列工具
 
 ## <a name="content-files-and-powershell-scripts"></a>內容檔案和 PowerShell 指令碼

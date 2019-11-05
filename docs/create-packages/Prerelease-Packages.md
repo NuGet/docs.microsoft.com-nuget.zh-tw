@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488858"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610707"
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -44,36 +44,36 @@ ms.locfileid: "69488858"
 
 NuGet 使用套件時預設不包含發行前版本，但是您可以如下所示變更此行為：
 
-- **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件]  UI 中，選取 [包含發行前版本]  方塊：
+- **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，核取 [包含發行前版本] 方塊：
 
-    ![Visual Studio 中的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
+    ![Visual Studio 的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
     設定或清除此方塊會重新整理套件管理員 UI，以及您可以安裝的可用版本清單。
 
-- **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 與 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
+- **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
 
-- **NuGet CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 與 `mirror` 命令。 請參閱 [NuGet CLI 參考](../reference/nuget-exe-cli-reference.md)
+- **NuGet CLI**：使用 `-prerelease` 參數搭配 `install`、`update`、`delete` 和 `mirror` 命令。 請參閱 [NuGet CLI 參考](../reference/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>語意版本控制
 
-[語意化版本控制系統或 SemVer 慣例](http://semver.org/spec/v1.0.0.html)描述如何利用版本號碼中的字串傳遞基礎程式碼的意涵。
+[語意化版本控制系統或 SemVer 慣例](https://semver.org/spec/v1.0.0.html)描述如何利用版本號碼中的字串傳遞基礎程式碼的意涵。
 
 在此慣例中，每個版本都有三個部分 `Major.Minor.Patch`，代表意義如下：
 
 - `Major`：重大變更
 - `Minor`：新功能，但具回溯相容性
-- `Patch`：僅具有回溯相容的錯誤 (Bug) 修正
+- `Patch`：僅具有回溯相容的 Bug 修正
 
-然後在發行前版本的修補程式編號後附加連字號和一個字串。 就技術層面而言，連字號後面可以使用「任何」  字串，NuGet 會將套件視為發行前版本。 然後，NuGet 會在適用的 UI 中顯示完整的版本號碼，讓取用者自行解譯其意義。
+然後在發行前版本的修補程式編號後附加連字號和一個字串。 就技術層面而言，連字號後面可以使用「任何」字串，NuGet 會將套件視為發行前版本。 然後，NuGet 會在適用的 UI 中顯示完整的版本號碼，讓取用者自行解譯其意義。
 
 請記住，通常遵循如下所示的可辨識命名慣例會比較好：
 
 - `-alpha`：Alpha 版本，通常用於進行中的工作和實驗
-- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的錯誤 (Bug)。
-- `-rc`：候選版，除非出現重大的錯誤 (Bug)，不然通常是準最終版本 (穩定版)。
+- `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的 Bug。
+- `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援[ v2.0.0](http://semver.org/spec/v2.0.0.html)，其支援使用點標記法的發行前版本號碼，如同 `1.0.1-build.23`。 4\.3.0 之前的 NuGet 版本不支援點標記法。 在舊版的 NuGet 中，您可以使用類似 `1.0.1-build23` 的形式，但之前向來將這視為發行前版本。
+> NuGet 4.3.0+ 支援[ v2.0.0](https://semver.org/spec/v2.0.0.html)，其支援使用點標記法的發行前版本號碼，如同 `1.0.1-build.23`。 4\.3.0 之前的 NuGet 版本不支援點標記法。 在舊版的 NuGet 中，您可以使用類似 `1.0.1-build23` 的形式，但之前向來將這視為發行前版本。
 
 但無論使用什麼樣的尾碼，NuGet 都會以反向字母順序給予它們優先權：
 

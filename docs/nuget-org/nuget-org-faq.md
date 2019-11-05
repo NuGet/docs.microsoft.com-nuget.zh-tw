@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380582"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610487"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org 常見問題集
 
@@ -90,7 +90,7 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 *擷取 Fiddler：*
 
-- 安裝最新版的 [Fiddler](http://www.telerik.com/download/fiddler)。
+- 安裝最新版的 [Fiddler](https://www.telerik.com/download/fiddler)。
 - 啟動 Fiddler，並使用 [檔案] > [擷取流量] 功能表來停用擷取流量。
 - 移除所有工作階段 (選取清單中的所有項目，並按 **Delete** 鍵)。
 - 設定 Fiddler 擷取 HTTPS 流量，方法是核取 [工具] > [Fiddler 選項] 功能表的 [HTTPS] 索引標籤中的 [Decrypt HTTPS traffic] (將 HTTPS 流量解密)。
@@ -101,7 +101,7 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 注意：可能必須將 `HTTP_PROXY` 環境變數設定為 `http://127.0.0.1:8888`，以透過 Fiddler 路由傳送 NuGet 流量。
 
-如果該作業失敗，請嘗試[這篇 StackOverflow 文章所提及的祕訣](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall)。
+如果該作業失敗，請嘗試[這篇 StackOverflow 文章所提及的祕訣](https://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall)。
 
 ## <a name="nugetorg-account-management"></a>NuGet.org 帳戶管理
 
@@ -228,17 +228,17 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 看來您的帳戶之前註冊為個人 Microsoft 帳戶，且沒發生什麼問題，不過現在您的帳戶似乎已註冊為 Azure Active Directory (用來驗證 Microsoft 帳戶的識別服務) 中的「非受控」租用戶。 
 
-若您或組織中的某人 (電子郵件地址為 @yourdomain.com) 使用其中一項 AAD 整合服務註冊，或進行會為所使用 Microsoft 帳戶網域 (也就是 @yourdomain.com) 建立這類「非受控」租用戶的 [Azure Active Directory 自助式註冊](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup)，就可能發生此情形。 
+若您或組織中的某人 (電子郵件地址為 @yourdomain.com) 使用其中一項 AAD 整合服務註冊，或進行會為所使用 Microsoft 帳戶網域 (也就是 @yourdomain.com) 建立這類「非受控」租用戶的 [Azure Active Directory 自助式註冊](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup)，就可能發生此情形。 
 
 **該如何復原我的帳戶？**
 
 目前，我們 (NuGet.org) 無法驗證在 Azure Active Directory 中具有這類「非受控」租用戶帳戶的帳戶。 我們正在尋找更好的方法來驗證這類帳戶。
 
-若您想要使用 Microsoft 帳戶 (@yourdomain.com) 登入 NuGet.org，您 (或公司的系統管理員) 就必須使用電子郵件地址 "@yourdomain.com" 進行 DNS 驗證來驗證使用者，以宣告 AAD 的擁有權。 請遵循由 Azure Active Directory 所記載[網域系統管理員接管](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover)的步驟。 完成後，您的一般登入應開始正常運作。
+若您想要使用 Microsoft 帳戶 (@yourdomain.com) 登入 NuGet.org，您 (或公司的系統管理員) 就必須使用電子郵件地址 "@yourdomain.com" 進行 DNS 驗證來驗證使用者，以宣告 AAD 的擁有權。 請遵循由 Azure Active Directory 所記載[網域系統管理員接管](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)的步驟。 完成後，您的一般登入應開始正常運作。
 
 **我不想要執行這些動作，可以復原我帳戶的其他方式為何？**
 
-您可以[建立](https://www.microsoft.com/en-us/account)新的 Microsoft 帳戶 (搭配**未**與 @yourdomain.com 建立關聯的電子郵件) 遵循[復原您的 NuGet.org 帳戶](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)一節中提供的步驟。
+您可以[建立](https://www.microsoft.com/account)新的 Microsoft 帳戶 (搭配**未**與 @yourdomain.com 建立關聯的電子郵件) 遵循[復原您的 NuGet.org 帳戶](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)一節中提供的步驟。
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>如何變更我的 NuGet.org 帳戶使用者名稱？
 
@@ -250,7 +250,7 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>如何刪除我的 NuGet.org 帳戶？
 
-請注意，若要刪除您的帳戶，建議轉換您為唯一擁有者的所有套件擁有權。 您可以深入了解如何[管理套件擁有者](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg)。 這也有助於我們加速處理您的要求。
+請注意，若要刪除您的帳戶，建議轉換您為唯一擁有者的所有套件擁有權。 您可以深入了解如何[管理套件擁有者](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg)。 這也有助於我們加速處理您的要求。
 
 若您要將您的帳戶轉換為組織，請依照[將我的 NuGet.org 帳戶轉換為組織](#how-to-transform-my-nugetorg-account-to-an-organization)。
 
