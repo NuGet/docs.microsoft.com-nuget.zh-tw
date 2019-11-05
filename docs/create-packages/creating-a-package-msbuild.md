@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380696"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610540"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
-當您從程式碼建立 NuGet 套件時，會將該功能封裝至可由任意數目的其他開發人員共用和使用的元件。 本文說明如何使用 MSBuild 建立套件。 MSBuild 會使用每個包含 NuGet 的 Visual Studio 工作負載來進行預先安裝。 此外，您也可以透過 dotnet CLI，搭配 [dotnet msbuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) 使用 MSBuild。
+當您從程式碼建立 NuGet 套件時，會將該功能封裝至可由任意數目的其他開發人員共用和使用的元件。 本文說明如何使用 MSBuild 建立套件。 MSBuild 會使用每個包含 NuGet 的 Visual Studio 工作負載來進行預先安裝。 此外，您也可以透過 dotnet CLI 搭配[dotnet msbuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild)使用 msbuild。
 
 針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。  針對使用 `<PackageReference>` 的非 SDK 樣式專案，NuGet 也會使用專案檔來建立套件。
 

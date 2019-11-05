@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248127"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610502"
 ---
 # <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目
 
@@ -31,7 +31,7 @@ ms.locfileid: "71248127"
 
 1. 每次提交套件給 [nuget.org](https://www.nuget.org/) 而其識別碼符合保留識別碼首碼時，除非它來自保留該識別碼首碼的擁有者，否則會拒絕該套件。
 
-1. 任何符合保留識別碼首碼的套件，且套件是源自保留該識別碼首碼的擁有者時，在 Visual Studio 2017 15.4 版或更新版本以及 [nuget.org](https://www.nuget.org/) 上會有一個視覺指標，指出套件位於保留識別碼首碼底下。 對於新套件提交和擁有者底下的現有套件而言，都是如此。 **注意：** Visual Studio 中的指標僅會在單一摘要選取為套件來源時出現。
+1. 任何符合保留識別碼首碼的套件，且套件是源自保留該識別碼首碼的擁有者時，在 Visual Studio 2017 15.4 版或更新版本以及 [nuget.org](https://www.nuget.org/) 上會有一個視覺指標，指出套件位於保留識別碼首碼底下。 對於新套件提交和擁有者底下的現有套件而言，都是如此。 **注意：** 只有在選取單一摘要做為封裝來源時，Visual Studio 中的指標才會出現。
 
 1. 符合保留識別碼首碼，但「不」是由保留首碼擁有者所擁有的任何先前現有套件將維持不變 (它們不會被列出，但也不會有視覺指標)。 此外，這些套件的擁有者將仍然可以將新版本提交至套件。
 
@@ -93,7 +93,7 @@ ms.locfileid: "71248127"
 
 ## <a name="third-party-feed-provider-scenarios"></a>第三方摘要提供者案例
 
-如果第三方摘要提供者想要實作自己的服務以提供首碼保留項目，您可以修改 NuGet V3 摘要提供者中的搜尋服務來辦到。 摘要搜尋服務中的新增是要新增 *verified* 屬性，V3 摘要的範例如下。 NuGet 用戶端將不支援在 V2 摘要中新增的屬性。
+如果協力廠商摘要提供者有興趣執行自己的服務來提供前置詞保留，則可以在 NuGet V3 摘要提供者中修改搜尋服務來執行此動作。 摘要搜尋服務中的變更是新增 `verified` 屬性。 NuGet 用戶端將不支援在 V2 摘要中新增的屬性。
 
 如需詳細資訊，請參閱 [API 搜尋服務的相關文件](../api/search-query-service-resource.md)。
 

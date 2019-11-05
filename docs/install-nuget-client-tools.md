@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 09c859c0ab6767ea80b6a64c194aa2623ee5c505
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384465"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610529"
 ---
 # <a name="install-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
-> **想要安裝套件？請參閱[安裝 NuGet 套件的方式](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)。**
+> **想要安裝套件嗎？請參閱[安裝 NuGet 套件的方式](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)。**
 
 若要以套件取用者或建立者身分使用 NuGet，您可以使用命令列介面 (CLI) 工具以及 Visual Studio 中的 NuGet 功能。 本文簡要概述不同工具的功能、安裝它們的方式，以及它們相對的[功能可用性](#feature-availability)。 若要開始使用 NuGet 來取用套件，請參閱[安裝並使用套件 (dotnet CLI](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) 與[安裝並使用套件 (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)。 若要開始建立 NuGet 套件，請參閱[建立及發佈 .NET Standard 套件 (dotnet CLI)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) 和[建立及發佈 .NET Standard 套件 (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
@@ -46,7 +46,7 @@ ms.locfileid: "70384465"
 
 ### <a name="nugetexe-cli"></a>nuget.exe CLI
 
-`nuget.exe` CLI (`nuget.exe`) 是適用於 Windows 的命令列公用程式，它提供所有 NuGet 功能，也可以在 Mac OSX 與 Linux 上使用 [Mono](http://www.mono-project.com/docs/getting-started/install/) 來執行，但有一些限制。
+`nuget.exe` CLI (`nuget.exe`) 是適用於 Windows 的命令列公用程式，它提供所有 NuGet 功能，也可以在 Mac OSX 與 Linux 上使用 [Mono](https://www.mono-project.com/docs/getting-started/install/) 來執行，但有一些限制。
 
 若要了解如何使用 `nuget.exe` CLI 的基本命令，請參閱[使用 nuget.exe CLI 安裝和使用套件](consume-packages/install-use-packages-nuget-cli.md)。
 
@@ -66,7 +66,7 @@ ms.locfileid: "70384465"
 
 - Visual Studio for Mac：已直接內建特定的 NuGet 功能。 如需逐步解說，請參閱[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)。 針對其他功能，請使用 `dotnet.exe` 或 `nuget.exe` CLI 工具。
 
-- Windows 上的 Visual Studio：**NuGet 套件管理員**隨附於 Visual Studio 2012 與更新版本。 Visual Studio 提供[套件管理員 UI](consume-packages/install-use-packages-visual-studio.md) 和[套件管理員主控台](consume-packages/install-use-packages-powershell.md)，您可以透過它們執行大部分 NuGet 作業。
+- Windows 上的 Visual Studio：**NuGet 套件管理員**隨附於 Visual Studio 2012 及更新版本。 Visual Studio 提供[套件管理員 UI](consume-packages/install-use-packages-visual-studio.md) 和[套件管理員主控台](consume-packages/install-use-packages-powershell.md)，您可以透過它們執行大部分 NuGet 作業。
   - 在 Visual Studio 2017 中啟動，此安裝程式包含 NuGet 套件管理員以及採用 .NET 的任何工作負載。 若要個別安裝或驗證已安裝套件管理員，請執行 Visual Studio 安裝程式，並核取 [個別元件] > [程式碼工具] > [NuGet 套件管理員] 下的選項。
   - 套件管理員 UI 和主控台對 Windows 上的 Visual Studio 而言是不同的。 它們目前無法供 Visual Studio for Mac 使用。
   - 需要 CLI 工具，以支援 IDE 中的 NuGet 功能。 您可以使用 `dotnet` CLI 或 `nuget.exe` CLI。 `dotnet` CLI 會隨一些 Visual Studio 工作負載一起安裝，例如 .NET Core。 `nuget.exe` CLI 必須單獨安裝，如先前所述。
@@ -77,7 +77,7 @@ ms.locfileid: "70384465"
 
 ## <a name="feature-availability"></a>功能可用性
 
-| 功能 | dotnet CLI | nuget CLI (Windows) | nuget CLI (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
+| 特殊功能 | dotnet CLI | nuget CLI (Windows) | nuget CLI (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
 | --- | --- | --- | --- | --- | --- |
 | 搜尋套件 |  | &#10004; | &#10004; | &#10004; | &#10004; |
 | 安裝/解除安裝套件 | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
