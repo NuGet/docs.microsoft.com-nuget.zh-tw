@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: ff8f988a4d47e18d74945d274be5cca78d3ff8e5
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380545"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096925"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -174,6 +174,9 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 如需對等的 MSBuild，請參閱[封裝圖示影像檔](msbuild-targets.md#packing-an-icon-image-file)。
 
+> [!Tip]
+> 您可以指定 `icon` 和 `iconUrl`，以維持與不支援 `icon`的來源的回溯相容性。 Visual Studio 將支援未來版本中來自以資料夾為基礎的來源之套件的 `icon`。
+
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。
 
@@ -232,11 +235,11 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 #### <a name="contentfiles"></a>contentFiles
 *(3.3+)* `<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。
 #### <a name="files"></a>個檔案 
-@No__t_0 節點可能會包含 `<files>` 節點做為 `<metadata>` 的同級，以及 `<metadata>` 下的 `<contentFiles>` 子系，以指定要包含在封裝中的元件和內容檔案。 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
+`<package>` 節點可能會包含 `<files>` 節點做為 `<metadata>`的同級，以及 `<metadata>`下的 `<contentFiles>` 子系，以指定要包含在封裝中的元件和內容檔案。 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
 
 ### <a name="metadata-attributes"></a>中繼資料屬性
 
-#### <a name="minclientversion"></a>MinClientVersion
+#### <a name="minclientversion"></a>minClientVersion
 指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。
 
 ```xml

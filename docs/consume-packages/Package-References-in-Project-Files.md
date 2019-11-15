@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510808"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096863"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
 套件參考使用 `PackageReference` 節點，直接在專案檔中管理 NuGet 相依性 (而不是在個別的 `packages.config` 檔案中)。 使用 PackageReference 不會影響 NuGet 的其他方面；例如，仍會套用 `NuGet.config` 檔案中的設定 (包括套件來源)，如[常用的 NuGet 組態](configuring-nuget-behavior.md)中所述。
 
-使用 PackageReference 也可讓您使用 MSBuild 條件，依目標 Framework、組態、平台或其他群組來選擇套件參考。 它也允許對相依性和內容流動進行細微控制。 (如需詳細資訊，請參閱 [NuGet pack and restore as MSBuild targetsNuGet](../reference/msbuild-targets.md) (NuGet 以 pack 與 restore 作為 MSBuild 目標)。)
+透過 PackageReference，您也可以使用 MSBuild 條件來選擇每個目標 framework 或其他群組的套件參考。 它也允許對相依性和內容流動進行細微控制。 (如需詳細資訊，請參閱 [NuGet pack and restore as MSBuild targetsNuGet](../reference/msbuild-targets.md) (NuGet 以 pack 與 restore 作為 MSBuild 目標)。)
 
 ## <a name="project-type-support"></a>專案類型支援
 
@@ -51,6 +51,7 @@ ms.locfileid: "72510808"
 在上述範例中，3.6.0 表示 >=3.6.0 的任何版本，但偏好最低版本，如[套件版本控制](../concepts/package-versioning.md#version-ranges-and-wildcards)中所述。
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>針對沒有任何 PackageReference 的專案使用 PackageReference
+
 進階：如果專案中未安裝任何套件 (專案檔中沒有 PackageReference，也沒有 packages.config 檔案)，但希望專案能還原為 PackageReference 樣式，您可以在您的專案檔中將專案屬性 RestoreProjectStyle 設為 PackageReference。
 ```xml
 <PropertyGroup>
@@ -60,6 +61,10 @@ ms.locfileid: "72510808"
 </PropertyGroup>    
 ```
 如果您的參考專案為 PackageReference 樣式 (現有的 csproj 或 SDK 樣式專案)，這會很有用。 這會讓這些專案參考的套件成為您專案「過渡性」參考的套件。
+
+## <a name="packagereference-and-sources"></a>PackageReference 和來源
+
+在 PackageReference 專案中，可轉移的相依性版本會在還原時解析。 因此，在 PackageReference projects 中，所有來源都必須可供所有還原使用。 
 
 ## <a name="floating-versions"></a>浮動版本
 

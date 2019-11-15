@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610967"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096857"
 ---
 # <a name="manage-package-trust-boundaries"></a>管理套件的信任界限
 
@@ -95,7 +95,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 
 ### <a name="sync-repository-certificates"></a>同步存放庫憑證
 
-套件存放庫應宣告其在[服務所引](../api/service-index.md)中使用的憑證。 不論如何，存放庫都會更新這些憑證，例如，當憑證到期時。 當發生這種情況時，使用特定原則的用戶端會需要更新組態以包含新增的憑證。 您可以使用 `nuget.exe` [受信任的簽署者同步命令] （..，輕鬆地升級與存放庫相關聯的受信任簽署者。/reference/cli-reference/cli-ref-trusted-signers.md # nuget-受信任-簽署者-同步--名稱-名稱
+套件存放庫應宣告其在[服務所引](../api/service-index.md)中使用的憑證。 不論如何，存放庫都會更新這些憑證，例如，當憑證到期時。 當發生這種情況時，使用特定原則的用戶端會需要更新組態以包含新增的憑證。 您可以使用 `nuget.exe` [受信任簽署者同步處理命令](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name)輕易地升級與存放庫建立關聯的受信任簽署者。
 
 ### <a name="schema-reference"></a>結構描述參考
 

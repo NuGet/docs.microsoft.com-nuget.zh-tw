@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: c0e6de2c3b9978538d504f4af6e744ece43b4a4d
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488938"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096935"
 ---
-# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發行套件 (dotnet CLI)
+# <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發佈套件 (dotnet CLI)
 
 使用 `dotnet` 命令列介面 (CLI) 從 .NET 類別庫建立 NuGet 套件，並將它發行到 nuget.org 是個簡單的程序。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. 安裝 [.NET Core SDK](https://www.microsoft.com/net/download/)，其中包括 `dotnet` CLI。 從 Visual Studio 2017 開始，dotnet CLI 會自動與任何 .NET Core 相關工作負載一起安裝。
 
@@ -33,8 +33,6 @@ ms.locfileid: "69488938"
 1. 輸入 `dotnet new classlib`，它會針對專案使用目前資料夾的名稱。
 
    這會建立新的專案。
-
-1. 使用 `dotnet run` 來測試應用程式已正確建立。
 
 ## <a name="add-package-metadata-to-the-project-file"></a>將套件中繼資料新增至專案檔
 
@@ -116,7 +114,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 若要深入探索 NuGet 所提供的功能，請選取下列連結。
 
-- [套件](../nuget-org/publish-a-package.md)
+- [發行套件](../nuget-org/publish-a-package.md)
 - [發行前套件](../create-packages/Prerelease-Packages.md)
 - [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [套件版本控制](../concepts/package-versioning.md)

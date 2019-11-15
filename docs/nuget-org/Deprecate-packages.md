@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248894"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096876"
 ---
 # <a name="deprecating-packages"></a>淘汰套件
 
@@ -37,7 +37,7 @@ ms.locfileid: "71248894"
     ![選取原因替代套件建議和自訂訊息](media/deprecation-save.png)
 
 > [!Note]
-> 自訂訊息只會顯示在 nuget.org 上，但不會顯示在用戶端上。 目前， `dotnet.exe`和 NuGet 套件管理員之類的用戶端不會顯示自訂訊息。
+> 自訂訊息只會顯示在 nuget.org 上，但不會顯示在用戶端上。 目前，`dotnet.exe` 和 NuGet 套件管理員之類的用戶端不會顯示自訂訊息。
 
 ## <a name="client-experience-for-deprecated-packages"></a>已淘汰套件的用戶端體驗
 一旦套件已淘汰，其取用者會以下列方式收到通知（視使用的用戶端而定）。
@@ -45,14 +45,14 @@ ms.locfileid: "71248894"
 ### <a name="visual-studio"></a>Visual Studio 
 *從 Visual Studio 2019 版本16.3 開始提供*
 
-Visual Studio 警告索引標籤上`Installed`已淘汰的套件使用方式。它會將您導向封裝及其取代資訊（包括已淘汰的原因，以及要改用的替代封裝，如果有的話）。
+Visual Studio 警告在 [`Installed`] 索引標籤上已被取代的套件使用方式。它會顯示封裝的警告及其取代資訊（包括已淘汰的原因，以及要改用的替代封裝，如果有的話）。
 
    ![套件管理員 Visual Studio 已安裝 索引標籤上的已淘汰套件](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet.exe
+### <a name="dotnetexe"></a>dotnet .exe
 *從 .NET SDK 3.0 開始提供*
 
-如果您使用 dotnet，您可以在方案或專案資料夾`dotnet list package --deprecated`上執行命令，以取得已淘汰的套件清單以及取代資訊：
+如果您使用 dotnet，您可以在方案或專案資料夾上執行命令 `dotnet list package --deprecated`，以取得已淘汰的套件清單以及取代資訊：
 
 ```
 > dotnet list package --deprecated

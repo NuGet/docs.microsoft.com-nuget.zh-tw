@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611041"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096892"
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -70,7 +70,7 @@ RegistrationsBaseUrl/3.6。0      | 包含 SemVer 2.0.0 套件
 
 將所有套件版本（葉子）儲存在註冊索引中，可節省提取套件中繼資料所需的 HTTP 要求數，但也表示必須下載較大的檔，而且必須配置更多的用戶端記憶體。 另一方面，如果伺服器的執行會立即將註冊保存在個別的分頁檔中，則用戶端必須執行更多的 HTTP 要求，以取得所需的資訊。
 
-Nuget.org 使用的啟發學習法如下：如果有128或更多版本的封裝，請將該分葉分成大小為64的頁面。 如果版本小於128，則內嵌全部都會留在註冊索引中。
+Nuget.org 使用的啟發學習法如下：如果有128或更多版本的封裝，請將該分葉分成大小為64的頁面。 如果版本小於128，則內嵌全部都會留在註冊索引中。 請注意，這表示具有65到127版本的套件會在索引中有兩個頁面，但這兩個頁面將會內嵌。
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -135,7 +135,7 @@ packageContent | 字串 | 是      | 封裝內容的 URL （. nupkg）
 
 [屬性]                     | 輸入                       | 必要項 | 備註
 ------------------------ | -------------------------- | -------- | -----
-@id                      | 字串                     | 是      | 用來產生此物件的檔 URL
+@id                      | 字串                     | 是      | 用來產生此物件之檔的 URL
 authors                  | 字串或字串陣列 | 否       | 
 dependencyGroups         | 物件的陣列           | 否       | 封裝的相依性（依目標架構分組）
 取代              | 物件 (object)                     | 否       | 與封裝相關聯的取代
@@ -145,7 +145,7 @@ id                       | 字串                     | 是      | 封裝的識�
 licenseUrl               | 字串                     | 否       |
 licenseExpression        | 字串                     | 否       | 
 列出的                   | boolean                    | 否       | 如果不存在，應視為列出
-MinClientVersion         | 字串                     | 否       | 
+minClientVersion         | 字串                     | 否       | 
 projectUrl               | 字串                     | 否       | 
 發佈                | 字串                     | 否       | 字串，包含發行封裝時的 ISO 8601 時間戳記
 requireLicenseAcceptance | boolean                    | 否       | 
@@ -159,6 +159,9 @@ version                  | 字串                     | 是      | 正規化後�
 `dependencyGroups` 屬性是物件的陣列，代表封裝的相依性（依目標 framework 分組）。 如果封裝沒有相依性，就會遺漏 `dependencyGroups` 屬性、空陣列，或所有群組的 `dependencies` 屬性是空的或遺失。
 
 `licenseExpression` 屬性的值符合[NuGet 授權運算式語法](https://docs.microsoft.com/nuget/reference/nuspec#license)。
+
+> [!Note]
+> 在 nuget.org 上，當封裝未列出時，`published` 值會設為 year 1900。
 
 #### <a name="package-dependency-group"></a>封裝相依性群組
 
@@ -183,7 +186,7 @@ id           | 字串 | 是      | 封裝相依性的識別碼
 range        | 物件 (object) | 否       | 相關性的允許[版本範圍](../concepts/package-versioning.md#version-ranges-and-wildcards)
 註冊 | 字串 | 否       | 此相依性的註冊索引 URL
 
-如果 `range` 屬性已排除或為空字串，則用戶端應該預設為 `(, )`的版本範圍。 也就是允許任何版本的相依性。
+如果 `range` 屬性已排除或為空字串，則用戶端應該預設為 `(, )`的版本範圍。 也就是允許任何版本的相依性。 `range` 屬性不允許 `*` 的值。
 
 #### <a name="package-deprecation"></a>套件淘汰
 
@@ -193,7 +196,7 @@ range        | 物件 (object) | 否       | 相關性的允許[版本範圍](..
 ---------------- | ---------------- | -------- | -----
 描述          | 字串陣列 | 是      | 封裝被取代的原因
 訊息          | 字串           | 否       | 此取代的其他詳細資料
-alternatePackage | 物件 (object)           | 否       | 應改為使用的封裝相依性
+alternatePackage | 物件 (object)           | 否       | 應改為使用的替代套件
 
 `reasons` 屬性必須包含至少一個字串，而且應該只包含下表中的字串：
 
@@ -204,6 +207,16 @@ CriticalBugs | 套件有 bug，使其不適合使用
 其他        | 套件因此清單中的原因而被取代
 
 如果 `reasons` 屬性包含的字串不是來自已知的集合，則應該予以忽略。 字串不區分大小寫，因此 `legacy` 的處理方式應該與 `Legacy`相同。 陣列上沒有排序限制，因此可以任意順序排列字串。 此外，如果屬性只包含不是來自已知集合的字串，則應該將它視為只包含 "Other" 字串。
+
+#### <a name="alternate-package"></a>替代套件
+
+替代封裝物件具有下列屬性：
+
+[屬性]         | 輸入   | 必要項 | 備註
+------------ | ------ | -------- | -----
+id           | 字串 | 是      | 替代套件的識別碼
+range        | 物件 (object) | 否       | 允許的[版本範圍](../concepts/package-versioning.md#version-ranges-and-wildcards)，或 `*` （如果允許任何版本）
+註冊 | 字串 | 否       | 此替代封裝之註冊索引的 URL
 
 ### <a name="sample-request"></a>範例要求
 
@@ -217,7 +230,10 @@ CriticalBugs | 套件有 bug，使其不適合使用
 
 ## <a name="registration-page"></a>註冊頁面
 
-註冊頁面包含註冊保留。 提取註冊頁面的 URL 是由前述[註冊頁面物件](#registration-page-object)中的 `@id` 屬性所決定。
+註冊頁面包含註冊保留。 提取註冊頁面的 URL 是由前述[註冊頁面物件](#registration-page-object)中的 `@id` 屬性所決定。 此 URL 不應該是可預測的，而且應該一律透過索引檔來探索。
+
+> [!Warning]
+> 在 nuget.org 上，註冊分頁檔且剛好的 URL 包含頁面的下限和上限。 不過，這項假設永遠不會由用戶端進行，因為只要索引檔有有效的連結，伺服器可自由變更 URL 的形狀。
 
 當註冊索引中未提供 `items` 陣列時，`@id` 值的 HTTP GET 要求會傳回 JSON 檔，其中包含物件做為其根。 物件具有下列屬性：
 
@@ -244,7 +260,10 @@ items  | 物件的陣列 | 是      | 註冊的陣列和其相關聯的中繼資
 
 註冊分葉包含特定套件識別碼和版本的相關資訊。 本檔中可能不會提供有關特定版本的中繼資料。 套件中繼資料應該從[註冊索引](#registration-index)或[註冊頁面](#registration-page)（使用註冊索引來探索）提取。
 
-提取註冊分葉的 URL 是從註冊索引或註冊頁面中註冊分葉物件的 `@id` 屬性取得。
+提取註冊分葉的 URL 是從註冊索引或註冊頁面中註冊分葉物件的 `@id` 屬性取得。 如同分頁檔。 此 URL 不應該是可預測的，而且應該一律透過註冊頁面物件來探索。
+
+> [!Warning]
+> 在 nuget.org 上，註冊分葉檔且剛好的 URL 會包含套件版本。 不過，這項假設永遠不會由用戶端進行，因為只要父檔具有有效的連結，伺服器的執行就可以自由變更 URL 的形狀。 
 
 註冊分葉是 JSON 檔，具有具有下列屬性的根物件：
 
