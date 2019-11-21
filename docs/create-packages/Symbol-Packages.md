@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564545"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253917"
 ---
 # <a name="creating-symbol-packages-legacy"></a>建立符號套件 (舊版)
 
@@ -54,7 +54,7 @@ nuget pack MyProject.csproj -Symbols
             \MyAssembly.dll
             \MyAssembly.pdb
 
-原始程式檔接著會放在名為 `src` 的個別特殊資料夾中，而此資料夾必須遵循來源存放庫的相對結構。 這是因為 PDB 包含用來編譯相符 DLL 之原始程式檔的絕對路徑，而且需要在發行程序期間找到它們。 可以移除基底路徑 (通用路徑前置詞)。例如，請考慮使用從這些檔案建置的程式庫：
+原始程式檔接著會放在名為 `src` 的個別特殊資料夾中，而此資料夾必須遵循來源存放庫的相對結構。 這是因為 PDB 包含用來編譯相符 DLL 之原始程式檔的絕對路徑，而且需要在發行程序期間找到它們。 可以去除基底路徑（一般路徑前置詞）。例如，假設有一個從這些檔案建立的程式庫：
 
     C:\Projects
         \MyProject
@@ -127,10 +127,10 @@ nuget pack MyProject.csproj -Symbols
     ```
 
    > [!Note]
-   > 使用 nuget.exe 4.5.0 或以上版本，不會將符號套件自動推送至 symbolsource.org。您需要如稍早步驟所述個別推送符號套件。
+   > 使用 nuget.exe 4.5.0 或更高版本時，不會將符號套件自動推送至 symbolsource.org。您需要個別推送符號套件，如先前步驟中所述。
    
 在此情況下，NuGet 將主要套件發行至 nuget.org 之後，會將 `MyPackage.symbols.nupkg` (存在時) 發行至 https://nuget.smbsrc.net/ (symbolsource.org 的推送 URL)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [移至新的 SymbolSource 引擎](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)

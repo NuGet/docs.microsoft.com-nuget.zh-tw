@@ -12,24 +12,24 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307191"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253919"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
 符號套件可讓您改進對 NuGet 套件的偵錯體驗。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [nuget.exe 第 4.9.0 版或更高版本](https://www.nuget.org/downloads)或是 [dotnet.exe 第 2.2.0 版或更高版本](https://www.microsoft.com/net/download/dotnet-core/2.2)，其實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。
 
 ## <a name="creating-a-symbol-package"></a>建立符號套件
 
-如果您使用的是 dotnet 或 MSBuild，則除了 nupkg 檔案之外， `IncludeSymbols`您`SymbolPackageFormat`還需要設定和屬性來建立 .snupkg 檔案。
+如果您使用的是 dotnet 或 MSBuild，則除了 nupkg 檔案之外，您還需要設定 `IncludeSymbols` 和 `SymbolPackageFormat` 屬性來建立 .snupkg 檔案。
 
 * 請將下列屬性新增至 .csproj 檔案：
 
@@ -98,7 +98,7 @@ NuGet.org 支援自己的符號伺服器存放庫，且只接受新的符號套�
 
 NuGet.org 具有下列符號套件的條件約束：
 
-- 符號套件中只允許下列副檔名： `.pdb`、 `.nuspec`、 `.xml`、 `.psmdcp`、 `.rels`、`.p7s`
+- 符號套件中只允許下列副檔名： `.pdb`、`.nuspec`、`.xml`、`.psmdcp`、`.rels`、`.p7s`
 - NuGet. 組織的符號伺服器上僅支援受管理的[可移植 pdb](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) 。
 - Pdb 及其相關聯的. nupkg Dll 必須以 Visual Studio 15.9 版或更新版本中的編譯器建立（請參閱[PDB 加密雜湊](https://github.com/dotnet/roslyn/issues/24429)）
 
@@ -130,7 +130,7 @@ NuGet.org 具有下列符號套件的條件約束：
 5) ```authors``` 與 ```owners``` 欄位將會從 snupkg 的 nuspec 中排除。
 6) 請勿使用 ```<license>``` 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupkg 相同。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 請考慮使用來源連結來啟用 .NET 元件的原始程式碼偵錯工具。 如需詳細資訊，請參閱[來源連結指引](/dotnet/standard/library-guidance/sourcelink)。
 

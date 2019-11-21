@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611078"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253940"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -56,7 +56,7 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 - **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，設定 [包含發行前版本] 方塊。 設定或清除此方塊時，會重新整理套件管理員 UI 以及您可以安裝的可用版本清單。
 
-    ![Visual Studio 的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
+    ![Visual Studio 中的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
 - **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
 
@@ -82,9 +82,12 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
     ![下載套件清單頁面上的統計資料](media/Finding-03-Downloads.png)
 
-- Github 使用方式：在套件頁面上，[GitHub 使用方式] 區段會列出前幾個相依於此套件的 GitHub 存放庫。 許多常用 GitHub 存放庫相依的套件通常是較佳的選擇。
+- *Github 使用*方式：在 [套件] 頁面上，[ **GitHub 使用**方式] 區段會列出相依于此套件的公用 GitHub 存放庫，並在 GitHub 上擁有大量星星。 GitHub 存放庫的星星通常會指出該存放庫與 GitHub 使用者的熱門程度（更多星星通常表示較熱門）。 如需 GitHub 的 star 和存放庫排名系統的詳細資訊，請流覽[github 的消費者入門頁面](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars)。
 
     ![GitHub 使用方式](media/GitHub-Usage.png)
+
+    > [!Note]
+    > 套件的 GitHub 使用區段會自動定期產生，而不會對個別的存放庫進行人工審核，而且僅供資訊性用途，以顯示相依于套件且受 GitHub 歡迎的 GitHub 存放庫使用者.
 
 - *版本歷程記錄*：在套件頁面上，查看 [資訊] 下的最新更新日期，並檢查 [版本歷程記錄]。 維護良好的套件具有新的更新和豐富的版本歷程記錄。 忽略的套件有幾個更新，而且有時通常尚未更新。
 
@@ -127,7 +130,7 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 - **關鍵字**：搜尋會尋找包含任何所提供關鍵字的相關套件。 範例：`modern UI`。 若要搜尋包含所有已提供關鍵字的套件，請在詞彙之間使用 "+"，例如 `modern+UI`。
 - **詞組**：輸入以雙引號括住的字詞會尋找與這些字詞完全相同且不區分大小寫的相符項。 範例：`"modern UI" package`
-- **篩選**：您可以使用 `<property>:<term>` 語法，將搜尋字詞套用至特定屬性，其中 `<property>` (不區分大小寫) 可以是 `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary` 和 `owner`。 必要時，可以使用引號括住字詞，而且您可以同時搜尋多個屬性。 此外，對 `id` 屬性的搜尋是子字串比對，而 `packageid` 使用精確比對。 例如：
+- **篩選**：您可以使用 `<property>:<term>` 語法，將搜尋字詞套用至特定屬性，其中 `<property>` (不區分大小寫) 可以是 `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary` 和 `owner`。 必要時，可以使用引號括住字詞，而且您可以同時搜尋多個屬性。 此外，對 `id` 屬性的搜尋是子字串比對，而 `packageid` 使用精確比對。 範例：
 
     ```
     id:NuGet.Core                # Match any part of the id property
