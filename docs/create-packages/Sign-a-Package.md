@@ -19,9 +19,9 @@ ms.locfileid: "71307206"
 
 ## <a name="get-a-code-signing-certificate"></a>取得程式碼簽署憑證
 
-有效的憑證可能可從公開憑證授權單位取得，例如 [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、[DigiCert](https://www.digicert.com/code-signing/)、[Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、[Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、[Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、[Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) 等。受 Windows 信任的憑證授權單位完整清單可從 [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners) 取得。
+可以從公開憑證授權單位單位（例如[Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、 [DigiCert](https://www.digicert.com/code-signing/)、 [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、 [Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、 [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、 [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等）取得有效的憑證。Windows 信任的憑證授權單位單位完整清單可以從[http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners)取得。
 
-您可以基於測試目的使用自動發行的憑證。 然而，NuGet.org 並不接受使用自動發行憑證簽署的套件。深入了解[如何建立測試憑證](#create-a-test-certificate)
+您可以基於測試目的使用自動發行的憑證。 不過，NuGet.org 不接受使用自我發行憑證簽署的套件。深入瞭解如何[建立測試憑證](#create-a-test-certificate)
 
 ## <a name="export-the-certificate-file"></a>匯出憑證檔案
 
@@ -51,7 +51,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>在 NuGet.org 上註冊憑證
 
-若要發佈已簽署套件，必須先在 NuGet.org 上註冊憑證。憑證必須為二進位 DER 格式的 `.cer` 檔案。
+若要發行已簽署的套件，您必須先向 NuGet.org 註冊憑證。您需要憑證做為二進位 DER 格式的 `.cer` 檔案。
 
 1. [登入](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org。
 1. 前往 `Account settings` (若您想要使用組織帳戶來註冊憑證，則前往 `Manage Organization` **>** `Edit Organziation`)。
@@ -59,14 +59,14 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 1. 瀏覽並選取稍早匯出的憑證檔案。
   ![已註冊憑證](../reference/media/registered-certs.png)
 
-**注意**
+**附註：**
 * 一位使用者可以提交多個憑證，且多位使用者可以註冊同一個憑證。
 * 使用者在註冊憑證後，往後提交的所有套件都**必須**使用其中一項憑證簽署。 請參閱[在 NuGet.org 上管理您套件的簽署需求](#manage-signing-requirements-for-your-package-on-nugetorg)
 * 使用者也可以從帳戶移除已註冊憑證。 移除憑證後，使用該憑證簽署的新套件將會提交失敗。 現有的套件則不會受影響。
 
 ## <a name="publish-the-package"></a>發行套件
 
-您現在已準備好將套件發佈至 NuGet.org。請參閱[發佈套件](../nuget-org/Publish-a-package.md)。
+您現在已準備好將套件發佈至 NuGet.org。請參閱[發行封裝](../nuget-org/Publish-a-package.md)。
 
 ## <a name="create-a-test-certificate"></a>建立測試憑證
 
