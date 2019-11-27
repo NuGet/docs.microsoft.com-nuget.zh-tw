@@ -23,7 +23,7 @@ ms.locfileid: "74253919"
 
 符號套件可讓您改進對 NuGet 套件的偵錯體驗。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [nuget.exe 第 4.9.0 版或更高版本](https://www.nuget.org/downloads)或是 [dotnet.exe 第 2.2.0 版或更高版本](https://www.microsoft.com/net/download/dotnet-core/2.2)，其實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。
 
@@ -130,7 +130,7 @@ NuGet.org 具有下列符號套件的條件約束：
 5) ```authors``` 與 ```owners``` 欄位將會從 snupkg 的 nuspec 中排除。
 6) 請勿使用 ```<license>``` 元素。 .snupkg 的授權涵蓋範圍與對應的 .nupkg 相同。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 請考慮使用來源連結來啟用 .NET 元件的原始程式碼偵錯工具。 如需詳細資訊，請參閱[來源連結指引](/dotnet/standard/library-guidance/sourcelink)。
 
