@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: b6a009832430ee08f51ea1028feb878a39f45222
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096863"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825149"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -53,6 +53,7 @@ ms.locfileid: "74096863"
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>針對沒有任何 PackageReference 的專案使用 PackageReference
 
 進階：如果專案中未安裝任何套件 (專案檔中沒有 PackageReference，也沒有 packages.config 檔案)，但希望專案能還原為 PackageReference 樣式，您可以在您的專案檔中將專案屬性 RestoreProjectStyle 設為 PackageReference。
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -60,6 +61,7 @@ ms.locfileid: "74096863"
     <!--- ... -->
 </PropertyGroup>    
 ```
+
 如果您的參考專案為 PackageReference 樣式 (現有的 csproj 或 SDK 樣式專案)，這會很有用。 這會讓這些專案參考的套件成為您專案「過渡性」參考的套件。
 
 ## <a name="packagereference-and-sources"></a>PackageReference 和來源
@@ -105,10 +107,10 @@ ms.locfileid: "74096863"
 
 這些標記的可允許值如下，使用分號隔開多個值，但 `all` 和 `none` 必須單獨出現：
 
-| 值 | 描述 |
+| {2&gt;值&lt;2} | 描述 |
 | --- | ---
-| compile | `lib` 資料夾的內容，以及專案是否能對該資料夾內的組件進行編譯的控制項 |
-| runtime | `lib` 與 `runtimes` 資料夾的內容，以及是否能將這些組件複製到組建輸出目錄的控制項 |
+| compile (編譯) | `lib` 資料夾的內容，以及專案是否能對該資料夾內的組件進行編譯的控制項 |
+| 執行階段 ( runtime) | `lib` 與 `runtimes` 資料夾的內容，以及是否能將這些組件複製到組建輸出目錄的控制項 |
 | contentFiles | `contentfiles` 資料夾的內容 |
 | build | `build` 資料夾中的 `.props` 與 `.targets` |
 | buildMultitargeting | 用於跨架構目標的 *(4.0)* `.props` 與 `buildMultitargeting` 資料夾中的 `.targets` |
@@ -171,10 +173,10 @@ ms.locfileid: "74096863"
 ## <a name="locking-dependencies"></a>鎖定相依性
 *NuGet **4.9** 或更新版本搭配 Visual Studio 2017 **15.9** 或更新版本提供此功能。*
 
-對 NuGet 還原的輸入是一組來自專案檔 (頂層或直接相依性) 的套件參考，而輸出是完整的套件相依性終止，包括可轉移相依性。 若輸入 PackageReference 清單未變更，NuGet 會嘗試一律產生相同的完整套件相依性終止。 不過，在一些情況下，無法這樣做。 例如:
+對 NuGet 還原的輸入是一組來自專案檔 (頂層或直接相依性) 的套件參考，而輸出是完整的套件相依性終止，包括可轉移相依性。 若輸入 PackageReference 清單未變更，NuGet 會嘗試一律產生相同的完整套件相依性終止。 不過，在一些情況下，無法這樣做。 例如：
 
 * 當您使用如 `<PackageReference Include="My.Sample.Lib" Version="4.*"/>` 的浮動版本時。 雖然這裡的目的是在次套件還原時浮動到最新版本，在某些案例中，使用者在收到明確手勢時需要圖形鎖定為特定最新版本並浮動到更新的版本 (如果可用)。
-* 會發行符合 PackageReference 版本需求的的較新套件版本。 例如， 
+* 會發行符合 PackageReference 版本需求的的較新套件版本。 例如 
 
   * 第 1 天：若您指定 `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`，但 NuGet 存放庫上可用的版本是 4.1.0、4.2.0 與 4.3.0。 在此案例中，NuGet would 將會解析為 4.1.0 (最接近的最小版本)
 
@@ -206,16 +208,19 @@ ms.locfileid: "74096863"
 針對 CI/CD 與其他案例，若不想即時變更套件相依性，您可以將 `lockedmode` 設定為 `true`：
 
 針對 dotnet.exe，請執行：
+
 ```
 > dotnet.exe restore --locked-mode
 ```
 
 針對 msbuild.exe，請執行：
+
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 您也可以在您的專案檔中設定此條件式 MSBuild 屬性：
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -232,12 +237,14 @@ ms.locfileid: "74096863"
 不過，若您的專案是您不會發行的程式庫專案，或是其他專案所相依的一般程式碼專案，您**不應該**將鎖定檔案存回為您原始程式碼的一部分。 保留鎖定檔案並不會造成傷害，但在還原/建置相依於此一般程式碼專案的專案時，無法使用一般程式碼專案的鎖定套件相依性，如鎖定檔案中所列。
 
 例如：
+
 ```
 ProjectA
   |------> PackageX 2.0.0
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
+
 若 `ProjectA` 有對 `PackageX` 版本 `2.0.0` 的相依性，而且也參考相依於 `PackageX` 版本 `1.0.0` 的 `ProjectB`，則 `ProjectB` 的鎖定檔案將會列出對 `PackageX` 版本 `1.0.0` 的相依性。 不過，當建置 `ProjectA` 時，其鎖定檔案將會包含對 `PackageX` 版本 **`2.0.0`** 的相依性，而**非** `1.0.0` (如 `ProjectB` 的鎖定檔案所列)。 因此，一般程式碼專案的鎖定檔案對於相依於它之專案的解析套件沒有多大決定權。
 
 ### <a name="lock-file-extensibility"></a>鎖定檔案擴充性
