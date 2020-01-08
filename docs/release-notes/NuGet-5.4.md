@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69f78ba5483fcc92887624584663e8c496cfc497
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828405"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384107"
 ---
 # <a name="nuget-54-release-notes"></a>NuGet 5.4 版本資訊
 
@@ -27,6 +27,8 @@ NuGet 配送車：
 * 更快速的解決方案載入時間-第一次載入解決方案時，執行 NuGet 程式碼的額外負荷已透過部分-ngen 降低，以減少 JIT 成本- [#6007](https://github.com/NuGet/Home/issues/6007)
 
 * 新 helper 函式-提供套件識別碼和版本清單，取得可能的最上層套件。 - [#8316](https://github.com/NuGet/Home/issues/8316)
+
+* 在[GitHub 動作](https://github.com/features/actions)上安裝和設定 nuget.exe 的新[`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions)動作。 - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 

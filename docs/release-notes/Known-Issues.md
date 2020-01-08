@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317135"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383654"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
 
@@ -71,11 +71,11 @@ install-package log4net
 
 如果命令失敗，請檢查檔案是否位在該位置。
 
-如需此錯誤的詳細資訊，請參閱此[工作項目](https://nuget.codeplex.com/workitem/3609 "工作項目 3609")。
+如需有關此錯誤的詳細資訊，請參閱此[工作專案](https://nuget.codeplex.com/workitem/3609 "工作專案3609")。
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>在 VS 2012 中更新套件後組建失敗
 
-問題：您使用的是 VS 2012 RTM。 更新 NuGet 套件時，您收到下列訊息：「一或多個套件無法完成解除安裝。」 而且系統會提示重新啟動 Visual Studio。 VS 重新啟動之後，您會收到奇怪的組建錯誤。
+問題：您使用的是 VS 2012 RTM。 更新 NuGet 套件時，您會收到這個訊息：「解除安裝一或多個套件無法完成。」 而且系統會提示重新啟動 Visual Studio。 VS 重新啟動之後，您會收到奇怪的組建錯誤。
 
 原因是背景 MSBuild 處理序鎖定了舊套件中的某些檔案。 即使重新啟動 VS 之後，背景 MSBuild 處理序仍在使用舊套件中的檔案，導致組建失敗。
 
@@ -90,7 +90,7 @@ install-package log4net
 檢視記錄檔時，您可能會看到有關 `SignatureMismatchException` 的記錄。
 
 為避免發生這種情形，您可以安裝 [Visual Studio 2010 SP1 Hotfix](http://bit.ly/vsixcertfix)。
-也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。  請參閱 [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) 以取得詳細資訊。
+也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。 如需詳細資訊，請參閱 <https://support.microsoft.com/kb/2581019>。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>如果也安裝了反射程式 Visual Studio 增益集，套件管理員主控台會擲回例外狀況。
 
@@ -134,7 +134,7 @@ install-package log4net
 
 我們已連絡增益集的作者，希望能找到解決之道。
 
-<p class="info">更新：我們已確認最新版的反射程式 6.5 不再讓主控台出現這個例外狀況。</p>
+<p class="info">更新：我們已確認最新版的反射程式 6.5 不會讓主控台再出現這個例外狀況。</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>開啟套件管理員主控台因 ObjectSecurity 例外狀況而失敗
 
@@ -151,7 +151,7 @@ install-package log4net
 
 ## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>如果解決方案包含 InstallShield 限量版專案，[Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況
 
-我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考)  對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
+我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[解除安裝] 按鈕呈現灰色？ 需要有系統管理員權限才能安裝/解除安裝 NuGet
 
@@ -159,7 +159,7 @@ install-package log4net
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>在 Windows XP 開啟套件管理員主控台時，後者會損毀。 出了什麼問題？
 
-NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2.0。 您可以從 [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) 下載 Powershell 2.0 執行階段。 安裝後，重新啟動 Visual Studio，應該就能夠開啟套件管理員主控台。
+NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2.0。 您可以從 <https://support.microsoft.com/kb/968929>下載 Powershell 2.0 執行時間。 安裝後，重新啟動 Visual Studio，應該就能夠開啟套件管理員主控台。
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>如果在套件管理員主控台開啟時結束 Visual Studio 2010 SP1 搶鮮版 (Beta)，後者會損毀。
 

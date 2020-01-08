@@ -1,107 +1,107 @@
 ---
 title: NuGet 2.6 版本資訊
-description: Webmatrix 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 2.6.1 的版本資訊。
+description: 適用于 WebMatrix 的 NuGet 2.6.1 版本資訊，包括已知問題、bug 修正、新增功能和 Dcr。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f011a8db7ac2067a2ed7db67849d63f7dd40d1ce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5e80965aad4caa69130be31a37b7f5f5ffb12ea6
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384120"
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 版本資訊
 
-[NuGet 2.5 版本資訊](../release-notes/nuget-2.5.md) | [NuGet 2.6.1 for WebMatrix 版本資訊](../release-notes/nuget-2.6.1-for-webmatrix.md)
+[Nuget 2.5 版本](../release-notes/nuget-2.5.md)資訊 | [Nuget 2.6.1 for WebMatrix 版本](../release-notes/nuget-2.6.1-for-webmatrix.md)資訊
 
-NuGet 2.6 已於 2013 年 6 月 26 日發行。
+NuGet 2.6 已于2013年6月26日發行。
 
-## <a name="notable-features-in-the-release"></a>在版本中值得注意的功能
+## <a name="notable-features-in-the-release"></a>版本中值得注意的功能
 
 ### <a name="support-for-visual-studio-2013"></a>Visual Studio 2013 的支援
 
-NuGet 2.6 是第一個版本所提供的 Visual Studio 2013 的支援。 例如 Visual Studio 2012，NuGet 套件管理員延伸模組包含在每個版本的 Visual Studio 中。
+NuGet 2.6 是提供 Visual Studio 2013 支援的第一版。 和 Visual Studio 2012 一樣，NuGet 套件管理員延伸模組會包含在每個 Visual Studio 版本中。
 
-為了提供可行的最佳支援 Visual Studio 2013 同時支援 Visual Studio 2010 和 Visual Studio 2012 和保留的延伸模組大小越小越好，我們會產生另外的延伸模組時的 Visual Studio 2013原始副檔名會繼續以 Visual Studio 2010 和 2012年為目標。
+為了提供 Visual Studio 2013 的最佳支援，同時仍然支援 Visual Studio 2010 和 Visual Studio 2012，並盡可能縮小擴充大小，我們會為 Visual Studio 2013 產生個別的延伸模組，原始延伸模組會繼續以 Visual Studio 2010 和2012為目標。
 
 從 NuGet 2.6 開始，我們將發佈兩個延伸模組，如下所示：
 
-1. [NuGet 套件管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager)（適用於 Visual Studio 2010 和 2012年）
+1. [NuGet 套件管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager)（適用于 Visual Studio 2010 和2012）
 1. [Visual Studio 2013 的 NuGet 套件管理員](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-此分割中， [nuget.org](https://nuget.org)首頁的 「 安裝 NuGet"按鈕會帶您前往[安裝 NuGet](../install-nuget-client-tools.md)頁面上，您可以在其中找到安裝不同的 NuGet 用戶端的詳細資訊。
+在此分割中， [nuget.org](https://nuget.org)首頁的 [安裝 nuget] 按鈕會帶您前往 [[正在安裝 nuget](../install-nuget-client-tools.md) ] 頁面，您可以在其中找到有關安裝不同 nuget 用戶端的詳細資訊。
 
 <a name="xdt"></a>
 
-### <a name="xdt-webconfig-transformation-support"></a>XDT Web.config 轉換的支援
+### <a name="xdt-webconfig-transformation-support"></a>XDT Web.config 轉換支援
 
-NuGet 用戶端的最高要求的功能之一就是支援更強大的 XML 轉換使用 XDT 轉換引擎會在 Visual Studio 組建組態轉換。
+NuGet 用戶端最常要求的功能之一，就是使用用於 Visual Studio 組建設定轉換的 XDT 轉換引擎，支援更強大的 XML 轉換。
 
-在 2013 年 4 月中，我們所做的有關 XDT 的 NuGet 支援的兩個大公告。 第一是 XDT 程式庫本身正在被本身[NuGet 套件形式發行](https://nuget.org/packages/Microsoft.Web.Xdt)並[CodePlex 上的開放原始碼](http://xdt.codeplex.com/)。 此步驟中啟用 XDT 引擎，可供自由其他開放原始碼軟體，包括 NuGet 用戶端。 第二個宣告是要支援 NuGet 用戶端中的轉換使用 XDT 引擎的計劃。 NuGet 2.6 包含這項整合。
+我們在2013年4月提出有關 XDT 的 NuGet 支援的兩個重大公告。 第一種是 XDT 程式庫本身本身是[以 NuGet 套件的形式發行](https://nuget.org/packages/Microsoft.Web.Xdt)，並[開放在 CodePlex 上](http://xdt.codeplex.com/)。 此步驟已啟用可供其他開放原始碼軟體免費使用的 XDT 引擎，包括 NuGet 用戶端。 第二個宣告是在 NuGet 用戶端中支援使用 XDT 引擎進行轉換的計畫。 NuGet 2.6 包括此整合。
 
-#### <a name="how-it-works"></a>它的運作方式
+#### <a name="how-it-works"></a>運作方式
 
-若要充分利用 NuGet 的 XDT 支援，機制看起來類似[目前的組態轉換功能](../create-packages/source-and-config-file-transformations.md)。
-轉換檔案新增至套件的內容資料夾。 不過，雖然組態轉換會使用單一檔案的安裝和解除安裝，XDT 轉換就會啟用更細微的控制這兩個這些處理程序，使用下列檔案：
+若要利用 NuGet 的 XDT 支援，此機制看起來類似于目前的設定[轉換功能](../create-packages/source-and-config-file-transformations.md)。
+轉換檔案會新增至封裝的 content 資料夾。 不過，雖然設定轉換使用單一檔案進行安裝和卸載，但 XDT 轉換會使用下列檔案，對這兩個處理常式進行細微的控制：
 
-- Web.config.install.xdt
-- Web.config.uninstall.xdt
+- Web.config. install. xdt
+- Web.config. xdt
 
-此外，NuGet 會使用檔案後置字元來判斷哪些引擎來執行轉換，以便使用現有的 web.config.transforms 封裝將會繼續運作。 XDT 轉換也可以套用至任何 XML 檔案 (不只是 web.config)，讓您可以對其他應用程式中利用這，在您的專案。
+此外，NuGet 會使用檔案尾碼來判斷要針對轉換執行的引擎，因此使用現有 web.config 的封裝將會繼續運作。 XDT 轉換也可以套用至任何 XML 檔案（而不只是 web.config），因此您可以針對專案中的其他應用程式運用此功能。
 
-#### <a name="what-you-can-do-with-xdt"></a>您可以執行含有 XDT
+#### <a name="what-you-can-do-with-xdt"></a>您可以使用 XDT 執行的動作
 
-其中一個 XDT 的最大優點是其[簡單但功能強大的語法](http://msdn.microsoft.com/library/dd465326.aspx)來操作 XML DOM 的結構 而不是直接覆疊一個固定格式文件結構到另一個結構，XDT 會提供控制項，可比對各種不同的方式，從簡單的屬性名稱比對完整 XPath 支援的項目。 一旦找到相符的項目或項目集，XDT 提供一組豐富的函式操作項目，而不論其是指新增、 更新或移除屬性，將新的項目放在特定位置，或取代或移除整個元素和其子系。
+其中一個 XDT 最大的優點是，它是[簡單但功能強大的語法](https://docs.microsoft.com/previous-versions/aspnet/dd465326(v=vs.110))，用於操作 XML DOM 的結構。 XDT 會以各種不同的方式，從簡單的屬性名稱比對到完整的 XPath 支援，而不只是將一個固定的檔結構覆迭至另一個結構。 一旦找到相符的元素或一組元素，XDT 就會提供一組豐富的函式來操作專案，不論是要加入、更新或移除屬性、在特定位置放置新專案，或是取代或移除整個元素及其子系。
 
-### <a name="machine-wide-configuration"></a>整部機器組態
+### <a name="machine-wide-configuration"></a>全電腦設定
 
-NuGet 的優點之一是，它會細分否則大型的可執行檔或程式庫的模組化元件都可以獨立整合，以及最重要的是維護與已建立版本的一組。 其中一項副作用，不過，是傳統的產品或產品系列概念可能變得更分散。
-NuGet 的自訂套件來源功能提供的其中一種組織封裝，不過，自訂套件來源並不會自行探索。
+NuGet 的其中一個絕佳優點，就是將某個大型的可執行檔或程式庫細分成一組可整合的模組化元件，而且最重要的是獨立維護和設定版本。 不過，這一點的副作用是，產品或產品系列的傳統概念可能會更分散。
+NuGet 的自訂套件來源功能提供了一種組織套件的方式;不過，自訂套件來源無法自行探索。
 
-NuGet 2.6 延伸來設定 NuGet 搜尋路徑 %programdata%/nuget/config 下的資料夾階層的邏輯。產品安裝程式可以加入自訂的 NuGet 組態檔，在此資料夾中註冊他們的產品的自訂套件來源。 此外，資料夾結構支援語意的產品、 版本和甚至是 SKU 的 IDE。 依下列順序 「 後進先 「 優先順序策略會套用這些目錄中的設定。
+NuGet 2.6 藉由搜尋路徑% ProgramData%/NuGet/Config. 下的資料夾階層，擴充設定 NuGet 的邏輯。產品安裝程式可以在此資料夾下新增自訂的 NuGet 設定檔案，以註冊其產品的自訂套件來源。 此外，資料夾結構也支援產品、版本，甚至是 IDE SKU 的語義。 這些目錄中的設定會依照下列順序套用，並具有「最後一個勝出」優先順序策略。
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
-3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{版本}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{版本}\{SKU}\*.config
 
-在此清單中，以便在 Visual Studio 中，案例中，它會是"VisualStudio 」，是針對 IDE 中執行 NuGet，{IDE} 預留位置。 {Version} 和 {SKU} 預留位置所提供的 IDE （例如："11.0"和"WDExpress"、"VWDExpress 」 和 「 專業 」，分別)。 資料夾可以則包含許多不同的 *.config 檔案。
-因此，ACME 元件公司，其產品安裝程式的過程中，新增將只會出現在 Visual Studio 2012 Professional 和 Ultimate 版本建立下列檔案路徑的自訂套件來源：
+在這份清單中，{IDE} 預留位置專屬於 NuGet 執行所在的 IDE，因此在 Visual Studio 的情況下，它將會是 "VisualStudio"。 IDE 會提供 {Version} 和 {SKU} 預留位置（例如分別為 "11.0" 和 "WDExpress"、"VWDExpress" 和 "Pro"）。 該資料夾可以包含許多不同的 * .config 檔案。
+因此，ACME component company 可以做為其產品安裝程式的一部分，藉由建立下列檔案路徑來新增自訂套件來源，只有在 Professional 和旗艦版的 Visual Studio 2012 中才會顯示：
 
 %ProgramData%\NuGet\Config\VisualStudio\11.0\Pro\acme.config
 
-雖然資料夾結構，並直接將整部電腦的套件來源新增至 NuGet 組態的軟體安裝程式 」 等方案，NuGet 組態對話方塊也已經更新，以便為套件來源的註冊其中一個特定使用者 （例如登錄 %appdata%/nuget/nuget.config 中） 或整部電腦。
+雖然資料夾結構可讓軟體安裝程式之類的程式直接將電腦範圍的套件來源新增至 NuGet 的設定，但 NuGet 設定對話方塊也已更新，可允許以使用者特定的方式（例如在% AppData%/NuGet/NuGet.Config 中註冊）或整部電腦來註冊套件來源。
 
-這項功能會利用 Visual Studio 2013，在安裝檔案的位置：
+這項功能是由 Visual Studio 2013 所使用，其中檔案安裝在：
 
 %ProgramData%\NuGet\Config\VisualStudio\12.0\Microsoft.VisualStudio.config
 
-在此檔案中，新的封裝來源，稱為 「.NET Framework 封裝 」 設定。
+在此檔案中，已設定稱為「.NET Framework 封裝」的新封裝來源。
 
-![NuGet 組態檔機器的各種設定](./media/NuGet-Config-File-Machine-Wide.png)
+![NuGet 設定檔電腦範圍設定](./media/NuGet-Config-File-Machine-Wide.png)
 
-### <a name="contextualizing-search"></a>內容化搜尋
+### <a name="contextualizing-search"></a>CoNtextualizing 搜尋
 
-因為 NuGet 資源庫所提供的套件數目持續迅速成長，改善搜尋會保持為曾經 NuGet 優先順序清單的頂端。 NuGet 的計劃的功能之一是搜尋的專案的內容相關式搜尋，也就是說，NuGet 會使用版本和 SKU 的 Visual Studio，您會使用和您要建置類型相關資訊作為準則來判斷潛在相關性結果。
+由於 NuGet 資源庫所服務的套件數目會繼續以指數步調成長，因此改善搜尋會一直出現在 NuGet 優先順序清單的頂端。 NuGet 的其中一個規劃功能是內容性搜尋，這表示 NuGet 會使用您所使用之 Visual Studio 版本和 SKU 的相關資訊，以及您要建立的專案類型，做為判斷潛在搜尋相關性的準則更.
 
-從 NuGet 2.6 開始，安裝套件時，每次安裝的內容會記錄安裝作業資料的一部分。  搜尋也會傳送相同的內容資訊，這可讓 NuGet 資源庫，來提升搜尋結果的內容安裝趨勢。  未來的更新至 NuGet 資源庫會啟用此內容相關的關聯性的提升。
+從 NuGet 2.6 開始，每次安裝套件時，安裝的內容都會記錄為安裝作業資料的一部分。  搜尋也會傳送相同的內容資訊，讓 NuGet 資源庫可透過內容相關的安裝趨勢來提升搜尋結果。  NuGet 資源庫的未來更新將會啟用此內容相關的相關性提升。
 
-### <a name="tracking-direct-installs-vs-dependency-installs"></a>追蹤直接安裝 vs。相依性安裝
+### <a name="tracking-direct-installs-vs-dependency-installs"></a>追蹤直接安裝與相依性安裝
 
-套件作者可以依賴越來越[封裝的統計資料](http://blog.nuget.org/20130226/Introducing-Package-Statistics.html)在 NuGet Gallery 上提供。  其中一個重要的遺漏資料點的作者，提出的要求是直接的套件會安裝與相依性安裝之間的差異。  到目前為止，NuGet 用戶端未傳送任何開發人員是否直接安裝套件，或如果在安裝符合相依性安裝作業的內容。
-從開始，使用 NuGet 2.6 中現在會將資料傳送為安裝操作。  封裝在 NuGet Gallery 上的統計資料會公開為個別的安裝作業，該資料與 「-相依性"後置詞。
+套件作者會依賴 NuGet 資源庫上提供的[套件統計資料](http://blog.nuget.org/20130226/Introducing-Package-Statistics.html)。  作者所要求的一個重要的資料點，是直接套件安裝和相依性安裝之間的差異。  到目前為止，NuGet 用戶端不會在安裝作業前後傳送任何內容，不論開發人員是否直接安裝套件，或是安裝它以滿足相依性。
+從 NuGet 2.6 開始，現在會針對安裝作業傳送該資料。  NuGet 資源庫上的套件統計資料會以個別的安裝作業（具有「相依性」尾碼）公開該資料。
 
 * 安裝
-* 安裝相依性
+* 安裝-相依性
 * 更新
-* 更新相依性
+* 更新-相依性
 * 重新安裝
-* 重新安裝相依性
+* 重新安裝-相依性
 
-除了不同的作業名稱，也會記錄相依的套件識別碼進行安裝。  在 NuGet Gallery 的未來更新會公開該報表，讓套件作者將全面了解如何開發人員要安裝其套件內的資料。
+除了不同的作業名稱之外，也會記錄相依封裝識別碼以供安裝。  NuGet 資源庫的未來更新將會在報表中公開該資料，讓套件作者能夠完全瞭解開發人員安裝其套件的方式。
 
 ## <a name="bug-fixes"></a>Bug 修正
 
-NuGet 2.6 也包含數個 bug 修正。 如需完整的工作清單項目中已修正 NuGet 2.6，請檢視[此版本的 NuGet Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)。
+NuGet 2.6 也包含數個 bug 修正。 如需 NuGet 2.6 中已修正之工作專案的完整清單，請參閱[此版本的 NuGet 問題追蹤程式](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)。

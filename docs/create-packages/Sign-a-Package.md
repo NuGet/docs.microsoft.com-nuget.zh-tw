@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383978"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -19,7 +19,7 @@ ms.locfileid: "71307206"
 
 ## <a name="get-a-code-signing-certificate"></a>取得程式碼簽署憑證
 
-可以從公開憑證授權單位單位（例如[Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、 [DigiCert](https://www.digicert.com/code-signing/)、 [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、 [Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、 [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、 [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等）取得有效的憑證。Windows 信任的憑證授權單位單位完整清單可以從[http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners)取得。
+可以從公開憑證授權單位單位（例如[Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、 [DigiCert](https://www.digicert.com/code-signing/)、 [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、 [Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、 [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、 [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等）取得有效的憑證。Windows 信任的憑證授權單位單位完整清單可以從[http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners)取得。
 
 您可以基於測試目的使用自動發行的憑證。 不過，NuGet.org 不接受使用自我發行憑證簽署的套件。深入瞭解如何[建立測試憑證](#create-a-test-certificate)
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 若要發行已簽署的套件，您必須先向 NuGet.org 註冊憑證。您需要憑證做為二進位 DER 格式的 `.cer` 檔案。
 
 1. [登入](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org。
-1. 前往 `Account settings` (若您想要使用組織帳戶來註冊憑證，則前往 `Manage Organization` **>** `Edit Organziation`)。
+1. 如果您想要使用組織帳戶註冊憑證，請移至 `Account settings` （或 `Manage Organization` **>** `Edit Organziation`。
 1. 展開 `Certificates` 區段並選取 `Register new`。
 1. 瀏覽並選取稍早匯出的憑證檔案。
   ![已註冊憑證](../reference/media/registered-certs.png)
