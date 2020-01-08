@@ -1,37 +1,37 @@
 ---
 title: NuGet 2.0 版本資訊
-description: 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 2.0 版本資訊。
+description: NuGet 2.0 的版本資訊，包括已知問題、bug 修正、新增功能和 Dcr。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f32eea9260ce7e307ff56b7f3e6b48c6d98e6c90
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 01fdbfafcaea009cf119dfa880b2b16539c9b088
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383063"
 ---
 # <a name="nuget-20-release-notes"></a>NuGet 2.0 版本資訊
 
-[NuGet 1.8 版本資訊](../release-notes/nuget-1.8.md) | [NuGet 2.1 版本資訊](../release-notes/nuget-2.1.md)
+[Nuget 1.8 版本](../release-notes/nuget-1.8.md)資訊 | [nuget 2.1 版本](../release-notes/nuget-2.1.md)資訊
 
-NuGet 2.0 已於 2012 年 6 月 19 日發行。
+NuGet 2.0 已于2012年6月19日發行。
 
 ## <a name="known-installation-issue"></a>已知的安裝問題
-如果您執行的 VS 2010 SP1，您可能會遇到安裝錯誤時嘗試升級 NuGet，如果您已安裝較舊版本。
+如果您執行 VS 2010 SP1，如果您已安裝舊版，則嘗試升級 NuGet 時可能會發生安裝錯誤。
 
-因應措施是只解除安裝 NuGet，然後再從 VS 延伸模組資源庫進行安裝。  請參閱[ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019)如需詳細資訊，或[直接前往 VS hotfix](http://bit.ly/vsixcertfix)。
+因應措施是直接卸載 NuGet，然後從 VS 延伸模組資源庫進行安裝。  如需詳細資訊，請參閱 <https://support.microsoft.com/kb/2581019>，或[直接移至 VS 提供程式](http://bit.ly/vsixcertfix)。
 
-注意： 如果 Visual Studio 不會允許您解除安裝 （解除安裝 按鈕已停用） 的延伸模組，則您可能需要重新啟動 Visual Studio 中使用 「 以系統管理員身分執行 」。
+注意：如果 Visual Studio 不允許您卸載擴充功能（[卸載] 按鈕已停用），您可能需要使用 [以系統管理員身分執行] 重新開機 Visual Studio。
 
-## <a name="package-restore-consent-is-now-active"></a>套件還原同意目前為作用中
+## <a name="package-restore-consent-is-now-active"></a>套件還原同意現已啟用
 
-在此所述[將張貼在套件還原同意](http://blog.nuget.org/20120518/package-restore-and-consent.html)，NuGet 2.0 現在會要求同意要提供給啟用套件還原回到線上，並下載套件。 請確定您已提供同意透過套件管理員的組態對話方塊中或 EnableNuGetPackageRestore 環境變數。
+如這[篇關於封裝還原同意文章](http://blog.nuget.org/20120518/package-restore-and-consent.html)中所述，NuGet 2.0 現在需要授與同意，才能讓套件還原上線並下載套件。 請確定您已透過 [套件管理員設定] 對話方塊或 EnableNuGetPackageRestore 環境變數提供同意。
 
-## <a name="group-dependencies-by-target-frameworks"></a>依目標架構的群組相依性
+## <a name="group-dependencies-by-target-frameworks"></a>依目標 framework 群組相依性
 
-從 2.0 版開始，相依性可能會不同的封裝會根據目標專案的 framework 設定檔。 這利用更新完成`.nuspec`結構描述。 `<dependencies>`項目現在可包含一組`<group>`項目。 每個群組包含零或多個`<dependency>`項目和`targetFramework`屬性。 如果目標架構與目標專案的 framework 設定檔相容時，會同時安裝在群組內的所有相依性。 例如: 
+從2.0 版開始，封裝相依性可能會根據目標專案的 framework 設定檔而有所不同。 這項作業是使用已更新的 `.nuspec` 架構來完成。 `<dependencies>` 元素現在可以包含一組 `<group>` 元素。 每個群組都包含零個或多個 `<dependency>` 元素和一個 `targetFramework` 屬性。 如果目標 framework 與目標專案架構設定檔相容，則會同時安裝群組內的所有相依性。 例如：
 
 ```xml
 <dependencies>
@@ -49,11 +49,11 @@ NuGet 2.0 已於 2012 年 6 月 19 日發行。
 </dependencies>
 ```
 
-請注意，群組可以包含**零**相依性。 在上述範例中，如果封裝會安裝至專案目標 Silverlight 3.0 或更新版本，會不安裝任何相依性。 如果封裝被安裝至專案目標.NET 4.0 或更新版本，將會安裝兩個相依性，jQuery 和 WebActivator。  如果封裝已安裝至這些 2 的架構或任何其他架構的最早的版本為目標的專案中，將會安裝 RouteMagic 1.1.0。 群組之間沒有任何繼承。 如果專案的目標架構符合`targetFramework`群組，只有該群組內的相依性屬性將會安裝。
+請注意，群組可以包含**零個**相依性。 在上述範例中，如果將套件安裝到以 Silverlight 3.0 或更新版本為目標的專案中，則不會安裝任何相依性。 如果將封裝安裝到以 .NET 4.0 或更新版本為目標的專案中，將會安裝兩個相依性（jQuery 和 WebActivator）。  如果將封裝安裝到以這兩個架構的早期版本為目標的專案中，或任何其他架構，則會安裝 RouteMagic 1.1.0。 群組之間沒有任何繼承。 如果專案的目標 framework 符合群組的 `targetFramework` 屬性，則只會安裝該群組中的相依性。
 
-封裝可以指定兩種格式之一的封裝相依性： 舊格式的一般清單的`<dependency>`項目或群組。 如果`<group>`格式時，無法安裝此套件，NuGet 的版本早於 2.0。
+封裝可以使用兩種格式的其中一種來指定封裝相依性： `<dependency>` 專案或群組之一般清單的舊格式。 如果使用 `<group>` 格式，套件就無法安裝在2.0 之前的 NuGet 版本中。
 
-請注意，不允許混用兩種格式。 例如，下列程式碼片段是**無效**和 nuget 將會遭到拒絕。
+請注意，不允許混用這兩種格式。 例如，下列程式碼片段**無效**，NuGet 將會拒絕。
 
 ```xml
 <dependencies>
@@ -66,9 +66,9 @@ NuGet 2.0 已於 2012 年 6 月 19 日發行。
 </dependencies>
 ```
 
-## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>群組的內容檔案和 PowerShell 指令碼，以依目標架構
+## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>依目標架構將內容檔案和 PowerShell 腳本分組
 
-除了組件參考，內容檔案和 PowerShell 指令碼可以也會依目標 framework。 相同的資料夾結構中找到`lib`資料夾，用於指定目標 framework 現在可套用至相同的方式`content`和`tools`資料夾。 例如: 
+除了元件參考之外，也可以依目標 framework 將內容檔案和 PowerShell 腳本分組。 在用來指定目標 framework 的 `lib` 資料夾中找到的相同資料夾結構，現在可以用相同方式套用至 `content` 和 `tools` 資料夾。 例如：
 
     \content
         \net11
@@ -88,13 +88,13 @@ NuGet 2.0 已於 2012 年 6 月 19 日發行。
             \install.ps1
             \uninstall.ps1
 
-**附註**： 因為`init.ps1`方案層級執行，且不相依於任何個別的專案，它必須放在正下方`tools`資料夾。 如果用來放置架構特有資料夾內，將會忽略它。
+**注意**：因為 `init.ps1` 是在方案層級執行，而且不相依于任何個別專案，所以必須直接放在 `tools` 資料夾底下。 如果放在架構特定的資料夾內，則會忽略它。
 
-此外，NuGet 2.0 中的新功能是可以在架構資料夾*空*，在此情況下，NuGet 不會新增組件參考、 加入內容的檔案或執行特定的 framework 版本的 PowerShell 指令碼。 在範例中，資料夾`content\net40`是空的。
+此外，NuGet 2.0 中的一項新功能是，架構資料夾可以是*空*的，在這種情況下，nuget 將不會新增元件參考、新增內容檔案或針對特定架構版本執行 PowerShell 腳本。 在上述範例中，`content\net40` 的資料夾是空的。
 
-## <a name="improved-tab-completion-performance"></a>改善的索引標籤完成效能
-已更新 NuGet 套件管理員主控台中的索引標籤完成功能以大幅改善效能。 會從建議下拉式清單中出現之前按下 tab 鍵的時間少很多延遲。
+## <a name="improved-tab-completion-performance"></a>改良的 tab 鍵自動完成效能
+NuGet 套件管理員主控台中的 tab 鍵自動完成功能已更新，可大幅改善效能。 按下 tab 鍵，直到出現 [建議] 下拉式清單時，才會有更少的延遲。
 
 ## <a name="bug-fixes"></a>Bug 修正
-NuGet 2.0 包含套件還原同意和效能，特別強調的許多錯誤修正。
-如需完整的工作清單項目中已修正 NuGet 2.0，請檢視[此版本的 NuGet Issue Tracker](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)。
+NuGet 2.0 包含許多 bug 修正，並著重于封裝還原同意和效能。
+如需 NuGet 2.0 中已修正之工作專案的完整清單，請參閱[此版本的 NuGet 問題追蹤程式](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)。

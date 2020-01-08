@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: d0e368f43171ce71abc60b3e09d08b010d2d8880
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
-ms.translationtype: HT
+ms.openlocfilehash: de164b136a1636b89f674b8626613094fc53e04c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385568"
 ---
-## <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>建立包含 COM Interop 組件的 NuGet 套件
+# <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>建立包含 COM Interop 組件的 NuGet 套件
 
 包含 COM Interop 組件的套件必須包含適當的[目標檔案](creating-a-package.md#include-msbuild-props-and-targets-in-a-package)，因此會使用 PackageReference 格式將正確的 `EmbedInteropTypes` 中繼資料新增至專案。 根據預設，使用 PackageReference 時，所有組件的 `EmbedInteropTypes` 中繼資料一律為 false，因此目標檔案會明確新增此中繼資料。 若要避免衝突，目標名稱應該是唯一的；在理想狀況下，使用套件名稱和所內嵌組件的組合，並將下列範例中的 `{InteropAssemblyName}` 取代為該值 (如需範例，請參閱 [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop))。
 

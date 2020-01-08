@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385010"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -46,7 +46,7 @@ ms.locfileid: "74825062"
 
 請注意，MSBuild 不支援 `.nuspec` 中的 `Owners` 和 `Summary` 屬性。
 
-| 屬性/NuSpec 值 | MSBuild 屬性 | Default | 備註 |
+| 屬性/NuSpec 值 | MSBuild 屬性 | 預設值 | 注意事項 |
 |--------|--------|--------|--------|
 | ID | PackageId | AssemblyName | MSBuild 中的 $(AssemblyName) |
 | {2&gt;版本&lt;2} | PackageVersion | {2&gt;版本&lt;2} | 這與 SemVer 相容，例如 “1.0.0”、“1.0.0-beta” 或 “1.0.0-beta-00345” |
@@ -120,7 +120,7 @@ ms.locfileid: "74825062"
 
 `PackageIconUrl` 將會取代為新的[`PackageIcon`](#packageicon)屬性。
 
-從 NuGet 5.3 & Visual Studio 2019 16.3 版開始，如果套件中繼資料只指定 `PackageIconUrl`，`pack` 會引發[NU5048](errors-and-warnings/nu5048)警告。
+從 NuGet 5.3 & Visual Studio 2019 16.3 版開始，如果套件中繼資料只指定 `PackageIconUrl`，`pack` 會引發[NU5048](./errors-and-warnings/nu5048.md)警告。
 
 ### <a name="packageicon"></a>PackageIcon
 

@@ -1,77 +1,77 @@
 ---
-title: NuGet 1.8 的版本資訊
-description: 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 1.8 的版本資訊。
+title: NuGet 1.8 版本資訊
+description: NuGet 1.8 的版本資訊，包括已知問題、bug 修正、新增功能和 Dcr。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ff6d12606b1bed479e63eebccd978ff9cd4a7faf
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 973a2d010cb75eeeb383be94baf2fb17a999dd7c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383457"
 ---
-# <a name="nuget-18-release-notes"></a>NuGet 1.8 的版本資訊
+# <a name="nuget-18-release-notes"></a>NuGet 1.8 版本資訊
 
-[NuGet 1.7 版本資訊](../release-notes/nuget-1.7.md) | [NuGet 2.0 版本資訊](../release-notes/nuget-2.0.md)
+[Nuget 1.7 版本](../release-notes/nuget-1.7.md)資訊 | [nuget 2.0 版本](../release-notes/nuget-2.0.md)資訊
 
-NuGet 1.8 已於 2012 5 月 23 日發行。
+NuGet 1.8 已于2012年5月23日發行。
 
 ## <a name="known-installation-issue"></a>已知的安裝問題
-如果您執行的 VS 2010 SP1，您可能會遇到安裝錯誤時嘗試升級 NuGet，如果您已安裝較舊版本。
+如果您執行 VS 2010 SP1，如果您已安裝舊版，則嘗試升級 NuGet 時可能會發生安裝錯誤。
 
-因應措施是只解除安裝 NuGet，然後再從 VS 延伸模組資源庫進行安裝。  請參閱[ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019)如需詳細資訊，或[直接前往 VS hotfix](http://bit.ly/vsixcertfix)。
+因應措施是直接卸載 NuGet，然後從 VS 延伸模組資源庫進行安裝。  如需詳細資訊，請參閱 <https://support.microsoft.com/kb/2581019>，或[直接移至 VS 提供程式](http://bit.ly/vsixcertfix)。
 
-注意： 如果 Visual Studio 不會允許您解除安裝 （解除安裝 按鈕已停用） 的延伸模組，則您可能需要重新啟動 Visual Studio 中使用 「 以系統管理員身分執行 」。
+注意：如果 Visual Studio 不允許您卸載擴充功能（[卸載] 按鈕已停用），您可能需要使用 [以系統管理員身分執行] 重新開機 Visual Studio。
 
-## <a name="nuget-18-incompatible-with-windows-xp-hotfix-published"></a>NuGet 1.8 相容 Windows xp 中，發行的 hotfix
+## <a name="nuget-18-incompatible-with-windows-xp-hotfix-published"></a>NuGet 1.8 與 Windows XP 不相容，已發行的修補程式
 
-NuGet 1.8 發行不久之後，我們已了解 1.8 的密碼編譯變更中斷使用者，在 Windows XP 上。
+在 NuGet 1.8 發行後不久，我們已瞭解1.8 中的密碼編譯變更會中斷 Windows XP 上的使用者。
 
-我們因為已發行 hotfix 來解決此問題。  藉由更新透過 Visual Studio 延伸模組組件庫的 NuGet，您會收到此 hotfix。
+我們已發行解決此問題的修正程式。  藉由 Visual Studio 延伸模組資源庫來更新 NuGet，您會收到此修補程式。
 
 ## <a name="features"></a>功能
 
 ### <a name="satellite-packages-for-localized-resources"></a>當地語系化資源的附屬套件
-NuGet 1.8 現在支援建立個別的封裝，如需當地語系化的資源，類似於.NET Framework 的附屬組件功能的能力。  附屬套件會在相同的方式，加上一些慣例的任何其他 NuGet 套件的形式建立：
+NuGet 1.8 現在支援針對當地語系化的資源建立個別的封裝，類似于 .NET Framework 的附屬元件功能。  附屬套件的建立方式與任何其他 NuGet 套件相同，並加入幾個慣例：
 
-* 附屬套件識別碼和檔案名稱應包含符合標準的其中一個尾碼[文化特性 .NET Framework 所使用字串](http://msdn.microsoft.com/goglobal/bb896001.aspx)。
-* 在其`.nuspec`檔案，附屬套件應該定義語言項目具有相同識別碼使用的文化特性字串
-* 附屬套件應該定義中的相依性及其`.nuspec`其核心封裝，也就是只要使用相同的識別碼，減去語言字尾封裝的檔案。  核心封裝必須可成功安裝的儲存機制中。
+* 附屬套件識別碼和檔案名應包含尾碼，以符合 .NET Framework 所使用的其中一個標準[文化特性字串](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c)。
+* 在它的 `.nuspec` 檔案中，附屬套件應使用識別碼中所用的相同文化特性字串來定義語言元素。
+* 附屬套件應定義其 `.nuspec` 檔案中的相依性至其核心套件，這只是識別碼減去語言尾碼的套件。  核心套件必須在存放庫中提供，才能成功安裝。
 
-若要將套件安裝當地語系化的資源，開發人員明確選取當地語系化的套件儲存機制中。 目前，NuGet 資源庫不會提供任何一種特殊處理，就可以附屬套件。
+若要安裝具有當地語系化資源的套件，開發人員會從存放庫明確選取當地語系化的封裝。 目前，NuGet 資源庫不會對附屬套件提供任何一種特殊的處理方式。
 
-![使用當地語系化 pacakges 套件管理員 對話方塊](./media/dlg-w-loc-packs.png)
+![具有當地語系化套件的 [套件管理員] 對話方塊](./media/dlg-w-loc-packs.png)
 
-附屬套件列出其核心封裝的相依性，因為在附屬和核心套件會提取至 NuGet 套件資料夾，並安裝。
+因為附屬套件會列出其核心套件的相依性，所以附屬和核心套件都會提取至 NuGet 套件資料夾並安裝。
 
-![封裝資料夾中，使用當地語系化的套件](./media/fldr-loc-packs.png)
+![具有當地語系化套件的封裝資料夾](./media/fldr-loc-packs.png)
 
-此外，在安裝附屬套件，NuGet 也會辨識的文化特性的字串命名慣例，然後將當地語系化的資源組件複製到核心封裝內的正確子資料夾，以便它可以挑選由.NET Framework。
+此外，在安裝附屬套件時，NuGet 也會辨識文化特性字串命名慣例，然後將當地語系化的資源元件複製到核心套件中正確的子資料夾，以供 .NET Framework 挑選。
 
-![核心封裝資料夾中，使用複製的資源資料夾](./media/fldr-copied-loc.png)
+![已複製資源資料夾的核心封裝資料夾](./media/fldr-copied-loc.png)
 
-一個現有的 bug，要特別注意的附屬套件是 NuGet 不會複製至的當地語系化的資源`bin`適用於網站專案的資料夾。  在 NuGet 的下一個版本中，將會修正此問題。
+要注意的附屬套件有一個現有的錯誤，就是 NuGet 不會將當地語系化的資源複製到網站專案的 `bin` 資料夾。  此問題將在下一版的 NuGet 中修正。
 
-如需示範如何建立和使用附屬套件的完整範例，請參閱 < [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample)。
+如需示範如何建立和使用附屬套件的完整範例，請參閱[https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample)。
 
 ### <a name="package-restore-consent"></a>套件還原同意
-在 NuGet 1.8 中，我們打造出支援套件還原以保護使用者隱私權的一個重要限制。 此條件約束需要開發人員在建置專案和方案明確地同意套件還原用套件還原的上線設定的套件來源下載套件。
+在 NuGet 1.8 中，我們已為支援封裝還原的重要條件約束奠定基礎，以保護使用者隱私權。 此條件約束需要開發人員建立專案和解決方案，使用套件還原來明確同意封裝還原上線，以從設定的套件來源下載套件。
 
-有 2 種方式可提供此同意。 第一個可在 [套件管理員設定] 對話方塊，如下所示。  這個方法主要是供開發人員電腦。
+有2種方式可提供這種同意。 第一個可在 [套件管理員設定] 對話方塊中找到，如下所示。  這個方法主要是供開發人員機器。
 
-![套件管理員 設定對話方塊](./media/pr-consent-configdlg.png)
+![[套件管理員設定] 對話方塊](./media/pr-consent-configdlg.png)
 
-第二種方法是將環境變數"EnableNuGetPackageRestore 」 設為值"true"。  這個方法適用於無人看管的電腦，例如 CI 或組建伺服器。
+第二種方法是將環境變數 "EnableNuGetPackageRestore" 設定為值 "true"。  此方法適用于自動機器，例如 CI 或組建伺服器。
 
-現在，如上所述，我們有只打造出這項功能在 NuGet 1.8。  實際上，這表示，雖然我們已新增所有的邏輯，以啟用功能，它目前未強制執行在此版本。 將會啟用，不過，在下一個版本的 NuGet，因此我們想要讓您知道它儘速，以便您可以適當地設定您的環境，並因此不會影響我們啟動時強制使用同意條件約束。
+如先前所述，我們只在 NuGet 1.8 中為這項功能奠定了基礎。  實際上，這表示雖然我們已新增所有邏輯來啟用此功能，但目前並不會在此版本中強制執行。 不過，它會在下一版的 NuGet 中啟用，因此我們想要讓您儘快知道它，以便您可以適當地設定環境，並在我們開始強制執行同意條件約束時不會受到影響。
 
-如需詳細資訊，請參閱[小組部落格文章](http://blog.nuget.org/20120518/package-restore-and-consent.html)這項功能。
+如需詳細資訊，請參閱這項功能的[小組博客文章](http://blog.nuget.org/20120518/package-restore-and-consent.html)。
 
-### <a name="nugetexe-performance-improvements"></a>nuget.exe 的效能改進
-藉由修改安裝命令，下載及並行安裝套件，NuGet 1.8 會提供大幅的效能增強功能 nuget.exe-to 和 by 延伸模組套件還原。  高的層級測試顯示為 6 的套件安裝至專案的效能改善在 NuGet 1.8 約 35%。  增加到 25 的套件數目，顯示約 60%的效能提高。
+### <a name="nugetexe-performance-improvements"></a>nuget.exe 效能改進
+藉由修改 install 命令來以平行方式下載和安裝套件，NuGet 1.8 針對 nuget.exe –和擴充套件還原帶來了顯著的效能改進。  高階測試顯示將6個套件安裝到專案中的效能，在 NuGet 1.8 中可改善大約35%。  將封裝數目增加為25會顯示大約60% 的效能提升。
 
 ## <a name="bug-fixes"></a>Bug 修正
-NuGet 1.8 會包含相當多的 bug 修正，並強調的套件管理員主控台和套件還原工作流程，特別是與封裝還原同意與 Windows 8 Express 整合。
-如需完整的工作清單項目中已修正 NuGet 1.8，請檢視[此版本的 NuGet Issue Tracker](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)。
+NuGet 1.8 包含很多 bug 修正，著重于套件管理員主控台和套件還原工作流程，特別是與套件還原同意和 Windows 8 Express 整合相關。
+如需 NuGet 1.8 中已修正之工作專案的完整清單，請參閱[此版本的 NuGet 問題追蹤程式](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)。

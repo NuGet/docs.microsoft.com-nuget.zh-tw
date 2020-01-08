@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 431e5f292f069ad5eb0c9f7f511d6b06810c8760
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 1c39fea2131b8f4b8a91314347a19366d5a582c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385189"
 ---
-# <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio 套件管理員主控台)
+# <a name="get-package-package-manager-console-in-visual-studio"></a>取得套件（Visual Studio 中的套件管理員主控台）
 
-*本主題說明在 Windows 上 Visual Studio 的[套件管理員主控台](../../consume-packages/install-use-packages-powershell.md)中的命令。如需一般 PowerShell 的「取得封裝」命令, 請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題說明在 Windows 上 Visual Studio 的[套件管理員主控台](../../consume-packages/install-use-packages-powershell.md)中的命令。如需一般 PowerShell 的「取得封裝」命令，請參閱[PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
 
-抓取本機存放庫中安裝的套件清單、在搭配-ListAvailable 參數使用時, 列出封裝來源中可用的套件, 或在搭配-Update 參數使用時, 列出可用的更新。
+抓取本機存放庫中安裝的套件清單、在搭配-ListAvailable 參數使用時，列出封裝來源中可用的套件，或在搭配-Update 參數使用時，列出可用的更新。
 
 ## <a name="syntax"></a>語法
 
@@ -26,28 +26,28 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-如果沒有參數, `Get-Package`則會顯示安裝在預設專案中的封裝清單。
+如果沒有參數，`Get-Package` 會顯示安裝在預設專案中的封裝清單。
 
 ## <a name="parameters"></a>參數
 
 | 參數 | 描述 |
 | --- | --- |
-| Source | 封裝的 URL 或資料夾路徑。 本機資料夾路徑可以是絕對或相對於目前的資料夾。 如果省略, `Get-Package`則會搜尋目前選取的封裝來源。 與-ListAvailable 搭配使用時, 預設為 nuget.org。 |
-| ListAvailable | 列出可從封裝來源取得的套件, 預設為 nuget.org。除非指定了-PageSize 和/或-First, 否則會顯示50套件的預設值。 |
+| 原始程式檔 | 封裝的 URL 或資料夾路徑。 本機資料夾路徑可以是絕對或相對於目前的資料夾。 如果省略，`Get-Package` 會搜尋目前選取的封裝來源。 與-ListAvailable 搭配使用時，預設為 nuget.org。 |
+| ListAvailable | 列出可從封裝來源取得的套件，預設為 nuget.org。除非指定了-PageSize 和/或-First，否則會顯示50套件的預設值。 |
 | 更新 | 列出具有可從封裝來源取得更新的套件。 |
-| ProjectName | 要從其中取得已安裝封裝的專案。 如果省略, 則會傳回整個方案的已安裝專案。 |
-| 篩選器 | 用來縮小封裝清單的篩選字串, 方法是將它套用至套件識別碼、描述和標記。 |
-| 第一個 | 要從清單開頭傳回的封裝數目。 如果未指定, 則預設為50。 |
-| Skip | 省略所顯示&lt;清單&gt;中的第一個 int 封裝。  |
-| AllVersions | 顯示每個套件的所有可用版本, 而不只是最新版本。 |
+| ProjectName | 要從其中取得已安裝封裝的專案。 如果省略，則會傳回整個方案的已安裝專案。 |
+| 篩選器 | 用來縮小封裝清單的篩選字串，方法是將它套用至套件識別碼、描述和標記。 |
+| 第一個 | 要從清單開頭傳回的封裝數目。 如果未指定，則預設為50。 |
+| 略過 | 從顯示的清單中省略第一個 &lt;int&gt; 封裝。  |
+| AllVersions | 顯示每個套件的所有可用版本，而不只是最新版本。 |
 | IncludePrerelease | 在結果中包含發行前版本套件。 |
-| PageSize | *(3.0 +)* 與-ListAvailable (必要) 搭配使用時, 要列出的封裝數目, 再讓提示繼續進行。 |
+| PageSize | *（3.0 +）* 與-ListAvailable （必要）搭配使用時，要列出的封裝數目，再讓提示繼續進行。 |
 
 這些參數都不接受管線輸入或萬用字元。
 
 ## <a name="common-parameters"></a>一般參數
 
-`Get-Package`支援下列[常用的 PowerShell 參數](http://go.microsoft.com/fwlink/?LinkID=113216):Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction 和 WarningVariable。
+`Get-Package` 支援下列[常見的 PowerShell 參數](https://go.microsoft.com/fwlink/?LinkID=113216)： Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 

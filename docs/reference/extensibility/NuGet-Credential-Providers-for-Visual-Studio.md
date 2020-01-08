@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4e781a2462871bceeb1c7f02220320daabdab98a
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384435"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383547"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>使用 NuGet 認證提供者驗證 Visual Studio 中的摘要
 
@@ -22,7 +22,7 @@ NuGet Visual Studio 延伸模組 3.6 + 支援認證提供者，可讓 NuGet 使�
 從 4.8 + NuGet 開始，Visual Studio 也支援新的跨平臺驗證外掛程式，但基於效能考慮，它們不是建議的方法。
 
 > [!Note]
-> Visual Studio 的 NuGet 認證提供者必須安裝為一般 Visual Studio 延伸模組，而且將需要[Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe)或更新版本。
+> Visual Studio 的 NuGet 認證提供者必須安裝為一般 Visual Studio 延伸模組，而且將需要[Visual Studio 2017](https://aka.ms/vs/15/release/vs_enterprise.exe)或更新版本。
 >
 > Visual Studio 的 NuGet 認證提供者僅適用于 Visual Studio （不在 dotnet restore 或 nuget.exe 中）。 如需使用 nuget.exe 的認證提供者，請參閱[Nuget.exe 認證提供者](nuget-exe-Credential-providers.md)。
 > 如需 dotnet 和 msbuild 中的認證提供者，請參閱[NuGet 跨平臺外掛程式](nuget-cross-platform-authentication-plugin.md)
@@ -31,7 +31,7 @@ NuGet Visual Studio 延伸模組 3.6 + 支援認證提供者，可讓 NuGet 使�
 
 Visual Studio NuGet 延伸模組內建有認證提供者，可支援 Visual Studio Team Services。
 
-NuGet Visual Studio 延伸模組會使用內部`VsCredentialProviderImporter` ，這也會掃描外掛程式認證提供者。 這些外掛程式認證提供者必須可視為類型`IVsCredentialProvider`的 MEF 匯出。
+NuGet Visual Studio 擴充功能會使用內部 `VsCredentialProviderImporter`，這也會掃描外掛程式認證提供者。 這些外掛程式認證提供者必須可視為 `IVsCredentialProvider`類型的 MEF 匯出。
 
 可用的外掛程式認證提供者包括：
 
@@ -43,15 +43,15 @@ NuGet Visual Studio 延伸模組 3.6 + 會實行用來取得認證的內部 Cred
 
 在認證取得期間，認證服務會依下列順序嘗試認證提供者，並在取得認證時立即停止：
 
-1. 將從 NuGet 設定檔提取認證（使用內`SettingsCredentialProvider`建）。
-1. 如果封裝來源在 Visual Studio Team Services 上， `VisualStudioAccountProvider`則會使用。
+1. 將從 NuGet 設定檔提取認證（使用內建的 `SettingsCredentialProvider`）。
+1. 如果封裝來源在 Visual Studio Team Services 上，則會使用 `VisualStudioAccountProvider`。
 1. 所有其他外掛程式 Visual Studio 認證提供者都會依序嘗試。
 1. 請嘗試順序使用所有的 NuGet 跨平臺認證提供者。
 1. 如果尚未取得認證，則會使用標準的基本驗證對話方塊來提示使用者提供認證。
 
 ### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>執行 IVsCredentialProvider。 GetCredentialsAsync
 
-若要建立 Visual Studio 的 NuGet 認證提供者，請建立 Visual Studio 延伸模組，該擴充功能會公開`IVsCredentialProvider`實作為類型的公用 MEF 匯出，並遵循下面所述的原則。
+若要建立 Visual Studio 的 NuGet 認證提供者，請建立 Visual Studio 延伸模組，以公開執行 `IVsCredentialProvider` 類型的公用 MEF 匯出，並遵循下面所述的原則。
 
 ```cs
 public interface IVsCredentialProvider
@@ -70,14 +70,14 @@ public interface IVsCredentialProvider
 
 Visual Studio 的每個 NuGet 認證提供者都必須：
 
-1. 判斷它是否可以在起始認證之前，提供目標 URI 的認證。 如果提供者無法提供目標來源的認證，則它應該`null`會傳回。
+1. 判斷它是否可以在起始認證之前，提供目標 URI 的認證。 如果提供者無法提供目標來源的認證，則應該會傳回 `null`。
 1. 如果提供者確實處理目標 URI 的要求，但無法提供認證，則應該擲回例外狀況。
 
-Visual Studio 的自訂 NuGet 認證提供者必須執行`IVsCredentialProvider` [VisualStudio 套件](https://www.nuget.org/packages/NuGet.VisualStudio/)中提供的介面。
+Visual Studio 的自訂 NuGet 認證提供者必須執行[VisualStudio 套件](https://www.nuget.org/packages/NuGet.VisualStudio/)中提供的 `IVsCredentialProvider` 介面。
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
-| 輸入參數 |說明|
+| 輸入參數 |描述|
 | ----------------|-----------|
 | Uri uri | 要求認證的套件來源 Uri。|
 | IWebProxy proxy | 在網路上通訊時所要使用的 Web proxy。 如果未設定 proxy 驗證，則為 Null。 |
@@ -86,4 +86,4 @@ Visual Studio 的自訂 NuGet 認證提供者必須執行`IVsCredentialProvider`
 | bool 非互動式 | 若為 true，則認證提供者必須隱藏所有使用者提示，並改為使用預設值。 |
 | CancellationToken cancellationToken | 應檢查此解除標記，以判斷要求認證的作業是否已取消。 |
 
-傳回**值**：用來執行[ `System.Net.ICredentials`介面](/dotnet/api/system.net.icredentials?view=netstandard-2.0)的認證物件。
+傳回**值**：用來執行[`System.Net.ICredentials` 介面](/dotnet/api/system.net.icredentials?view=netstandard-2.0)的認證物件。
