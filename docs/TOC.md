@@ -49,7 +49,7 @@
 ### [建立原生套件](guides/native-packages.md)
 ### [將 UI 控制項建立為 NuGet 套件](guides/create-UI-controls.md)
 ### [將分析器建立為 NuGet 套件](guides/analyzers-conventions.md)
-### [使用 Visual Studio 2015 建立適用於 Xamarin 的套件](guides/create-packages-for-xamarin.md)
+### [使用 Visual Studio 2017 或 2019 建立適用於 Xamarin 的套件](guides/create-packages-for-xamarin.md)
 ### [建立包含 COM Interop 組件的套件](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## 簽署套件
 ### [簽署套件](create-packages/sign-a-package.md)
