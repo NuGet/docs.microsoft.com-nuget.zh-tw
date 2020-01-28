@@ -1,1 +1,0 @@
-<span data-ttu-id="35558-101">此資料夾保留從主要文件中移除的內容位置，通常套用至較舊版本的材料很有可能移入永久封存位置。</span><span class="sxs-lookup"><span data-stu-id="35558-101">This folder a holding location for content being removed from the main documentation, typically material that applies to earlier versions that will likely be moved into a permanent archive location.</span></span>
