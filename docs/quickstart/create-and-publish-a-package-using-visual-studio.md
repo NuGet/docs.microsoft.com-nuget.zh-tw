@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610628"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813555"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -19,7 +19,7 @@ ms.locfileid: "73610628"
 > [!Note]
 > 若您是使用 Visual Studio for Mac，請參閱[此資訊](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library)以了解如何建立 NuGet 套件，或使用 [dotnet CLI 工具](create-and-publish-a-package-using-the-dotnet-cli.md)來建立套件。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件：
 
 1. 使用 .NET Core 相關工作負載，從 [visualstudio.com](https://www.visualstudio.com/) 安裝任何版本的 Visual Studio 2019。
 
@@ -30,7 +30,7 @@ ms.locfileid: "73610628"
    > [!Important]
    > 若您正在處理非 SDK 樣式專案，請改為依照[建立及發行 .NET Framework 套件 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) 中的程序建立及發行套件。 針對此文章，建議使用 `dotnet` CLI。 雖然您可以使用 `nuget.exe` CLI 發行任何 NuGet 套件，此文章中的某些步驟僅適用於 SDK 專案與 dotnet CLI。 nuget.exe CLI 是用於[非 SDK 樣式專案](../resources/check-project-format.md) (通常是 .NET Framework)。
 
-1. 如果您還沒有帳戶，請[在 nuget.org 上註冊一個免費帳戶](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account) \(英文\)。 建立新的帳戶會傳送一封確認電子郵件。 您必須確認帳戶，才可以上傳套件。
+1. 如果您還沒有帳戶，請[在 nuget.org 上註冊一個免費帳戶](../nuget-org/individual-accounts.md#add-a-new-individual-account) \(英文\)。 建立新的帳戶會傳送一封確認電子郵件。 您必須確認帳戶，才可以上傳套件。
 
 ## <a name="create-a-class-library-project"></a>建立類別庫專案
 

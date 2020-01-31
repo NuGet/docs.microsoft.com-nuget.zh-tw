@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610949"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812931"
 ---
 # <a name="package-details-url-template"></a>套件詳細資料 URL 範本
 
@@ -23,7 +23,7 @@ ms.locfileid: "73610949"
 
 會使用下列 `@type` 值：
 
-@type 值                     | 備註
+@type 值                     | 注意事項
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1。0 | 初始版本
 
@@ -45,12 +45,12 @@ URL 必須是絕對 URL，而配置（通訊協定）必須是 HTTPS。
 
 ### <a name="url-placeholders"></a>URL 預留位置
 
-[屬性]        | 輸入    | 必要項 | 備註
+Name        | 類型    | 必要 | 注意事項
 ----------- | ------- | -------- | -----
-`{id}`      | 字串  | 否       | 要取得詳細資料的套件識別碼
-`{version}` | 字串  | 否       | 要取得詳細資料的套件版本
+`{id}`      | string  | no       | 要取得詳細資料的套件識別碼
+`{version}` | string  | no       | 要取得詳細資料的套件版本
 
-伺服器應該接受 `{id}`，並 `{version}` 任何大小寫的值。 此外，伺服器應該不會區分版本是否[正規化](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers)。 換句話說，伺服器也應該接受非正規化版本。
+伺服器應該接受 `{id}`，並 `{version}` 任何大小寫的值。 此外，伺服器應該不會區分版本是否[正規化](../concepts/package-versioning.md#normalized-version-numbers)。 換句話說，伺服器也應該接受非正規化版本。
 
 例如，nuget 的 [套件詳細資料] 範本如下所示：
 

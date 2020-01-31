@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813737"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org 常見問題集
 
@@ -38,7 +38,7 @@ NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套�
 
 **可以保留將在未來發行之套件的名稱嗎？**
 
-可以。 要求帳戶的套件識別碼前置詞，即可在 [NuGet.org](https://www.nuget.org/) 上保留套件的識別碼。 若要要求套件識別碼首碼，請遵循[文件](id-prefix-reservation.md)中的指示。
+是， 要求帳戶的套件識別碼前置詞，即可在 [NuGet.org](https://www.nuget.org/) 上保留套件的識別碼。 若要要求套件識別碼首碼，請遵循[文件](id-prefix-reservation.md)中的指示。
 
 **如何宣告套件擁有權？**
 
@@ -129,14 +129,14 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 1. 展開**登入帳戶**區段。 按一下 [變更帳戶] 按鈕。
 1. 系統會將您重新導向至 Microsoft 登入頁面。 請使用您想要變更關聯的帳戶登入，亦即 `account2@outlook.com`。**注意**：在登入流程期間，您可能需要按一下 [登出] **，並以不同的帳戶登入**，才能使用不同的 Microsoft 帳戶進行登入。
 1. 若您看到以下錯誤訊息，請參閱 [Microsoft 帳戶已與另一個 NuGet.org 帳戶連結](#microsoft-account-is-linked-with-another-nugetorg-account)，以取得詳細資訊。
-    >_無法以 ' account2 <account2@outlook.com> ' 更新 Microsoft 帳戶。如果已連結至另一個 NuGet 帳戶，可能會發生這種情況。如需詳細資訊，請聯絡支援人員。_
+    >_無法以 ' account2 <account2@outlook.com>' 更新 Microsoft 帳戶。如果已連結至另一個 NuGet 帳戶，可能會發生這種情況。如需詳細資訊，請聯絡支援人員。_
 
 1. 使用第二個帳戶成功登入後，系統會將您重新導向回 NuGet.org 帳戶設定頁面，您現在應該會看到新的 Microsoft 帳戶已建立關聯，成為登入帳戶。 之後，您在登入 NuGet.org 時，應使用此帳戶。
 
 ### <a name="microsoft-account-is-linked-with-another-nugetorg-account"></a>Microsoft 帳戶已與另一個 NuGet.org 帳戶連結。
 
 若您嘗試變更 Microsoft 登入，並看到以下錯誤訊息：
-> _無法以 ' account2 <account2@outlook.com> ' 更新 Microsoft 帳戶。如果已連結至另一個 NuGet 帳戶，可能會發生這種情況。如需詳細資訊，請聯絡支援人員。_
+> _無法以 ' account2 <account2@outlook.com>' 更新 Microsoft 帳戶。如果已連結至另一個 NuGet 帳戶，可能會發生這種情況。如需詳細資訊，請聯絡支援人員。_
 
 假設您嘗試為使用者名稱為 `MyNuGetAccount1` 的 NuGet.org 使用者，將 Microsoft 帳戶登入從 `account1@outlook.com` 變更為電子郵件為 `account2@outlook.com` 的另一個 Microsoft 帳戶。 然後看到以上錯誤訊息。
 
@@ -175,7 +175,7 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 在 NuGet.org 建立帳戶時，通訊電子郵件地址會與該帳戶建立關聯。 這通常與關聯 Microsoft 帳戶使用的電子郵件地址相同。 不過，您可以選擇指定其他電子郵件地址進行通訊。 所以，技術上來說，您可以擁有其他 Microsoft 帳戶 (亦即 `account2@outlook.com`)，且連結到通訊電子郵件地址為 `account1@outlook.com` 的 NuGet.org 帳戶。
 
-因此，上方的錯誤訊息代表已經有通訊電子郵件地址為 `account1@outlook.com` 的現有 NuGet.org 帳戶，但卻與電子郵件**不是** `account1@outlook.com` 的另一個 Microsoft 帳戶建立關聯。
+因此，上述錯誤表示已經有通訊電子郵件地址 `account1@outlook.com` 的 NuGet.org 帳戶，但與另一個**Microsoft 帳戶，但未 `account1@outlook.com`的**電子郵件相關聯。
 
 **如何找出哪一個 Microsoft 帳戶連結到此 NuGet.org 帳戶？**
 
@@ -242,15 +242,15 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>如何變更我的 NuGet.org 帳戶使用者名稱？
 
-您不能進行變更。 因為原則的關係，我們目前不允許變更使用者名稱。 唯一變更使用者名稱的方式為，以想要的使用者名稱建立新帳戶。 建議您在建立新帳戶之前，先將現有的帳戶刪除，否則您將無法重複使用註冊的 Microsoft 帳戶。
+您不能進行變更。 就原則而言，我們不允許變更使用者名稱。 此外，針對可能已[根據套件擁有者定義套件信任原則](../consume-packages/installing-signed-packages.md#trust-package-owners)的使用者，這也是一種重大變更。 唯一變更使用者名稱的方式為，以想要的使用者名稱建立新帳戶。 建議您在建立新帳戶之前，先將現有的帳戶刪除，否則您將無法重複使用註冊的 Microsoft 帳戶。
 > [!Important]
-> 刪除使用者仍會**保留** `username`。 您將無法再重複使用相同的使用者名稱，**這也包含大小寫的變更**。 例如，若您建立了使用者名稱為 `mycoolname` 的使用者，且想要將其變更為 `MyCoolName` (大小寫變更)，則在刪除使用者後，就不可能達成目的。
+> 刪除使用者仍會**保留**`username`。 您將無法再重複使用相同的使用者名稱，**這也包含大小寫的變更**。 例如，若您建立了使用者名稱為 `mycoolname` 的使用者，且想要將其變更為 `MyCoolName` (大小寫變更)，則在刪除使用者後，就不可能達成目的。
 
 請遵循[刪除 NuGet.org 帳戶](#how-to-delete-my-nugetorg-account)一節中提供的步驟，並以正確的使用者名稱[註冊新帳戶](individual-accounts.md)。
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>如何刪除我的 NuGet.org 帳戶？
 
-請注意，若要刪除您的帳戶，建議轉換您為唯一擁有者的所有套件擁有權。 您可以深入了解如何[管理套件擁有者](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg)。 這也有助於我們加速處理您的要求。
+請注意，若要刪除您的帳戶，建議轉換您為唯一擁有者的所有套件擁有權。 您可以深入了解如何[管理套件擁有者](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)。 這也有助於我們加速處理您的要求。
 
 若您要將您的帳戶轉換為組織，請依照[將我的 NuGet.org 帳戶轉換為組織](#how-to-transform-my-nugetorg-account-to-an-organization)。
 

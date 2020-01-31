@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611359"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813763"
 ---
 # <a name="nuget-48-release-notes"></a>NuGet 4.8 版本資訊
 
@@ -36,7 +36,7 @@ ms.locfileid: "73611359"
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>在 CI 電腦上或在離線環境中安裝已簽署的套件需要較多時間
 
 #### <a name="issue"></a>問題
-如果電腦的網際網路存取受到限制 (例如，CI/CD 案例中的組建電腦)，在安裝/還原已簽署的 Nuget 套件時將會因為撤銷伺服器無法連線而出現警告 ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028))。 這是預期的行為。 但在某些情況下，這可能會有非預期的後果，例如套件安裝/還原耗時較長。
+如果電腦的網際網路存取受到限制 (例如，CI/CD 案例中的組建電腦)，在安裝/還原已簽署的 Nuget 套件時將會因為撤銷伺服器無法連線而出現警告 ([NU3028](../reference/errors-and-warnings/nu3028.md))。 這是預期的行為。 但在某些情況下，這可能會有非預期的後果，例如套件安裝/還原耗時較長。
 
 #### <a name="workaround"></a>因應措施
 在 Visual Studio 15.8.4 和 NuGet.exe 4.8.1 的更新中，我們引進了可切換撤銷檢查模式的環境變數。
@@ -79,12 +79,12 @@ ms.locfileid: "73611359"
 * 簽署：未使用 SignedPackageVerifierSettings.VSClientDefaultPolicy - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
-#### <a name="pack"></a>套件
+#### <a name="pack"></a>組件
 * 使用 dotnet.exe 來封裝 nuspec 時應該不需要還原和建置 - [#6866](https://github.com/NuGet/Home/issues/6866)
 * 在 NuspecProperties 中允許空的取代權杖 - [#6722](https://github.com/NuGet/Home/issues/6722)
 * 已指定 NuspecProperties 時，PackTask 會擲回 NullReferenceException - [#4649](https://github.com/NuGet/Home/issues/4649)
 
-#### <a name="accessibility"></a>Accessibility
+#### <a name="accessibility"></a>協助工具
 * [協助工具] 在 PM UI 中，套件按鈕下的字串「發行前版本」被其套件描述遮住 - [#4504](https://github.com/NuGet/Home/issues/4504)
 * [協助工具] 在 PM UI 中選取 [Microsoft Visual Studio 離線套件] 時，套件來源下拉式清單和設定按鈕會截斷 - [#4502](https://github.com/NuGet/Home/issues/4502)
 

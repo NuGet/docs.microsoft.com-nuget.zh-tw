@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611060"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813321"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet 如何解析套件相依性
 
@@ -24,7 +24,7 @@ ms.locfileid: "73611060"
 
 使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用萬用字元 (浮動) 版本 (例如 2.8.\*)，避免用戶端電腦和組建伺服器上對 `nuget update` 的昂貴且容易出錯的呼叫。
 
-若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 如果[已啟用鎖定檔案功能](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies)，它也會將已解析的相依性寫入名為 `packages.lock.json` 的鎖定檔案。
+若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 如果[已啟用鎖定檔案功能](../consume-packages/package-references-in-project-files.md#locking-dependencies)，它也會將已解析的相依性寫入名為 `packages.lock.json` 的鎖定檔案。
 資產檔案位於 `MSBuildProjectExtensionsPath`，其預設為專案的 'obj' 資料夾。 MSBuild 接著會讀取這個檔案，並將它轉譯成一組可找到可能參考的資料夾，然後將它們新增至記憶體中的專案樹狀結構。
 
 `project.assets.json` 檔案是暫時的，不應該新增至原始程式碼控制。 它預設會列在 `.gitignore` 和 `.tfignore` 中。 請參閱[套件和原始檔控制](../consume-packages/packages-and-source-control.md)。
@@ -110,7 +110,7 @@ ms.locfileid: "73611060"
 
 使用 PackageReference 格式時，您可以控制從相依性流入最上層專案的資產。 如需詳細資訊，請參閱 [PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
-最上層專案本身是套件時，也可以搭配使用 `include` 和 `exclude` 屬性與 `.nuspec` 檔案中所列相依性來控制此流量。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
+最上層專案本身是套件時，也可以搭配使用 `include` 和 `exclude` 屬性與 `.nuspec` 檔案中所列相依性來控制此流量。 請參閱 [.nu-/spec 參考 - 相依性](../reference/nuspec.md#dependencies)。
 
 ## <a name="excluding-references"></a>排除參考
 
@@ -156,4 +156,3 @@ Package restore failed. Rolling back package changes for 'MyProject'.
 
 - 將專案的目標重新設為您想要使用的套件所支援的架構。
 - 請連絡套件作者，並與他們合作以新增所選擇架構的支援。 基於此用途，[nuget.org](https://www.nuget.org/) 上的每個套件列出頁面都具有**連絡人負責人**連結。
-

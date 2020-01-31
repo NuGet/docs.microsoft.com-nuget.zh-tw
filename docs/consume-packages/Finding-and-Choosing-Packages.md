@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253940"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813347"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -56,7 +56,7 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 - **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，設定 [包含發行前版本] 方塊。 設定或清除此方塊時，會重新整理套件管理員 UI 以及您可以安裝的可用版本清單。
 
-    ![Visual Studio 中的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
+    ![Visual Studio 的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
 - **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
 
@@ -122,25 +122,25 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 1. 它應該有如 `<license type="file">license\license.txt</license>` 的標記。 這意指授權檔案的名稱是 `license.txt` 且它位於稱為 `license` 的資料夾 (也位於資料夾的根目錄) 內。
 1. 瀏覽到 `license` 資料夾並開啟 `license.txt` 檔案。
 
-如果 MSBuild 相當於在 `.nuspec` 中設定授權，請參閱[封裝授權運算式或授權檔案](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)。
+如果 MSBuild 相當於在 `.nuspec` 中設定授權，請參閱[封裝授權運算式或授權檔案](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)。
 
 ## <a name="search-syntax"></a>搜尋語法
 
 在 nuget.org 上、從 NuGet CLI 中，以及 Visual Studio 的 NuGet 套件管理員延伸模組內，NuGet 套件搜尋的運作都相同。 一般而言，會將搜尋套用至關鍵字和套件描述。
 
-- **關鍵字**：搜尋會尋找包含任何所提供關鍵字的相關套件。 範例：`modern UI`。 若要搜尋包含所有已提供關鍵字的套件，請在詞彙之間使用 "+"，例如 `modern+UI`。
-- **詞組**：輸入以雙引號括住的字詞會尋找與這些字詞完全相同且不區分大小寫的相符項。 範例：`"modern UI" package`
-- **篩選**：您可以使用 `<property>:<term>` 語法，將搜尋字詞套用至特定屬性，其中 `<property>` (不區分大小寫) 可以是 `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary` 和 `owner`。 必要時，可以使用引號括住字詞，而且您可以同時搜尋多個屬性。 此外，對 `id` 屬性的搜尋是子字串比對，而 `packageid` 使用精確比對。 例如：
+- **篩選**：您可以使用 `<property>:<term>` 語法，將搜尋字詞套用至特定屬性，其中 `<property>` (不區分大小寫) 可以是 `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary` 和 `owner`。 您可以同時搜尋多個屬性。 搜尋 `id` 屬性是子字串相符專案，而 `packageid` 和 `owner` 會使用完全不區分大小寫的相符專案。 範例：
 
-    ```
-    id:NuGet.Core                # Match any part of the id property
-    Id:"Nuget.Core"
-    ID:jQuery
-    title:jquery                 # Searches title as shown on the package listing
-    PackageId:jquery             # Match the package id exactly
-    id:jquery id:ui              # Search for multiple terms in the id
-    id:jquery tags:validation    # Search multiple properties
-    id:"jquery.ui"               # Phrase search
-    invalid:jquery ui            # Unsupported properties are ignored, so this
-                                 # is the same as searching on jquery ui
-    ```
+```
+PackageId:jquery             # Match the package ID in an exact, case-insensitive manner
+
+owner:microsoft              # Match the owner in an exact, case-insensitive manner
+
+id:NuGet.Core                # Match any part of the ID property
+Id:"Nuget.Core"
+ID:jQuery
+id:jquery id:ui              # Search for multiple terms in the ID
+id:jquery tags:validation    # Search multiple properties
+
+invalid:jquery ui            # Unsupported properties are ignored, so this
+                             # is the same as searching on ui
+```
