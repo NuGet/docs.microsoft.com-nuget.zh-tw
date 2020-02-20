@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 535d5a16a559cde065ee0277471edfbaf1aea084
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: c198bb73f0e4f5a59826db905eaf4622fe8543bc
+ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825279"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77476252"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
 
@@ -94,7 +94,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>建置時自動產生套件
 
-若要在您執行 `dotnet build` 時自動執行 `dotnet pack`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：
+若要在您執行 `dotnet pack` 時自動執行 `dotnet build`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -122,6 +122,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 - [套件版本控制](../concepts/package-versioning.md)
 - [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
+- [新增套件圖示](../reference/nuspec.md#icon)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
 - [發行前版本](../create-packages/prerelease-packages.md)
