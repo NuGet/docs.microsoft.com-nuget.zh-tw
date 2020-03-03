@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385667"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230898"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>建立具有 Visual Studio 2017 或2019之 Xamarin 的套件
 
@@ -25,7 +25,7 @@ ms.locfileid: "75385667"
 1. [封裝元件](#package-the-component)
 1. [相關主題](#related-topics)
 
-## <a name="prerequisites"></a>必要條件：
+## <a name="prerequisites"></a>Prerequisites
 
 1. 使用通用 Windows 平臺（UWP）和 Xamarin Visual Studio 2017 或2019。 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 Community Edition，當然也可以使用 Professional Edition 和 Enterprise Edition。 若要包含 UWP 和 Xamarin 工具，請選取 [自訂安裝] 並檢查適當的選項。
 1. NuGet CLI。 從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 nuget.exe，並將它儲存至您選擇的位置。 如果尚未新增，則請將該位置新增至您的 PATH 環境變數。
@@ -52,7 +52,7 @@ ms.locfileid: "75385667"
 
 - `ILoggingLibrary` 專案（包含在 `ILoggingLibrary.shared.cs` 檔案中）會定義元件的公用介面（API 表面區域）。 這是您在其中定義程式庫介面的位置。
 - 另一個共用專案包含 `CrossLoggingLibrary.shared.cs` 中的程式碼，可在執行時間找出抽象介面的平臺特定執行。 您通常不需要修改這個檔案。
-- 平臺特定專案（例如 `LoggingLibrary.android.cs`）每個包含在其各自的 `LoggingLibraryImplementation.cs` （VS 2017）或 `LoggingLibrary.<PLATFORM>.cs` （VS 2019）檔案中都包含介面的原生執行。 這是您建置程式庫程式碼的位置。
+- 平臺特定專案（例如 `LoggingLibrary.android.cs`）各自包含介面的原生執行，其各自的 `LoggingLibraryImplementation.cs` （VS 2017）或 `LoggingLibrary.<PLATFORM>.cs` （VS 2019）檔案。 這是您建置程式庫程式碼的位置。
 
 根據預設，`ILoggingLibrary` 專案的 ILoggingLibrary.shared.cs 檔包含介面定義，但沒有方法。 基於本逐步解說的目的，新增 `Log` 方法，如下所示：
 
@@ -123,7 +123,7 @@ namespace Plugin.LoggingLibrary
     ```
 
 1. 將這個檔案重新命名為 `LoggingLibrary.nuspec`，並在編輯器中予以開啟。
-1. 更新檔案使其符合下列內容，並使用適當的值取代 YOUR_NAME。 尤其是在整個 nuget.org 中，`<id>` 值必須是唯一的 (請參閱[建立套件](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。
+1. 更新檔案使其符合下列內容，並使用適當的值取代 YOUR_NAME。 尤其是在整個 nuget.org 中，`<id>` 值必須為唯一 (請參閱[建立套件](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。
 
     ```xml
     <?xml version="1.0"?>
@@ -148,7 +148,7 @@ namespace Plugin.LoggingLibrary
 
 ### <a name="add-reference-assemblies"></a>新增參考組件
 
-若要包含平台特定參考組件，請針對您的支援平台適當地將下列新增至 `LoggingLibrary.nuspec` 的 `<files>` 項目：
+若要包含平台特定參考組件，請針對您的支援平台適當地將下列新增至 `<files>` 的 `LoggingLibrary.nuspec` 項目：
 
 ```xml
 <!-- Insert below <metadata> element -->
@@ -265,7 +265,7 @@ namespace Plugin.LoggingLibrary
 nuget pack LoggingLibrary.nuspec
 ```
 
-這會產生 `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`。 在如 [NuGet 套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)的工具中開啟此檔案，並展開所有節點，您將會看到下列內容：
+這將產生 `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`。 在如 [NuGet 套件總管](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)的工具中開啟此檔案，並展開所有節點，您將會看到下列內容：
 
 ![顯示 LoggingLibrary 套件的 NuGet 套件總管](media/Cross-Platform-PackageExplorer.png)
 

@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 746f7a421bd855b77716388b4af2fecbd5cf5a68
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: e596fd5eb3de8ca4802d9b7b8e7cb623568e3dcb
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676402"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231119"
 ---
 # <a name="sign-command-nuget-cli"></a>sign 命令（NuGet CLI）
 
@@ -22,7 +22,7 @@ ms.locfileid: "75676402"
 > [!Note]
 > 在 .NET Core、Mono 或非 Windows 平臺上，尚未支援套件簽署。
 
-## <a name="usage"></a>使用
+## <a name="usage"></a>使用量
 
 ```cli
 nuget sign <package(s)> [options]
@@ -30,7 +30,7 @@ nuget sign <package(s)> [options]
 
 其中 `<package(s)>` 是一或多個 `.nupkg` 檔案。
 
-## <a name="options"></a>選項
+## <a name="options"></a>選項。
 
 | 選項 | 描述 |
 | --- | --- |
@@ -42,14 +42,14 @@ nuget sign <package(s)> [options]
 | CertificateSubjectName | 指定用來搜尋憑證之本機憑證存放區的憑證主體名稱。  搜尋是使用提供的值時，不區分大小寫的字串比較，它會尋找具有包含該字串之主體名稱的所有憑證，而不論其他主體值為何。  憑證存放區可以透過-CertificateStoreName 和-CertificateStoreLocation 選項來指定。 |
 | ConfigFile | 要套用的 NuGet 設定檔。 如果未指定，則會使用 `%AppData%\NuGet\NuGet.Config` （Windows）或 `~/.nuget/NuGet/NuGet.Config` （Mac/Linux）。|
 | ForceEnglishOutput | 強制使用非變異的英文文化特性來執行 nuget.exe。 |
-| HashAlgorithm | 要用來簽署封裝的雜湊演算法。 預設為 SHA256。 |
-| 說明 | 顯示命令的說明資訊。 |
+| HashAlgorithm | 要用來簽署封裝的雜湊演算法。 預設為 SHA256。 可能的值為 SHA256、SHA384 和 SHA512。 |
+| 説明 | 顯示命令的說明資訊。 |
 | NonInteractive | 抑制使用者輸入或確認的提示。 |
 | OutputDirectory | 指定應儲存已簽署封裝的目錄。 根據預設，已簽署的套件會覆寫原始的封裝。 |
-| 覆寫 | 切換以指出是否應該覆寫目前的簽章。 根據預設，如果封裝已有簽章，此命令將會失敗。 |
+| Overwrite | 切換以指出是否應該覆寫目前的簽章。 根據預設，如果封裝已有簽章，此命令將會失敗。 |
 | Timestamper | RFC 3161 時間戳記伺服器的 URL。 |
 | TimestampHashAlgorithm | RFC 3161 時間戳記伺服器所要使用的雜湊演算法。 預設為 SHA256。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料量： [*一般*] *、[* 無訊息]、[*詳細*]。 |
+| 詳細程度 | 指定輸出中顯示的詳細資料量： [*一般*] *、[* 無訊息]、[*詳細*]。 |
 
 ## <a name="examples"></a>範例
 

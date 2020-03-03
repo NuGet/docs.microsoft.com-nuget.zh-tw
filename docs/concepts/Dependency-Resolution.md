@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813321"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231080"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet 如何解析套件相依性
 
@@ -22,9 +22,9 @@ ms.locfileid: "76813321"
 
 ## <a name="dependency-resolution-with-packagereference"></a>使用 PackageReference 的相依性解析
 
-使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用萬用字元 (浮動) 版本 (例如 2.8.\*)，避免用戶端電腦和組建伺服器上對 `nuget update` 的昂貴且容易出錯的呼叫。
+使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用浮動版本，例如2.8。\*，避免修改專案以使用最新版的封裝。
 
-若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 如果[已啟用鎖定檔案功能](../consume-packages/package-references-in-project-files.md#locking-dependencies)，它也會將已解析的相依性寫入名為 `packages.lock.json` 的鎖定檔案。
+若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 如果`packages.lock.json`已啟用鎖定檔案功能[，它也會將已解析的相依性寫入名為 ](../consume-packages/package-references-in-project-files.md#locking-dependencies) 的鎖定檔案。
 資產檔案位於 `MSBuildProjectExtensionsPath`，其預設為專案的 'obj' 資料夾。 MSBuild 接著會讀取這個檔案，並將它轉譯成一組可找到可能參考的資料夾，然後將它們新增至記憶體中的專案樹狀結構。
 
 `project.assets.json` 檔案是暫時的，不應該新增至原始程式碼控制。 它預設會列在 `.gitignore` 和 `.tfignore` 中。 請參閱[套件和原始檔控制](../consume-packages/packages-and-source-control.md)。
@@ -53,16 +53,16 @@ ms.locfileid: "76813321"
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-wildcard-versions"></a>浮動 (萬用字元) 版本
+#### <a name="floating-versions"></a>浮動版本
 
-浮動或萬用字元相依性版本是使用 \* 萬用字元所指定，與 6.0.\* 相同。 此版本規格指出「使用最新的 6.0.x 版」；4.\* 表示「使用最新的 4.x 版」。 使用萬用字元，可讓相依性套件繼續發展，而不需要變更取用中應用程式 (或套件)。
+使用 \* 字元來指定浮動相依性版本。 例如： `6.0.*` 。 此版本規格顯示「使用最新的 6.0. x 版本」;`4.*` 表示「使用最新的4.x 版本」。 使用浮動版本可減少專案檔的變更，同時保持最新版本的相依性。
 
-使用萬用字元時，NuGet 會解析符合版本模式的套件最高版本，例如，6.0.\* 所取得之套件最高版本的開頭為 6.0：
+使用浮動版本時，NuGet 會解析符合版本模式之套件的最高版本，例如 `6.0.*` 取得以6.0 開頭之套件的最高版本：
 
 ![在要求浮動版本 6.0.* 時選擇 6.0.1 版](media/projectJson-dependency-4.png)
 
 > [!Note]
-> 如需萬用字元和發行前版本之行為的資訊，請參閱[套件版本控制](package-versioning.md#version-ranges-and-wildcards)。
+> 如需浮動版本和發行前版本行為的資訊，請參閱[套件版本控制](package-versioning.md#version-ranges)。
 
 
 <a name="nearest-wins"></a>
@@ -102,7 +102,7 @@ ms.locfileid: "76813321"
 
 使用 `packages.config`，NuGet 會嘗試在每個個別套件安裝期間解決相依性衝突。 也就是說，如果套件 A 已安裝並與套件 B 相依，而且套件 B 已列在 `packages.config` 中作為其他項目的相依性，則 NuGet 會比較所要求的套件 B 版本，並嘗試找到符合所有版本條件約束的版本。 具體來說，NuGet 會選取符合相依性的較低 *major.minor* 版本。
 
-根據預設，NuGet 2.8 會尋找最低的修補程式版本 (請參閱 [NuGet 2.8 版本資訊](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies))。 您可以透過 `Nuget.Config` 中的 `DependencyVersion` 屬性和命令列上的 `-DependencyVersion` 參數，來控制此設定。  
+根據預設，NuGet 2.8 會尋找最低的修補程式版本 (請參閱 [NuGet 2.8 版本資訊](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies))。 您可以透過 `DependencyVersion` 中的 `Nuget.Config` 屬性和命令列上的 `-DependencyVersion` 參數，來控制此設定。  
 
 針對較大的相依性圖形，解析相依性的 `packages.config` 程序會更為複雜。 每個新套件安裝都需要周遊整個圖形，而且會引發版本衝突機會。 發生衝突時，會停止安裝，並讓專案處於不定狀態，特別是對專案檔本身進行可能的修改。 使用其他套件管理格式時，這不是問題。
 
@@ -110,7 +110,7 @@ ms.locfileid: "76813321"
 
 使用 PackageReference 格式時，您可以控制從相依性流入最上層專案的資產。 如需詳細資訊，請參閱 [PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
-最上層專案本身是套件時，也可以搭配使用 `include` 和 `exclude` 屬性與 `.nuspec` 檔案中所列相依性來控制此流量。 請參閱 [.nu-/spec 參考 - 相依性](../reference/nuspec.md#dependencies)。
+最上層專案本身是套件時，也可以搭配使用 `include` 和 `exclude` 屬性與 `.nuspec` 檔案中所列相依性來控制此流量。 請參閱 [.nuspec 參考 - 相依性](../reference/nuspec.md#dependencies)。
 
 ## <a name="excluding-references"></a>排除參考
 
@@ -134,7 +134,7 @@ ms.locfileid: "76813321"
 
 在套件還原作業期間，您可能會看到「一或多個套件不相容...」錯誤，或套件與專案目標架構「不相容」。
 
-專案中參考的一或多個套件未指出它們支援專案的目標架構時，會發生此錯誤；也就是說，套件在其 `lib` 資料夾中未包含與專案相容之目標架構的適合 DLL (如需清單，請參閱[目標架構](../reference/target-frameworks.md))。 
+專案中參考的一或多個套件未指出它們支援專案的目標架構時，會發生此錯誤；也就是說，套件在其 `lib` 資料夾中未包含與專案相容之目標架構的適合 DLL  (如需清單，請參閱[目標架構](../reference/target-frameworks.md))。 
 
 例如，如果專案的目標設為 `netstandard1.6`，而且您嘗試安裝只包含 `lib\net20` 和 `\lib\net45` 資料夾中 DLL 的套件，則會看到套件和其相依項的下列這類訊息：
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383547"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230807"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>使用 NuGet 認證提供者驗證 Visual Studio 中的摘要
 
@@ -19,6 +19,8 @@ NuGet Visual Studio 延伸模組 3.6 + 支援認證提供者，可讓 NuGet 使�
 
 在[VsCredentialProvider 範例](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)中可以找到範例執行。
 
+在 Visual Studio 中，NuGet 會使用內部 `VsCredentialProviderImporter`，這也會掃描外掛程式認證提供者。 這些外掛程式認證提供者必須可視為 `IVsCredentialProvider`類型的 MEF 匯出。
+
 從 4.8 + NuGet 開始，Visual Studio 也支援新的跨平臺驗證外掛程式，但基於效能考慮，它們不是建議的方法。
 
 > [!Note]
@@ -26,16 +28,6 @@ NuGet Visual Studio 延伸模組 3.6 + 支援認證提供者，可讓 NuGet 使�
 >
 > Visual Studio 的 NuGet 認證提供者僅適用于 Visual Studio （不在 dotnet restore 或 nuget.exe 中）。 如需使用 nuget.exe 的認證提供者，請參閱[Nuget.exe 認證提供者](nuget-exe-Credential-providers.md)。
 > 如需 dotnet 和 msbuild 中的認證提供者，請參閱[NuGet 跨平臺外掛程式](nuget-cross-platform-authentication-plugin.md)
-
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio 可用的 NuGet 認證提供者
-
-Visual Studio NuGet 延伸模組內建有認證提供者，可支援 Visual Studio Team Services。
-
-NuGet Visual Studio 擴充功能會使用內部 `VsCredentialProviderImporter`，這也會掃描外掛程式認證提供者。 這些外掛程式認證提供者必須可視為 `IVsCredentialProvider`類型的 MEF 匯出。
-
-可用的外掛程式認證提供者包括：
-
-- [Visual Studio 的 MyGet 認證提供者](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>建立 Visual Studio 的 NuGet 認證提供者
 

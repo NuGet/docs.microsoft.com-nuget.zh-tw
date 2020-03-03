@@ -1,68 +1,64 @@
 ---
 title: nuget.exe 認證提供者
-description: nuget.exe 認證提供者驗證摘要，並會實作為命令列可執行檔，請遵循特定的慣例。
+description: nuget.exe 認證提供者會使用摘要進行驗證，並實作為遵循特定慣例的命令列可執行檔。
 author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 97a44c6d561f426fa50fa068a9bbf793f77a3111
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550185"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230781"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Nuget.exe 認證提供者使用的驗證摘要
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>使用 nuget.exe 認證提供者驗證摘要
 
-*NuGet 3.3 +*
+已針對 `nuget.exe` 特定的認證提供者加入版本 `3.3` 支援。 之後，在版本中 `4.8` 支援在所有命令列案例（`nuget.exe`、`dotnet.exe`、`msbuild.exe`）上工作的[認證提供者](NuGet-Cross-Platform-Authentication-Plugin.md)。
 
-當`nuget.exe`需要認證以驗證摘要，它們看起來如下：
+如需有關 `nuget.exe` 的所有驗證方法的詳細資訊，請參閱[使用來自已驗證](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe)摘要的套件
 
-1. 中的認證會先尋找 NuGet`Nuget.Config`檔案。
-1. NuGet 接著會使用外掛程式認證提供者，受限於下面所列的順序。 (範例中，而且[Visual Studio Team Services 認證提供者](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider)。)
-1. NuGet 接著會提示使用者輸入認證，在命令列上。
+## <a name="nugetexe-credential-provider-discovery"></a>nuget.exe 認證提供者探索
 
-請注意，此處所述的認證提供者只能在運作`nuget.exe`而不是在 'dotnet restore' 或 Visual Studio。 對於使用 Visual Studio 的認證提供者，請參閱[nuget.exe 認證提供者，適用於 Visual Studio](nuget-credential-providers-for-visual-studio.md)
+nuget.exe 認證提供者可透過三種方式來使用：
 
-nuget.exe 認證提供者可以用於 3 種方式：
+- **全域**：若要讓 `nuget.exe` 的所有實例都能使用認證提供者，請在目前使用者的設定檔下，將其新增至 `%LocalAppData%\NuGet\CredentialProviders`。 您可能需要建立 `CredentialProviders` 資料夾。 認證提供者可以安裝在 `CredentialProviders` 資料夾的根目錄或子資料夾內。 如果認證提供者有多個檔案/元件，您可以使用子資料夾來保留提供者的組織。
 
-- **全域**： 將認證提供者提供的所有執行個體`nuget.exe`目前的使用者設定檔之下執行，請將它新增至`%LocalAppData%\NuGet\CredentialProviders`。 您可能需要建立`CredentialProviders`資料夾。 認證提供者可以安裝根目錄的`CredentialProviders`資料夾或子資料夾內。 如果認證提供者有多個檔案/組件，您可以使用子資料夾，將組織的提供者。
+- **從環境變數**：認證提供者可以儲存在任何位置，並可透過將 `%NUGET_CREDENTIALPROVIDERS_PATH%` 環境變數設定為提供者位置，以供 `nuget.exe` 存取。 如果您有多個位置，此變數可以是以分號分隔的清單（例如，`path1;path2`）。
 
-- **從環境變數**： 認證提供者可以儲存在任何地方，並供`nuget.exe`藉由設定`%NUGET_CREDENTIALPROVIDERS_PATH%`環境變數，以提供者位置。 這個變數可以是以分號分隔的清單 (例如`path1;path2`) 如果您有多個位置。
+- 與**Nuget.exe 並存**： nuget.exe 認證提供者可以放在與 `nuget.exe`相同的資料夾中。
 
-- **與 nuget.exe**: nuget.exe 認證提供者可以放在相同的資料夾`nuget.exe`。
-
-正在載入認證提供者，當`nuget.exe`搜尋上述的位置，讓任何名為檔案`credentialprovider*.exe`，然後將這些檔案在發現的順序。 如果多個認證提供者存在於相同的資料夾，它們是依字母順序排列的順序載入。
+載入認證提供者時，`nuget.exe` 會依序在上述位置搜尋任何名為 `credentialprovider*.exe`的檔案，然後依照找到的順序載入這些檔案。 如果同一個資料夾中有多個認證提供者，就會依字母順序載入。
 
 ## <a name="creating-a-nugetexe-credential-provider"></a>建立 nuget.exe 認證提供者
 
-認證提供者是命令列可執行檔，在表單名為`CredentialProvider*.exe`，會收集輸入、 取得視需要的認證，則會傳回適當的結束狀態碼和標準輸出。
+認證提供者是一種命令列可執行檔，以 `CredentialProvider*.exe`的形式命名，以收集輸入、取得適當的認證，然後傳回適當的結束狀態碼和標準輸出。
 
-提供者必須執行下列作業：
+提供者必須執行下列動作：
 
-- 判斷是否它可以提供認證的目標 URI 初始化認證擷取之前。 如果沒有，它應該會傳回狀態碼為 1 以不含認證。
-- 不會修改`Nuget.Config`（如那里設定認證）。
-- 在它自己，做為 NuGet 上的控制代碼 HTTP proxy 設定不提供外掛程式的 proxy 資訊。
-- 傳回認證或錯誤詳細資料，以`nuget.exe`藉由將寫入 stdout，使用 utf-8 編碼的 JSON 回應物件 （如下所示）。
-- 選擇性地發出額外的追蹤記錄至 stderr。 沒有祕密應寫入到 stderr，因為 「 標準 」 或 「 詳細 」 的詳細資訊層級這類追蹤由 NuGet 回應到主控台。
-- 未預期的參數應該予以忽略，提供往後相容性與未來版本的 NuGet。
+- 判斷它是否可以在起始認證之前，提供目標 URI 的認證。 如果不是，它應該會傳回狀態碼1，而不會有任何認證。
+- 不修改 `Nuget.Config` （例如在該處設定認證）。
+- 自行處理 HTTP proxy 設定，因為 NuGet 不會提供 proxy 資訊給外掛程式。
+- 使用 UTF-8 編碼將 JSON 回應物件（如下所示）寫入至 stdout，以將認證或錯誤詳細資料傳回 `nuget.exe`。
+- 選擇性地對 stderr 發出額外的追蹤記錄。 不應該將任何秘密寫入 stderr，因為在詳細資訊層級「正常」或「詳細」的情況下，NuGet 會將這類追蹤回應到主控台。
+- 應該忽略未預期的參數，以提供與未來 NuGet 版本的向前相容性。
 
-### <a name="input-parameters"></a>輸入的參數
+### <a name="input-parameters"></a>輸入參數
 
 | 參數/切換 |描述|
 |----------------|-----------|
-| Uri {value} | 封裝來源 URI 需要認證。|
-| NonInteractive | 如果有的話，提供者不會發出互動式提示。 |
-| IsRetry | 如果存在，表示這項嘗試是重試先前失敗的嘗試。 提供者通常會使用這個旗標，確保他們略過任何現有的快取，並提示您輸入新認證的話。|
-| {Value} 的詳細資訊 | 如果有的話，下列值之一: 「 標準 」、 「 靜音 」 或 「 詳細 」。 如果未提供值，則會預設為 「 正常 」。 提供者應該以此做為選擇性的記錄層級表示會發送至標準錯誤資料流。 |
+| Uri {value} | 需要認證的套件來源 URI。|
+| NonInteractive | 提供者不會發出互動式提示（如果有的話）。 |
+| IsRetry | 如果存在，表示此嘗試是先前嘗試失敗的重試。 提供者通常會使用此旗標來確保其略過任何現有的快取，並在可能的情況下提示您輸入新的認證|
+| 詳細資訊 {值} | 如果有，則會出現下列其中一個值：「normal」、「quiet」或「詳細」。 如果未提供任何值，則預設為「正常」。 提供者應該使用此來表示要發出至標準錯誤資料流程的選擇性記錄層級。 |
 
 ### <a name="exit-codes"></a>結束代碼
 
 | 程式碼 |結果 | 描述 |
 |----------------|-----------|-----------|
-| 0 | 成功 | 已成功取得認證，而且已寫入至 stdout。|
-| 1 | ProviderNotApplicable | 目前的提供者不提供指定之 URI 的認證。|
-| 2 | 失敗 | 提供者是正確的提供者指定的 uri，但無法提供認證。 在此情況下，nuget.exe 會將不會重試驗證，而且會失敗。 當使用者取消互動式登入，就會是一個典型的例子。 |
+| 0 | Success | 已成功取得認證，並已將其寫入至 stdout。|
+| 1 | ProviderNotApplicable | 目前的提供者未提供指定 URI 的認證。|
+| 2 | 失敗 | 提供者是指定 URI 的正確提供者，但無法提供認證。 在此情況下，nuget.exe 將不會重試驗證，而且將會失敗。 一般的範例是當使用者取消互動式登入時。 |
 
 ### <a name="standard-output"></a>標準輸出
 
@@ -70,24 +66,24 @@ nuget.exe 認證提供者可以用於 3 種方式：
 |----------------|-----------|
 | 使用者名稱 | 已驗證要求的使用者名稱。|
 | 密碼 | 已驗證要求的密碼。|
-| 訊息 | 選用的回應，只能用來在失敗情況下顯示其他詳細資料的詳細資料。 |
+| 訊息 | 關於回應的選擇性詳細資料，僅用於顯示失敗案例中的其他詳細資料。 |
 
-範例 stdout:
+範例 stdout：
 
     { "Username" : "freddy@example.com",
       "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
       "Message"  : "" }
 
-## <a name="troubleshooting-a-credential-provider"></a>疑難排解認證提供者
+## <a name="troubleshooting-a-credential-provider"></a>針對認證提供者進行疑難排解
 
-目前，NuGet 不進行偵錯自訂認證提供者，提供更直接的支援[發出 4598](https://github.com/NuGet/Home/issues/4598)正在追蹤這項工作。
+目前，NuGet 並不提供對自訂認證提供者的多個直接支援，[問題 4598](https://github.com/NuGet/Home/issues/4598)正在追蹤此工作。
 
 您也可以進行下列動作：
 
-- 執行使用 nuget.exe`-verbosity`切換參數來檢查詳細的輸出。
-- 新增偵錯訊息`stdout`適當位置。
-- 請確定您使用 nuget.exe 3.3 或更新版本。
-- 附加偵錯工具在啟動時，此程式碼片段：
+- 使用 `-verbosity` 參數執行 nuget.exe，以檢查詳細輸出。
+- 將 [調試訊息] 加入至適當位置中的 `stdout`。
+- 請確定您使用的是 nuget.exe 3.3 或更高版本。
+- 在啟動時使用此程式碼片段附加偵錯工具：
 
     ```cs
     while (!Debugger.IsAttached)
@@ -96,5 +92,3 @@ nuget.exe 認證提供者可以用於 3 種方式：
     }
     Debugger.Break();
     ```
-
-進一步的說明，請[提交支援要求 nuget.org](https://www.nuget.org/policies/Contact)。

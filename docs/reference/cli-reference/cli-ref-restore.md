@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8ba61fa87118108c36e9dc73f30d964380d02dab
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: d1768a741e3f1c48e94d854fa7d365ebfa3513ea
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380462"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231145"
 ---
 # <a name="restore-command-nuget-cli"></a>restore 命令（NuGet CLI）
 
@@ -28,7 +28,7 @@ nuget restore <projectPath> [options]
 
 其中 `<projectPath>` 指定解決方案的位置或 `packages.config` 檔案。 如需行為詳細資料，請參閱下面的[備註](#remarks)。
 
-## <a name="options"></a>選項
+## <a name="options"></a>選項。
 
 | 選項 | 描述 |
 | --- | --- |
@@ -36,22 +36,26 @@ nuget restore <projectPath> [options]
 | DirectDownload | *（4.0 +）* 直接下載封裝，而不需以任何二進位檔或中繼資料填入快取。 |
 | DisableParallelProcessing | 停用平行還原多個封裝。 |
 | FallbackSource | *（3.2 +）* 在主要或預設來源中找不到封裝時，用來做為回退的套件來源清單。 請使用分號來分隔清單專案。 |
+| Force | 在以 PackageReference 為基礎的專案中，即使上次還原成功，也會強制解析所有相依性。 指定此旗標類似于刪除 `project.assets.json` 檔案。 這不會略過 HTTP 快取。 |
 | ForceEnglishOutput | *（3.5 +）* 強制使用非變異的英文文化特性來執行 nuget.exe。 |
-| 說明 | 顯示命令的說明資訊。 |
+| ForceEvaluate | 強制還原以重新評估所有相依性，即使鎖定檔案已經存在也一樣。 |
+| 説明 | 顯示命令的說明資訊。 |
+| LockFilePath | 寫入專案鎖定檔案的輸出位置。 根據預設，這會是 ' PROJECT_ROOT \packages.lock.json '。 |
+| LockedMode | 不允許更新專案鎖定檔案。 |
 | MSBuildPath | *（4.0 +）* 指定要搭配命令使用之 MSBuild 的路徑，其優先順序高於 `-MSBuildVersion`。 |
 | MSBuildVersion | *（3.2 +）* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 根據預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。 |
 | NoCache | 防止 NuGet 使用快取的套件。 請參閱[管理全域套件和](../../consume-packages/managing-the-global-packages-and-cache-folders.md)快取資料夾。 |
-| 非 | 抑制使用者輸入或確認的提示。 |
+| NonInteractive | 抑制使用者輸入或確認的提示。 |
 | OutputDirectory | 指定安裝封裝的資料夾。 如果未指定任何資料夾，則會使用目前的資料夾。 除非使用 `PackagesDirectory` 或 `SolutionDirectory`，否則使用 `packages.config` 檔案進行還原時為必要。|
-| PackageSaveMode | 指定封裝安裝後要儲存的檔案類型： `nuspec`、`nupkg` 或 `nuspec;nupkg` 的其中一個。 |
+| PackageSaveMode | 指定封裝安裝後要儲存的檔案類型： `nuspec`、`nupkg`或 `nuspec;nupkg`的其中一個。 |
 | PackagesDirectory | 與 `OutputDirectory` 相同。 除非使用 `OutputDirectory` 或 `SolutionDirectory`，否則使用 `packages.config` 檔案進行還原時為必要。 |
 | Project2ProjectTimeOut | 解析專案對專案參考的超時（以秒為單位）。 |
-| 式 | *（4.0 +）* 還原 UWP 和 .NET Core 專案的所有參考專案。 不適用於使用 `packages.config` 的專案。 |
+| 式 | *（4.0 +）* 還原 UWP 和 .NET Core 專案的所有參考專案。 不適用於使用 `packages.config`的專案。 |
 | RequireConsent | 確認在下載並安裝封裝之前，已啟用還原封裝。 如需詳細資訊，請參閱[套件還原](../../consume-packages/package-restore.md)。 |
 | SolutionDirectory | 指定解決方案資料夾。 還原方案的封裝時無效。 除非使用 `PackagesDirectory` 或 `OutputDirectory`，否則使用 `packages.config` 檔案進行還原時為必要。 |
-| 原始程式檔 | 指定要用於還原的套件來源清單（如 Url）。 如果省略，此命令會使用設定檔中提供的來源，請參閱設定[NuGet 行為](../../consume-packages/configuring-nuget-behavior.md)。 請使用分號來分隔清單專案。 |
-| 使 | 在以 PackageReference 為基礎的專案中，即使上次還原成功，也會強制解析所有相依性。 指定此旗標類似于刪除 `project.assets.json` 檔案。 這不會略過 HTTP 快取。 |
-| 詳細資訊 | 指定輸出中顯示的詳細資料量： [*一般*] *、[* 無訊息]、[*詳細*]。 |
+| 來源 | 指定要用於還原的套件來源清單（如 Url）。 如果省略，此命令會使用設定檔中提供的來源，請參閱設定[NuGet 行為](../../consume-packages/configuring-nuget-behavior.md)。 請使用分號來分隔清單專案。 |
+| UseLockFile | 讓專案鎖定檔案能夠產生並搭配 restore 使用。 |
+| 詳細程度 | 指定輸出中顯示的詳細資料量： [*一般*] *、[* 無訊息]、[*詳細*]。 |
 
 另請參閱[環境變數](cli-ref-environment-variables.md)
 
@@ -71,7 +75,7 @@ Restore 命令會執行下列步驟：
 
 2. 使用下列優先順序來判斷套件資料夾（如果找不到這些資料夾，則 NuGet 會產生錯誤）：
 
-    - 使用 `-PackagesDirectory` 所指定的資料夾。
+    - 使用 `-PackagesDirectory`所指定的資料夾。
     - 中的 `repositoryPath` 值 `Nuget.Config`
     - 使用指定的資料夾 `-SolutionDirectory`
     - `$(SolutionDir)\packages`

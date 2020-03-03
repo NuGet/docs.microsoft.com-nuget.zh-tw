@@ -3,14 +3,14 @@ title: 使用 MSBuild 建立 NuGet 套件
 description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
 author: karann-msft
 ms.author: karann
-ms.date: 08/05/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610540"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231314"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
@@ -29,13 +29,17 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 
 建立套件時需要下列屬性。
 
-- `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 如果未指定，則預設值為 `AssemblyName`。
+- `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 若未指定，則預設值為 `AssemblyName`。
 - `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
 - 主機上應該會出現套件標題 (例如 nuget.org)
-- `Authors`，作者與擁有者資訊。 如果未指定，則預設值為 `AssemblyName`。
-- `Company`，您的公司名稱。 如果未指定，則預設值為 `AssemblyName`。
+- `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
+- `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 ( *.csproj*) 中設定這些屬性。
+此外，如果您要封裝使用 PackageReference 的非 SDK 樣式專案，則需要下列各項：
+
+- `PackageOutputPath`，這是呼叫 pack 時所產生之封裝的輸出檔案夾。
+
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 (*.csproj*) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>
@@ -69,6 +73,10 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 > 針對公眾取用而建置的套件，請特別注意 **PackageTags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。
 
 如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
+
+## <a name="add-an-optional-description-field"></a>新增選擇性的描述欄位
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>選擇唯一的套件識別碼並設定版本號碼
 

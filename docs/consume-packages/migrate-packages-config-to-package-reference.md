@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f659af6b09a12be54a5ef843d34f956119b33f4
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 8e825410d621ff2946e23e80173292f24f9d21f2
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520488"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231263"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從 package.config 移轉到 PackageReference
 
@@ -18,17 +18,19 @@ Visual Studio 2017 15.7 版和更新版本支援將專案從 [packages.config](.
 
 ## <a name="benefits-of-using-packagereference"></a>使用 PackageReference 的優點
 
-* **在一個位置管理所有專案相依性**：就像專案對專案參考與元件參考一樣，NuGet 套件參考 (使用 `PackageReference` 節點) 是直接在專案檔內進行管理，而不是使用個別的 packages.config 檔案。
-* **頂層相依性的整齊檢視**：不同於 packages.config，PackageReference 只列出您在專案中直接安裝的 NuGet 套件。 因此，NuGet 套件管理員 UI 和專案檔不會因包含下層相依性而變得雜亂。
-* **效能改進**：使用 PackageReference 時，套件是保存在 [global-packages]  資料夾中 (如[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)中所述)，而不是在解決方案內的 `packages` 資料夾中。 因此，PackageReference 執行較快，且耗用較少磁碟空間。
-* **對相依性和內容流動進行精細控制**：使用 MSBuild 的現有功能可讓您[有條件地參考 NuGet 套件](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)，並針對每個目標 Framework、設定、平台或其他樞紐選擇套件參考。
-* **PackageReference 正處於開發階段**：請參閱 [GitHub 上的 PackageReference 問題](https://aka.ms/nuget-pr-improvements) \(英文\)。 packages.config 已不再進行開發。
+* **在一個位置管理所有專案**相依性：就像專案對專案參考和元件參考一樣，NuGet 套件參考（使用 `PackageReference` 節點）是直接在專案檔中管理，而不是使用個別的封裝 .config 檔案。
+* **最上層相依性的整齊觀點**：不同于 PackageReference，您只會列出直接安裝在專案中的 NuGet 套件。 因此，NuGet 套件管理員 UI 和專案檔不會因包含下層相依性而變得雜亂。
+* **效能改進**：使用 PackageReference 時，套件會保留在*全域封裝*資料夾中（如[管理全域套件和](../consume-packages/managing-the-global-packages-and-cache-folders.md)快取資料夾，而不是在方案中的 `packages` 資料夾中所述）。 因此，PackageReference 執行較快，且耗用較少磁碟空間。
+* **對相依性和內容流程的精細控制**：使用 MSBuild 的現有功能可讓您有[條件地參考 NuGet 套件](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)，並選擇每個目標 framework、設定、平臺或其他迴圈的套件參考。
+* **PackageReference 正在進行開發**：請參閱[GitHub 上的 PackageReference 問題](https://aka.ms/nuget-pr-improvements)。 packages.config 已不再進行開發。
 
 ### <a name="limitations"></a>限制
 
 * 在 Visual Studio 2015 與更早版本中，無法使用 NuGet PackageReference。 已移轉專案只能在 Visual Studio 2017 與更新版本中開啟。
 * 移轉目前不適用於 C++ 和 ASP.NET 專案。
 * 某些套件可能無法與 PackageReference 完全相容。 如需詳細資訊，請參閱[套件相容性問題](#package-compatibility-issues)。
+
+此外，相較于封裝，PackageReferences 的工作方式有一些差異。例如，PackageReference 不會 supprted[限制升級版本](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)，但會加入[浮動版本](../consume-packages/package-references-in-project-files.md#floating-versions)的支援。
 
 ### <a name="known-issues"></a>已知問題
 
@@ -55,18 +57,18 @@ Visual Studio 2017 15.7 版和更新版本支援將專案從 [packages.config](.
 
 1. 開啟包含使用 `packages.config` 之專案的解決方案。
 
-1. 在 [方案總管]  中，以滑鼠右鍵按一下 [參考]  節點或 `packages.config` 檔案，然後選取 [將 packages.config 移轉至 PackageReference]  。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考] 節點或 `packages.config` 檔案，然後選取 [將 packages.config 移轉至 PackageReference]。
 
 1. 移轉程式會分析專案的 NuGet 套件參考，並嘗試將它們分類成**頂層相依性** (您直接安裝的 NuGet 套件) 與**可轉移的相依性** (已安裝為頂層套件相依性的套件)。
 
    > [!Note]
    > PackageReference 支援可轉移套件還原，且會動態地解析相依性，這表示不需要明確地安裝可轉移的相依性。
 
-1. (選擇性) 您可以選取 NuGet 套件的 [頂層]  選項，將套件分類為頂層可轉移的相依性。 針對包含無法轉移的資產 (在 `build`、`buildCrossTargeting`、`contentFiles` 或 `analyzers` 資料夾中) 的套件，以及標示為開發相依性 (`developmentDependency = "true"`) 的套件，系統會自動為它們設定此選項。
+1. (選擇性) 您可以選取 NuGet 套件的 [頂層] 選項，將套件分類為頂層可轉移的相依性。 針對包含無法轉移的資產 (在 `build`、`buildCrossTargeting`、`contentFiles` 或 `analyzers` 資料夾中) 的套件，以及標示為開發相依性 (`developmentDependency = "true"`) 的套件，系統會自動為它們設定此選項。
 
 1. 檢閱任何[套件相容性問題](#package-compatibility-issues)。
 
-1. 選取 [確定]  來開始移轉。
+1. 選取 [確定] 來開始移轉。
 
 1. 當移轉結束時，Visual Studio 會提供一份報告，其中包含備份的路徑、已安裝套件的清單 (頂層相依性)、參考為可轉移相依性之套件的清單，以及在開始移轉時識別出的相容性問題。 報表會儲存至 [backup] 資料夾。
 
@@ -80,7 +82,7 @@ Visual Studio 2017 15.7 版和更新版本支援將專案從 [packages.config](.
 
 1. 開啟專案。
 
-1. 使用 [工具] > [NuGet 套件管理員] > [套件管理器主控台]  功能表命令來開啟 [套件管理器主控台]。
+1. 使用 [工具] > [NuGet 套件管理員] > [套件管理器主控台] 功能表命令來開啟 [套件管理器主控台]。
 
 1. 在主控台中，執行下列命令：
 
@@ -100,28 +102,28 @@ PackageReference 中不支援某些在 packages.config 中支援的層面。 移
 
 | | |
 | --- | --- |
-| **描述** | 使用 PackageReference 時，在安裝套件或將套件解除時，不會執行 install.ps1 與 uninstall.ps1 PowerShell 指令碼。 |
+| **說明** | 使用 PackageReference 時，在安裝套件或將套件解除時，不會執行 install.ps1 與 uninstall.ps1 PowerShell 指令碼。 |
 | **潛在影響** | 相依於這些指令碼以在目的專案中設定某些行為的套件，可能無法如預期般運作。 |
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>當套件是在移轉之後安裝時，會無法使用「內容」資產
 
 | | |
 | --- | --- |
-| **描述** | PackageReference 不支援在套件的 `content` 資料夾中的資產，因此系統會忽略它們。 PackageReference 新增對 `contentFiles` 的支援，以獲得更好的可轉移支援和共用內容。  |
+| **說明** | PackageReference 不支援在套件的 `content` 資料夾中的資產，因此系統會忽略它們。 PackageReference 新增對 `contentFiles` 的支援，以獲得更好的可轉移支援和共用內容。  |
 | **潛在影響** | `content` 中的資產未複製到專案中，且依賴那些資產存在的專案程式碼必須重構。  |
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>當套件是在升級後安裝時，不會套用 XDT 轉換
 
 | | |
 | --- | --- |
-| **描述** | PackageReference 不支援 XDT 轉換，而且在安裝套件或將套件解除安裝時，系統會忽略 `.xdt` 檔案。   |
+| **說明** | PackageReference 不支援 XDT 轉換，而且在安裝套件或將套件解除安裝時，系統會忽略 `.xdt` 檔案。   |
 | **潛在影響** | XDT 轉換不會套用至任何專案 XML 檔案，最常見的是 `web.config.install.xdt` 與 `web.config.uninstall.xdt`，這表示專案的 ` web.config` 檔案，沒有在安裝套件或將套件解除安裝時更新。 |
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>當套件是在遷移之後安裝時，系統會忽略 lib 根目錄中的組件
 
 | | |
 | --- | --- |
-| **描述** | 使用 PackageReference 時，系統會忽略出現在 `lib` 資料夾根目錄且沒有目標架構特定子資料夾的組件。 NuGet 會尋找與專案目標 Framework 對應之目標 Framework Moniker (TFM) 相符的子資料夾，並將相符的元件安裝到專案中。 |
+| **說明** | 使用 PackageReference 時，系統會忽略出現在 `lib` 資料夾根目錄且沒有目標架構特定子資料夾的組件。 NuGet 會尋找與專案目標 Framework 對應之目標 Framework Moniker (TFM) 相符的子資料夾，並將相符的元件安裝到專案中。 |
 | **潛在影響** | 若套件沒有與專案目標架構對應之目標 Framework Moniker (TFM) 相符的子資料夾，在移轉之後可能無法如預期般運作，或可能在移轉期間安裝失敗 |
 
 ## <a name="found-an-issue-report-it"></a>發現問題嗎？ 請回報！

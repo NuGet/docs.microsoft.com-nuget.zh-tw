@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610605"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231340"
 ---
 # <a name="publishing-packages"></a>發行套件
 
@@ -66,6 +66,10 @@ ms.locfileid: "73610605"
 
     此命令會將您的 API 金鑰儲存在 NuGet 設定中，如此您就不需要在同一部電腦上再次重複此步驟。
 
+    > [!NOTE]
+    > API 金鑰不會用來向私人摘要進行驗證。 請參閱[`nuget sources` 命令](../reference/cli-reference/cli-ref-sources.md)，以管理用來驗證來源的認證。
+    > 您可以從個別的 NuGet 伺服器取得 API 金鑰。 若要建立和管理 nuget.org 的 APIKeys，請參閱[發佈-api 金鑰](../quickstart/includes/publish-api-key.md)
+
 1. 使用下列命令，將套件推送至 NuGet 資源庫：
 
     ```cli
@@ -112,7 +116,7 @@ ms.locfileid: "73610605"
 在這裡，您有數個選項：
 
 1. 移除 [目前擁有者] 底下所列的所有擁有者。
-1. 在 [新增擁有者]下，透過輸入其使用者名稱、訊息，並選取 [新增] 來新增擁有者。 此動作會將含有確認連結的電子郵件傳送給這個新的共同擁有者。 確認之後，該人員具有新增和移除擁有者的完整權限 (確認之後，[目前擁有者] 區段會指出該人員等待核准。)
+1. 在 [新增擁有者]下，透過輸入其使用者名稱、訊息，並選取 [新增] 來新增擁有者。 此動作會將含有確認連結的電子郵件傳送給這個新的共同擁有者。 確認之後，該人員具有新增和移除擁有者的完整權限  (確認之後，[目前擁有者] 區段會指出該人員等待核准。)
 1. 若要移轉擁有權 (擁有權變更時，或透過錯誤的帳戶發行套件之後)，請新增擁有者，而且在確認擁有權之後，即可從清單中將您移除。
 
 若要將擁有權指派給公司或群組，請使用轉寄給適當小組成員的電子郵件別名來建立 nuget.org 帳戶。 例如，各種 Microsoft ASP.NET 套件都是由 [microsoft](https://nuget.org/profiles/microsoft) 和 [aspnet](https://nuget.org/profiles/aspnet) 帳戶共同擁有，這可簡化這類別名。

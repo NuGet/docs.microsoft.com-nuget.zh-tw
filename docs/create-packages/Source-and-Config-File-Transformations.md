@@ -6,18 +6,16 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 830714269ac422a4784c15b000e374195f02332f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
-ms.translationtype: HT
+ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580279"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231171"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>轉換原始程式碼和組態檔
 
-針對使用 `packages.config` 的專案，NuGet 支援在套件安裝和解除安裝期間轉換原始程式碼和組態檔的能力。 只有在使用 [PackageReference](../consume-packages/package-references-in-project-files.md) 將套件安裝在專案中時，才會套用原始程式碼轉換。
-
-安裝套件時，**原始程式碼轉換**會將單向權杖取代套用到套件 `content` 或 `contentFiles` 資料夾中的檔案 (若是使用 `packages.config` 的客戶，為 `content`；若是 `PackageReference` 則為 `contentFiles`)，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
+安裝套件時，**原始程式碼轉換**會將單向權杖取代套用到套件 `content` 或 `contentFiles` 資料夾中的檔案 (若是使用 `content` 的客戶，為 `packages.config`；若是 `contentFiles` 則為 `PackageReference`)，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
 
 **組態檔轉換**可讓您修改目標專案中的現有檔案 (例如 `web.config` 和 `app.config`)。 例如，您的套件可能需要將項目新增至組態檔中的 `modules` 區段。 此轉換的完成是透過在專案中包含可描述要新增至組態檔之區段的特殊檔案。 解除安裝套件時，接著會反轉這些相同的變更，讓這項作業成為雙向轉換。
 
@@ -53,8 +51,8 @@ ms.locfileid: "51580279"
 
 如下節所述，可以使用兩種方式進行組態檔轉換：
 
-- 在套件的 `content` 資料夾中包含 `app.config.transform` 和 `web.config.transform` 檔案，其中 `.transform` 副檔名會告知 NuGet，這些檔案包含安裝套件時要與現有組態檔合併的 XML。 解除安裝套件時，會移除這個相同的 XML。
-- 使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)描述所需的變更，以在套件的 `content` 資料夾中包含 `app.config.install.xdt` 和 `web.config.install.xdt` 檔案。 使用此選項，您也可以包含 `.uninstall.xdt` 檔案，以在從專案移除套件時反轉變更。
+- 在套件的 `app.config.transform` 資料夾中包含 `web.config.transform` 和 `content` 檔案，其中 `.transform` 副檔名會告知 NuGet，這些檔案包含安裝套件時要與現有組態檔合併的 XML。 解除安裝套件時，會移除這個相同的 XML。
+- 使用 `app.config.install.xdt`XDT 語法`web.config.install.xdt`描述所需的變更，以在套件的 `content` 資料夾中包含 [ 和 ](https://msdn.microsoft.com/library/dd465326.aspx) 檔案。 使用此選項，您也可以包含 `.uninstall.xdt` 檔案，以在從專案移除套件時反轉變更。
 
 > [!Note]
 > 轉換不會套用至 Visual Studio 中參考為連結的 `.config` 檔案。
@@ -63,7 +61,7 @@ ms.locfileid: "51580279"
 
 ### <a name="xml-transforms"></a>XML 轉換
 
-套件之 `content` 資料夾中的 `app.config.transform` 和 `web.config.transform` 只會包含要合併至專案之現有 `app.config` 和 `web.config` 檔案的項目。
+套件之 `app.config.transform` 資料夾中的 `web.config.transform` 和 `content` 只會包含要合併至專案之現有 `app.config` 和 `web.config` 檔案的項目。
 
 例如，假設專案一開始在 `web.config` 中包含下列內容：
 
@@ -77,7 +75,7 @@ ms.locfileid: "51580279"
 </configuration>
 ```
 
-若要在套件安裝期間將 `MyNuModule` 項目新增至 `modules` 區段，請在套件的 `content` 資料夾中建立 `web.config.transform` 檔案，如下所示：
+若要在套件安裝期間將 `MyNuModule` 項目新增至 `modules` 區段，請在套件的 `web.config.transform` 資料夾中建立 `content` 檔案，如下所示：
 
 ```xml
 <configuration>
@@ -114,9 +112,12 @@ NuGet 安裝套件之後，`web.config` 會顯示如下：
 
 ### <a name="xdt-transforms"></a>XDT 轉換
 
-您可以使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)來修改組態檔。 您也可以在 `$` 分隔符號內，納入屬性名稱 (不區分大小寫)，讓 NuGet 將權杖取代為[專案屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。
+> [!Note]
+> 如[檔的封裝相容性問題一節中所述，從 `packages.config` 遷移至 `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)，只有 `packages.config`才支援如下所述的 XDT 轉換。 如果您將下列檔案新增至您的套件，使用您的套件搭配 `PackageReference` 的取用者將不會套用轉換（請參閱[此範例](https://github.com/NuGet/Samples/tree/master/XDTransformExample)，讓 XDT 轉換可與`PackageReference`一起使用）。
 
-例如，下列 `app.config.install.xdt` 檔案會將 `appSettings` 項目從專案插入至包含 `FullPath`、`FileName` 和 `ActiveConfigurationSettings` 值的 `app.config`：
+您可以使用 [XDT 語法](https://msdn.microsoft.com/library/dd465326.aspx)來修改組態檔。 您也可以在 [ 分隔符號內，納入屬性名稱 (不區分大小寫)，讓 NuGet 將權杖取代為](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)專案屬性`$`。
+
+例如，下列 `app.config.install.xdt` 檔案會將 `appSettings` 項目從專案插入至包含 `app.config`、`FullPath` 和 `FileName` 值的 `ActiveConfigurationSettings`：
 
 ```xml
 <?xml version="1.0"?>
