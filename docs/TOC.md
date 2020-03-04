@@ -24,6 +24,7 @@
 ### [重新安裝及更新套件](consume-packages/reinstalling-and-updating-packages.md)
 ### [管理全域套件與快取資料夾](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [管理套件的信任界限](consume-packages/installing-signed-packages.md)
+### [使用已驗證的摘要](consume-packages/consuming-packages-authenticated-feeds.md)
 ### [使用原始檔控制系統](consume-packages/packages-and-source-control.md)
 ### [常用的 NuGet 設定](consume-packages/configuring-nuget-behavior.md)
 ## 專案中的參考套件
@@ -45,7 +46,8 @@
 ### [設定套件類型](create-packages/set-package-type.md)
 ### [建立當地語系化的套件](create-packages/creating-localized-packages.md)
 ## 特定內容的指南
-### [建立 UWP 套件](guides/create-uwp-packages.md)
+### [建立 UWP 套件 (C++)](guides/create-uwp-packages.md)
+### [建立 UWP 套件 (C#)](guides/create-uwp-packages-CS.md)
 ### [建立原生套件](guides/native-packages.md)
 ### [將 UI 控制項建立為 NuGet 套件](guides/create-UI-controls.md)
 ### [將分析器建立為 NuGet 套件](guides/analyzers-conventions.md)
