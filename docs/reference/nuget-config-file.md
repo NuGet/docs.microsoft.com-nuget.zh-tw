@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
 ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230522"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429126"
 ---
 # <a name="nugetconfig-reference"></a>nuget.exe 參考
 
@@ -56,7 +56,7 @@ NuGet 行為是由不同 `NuGet.Config` 或 `nuget.config` 檔案中的設定所
 
 | Key | 值 |
 | --- | --- |
-| skip | 布林值，指出是否略過自動繫結重新導向。 預設值為 false。 |
+| skip | 布林值，指出是否略過自動繫結重新導向。 預設為 false。 |
 
 **範例**：
 
@@ -290,8 +290,8 @@ NuGet 行為是由不同 `NuGet.Config` 或 `nuget.config` 檔案中的設定所
 
 | Key | 值 |
 | --- | --- |
-| format | 布林值，指出預設的封裝管理格式。 如果 `1`，格式為 PackageReference。 如果 `0`，則格式為*封裝 .config*。 |
-| disabled | 布林值，指出是否要在第一次封裝安裝時顯示選取預設封裝格式的提示。 `False` 隱藏提示。 |
+| 格式 | 布林值，指出預設的封裝管理格式。 如果 `1`，格式為 PackageReference。 如果 `0`，則格式為*封裝 .config*。 |
+| 停用 | 布林值，指出是否要在第一次封裝安裝時顯示選取預設封裝格式的提示。 `False` 隱藏提示。 |
 
 **範例**：
 

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
 ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230781"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428720"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>使用 nuget.exe 認證提供者驗證摘要
 
@@ -56,16 +56,16 @@ nuget.exe 認證提供者可透過三種方式來使用：
 
 | 程式碼 |結果 | 描述 |
 |----------------|-----------|-----------|
-| 0 | Success | 已成功取得認證，並已將其寫入至 stdout。|
+| 0 | 成功 | 已成功取得認證，並已將其寫入至 stdout。|
 | 1 | ProviderNotApplicable | 目前的提供者未提供指定 URI 的認證。|
 | 2 | 失敗 | 提供者是指定 URI 的正確提供者，但無法提供認證。 在此情況下，nuget.exe 將不會重試驗證，而且將會失敗。 一般的範例是當使用者取消互動式登入時。 |
 
 ### <a name="standard-output"></a>標準輸出
 
-| 屬性 |注意|
+| 屬性 |注意事項|
 |----------------|-----------|
 | 使用者名稱 | 已驗證要求的使用者名稱。|
-| 密碼 | 已驗證要求的密碼。|
+| Password | 已驗證要求的密碼。|
 | 訊息 | 關於回應的選擇性詳細資料，僅用於顯示失敗案例中的其他詳細資料。 |
 
 範例 stdout：
@@ -78,7 +78,7 @@ nuget.exe 認證提供者可透過三種方式來使用：
 
 目前，NuGet 並不提供對自訂認證提供者的多個直接支援，[問題 4598](https://github.com/NuGet/Home/issues/4598)正在追蹤此工作。
 
-您也可以進行下列動作：
+您也可以執行下列動作：
 
 - 使用 `-verbosity` 參數執行 nuget.exe，以檢查詳細輸出。
 - 將 [調試訊息] 加入至適當位置中的 `stdout`。

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813347"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428853"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -56,7 +56,7 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 - **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，設定 [包含發行前版本] 方塊。 設定或清除此方塊時，會重新整理套件管理員 UI 以及您可以安裝的可用版本清單。
 
-    ![Visual Studio 的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
+    ![Visual Studio 中的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
 - **套件管理員主控台**：使用 `-IncludePrerelease` 參數搭配 `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
 

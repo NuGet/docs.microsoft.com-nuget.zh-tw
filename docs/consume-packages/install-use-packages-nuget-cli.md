@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488823"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428685"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 管理套件
 
@@ -19,7 +19,7 @@ CLI 工具可讓您輕鬆地在專案和解決方案中更新及還原 NuGet 套
 `nuget.exe` CLI 適用於 .NET Framework 專案與非 SDK 樣式專案 (例如，以 .NET Standard 程式庫為目標的非 SDK 樣式專案)。 如果您使用已移轉到 `PackageReference` 的非 SDK 樣式專案，請改為使用 `dotnet` CLI。 `nuget.exe` CLI 需要 [packages.config](../reference/packages-config.md) 檔案來進行套件參考。
 
 > [!NOTE]
-> 在大部分的情況下，我們建議將使用 `packages.config` 的[非 SDK 樣式專案移轉](../consume-packages/migrate-packages-config-to-package-reference.md)至 PackageReference，然後您便可以使用 `dotnet` CLI 而不是 `nuget.exe` CLI。 移轉目前不適用於 C++ 和 ASP.NET 專案。
+> 在大部分的情況下，我們建議將使用 [ 的](../consume-packages/migrate-packages-config-to-package-reference.md)非 SDK 樣式專案移轉`packages.config`至 PackageReference，然後您便可以使用 `dotnet` CLI 而不是 `nuget.exe` CLI。 移轉目前不適用於 C++ 和 ASP.NET 專案。
 
 此文章顯示一些最常用 `nuget.exe` CLI 命令的基本使用方式。 針對這些命令的大部分，CLI 工具會在目前的目錄中尋找專案檔，除非在命令中指定專案檔。 如需您可以使用的命令和引數完整清單，請參閱 [nuget.exe CLI 參考](../reference/nuget-exe-cli-reference.md)。
 

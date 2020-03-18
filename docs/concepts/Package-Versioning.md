@@ -7,11 +7,11 @@ ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230859"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428832"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
@@ -55,7 +55,7 @@ ms.locfileid: "78230859"
 - `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
+> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23*。 4\.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
 
 解析套件參考且多個套件版本只有尾碼不同時，NuGet 會先選擇不含尾碼的版本，然後再依相反字母順序套用發行前版本。 例如，系統會依照所示的順序選擇下列版本：
 
@@ -80,7 +80,7 @@ ms.locfileid: "78230859"
 針對 nuget.org，如果下列其中一個敘述立，則會將套件定義為 SemVer v2.0.0 套件：
 
 - 套件本身的版本符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 的規範，如上面所定義。
-- 套件的任何相依性版本範圍都有最小或最大版本，它們符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 規範，如上面所定義；例如，*[1.0.0-alpha.1, )*。
+- 套件的任何相依性版本範圍都有最小或最大版本，它們符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 規範，如上面所定義；例如， *[1.0.0-alpha.1, )* 。
 
 如果您將 SemVer v2.0.0 特定套件上傳到 nuget.org，則舊版用戶端看不到該套件，只有下列 NuGet 用戶端可以取得該套件：
 
@@ -112,7 +112,7 @@ ms.locfileid: "78230859"
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | 完全相符的範圍 (包含) |
 | (1.0,2.0) | 1.0 < x < 2.0 | 完全相符的範圍 (不包含) |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | 混合包含最小且不包含最大版本 |
-| (1.0)    | 無效 | 無效 |
+| (1.0)    | invalid | invalid |
 
 使用 PackageReference 格式時，NuGet 也支援使用浮動的標記法，\*，用於數位的主要、次要、修補和發行前版本的尾碼部分。 不支援使用 `packages.config` 格式的浮動版本。
 

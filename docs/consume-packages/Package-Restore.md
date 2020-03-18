@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231200"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428741"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -29,7 +29,7 @@ ms.locfileid: "78231200"
 
 ## <a name="restore-packages"></a>還原套件
 
-套件還原會嘗試將所有套件相依性安裝到符合專案檔 (*.csproj*) 或您的 *packages.config* 檔案中套件參考的正確狀態。 (在 Visual Studio 中，參考會出現在 [方案總管] 的 [相依性 \ NuGet] 或 [參考] 節點下。)
+套件還原會嘗試將所有套件相依性安裝到符合專案檔 ( *.csproj*) 或您的 *packages.config* 檔案中套件參考的正確狀態。 (在 Visual Studio 中，參考會出現在 [方案總管] 的 [相依性 \ NuGet] 或 [參考] 節點下。)
 
 1. 如果專案檔中的套件參考是正確的，請使用您慣用的工具來還原套件。
 
@@ -40,7 +40,7 @@ ms.locfileid: "78231200"
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-   如果專案檔 (*.csproj*) 或您的 *packages.config* 檔案中的套件參考不正確 (不符合您在套件還原之後所需的狀態)，則您需要改為安裝套件或更新套件。
+   如果專案檔 ( *.csproj*) 或您的 *packages.config* 檔案中的套件參考不正確 (不符合您在套件還原之後所需的狀態)，則您需要改為安裝套件或更新套件。
 
    針對使用 PackageReference 的專案，在成功還原之後，套件應該會出現在 [global-packages] 資料夾中，而且 `obj/project.assets.json` 檔案會重新建立。 針對使用 `packages.config` 的專案，套件應該會出現在專案的 `packages` 資料夾中。 專案現在應可順利建置。 
 
@@ -180,13 +180,13 @@ Azure DevOps Server 和 TFS 2013 及更新版本會在建置期間自動還原�
 
 NuGet 透過任何方法還原套件時，會使用 `packages.config` 或專案檔中所指定的任何條件約束：
 
-- 在 `packages.config` 中，您可以在相依性的 `allowedVersion` 屬性中指定版本範圍。 如需詳細資訊，請參閱[限制升級版本](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)。 例如：
+- 在 `packages.config` 中，您可以在相依性的 `allowedVersion` 屬性中指定版本範圍。 如需詳細資訊，請參閱[限制升級版本](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)。 例如，
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- 在專案檔中，您可以使用 PackageReference 來直接指定相依性的範圍。 例如：
+- 在專案檔中，您可以使用 PackageReference 來直接指定相依性的範圍。 例如，
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />

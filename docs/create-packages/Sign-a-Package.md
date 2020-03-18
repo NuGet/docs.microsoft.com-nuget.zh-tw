@@ -7,11 +7,11 @@ ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383978"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429000"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -59,7 +59,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 1. 瀏覽並選取稍早匯出的憑證檔案。
   ![已註冊憑證](../reference/media/registered-certs.png)
 
-**附註：**
+**注意**
 * 一位使用者可以提交多個憑證，且多位使用者可以註冊同一個憑證。
 * 使用者在註冊憑證後，往後提交的所有套件都**必須**使用其中一項憑證簽署。 請參閱[在 NuGet.org 上管理您套件的簽署需求](#manage-signing-requirements-for-your-package-on-nugetorg)
 * 使用者也可以從帳戶移除已註冊憑證。 移除憑證後，使用該憑證簽署的新套件將會提交失敗。 現有的套件則不會受影響。

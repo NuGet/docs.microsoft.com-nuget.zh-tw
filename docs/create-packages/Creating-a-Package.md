@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230950"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428944"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 建立套件
 
@@ -177,7 +177,7 @@ nuget locals -list global-packages
 
 資料夾慣例如下：
 
-| 資料夾 | 描述 | 套件安裝時的動作 |
+| Folder | 描述 | 套件安裝時的動作 |
 | --- | --- | --- |
 | (root) | readme.txt 的位置 | 安裝套件時，Visual Studio 會顯示套件根目錄中的 readme.txt 檔案。 |
 | lib/{tfm} | 所指定目標架構 Moniker (TFM) 的組件 (`.dll`)、文件 (`.xml`) 和符號 (`.pdb`) 檔案 | 組件會新增為編譯與執行階段的參考；`.xml` 與 `.pdb` 則會複製到專案資料夾。 請參閱[支援多個目標架構](supporting-multiple-target-frameworks.md)，以了解如何建立架構目標特定子資料夾。 |

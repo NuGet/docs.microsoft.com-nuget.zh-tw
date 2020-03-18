@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
 ms.openlocfilehash: 2769f0ef0373b26eedb4bac6242fee0e814310c5
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230535"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428818"
 ---
 # <a name="install-nuget-client-tools"></a>安裝 NuGet 用戶端工具
 
@@ -51,7 +51,7 @@ Visual Studio 2013 和2015的 NuGet 擴充功能可以從[https://dist.nuget.org
 
 .NET Core 2.0 CLI `dotnet.exe` 適用於所有平台 (Windows、Mac 和 Linux)，並提供核心 NuGet 功能，例如安裝、還原和發行套件。 `dotnet` 提供與 .NET Core 專案檔 (例如 `.csproj`) 的直接整合，這在大多數案例中很有幫助。 `dotnet` 也會針對每個平台直接建置，而且不會要求您安裝 Mono。
 
-安裝：
+安裝:
 
 - 在開發人員電腦上，安裝 [.NET Core SDK](https://aka.ms/dotnetcoregs)。 從 Visual Studio 2017 開始，dotnet CLI 會自動與任何 .NET Core 相關工作負載一起安裝。
 - 針對組建伺服器，依照[在持續整合中使用 .NET Core SDK 和工具](/dotnet/core/tools/using-ci-with-cli)中的指示執行。
@@ -64,7 +64,7 @@ Visual Studio 2013 和2015的 NuGet 擴充功能可以從[https://dist.nuget.org
 
 若要了解如何使用 `nuget.exe` CLI 的基本命令，請參閱[使用 nuget.exe CLI 安裝和使用套件](consume-packages/install-use-packages-nuget-cli.md)。
 
-安裝：
+安裝:
 
 [!INCLUDE [install-cli](includes/install-cli.md)]
 

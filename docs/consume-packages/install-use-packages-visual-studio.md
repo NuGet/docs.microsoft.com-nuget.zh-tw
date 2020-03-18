@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231003"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428692"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>在 Visual Studio 中，使用 NuGet 套件管理員來安裝和管理套件
 
@@ -58,7 +58,7 @@ Visual Studio 中的 NuGet 套件管理員 UI 可讓您在專案和解決方案�
 
 ## <a name="update-a-package"></a>更新套件
 
-1. 在**方案總管**中，以滑鼠右鍵按一下 [**參考**] 或所需的專案，然後選取 [**管理 NuGet 套件 ...**]。（在網站專案中，以滑鼠右鍵按一下 [ **Bin** ] 資料夾）。
+1. 在**方案總管**中，以滑鼠右鍵按一下 [**參考**] 或所需的專案，然後選取 [**管理 NuGet 套件 ...** ]。（在網站專案中，以滑鼠右鍵按一下 [ **Bin** ] 資料夾）。
 1. 選取 [更新] 索引標籤，以查看在所選套件來源有可用更新的套件。 選取 [包含發行前版本]，以在更新清單中包含發行前版本套件。
 1. 選取要更新的套件、從右邊的下拉式清單選取所需的版本，然後選取 [更新]。
 
@@ -117,7 +117,7 @@ Visual Studio 中的 NuGet 套件管理員 UI 可讓您在專案和解決方案�
 
     ![[套件來源] 選項](media/options.png)
 
-1. 若要新增來源，請選取 **+**、編輯名稱、在 [來源] 控制項中輸入 URL 或路徑，然後選取 [更新]。 來源現在會顯示在選取器下拉式清單中。
+1. 若要新增來源，請選取 **+** 、編輯名稱、在 [來源] 控制項中輸入 URL 或路徑，然後選取 [更新]。 來源現在會顯示在選取器下拉式清單中。
 1. 若要變更套件來源，請選取套件、在 [名稱] 和 [來源] 方塊中編輯，然後選取 [更新]。
 1. 若要停用套件來源，請取消選取清單中名稱左邊的方塊。
 1. 若要移除套件來源，請選取它，然後選取 [X] 按鈕。
