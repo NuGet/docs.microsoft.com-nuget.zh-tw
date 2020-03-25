@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231327"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147483"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>快速入門：在 Visual Studio 中安裝和使用套件（僅限 Windows）
 
-NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 套件使用 NuGet 套件管理員或套件管理員主控台安裝到 Visual Studio 專案中。 此文章示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件與 Windows Presentation Foundation (WPF) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
+NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 使用 NuGet 套件管理員、[套件管理員主控台](../consume-packages/install-use-packages-powershell)或[dotnet CLI](install-and-use-a-package-using-the-dotnet-cli.md)，將套件安裝到 Visual Studio 專案中。 此文章示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件與 Windows Presentation Foundation (WPF) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
 
 安裝之後，請使用 `using <namespace>` 參考程式碼中的套件，其中 \<namespace\> 為您使用的套件專用。 建立參考之後，您可以透過其 API 呼叫套件。
 
 > [!Tip]
 > **從 Nuget.org 開始**：流覽*nuget.org*是 .net 開發人員在自己的應用程式中，如何尋找可重複使用的元件。 您可以直接搜尋 *nuget.org*，或在 Visual Studio 中尋找並安裝套件，如此文章所示。 如需一般資訊，請參閱[尋找和評估 NuGet 套件](../consume-packages/finding-and-choosing-packages.md)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
 - 包含 .NET 桌面開發工作負載的 Visual Studio 2019。
 
@@ -41,7 +41,7 @@ Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
 若要安裝套件，您可以使用 NuGet 套件管理員或套件管理員主控台。 當您安裝套件時，NuGet 會在您的專案檔或 `packages.config` 檔案中 (視專案格式而定) 記錄相依性。 如需詳細資訊，請參閱[套件使用概觀和工作流程](../consume-packages/Overview-and-Workflow.md)。
 
-### <a name="nuget-package-manager"></a>NuGet 套件管理員
+### <a name="nuget-package-manager"></a>NuGet 封裝管理員
 
 1. 在方案總管中以滑鼠右鍵按一下 [參考]，選擇 [管理 NuGet 套件]。
 
@@ -61,7 +61,7 @@ Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
 1. 如果提示您檢閱變更，請選取 [確定]。
 
-### <a name="package-manager-console"></a>套件管理器主控台
+### <a name="package-manager-console"></a>套件管理員主控台
 
 1. 選取 **工具** > **NuGet 套件管理員** > **套件管理員主控台** 功能表命令。
 

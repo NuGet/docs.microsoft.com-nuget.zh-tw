@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428832"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147444"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
@@ -102,7 +102,7 @@ ms.locfileid: "79428832"
 
 在參考套件相依性時，NuGet 支援使用間隔標記法來指定版本範圍，摘要說明如下：
 
-| 表示法 | 套用的規則 | 描述 |
+| Notation | 套用的規則 | 描述 |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | 最小版本 (包含) |
 | (1.0,) | x > 1.0 | 最小版本 (不包含) |
@@ -221,6 +221,10 @@ ms.locfileid: "79428832"
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
+        
+- 已移除 SemVer 2.0.0 組建中繼資料
+
+        1.0.7+r3456 is treated as 1.0.7
 
 `pack` 與 `restore` 作業會盡可能將版本標準化。 針對已建置的套件，此標準化不會影響套件本身的版本號碼；它只會影響 NuGet 在解析相依性時如何比對版本。
 
