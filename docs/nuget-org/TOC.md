@@ -9,10 +9,10 @@
 ## [套件淘汰](deprecate-packages.md)
 # 原則
 ## [資料要求](policies/Data-requests.md)
-## [爭議解決方法](policies/dispute-resolution.md)
+## [爭端解決](policies/dispute-resolution.md)
 ## [刪除套件](policies/deleting-packages.md)
 ## [匯出控制](policies/export-control.md)
-# 參考資料
+# 參考
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # 資源
