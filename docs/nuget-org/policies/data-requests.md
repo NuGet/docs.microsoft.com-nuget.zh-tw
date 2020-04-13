@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426983"
 ---
 # <a name="user-data-requests"></a>使用者資料要求
 
-nuget.org 使用者可以透過 [nuget.org](https://www.nuget.org) 送出資訊刪除要求和資訊匯出要求。這兩種類型都會以支援要求形式送出，並由 nuget.org 系統管理員在 30 天內執行。
+nuget.org使用者可以通過[nuget.org](https://www.nuget.org)提交資訊刪除請求和資訊匯出請求。這兩種類型均以支援請求的形式提交,並由nuget.org管理員在30天內執行。
 
 下列使用者資料可直接透過 nuget.org 存取：
 
@@ -46,7 +46,7 @@ nuget.org 系統管理員會在要求日期起的 30 天內完成帳戶刪除動
 * 釋放所有保留的命名空間
 * 移除任何套件擁有權
 
-「不會」  刪除擁有的套件。 雖然這些套件未列於搜尋結果中，但透過套件還原，還是可供相依於這些套件的專案使用。
+「不會」** 刪除擁有的套件。 雖然這些套件未列於搜尋結果中，但透過套件還原，還是可供相依於這些套件的專案使用。
 
 ## <a name="exporting-customer-data"></a>匯出客戶資料
 

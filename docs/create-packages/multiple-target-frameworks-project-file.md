@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380680"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>在您的專案檔中支援多個 .NET Framework 版本
@@ -31,13 +31,13 @@ ms.locfileid: "72380680"
    
    `<TargetFramework>netstandard2.0</TargetFramework>`
    
-   變更為：
+   至：
    
    `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    請務必將 XML 元素從單數變更為複數 (將 "s" 新增至開頭和結束標籤)。
 
-3. 如果您有任何只能在一個 TFM 中運作的程式碼，您可以使用 `#if NET45` 或 `#if NETSTANDARD2_0` 來分隔 TFM 相依程式碼。 （如需詳細資訊，請參閱 how [to 使用多目標](/dotnet/core/tutorials/libraries#how-to-multitarget)）。例如，您可以使用下列程式碼：
+3. 如果您有任何只能在一個 TFM 中運作的程式碼，您可以使用 `#if NET45` 或 `#if NETSTANDARD2_0` 來分隔 TFM 相依程式碼。 (有關詳細資訊,請參閱[如何多目標](/dotnet/core/tutorials/libraries#how-to-multitarget)。例如,您可以使用以下代碼:
 
    ```csharp
    public string Platform {
@@ -74,7 +74,7 @@ ms.locfileid: "72380680"
 </Project>
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [如何指定目標 Framework](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
 * [跨平台目標](/dotnet/standard/library-guidance/cross-platform-targeting)

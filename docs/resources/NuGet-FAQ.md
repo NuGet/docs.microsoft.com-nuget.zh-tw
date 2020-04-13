@@ -6,10 +6,10 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69999946"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
@@ -30,7 +30,7 @@ ms.locfileid: "69999946"
 
 **如何判斷套件所包含的內容，以及它對我的應用程式而言是否穩定而且有用？**
 
-了解套件的主要來源是其在 nuget.org 上的清單頁面 (或另一個私人摘要)。 nuget.org 上的每個套件頁面都會包含套件的描述、其版本歷程記錄和使用量統計資料。 套件頁面上的 [資訊]  區段也會包含專案網站的連結，而在專案網站中，您一般可以找到許多範例和其他文件協助您了解如何使用套件。
+了解套件的主要來源是其在 nuget.org 上的清單頁面 (或另一個私人摘要)。 nuget.org 上的每個套件頁面都會包含套件的描述、其版本歷程記錄和使用量統計資料。 套件頁面上的 [資訊]**** 區段也會包含專案網站的連結，而在專案網站中，您一般可以找到許多範例和其他文件協助您了解如何使用套件。
 
 如需詳細資訊，請參閱[尋找及選擇套件](../consume-packages/finding-and-choosing-packages.md)。
 
@@ -45,9 +45,9 @@ ms.locfileid: "69999946"
 
 **如何檢查已安裝 NuGet 工具的確切版本？**
 
-在 Visual Studio 中，使用 [說明] > [關於 Microsoft Visual Studio]  命令，並查看 [NuGet 套件管理員]  旁邊所顯示的版本。
+在 Visual Studio 中，使用 [說明] > [關於 Microsoft Visual Studio]**** 命令，並查看 [NuGet 套件管理員]**** 旁邊所顯示的版本。
 
-或者，啟動 [套件管理員主控台] ([工具] > [NuGet 套件管理員] > [套件管理員主控台]  )，並輸入 `$host` 以查看 NuGet 的相關資訊 (包含版本)。
+或者，啟動 [套件管理員主控台] ([工具] > [NuGet 套件管理員] > [套件管理員主控台]****)，並輸入 `$host` 以查看 NuGet 的相關資訊 (包含版本)。
 
 **NuGet 支援哪些程式設計語言？**
 
@@ -61,7 +61,7 @@ NuGet 完整支援各種專案範本，例如 Windows、Web、Cloud、SharePoint
 
 **如何更新屬於 Visual Studio 範本的套件？**
 
-移至套件管理員 UI 中的 [更新]  索引標籤，然後選取 [全部更新]  ，或使用套件管理員主控台中的 [`Update-Package` 命令](../reference/ps-reference/ps-ref-update-package.md)。
+移至套件管理員 UI 中的 [更新]**** 索引標籤，然後選取 [全部更新]****，或使用套件管理員主控台中的 [`Update-Package` 命令](../reference/ps-reference/ps-ref-update-package.md)。
 
 若要更新範本本身，您需要手動更新範本存放庫。 請參閱有關本主題的 [Xavier Decoster 部落格](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages)。 請注意，您必須自負這項作業的風險；因為，如果所有相依性的最新版本彼此不相容，則手動更新可能會損毀範本。
 
@@ -89,9 +89,9 @@ NuGet 完整支援各種專案範本，例如 Windows、Web、Cloud、SharePoint
 
 Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具環境) 物件。 此主控台透過名為 `$DTE` 的變數提供這個項目。 如需詳細資訊，請參閱＜Visual Studio 擴充性＞文件中的 [Automation Model Overview](/visualstudio/extensibility/internals/automation-model-overview) (自動化模型概觀)。
 
-**我嘗試將 $DTE 變數轉換為類型 DTE2，但得到錯誤：Cannot convert the "EnvDTE.DTEClass" value of type "EnvDTE.DTEClass" to type "EnvDTE80.DTE2". (無法將類型 "EnvDTE.DTEClass" 的 "EnvDTE.DTEClass" 值轉換為類型 "EnvDTE80.DTE2"。)有什麼問題？**
+**我嘗試將$DTE變數轉換為類型 DTE2,但收到錯誤:無法將類型為"EnvDTE.DTEClass"的"EnvDTE.DTEClass"值轉換為鍵入"EnvDTE80.DTE2"。怎麼了?**
 
-這是 PowerShell 如何與 COM 物件互動的已知問題。 請嘗試下列動作：
+這是 PowerShell 如何與 COM 物件互動的已知問題。 請嘗試下列作業：
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
@@ -105,7 +105,7 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 請參閱[建立並發行套件](../quickstart/create-and-publish-a-package.md)。
 
-**我的程式庫有多個版本將目標設為不同的 .NET Framework 版本。如何建置支援此項目的單一套件？**
+**我的庫有多個版本,這些版本針對的是 .NET Framework 的不同版本。如何構建支援此功能的單個包?**
 
 請參閱[支援多個 .NET Framework 版本和設定檔](../create-packages/supporting-multiple-target-frameworks.md)。
 
@@ -129,11 +129,11 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 **如何將套件從預設套件資料夾安裝至不同位置？**
 
-請使用 `nuget config -set repositoryPath=<path>` 在 `Nuget.Config` 中設定 [`repositoryPath`](../reference/nuget-config-file.md#config-section) 設定。
+使用`nuget config -set repositoryPath=<path>`[`repositoryPath`](../reference/nuget-config-file.md#config-section)`Nuget.Config`中設置設置。
 
 **如何避免將 NuGet 套件資料夾新增至原始檔控制嗎？**
 
-將 `Nuget.Config` 中的 [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) 設定為 `true`。 此索引鍵作用於方案層級，因此需要新增至 `$(Solutiondir)\.nuget\Nuget.Config` 檔案。 從 Visual Studio 啟用套件還原時會自動建立這個檔案。
+設定[`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section)為`Nuget.Config``true`。 此索引鍵作用於方案層級，因此需要新增至 `$(Solutiondir)\.nuget\Nuget.Config` 檔案。 從 Visual Studio 啟用套件還原時會自動建立這個檔案。
 
 **如何關閉套件還原？**
 

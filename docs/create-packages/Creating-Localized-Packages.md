@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610945"
 ---
 # <a name="creating-localized-nuget-packages"></a>建立當地語系化 NuGet 套件
@@ -99,7 +99,7 @@ ms.locfileid: "73610945"
 
 附屬組件接著會使用命名慣例 `{identifier}.{language}.{version}.nupkg` (例如 `ContosoUtilities.de.1.0.0.nupkg`)。 識別碼**必須**完全符合主要套件的識別碼。
 
-因為這是不同的套件，所以它的專屬 `.nuspec` 檔案會包含當地語系化中繼資料。 請注意，`.nuspec` 中的語言**必須**符合檔案名稱中所使用的語言。
+因為這是不同的套件，所以它的專屬 `.nuspec` 檔案會包含當地語系化中繼資料。 請注意， 中的語言`.nuspec` **必須**符合檔案名稱中所使用的語言。
 
 附屬組件也**必須**使用 [] 版本標記法將主要套件的確切版本宣告為相依性 (請參閱[套件版本控制](../concepts/package-versioning.md))。 例如，`ContosoUtilities.de.1.0.0.nupkg` 必須使用 `[1.0.0]` 標記法來宣告與 `ContosoUtilities.1.0.0.nupkg` 的相依性。 附屬套件的版本號碼當然可以與主要套件的版本號碼不同。
 

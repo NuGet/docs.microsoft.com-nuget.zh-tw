@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
 ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231301"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發佈套件 (dotnet CLI)
@@ -77,7 +77,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>建置時自動產生套件
 
-若要在您執行 `dotnet pack` 時自動執行 `dotnet build`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：
+若要在您執行 `dotnet build` 時自動執行 `dotnet pack`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -109,7 +109,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-在[Channel 9](https://channel9.msdn.com/Series/NuGet-101)和[YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多 NuGet 影片。
+在[頻道 9](https://channel9.msdn.com/Series/NuGet-101)和[YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上查找更多 NuGet 影片。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -120,10 +120,10 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 若要深入探索 NuGet 所提供的功能，請選取下列連結。
 
-- [套件](../nuget-org/publish-a-package.md)
-- [發行前套件](../create-packages/Prerelease-Packages.md)
-- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
+- [發佈包](../nuget-org/publish-a-package.md)
+- [預發行套件](../create-packages/Prerelease-Packages.md)
+- [支援多個目標 Framework](../create-packages/multiple-target-frameworks-project-file.md)
 - [套件版本控制](../concepts/package-versioning.md)
-- [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
+- [建立本地端](../create-packages/creating-localized-packages.md)
 - [建立符號套件](../create-packages/symbol-packages-snupkg.md)
 - [正在簽署套件](../create-packages/Sign-a-package.md)

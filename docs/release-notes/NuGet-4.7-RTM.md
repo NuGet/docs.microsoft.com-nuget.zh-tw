@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "76813789"
 ---
 # <a name="nuget-47-release-notes"></a>NuGet 4.7 版本資訊
 
 [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 隨附 [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe)。
 
-## <a name="summary-whats-new-in-470"></a>摘要：4.7.0 的新功能
+## <a name="summary-whats-new-in-470"></a>摘要:4.7.0 中的新增功能
 
 * 我們已增強套件簽署，以啟用[存放庫簽署套件](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
 * Visual Studio Version 15.7 引進了一個功能，[讓使用 packages.config 格式的現有專案移轉成改為使用 PackageReference](../consume-packages/migrate-packages-config-to-package-reference.md)。
 
-## <a name="summary-whats-new-in-472"></a>摘要：4.7.2 的新功能
+## <a name="summary-whats-new-in-472"></a>摘要:4.7.2 中的新增功能
 
-* 安全性修正：在 ~/.nuget 中建立之檔案的許可權太過開啟[#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
 
-## <a name="summary-whats-new-in-473"></a>摘要：4.7.3 的新功能
+## <a name="summary-whats-new-in-473"></a>摘要:4.7.3 中的新增功能
 
-* 安全性修正：檔案內的檔案可以具有 NUPKG 目錄上方的相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
+* 安全修復:NUPKG 內部的檔可以在 NUPKG 目錄上方具有相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
@@ -78,6 +78,6 @@ ms.locfileid: "76813789"
 * 簽署：刪除存放庫簽章/副署的 API - [#6589](https://github.com/NuGet/Home/issues/6589) \(英文\)
 * VS 中的記錄來源 - [#6527](https://github.com/NuGet/Home/issues/6527) \(英文\)
 * 只在 TFM 和 RID 上篩選 /tools，所以設定 XML 可以放在 /tools 資料夾中 - [#6197](https://github.com/NuGet/Home/issues/6197) \(英文\)
-* 當 Pack 命令排除開頭為 . 的檔案時發出警告  - [#3308](https://github.com/NuGet/Home/issues/3308) \(英文\)
+* 當 Pack 命令排除開頭為 . 的檔案時發出警告  - [#3308](https://github.com/NuGet/Home/issues/3308)
 
 [本版修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.7")

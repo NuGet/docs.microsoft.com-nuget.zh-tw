@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549446"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64500388"
 ---
 # <a name="nuget-governance"></a>NuGet 治理
 
@@ -20,7 +20,7 @@ NuGet 專案是由仁慈獨裁者所帶領，並且由社群進行管理。 也�
 
 仁慈獨裁者負責解決社群內的爭議，以及確保可以透過協作方式執行專案。 而社群則負責透過主動參與和貢獻引導仁慈獨裁者進行決策。
 
-## <a name="roles-and-responsibilities"></a>角色和責任
+## <a name="roles-and-responsibilities"></a>角色和職責
 
 這裡描述四種角色：仁慈獨裁者、認可者、參與者和使用者。
 
@@ -40,11 +40,11 @@ NuGet 核心小組會自行指派為仁慈獨裁者或專案負責人。 不過�
 
 認可者沒有關注整體 NuGet 方向的授權。 不過，專案負責人會聽取他們的意見。 認可者負責確保負責人了解社群的需求和共同目標，並協助開發或引出對專案的適當貢獻。 通常，認可者可非正式控制他們負責的特定領域，並且獲指派直接修改原始程式碼特定領域的權限。 也就是說，雖然認可者沒有明確決策授權，但是他們通常會發現其動作與負責人的決策類似。
 
-### <a name="contributors"></a>Contributors
+### <a name="contributors"></a>參與者
 
 參與者是將修補程式提交給 NuGet 的社群成員。 這些修補檔案可能只發生一次或一段時間。 參與者、認可者和專案負責人確信參與者的修補程式品質時，參與者預期會提交一開始很小但逐漸變大的修補程式。 在相關聯的產品版本資訊文件中可以辨識參與者。
 
-參與者必須簽署[參與者授權合約](http://en.wikipedia.org/wiki/Contributor_License_Agreement)或 .NET Foundation 的指派合約，才會將他們的第一個修補程式放入存放庫中。 修補程式可以進行提交和討論，但它實際上需要有適當的書面文件才能認可到存放庫。 若要取得參與者授權合約，請透過電子郵件將要求傳送至 [contributions@nuget.org](mailto:contributions@nuget.org)。
+參與者必須簽署[參與者授權合約](http://en.wikipedia.org/wiki/Contributor_License_Agreement)或 .NET Foundation 的指派合約，才會將他們的第一個修補程式放入存放庫中。 修補程式可以進行提交和討論，但它實際上需要有適當的書面文件才能認可到存放庫。 要獲得貢獻者許可協定,請通過電子郵件向[contributions@nuget.org](mailto:contributions@nuget.org)發送請求。
 
 若要成為參與者，請將提取要求提交至下列其中一個存放庫：
 
@@ -88,7 +88,7 @@ NuGet 核心小組會自行指派為仁慈獨裁者或專案負責人。 不過�
     - 帳戶持有者的出生證明 (如果您是其父母)，或者
     - 監護權書面作業 (如果您是帳戶持有者的合法監護人)。
 
-如果您發現自己確實需要叫用此原則，請使用套件的識別碼和版本，傳送電子郵件至下列地址：[support@nuget.org](mailto:support@nuget.org)。
+如果您發現自己需要調用此策略,請向我們發送電子郵件[support@nuget.org](mailto:support@nuget.org),包括包裹的 ID 和版本。
 
 ## <a name="transparency"></a>透明度
 

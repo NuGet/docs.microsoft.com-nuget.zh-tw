@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548140"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495492"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet 生態系統的概觀
 
@@ -24,7 +24,7 @@ NuGet 是在 2010 年引進，因此極有可能改善和自動化開發程序�
 
 NuGet 提供 Microsoft 開發平台的免費開放原始碼套件管理系統。 它包含一些用戶端工具，以及包含[正式 NuGet 資源庫](http://www.nuget.org)的服務集。 這些合併使用可以形成 [.NET Foundation](http://www.dotnetfoundation.org/) 所治理的 NuGet 專案。
 
-NuGet 組織包含 GitHub 上的各種存放庫。 [https://github.com/Nuget/Home](https://github.com/Nuget/Home) 概述所有存放庫以及可尋找各種 NuGet 元件的位置。
+NuGet 組織包含 GitHub 上的各種存放庫。 [https://github.com/Nuget/Home](https://github.com/Nuget/Home)概述了所有儲存庫以及查找各種 NuGet 元件的位置。
 
 ## <a name="microsoft-projects"></a>Microsoft 專案
 
@@ -37,7 +37,7 @@ Microsoft 大量參與 NuGet 的開發。 Microsoft 員工所做的所有參與�
 - [AppVeyor CI](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Chocolatey](https://chocolatey.org/)
+- [巧克力](https://chocolatey.org/)
 - [CoApp](http://coapp.org/)
 - [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)

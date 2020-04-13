@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 12/06/2017
 ms.topic: conceptual
 ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "68317597"
 ---
 # <a name="local-feeds"></a>本機摘要
@@ -31,7 +31,7 @@ ms.locfileid: "68317597"
           ├─<packageID>.<version>.nupkg
           └─<other files>
 
-當您使用 [`nuget add`](../reference/cli-reference/cli-ref-add.md) 命令將套件複製到摘要時，NuGet 會自動建立此結構：
+當您使用指令將套件複製到來源時,NuGet[`nuget add`](../reference/cli-reference/cli-ref-add.md)會自動建立此結構:
 
 ```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
@@ -39,7 +39,7 @@ nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 
 `nuget add` 命令一次使用一個套件，這在設定有多個套件的摘要時會很不方便。
 
-在這種情況下，使用 [`nuget init`](../reference/cli-reference/cli-ref-init.md) 命令將資料夾中所有套件複製到摘要，如同分別對每個套件執行 `nuget add`。 例如，下列命令會將所有的套件從 `c:\packages` 複製到 `\\myserver\packages` 的階層式樹狀結構：
+在這種情況下,使用命令[`nuget init`](../reference/cli-reference/cli-ref-init.md)將資料夾中的所有包複製到源,就像單獨運行`nuget add`每個包一樣。 例如，下列命令會將所有的套件從 `c:\packages` 複製到 `\\myserver\packages` 的階層式樹狀結構：
 
 ```cli
 nuget init c:\packages \\myserver\packages

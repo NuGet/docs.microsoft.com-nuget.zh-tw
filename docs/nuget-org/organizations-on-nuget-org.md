@@ -9,10 +9,10 @@ ms.reviewer:
 - kraigb
 - camsoper
 ms.openlocfilehash: 152de360bfa31a0c8c60fac0b12149748773b13e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427073"
 ---
 # <a name="your-organization-on-nugetorg"></a>您在 NuGet.org 上的組織
@@ -23,15 +23,15 @@ ms.locfileid: "67427073"
 
 組織帳戶有一或多個作為其成員的個別 (使用者) 帳戶。 這些成員可以管理一組套件，同時維持擁有權的單一身分識別。
 
-個別帳戶是您在 NuGet.org 上的身分識別，且可以是任意數目的組織成員。 套件可以屬於組織帳戶，如同其可屬於個別帳戶。 套件取用者看不到個別帳戶和組織帳戶之間的差異：兩者皆以套件 `owners` 形式出現。
+個別帳戶是您在 NuGet.org 上的身分識別，且可以是任意數目的組織成員。 套件可以屬於組織帳戶，就像可以屬於個人帳戶一樣。 套件取用者看不到個別帳戶和組織帳戶之間的差異：兩者皆以套件 `owners` 形式出現。
 
 ## <a name="adding-a-new-organization"></a>新增組織
 
-若要新增組織，請選取您在 NuGet.org 上的帳戶，然後選取 [管理組織]  功能表命令：
+若要新增組織，請選取您在 NuGet.org 上的帳戶，然後選取 [管理組織]**** 功能表命令：
 
 ![NuGet.org 上的管理員組織功能表選項](media/org-manage-option.png)
 
-在下一個頁面上，選取 [新增組織]  按鈕：
+在下一個頁面上，選取 [新增組織]**** 按鈕：
 
 ![在 NuGet.org 上建立新組織的按鈕](media/org-add-new-option.png)
 
@@ -46,17 +46,17 @@ ms.locfileid: "67427073"
 > [!Warning]
 > 帳戶轉換無法復原：您無法將組織轉換回使用者帳戶。
 
-如果您要使用單一使用者帳戶以小組形式管理套件，且想要將該帳戶轉換成組織，請使用 [管理組織]  頁面上的 [Transform your account to an organization] \(將帳戶轉換成組織\)  選項：
+如果您要使用單一使用者帳戶以小組形式管理套件，且想要將該帳戶轉換成組織，請使用 [管理組織]**** 頁面上的 [Transform your account to an organization] \(將帳戶轉換成組織\)**** 選項：
 
 ![NuGet.org 上將現有帳戶轉換成組織的選項](media/org-transform-option.png)
 
-在下個頁面上，指定將不同的使用者帳戶指派為組織管理員，然後選取 [轉換]  。
+在下個頁面上，指定將不同的使用者帳戶指派為組織管理員，然後選取 [轉換]****。
 
 ![輸入資訊以將使用者帳戶轉換為組織](media/org-transform-page.png)
 
 ## <a name="managing-organization-members"></a>管理組織成員
 
-身為組織管理員，您可以藉由提供每個成員的 NuGet.org「使用者帳戶名稱」  來新增成員；無法使用電子郵件地址。 然後，將每個成員標示為具有下列權限的共同作業者或管理員：
+身為組織管理員，您可以藉由提供每個成員的 NuGet.org「使用者帳戶名稱」** 來新增成員；無法使用電子郵件地址。 然後，將每個成員標示為具有下列權限的共同作業者或管理員：
 
 | 權限 | 共同作業者 | 系統管理員 |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ ms.locfileid: "67427073"
 
 若要透過 `nuget push` 或 `dotnet nuget push` CLI 命令推送套件，您必須取得這些命令需要的 API 金鑰。 如需詳細資料，請參閱[發佈套件](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package)。
 
-建立新的 API 金鑰時，請在 [Package Owner] \(套件擁有者\)  下拉式清單中選取適當的組織。 您建立的任何 API 金鑰僅適用於所選組織：
+建立新的 API 金鑰時，請在 [Package Owner] \(套件擁有者\)**** 下拉式清單中選取適當的組織。 您建立的任何 API 金鑰僅適用於所選組織：
 
 ![具有帳戶選項的 API 金鑰](media/org-apikey-option.png)
 
@@ -102,8 +102,8 @@ ms.locfileid: "67427073"
 
 ### <a name="deleting-an-organization-account"></a>刪除組織帳戶
 
-您可以按一下組織頁面顯示的 [刪除]  按鈕，刪除組織帳戶。
+您可以按一下組織頁面顯示的 [刪除]**** 按鈕，刪除組織帳戶。
 
 ![刪除組織](media/org-delete-option.png)
 
-若要刪除組織，您必須按一下 [刪除組織]  確認按鈕確認作業。
+若要刪除組織，您必須按一下 [刪除組織]**** 確認按鈕確認作業。

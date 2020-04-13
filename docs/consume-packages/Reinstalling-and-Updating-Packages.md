@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
 ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428699"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>如何重新安裝和更新套件
@@ -23,7 +23,7 @@ ms.locfileid: "79428699"
 | 方法 | 更新 | 重新安裝 |
 | --- | --- | --- |
 | 套件管理員主控台 (如[使用 Update-Package](#using-update-package) 中所述) | `Update-Package` 命令 | `Update-Package -reinstall` 命令 |
-| 套件管理員 UI | 在 [更新] 索引標籤上，選取一或多個套件，然後選取 [更新] | 在 [已安裝] 索引標籤上，選取套件，並記錄其名稱，然後選取 [解除安裝]。 切換至 [瀏覽] 索引標籤，並搜尋套件名稱，再選取它，然後選取 [安裝]。 |
+| 套件管理員 UI | 在 [更新]**** 索引標籤上，選取一或多個套件，然後選取 [更新]**** | 在 [已安裝]**** 索引標籤上，選取套件，並記錄其名稱，然後選取 [解除安裝]****。 切換至 [瀏覽]**** 索引標籤，並搜尋套件名稱，再選取它，然後選取 [安裝]****。 |
 | nuget.exe CLI | `nuget update` 命令 | 針對所有套件，刪除套件資料夾，然後執行 `nuget install`。 針對單一套件，刪除套件資料夾，然後使用 `nuget install <id>` 重新安裝相同套件。 |
 
 > [!NOTE]
@@ -44,7 +44,7 @@ ms.locfileid: "79428699"
 
 ## <a name="constraining-upgrade-versions"></a>限制升級版本
 
-重新安裝或更新套件預設「一律」會安裝套件來源中可用的最新版本。
+重新安裝或更新套件預設「一律」** 會安裝套件來源中可用的最新版本。
 
 不過，在使用 `packages.config` 管理格式的專案中，您可以特別限制版本範圍。 例如，如果您知道您的應用程式僅適用於 1.x 版的套件，而不是 2.0 和更新版本 (可能是套件 API 中的主要變更所造成)，則會想要限制 1.x 版的升級。 這可避免破壞應用程式的意外更新。
 
@@ -63,7 +63,7 @@ ms.locfileid: "79428699"
 
 ## <a name="using-update-package"></a>使用 Update-Package
 
-請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../reference/ps-reference/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具] > [NuGet 套件管理員] > [套件管理員主控台])。
+請注意下面所述的[考量](#considerations)，您可以在 Visual Studio 套件管理員主控台中使用 [Update-Package 命令](../reference/ps-reference/ps-ref-update-package.md)，輕鬆地重新安裝任何套件 ([工具]**** > [NuGet 套件管理員]**** > [套件管理員主控台]****)。
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -84,7 +84,7 @@ Update-Package <package_name>
 Update-Package <package_name> -ProjectName MyProject -reinstall
 ```
 
-若要「更新」專案中的所有套件 (或使用 `-reinstall` 重新安裝)，請使用 `-ProjectName`，而不指定任何特定套件：
+若要「更新」** 專案中的所有套件 (或使用 `-reinstall` 重新安裝)，請使用 `-ProjectName`，而不指定任何特定套件：
 
 ```ps
 Update-Package -ProjectName MyProject
@@ -113,7 +113,7 @@ Update-Package
         - 如果在重設應用程式的目標之後重新安裝套件導致組建或執行階段錯誤，您可能需要還原目標架構，或搜尋正確支援新目標架構的替代套件。
 
 1. **專案重設目標或升級之後 packages.config 中所新增的 requireReinstallation 屬性**
-    - 如果 NuGet 偵測到重設目標或升級專案已影響套件，則會將 `requireReinstallation="true"` 中的 `packages.config` 屬性新增至所有受影響的套件參考。 因此，Visual Studio 中的每個後續組建都會引發這些套件的組建警告，讓您可以記得重新安裝它們。
+    - 如果 NuGet 偵測到重設目標或升級專案已影響套件，則會將 `packages.config` 中的 `requireReinstallation="true"` 屬性新增至所有受影響的套件參考。 因此，Visual Studio 中的每個後續組建都會引發這些套件的組建警告，讓您可以記得重新安裝它們。
 
 1. **使用相依性重新安裝套件**
     - `Update-Package –reinstall` 會重新安裝相同版本的原始套件，但除非提供特定版本條件約束，否則會安裝最新版本的相依性。 這可讓您視需要僅更新相依性，以修正問題。 不過，如果這會將相依性復原為舊版本，則您可以使用 `Update-Package <dependency_name>` 重新安裝該相依性，而不影響相依的套件。

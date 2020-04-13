@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429007"
 ---
 # <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
 許多程式庫的目標都設為特定 .NET Framework 版本。 例如，您可能有一版的程式庫是 UWP 特有的，而另一個版本則利用 .NET Framework 4.6 中的功能。 為了配合此功能，NuGet 支援在單一套件中放置相同程式庫的多個版本。
 
-本文描述 NuGet 套件的配置，不論封裝或元件的建立方式為何（也就是使用多個非 SDK 樣式 *.csproj*檔案和自訂*nuspec*檔案，或單一多目標 SDK 樣式 *.csproj*）的版面配置。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
+本文介紹 NuGet 包的佈局,無論包或程式集的構建方式如何(也就是說,無論使用多個非 SDK 風格的 *.csproj*檔和自定義 *.nuspec*檔,還是單個多目標 SDK 樣式 *.csproj,* 佈局都是相同的。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
 
 如果您使用[建立套件](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)中所述的傳統型工作目錄方法，就必須如此文章中所述手動配置套件。 針對 SDK 樣式專案，建議使用自動化方法，但您也可以選擇如此文章中所述手動配置套件。
 
@@ -28,7 +28,7 @@ ms.locfileid: "79429007"
 
 如需所支援名稱的完整清單，請參閱[目標架構參考](../reference/target-frameworks.md#supported-frameworks)。
 
-您的程式庫版本絕對不應該是架構特有的，而且會直接放在根 `lib` 資料夾中 (過去只有 `packages.config` 才支援此功能)。 如此會讓程式庫與任何目標架構相容，並且能夠安裝在任何位置，因而可能導致意外的執行階段錯誤。 使用 PackagesReference 格式時，已取代並忽略在根資料夾 (例如 `lib\abc.dll`) 或子資料夾 (例如 `lib\abc\abc.dll`) 中新增組件。
+您的程式庫版本絕對不應該是架構特有的，而且會直接放在根 `lib` 資料夾中  (過去只有 `packages.config` 才支援此功能)。 如此會讓程式庫與任何目標架構相容，並且能夠安裝在任何位置，因而可能導致意外的執行階段錯誤。 使用 PackagesReference 格式時，已取代並忽略在根資料夾 (例如 `lib\abc.dll`) 或子資料夾 (例如 `lib\abc\abc.dll`) 中新增組件。
 
 例如，下列資料夾結構支援架構特有的四種版本的組件：
 
@@ -42,7 +42,7 @@ ms.locfileid: "79429007"
         \netcore
             \MyAssembly.dll
 
-若要在建置套件時輕鬆地包含所有這些檔案，請在 `**` 的 `<files>` 區段中使用遞迴 `.nuspec` 萬用字元：
+若要在建置套件時輕鬆地包含所有這些檔案，請在 `.nuspec` 的 `<files>` 區段中使用遞迴 `**` 萬用字元：
 
 ```xml
 <files>
@@ -67,9 +67,9 @@ ms.locfileid: "79429007"
 
 這些組件只有在執行階段中可用，因此若您也要提供對應的編譯階段組件，`AnyCPU` 必須位於 `/ref/{tfm}` 資料夾中。 
 
-請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣地，如果 `/runtimes` 有一些相容的資產，則執行時間也會忽略 `/lib`。
+請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣,如果有一些相容的資產,`/runtimes``/lib`也將忽略運行時。
 
-如需在 [ 資訊清單中參考這些檔案的範例，請參閱](../guides/create-uwp-packages.md)建立 UWP 套件`.nuspec`。
+如需在 `.nuspec` 資訊清單中參考這些檔案的範例，請參閱[建立 UWP 套件](../guides/create-uwp-packages.md)。
 
 此外，請參閱[使用 NuGet 封裝 Windows 市集應用程式](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
@@ -125,7 +125,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 
 封裝專案檔時，NuGet 會嘗試自動從專案產生相依性。 此節中有關使用 *.nuspec* 檔案來宣告相依性的資訊，通常只有進階情節才需要。
 
-*(2.0 版+)* 您可以使用 *元素內的* 元素，在對應至目標專案之目標 Framework 的 `<group>`.nuspec`<dependencies>` 中宣告套件相依性。 如需詳細資訊，請參閱[相依性元素](../reference/nuspec.md#dependencies-element)。
+*(2.0 版+)* 您可以使用 `<dependencies>` 元素內的 `<group>` 元素，在對應至目標專案之目標 Framework 的 *.nuspec* 中宣告套件相依性。 如需詳細資訊，請參閱[相依性元素](../reference/nuspec.md#dependencies-element)。
 
 每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<dependency>` 項目。 當目標 Framework 與專案的 Framework 設定檔相容時，會同時安裝那些相依性。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。
 
@@ -160,7 +160,7 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 > [!Warning]
 > 只有使用 `packages.config` 格式才能使用可變動的內容檔案和指令碼執行；可變動的內容檔案和指令碼執行已隨所有其他格式遭取代，而且不應該用於任何新套件。
 
-使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如，
+使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如：
 
     \content
         \net46

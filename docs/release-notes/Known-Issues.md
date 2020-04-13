@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "75383654"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
@@ -21,7 +21,7 @@ ms.locfileid: "75383654"
 
 ## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>使用 nuget.exe v3.4.3 之 VSTS 中的 NuGet 摘要驗證問題
 
-**問題：**
+**問題:**
 
 當我們使用下列命令儲存認證時，最後會兩次加密個人存取權杖。
 
@@ -33,7 +33,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>使用 NuGet 3.4、3.4.1 安裝套件時發生錯誤
 
-**問題：**
+**問題:**
 
 在 NuGet 3.4 和 3.4.1 中，使用 NuGet 增益集時不會回報任何可用來源，而且無法在 [組態] 視窗中新增新的來源。 結果類似於下面的映像：
 
@@ -43,9 +43,9 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 ## <a name="error-installing-packages-with-nuget-27"></a>使用 NuGet 2.7 安裝套件時發生錯誤
 
-**問題：**
+**問題:**
 
-在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息 **「輸入字串格式不正確。」** ，如下：
+在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息 **「輸入字串格式不正確。」**，如下：
 
 ```ps
 install-package log4net
@@ -63,7 +63,7 @@ install-package log4net
 
 這是因為您的系統上正在取消註冊 `VSLangProj.dll` COM 元件的型別程式庫。 例如，當您並行安裝了兩個版本的 Visual Studio，然後又解除安裝較舊的版本，就會發生此種情況。 這樣做，可能會不小心取消註冊上述的 COM 程式庫。
 
-**解決方案**：
+**解決方案:**:
 
 從**提升權限的提示字元**執行此命令，以重新註冊 `VSLangProj.dll` 的型別程式庫
 
@@ -71,7 +71,7 @@ install-package log4net
 
 如果命令失敗，請檢查檔案是否位在該位置。
 
-如需有關此錯誤的詳細資訊，請參閱此[工作專案](https://nuget.codeplex.com/workitem/3609 "工作專案3609")。
+有關此錯誤的詳細資訊,請參閱此[工作項目](https://nuget.codeplex.com/workitem/3609 "工作項 3609")。
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>在 VS 2012 中更新套件後組建失敗
 
@@ -90,7 +90,7 @@ install-package log4net
 檢視記錄檔時，您可能會看到有關 `SignatureMismatchException` 的記錄。
 
 為避免發生這種情形，您可以安裝 [Visual Studio 2010 SP1 Hotfix](http://bit.ly/vsixcertfix)。
-也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。 如需詳細資訊，請參閱 <https://support.microsoft.com/kb/2581019>。
+也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。 如需相關資訊，請參閱 <https://support.microsoft.com/kb/2581019>。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>如果也安裝了反射程式 Visual Studio 增益集，套件管理員主控台會擲回例外狀況。
 
@@ -151,7 +151,7 @@ install-package log4net
 
 ## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>如果解決方案包含 InstallShield 限量版專案，[Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況
 
-我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
+我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考)**** 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[解除安裝] 按鈕呈現灰色？ 需要有系統管理員權限才能安裝/解除安裝 NuGet
 
@@ -159,7 +159,7 @@ install-package log4net
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>在 Windows XP 開啟套件管理員主控台時，後者會損毀。 出了什麼問題？
 
-NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2.0。 您可以從 <https://support.microsoft.com/kb/968929>下載 Powershell 2.0 執行時間。 安裝後，重新啟動 Visual Studio，應該就能夠開啟套件管理員主控台。
+NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2.0。 您可以從 <https://support.microsoft.com/kb/968929> 下載 Powershell 2.0 執行階段。 安裝後，重新啟動 Visual Studio，應該就能夠開啟套件管理員主控台。
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>如果在套件管理員主控台開啟時結束 Visual Studio 2010 SP1 搶鮮版 (Beta)，後者會損毀。
 
@@ -171,7 +171,7 @@ NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>嘗試安裝或解除安裝會造成錯誤「無法建立已存在的檔案。」
 
-因為某些原因，Visual Studio 會進入很奇怪的狀態，明明已經解除安裝 VSIX 延伸模組，卻會留下某些檔案。 若要解決這個問題：
+因為某些原因，Visual Studio 會進入很奇怪的狀態，明明已經解除安裝 VSIX 延伸模組，卻會留下某些檔案。 若要解決此問題：
 
 1. 結束 Visual Studio
 1. 開啟下列資料夾 (它可能會在電腦的其他磁碟機上)
@@ -225,4 +225,4 @@ Windows Phone 工具不支援 Visual Studio 延伸模組管理員。 為解除�
 
 ## <a name="reporting-issues"></a>回報問題
 
-若要回報 NuGet 問題，請瀏覽 [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)。
+要回報 NuGet[https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)問題 ,請造訪 。

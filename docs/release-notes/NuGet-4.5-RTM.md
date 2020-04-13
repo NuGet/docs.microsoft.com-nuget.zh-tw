@@ -6,25 +6,25 @@ ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
 ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432500"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496575"
 ---
 # <a name="nuget-45-release-notes"></a>NuGet 4.5 版本資訊
 
 [Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 隨附 [NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe)。
 
-## <a name="summary-whats-new-in-450"></a>摘要: 4.5.0 中的新功能
+## <a name="summary-whats-new-in-450"></a>摘要:4.5.0 中的新增功能
 
-## <a name="summary-whats-new-in-452"></a>摘要: 4.5.2 中的新功能
+## <a name="summary-whats-new-in-452"></a>摘要:4.5.2 中的新增功能
 
-* 安全性修正：在 ~/.nuget 內建立的檔案權限過於開放 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
 
-## <a name="summary-whats-new-in-453"></a>摘要: 4.5.3 中的新功能
+## <a name="summary-whats-new-in-453"></a>摘要:4.5.3 中的新增功能
 
-* 安全性修正：NUPKG 內的檔案可以有 NUPKG 目錄上層的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
+* 安全修復:NUPKG 內部的檔可以在 NUPKG 目錄上方具有相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
@@ -66,13 +66,13 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 針對 NuGet 4.4 RTM 中已修正的問題，請參閱 [NuGet 4.4 RTM 版本資訊](../release-notes/nuget-4.4-RTM.md) 
 
-### <a name="features"></a>功能
+### <a name="features"></a>特性
 
 - 停用自動推送符號套件 - [#6113](https://github.com/NuGet/Home/issues/6113)
 
 ### <a name="bugs"></a>Bug
 
-- 15.5p1 中的 [迴歸]：跳過了 Portable0.0 - [#6105](https://github.com/NuGet/Home/issues/6105)
+- 15.5p1 中的 [迴歸]：跳過 Portable0.0 - [#6105](https://github.com/NuGet/Home/issues/6105)
 - 還原後遺失套件中的資產 - [#5995](https://github.com/NuGet/Home/issues/5995)
 - 外掛程式認證提供者不會使用包含空格的 URI - [#5982](https://github.com/NuGet/Home/issues/5982)
 - 如果無法還原套件，則即使開啟最少詳細資訊，還是應該在輸出中列印錯誤 - [#5658](https://github.com/NuGet/Home/issues/5658)

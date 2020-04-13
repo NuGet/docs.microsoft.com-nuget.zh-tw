@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
 ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488289"
 ---
 # <a name="projectjson-reference"></a>project.json 參考
@@ -18,7 +18,7 @@ ms.locfileid: "69488289"
 
 `project.json` 檔案維護一份專案中使用的套件之清單，稱為套件管理格式。 它會取代 `packages.config`，但又被 NuGet 4.0+ 的 [PackageReference](../consume-packages/package-references-in-project-files.md) 所取代。
 
-[`project.lock.json`](#projectlockjson) 檔案 (如下所述) 也用於採用 `project.json` 的專案。
+該檔[`project.lock.json`](#projectlockjson)(如下所述)也用於`project.json`使用的專案。
 
 `project.json` 有下列的基本結構，其中四個最上層物件每個都可以有任意數目的子物件：
 
@@ -75,7 +75,7 @@ ms.locfileid: "69488289"
 | compile | lib |
 | build | 組建 (MSBuild props 和目標) |
 | native | native |
-| none | 無資料夾 |
+| 無 | 無資料夾 |
 | all | 全部資料夾 |
 
 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。
@@ -136,7 +136,7 @@ ms.locfileid: "69488289"
 包含可在任何執行階段上執行之 PCL 的套件不需要指定執行階段。 任何相依性也必須都是如此，否則您必須指定執行階段。
 
 
-## <a name="supports"></a>Supports
+## <a name="supports"></a>支援
 
 定義一組套件相依性檢查。 您可以定義您預期 PCL 或應用程式執行的位置。 定義沒有限制，因為您的程式碼可能能夠在其他位置執行。 但是，指定這些檢查可以讓 NuGet 確認在列出的 TxM 上符合所有相依性。 此值的範例有 `net46.app`、`uwp.10.0.app` 等等。
 
@@ -149,7 +149,7 @@ ms.locfileid: "69488289"
 }
 ```
 
-## <a name="imports"></a>Imports
+## <a name="imports"></a>匯入
 
 Imports 設計目的是為了讓使用 `dotnet` TxM 的套件能和未宣告 dotnet TxM 的套件一起運作。 如果您的專案使用 `dotnet` TxM，除非您將下列內容新增至 `project.json`，以讓非 `dotnet` 平台變成能與 `dotnet` 相容，否則您相依的所有套件也必須要有 `dotnet` TxM：
 

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
 ms.openlocfilehash: 098375b2bba13675ba5d80a27e0226dc2ee39e77
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79059516"
 ---
 # <a name="nugetserver"></a>NuGet.Server
@@ -22,25 +22,25 @@ NuGet.Server 是 .NET Foundation 提供的套件，建立 ASP.NET 應用程式�
 
 下列各節會使用 C# 逐步詳加解說。
 
-如果您對 NuGet.Server 有進一步的疑問，請在 [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) 上建立問題。
+如果您對 NuGet.Server 有進一步的問題[https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues),請在上創建問題。
 
 ## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>使用 NuGet.Server 建立及部署 ASP.NET Web 應用程式
 
-1. 在 Visual Studio 中，選取 [檔案] **> [新增 > 專案**]，搜尋 "ASP.NET Web Application （.NET Framework）"，並C#選取符合的範本。
+1. 在可視化工作室中,選擇 **「檔>」新>專案**」,搜索「ASP.NET Web 應用程式 (.NET 框架))」,為 C# 選擇匹配範本。
 
-    ![選取 [.NET Framework Web 專案] 範本](media/Hosting_00-NuGet.Server-ProjectType.png)
+    ![選擇 .NET 架構 Web 專案樣本](media/Hosting_00-NuGet.Server-ProjectType.png)
 
-1. 將 [**架構**] 設定為 ".NET Framework 4.6"。
+1. **將框架**設置為".NET框架 4.6"。
 
     ![設定新專案的目標 Framework](media/Hosting_01-NuGet.Server-Set4.6.png)
 
-1. 提供應用程式 NuGet.Server「以外」的合適名稱，選取 [確定]，並在下一個對話方塊中選取 [空白] 範本，再選取 [確定]。
+1. 提供應用程式 NuGet.Server「以外」** 的合適名稱，選取 [確定]，並在下一個對話方塊中選取 [空白]**** 範本，再選取 [確定]****。
 
-    ![選取空白的 Web 專案](media/Hosting_02-NuGet.Server-Empty.png)
+    ![選擇空 Web 專案](media/Hosting_02-NuGet.Server-Empty.png)
 
-1. 以滑鼠右鍵按一下專案，選取 [管理 NuGet 套件]。
+1. 以滑鼠右鍵按一下專案，選取 [管理 NuGet 套件]****。
 
-1. 如果目標為 .NET Framework 4.6，請在套件管理員 UI 中選取 [瀏覽] 索引標籤，再搜尋並安裝最新版的 NuGet.Server 套件。 （您也可以使用 `Install-Package NuGet.Server`，從套件管理員主控台進行安裝）。若出現提示，請接受授權條款。
+1. 如果目標為 .NET Framework 4.6，請在套件管理員 UI 中選取 [瀏覽]**** 索引標籤，再搜尋並安裝最新版的 NuGet.Server 套件。 (您也可以使用`Install-Package NuGet.Server`從包管理器主控台安裝它。如果出現提示,則接受許可條款。
 
     ![安裝 NuGet.Server 套件](media/Hosting_03-NuGet.Server-Package.png)
 
@@ -49,7 +49,7 @@ NuGet.Server 是 .NET Foundation 提供的套件，建立 ASP.NET 應用程式�
     > [!Important]
     > 在 NuGet.Server 套件完成對該檔案的修改之後，請仔細檢查 `web.config`。 NuGet.Server 可能不會覆寫現有的項目，而是建立重複的項目。 當您稍後嘗試執行專案時，這些重複項目將會導致「內部伺服器錯誤」。 例如，在安裝 NuGet.Server 之前，如果您的 `web.config` 包含了 `<compilation debug="true" targetFramework="4.5.2" />`，套件就不會加以覆寫，而會插入第二個 `<compilation debug="true" targetFramework="4.6" />`。 在此情況下，請刪除 Framework 版本較舊的項目。
 
-1. 在 Visual Studio 中於本機執行網站 (使用 [偵錯] > [啟動但不偵錯]，或 Ctrl+F5)。 首頁會提供套件摘要 URL，如下所示。 如果您看到錯誤，請仔細檢查您的 `web.config` 是否有如先前所述的重複元素。
+1. 在 Visual Studio 中於本機執行網站 (使用 [偵錯] > [啟動但不偵錯]****，或 Ctrl+F5)。 首頁會提供套件摘要 URL，如下所示。 如果您看到錯誤,請仔細檢查您的`web.config`重複元素,如前面所述。
 
     ![使用 NuGet.Server 的應用程式預設首頁](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
@@ -61,7 +61,7 @@ NuGet.Server 是 .NET Foundation 提供的套件，建立 ASP.NET 應用程式�
 
 ## <a name="adding-packages-to-the-feed-externally"></a>將套件新增至外部摘要
 
-NuGet.Server 網站開始執行之後，假設您在 [ 中設定了 API 金鑰值，就可以使用 ](../reference/cli-reference/cli-ref-push.md)nuget push`web.config` 新增套件。
+NuGet.Server 網站開始執行之後，假設您在 `web.config` 中設定了 API 金鑰值，就可以使用 [nuget push](../reference/cli-reference/cli-ref-push.md) 新增套件。
 
 安裝 NuGet.Server 套件之後，`web.config` 包含空的 `appSetting/apiKey` 值：
 
@@ -73,7 +73,7 @@ NuGet.Server 網站開始執行之後，假設您在 [ 中設定了 API 金鑰�
 
 當 `apiKey` 省略或空白時，會停用將套件推送至摘要。
 
-若要啟用這項功能，請將 `apiKey` 設成值 (最好是強式密碼)，並新增有 `appSettings/requireApiKey` 值的 `true` 金鑰：
+若要啟用這項功能，請將 `apiKey` 設成值 (最好是強式密碼)，並新增有 `true` 值的 `appSettings/requireApiKey` 金鑰：
 
 ```xml
 <appSettings>
@@ -87,19 +87,19 @@ NuGet.Server 網站開始執行之後，假設您在 [ 中設定了 API 金鑰�
 
 如果您的伺服器已受保護或本就不需要 API 金鑰 (例如，在本機小組網路上使用私用伺服器)，您可以將 `requireApiKey` 設成 `false`。 接著，所有能夠存取伺服器的使用者就都可以推送套件。
 
-從 NuGet. 伺服器3.0.0 開始，推送套件的 URL 已變更為 `http://<domain>/nuget`。 在3.0.0 版本之前，推送 URL 是 `http://<domain>/api/v2/package`。
+從 NuGet.Server 3.0.0 開始,推送`http://<domain>/nuget`套件的網址變更為 。 在 3.0.0 版本之前,推`http://<domain>/api/v2/package`送網址為 。
 
-使用 NuGet 3.2.1 和更新版本時，`/nuget` 除了預設會透過啟動設定中的 `enableLegacyPushRoute: true` 選項來啟用此舊版 URL `/api/v2/package` （`NuGetODataConfig.cs`）。 請注意，當多個摘要裝載于相同專案時，這項功能無法運作。
+使用 NuGet 3.2.1`/api/v2/package`和更高版本,`/nuget``enableLegacyPushRoute: true`除了預設透過啟動設定`NuGetODataConfig.cs`中的選項( 預設情況下)中啟用此舊 URL。 請注意,當多個源託管在同一專案中時,此功能不起作用。
 
 ## <a name="removing-packages-from-the-feed"></a>從摘要移除套件
 
 透過 NuGet.Server，假如您在註解中包含了 API 金鑰，[nuget delete](../reference/cli-reference/cli-ref-delete.md) 命令會從存放庫移除套件。
 
-如果您想要將行為變更為取消列入套件 (使其可供套件還原使用)，請將 `enableDelisting` 中的 `web.config` 金鑰變更為 True。
+如果您想要將行為變更為取消列入套件 (使其可供套件還原使用)，請將 `web.config` 中的 `enableDelisting` 金鑰變更為 True。
 
 ## <a name="configuring-the-packages-folder"></a>設定 Packages 資料夾
 
-在 `NuGet.Server` 1.5 和更新版本中，您可以使用 `web.config`中的 `appSettings/packagesPath` 值來自訂封裝資料夾：
+使用`NuGet.Server`1.5 及更高版本,可以`appSettings/packagesPath``web.config`使用 中的 值自訂套件資料夾:
 
 ```xml
 <appSettings>
@@ -112,17 +112,17 @@ NuGet.Server 網站開始執行之後，假設您在 [ 中設定了 API 金鑰�
 
 當 `packagesPath` 省略或留白時，套件資料夾會是預設值 `~/Packages`。
 
-## <a name="making-packages-available-when-you-publish-the-web-app"></a>當您發佈 web 應用程式時，讓套件可供使用
+## <a name="making-packages-available-when-you-publish-the-web-app"></a>網頁應用程式時使套件可用
 
-將應用程式發佈至伺服器時，若要在摘要中提供套件，請將每一個 `.nupkg` 檔案新增至 Visual Studio 中的 `Packages` 資料夾，再將每一個檔案的 [建置動作] 設成 [內容]，然後將 [複製到輸出目錄] 設成 [一律複製]：
+將應用程式發佈至伺服器時，若要在摘要中提供套件，請將每一個 `.nupkg` 檔案新增至 Visual Studio 中的 `Packages` 資料夾，再將每一個檔案的 [建置動作]**** 設成 [內容]****，然後將 [複製到輸出目錄]**** 設成 [一律複製]****：
 
 ![將套件複製到專案的 Packages 資料夾](media/Hosting_05-NuGet.Server-Package-Folder.png)
 
 ## <a name="release-notes"></a>版本資訊
 
-您可以在[GitHub 版本頁面](https://github.com/NuGet/NuGet.Server/releases)上取得 NuGet. 伺服器的版本資訊。
-這包括 bug 修正的詳細資料，以及新增的新功能。
+NuGet.Server 的發行說明在[GitHub 發佈頁上](https://github.com/NuGet/NuGet.Server/releases)可用。
+這包括有關錯誤修復和添加的新功能的詳細資訊。
 
 ## <a name="nugetserver-support"></a>NuGet.Server 支援
 
-如需使用 NuGet.Server 的額外說明，請在 [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) 上建立問題。
+有關使用 NuGet.Server 的其他説明,[https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues)請在上創建問題。

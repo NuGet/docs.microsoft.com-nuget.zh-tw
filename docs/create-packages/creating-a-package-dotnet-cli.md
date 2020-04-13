@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230569"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
@@ -33,7 +33,7 @@ ms.locfileid: "78230569"
 - `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
 - `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]****，然後選取 [套件]**** 索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>
@@ -47,7 +47,7 @@ ms.locfileid: "78230569"
 > [!Important]
 > 為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何套件資源上都必須是唯一的。
 
-下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性 (您可以使用 `dotnet new classlib` 命令來建立新的預設專案)。
+下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性。 (您可以使用 `dotnet new classlib` 命令來建立新的預設專案)。
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -68,7 +68,7 @@ ms.locfileid: "78230569"
 
 如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
-## <a name="add-an-optional-description-field"></a>新增選擇性的描述欄位
+## <a name="add-an-optional-description-field"></a>新增選擇的標題欄位
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
@@ -85,7 +85,7 @@ ms.locfileid: "78230569"
 dotnet pack
 ```
 
-輸出將顯示 `.nupkg` 檔案的路徑。
+輸出會顯示 `.nupkg` 檔案的路徑。
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -98,13 +98,13 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>建置時自動產生套件
 
-若要在您執行 `dotnet pack` 時自動執行 `dotnet build`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：
+若要在您執行 `dotnet build` 時自動執行 `dotnet pack`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-當您在解決方案上執行 `dotnet pack` 時，這會封裝解決方案中可封裝的所有專案 ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性會設定為 `true`)。
+在解決方案`dotnet pack`上執行時,這將打包解決方案中可打包的所有專案[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties)(屬性設置`true`為)。
 
 > [!NOTE]
 > 當您自動產生套件時，封裝的時間會增加專案的建置時間。
@@ -125,15 +125,15 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：
 
 - [套件版本控制](../concepts/package-versioning.md)
-- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
-- [新增套件圖示](../reference/nuspec.md#icon)
+- [支援多個目標 Framework](../create-packages/multiple-target-frameworks-project-file.md)
+- [新增包圖示](../reference/nuspec.md#icon)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
-- [發行前版本](../create-packages/prerelease-packages.md)
+- [預發行版本](../create-packages/prerelease-packages.md)
 - [設定套件類型](../create-packages/set-package-type.md)
 - [建立包含 COM Interop 組件的套件](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 最後，請注意其他套件類型：
 
-- [原生套件](../guides/native-packages.md)
+- [本機包](../guides/native-packages.md)
 - [符號套件](../create-packages/symbol-packages-snupkg.md)

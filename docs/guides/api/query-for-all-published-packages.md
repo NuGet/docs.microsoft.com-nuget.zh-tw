@@ -7,11 +7,11 @@ ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
 ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551074"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498226"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>查詢發佈至 nuget.org 的所有套件
 
@@ -30,9 +30,9 @@ ms.locfileid: "43551074"
 
 因此，您可遵循下列指南，以更可靠且未來有保證的方式處理上述案例。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
-本指南的中心是 [NuGet API](../../api/overview.md) 的資源，稱之為**目錄**。 目錄是僅附加的 API，可讓呼叫端查看 nuget.org 新增、修改及刪除套件的完整記錄。如果您對發佈至 nuget.org 的所有套件或甚至套件子集有興趣，目錄會是隨時將目前可用套件集保持在最新狀態的絕佳方式。
+本指南的中心是 [NuGet API](../../api/overview.md) 的資源，稱之為**目錄**。 目錄是僅追加 API,允許呼叫方檢視從nuget.org添加、修改和刪除的包的完整歷史記錄。如果您對發佈到nuget.org的所有包子集感興趣,則目錄是隨著時間的推移保持當前可用包集最新狀態的好方法。
 
 本指南旨在成為總體的逐步解說，但如果您對目錄的細部詳細資料有興趣，請參閱其 [API 參考文件](../../api/catalog-resource.md)。
 
@@ -56,7 +56,7 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
     GET https://api.nuget.org/v3/index.json
 
-服務文件是包含所有 nuget.org 資源的 JSON 文件。尋找 `@type` 屬性值為 `Catalog/3.0.0` 的資源。 相關聯的 `@id` 屬性值是目錄索引本身的 URL。 
+服務文檔是 JSON 文件,其中包含nuget.org上的所有資源。尋找有`@type`的屬性值 的資源`Catalog/3.0.0`。 相關聯的 `@id` 屬性值是目錄索引本身的 URL。 
 
 ## <a name="find-new-catalog-leaves"></a>尋找新的目錄分葉
 

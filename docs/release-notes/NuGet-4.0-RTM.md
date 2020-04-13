@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
 ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547757"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496598"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>NuGet 4.0 RTM 版本資訊
 
@@ -112,7 +112,7 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 [NuGet 4.0 RC 版本資訊](../release-notes/nuget-4.0-RC.md) - 列出所有 NuGet 4.0 RC 修正的問題
 
-### <a name="features"></a>功能
+### <a name="features"></a>特性
 
 - NuGet.Core.sln 中的當地語系化字串 - [#2041](https://github.com/NuGet/Home/issues/2041)
 

@@ -7,25 +7,25 @@ ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432565"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498693"
 ---
 # <a name="nuget-44-release-notes"></a>NuGet 4.4 版本資訊
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 隨附 NuGet 4.4 RTM。
 
-## <a name="summary-whats-new-in-440"></a>摘要: 4.4.0 中的新功能
+## <a name="summary-whats-new-in-440"></a>摘要:4.4.0 中的新增功能
 
-## <a name="summary-whats-new-in-442"></a>摘要: 4.4.2 中的新功能
+## <a name="summary-whats-new-in-442"></a>摘要:4.4.2 中的新增功能
 
-* 安全性修正：在 ~/.nuget 內建立的檔案權限過於開放 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
 
-## <a name="summary-whats-new-in-443"></a>摘要: 4.4.3 中的新功能
+## <a name="summary-whats-new-in-443"></a>摘要:4.4.3 中的新增功能
 
-* 安全性修正：NUPKG 內的檔案可以有 NUPKG 目錄上層的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
+* 安全修復:NUPKG 內部的檔可以在 NUPKG 目錄上方具有相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
@@ -77,7 +77,7 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 [NuGet 4.3 RTM 版本資訊](../release-notes/nuget-4.3-RTM.md) - 列出所有 NuGet 4.3 RTM 修正的問題
 
-### <a name="features"></a>功能
+### <a name="features"></a>特性
 
 - PMC 和 NuGet PM UI 案例中的輕量型解決方案載入支援 - [#5180](https://github.com/NuGet/Home/issues/5180)
 
@@ -175,15 +175,15 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 - [警告和錯誤] NoWarn 不會以可轉移方式流過 P2P 參考 - [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- 輕量型解決方案負載：PM UI、PMC 及 IV 的通用核心 - [#5057](https://github.com/NuGet/Home/issues/5057)
+- 輕量型解決方案載入：PM UI、PMC 和 IV 的通用核心 - - [#5057](https://github.com/NuGet/Home/issues/5057)
 
-- 輕量型解決方案負載：支援 - PMC - [#5053](https://github.com/NuGet/Home/issues/5053)
+- 輕量型解決方案載入：支援 - PMC - [#5053](https://github.com/NuGet/Home/issues/5053)
 
 - 新增 Visual Studio 所觸發的預先還原 MSBuild 目標支援 - [#4781](https://github.com/NuGet/Home/issues/4781)
 
 - 將公用目標新增至可使用 BeforeTargets 參考的 NuGet.targets - [#4634](https://github.com/NuGet/Home/issues/4634)
 
-- 套件目標無法使用建置動作正確地建立 contentFiles - [#4166](https://github.com/NuGet/Home/issues/4166)
+- 封裝目標無法使用建置動作正確地建立 contentFiles - [#4166](https://github.com/NuGet/Home/issues/4166)
 
 - RestoreOperationLogger.Do 封鎖執行緒集區執行緒 - [#5663](https://github.com/NuGet/Home/issues/5663)
 

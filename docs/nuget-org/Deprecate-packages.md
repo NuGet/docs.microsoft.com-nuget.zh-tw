@@ -1,58 +1,58 @@
 ---
-title: Nuget.org 上的淘汰套件
-description: 淘汰封裝程式的詳細描述，以及用戶端如何顯示此資訊
+title: 棄用nuget.org包
+description: 有關棄用套件程序以及客戶端如何顯示此資訊的詳細說明
 author: anangaur
 ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
 ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "74096876"
 ---
-# <a name="deprecating-packages"></a>淘汰套件
+# <a name="deprecating-packages"></a>棄用包
 
-如果您不再維護封裝，或想要鼓勵套件的取用者移至另一個套件，您可以取代套件。 
+如果您不再維護包,或者希望鼓勵包的消費者轉到其他包,則可以棄用包。 
 
-套件取代與**取消列出**您的套件不同，如下所述：
-* **取消列出**套件會防止其探索，因為它會隱藏在搜尋結果中。 
-* **淘汰**封裝可讓您的套件現有取用者瞭解其是否已在其專案中安裝或使用。 它也會讓他們知道取代的原因，以及您所指定的替代建議套件（封裝發行者）。 淘汰封裝不會取消列出套件。 
+包棄用不同於**取消列出**包,如下所述:
+* **取消列出**包會阻止其發現,因為它隱藏在搜尋結果中。 
+* **棄用**包可以讓包的現有消費者瞭解其是否在其專案中安裝或使用。 它還讓他們知道棄用的原因以及您指定的備用建議包(包發行者)。 棄用包不會取消列出包。 
 
-身為發行者，您可以選擇取消列出和取代套件。
+作為發行者,您可以選擇取消列出包和棄用包。
 
-## <a name="deprecation-workflow"></a>淘汰工作流程
-1. 若要取代封裝，請移至 [**管理套件**]，**然後選取 [** 淘汰]：
+## <a name="deprecation-workflow"></a>棄用工作流
+1. 要棄用套件,請轉到 **"管理包"** 並選擇 **「棄用**」 :
 
-    ![移至取代封裝選項](media/deprecation-select-option.png)
+    ![跳到棄用套件選項](media/deprecation-select-option.png)
 
-2. 選取您想要取代的版本。 如果您想要取代所有版本，請選擇 [**選取所有版本**] 選項。
+2. 選擇要棄用的版本。 如果要棄用所有版本,**請選擇「選擇所有版本**」選項。
 
-    ![選取要取代的套件版本](media/deprecation-select-version.png)
+    ![選擇要棄用的套件版本](media/deprecation-select-version.png)
 
-3. 選擇取代的原因。 如果不再維護封裝，請選擇 [**舊版**] 選項。 如果特定版本有重大錯誤，請選擇 [**有重大錯誤**] 選項。 基於任何其他原因，請選取 [**其他**]。 您一律可以為擁有者指定替代的建議套件（和版本）和自訂訊息。 
+3. 選擇棄用的原因。 如果包不再維護,請選擇 **「舊版」** 選項。 如果特定版本存在嚴重錯誤,請選擇 **「具有嚴重錯誤」** 選項。 出於任何其他原因,請選擇 **"其他**"。 您始終可以指定備用建議的包(和版本)和給擁有者的自定義消息。 
 
-    ![選取原因替代套件建議和自訂訊息](media/deprecation-save.png)
+    ![選擇備用套件建議與自訂訊息的原因](media/deprecation-save.png)
 
 > [!Note]
-> 自訂訊息只會顯示在 nuget.org 上，但不會顯示在用戶端上。 目前，`dotnet.exe` 和 NuGet 套件管理員之類的用戶端不會顯示自訂訊息。
+> 自定義消息僅在nuget.org上顯示,但不顯示在用戶端。 目前,像和`dotnet.exe`NuGet 包管理器這樣的用戶端不顯示自訂訊息。
 
-## <a name="client-experience-for-deprecated-packages"></a>已淘汰套件的用戶端體驗
-一旦套件已淘汰，其取用者會以下列方式收到通知（視使用的用戶端而定）。
+## <a name="client-experience-for-deprecated-packages"></a>棄用套件的客戶端體驗
+一旦包被棄用,就會以下列方式通知其消費者(取決於所使用的用戶端)。
 
 ### <a name="visual-studio"></a>Visual Studio 
-*從 Visual Studio 2019 版本16.3 開始提供*
+*可從 Visual Studio 2019 版本 16.3 開始*
 
-Visual Studio 警告在 [`Installed`] 索引標籤上已被取代的套件使用方式。它會顯示封裝的警告及其取代資訊（包括已淘汰的原因，以及要改用的替代封裝，如果有的話）。
+Visual Studio`Installed`警告 選項卡上已棄用的包的使用。它將顯示包及其棄用資訊的警告(包括棄用的原因和備用包(如果存在)。如果存在, 則改為使用。
 
-   ![套件管理員 Visual Studio 已安裝 索引標籤上的已淘汰套件](media/deprecation-vs.png)
+   ![在安裝的「視覺工作室」選項卡上的已棄用包,選項卡上已安裝的包管理器](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet .exe
-*從 .NET SDK 3.0 開始提供*
+### <a name="dotnetexe"></a>dotnet.exe
+*可從 .NET SDK 3.0 開始*
 
-如果您使用 dotnet，您可以在方案或專案資料夾上執行命令 `dotnet list package --deprecated`，以取得已淘汰的套件清單以及取代資訊：
+如果使用 dotnet.exe,則可以在解決方案或專案`dotnet list package --deprecated`資料夾 上執行該指令,以取得有關棄用套件的清單以及棄用資訊:
 
 ```
 > dotnet list package --deprecated

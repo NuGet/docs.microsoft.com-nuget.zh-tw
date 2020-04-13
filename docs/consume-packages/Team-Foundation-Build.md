@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610995"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>使用 Team Foundation Build 設定套件還原
@@ -84,7 +84,7 @@ nuget restore path\to\solution.sln
 ### <a name="ignore-files"></a>忽略檔案
 
 > [!Note]
-> 目前 [NuGet 用戶端中有已知 Bug](https://nuget.codeplex.com/workitem/4072)，可讓用戶端仍然將 `packages` 資料夾新增至版本設定。 因應措施是停用原始檔控制整合。 若要這樣做，您需要在與解決方案平行的 `.nuget` 資料夾中有 `Nuget.Config ` 檔案。 如果此資料夾尚未存在，則您需要建立它。 在 [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) 中，新增下列內容：
+> 目前 [NuGet 用戶端中有已知 Bug](https://nuget.codeplex.com/workitem/4072)，可讓用戶端仍然將 `packages` 資料夾新增至版本設定。 因應措施是停用原始檔控制整合。 若要這樣做，您需要在與解決方案平行的 `.nuget` 資料夾中有 `Nuget.Config ` 檔案。 如果此資料夾尚未存在，則您需要建立它。 在[`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md)中,新增以下內容:
 
 ```xml
 <configuration>

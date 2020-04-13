@@ -3,10 +3,10 @@ title: licenses.nuget.org
 author: agr
 ms.date: 02/22/2019
 ms.openlocfilehash: 717cf8c47335c620410be71300b07de82799e1d3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427113"
 ---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
@@ -36,7 +36,7 @@ Licenses.nuget.org 是為了讓人們在瀏覽器中檢視並不會提供任何�
 | (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
 | (僅限 LGPL 2.0，FLTK 或 Apache-2.0+ 例外) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
-服務僅支援 nuget.org 接受的授權識別碼和授權例外狀況識別碼。包含不受支援授權識別碼或授權例外狀況識別碼的所有授權運算式，或是不符合授權運算式語法的所有授權運算式，都視為無效。
+該服務僅支援nuget.org接受的許可證標識符和許可證例外標識符。包含不支援的許可證識別碼或許可證異常識別碼或不符合許可證表達式語法的所有許可證表達式都被視爲無效。
 
 #### <a name="response"></a>回應
 
@@ -51,7 +51,7 @@ Licenses.nuget.org 會回應包含有效授權運算式且具有 HTTP 200 狀態
 
 #### <a name="request"></a>要求
 
-授權例外狀況識別碼必須是 URL 編碼，並用作 licenses.nuget.org 要求中的路徑。只有單一授權例外狀況識別碼可以在單一要求中提供。 除了授權例外狀況識別碼以外沒有額外字元可以存在於 URL 的路徑部分中。
+許可證異常識別碼必須對網址進行編碼,並用作請求licenses.nuget.org中的路徑。在單個請求中只能提供單個許可證異常標識符。 除了授權例外狀況識別碼以外沒有額外字元可以存在於 URL 的路徑部分中。
 
 | 授權例外狀況識別碼 | 要使用的 URL |
 |:---|:---|

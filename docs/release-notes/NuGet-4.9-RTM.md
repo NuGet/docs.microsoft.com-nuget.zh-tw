@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432487"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496455"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 版本資訊
 
@@ -19,14 +19,14 @@ NuGet 配送車：
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
 | [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 15.9.0 版](https://visualstudio.microsoft.com/downloads/) | [2.1.500、2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.1**](https://nuget.org/downloads) | N/A | N/A |
+| [**4.9.1**](https://nuget.org/downloads) | n/a | n/a |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.4 版](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.6 版](https://visualstudio.microsoft.com/downloads/) | [2.1.504、2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
-## <a name="summary-whats-new-in-490"></a>摘要: 4.9.0 中的新功能
+## <a name="summary-whats-new-in-490"></a>摘要：4.9.0 的新功能
 
-* 簽署：讓 ClientPolicies 要求使用 NuGet.Config 中所列的一組受信任作者與存放庫 - [#6961](https://github.com/NuGet/Home/issues/6961)、[部落格文章](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
+* 簽署:讓用戶端政策需要使用 NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961)[部落格文章中](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)列出的一組受信任的作者和儲存函式庫
 
 * 建立 ".snupkg" 檔案以在套件中包含符號 -- 加強推送以了解 nuget 通訊協定以接受符號伺服器的 snupkg 檔案 - [#6878](https://github.com/NuGet/Home/issues/6878)、[部落格文章](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
@@ -76,7 +76,7 @@ NuGet 配送車：
 
 * 不正確地使用 nuget 套件的 nuspec 版本標記時沒有幫助的錯誤訊息 - [#2714](https://github.com/NuGet/Home/issues/2714)
 
-* DCR - 簽署：支援 NuGet 通訊協定：RepositorySignatures/4.9.0 資源- [#7421](https://github.com/NuGet/Home/issues/7421)
+* DCR - 簽署：支援 NuGet 通訊協定：RepositorySignatures/4.9.0 資源 - [#7421](https://github.com/NuGet/Home/issues/7421)
 
 * DCR - 現在將會在套件擷取期間建立 .nupkg.metadata 檔案 - 包含 "content-hash" - [#7283](https://github.com/NuGet/Home/issues/7283)
 
@@ -84,7 +84,7 @@ NuGet 配送車：
 
 [此 4.9.0 版中修更的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>摘要: 4.9.1 中的新功能
+## <a name="summary-whats-new-in-491"></a>摘要：4.9.1 的新功能
 
 * 新增透過新的命令受信任簽署者將寫入項目讀取到 nuget.config 的支援 - [#7480](https://github.com/NuGet/Home/issues/7480)
 
@@ -98,7 +98,7 @@ NuGet 配送車：
 
 [此 4.9.1 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>摘要: 4.9.2 中的新功能
+## <a name="summary-whats-new-in-492"></a>摘要:4.9.2 中的新增功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
@@ -110,7 +110,7 @@ NuGet 配送車：
 
 [此 4.9.2 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-## <a name="summary-whats-new-in-493"></a>摘要: 4.9.3 中的新功能
+## <a name="summary-whats-new-in-493"></a>摘要:4.9.3 中的新增功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 #### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>「使用鎖定檔案的可重複的套件還原」問題
@@ -140,22 +140,22 @@ NuGet 配送車：
 
 [此 4.9.3 版本修正的所有問題清單](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 
-## <a name="summary-whats-new-in-494"></a>摘要: 4.9.4 中的新功能
+## <a name="summary-whats-new-in-494"></a>摘要:4.9.4 中的新增功能
 
-* 安全性修正：在 ~/.nuget 內建立的檔案權限過於開放 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
 
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive 在 Mac 上發生錯誤。 - [#7519](https://github.com/NuGet/Home/issues/7519)
+### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519"></a>dotnet nuget push --interactive 在 Mac 上發生錯誤。 - [#7519](https://github.com/NuGet/Home/issues/7519)
 
 #### <a name="issue"></a>問題
 `--interactive` 引數未由 dotnet cli 轉送並導致錯誤 `error: Missing value for option 'interactive'`
 
 #### <a name="workaround"></a>因應措施
-使用互動式選項 (例如 `dotnet restore --interactive`) 執行任何其他 dotnet 命令並驗證。 驗證接著可能會由認證提供者快取。 接著，執行 `dotnet nuget push`。
+使用互動式選項 (例如 `dotnet restore --interactive`) 執行任何其他 dotnet 命令並驗證。 驗證接著可能會由認證提供者快取。 然後執行 `dotnet nuget push`。
 
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>FallbackFolders 中由 .NET Core SDK 所安裝的套件是使用自訂方式安裝，而且未通過簽章驗證。 - [#7414](https://github.com/NuGet/Home/issues/7414)
+### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414"></a>FallbackFolders 中由 .NET Core SDK 所安裝的套件是使用自訂方式安裝，而且未通過簽章驗證。 - [#7414](https://github.com/NuGet/Home/issues/7414)
 
 #### <a name="issue"></a>問題
 使用 dotnet.exe 2.x 來還原以 netcoreapp 1.x 與 netcoreapp 2.x 為多目標的專案時，後援資料夾被視為檔案摘要。 這表示，當還原時，NuGet 將會從後援資料夾挑選套件並嘗試將它安裝到全域套件資料夾，而且會執行平常的簽署驗證並失敗。

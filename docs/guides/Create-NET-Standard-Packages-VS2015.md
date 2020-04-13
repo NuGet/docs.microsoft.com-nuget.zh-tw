@@ -6,13 +6,13 @@ ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380715"
 ---
-# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET Standard 和 .NET Framework 套件
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>使用 Visual Studio 2015 建立 NET Standard 和 NET Framework 套件
 
 **注意：** 建議使用 Visual Studio 2017 來開發 .NET Standard 程式庫。 可以使用 Visual Studio 2015，但 .NET Core 工具僅提供為「預覽」階段。 如需使用 NuGet 4.x+ 和 Visual Studio 2017 的資訊，請參閱[使用 Visual Studio 2017 建立和發佈套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
@@ -27,21 +27,21 @@ ms.locfileid: "72380715"
 1. NuGet CLI。 從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 nuget.exe，並將它儲存至您選擇的位置。 如果尚未新增，則請將該位置新增至您的 PATH 環境變數。
 
     > [!Note]
-    > nuget.exe 本身是 CLI 工具，不是安裝程式，所以請務必從瀏覽器儲存下載的檔案，而不是執行它。
+    > nuget.exe 本身是 CLI 工具，不是安裝程式，因此請務必從瀏覽器儲存下載的檔案，而不是執行它。
 
 ## <a name="create-the-class-library-project"></a>建立類別庫專案
 
-1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]，依序展開 [Visual C#] > [Windows] 節點，選取 [類別庫 (可攜式)]將名稱變更為 AppLogger，然後選取 [確定]。
+1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]****，依序展開 [Visual C#] > [Windows]**** 節點，選取 [類別庫 (可攜式)]**** 將名稱變更為 AppLogger，然後選取 [確定]****。
 
     ![建立新的類別庫專案](media/NetStandard-NewProject.png)
 
-1. 在顯示的 [加入可攜式類別庫] 對話方塊中，選取 `.NET Framework 4.6` 和 `ASP.NET Core 1.0` 的選項。 (如果目標是 .NET Framework，您可以選取任何適當的選項。)
+1. 在顯示的 [加入可攜式類別庫]**** 對話方塊中，選取 `.NET Framework 4.6` 和 `ASP.NET Core 1.0` 的選項。 (如果目標是 .NET Framework，您可以選取任何適當的選項。)
 
-1. 如果目標是 .NET Standard，在 [方案總管] 中，以滑鼠右鍵按一下 [`AppLogger (Portable)`]，選取 [屬性]，選取 [程式庫] 索引標籤，然後在 [目標] 區段中選取 [目標 .NET 平台標準]。 此動作會提示您確認，之後您就可以從下拉式清單中選取 `.NET Standard 1.4` (或其他可用版本)：
+1. 如果目標是 .NET Standard，在 [方案總管] 中，以滑鼠右鍵按一下 [`AppLogger (Portable)`]，選取 [屬性]****，選取 [程式庫]**** 索引標籤，然後在 [目標]**** 區段中選取 [目標 .NET 平台標準]****。 此動作會提示您確認，之後您就可以從下拉式清單中選取 `.NET Standard 1.4` (或其他可用版本)：
 
     ![將目標設定為 .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
 
-1. 按一下 [組建] 索引標籤，將 [組態] 變更為 `Release`，並核取 [XML 文件檔] 方塊。
+1. 按一下 [組建]**** 索引標籤，將 [組態]**** 變更為 `Release`，並核取 [XML 文件檔]**** 方塊。
 
 1. 將程式碼新增至元件，例如：
 
@@ -68,7 +68,7 @@ ms.locfileid: "72380715"
     nuget spec
     ```
 
-1. 在編輯器中開啟 `AppLogger.nuspec`，更新它使符合下列內容，以適當的值取代 YOUR_NAME。 尤其是在整個 nuget.org 中，`<id>` 值必須是唯一的 (請參閱[建立套件](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。
+1. 在編輯器中開啟 `AppLogger.nuspec`，更新它使符合下列內容，以適當的值取代 YOUR_NAME。 該`<id>`值(特別是)必須在nuget.org之間是唯[一的(請參閱創建包](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)中描述的命名約定)。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。
 
     ```xml
     <?xml version="1.0"?>
@@ -110,7 +110,7 @@ ms.locfileid: "72380715"
     </files>
     ```
 
-1. 以滑鼠右鍵按一下解決方案，然後選取 [組建方案] 產生套件的所有檔案。
+1. 以滑鼠右鍵按一下解決方案，然後選取 [組建方案]**** 產生套件的所有檔案。
 
 ### <a name="declaring-dependencies"></a>宣告相依性
 
@@ -159,17 +159,17 @@ nuget pack AppLogger.nuspec
 > [!Tip]
 > `.nupkg` 檔案只是一個使用不同副檔名的 ZIP 檔。 然後，您也可以將 `.nupkg` 變更為 `.zip` 來檢查套件內容，但是請記住要先還原副檔名，再將套件上傳至 nuget.org。
 
-若要讓其他開發人員使用您的套件，請遵循[發佈套件](../nuget-org/publish-a-package.md)上的指示。
+要使包可供其他開發人員使用,請按照[發佈包](../nuget-org/publish-a-package.md)的說明操作。
 
 請注意，`pack` 在 Mac OS X 上需要 Mono 4.4.2，而且無法在 Linux 系統上運作。 在 Mac 上，您也必須將 `.nuspec` 檔案中的 Windows 路徑名稱轉換成 Unix 模式路徑。
 
 ## <a name="related-topics"></a>相關主題
 
 - [.nuspec 參考](../reference/nuspec.md)
-- [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
+- [支援多個.NET 架構版本](../create-packages/supporting-multiple-target-frameworks.md)
 - [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
-- [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
-- [符號套件](../create-packages/symbol-packages-snupkg.md)
+- [建立本地端](../create-packages/creating-localized-packages.md)
+- [符號包](../create-packages/symbol-packages-snupkg.md)
 - [套件版本控制](../concepts/package-versioning.md)
 - [.NET Standard 程式庫文件](/dotnet/articles/standard/library)
 - [從 .NET Framework 移轉到 .NET Core](/dotnet/articles/core/porting/index)

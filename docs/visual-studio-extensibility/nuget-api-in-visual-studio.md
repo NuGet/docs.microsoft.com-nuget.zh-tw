@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980972"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495919"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio 中的 NuGet API
 
@@ -18,22 +18,22 @@ ms.locfileid: "50980972"
 
 截至 NuGet 3.3+，NuGet 匯出下列服務，它們全都是位於 `NuGet.VisualStudio.dll` 組件中的 `NuGet.VisualStudio` 命名空間：
 
-- [`IRegistryKey`](#iregistrykey-interface)：從登錄子機碼值擷取值的方法。
-- [`IVsPackageInstaller`](#ivspackageinstaller-interface)：將 NuGet 套件安裝到專案的方法。
-- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface)：套件安裝/解除安裝的事件。
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface)：套件安裝/解除安裝的批次事件。
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface)：在目前解決方案中擷取已安裝套件，以及檢查指定套件是否安裝在專案中的方法。
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface)：為 NuGet 套件提供替代之套件管理員建議的方法。
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface)：擷取已安裝套件之相關資訊的方法。
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface)：擷取執行 NuGet 動作所在專案相關資訊的方法。
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface)：還原專案中已安裝套件的方法。
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface)：擷取 NuGet 套件來源清單的方法。
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface)：從專案解除安裝 NuGet 套件的方法。
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface)：針對專案/項目範本而設計以包含預先安裝的套件。這個介面「不是」用來從程式碼叫用，且沒有公用方法。
+- [`IRegistryKey`](#iregistrykey-interface):從註冊表子鍵檢索值的方法。
+- [`IVsPackageInstaller`](#ivspackageinstaller-interface):將 NuGet 套件安裝到專案中的方法。
+- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface):程式包安裝/卸載的事件。
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface):用於包安裝/卸載的批處理事件。
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface):檢索當前解決方案中已安裝的包以及檢查給定包是否安裝在專案中的方法。
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface):為 NuGet 包提供替代包管理員建議的方法。
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface):檢索有關已安裝包的資訊的方法。
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface):檢索執行 NuGet 操作的項目的資訊的方法。
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface):還原在專案中安裝的包的方法。
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface):檢索 NuGet 包源清單的方法。
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface):從專案中卸載 NuGet 套件的方法。
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface):為專案/專案範本設計,包括預安裝的套件;此介面*不是*從代碼調用的,並且沒有公共方法。
 
 ## <a name="using-nuget-services"></a>使用 NuGet 服務
 
-1. 將 [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) 套件安裝到您的專案，其中包含 `NuGet.VisualStudio.dll` 組件。
+1. 將[`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio)套件安裝到包含程式集的項目`NuGet.VisualStudio.dll`中 。
 
     安裝之後，套件會自動將組件參考的**內嵌 Interop 類型**屬性設為 **True**。 這可讓您的程式碼在使用者更新為較新版本的 NuGet 時具有版本變更方面的彈性。
 
@@ -57,7 +57,7 @@ ms.locfileid: "50980972"
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-NuGet.VisualStudio 原始程式碼包含在 [NuGet.Clients 存放庫](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio) 內，供您參考。
+NuGet.VisualStudio 原始程式碼包含在 [NuGet.Clients 儲存機制](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio) 內，供您參考。
 
 ## <a name="iregistrykey-interface"></a>IRegistryKey 介面
 

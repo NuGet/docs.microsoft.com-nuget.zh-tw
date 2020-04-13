@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426943"
 ---
 # <a name="scoped-api-keys"></a>限定範圍的 API 金鑰
@@ -47,7 +47,7 @@ ms.locfileid: "67426943"
 
 ## <a name="use-glob-patterns"></a>使用 Glob 模式
 
-如果您要使用多個套件，且有龐大的套件清單要管理，您可以選擇使用萬用字元模式，同時選取多個套件。 例如，如果您想要授與金鑰給所有套件識別碼開頭為 `Fabrikam.Service` 的特定範圍，您可以在 [Glob 模式]  文字方塊中指定 `fabrikam.service.*` 來執行此作業。
+如果您要使用多個套件，且有龐大的套件清單要管理，您可以選擇使用萬用字元模式，同時選取多個套件。 例如，如果您想要授與金鑰給所有套件識別碼開頭為 `Fabrikam.Service` 的特定範圍，您可以在 [Glob 模式]**** 文字方塊中指定 `fabrikam.service.*` 來執行此作業。
 
 ![建立 API 金鑰](media/scoped-api-keys-glob-pattern.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "67426943"
 
 ## <a name="obtain-api-keys-securely"></a>安全取得 API 金鑰
 
-基於安全性，新建立的金鑰絕不會顯示在螢幕中，且只能使用 [複製]  按鈕取得。 同樣地，頁面重新整理後即無法存取金鑰。
+基於安全性，新建立的金鑰絕不會顯示在螢幕中，且只能使用 [複製]**** 按鈕取得。 同樣地，頁面重新整理後即無法存取金鑰。
 
 ![建立 API 金鑰](media/scoped-api-keys-obtain-keys.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "67426943"
 
 ### <a name="can-i-delete-my-legacy-api-key-or-discontinue-using-now"></a>我可以刪除舊版 API 金鑰或立即停止嗎？
 
-可以。 您可以 (而且可能應該) 刪除舊版的 API 金鑰。
+是。 您可以 (而且可能應該) 刪除舊版的 API 金鑰。
 
 ### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>我可以找回不小心刪除的 API 金鑰嗎？
 

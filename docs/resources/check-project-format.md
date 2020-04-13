@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488485"
 ---
 # <a name="identify-the-project-format"></a>識別專案格式
@@ -46,7 +46,7 @@ NuGet 可搭配所有 .NET 專案使用。 不過，專案格式 (SDK 樣式或�
 
 若您在 Visual Studio 中工作，您可以使用下列其中一種方法快速檢查專案格式：
 
-- 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [編輯 myprojectname.csproj]  。
+- 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [編輯 myprojectname.csproj]****。
 
    只有使用 SDK 樣式屬性的專案 (且必須使用 Visual Studio 2017 與更新版本) 才能使用此選項。 否則，請使用其他方法。
 
@@ -54,17 +54,17 @@ NuGet 可搭配所有 .NET 專案使用。 不過，專案格式 (SDK 樣式或�
 
    SDK 樣式專案會在專案檔中顯示 [SDK 屬性](/dotnet/core/tools/csproj#additions)。
    
-- 從 [專案]  功能表，選擇 [卸載專案]  (或以滑鼠右鍵按一下專案並選擇 [卸載專案]  )。
+- 從 [專案]**** 功能表，選擇 [卸載專案]**** (或以滑鼠右鍵按一下專案並選擇 [卸載專案]****)。
 
    此專案將不會在專案檔中包括 SDK 屬性。 它不是 SDK 樣式專案。
 
    ![卸載專案](media/unload-project.png)
 
-   接著，以滑鼠右鍵按一下卸載的專案並選擇 [編輯 myprojectname.csproj]  。
+   接著，以滑鼠右鍵按一下卸載的專案並選擇 [編輯 myprojectname.csproj]****。
 
 ## <a name="see-also"></a>另請參閱
 
 - [使用 dotnet CLI 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
 - [使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)
-- [建立及發行 .NET Framework 套件 (Visual Studio)](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
+- [建立和發佈 .NET 框架套件(視覺化工作室)](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
 - [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)

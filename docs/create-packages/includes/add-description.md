@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151326"
 ---
-套件的選擇性描述（顯示在封裝的 [NuGet.org] 頁面上）會從 `.csproj` 檔案中使用的 `<description></description>` 提取，或透過[nuspec](../../reference/nuspec.md)檔案中的 `$description` 提取。
+包的可選說明顯示在包的NuGet.org頁面上,`<description></description>`要麼`.csproj`從 檔案中使用的中拉,`$description`要麼通過[.nuspec 檔中](../../reference/nuspec.md)拉。
 
-[_描述_] 欄位的範例會顯示在 .net 封裝之 `.csproj` 檔案的下列 XML 文字中：
+_描述_欄位的範例顯示在 .NET 套件`.csproj`的檔案的以下 XML 文字中:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

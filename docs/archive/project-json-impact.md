@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488202"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
@@ -45,7 +45,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 內容檔案仍然可以載入套件中，且目前仍予忽略，不過使用者仍可以將其複製到正確的位置。
 
-在下列網頁中可以看到其中一個帶回內容檔案的提議，而且可以追蹤其進度：[https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627) \(英文\)。
+您可以看到一個建議,用於修復內容檔,並遵循其進度,如下所示: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)。
 
 ## <a name="impact-for-package-authors"></a>對套件作者的影響
 
@@ -63,7 +63,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 ## <a name="3x-package-format"></a>3.x 套件格式
 
-3\.x 套件格式允許數個超越 NuGet 2.x 的其他功能：
+3.x 套件格式允許數個超越 NuGet 2.x 的其他功能：
 
 1. 定義用於編譯的參考組件，和一組用於不同平台/裝置執行階段的實作組件。 可讓您充分利用平台特定的 API，同時為您的取用者提供常見的介面區。 具體而言，這讓撰寫中繼可攜式程式庫變得更容易。
 

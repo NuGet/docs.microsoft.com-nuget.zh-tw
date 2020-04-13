@@ -1,24 +1,24 @@
 ---
-title: 建立適用于 Xamarin （適用于 iOS、Android 和 Windows）的 NuGet 套件（含 Visual Studio 2017 或2019）
+title: 使用 Visual Studio 2017 或 2019 為 Xamarin(適用於 iOS、Android 和 Windows)建立 NuGet 套件
 description: 有關如何為 Xamarin 建立 NuGet 套件的端對端逐步解說，而這些套件在 iOS、Android 和 Windows 上使用原生 API。
 author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
 ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230898"
 ---
-# <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>建立具有 Visual Studio 2017 或2019之 Xamarin 的套件
+# <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>以 Visual Studio 2017 或 2019 為 Xamarin 建立套件
 
 適用於 Xamarin 的套件包含使用 iOS、Android 和 Windows (視執行階段作業系統而定) 上原生 API 的程式碼。 雖然這十分簡單，但最好是讓開發人員使用 PCL 中的套件，或透過通用 API 介面區的 .NET Standard 程式庫。
 
-在本逐步解說中，您會使用 Visual Studio 2017 或2019來建立可在 iOS、Android 和 Windows 上的行動專案中使用的跨平臺 NuGet 套件。
+在本演練中,您可以使用 Visual Studio 2017 或 2019 創建可在 iOS、Android 和 Windows 上的行動專案中使用的跨平臺 NuGet 包。
 
-1. [必要條件](#prerequisites)
+1. [先決條件](#prerequisites)
 1. [建立專案結構和抽象程式碼](#create-the-project-structure-and-abstraction-code)
 1. [撰寫平台特定程式碼](#write-your-platform-specific-code)
 1. [建立和更新 .nuspec 檔案](#create-and-update-the-nuspec-file)
@@ -27,7 +27,7 @@ ms.locfileid: "78230898"
 
 ## <a name="prerequisites"></a>Prerequisites
 
-1. 使用通用 Windows 平臺（UWP）和 Xamarin Visual Studio 2017 或2019。 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 Community Edition，當然也可以使用 Professional Edition 和 Enterprise Edition。 若要包含 UWP 和 Xamarin 工具，請選取 [自訂安裝] 並檢查適當的選項。
+1. Visual Studio 2017 或 2019 與通用 Windows 平臺 (UWP) 和 Xamarin. 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 Community Edition，當然也可以使用 Professional Edition 和 Enterprise Edition。 若要包含 UWP 和 Xamarin 工具，請選取 [自訂安裝] 並檢查適當的選項。
 1. NuGet CLI。 從 [nuget.org/downloads](https://nuget.org/downloads) 下載最新版的 nuget.exe，並將它儲存至您選擇的位置。 如果尚未新增，則請將該位置新增至您的 PATH 環境變數。
 
 > [!Note]
@@ -35,26 +35,26 @@ ms.locfileid: "78230898"
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>建立專案結構和抽象程式碼
 
-1. 下載並執行適用于 Visual Studio 的[跨平臺 .NET Standard 外掛程式範本延伸模組](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)。 這些範本可讓您輕鬆建立此逐步解說的必要專案結構。
-1. 在 Visual Studio 2017，檔案 **> 新增 > 專案**中，搜尋 `Plugin`，選取 [**跨平臺 .NET Standard 程式庫外掛程式**] 範本，將名稱變更為 LoggingLibrary，然後按一下 [確定]。
+1. 下載並執行 Visual Studio[的跨平臺 .NET 標準外掛程式樣本延伸](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)。 這些範本可讓您輕鬆建立此逐步解說的必要專案結構。
+1. 在 Visual Studio 2017 中,**檔>"新>專案**"中,搜索`Plugin`,選擇**跨平臺 .NET 標準庫外掛程式**樣本,將名稱更改為日誌記錄庫,然後單擊" 確定"
 
-    ![VS 2017 中的新空白應用程式（Xamarin. 表單可攜）專案](media/CrossPlatform-NewProject.png)
+    ![VS 2017 中的新空白應用程式 (Xamarin.Forms 可攜式) 專案](media/CrossPlatform-NewProject.png)
 
-    在 Visual Studio 2019，檔案 **> 新增 > 專案**中，搜尋 `Plugin`，選取 [**跨平臺 .NET Standard 程式庫外掛程式**] 範本，然後按 [下一步]。
+    在 Visual Studio 2019**中,檔>新的>專案**,搜索`Plugin`,選擇**跨平臺 .NET 標準庫外掛程式**樣本,然後單擊"下一步」。。
 
-    ![VS 2019 中的新空白應用程式（Xamarin. 表單可攜）專案](media/CrossPlatform-NewProject19-Part1.png)
+    ![VS 2019 年的新空白應用程式 (Xamarin.Forms 可攜式) 專案](media/CrossPlatform-NewProject19-Part1.png)
 
-    將名稱變更為 LoggingLibrary，然後按一下 [建立]。
+    將名稱更改為日誌記錄庫,然後單擊"創建"。
 
-    ![VS 2019 中的新空白應用程式（Xamarin 形式可攜）設定](media/CrossPlatform-NewProject19-Part2.png)
+    ![VS 2019 中的新空白應用程式 (Xamarin.Forms 可移植)設定](media/CrossPlatform-NewProject19-Part2.png)
 
-產生的方案包含兩個共用的專案，以及各種不同的平臺特定專案：
+產生的解決方案包含兩個共享專案以及各種特定於平臺的專案:
 
-- `ILoggingLibrary` 專案（包含在 `ILoggingLibrary.shared.cs` 檔案中）會定義元件的公用介面（API 表面區域）。 這是您在其中定義程式庫介面的位置。
-- 另一個共用專案包含 `CrossLoggingLibrary.shared.cs` 中的程式碼，可在執行時間找出抽象介面的平臺特定執行。 您通常不需要修改這個檔案。
-- 平臺特定專案（例如 `LoggingLibrary.android.cs`）各自包含介面的原生執行，其各自的 `LoggingLibraryImplementation.cs` （VS 2017）或 `LoggingLibrary.<PLATFORM>.cs` （VS 2019）檔案。 這是您建置程式庫程式碼的位置。
+- 包含在`ILoggingLibrary``ILoggingLibrary.shared.cs`檔案中的項目定義元件的公共介面(API 表面積)。 這是您在其中定義程式庫介面的位置。
+- 另一個共用專案包含代碼`CrossLoggingLibrary.shared.cs`,這些代碼將在運行時找到抽象介面特定於平台的實現。 您通常不需要修改這個檔案。
+- 特定於平臺的專案(如`LoggingLibrary.android.cs`),每個專案都在其各自`LoggingLibraryImplementation.cs`的 (VS 2017) 或`LoggingLibrary.<PLATFORM>.cs`(VS 2019) 檔中包含介面的本機實現。 這是您建置程式庫程式碼的位置。
 
-根據預設，`ILoggingLibrary` 專案的 ILoggingLibrary.shared.cs 檔包含介面定義，但沒有方法。 基於本逐步解說的目的，新增 `Log` 方法，如下所示：
+默認情況下,`ILoggingLibrary`專案的ILoggingLibrary.shared.cs檔包含介面定義,但沒有方法。 基於本逐步解說的目的，新增 `Log` 方法，如下所示：
 
 ```cs
 using System;
@@ -80,7 +80,7 @@ namespace Plugin.LoggingLibrary
 
 若要實作 `ILoggingLibrary` 介面的平台特定實作和其方法，請執行下列動作：
 
-1. 開啟每個平臺專案的 `LoggingLibraryImplementation.cs` （VS 2017）或 `LoggingLibrary.<PLATFORM>.cs` （VS 2019）檔案，並新增必要的程式碼。 例如（使用 `Android` 平臺專案）：
+1. 打開每個`LoggingLibraryImplementation.cs`平台專案的 (VS 2017) 或`LoggingLibrary.<PLATFORM>.cs`(VS 2019) 檔並添加必要的代碼。 例如(使用`Android`平台專案):
 
     ```cs
     using System;
@@ -106,10 +106,10 @@ namespace Plugin.LoggingLibrary
     ```
 
 1. 針對每個您想要支援的平台，重複專案中的這個實作。
-1. 以滑鼠右鍵按一下方案，然後選取 [建置方案] 檢查您的工作，並產生之後將封裝的成品。 如果您收到有關遺漏參考的錯誤，請以滑鼠右鍵按一下方案，然後選取 [還原 NuGet 套件] 以安裝相依性並重建。
+1. 以滑鼠右鍵按一下方案，然後選取 [建置方案]**** 檢查您的工作，並產生之後將封裝的成品。 如果您收到有關遺漏參考的錯誤，請以滑鼠右鍵按一下方案，然後選取 [還原 NuGet 套件]**** 以安裝相依性並重建。
 
 > [!Note]
-> 如果您使用 Visual Studio 2019，在選取 [**還原 NuGet 套件**] 並嘗試重建之前，您必須將 `MSBuild.Sdk.Extras` 的版本變更為 `LoggingLibrary.csproj`中的 `2.0.54`。 只有先以滑鼠右鍵按一下專案（在方案底下），然後選取 [`Unload Project`]，然後在已卸載的專案上按一下滑鼠右鍵，然後選取 [`Edit LoggingLibrary.csproj`]，才能存取這個檔案。
+> 如果您使用的是 Visual Studio 2019,在選擇 **「還原 NuGet 套件**並嘗試`MSBuild.Sdk.Extras``2.0.54`重建」`LoggingLibrary.csproj`之前,您需要將的版本更改為 。 此檔案只能透過下右鍵單擊專案(在解決方案下方)並選擇`Unload Project`存取 ,然後右鍵按一下卸載`Edit LoggingLibrary.csproj`的項目並選擇 。
 
 > [!Note]
 > 若要針對 iOS 建置，您需要連線至 Visual Studio 的網路 Mac，如　[Xamarin.iOS for Visual Studio 簡介](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)上所述。 如果您沒有可用的 Mac，請在組態管理員中清除 iOS 專案 (上述步驟 3)。
@@ -123,7 +123,7 @@ namespace Plugin.LoggingLibrary
     ```
 
 1. 將這個檔案重新命名為 `LoggingLibrary.nuspec`，並在編輯器中予以開啟。
-1. 更新檔案使其符合下列內容，並使用適當的值取代 YOUR_NAME。 尤其是在整個 nuget.org 中，`<id>` 值必須為唯一 (請參閱[建立套件](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。
+1. 更新檔案使其符合下列內容，並使用適當的值取代 YOUR_NAME。 尤其是在整個 nuget.org 中，`<id>` 值必須是唯一的 (請參閱[建立套件](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)中所述的命名慣例。 另請注意，您也必須更新作者和描述標記，否則會在封裝步驟期間發生錯誤。
 
     ```xml
     <?xml version="1.0"?>
@@ -148,7 +148,7 @@ namespace Plugin.LoggingLibrary
 
 ### <a name="add-reference-assemblies"></a>新增參考組件
 
-若要包含平台特定參考組件，請針對您的支援平台適當地將下列新增至 `<files>` 的 `LoggingLibrary.nuspec` 項目：
+若要包含平台特定參考組件，請針對您的支援平台適當地將下列新增至 `LoggingLibrary.nuspec` 的 `<files>` 項目：
 
 ```xml
 <!-- Insert below <metadata> element -->
@@ -174,7 +174,7 @@ namespace Plugin.LoggingLibrary
 ```
 
 > [!Note]
-> 若要縮短 DLL 和 XML 檔案的名稱，請以滑鼠右鍵按一下任何指定的專案，並選取 [程式庫] 索引標籤，然後變更組件名稱。
+> 若要縮短 DLL 和 XML 檔案的名稱，請以滑鼠右鍵按一下任何指定的專案，並選取 [程式庫]**** 索引標籤，然後變更組件名稱。
 
 ### <a name="add-dependencies"></a>新增相依性
 
@@ -276,8 +276,8 @@ nuget pack LoggingLibrary.nuspec
 
 ## <a name="related-topics"></a>相關主題
 
-- [Nuspec 參考](../reference/nuspec.md)
-- [符號套件](../create-packages/symbol-packages.md)
+- [努斯佩克參考](../reference/nuspec.md)
+- [符號包](../create-packages/symbol-packages.md)
 - [套件版本控制](../concepts/package-versioning.md)
 - [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
 - [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)

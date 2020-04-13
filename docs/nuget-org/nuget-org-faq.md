@@ -6,10 +6,10 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428902"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org 常見問題集
@@ -30,31 +30,31 @@ NuGet 建議簽署所有套件。 套件簽署的設計原則是已簽署的套�
 
 請注意，會自動從您套件本身產生針對套件所列出的相依性，而且無法進行編輯。
 
-此外，將套件上傳至 [int.nugettest.org](https://int.nugettest.org) 是測試及驗證您套件的好方法，完全無須將套件設為可在公開資源庫中使用。 API 端點： https://apiint.nugettest.org/v3/index.json
+此外，將套件上傳至 [int.nugettest.org](https://int.nugettest.org) 是測試及驗證您套件的好方法，完全無須將套件設為可在公開資源庫中使用。 API 端點：https://apiint.nugettest.org/v3/index.json
 
 **我可以刪除已經發行至 NuGet.org 的套件嗎？**
 
-一般而言，我們不支援刪除發行至 NuGet.org 的套件。若要深入瞭解我們的原則，請參閱[刪除套件](policies/deleting-packages.md)。
+通常,我們不支援刪除發佈到NuGet.org的包。瞭解更多關於我們[有關刪除套件的政策](policies/deleting-packages.md)。
 
-**可以保留將在未來發行之套件的名稱嗎？**
+**是否可以為預計在未來發行的套件保留名稱？**
 
-是的。 要求帳戶的套件識別碼前置詞，即可在 [NuGet.org](https://www.nuget.org/) 上保留套件的識別碼。 若要要求套件識別碼首碼，請遵循[文件](id-prefix-reservation.md)中的指示。
+是。 您可以通過為帳戶請求包 ID 前置,在[NuGet.org](https://www.nuget.org/)上為包預留 ID。 若要要求套件識別碼首碼，請遵循[文件](id-prefix-reservation.md)中的指示。
 
 **如何宣告套件擁有權？**
 
-請參閱[在 NuGet.org 上管理套件擁有者](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)。
+請參考[管理NuGet.org 套件擁有者](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)。
 
 **如何處理違反我軟體授權的套件擁有者？**
 
 鼓勵 NuGet 社群合作，以解決套件擁有者與其他軟體擁有者之間可能發生的任何爭議。 我們已製作可在要求 NuGet.org 管理員仲裁之前遵循的[爭議解決程序](policies/dispute-resolution.md)。
 
-**建議將測試套件上傳到 NuGet.org 嗎？**
+**是否建議將我的測試包上載到NuGet.org?**
 
 基於測試目的，您可以使用 [int.nugettest.org](https://int.nugettest.org) 或替代的公開 NuGet 伺服器，例如 [myget.org](https://myget.org) 或 [Azure DevOps](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/)。
 
 請注意，上傳到 int.nugettest.org 的套件不會保留。
 
-**上傳到 NuGet.org 的套件大小上限為何？**
+**我可以上傳到NuGet.org包的最大大小是多少?**
 
 NuGet.org 允許最多 250MB 的套件，但建議盡可能保持 1MB 的套件，並使用相依性將套件連結在一起。 根據經驗法則，套件只包含一個組件來避免發生衝突。
 
@@ -80,9 +80,9 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 *擷取 MTR：*
 
-- 下載[WinMTR](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download)。
-- 輸入 `api.nuget.org` 作為主機名稱，然後按一下 [啟動]。
-- 等到 [已傳送] 資料行 >= 100。
+- 下載[溫地鐵](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download)。
+- 輸入 `api.nuget.org` 作為主機名稱，然後按一下 [啟動]****。
+- 等到 [已傳送]**** 資料行 >= 100。
 
     ![擷取 MTR](media/mtr.png)
 
@@ -91,13 +91,13 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 *擷取 Fiddler：*
 
 - 安裝最新版的 [Fiddler](https://www.telerik.com/download/fiddler)。
-- 啟動 Fiddler，並使用 [檔案] > [擷取流量] 功能表來停用擷取流量。
+- 啟動 Fiddler，並使用 [檔案] > [擷取流量]**** 功能表來停用擷取流量。
 - 移除所有工作階段 (選取清單中的所有項目，並按 **Delete** 鍵)。
-- 設定 Fiddler 擷取 HTTPS 流量，方法是核取 [工具] > [Fiddler 選項] 功能表的 [HTTPS] 索引標籤中的 [Decrypt HTTPS traffic] (將 HTTPS 流量解密)。
+- 設定 Fiddler 擷取 HTTPS 流量，方法是核取 [工具] > [Fiddler 選項]**** 功能表的 [HTTPS]**** 索引標籤中的 [Decrypt HTTPS traffic] (將 HTTPS 流量解密)****。
 - 關閉 Visual Studio。
-- 啟用 [檔案] > [擷取流量] 功能表。
+- 啟用 [檔案] > [擷取流量]**** 功能表。
 - 啟動 Visual Studio 或 nuget.exe，然後執行無法運作的動作。 這些動作所產生的流量應該會顯示在 Fiddler 中。
-- 執行動作之後，請使用 [檔案] > [儲存] > [所有工作階段] 來儲存所擷取的工作階段。
+- 執行動作之後，請使用 [檔案] > [儲存] > [所有工作階段]**** 來儲存所擷取的工作階段。
 
 注意：可能必須將 `HTTP_PROXY` 環境變數設定為 `http://127.0.0.1:8888`，以透過 Fiddler 路由傳送 NuGet 流量。
 
@@ -107,61 +107,61 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 ### <a name="how-to-recover-nugetorg-password-login"></a>如何復原 NuGet.org 密碼登入？
 
-請注意，[NuGet.org 密碼登入已中止](https://blog.nuget.org/20180515/NuGet.org-will-only-support-MSA-AAD-starting-June.html)，您只能使用個人 Microsoft 帳戶 (MSA) 或 Azure Active Directory (AAD) 帳戶登入 NuGet.org。 不過，如果您無法存取已建立關聯的 MSA/AAD 帳戶，就必須使用密碼登入來復原 NuGet.org 帳戶。 在此情況下，請遵循下列步驟。
-- **需求：** 您必須能夠存取與您需要復原密碼的帳戶相關聯的電子郵件。
+請注意[,NuGet.org密碼登錄已停止](https://blog.nuget.org/20180515/NuGet.org-will-only-support-MSA-AAD-starting-June.html),登錄NuGet.org的唯一方法是使用個人 Microsoft 帳戶 (MSA) 或 Azure 活動目錄 (AAD) 帳戶。 不過，如果您無法存取已建立關聯的 MSA/AAD 帳戶，就必須使用密碼登入來復原 NuGet.org 帳戶。 在此情況下，請遵循下列步驟。
+- **要求:** 您需要有權訪問與需要恢復密碼的帳戶關聯的電子郵件。
 - 前往[忘記密碼頁面](https://www.nuget.org/account/ForgotPassword)
-- 輸入與要還原之 NuGet.org 帳戶建立關聯的**電子郵件**地址。
-- 按一下 [傳送] 按鈕。
+- 輸入與要回復的NuGet.org帳戶關聯的**電子郵件地址**。
+- 按一下 [傳送]**** 按鈕。
 - 您會收到寄給指定電子郵件地址帳戶，且附有重設密碼連結的電子郵件。 按一下此連結，然後設定新密碼。 若您找不到電子郵件，請檢查「垃圾郵件」資料夾。
 - 完成後，您便可在 NuGet 上以使用者名稱/密碼登入。
-- 若要以使用者名稱/密碼登入，請使用 **NuGet.org 登入頁面**上的[使用 Nuget.org 帳戶登入](https://www.nuget.org/users/account/LogOn)連結。
+- 要使用使用者名稱/密碼登入,請使用[NuGet.org 登入頁面上](https://www.nuget.org/users/account/LogOn)**的 Nuget.org 帳戶連結登入**。
 
 ### <a name="which-microsoft-account-is-linked-to-my-nugetorg-account"></a>哪一個 Microsoft 帳戶連結到我的 NuGet.org 帳戶？
 
 若您忘了哪一個 Microsoft 帳戶與您的 NuGet.org 帳戶建立關聯，請遵循下列步驟以取得協助。
-1. 前往 [NuGet.org 登入頁面](https://www.nuget.org/users/account/LogOn)，然後按一下 **Need assistance signing in?** (需要登入上的協助嗎？) 連結。
+1. 跳到[NuGet.org 登錄頁面](https://www.nuget.org/users/account/LogOn),然後按一下「**需要幫助登入?"** 連結。
 1. 這將會顯示提供協助的快顯對話方塊。 遵循此對話方塊中的步驟，即可得知與您 NuGet.org 帳戶建立關聯的 Microsoft 帳戶。
 
 ### <a name="how-to-change-the-microsoft-account-i-use-for-nugetorg-login"></a>如何變更我用來登入 NuGet.org 的 Microsoft 帳戶？
 若您想要變更 NuGet.org 使用者的 Microsoft 帳戶，請遵循下列步驟。 假設電子郵件為 `account1@outlook.com` 的 Microsoft 帳戶與使用者名稱為 `MyNuGetAccount` 的 NuGet.org 帳戶建立關聯。 且您希望將登入帳戶變更成電子郵件為 `account2@outlook.com` 的另一個 Microsoft 帳戶
-1. 請使用 **目前關聯的 Microsoft 帳戶**登入，也就是按一下 [使用 Microsoft 帳戶登入]`account1@outlook.com`[ 後，](https://www.nuget.org/users/account/LogOn)登入頁面**上的** 。
+1. 請使用 **目前關聯的 Microsoft 帳戶**登入，也就是按一下 [使用 Microsoft 帳戶登入]**** 後，[登入頁面](https://www.nuget.org/users/account/LogOn)上的 `account1@outlook.com`。
 1. 登入後，前往[帳戶設定](https://www.nuget.org/account)頁面。
-1. 展開**登入帳戶**區段。 按一下 [變更帳戶] 按鈕。
-1. 系統會將您重新導向至 Microsoft 登入頁面。 請使用您想要變更關聯的帳戶登入，亦即 `account2@outlook.com`。**注意**：在登入流程期間，您可能需要按一下 [登出] **，並以不同的帳戶登入**，才能使用不同的 Microsoft 帳戶進行登入。
-1. 若您看到以下錯誤訊息，請參閱 [Microsoft 帳戶已與另一個 NuGet.org 帳戶連結](#microsoft-account-is-linked-with-another-nugetorg-account)，以取得詳細資訊。
-    >_無法以 ' account2 <account2@outlook.com>' 更新 Microsoft 帳戶。如果已連結至另一個 NuGet 帳戶，可能會發生這種情況。如需詳細資訊，請聯絡支援人員。_
+1. 展開**登入帳戶**區段。 按一下 [變更帳戶]**** 按鈕。
+1. 系統會將您重新導向至 Microsoft 登入頁面。 請使用您希望將關聯更改為的帳戶登錄。 `account2@outlook.com`**注意**:您可能需要在登錄流期間按下 **「登出」並使用不同帳戶登錄**,以便能夠使用不同的 Microsoft 帳戶登錄。
+1. 如果您看到如下錯誤,請參閱 Microsoft[帳戶連結到另一個NuGet.org帳戶](#microsoft-account-is-linked-with-another-nugetorg-account)瞭解更多詳細資訊。
+    >_無法使用「帳戶 2」<account2@outlook.com>更新 Microsoft 帳戶。如果已連結到另一個 NuGet 帳戶,則可能發生此情況。有關詳細資訊,請聯繫支持人員。_
 
 1. 使用第二個帳戶成功登入後，系統會將您重新導向回 NuGet.org 帳戶設定頁面，您現在應該會看到新的 Microsoft 帳戶已建立關聯，成為登入帳戶。 之後，您在登入 NuGet.org 時，應使用此帳戶。
 
 ### <a name="microsoft-account-is-linked-with-another-nugetorg-account"></a>Microsoft 帳戶已與另一個 NuGet.org 帳戶連結。
 
 若您嘗試變更 Microsoft 登入，並看到以下錯誤訊息：
-> _無法以 ' account2 <account2@outlook.com>' 更新 Microsoft 帳戶。如果已連結至另一個 NuGet 帳戶，可能會發生這種情況。如需詳細資訊，請聯絡支援人員。_
+> _無法使用「帳戶 2」<account2@outlook.com>更新 Microsoft 帳戶。如果已連結到另一個 NuGet 帳戶,則可能發生此情況。有關詳細資訊,請聯繫支持人員。_
 
-假設您嘗試為使用者名稱為 `account1@outlook.com` 的 NuGet.org 使用者，將 Microsoft 帳戶登入從 `MyNuGetAccount1` 變更為電子郵件為 `account2@outlook.com` 的另一個 Microsoft 帳戶。 然後看到以上錯誤訊息。
+假設您嘗試為使用者名稱為 `MyNuGetAccount1` 的 NuGet.org 使用者，將 Microsoft 帳戶登入從 `account1@outlook.com` 變更為電子郵件為 `account2@outlook.com` 的另一個 Microsoft 帳戶。 然後看到以上錯誤訊息。
 
 **以上錯誤訊息代表什麼意思？**
 
-這代表有與 Microsoft 帳戶建立關聯的另一個 NuGet.org 帳戶，且您嘗試將其變更為以上範例中，已與另一個 NuGet.org 帳戶 (使用者名稱為 `<account2@outlook.com>`) 建立關聯的 Microsoft 帳戶 (電子郵件為 `MyNuGetAccount2`)。
+這代表有與 Microsoft 帳戶建立關聯的另一個 NuGet.org 帳戶，且您嘗試將其變更為以上範例中，已與另一個 NuGet.org 帳戶 (使用者名稱為 `MyNuGetAccount2`) 建立關聯的 Microsoft 帳戶 (電子郵件為 `<account2@outlook.com>`)。
 
 您無法使用連結到其他 NuGet.org 帳戶的 Microsoft 帳戶，變更已建立關聯的登入。
 
-**我忘了我有另一個 NuGet.org 帳戶，要如何找出哪一個是我的 NuGet.org 帳戶？**
+**我忘了我還有一個NuGet.org帳戶,我如何找出哪個NuGet.org帳戶?**
 
-使用[登入頁面](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "登入頁面")上的第二個 Microsoft 帳戶登入。 這會將您登入目前與第二個 Microsoft 帳戶建立關聯的 NuGet.org 帳戶。 您接著可以檢視此帳戶上的已更新套件，及進行帳戶管理。
+登錄頁面上的第二個 Microsoft[帳戶。](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "登入頁面") 這會將您登入目前與第二個 Microsoft 帳戶建立關聯的 NuGet.org 帳戶。 您接著可以檢視此帳戶上的已更新套件，及進行帳戶管理。
 
-**我不在意這個第二個 NuGet.org 帳戶，我想要使用第二個 Microsoft 帳戶來變更第一個 NuGet.org 帳戶的登入。我該怎麼辦？**
+**我不在乎第二個NuGet.org帳戶,我想更改我的登錄第一NuGet.org帳戶與第二個 Microsoft 帳戶。我該怎麼辦?**
 
 如果您不在乎第二個 NuGet.org 帳戶，但仍想使用電子郵件為 `account2@outlook.com` 的關聯 Microsoft 帳戶。 
 
 您可以透過刪除 NuGet.org 帳戶，解除 Microsoft 帳戶與 NuGet.org 帳戶間的關聯。
-1. 請遵循這些步驟，以[刪除第二個 NuGet.org 帳戶 ](#how-to-delete-my-nugetorg-account) 的使用者 `MyNuGetAccount2`。 
+1. 按照步驟[刪除](#how-to-delete-my-nugetorg-account)第二個NuGet.org`MyNuGetAccount2`帳戶的使用者。 
 1. 刪除此帳戶後，即可重試這些步驟來[變更 Microsoft 帳戶登入](#how-to-change-the-microsoft-account-i-use-for-nugetorg-login)。
 
-**等一下，我也在意第二個帳戶。我不想要遺失此帳戶，但變更了第一個帳戶的相關聯帳戶登入。**
+**等等,我也關心第二個帳戶。我不想丟失此帳戶,但更改我的關聯帳戶登錄第一帳戶。**
 
 您必須建立/使用第三個 Microsoft 帳戶，也就是電子郵件為 `account3@outlook.com` 的帳戶。 
-1. 首先，您應該使用第二個 Microsoft 帳戶登入，`account2@outlook.com` 在 NuGet.org 上。請遵循上述步驟來變更相關聯的登入，並將第三個 Microsoft 帳戶與此 NuGet.org 帳戶建立關聯。
+1. 首先,您應該在NuGet.org`account2@outlook.com`登錄您的第二個Microsoft帳戶。按照上述步驟更改關聯的登錄名,並將第三個 Microsoft 帳戶與此NuGet.org帳戶相關聯。
 1. 完成後，電子郵件為 `account2@outlook.com` 的第二個 Microsoft 帳戶就可以與第一個 NuGet.org 帳戶 `MyNuGetAccount1` 建立關聯。 遵循上述相同步驟，以將 Microsoft 登入變更為第二個 Microsoft 帳戶。
 
 ### <a name="signing-in-with-microsoft-account-shows-me-my-email-is-linked-to-another-microsoft-account"></a>使用 Microsoft 帳戶登入，但顯示我的電子郵件已連結到另一個 Microsoft 帳戶
@@ -175,25 +175,25 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 在 NuGet.org 建立帳戶時，通訊電子郵件地址會與該帳戶建立關聯。 這通常與關聯 Microsoft 帳戶使用的電子郵件地址相同。 不過，您可以選擇指定其他電子郵件地址進行通訊。 所以，技術上來說，您可以擁有其他 Microsoft 帳戶 (亦即 `account2@outlook.com`)，且連結到通訊電子郵件地址為 `account1@outlook.com` 的 NuGet.org 帳戶。
 
-因此，上述錯誤表示已經有通訊電子郵件地址 `account1@outlook.com` 的 NuGet.org 帳戶，但與另一個**Microsoft 帳戶，但未 `account1@outlook.com`的**電子郵件相關聯。
+因此，上方的錯誤訊息代表已經有通訊電子郵件地址為 `account1@outlook.com` 的現有 NuGet.org 帳戶，但卻與電子郵件**不是** `account1@outlook.com` 的另一個 Microsoft 帳戶建立關聯。
 
-**如何找出哪一個 Microsoft 帳戶連結到此 NuGet.org 帳戶？**
+**如何查找連結到此NuGet.org帳戶的Microsoft 帳戶?**
 
-您應使用[登入協助](#which-microsoft-account-is-linked-to-my-nugetorg-account)流程，找出哪一個 Microsoft 帳戶連結到電子郵件地址為 `account1@outlook.com` 的 NuGet.org 帳戶。
+您應該使用[登入説明](#which-microsoft-account-is-linked-to-my-nugetorg-account)流來找出哪個 Microsoft 帳戶連結到帶`account1@outlook.com`有電子郵件位址 的NuGet.org帳戶。
 
 **我想要使用我的 Microsoft 帳戶覆寫該帳戶**
 
-請遵循[無法使用 Microsoft 登入，如何復原我的 NuGet.org 帳戶](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)一節所述的步驟，將 Microsoft 帳戶與現有的 NuGet.org 帳戶建立關聯。
+按照["無法使用 Microsoft 登錄"中的步驟操作,如何恢復我的NuGet.org帳戶](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)部分,將您的 Microsoft 帳戶與現有的NuGet.org帳戶相關聯。
 
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>無法使用 Microsoft 登入，如何復原我的 NuGet.org 帳戶？
 
-若您已嘗試使用[登入協助](#which-microsoft-account-is-linked-to-my-nugetorg-account)，而且無法存取已與 NuGet.org 帳戶建立關聯的 Microsoft 帳戶，請遵循下列步驟，以將新的 Microsoft 帳戶連結到 NuGet.org 帳戶。
-1. **需求**：您將需要存取未與任何現有 NuGet.org 帳戶相關聯的 Microsoft 帳戶。 如果沒有的話，您可以[建立](https://signup.live.com)帳戶。
+如果您嘗試使用[登入説明](#which-microsoft-account-is-linked-to-my-nugetorg-account),但無法存取與您的NuGet.org帳戶關聯的Microsoft帳戶,請按照以下步驟將新的 Microsoft 帳戶連結到NuGet.org帳戶。
+1. **要求**:您需要訪問與任何現有NuGet.org帳戶無關的Microsoft帳戶。 如果沒有的話，您可以[建立](https://signup.live.com)帳戶。
 2. 如果您忘記 NuGet.org 帳戶的使用者名稱及密碼，請遵循[復原密碼登入的步驟](#how-to-recover-nugetorg-password-login)。
-3. 使用者名稱/密碼登入，來[登入 NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount)。
+3. 使用使用者名/密碼登錄[登錄到NuGet.org。](https://www.nuget.org/users/account/LogOnNuGetAccount)
 4. 登入後，就會顯示出快顯對話方塊，如下所示。 此為密碼中止對話方塊。
-5. **注意**：請忽略以指定的 Microsoft 帳戶登入的指示。 您現可將 NuGet.org 帳戶連結到任何其他 Microsoft 登入。
-6. 按一下 [使用 Microsoft 帳戶登入] 按鈕，然後使用您擁有其存取權的 Microsoft 帳戶登入，如步驟 1 所述。
+5. **注意**:請忽略使用指定的 Microsoft 帳戶登錄的說明。 您現可將 NuGet.org 帳戶連結到任何其他 Microsoft 登入。
+6. 按一下 [使用 Microsoft 帳戶登入]**** 按鈕，然後使用您擁有其存取權的 Microsoft 帳戶登入，如步驟 1 所述。
 7. 您的帳戶現在會連結到新的 Microsoft 帳戶，且往後可以用來登入 NuGet.org。
 
     ![連結 MSA 對話方塊](media/link-msa-dialog.png)
@@ -203,12 +203,12 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 若您想要將帳戶轉換為組織，且此帳戶已經與 Microsoft 帳戶登入建立關聯，那麼請遵循 [organizations on nuget org](organizations-on-nuget-org.md) (nuget org 上的組織) 一文中所提供的步驟。
 
 不過，若您的 NuGet.org 帳戶未與 Microsoft 帳戶建立關聯/連結，則可以遵循以下步驟將此帳戶轉換為組織。
-1. **需求**：您必須先在 NuGet.org 上建立個別帳戶，以作為組織帳戶上的系統管理員使用。 如果沒有的話，請[建立新的 NuGet.org 帳戶](individual-accounts.md)
-2. 若您沒有可供使用的密碼登入，請遵循為 NuGet.org 帳戶[復原密碼登入的步驟](#how-to-recover-nugetorg-password-login)，如果有的話，略過此步驟。
-3. 使用者名稱/密碼登入，來[登入 NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount)。
+1. **要求**:您需要先在NuGet.org創建個人帳戶,才能在組織帳戶上用作管理員。 如果沒有帳戶,請[建立新NuGet.org帳戶](individual-accounts.md)
+2. 如果您沒有密碼登錄名,請按照以下步驟恢復NuGet.org帳戶的[密碼登錄](#how-to-recover-nugetorg-password-login),如果您這樣做,請跳過此步驟。
+3. 使用使用者名/密碼登錄[登錄到NuGet.org。](https://www.nuget.org/users/account/LogOnNuGetAccount)
 4. 登入後，就會顯示出快顯對話方塊，如下所示。 此為密碼中止對話方塊。 
     > [!Important]
-    > 忽略此對話方塊，**請勿**按一下 [使用Microsoft 帳戶登入] 按鈕。
+    > 忽略此對話方塊，**請勿**按一下 [使用Microsoft 帳戶登入]**** 按鈕。
 
 5. 移至 [https://www.nuget.org/account/transform](https://www.nuget.org/account/transform)。 這讓您無須連結到 Microsoft 帳戶，就能夠將 NuGet.org 帳戶轉換為組織。
 6. 為您的個人 NuGet.org 帳戶/在步驟 1 建立的帳戶，指定系統管理員使用者名稱。
@@ -224,11 +224,11 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
     <img src="media/unmanaged-aad-tenant.png" />
 </p>
 
-**在登入期間，此非受控狀態是什麼？為什麼現在會發生這種情況？** 
+**登錄期間,這種非託管狀態是什麼?為什麼現在會發生這種事?** 
 
 看來您的帳戶之前註冊為個人 Microsoft 帳戶，且沒發生什麼問題，不過現在您的帳戶似乎已註冊為 Azure Active Directory (用來驗證 Microsoft 帳戶的識別服務) 中的「非受控」租用戶。 
 
-若您或組織中的某人 (電子郵件地址為 @yourdomain.com) 使用其中一項 AAD 整合服務註冊，或進行會為所使用 Microsoft 帳戶網域 (也就是 [) 建立這類「非受控」租用戶的 ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup)Azure Active Directory 自助式註冊@yourdomain.com，就可能發生此情形。 
+若您或組織中的某人 (電子郵件地址為 @yourdomain.com) 使用其中一項 AAD 整合服務註冊，或進行會為所使用 Microsoft 帳戶網域 (也就是 @yourdomain.com) 建立這類「非受控」租用戶的 [Azure Active Directory 自助式註冊](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup)，就可能發生此情形。 
 
 **該如何復原我的帳戶？**
 
@@ -238,15 +238,15 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 
 **我不想要執行這些動作，可以復原我帳戶的其他方式為何？**
 
-您可以[建立](https://www.microsoft.com/account)新的 Microsoft 帳戶 (搭配**未**與 @yourdomain.com 建立關聯的電子郵件) 遵循[復原您的 NuGet.org 帳戶](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)一節中提供的步驟。
+您可以[建立](https://www.microsoft.com/account)新的 Microsoft 帳戶 (搭配**未**與 @yourdomain.com 建立關聯的電子郵件) 按照[恢復NuGet.org帳戶](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)部分中給出的步驟操作。
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>如何變更我的 NuGet.org 帳戶使用者名稱？
 
-無法變更。 就原則而言，我們不允許變更使用者名稱。 此外，針對可能已[根據套件擁有者定義套件信任原則](../consume-packages/installing-signed-packages.md#trust-package-owners)的使用者，這也是一種重大變更。 唯一變更使用者名稱的方式為，以想要的使用者名稱建立新帳戶。 建議您在建立新帳戶之前，先將現有的帳戶刪除，否則您將無法重複使用註冊的 Microsoft 帳戶。
+無法變更。 作為一項政策問題,我們不允許更改使用者名。 此外,對於可能已[根據包擁有者定義包信任策略](../consume-packages/installing-signed-packages.md#trust-package-owners)的用戶來說,這樣做是一個重大更改。 唯一變更使用者名稱的方式為，以想要的使用者名稱建立新帳戶。 建議您在建立新帳戶之前，先將現有的帳戶刪除，否則您將無法重複使用註冊的 Microsoft 帳戶。
 > [!Important]
 > 刪除使用者仍會**保留**`username`。 您將無法再重複使用相同的使用者名稱，**這也包含大小寫的變更**。 例如，若您建立了使用者名稱為 `mycoolname` 的使用者，且想要將其變更為 `MyCoolName` (大小寫變更)，則在刪除使用者後，就不可能達成目的。
 
-請遵循[刪除 NuGet.org 帳戶](#how-to-delete-my-nugetorg-account)一節中提供的步驟，並以正確的使用者名稱[註冊新帳戶](individual-accounts.md)。
+按照[刪除NuGet.org帳戶](#how-to-delete-my-nugetorg-account)部分中給出的步驟,並註冊具有正確使用者名[的新帳戶](individual-accounts.md)。
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>如何刪除我的 NuGet.org 帳戶？
 
@@ -263,7 +263,7 @@ NuGet 使用 HTTP 來下載套件，因此較大的套件與較小的套件相�
 >  1. 移除帳戶在所有組織的成員身分。
 
 請遵循下列步驟以繼續刪除帳戶。
-1. 使用您想要刪除的帳戶[登入 NuGet.org](https://www.nuget.org/users/account/LogOn)。
-2. 按一下此 URL：[https://www.nuget.org/account/delete](https://www.nuget.org/account/delete)，然後遵循這些步驟，以提交刪除帳戶的要求。
+1. 使用要刪除的帳戶[登錄NuGet.org。](https://www.nuget.org/users/account/LogOn)
+2. 按下此網址[https://www.nuget.org/account/delete](https://www.nuget.org/account/delete): 然後按照步驟提交刪除帳戶的請求。
 
 我們的客戶支援會處理此要求，並將帳戶刪除。

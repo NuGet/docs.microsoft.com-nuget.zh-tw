@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "77036899"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>安裝 NuGet 套件時會發生什麼事？
@@ -25,7 +25,7 @@ ms.locfileid: "77036899"
 2. 取得套件：
    - 檢查套件 (依據確切的識別碼和版本號碼) 是否已安裝在 *global-packages* 資料夾中，如[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)中所述。
 
-   - 如果套件不在*全域封裝*資料夾中，請嘗試從[設定檔](../consume-packages/Configuring-NuGet-Behavior.md)中所列的來源抓取。 針對線上來源，除非已使用 `-NoCache` 命令指定 `nuget.exe`，或已使用 `--no-cache` 指定 `dotnet restore`，否則會先嘗試從 HTTP 快取擷取套件。 （Visual Studio 和 `dotnet add package` 一律使用快取）。如果從快取使用封裝，輸出中會出現 "CACHE"。 快取的到期時間為 30 分鐘。
+   - 如果包不在*全域包*資料夾中,請嘗試從[配置檔](../consume-packages/Configuring-NuGet-Behavior.md)中列出的源中檢索它。 針對線上來源，除非已使用 `nuget.exe` 命令指定 `-NoCache`，或已使用 `dotnet restore` 指定 `--no-cache`，否則會先嘗試從 HTTP 快取擷取套件。 (可視化工作室,`dotnet add package`始終使用緩存。如果從緩存中使用包,則輸出中將顯示"CACHE"。 快取的到期時間為 30 分鐘。
 
    - 如果套件不在 HTTP 快取中，則會嘗試從組態中所列的來源下載套件。 如果已下載套件，輸出中會出現 "GET" 和 "OK"。 NuGet 會記錄正常詳細程度的 HTTP 流量。
 
@@ -44,7 +44,7 @@ ms.locfileid: "77036899"
 6. 更新其他專案檔和資料夾：
 
     - 針對使用 PackageReference 的專案，更新儲存在 `obj/project.assets.json` 中的套件相依性關係圖。 套件內容本身不會複製到任何專案資料夾中。
-    - 如果套件使用`app.config`來源和組態檔轉換`web.config`，則更新 [ 和/或 ](../create-packages/source-and-config-file-transformations.md)。
+    - 如果套件使用[來源和組態檔轉換](../create-packages/source-and-config-file-transformations.md)，則更新 `app.config` 和/或 `web.config`。
 
 7. (僅限 Visual Studio) 在 Visual Studio 視窗中顯示套件的讀我檔案 (如果有的話)。
 
