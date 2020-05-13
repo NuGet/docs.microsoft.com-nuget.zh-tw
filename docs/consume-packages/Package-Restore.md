@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 11d0a7c321e6cd12c82b83054ec85d5f05755434
+ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428741"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83367917"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -22,7 +22,7 @@ ms.locfileid: "79428741"
 
 套件還原會先視需要安裝專案的直接相依性，然後在整個相依性關係圖中安裝那些套件的任何相依性。
 
-如果尚未安裝套件，NuGet 會先嘗試從[快取](../consume-packages/managing-the-global-packages-and-cache-folders.md)中擷取它。 如果包不在快取中,NuGet 會嘗試從 Visual Studio 中的 **「工具** > **選項** > **NuGet 套件管理員套件** > **來源**」清單中的所有已啟用源下載套件。 在還原程序中，NuGet 會忽略套件來源的順序，且使用任一個最先回應要求的來源。 如需 NuGet 運作方式的詳細資訊，請參閱[常用的 NuGet 組態](Configuring-NuGet-Behavior.md)。 
+如果尚未安裝套件，NuGet 會先嘗試從[快取](../consume-packages/managing-the-global-packages-and-cache-folders.md)中擷取它。 如果套件不在快取中，nuget 會嘗試在 Visual Studio 的 [**工具**] [選項] [  >  **Options**  >  **NuGet 套件管理員**  >  **套件來源**] 清單中，從所有已啟用的來源下載套件。 在還原程序中，NuGet 會忽略套件來源的順序，且使用任一個最先回應要求的來源。 如需 NuGet 運作方式的詳細資訊，請參閱[常用的 NuGet 組態](Configuring-NuGet-Behavior.md)。 
 
 > [!Note]
 > 在所有來源檢查完畢前，NuGet 不會指出還原套件失敗。 到那時候，NuGet 只會針對清單中的最後一個來源回報失敗。 這項錯誤表示套件未出現在其他「任何」** 來源上，即使那些來源都未個別出現錯誤亦然。
@@ -38,7 +38,7 @@ ms.locfileid: "79428741"
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
    - [MSBuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
-   - [Azure 開發人員伺服器](#restore-using-azure-devops-server)
+   - [Azure DevOps Server](#restore-using-azure-devops-server)
 
    如果專案檔 (*.csproj*) 或您的 *packages.config* 檔案中的套件參考不正確 (不符合您在套件還原之後所需的狀態)，則您需要改為安裝套件或更新套件。
 
@@ -60,7 +60,7 @@ ms.locfileid: "79428741"
 
 套件還原會在您從範本建立專案或建置專案時自動進行，且受限於[啟用和停用套件還原](#enable-and-disable-package-restore-in-visual-studio)中的選項。 在 NuGet 4.0+ 中，還原也會在您變更 SDK 樣式專案 (通常是 .NET Core 或 .NET Standard 專案) 時自動進行。
 
-1. 透過選擇 **「工具** > **選項** > **NuGet 套件管理員**」來開啟自動包還原,然後選擇「在 **「包還原**」 下的 Visual **Studio 中產生期間自動檢查缺少的套件**。
+1. 選擇 [**工具**] [選項] [  >  **Options**  >  **NuGet 套件管理員**]，然後在 [**套件還原**] 下的 Visual Studio 中選取 [在**組建期間自動檢查遺漏的套件**]，啟用自動套件還原。
 
    針對非 SDK 樣式的專案，您必須先選取 [允許 NuGet 下載遺漏的套件 ]**** 以啟用自動還原選項。
 
@@ -68,21 +68,21 @@ ms.locfileid: "79428741"
 
    如果一或多個個別套件仍未正確安裝，則 [方案總管]**** 會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]****，且使用 [套件管理員]**** 先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
 
-   如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-in-visual-studio)。 針對較舊的專案，另請參閱[移轉至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)。 另請參閱[套件還原故障排除](Package-restore-troubleshooting.md)。
+   如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-in-visual-studio)。 針對較舊的專案，另請參閱[移轉至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)。 另請參閱[套件還原疑難排解](Package-restore-troubleshooting.md)。
 
 ### <a name="restore-packages-manually-using-visual-studio"></a>使用 Visual Studio 手動還原套件
 
-1. 以選擇**工具** > **選項** > **NuGet 套件管理員來開啟套件回復**。 在 [套件還原]**** 選項下，選取 [允許 NuGet 下載遺漏的套件]****。
+1. 選擇 [工具] [ **Tools**  >  **選項**] [  >  **NuGet 套件管理員**] 以啟用套件還原。 在 [套件還原]**** 選項下，選取 [允許 NuGet 下載遺漏的套件]****。
 
 1. 在 [方案總管]**** 中，請以滑鼠右鍵按一下解決方案，然後選取 [還原 NuGet 套件]****。
 
    如果一或多個個別套件仍未正確安裝，則 [方案總管]**** 會顯示錯誤圖示。 以滑鼠右鍵按一下並選取 [管理 NuGet 套件]****，然後使用 [套件管理員]**** 先解除安裝再重新安裝受影響的套件。 如需詳細資訊，請參閱[重新安裝及更新套件](../consume-packages/reinstalling-and-updating-packages.md)
 
-   如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-in-visual-studio)。 針對較舊的專案，另請參閱[移轉至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)。 另請參閱[套件還原故障排除](Package-restore-troubleshooting.md)。
+   如果您看到「此專案參考這部電腦上所缺少的 NuGet 套件」或「一或多個 NuGet 套件需要還原，但因未獲同意而無法進行」錯誤，請[啟用自動還原](#enable-and-disable-package-restore-in-visual-studio)。 針對較舊的專案，另請參閱[移轉至自動套件還原](#migrate-to-automatic-package-restore-visual-studio)。 另請參閱[套件還原疑難排解](Package-restore-troubleshooting.md)。
 
 ### <a name="enable-and-disable-package-restore-in-visual-studio"></a>在 Visual Studio 中啟用及停用套件還原
 
-在視覺化工作室中,您主要透過**工具** > **選項** > **NuGet 套件管理員**控制套件還原 :
+在 Visual Studio 中，您主要透過 [**工具**] [選項] [  >  **Options**  >  **NuGet 套件管理員**] 來控制套件還原：
 
 ![透過 NuGet 套件管理員選項控制套件還原](media/Restore-01-AutoRestoreOptions.png)
 
@@ -118,18 +118,18 @@ ms.locfileid: "79428741"
 若要針對電腦上的所有使用者啟用或停用套件還原，開發人員或公司可以將組態設定新增到全域 `nuget.config` 檔案。 全域 `nuget.config` 是在 Windows 中的 `%ProgramData%\NuGet\Config`，有時在特定 `\{IDE}\{Version}\{SKU}\` Visual Studio 資料夾中，或在 Mac/Linux 的 `~/.local/share`。 個別使用者接著可以視需要選擇性地啟用專案層級的還原。 如需 NuGet 如何排定多個組態檔優先順序的詳細資料，請參閱[常見的 NuGet 行為](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied)。
 
 > [!Important]
-> 如果直接在`packageRestore``nuget.config`中 編輯設置,請重新啟動 Visual Studio,以便「**選項**」對話框顯示當前值。
+> 如果您 `packageRestore` 直接在中編輯設定 `nuget.config` ，請重新開機 Visual Studio，讓 [**選項**] 對話方塊顯示目前的值。
 
 ### <a name="choose-default-package-management-format"></a>選擇預設套件管理格式
 
-![以 NuGet 套件管理員選項控制預設套件管理格式](media/Restore-02-PackageFormatOptions.png)
+![以 NuGet 套件管理員選項控制預設的套件管理格式](media/Restore-02-PackageFormatOptions.png)
 
-NuGet 有兩種格式,專案可以使用套件[`PackageReference`](package-references-in-project-files.md):[`packages.config`](../reference/packages-config.md)與 。 可以從 **「包管理**」標題下的下拉清單中選擇預設格式。 在專案中安裝第一個包時,也可以提示一個選項。
+NuGet 有兩種格式，可供專案使用封裝： [`PackageReference`](package-references-in-project-files.md) 和 [`packages.config`](../reference/packages-config.md) 。 您可以從 [**套件管理**] 標題下的下拉式選單中選取預設格式。 同時也提供在專案中安裝第一個套件時，所要提示的選項。
 
 > [!Note]
-> 如果專案不支援兩種包管理格式,則使用的包管理格式將與專案相容,因此可能不是選項中的預設設置。 此外,即使選項視窗中選擇了該選項,NuGet 也不會提示在第一個包安裝時選擇。
+> 如果專案不支援這兩種套件管理格式，則使用的套件管理格式會與專案相容，因此可能不是選項中的預設設定。 此外，即使在 [選項] 視窗中選取選項，NuGet 也不會在第一次套件安裝時提示您選取。
 >
-> 如果包管理器主控台用於在專案中安裝第一個包,NuGet將不會提示選擇格式,即使選項視窗中選擇了該選項也是如此。
+> 如果使用 [套件管理員主控台] 來安裝專案中的第一個套件，即使在 [選項] 視窗中選取選項，NuGet 也不會提示您選取格式。
 
 ## <a name="restore-using-the-dotnet-cli"></a>使用 dotnet CLI 進行還原
 
@@ -143,7 +143,7 @@ NuGet 有兩種格式,專案可以使用套件[`PackageReference`](package-refer
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> 該`restore`指令不修改專案檔或*套件。* 要添加依賴項,請透過 Visual Studio 中的包管理員 UI 或控制台添加包,或修改*包。* `install` `restore`
+> 此 `restore` 命令不會修改專案檔或*封裝 .config*。若要新增相依性，請在 Visual Studio 中透過套件管理員 UI 或主控台新增封裝，*或修改 package，然後*執行 `install` 或 `restore` 。
 
 ## <a name="restore-using-msbuild"></a>使用 MSBuild 進行還原
 
@@ -201,10 +201,10 @@ NuGet 透過任何方法還原套件時，會使用 `packages.config` 或專案�
 若要避免使用 *global-packages* 資料夾，請執行下列任一步驟：
 
 - 使用 `nuget locals global-packages -clear` 或 `dotnet nuget locals global-packages --clear` 清除資料夾。
-- 使用以下方法之一,在還原操作之前臨時更改*全域套件*資料夾的位置:
+- 使用下列其中一種方法，在還原作業之前，暫時變更*全域封裝*資料夾的位置：
   - 將 NUGET_PACKAGES 環境變數設定為不同資料夾。
   - 建立將 `globalPackagesFolder` (如果使用 PackageReference) 或 `repositoryPath` (如果使用 `packages.config`) 設定為不同資料夾的 `NuGet.Config` 檔案。 如需詳細資訊，請參閱[組態設定](../reference/nuget-config-file.md#config-section)。
-  - 僅MSBuild:使用`RestorePackagesPath`屬性指定其他資料夾。
+  - 僅 MSBuild：使用屬性指定不同的資料夾 `RestorePackagesPath` 。
 
 若要避免使用 HTTP 來源的快取，請執行下列任一步驟：
 
@@ -216,7 +216,7 @@ NuGet 透過任何方法還原套件時，會使用 `packages.config` 或專案�
 
 針對 NuGet 2.6 和更早版本，先前支援的 MSBuild 整合套件還原已不再適用。 (通常是在 Visual Studio 中以滑鼠右鍵按一下解決方案，然後選取 [啟用 NuGet 套件還原]**** 來啟用)。 如果您的專案是使用整合 MSBuild 套件還原，請遷移至自動套件還原。
 
-使用 MSBuild 整合套件還原的專案通常包含一個包含三個檔案的 *.nuget*資料夾 *:NuGet.config、nuget.exe*和*nuget.exe**NuGet.target*。 *NuGet.targets* 檔案的存在會決定 NuGet 是否繼續使用整合 MSBuild 方法，所以進行遷移時必須移除該檔案。
+使用 MSBuild 整合套件還原的專案通常會包含包含三個檔案的*nuget.exe*資料夾： *nuget.exe*、 *nuget.exe*和*nuget.exe*。 *NuGet.targets* 檔案的存在會決定 NuGet 是否繼續使用整合 MSBuild 方法，所以進行遷移時必須移除該檔案。
 
 若要遷移至自動套件還原：
 

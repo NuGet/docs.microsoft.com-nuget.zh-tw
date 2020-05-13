@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7e725d8114cde3de189dc3a648bc5a6c0b0e785b
+ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426933"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83367943"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>解決 NuGet 套件名稱的爭議
 
@@ -20,10 +20,10 @@ ms.locfileid: "67426933"
 
 在此案例中，Nancy 似乎並無惡意，甚至貢獻了自己的時間和程式碼為 Northwind 的工具和客戶提供支援。 與此同時，Northwind 是 Northwind 名稱的合法擁有者。
 
-藉由遵循下列程序，Northwind 和 Nancy 可以協調出適當的解決方式，因為雙方都有意服務開發人員社群。 NuGet 小組一般沒有必要介入，因為共同作業通常會運作出最佳方案。 事實上，至今為止，每件引起 NuGet 小組注意的爭議皆不必小組介入公評即已圓滿解決。
+藉由遵循下列程序，Northwind 和 Nancy 可以協調出適當的解決方式，因為雙方都有意服務開發人員社群。 NuGet 小組一般沒有必要介入，因為共同作業通常會運作出最佳方案。
 
 ## <a name="process"></a>Process
 
 1. 使用套件詳細資料頁面上的 [連絡擁有者]**** 連結，連絡有爭端的套件擁有者。 以和善、適當的口吻說明您的問題。
-2. 傳送您的郵件複本[support@nuget.org](mailto:support@nuget.org), 以便 NuGet 和 .NET 基金會瞭解您的爭議。
-3. 最多等待 30 天以尋求解決方案,[support@nuget.org](mailto:support@nuget.org)然後再次通知。 nuget.org 支援小組會介入，嘗試解決雙方爭議。
+2. 將您的訊息副本傳送至， [support@nuget.org](mailto:support@nuget.org) 讓 NuGet 和 .Net Foundation 知道您的爭議。
+3. 請等候最多30天的時間來解決問題，然後再通知一 [support@nuget.org](mailto:support@nuget.org) 次。 nuget.org 支援小組會介入，嘗試解決雙方爭議。
