@@ -5,9 +5,9 @@
             "registration": "https://api.nuget.org/v3/registration3/nuget.versioning/index.json",
             "id": "NuGet.Versioning",
             "version": "4.4.0",
-            "description": "NuGet's implementation of Semantic Versioning.",
+            "description": "NuGet 的語義版本設定。",
             "summary": "",
-            "title": "<span data-ttu-id=\"259e0-101\">NuGet。版本控制</span><span class=\"sxs-lookup\"><span data-stu-id=\"259e0-101\">NuGet.Versioning</span></span>",
+            "title": "NuGet。版本控制",
             "licenseUrl": "https://raw.githubusercontent.com/NuGet/NuGet.Client/dev/LICENSE.txt",
             "tags": [
                 "semver",
@@ -19,6 +19,11 @@
             ],
             "totalDownloads": 141896,
             "verified": true,
+            "packageTypes": [
+                {
+                    "name": "Dependency"
+                }
+            ],
             "versions": [
                 {
                     "version": "3.3.0",
@@ -48,9 +53,9 @@
             "registration": "https://api.nuget.org/v3/registration3/nerdbank.gitversioning/index.json",
             "id": "Nerdbank.GitVersioning",
             "version": "2.0.41",
-            "description": "Stamps your assemblies with semver 2.0 compliant git commit specific version information and provides NuGet versioning information as well.",
+            "description": "使用符合 semver 2.0 規範的 git 認可特定版本資訊來標記元件，並提供 NuGet 版本設定資訊。",
             "summary": "Stamps your assemblies with semver 2.0 compliant git commit specific version information and provides NuGet versioning information as well.",
-            "title": "<span data-ttu-id=\"259e0-102\">Nerdbank.GitVersioning</span><span class=\"sxs-lookup\"><span data-stu-id=\"259e0-102\">Nerdbank.GitVersioning</span></span>",
+            "title": "Nerdbank.GitVersioning",
             "licenseUrl": "https://raw.githubusercontent.com/AArnott/Nerdbank.GitVersioning/ed547462f7/LICENSE.txt",
             "projectUrl": "http://github.com/aarnott/Nerdbank.GitVersioning",
             "tags": [
