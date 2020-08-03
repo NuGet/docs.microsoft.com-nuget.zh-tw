@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2fcba9dd6bbc7ff4e9b5b8b57250c399f59a1c5e
+ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78230569"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87473840"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
 
@@ -68,7 +68,7 @@ ms.locfileid: "78230569"
 
 如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
-## <a name="add-an-optional-description-field"></a>新增選擇的標題欄位
+## <a name="add-an-optional-description-field"></a>新增選擇性的描述欄位
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
@@ -104,14 +104,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-在解決方案`dotnet pack`上執行時,這將打包解決方案中可打包的所有專案[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties)(屬性設置`true`為)。
+當您在 `dotnet pack` 方案上執行時，這會將方案中 packable 的所有專案（ [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性設為）封裝在一起 `true` 。
 
 > [!NOTE]
 > 當您自動產生套件時，封裝的時間會增加專案的建置時間。
 
 ### <a name="test-package-installation"></a>測試套件安裝
 
-發行套件之前，您通常會想要測試將套件安裝至專案的程序。 測試可確定必要檔案最後都在專案的正確位置。
+發行套件之前，您通常會想要測試將套件安裝至專案的程序。 這些測試會確保所有必要的檔案最後都在專案中的正確位置。
 
 您可以使用一般[套件安裝步驟](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)，以在 Visual Studio 中或命令列上手動測試安裝。
 
@@ -125,15 +125,15 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：
 
 - [套件版本控制](../concepts/package-versioning.md)
-- [支援多個目標 Framework](../create-packages/multiple-target-frameworks-project-file.md)
-- [新增包圖示](../reference/nuspec.md#icon)
+- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
+- [新增套件圖示](../reference/nuspec.md#icon)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
-- [預發行版本](../create-packages/prerelease-packages.md)
+- [發行前版本](../create-packages/prerelease-packages.md)
 - [設定套件類型](../create-packages/set-package-type.md)
 - [建立包含 COM Interop 組件的套件](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 最後，請注意其他套件類型：
 
-- [本機包](../guides/native-packages.md)
+- [原生套件](../guides/native-packages.md)
 - [符號套件](../create-packages/symbol-packages-snupkg.md)
