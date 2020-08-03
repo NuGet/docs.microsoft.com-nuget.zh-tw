@@ -5,35 +5,35 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2fcba9dd6bbc7ff4e9b5b8b57250c399f59a1c5e
+ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78230569"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87473840"
 ---
-# <a name="create-a-nuget-package-using-the-dotnet-cli"></a><span data-ttu-id="aac2d-103">使用 dotnet CLI 建立 NuGet 套件</span><span class="sxs-lookup"><span data-stu-id="aac2d-103">Create a NuGet package using the dotnet CLI</span></span>
+# <a name="create-a-nuget-package-using-the-dotnet-cli"></a><span data-ttu-id="71744-103">使用 dotnet CLI 建立 NuGet 套件</span><span class="sxs-lookup"><span data-stu-id="71744-103">Create a NuGet package using the dotnet CLI</span></span>
 
-<span data-ttu-id="aac2d-104">不論套件的功能或所含程式碼為何，您都可以使用其中一個 CLI 工具 (`nuget.exe` 或 `dotnet.exe`) 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。</span><span class="sxs-lookup"><span data-stu-id="aac2d-104">No matter what your package does or what code it contains, you use one of the CLI tools, either `nuget.exe` or `dotnet.exe`, to package that functionality into a component that can be shared with and used by any number of other developers.</span></span> <span data-ttu-id="aac2d-105">此文章說明如何使用 dotnet CLI 建立套件。</span><span class="sxs-lookup"><span data-stu-id="aac2d-105">This article describes how to create a package using the dotnet CLI.</span></span> <span data-ttu-id="aac2d-106">若要安裝 `dotnet` CLI，請參閱[安裝 NuGet 用戶端工具](../install-nuget-client-tools.md)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-106">To install the `dotnet` CLI, see [Install NuGet client tools](../install-nuget-client-tools.md).</span></span> <span data-ttu-id="aac2d-107">從 Visual Studio 2017 開始，dotnet CLI 隨附於 .NET Core工作負載中。</span><span class="sxs-lookup"><span data-stu-id="aac2d-107">Starting in Visual Studio 2017, the dotnet CLI is included with .NET Core workloads.</span></span>
+<span data-ttu-id="71744-104">不論套件的功能或所含程式碼為何，您都可以使用其中一個 CLI 工具 (`nuget.exe` 或 `dotnet.exe`) 將該功能封裝至可由任意數目的其他開發人員所共用和使用的元件。</span><span class="sxs-lookup"><span data-stu-id="71744-104">No matter what your package does or what code it contains, you use one of the CLI tools, either `nuget.exe` or `dotnet.exe`, to package that functionality into a component that can be shared with and used by any number of other developers.</span></span> <span data-ttu-id="71744-105">此文章說明如何使用 dotnet CLI 建立套件。</span><span class="sxs-lookup"><span data-stu-id="71744-105">This article describes how to create a package using the dotnet CLI.</span></span> <span data-ttu-id="71744-106">若要安裝 `dotnet` CLI，請參閱[安裝 NuGet 用戶端工具](../install-nuget-client-tools.md)。</span><span class="sxs-lookup"><span data-stu-id="71744-106">To install the `dotnet` CLI, see [Install NuGet client tools](../install-nuget-client-tools.md).</span></span> <span data-ttu-id="71744-107">從 Visual Studio 2017 開始，dotnet CLI 隨附於 .NET Core工作負載中。</span><span class="sxs-lookup"><span data-stu-id="71744-107">Starting in Visual Studio 2017, the dotnet CLI is included with .NET Core workloads.</span></span>
 
-<span data-ttu-id="aac2d-108">針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。</span><span class="sxs-lookup"><span data-stu-id="aac2d-108">For .NET Core and .NET Standard projects that use the [SDK-style format](../resources/check-project-format.md), and any other SDK-style projects, NuGet uses information in the project file directly to create a package.</span></span> <span data-ttu-id="aac2d-109">如需逐步執行教學課程，請參閱[使用 dotnet CLI 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)或[使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-109">For step-by-step tutorials, see [Create .NET Standard Packages with dotnet CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) or [Create .NET Standard Packages with Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md).</span></span>
+<span data-ttu-id="71744-108">針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。</span><span class="sxs-lookup"><span data-stu-id="71744-108">For .NET Core and .NET Standard projects that use the [SDK-style format](../resources/check-project-format.md), and any other SDK-style projects, NuGet uses information in the project file directly to create a package.</span></span> <span data-ttu-id="71744-109">如需逐步執行教學課程，請參閱[使用 dotnet CLI 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)或[使用 Visual Studio 建立 .NET Standard 套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。</span><span class="sxs-lookup"><span data-stu-id="71744-109">For step-by-step tutorials, see [Create .NET Standard Packages with dotnet CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) or [Create .NET Standard Packages with Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md).</span></span>
 
-<span data-ttu-id="aac2d-110">`msbuild -t:pack` 在功能上相當於 `dotnet pack`。</span><span class="sxs-lookup"><span data-stu-id="aac2d-110">`msbuild -t:pack` is functionality equivalent to `dotnet pack`.</span></span> <span data-ttu-id="aac2d-111">若要使用 MSBuild 進行建置，請參閱[使用 MSBuild 建立 NuGet 套件](creating-a-package-msbuild.md)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-111">To build with MSBuild, see [Create a NuGet package using MSBuild](creating-a-package-msbuild.md).</span></span>
+<span data-ttu-id="71744-110">`msbuild -t:pack` 在功能上相當於 `dotnet pack`。</span><span class="sxs-lookup"><span data-stu-id="71744-110">`msbuild -t:pack` is functionality equivalent to `dotnet pack`.</span></span> <span data-ttu-id="71744-111">若要使用 MSBuild 進行建置，請參閱[使用 MSBuild 建立 NuGet 套件](creating-a-package-msbuild.md)。</span><span class="sxs-lookup"><span data-stu-id="71744-111">To build with MSBuild, see [Create a NuGet package using MSBuild](creating-a-package-msbuild.md).</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="aac2d-112">此主題適用於 [SDK 樣式](../resources/check-project-format.md)的專案，這通常是 .NET Core 與 .NET Standard 專案。</span><span class="sxs-lookup"><span data-stu-id="aac2d-112">This topic applies to [SDK-style](../resources/check-project-format.md) projects, typically .NET Core and .NET Standard projects.</span></span>
+> <span data-ttu-id="71744-112">此主題適用於 [SDK 樣式](../resources/check-project-format.md)的專案，這通常是 .NET Core 與 .NET Standard 專案。</span><span class="sxs-lookup"><span data-stu-id="71744-112">This topic applies to [SDK-style](../resources/check-project-format.md) projects, typically .NET Core and .NET Standard projects.</span></span>
 
-## <a name="set-properties"></a><span data-ttu-id="aac2d-113">設定屬性</span><span class="sxs-lookup"><span data-stu-id="aac2d-113">Set properties</span></span>
+## <a name="set-properties"></a><span data-ttu-id="71744-113">設定屬性</span><span class="sxs-lookup"><span data-stu-id="71744-113">Set properties</span></span>
 
-<span data-ttu-id="aac2d-114">建立套件時需要下列屬性。</span><span class="sxs-lookup"><span data-stu-id="aac2d-114">The following properties are required to create a package.</span></span>
+<span data-ttu-id="71744-114">建立套件時需要下列屬性。</span><span class="sxs-lookup"><span data-stu-id="71744-114">The following properties are required to create a package.</span></span>
 
-- <span data-ttu-id="aac2d-115">`PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。</span><span class="sxs-lookup"><span data-stu-id="aac2d-115">`PackageId`, the package identifier, which must be unique across the gallery that hosts the package.</span></span> <span data-ttu-id="aac2d-116">若未指定，則預設值為 `AssemblyName`。</span><span class="sxs-lookup"><span data-stu-id="aac2d-116">If not specified, the default value is `AssemblyName`.</span></span>
-- <span data-ttu-id="aac2d-117">`Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-117">`Version`, a specific version number in the form *Major.Minor.Patch[-Suffix]* where *-Suffix* identifies [pre-release versions](prerelease-packages.md).</span></span> <span data-ttu-id="aac2d-118">若未指定，則預設值為 1.0.0。</span><span class="sxs-lookup"><span data-stu-id="aac2d-118">If not specified, the default value is 1.0.0.</span></span>
-- <span data-ttu-id="aac2d-119">主機上應該會出現套件標題 (例如 nuget.org)</span><span class="sxs-lookup"><span data-stu-id="aac2d-119">The package title as it should appear on the host (like nuget.org)</span></span>
-- <span data-ttu-id="aac2d-120">`Authors`，作者與擁有者資訊。</span><span class="sxs-lookup"><span data-stu-id="aac2d-120">`Authors`, author and owner information.</span></span> <span data-ttu-id="aac2d-121">若未指定，則預設值為 `AssemblyName`。</span><span class="sxs-lookup"><span data-stu-id="aac2d-121">If not specified, the default value is `AssemblyName`.</span></span>
-- <span data-ttu-id="aac2d-122">`Company`，您的公司名稱。</span><span class="sxs-lookup"><span data-stu-id="aac2d-122">`Company`, your company name.</span></span> <span data-ttu-id="aac2d-123">若未指定，則預設值為 `AssemblyName`。</span><span class="sxs-lookup"><span data-stu-id="aac2d-123">If not specified, the default value is `AssemblyName`.</span></span>
+- <span data-ttu-id="71744-115">`PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。</span><span class="sxs-lookup"><span data-stu-id="71744-115">`PackageId`, the package identifier, which must be unique across the gallery that hosts the package.</span></span> <span data-ttu-id="71744-116">若未指定，則預設值為 `AssemblyName`。</span><span class="sxs-lookup"><span data-stu-id="71744-116">If not specified, the default value is `AssemblyName`.</span></span>
+- <span data-ttu-id="71744-117">`Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。</span><span class="sxs-lookup"><span data-stu-id="71744-117">`Version`, a specific version number in the form *Major.Minor.Patch[-Suffix]* where *-Suffix* identifies [pre-release versions](prerelease-packages.md).</span></span> <span data-ttu-id="71744-118">若未指定，則預設值為 1.0.0。</span><span class="sxs-lookup"><span data-stu-id="71744-118">If not specified, the default value is 1.0.0.</span></span>
+- <span data-ttu-id="71744-119">主機上應該會出現套件標題 (例如 nuget.org)</span><span class="sxs-lookup"><span data-stu-id="71744-119">The package title as it should appear on the host (like nuget.org)</span></span>
+- <span data-ttu-id="71744-120">`Authors`，作者與擁有者資訊。</span><span class="sxs-lookup"><span data-stu-id="71744-120">`Authors`, author and owner information.</span></span> <span data-ttu-id="71744-121">若未指定，則預設值為 `AssemblyName`。</span><span class="sxs-lookup"><span data-stu-id="71744-121">If not specified, the default value is `AssemblyName`.</span></span>
+- <span data-ttu-id="71744-122">`Company`，您的公司名稱。</span><span class="sxs-lookup"><span data-stu-id="71744-122">`Company`, your company name.</span></span> <span data-ttu-id="71744-123">若未指定，則預設值為 `AssemblyName`。</span><span class="sxs-lookup"><span data-stu-id="71744-123">If not specified, the default value is `AssemblyName`.</span></span>
 
-<span data-ttu-id="aac2d-124">在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]\*\*\*\*，然後選取 [套件]\*\*\*\* 索引標籤)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-124">In Visual Studio, you can set these values in the project properties (right-click the project in Solution Explorer, choose **Properties**, and select the **Package** tab).</span></span> <span data-ttu-id="aac2d-125">您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。</span><span class="sxs-lookup"><span data-stu-id="aac2d-125">You can also set these properties directly in the project files (`.csproj`).</span></span>
+<span data-ttu-id="71744-124">在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]\*\*\*\*，然後選取 [套件]\*\*\*\* 索引標籤)。</span><span class="sxs-lookup"><span data-stu-id="71744-124">In Visual Studio, you can set these values in the project properties (right-click the project in Solution Explorer, choose **Properties**, and select the **Package** tab).</span></span> <span data-ttu-id="71744-125">您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。</span><span class="sxs-lookup"><span data-stu-id="71744-125">You can also set these properties directly in the project files (`.csproj`).</span></span>
 
 ```xml
 <PropertyGroup>
@@ -45,9 +45,9 @@ ms.locfileid: "78230569"
 ```
 
 > [!Important]
-> <span data-ttu-id="aac2d-126">為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何套件資源上都必須是唯一的。</span><span class="sxs-lookup"><span data-stu-id="aac2d-126">Give the package an identifier that's unique across nuget.org or whatever package source you're using.</span></span>
+> <span data-ttu-id="71744-126">為套件指定識別碼，此識別碼在 nuget.org 上或您使用的任何套件資源上都必須是唯一的。</span><span class="sxs-lookup"><span data-stu-id="71744-126">Give the package an identifier that's unique across nuget.org or whatever package source you're using.</span></span>
 
-<span data-ttu-id="aac2d-127">下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性。</span><span class="sxs-lookup"><span data-stu-id="aac2d-127">The following example shows a simple, complete project file with these properties included.</span></span> <span data-ttu-id="aac2d-128">(您可以使用 `dotnet new classlib` 命令來建立新的預設專案)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-128">(You can create a new default project using the `dotnet new classlib` command.)</span></span>
+<span data-ttu-id="71744-127">下列範例顯示一個簡單且完整的專案檔，其中會包含這些屬性。</span><span class="sxs-lookup"><span data-stu-id="71744-127">The following example shows a simple, complete project file with these properties included.</span></span> <span data-ttu-id="71744-128">(您可以使用 `dotnet new classlib` 命令來建立新的預設專案)。</span><span class="sxs-lookup"><span data-stu-id="71744-128">(You can create a new default project using the `dotnet new classlib` command.)</span></span>
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -61,31 +61,31 @@ ms.locfileid: "78230569"
 </Project>
 ```
 
-<span data-ttu-id="aac2d-129">您還可以設定選擇性屬性，例如`Title`、`PackageDescription` 與 `PackageTags`，如 [MSBuild 套件目標](../reference/msbuild-targets.md#pack-target)、[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)，以及 [NuGet 中繼資料屬性](/dotnet/core/tools/csproj#nuget-metadata-properties)中所述。</span><span class="sxs-lookup"><span data-stu-id="aac2d-129">You can also set the optional properties, such as `Title`, `PackageDescription`, and `PackageTags`, as described in [MSBuild pack targets](../reference/msbuild-targets.md#pack-target), [Controlling dependency assets](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets), and [NuGet metadata properties](/dotnet/core/tools/csproj#nuget-metadata-properties).</span></span>
+<span data-ttu-id="71744-129">您還可以設定選擇性屬性，例如`Title`、`PackageDescription` 與 `PackageTags`，如 [MSBuild 套件目標](../reference/msbuild-targets.md#pack-target)、[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)，以及 [NuGet 中繼資料屬性](/dotnet/core/tools/csproj#nuget-metadata-properties)中所述。</span><span class="sxs-lookup"><span data-stu-id="71744-129">You can also set the optional properties, such as `Title`, `PackageDescription`, and `PackageTags`, as described in [MSBuild pack targets](../reference/msbuild-targets.md#pack-target), [Controlling dependency assets](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets), and [NuGet metadata properties](/dotnet/core/tools/csproj#nuget-metadata-properties).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="aac2d-130">針對公眾取用而建置的套件，請特別注意 **PackageTags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。</span><span class="sxs-lookup"><span data-stu-id="aac2d-130">For packages built for public consumption, pay special attention to the **PackageTags** property, as tags help others find your package and understand what it does.</span></span>
+> <span data-ttu-id="71744-130">針對公眾取用而建置的套件，請特別注意 **PackageTags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。</span><span class="sxs-lookup"><span data-stu-id="71744-130">For packages built for public consumption, pay special attention to the **PackageTags** property, as tags help others find your package and understand what it does.</span></span>
 
-<span data-ttu-id="aac2d-131">如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-131">For details on declaring dependencies and specifying version numbers, see [Package references in project files](../consume-packages/package-references-in-project-files.md) and [Package versioning](../concepts/package-versioning.md).</span></span> <span data-ttu-id="aac2d-132">使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。</span><span class="sxs-lookup"><span data-stu-id="aac2d-132">It is also possible to surface assets from dependencies directly in the package by using the `<IncludeAssets>` and `<ExcludeAssets>` attributes.</span></span> <span data-ttu-id="aac2d-133">如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-133">For more information, seee [Controlling dependency assets](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).</span></span>
+<span data-ttu-id="71744-131">如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。</span><span class="sxs-lookup"><span data-stu-id="71744-131">For details on declaring dependencies and specifying version numbers, see [Package references in project files](../consume-packages/package-references-in-project-files.md) and [Package versioning](../concepts/package-versioning.md).</span></span> <span data-ttu-id="71744-132">使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。</span><span class="sxs-lookup"><span data-stu-id="71744-132">It is also possible to surface assets from dependencies directly in the package by using the `<IncludeAssets>` and `<ExcludeAssets>` attributes.</span></span> <span data-ttu-id="71744-133">如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。</span><span class="sxs-lookup"><span data-stu-id="71744-133">For more information, seee [Controlling dependency assets](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).</span></span>
 
-## <a name="add-an-optional-description-field"></a><span data-ttu-id="aac2d-134">新增選擇的標題欄位</span><span class="sxs-lookup"><span data-stu-id="aac2d-134">Add an optional description field</span></span>
+## <a name="add-an-optional-description-field"></a><span data-ttu-id="71744-134">新增選擇性的描述欄位</span><span class="sxs-lookup"><span data-stu-id="71744-134">Add an optional description field</span></span>
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
-## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a><span data-ttu-id="aac2d-135">選擇唯一的套件識別碼並設定版本號碼</span><span class="sxs-lookup"><span data-stu-id="aac2d-135">Choose a unique package identifier and set the version number</span></span>
+## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a><span data-ttu-id="71744-135">選擇唯一的套件識別碼並設定版本號碼</span><span class="sxs-lookup"><span data-stu-id="71744-135">Choose a unique package identifier and set the version number</span></span>
 
 [!INCLUDE [choose-package-id](includes/choose-package-id.md)]
 
-## <a name="run-the-pack-command"></a><span data-ttu-id="aac2d-136">執行 pack 命令</span><span class="sxs-lookup"><span data-stu-id="aac2d-136">Run the pack command</span></span>
+## <a name="run-the-pack-command"></a><span data-ttu-id="71744-136">執行 pack 命令</span><span class="sxs-lookup"><span data-stu-id="71744-136">Run the pack command</span></span>
 
-<span data-ttu-id="aac2d-137">若要從專案建置 NuGet 套件 (`.nupkg` 檔案)，請執行 `dotnet pack` 命令，該命令也會自動建置專案：</span><span class="sxs-lookup"><span data-stu-id="aac2d-137">To build a NuGet package (a `.nupkg` file) from the project, run the `dotnet pack` command, which also builds the project automatically:</span></span>
+<span data-ttu-id="71744-137">若要從專案建置 NuGet 套件 (`.nupkg` 檔案)，請執行 `dotnet pack` 命令，該命令也會自動建置專案：</span><span class="sxs-lookup"><span data-stu-id="71744-137">To build a NuGet package (a `.nupkg` file) from the project, run the `dotnet pack` command, which also builds the project automatically:</span></span>
 
 ```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
 
-<span data-ttu-id="aac2d-138">輸出會顯示 `.nupkg` 檔案的路徑。</span><span class="sxs-lookup"><span data-stu-id="aac2d-138">The output shows the path to the `.nupkg` file.</span></span>
+<span data-ttu-id="71744-138">輸出會顯示 `.nupkg` 檔案的路徑。</span><span class="sxs-lookup"><span data-stu-id="71744-138">The output shows the path to the `.nupkg` file.</span></span>
 
 ```output
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
@@ -96,44 +96,44 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
 ```
 
-### <a name="automatically-generate-package-on-build"></a><span data-ttu-id="aac2d-139">建置時自動產生套件</span><span class="sxs-lookup"><span data-stu-id="aac2d-139">Automatically generate package on build</span></span>
+### <a name="automatically-generate-package-on-build"></a><span data-ttu-id="71744-139">建置時自動產生套件</span><span class="sxs-lookup"><span data-stu-id="71744-139">Automatically generate package on build</span></span>
 
-<span data-ttu-id="aac2d-140">若要在您執行 `dotnet build` 時自動執行 `dotnet pack`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：</span><span class="sxs-lookup"><span data-stu-id="aac2d-140">To automatically run `dotnet pack` when you run `dotnet build`, add the following line to your project file within `<PropertyGroup>`:</span></span>
+<span data-ttu-id="71744-140">若要在您執行 `dotnet build` 時自動執行 `dotnet pack`，請將下列程式行加入專案檔的 `<PropertyGroup>` 中：</span><span class="sxs-lookup"><span data-stu-id="71744-140">To automatically run `dotnet pack` when you run `dotnet build`, add the following line to your project file within `<PropertyGroup>`:</span></span>
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-<span data-ttu-id="aac2d-141">在解決方案`dotnet pack`上執行時,這將打包解決方案中可打包的所有專案[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties)(屬性設置`true`為)。</span><span class="sxs-lookup"><span data-stu-id="aac2d-141">When you run `dotnet pack` on a solution, this packs all the projects in the solution that are packable ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) property is set to `true`).</span></span>
+<span data-ttu-id="71744-141">當您在 `dotnet pack` 方案上執行時，這會將方案中 packable 的所有專案（ [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性設為）封裝在一起 `true` 。</span><span class="sxs-lookup"><span data-stu-id="71744-141">When you run `dotnet pack` on a solution, this packs all the projects in the solution that are packable ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) property is set to `true`).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="aac2d-142">當您自動產生套件時，封裝的時間會增加專案的建置時間。</span><span class="sxs-lookup"><span data-stu-id="aac2d-142">When you automatically generate the package, the time to pack increases the build time for your project.</span></span>
+> <span data-ttu-id="71744-142">當您自動產生套件時，封裝的時間會增加專案的建置時間。</span><span class="sxs-lookup"><span data-stu-id="71744-142">When you automatically generate the package, the time to pack increases the build time for your project.</span></span>
 
-### <a name="test-package-installation"></a><span data-ttu-id="aac2d-143">測試套件安裝</span><span class="sxs-lookup"><span data-stu-id="aac2d-143">Test package installation</span></span>
+### <a name="test-package-installation"></a><span data-ttu-id="71744-143">測試套件安裝</span><span class="sxs-lookup"><span data-stu-id="71744-143">Test package installation</span></span>
 
-<span data-ttu-id="aac2d-144">發行套件之前，您通常會想要測試將套件安裝至專案的程序。</span><span class="sxs-lookup"><span data-stu-id="aac2d-144">Before publishing a package, you typically want to test the process of installing a package into a project.</span></span> <span data-ttu-id="aac2d-145">測試可確定必要檔案最後都在專案的正確位置。</span><span class="sxs-lookup"><span data-stu-id="aac2d-145">The tests make sure that the necessarily files all end up in their correct places in the project.</span></span>
+<span data-ttu-id="71744-144">發行套件之前，您通常會想要測試將套件安裝至專案的程序。</span><span class="sxs-lookup"><span data-stu-id="71744-144">Before publishing a package, you typically want to test the process of installing a package into a project.</span></span> <span data-ttu-id="71744-145">這些測試會確保所有必要的檔案最後都在專案中的正確位置。</span><span class="sxs-lookup"><span data-stu-id="71744-145">The tests make sure that the necessary files all end up in their correct places in the project.</span></span>
 
-<span data-ttu-id="aac2d-146">您可以使用一般[套件安裝步驟](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)，以在 Visual Studio 中或命令列上手動測試安裝。</span><span class="sxs-lookup"><span data-stu-id="aac2d-146">You can test installations manually in Visual Studio or on the command line using the normal [package installation steps](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).</span></span>
+<span data-ttu-id="71744-146">您可以使用一般[套件安裝步驟](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)，以在 Visual Studio 中或命令列上手動測試安裝。</span><span class="sxs-lookup"><span data-stu-id="71744-146">You can test installations manually in Visual Studio or on the command line using the normal [package installation steps](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="aac2d-147">套件是不可變的。</span><span class="sxs-lookup"><span data-stu-id="aac2d-147">Packages are immutable.</span></span> <span data-ttu-id="aac2d-148">如果您更正了問題，請變更套件的內容並再次封裝，當您重新測試時，仍會使用舊版套件，直到您[清除全域套件](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders)資料夾為止。</span><span class="sxs-lookup"><span data-stu-id="aac2d-148">If you correct a problem, change the contents of the package and pack again, when you retest you will still be using the old version of the package until you [clear your global packages](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders) folder.</span></span> <span data-ttu-id="aac2d-149">在測試每個組建上未使用唯一發行前版本標籤的套件時，這關係重大。</span><span class="sxs-lookup"><span data-stu-id="aac2d-149">This is especially relevant when testing packages that don't use a unique prerelease label on every build.</span></span>
+> <span data-ttu-id="71744-147">套件是不可變的。</span><span class="sxs-lookup"><span data-stu-id="71744-147">Packages are immutable.</span></span> <span data-ttu-id="71744-148">如果您更正了問題，請變更套件的內容並再次封裝，當您重新測試時，仍會使用舊版套件，直到您[清除全域套件](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders)資料夾為止。</span><span class="sxs-lookup"><span data-stu-id="71744-148">If you correct a problem, change the contents of the package and pack again, when you retest you will still be using the old version of the package until you [clear your global packages](../consume-packages/managing-the-global-packages-and-cache-folders.md#clearing-local-folders) folder.</span></span> <span data-ttu-id="71744-149">在測試每個組建上未使用唯一發行前版本標籤的套件時，這關係重大。</span><span class="sxs-lookup"><span data-stu-id="71744-149">This is especially relevant when testing packages that don't use a unique prerelease label on every build.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="aac2d-150">後續步驟</span><span class="sxs-lookup"><span data-stu-id="aac2d-150">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="71744-150">後續步驟</span><span class="sxs-lookup"><span data-stu-id="71744-150">Next Steps</span></span>
 
-<span data-ttu-id="aac2d-151">建立套件 (即 `.nupkg` 檔案) 之後，即可將它發行至您選擇的資源庫，如[發行套件](../nuget-org/publish-a-package.md)中所述。</span><span class="sxs-lookup"><span data-stu-id="aac2d-151">Once you've created a package, which is a `.nupkg` file, you can publish it to the gallery of your choice as described on [Publishing a Package](../nuget-org/publish-a-package.md).</span></span>
+<span data-ttu-id="71744-151">建立套件 (即 `.nupkg` 檔案) 之後，即可將它發行至您選擇的資源庫，如[發行套件](../nuget-org/publish-a-package.md)中所述。</span><span class="sxs-lookup"><span data-stu-id="71744-151">Once you've created a package, which is a `.nupkg` file, you can publish it to the gallery of your choice as described on [Publishing a Package](../nuget-org/publish-a-package.md).</span></span>
 
-<span data-ttu-id="aac2d-152">您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：</span><span class="sxs-lookup"><span data-stu-id="aac2d-152">You might also want to extend the capabilities of your package or otherwise support other scenarios as described in the following topics:</span></span>
+<span data-ttu-id="71744-152">您也可能想要擴充您套件的功能，或支援其他案例，如下列各主題中所述：</span><span class="sxs-lookup"><span data-stu-id="71744-152">You might also want to extend the capabilities of your package or otherwise support other scenarios as described in the following topics:</span></span>
 
-- [<span data-ttu-id="aac2d-153">套件版本控制</span><span class="sxs-lookup"><span data-stu-id="aac2d-153">Package versioning</span></span>](../concepts/package-versioning.md)
-- [<span data-ttu-id="aac2d-154">支援多個目標 Framework</span><span class="sxs-lookup"><span data-stu-id="aac2d-154">Support multiple target frameworks</span></span>](../create-packages/multiple-target-frameworks-project-file.md)
-- [<span data-ttu-id="aac2d-155">新增包圖示</span><span class="sxs-lookup"><span data-stu-id="aac2d-155">Add a package icon</span></span>](../reference/nuspec.md#icon)
-- [<span data-ttu-id="aac2d-156">原始程式檔和組態檔的轉換</span><span class="sxs-lookup"><span data-stu-id="aac2d-156">Transformations of source and configuration files</span></span>](../create-packages/source-and-config-file-transformations.md)
-- [<span data-ttu-id="aac2d-157">當地語系化</span><span class="sxs-lookup"><span data-stu-id="aac2d-157">Localization</span></span>](../create-packages/creating-localized-packages.md)
-- [<span data-ttu-id="aac2d-158">預發行版本</span><span class="sxs-lookup"><span data-stu-id="aac2d-158">Pre-release versions</span></span>](../create-packages/prerelease-packages.md)
-- [<span data-ttu-id="aac2d-159">設定套件類型</span><span class="sxs-lookup"><span data-stu-id="aac2d-159">Set package type</span></span>](../create-packages/set-package-type.md)
-- [<span data-ttu-id="aac2d-160">建立包含 COM Interop 組件的套件</span><span class="sxs-lookup"><span data-stu-id="aac2d-160">Create packages with COM interop assemblies</span></span>](../create-packages/author-packages-with-COM-interop-assemblies.md)
+- [<span data-ttu-id="71744-153">套件版本控制</span><span class="sxs-lookup"><span data-stu-id="71744-153">Package versioning</span></span>](../concepts/package-versioning.md)
+- [<span data-ttu-id="71744-154">支援多個目標架構</span><span class="sxs-lookup"><span data-stu-id="71744-154">Support multiple target frameworks</span></span>](../create-packages/multiple-target-frameworks-project-file.md)
+- [<span data-ttu-id="71744-155">新增套件圖示</span><span class="sxs-lookup"><span data-stu-id="71744-155">Add a package icon</span></span>](../reference/nuspec.md#icon)
+- [<span data-ttu-id="71744-156">原始程式檔和組態檔的轉換</span><span class="sxs-lookup"><span data-stu-id="71744-156">Transformations of source and configuration files</span></span>](../create-packages/source-and-config-file-transformations.md)
+- [<span data-ttu-id="71744-157">當地語系化</span><span class="sxs-lookup"><span data-stu-id="71744-157">Localization</span></span>](../create-packages/creating-localized-packages.md)
+- [<span data-ttu-id="71744-158">發行前版本</span><span class="sxs-lookup"><span data-stu-id="71744-158">Pre-release versions</span></span>](../create-packages/prerelease-packages.md)
+- [<span data-ttu-id="71744-159">設定套件類型</span><span class="sxs-lookup"><span data-stu-id="71744-159">Set package type</span></span>](../create-packages/set-package-type.md)
+- [<span data-ttu-id="71744-160">建立包含 COM Interop 組件的套件</span><span class="sxs-lookup"><span data-stu-id="71744-160">Create packages with COM interop assemblies</span></span>](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
-<span data-ttu-id="aac2d-161">最後，請注意其他套件類型：</span><span class="sxs-lookup"><span data-stu-id="aac2d-161">Finally, there are additional package types to be aware of:</span></span>
+<span data-ttu-id="71744-161">最後，請注意其他套件類型：</span><span class="sxs-lookup"><span data-stu-id="71744-161">Finally, there are additional package types to be aware of:</span></span>
 
-- [<span data-ttu-id="aac2d-162">本機包</span><span class="sxs-lookup"><span data-stu-id="aac2d-162">Native Packages</span></span>](../guides/native-packages.md)
-- [<span data-ttu-id="aac2d-163">符號套件</span><span class="sxs-lookup"><span data-stu-id="aac2d-163">Symbol Packages</span></span>](../create-packages/symbol-packages-snupkg.md)
+- [<span data-ttu-id="71744-162">原生套件</span><span class="sxs-lookup"><span data-stu-id="71744-162">Native Packages</span></span>](../guides/native-packages.md)
+- [<span data-ttu-id="71744-163">符號套件</span><span class="sxs-lookup"><span data-stu-id="71744-163">Symbol Packages</span></span>](../create-packages/symbol-packages-snupkg.md)
