@@ -1,60 +1,104 @@
 ---
 title: NuGet CLI 更新命令
-description: Nuget.exe update 命令的參考
+description: nuget.exe update 命令的參考
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: b5da09c3dd6ffa0ce1b7b44731ed67ddd0336c58
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 84f939188ac190f6d539f8ee2b422049a274f178
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327505"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622573"
 ---
-# <a name="update-command-nuget-cli"></a><span data-ttu-id="68241-103">update 命令 (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="68241-103">update command (NuGet CLI)</span></span>
+# <a name="update-command-nuget-cli"></a><span data-ttu-id="88487-103"> (NuGet CLI 更新命令) </span><span class="sxs-lookup"><span data-stu-id="88487-103">update command (NuGet CLI)</span></span>
 
-<span data-ttu-id="68241-104">**適用于:** 套件耗&bullet;用量**支援的版本:** 全部</span><span class="sxs-lookup"><span data-stu-id="68241-104">**Applies to:** package consumption &bullet; **Supported versions:** all</span></span>
+<span data-ttu-id="88487-104">**適用物件：** 套件耗用量 &bullet; **支援的版本：** 全部</span><span class="sxs-lookup"><span data-stu-id="88487-104">**Applies to:** package consumption &bullet; **Supported versions:** all</span></span>
 
-<span data-ttu-id="68241-105">將專案中的所有套件 (使用 `packages.config`) 更新為最新可用版本。</span><span class="sxs-lookup"><span data-stu-id="68241-105">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="68241-106">建議先執行「[還原](cli-ref-restore.md)」, 然後再`update`執行。</span><span class="sxs-lookup"><span data-stu-id="68241-106">It is recommended to run ['restore'](cli-ref-restore.md) before running the `update`.</span></span> <span data-ttu-id="68241-107">(若要更新個別的封裝, [`nuget install`](cli-ref-install.md)請使用, 而不指定版本號碼, 在此情況下, NuGet 會安裝最新版本)。</span><span class="sxs-lookup"><span data-stu-id="68241-107">(To update an individual package, use [`nuget install`](cli-ref-install.md) without specifying a version number, in which case NuGet installs the latest version.)</span></span>
+<span data-ttu-id="88487-105">將專案中的所有套件 (使用 `packages.config`) 更新為最新可用版本。</span><span class="sxs-lookup"><span data-stu-id="88487-105">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="88487-106">建議您先執行「 [還原](cli-ref-restore.md) 」，再執行 `update` 。</span><span class="sxs-lookup"><span data-stu-id="88487-106">It is recommended to run ['restore'](cli-ref-restore.md) before running the `update`.</span></span> <span data-ttu-id="88487-107"> (若要更新個別套件，請使用 [`nuget install`](cli-ref-install.md) 但不指定版本號碼，在此情況下，NuGet 會安裝最新版本。 ) </span><span class="sxs-lookup"><span data-stu-id="88487-107">(To update an individual package, use [`nuget install`](cli-ref-install.md) without specifying a version number, in which case NuGet installs the latest version.)</span></span>
 
-<span data-ttu-id="68241-108">注意: `update`不會使用在 Mono (Mac OSX 或 Linux) 下執行的 CLI, 或使用 PackageReference 格式時。</span><span class="sxs-lookup"><span data-stu-id="68241-108">Note: `update` does not work with the CLI running under Mono (Mac OSX or Linux) or when using the PackageReference format.</span></span>
+<span data-ttu-id="88487-108">注意： `update` 無法使用在 Mono (MAC OSX 或 Linux) 下執行的 CLI，或使用 PackageReference 格式時。</span><span class="sxs-lookup"><span data-stu-id="88487-108">Note: `update` does not work with the CLI running under Mono (Mac OSX or Linux) or when using the PackageReference format.</span></span>
 
-<span data-ttu-id="68241-109">如果`update`參考已經存在, 此命令也會更新專案檔中的元件參考。</span><span class="sxs-lookup"><span data-stu-id="68241-109">The `update` command also updates assembly references in the project file, provided those references already exist.</span></span> <span data-ttu-id="68241-110">如果更新的封裝有已加入的元件, 則*不*會加入新的參考。</span><span class="sxs-lookup"><span data-stu-id="68241-110">If an updated package has an added assembly, a new reference is *not* added.</span></span> <span data-ttu-id="68241-111">新的封裝相依性也不會新增其元件參考。</span><span class="sxs-lookup"><span data-stu-id="68241-111">New package dependencies also don't have their assembly references added.</span></span> <span data-ttu-id="68241-112">若要將這些作業納入做為更新的一部分, 請使用套件管理員 UI 或套件管理員主控台, 更新 Visual Studio 中的封裝。</span><span class="sxs-lookup"><span data-stu-id="68241-112">To include these operations as part of an update, update the package in Visual Studio using the Package Manager UI or the Package Manager Console.</span></span>
+<span data-ttu-id="88487-109">此 `update` 命令也會更新專案檔中的元件參考，前提是這些參考已存在。</span><span class="sxs-lookup"><span data-stu-id="88487-109">The `update` command also updates assembly references in the project file, provided those references already exist.</span></span> <span data-ttu-id="88487-110">如果更新的封裝具有已加入的元件，則 *不* 會加入新的參考。</span><span class="sxs-lookup"><span data-stu-id="88487-110">If an updated package has an added assembly, a new reference is *not* added.</span></span> <span data-ttu-id="88487-111">新的封裝相依性也不會新增其元件參考。</span><span class="sxs-lookup"><span data-stu-id="88487-111">New package dependencies also don't have their assembly references added.</span></span> <span data-ttu-id="88487-112">若要在更新過程中包含這些作業，請使用封裝管理員 UI 或封裝管理員主控台更新 Visual Studio 中的套件。</span><span class="sxs-lookup"><span data-stu-id="88487-112">To include these operations as part of an update, update the package in Visual Studio using the Package Manager UI or the Package Manager Console.</span></span>
 
-<span data-ttu-id="68241-113">此命令也可以用來使用 *-self*旗標來更新 nuget.exe 本身。</span><span class="sxs-lookup"><span data-stu-id="68241-113">This command can also be used to update nuget.exe itself using the *-self* flag.</span></span>
+<span data-ttu-id="88487-113">此命令也可以用來使用 *-self* 旗標來更新 nuget.exe 本身。</span><span class="sxs-lookup"><span data-stu-id="88487-113">This command can also be used to update nuget.exe itself using the *-self* flag.</span></span>
 
-## <a name="usage"></a><span data-ttu-id="68241-114">使用量</span><span class="sxs-lookup"><span data-stu-id="68241-114">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="88487-114">使用方式</span><span class="sxs-lookup"><span data-stu-id="88487-114">Usage</span></span>
 
 ```cli
 nuget update <configPath> [options]
 ```
 
-<span data-ttu-id="68241-115">其中`<configPath>` , 會識別`packages.config`列出專案相依性的或方案檔。</span><span class="sxs-lookup"><span data-stu-id="68241-115">where `<configPath>` identifies either a `packages.config` or solution file that lists the project's dependencies.</span></span>
+<span data-ttu-id="88487-115">其中 `<configPath>` 會識別列出專案相依性的 `packages.config` 或方案檔。</span><span class="sxs-lookup"><span data-stu-id="88487-115">where `<configPath>` identifies either a `packages.config` or solution file that lists the project's dependencies.</span></span>
 
-## <a name="options"></a><span data-ttu-id="68241-116">選項</span><span class="sxs-lookup"><span data-stu-id="68241-116">Options</span></span>
+## <a name="options"></a><span data-ttu-id="88487-116">選項。</span><span class="sxs-lookup"><span data-stu-id="88487-116">Options</span></span>
 
-| <span data-ttu-id="68241-117">選項</span><span class="sxs-lookup"><span data-stu-id="68241-117">Option</span></span> | <span data-ttu-id="68241-118">描述</span><span class="sxs-lookup"><span data-stu-id="68241-118">Description</span></span> |
-| --- | --- |
-| <span data-ttu-id="68241-119">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="68241-119">ConfigFile</span></span> | <span data-ttu-id="68241-120">要套用的 NuGet 設定檔。</span><span class="sxs-lookup"><span data-stu-id="68241-120">The NuGet configuration file to apply.</span></span> <span data-ttu-id="68241-121">如果未指定, `%AppData%\NuGet\NuGet.Config`則會使用 ( `~/.nuget/NuGet/NuGet.Config` Windows) 或 (Mac/Linux)。</span><span class="sxs-lookup"><span data-stu-id="68241-121">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
-| <span data-ttu-id="68241-122">FileConflictAction</span><span class="sxs-lookup"><span data-stu-id="68241-122">FileConflictAction</span></span> | <span data-ttu-id="68241-123">指定當系統提示您覆寫或忽略專案所參考的現有檔案時, 所要採取的動作。</span><span class="sxs-lookup"><span data-stu-id="68241-123">Specifies the action to take when asked to overwrite or ignore existing files referenced by the project.</span></span> <span data-ttu-id="68241-124">值為*overwrite、ignore、none*。</span><span class="sxs-lookup"><span data-stu-id="68241-124">Values are *overwrite, ignore, none*.</span></span> |
-| <span data-ttu-id="68241-125">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="68241-125">ForceEnglishOutput</span></span> | <span data-ttu-id="68241-126">*(3.5 +)* 強制使用非變異的英文文化特性來執行 nuget.exe。</span><span class="sxs-lookup"><span data-stu-id="68241-126">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="68241-127">Help</span><span class="sxs-lookup"><span data-stu-id="68241-127">Help</span></span> | <span data-ttu-id="68241-128">顯示命令的說明資訊。</span><span class="sxs-lookup"><span data-stu-id="68241-128">Displays help information for the command.</span></span> |
-| <span data-ttu-id="68241-129">ID</span><span class="sxs-lookup"><span data-stu-id="68241-129">Id</span></span> | <span data-ttu-id="68241-130">指定要更新之套件識別碼的清單。</span><span class="sxs-lookup"><span data-stu-id="68241-130">Specifies a list of package IDs to update.</span></span> |
-| <span data-ttu-id="68241-131">MSBuildPath</span><span class="sxs-lookup"><span data-stu-id="68241-131">MSBuildPath</span></span> | <span data-ttu-id="68241-132">*(4.0 +)* 指定要搭配命令使用之 MSBuild 的路徑, 其優先順序高於`-MSBuildVersion`。</span><span class="sxs-lookup"><span data-stu-id="68241-132">*(4.0+)* Specifies the path of MSBuild to use with the command, taking precedence over `-MSBuildVersion`.</span></span> |
-| <span data-ttu-id="68241-133">MSBuildVersion</span><span class="sxs-lookup"><span data-stu-id="68241-133">MSBuildVersion</span></span> | <span data-ttu-id="68241-134">*(3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。</span><span class="sxs-lookup"><span data-stu-id="68241-134">*(3.2+)* Specifies the version of MSBuild to be used with this command.</span></span> <span data-ttu-id="68241-135">支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。</span><span class="sxs-lookup"><span data-stu-id="68241-135">Supported values are 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9.</span></span> <span data-ttu-id="68241-136">根據預設, 會挑選路徑中的 MSBuild, 否則會預設為 MSBuild 的最高安裝版本。</span><span class="sxs-lookup"><span data-stu-id="68241-136">By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild.</span></span> |
-| <span data-ttu-id="68241-137">NonInteractive</span><span class="sxs-lookup"><span data-stu-id="68241-137">NonInteractive</span></span> | <span data-ttu-id="68241-138">抑制使用者輸入或確認的提示。</span><span class="sxs-lookup"><span data-stu-id="68241-138">Suppresses prompts for user input or confirmations.</span></span> |
-| <span data-ttu-id="68241-139">PreRelease</span><span class="sxs-lookup"><span data-stu-id="68241-139">PreRelease</span></span> | <span data-ttu-id="68241-140">允許更新為發行前版本。</span><span class="sxs-lookup"><span data-stu-id="68241-140">Allows updating to prerelease versions.</span></span> <span data-ttu-id="68241-141">更新已安裝的發行前版本套件時, 不需要此旗標。</span><span class="sxs-lookup"><span data-stu-id="68241-141">This flag is not required when updating prerelease packages that are already installed.</span></span> |
-| <span data-ttu-id="68241-142">RepositoryPath</span><span class="sxs-lookup"><span data-stu-id="68241-142">RepositoryPath</span></span> | <span data-ttu-id="68241-143">指定安裝封裝的本機資料夾。</span><span class="sxs-lookup"><span data-stu-id="68241-143">Specifies the local folder where packages are installed.</span></span> |
-| <span data-ttu-id="68241-144">Safe</span><span class="sxs-lookup"><span data-stu-id="68241-144">Safe</span></span> | <span data-ttu-id="68241-145">指定只會安裝與已安裝的封裝在相同的主要和次要版本中可用的最高版本更新。</span><span class="sxs-lookup"><span data-stu-id="68241-145">Specifies that only updates with the highest version available within the same major and minor version as the installed package will be installed.</span></span> |
-| <span data-ttu-id="68241-146">Self</span><span class="sxs-lookup"><span data-stu-id="68241-146">Self</span></span> | <span data-ttu-id="68241-147">將 nuget.exe 更新為最新版本;所有其他引數都會被忽略。</span><span class="sxs-lookup"><span data-stu-id="68241-147">Updates nuget.exe to the latest version; all other arguments are ignored.</span></span> |
-| <span data-ttu-id="68241-148">Source</span><span class="sxs-lookup"><span data-stu-id="68241-148">Source</span></span> | <span data-ttu-id="68241-149">指定要用於更新的套件來源清單 (如 Url)。</span><span class="sxs-lookup"><span data-stu-id="68241-149">Specifies the list of package sources (as URLs) to use for the updates.</span></span> <span data-ttu-id="68241-150">如果省略, 此命令會使用設定檔中提供的來源, 請參閱[一般的 NuGet](../../consume-packages/configuring-nuget-behavior.md)設定。</span><span class="sxs-lookup"><span data-stu-id="68241-150">If omitted, the command uses the sources provided in configuration files, see [Common NuGet configurations](../../consume-packages/configuring-nuget-behavior.md).</span></span> |
-| <span data-ttu-id="68241-151">Verbosity</span><span class="sxs-lookup"><span data-stu-id="68241-151">Verbosity</span></span> | <span data-ttu-id="68241-152">指定輸出中顯示的詳細資料量: [*一般*]、[無訊息]、[*詳細*]。</span><span class="sxs-lookup"><span data-stu-id="68241-152">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
-| <span data-ttu-id="68241-153">Version</span><span class="sxs-lookup"><span data-stu-id="68241-153">Version</span></span> | <span data-ttu-id="68241-154">與一個封裝識別碼搭配使用時, 會指定要更新的封裝版本。</span><span class="sxs-lookup"><span data-stu-id="68241-154">When used with one package ID, specifies the version of the package to update.</span></span> |
+- **`-ConfigFile`**
 
-<span data-ttu-id="68241-155">另請參閱[環境變數](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="68241-155">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+  <span data-ttu-id="88487-117">要套用的 NuGet 設定檔。</span><span class="sxs-lookup"><span data-stu-id="88487-117">The NuGet configuration file to apply.</span></span> <span data-ttu-id="88487-118">如果未指定， `%AppData%\NuGet\NuGet.Config` 則會使用 (Windows) 或 `~/.nuget/NuGet/NuGet.Config` 或 `~/.config/NuGet/NuGet.Config` (Mac/Linux) 。</span><span class="sxs-lookup"><span data-stu-id="88487-118">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows), or `~/.nuget/NuGet/NuGet.Config` or `~/.config/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="68241-156">範例</span><span class="sxs-lookup"><span data-stu-id="68241-156">Examples</span></span>
+- **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
+
+  <span data-ttu-id="88487-119">當封裝中的檔案已經存在於目標專案時，指定預設動作。</span><span class="sxs-lookup"><span data-stu-id="88487-119">Specifies the default action when a file from a package already exists in the target project.</span></span> <span data-ttu-id="88487-120">設定為 [ `Overwrite` 永遠覆寫檔案]。</span><span class="sxs-lookup"><span data-stu-id="88487-120">Set to `Overwrite` to always overwrite files.</span></span> <span data-ttu-id="88487-121">設定為 `Ignore` 以略過檔案。</span><span class="sxs-lookup"><span data-stu-id="88487-121">Set to `Ignore` to skip files.</span></span>
+
+  <span data-ttu-id="88487-122">`PromptUser`除非提供或，否則動作（預設值）會提示您輸入每個衝突的檔案 `OverwriteAll` `IgnoreAll` ，這些檔案將會套用到所有剩餘的檔案。</span><span class="sxs-lookup"><span data-stu-id="88487-122">The `PromptUser` action, the default, will prompt for each conflicting file unless `OverwriteAll` or `IgnoreAll` is provided, which will apply to all remaining files.</span></span>
+
+- **`-ForceEnglishOutput`**
+
+  <span data-ttu-id="88487-123">\* (3.5 +) \* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。</span><span class="sxs-lookup"><span data-stu-id="88487-123">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span>
+
+- **`-?|-help`**
+
+  <span data-ttu-id="88487-124">顯示命令的說明資訊。</span><span class="sxs-lookup"><span data-stu-id="88487-124">Displays help information for the command.</span></span>
+
+- **`-Id`**
+
+  <span data-ttu-id="88487-125">指定要更新之套件識別碼的清單。</span><span class="sxs-lookup"><span data-stu-id="88487-125">Specifies a list of package IDs to update.</span></span>
+
+- **`-MSBuildPath`**
+
+  <span data-ttu-id="88487-126">\* (4.0 +) \* 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。</span><span class="sxs-lookup"><span data-stu-id="88487-126">*(4.0+)* Specifies the path of MSBuild to use with the command, taking precedence over `-MSBuildVersion`.</span></span>
+
+- **`-MSBuildVersion`**
+
+  <span data-ttu-id="88487-127">\* (3.2 +) \* 指定要搭配此命令使用的 MSBuild 版本。</span><span class="sxs-lookup"><span data-stu-id="88487-127">*(3.2+)* Specifies the version of MSBuild to be used with this command.</span></span> <span data-ttu-id="88487-128">支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。</span><span class="sxs-lookup"><span data-stu-id="88487-128">Supported values are 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9.</span></span> <span data-ttu-id="88487-129">依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。</span><span class="sxs-lookup"><span data-stu-id="88487-129">By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild.</span></span>
+
+- **`-NonInteractive`**
+
+  <span data-ttu-id="88487-130">抑制使用者輸入或確認的提示。</span><span class="sxs-lookup"><span data-stu-id="88487-130">Suppresses prompts for user input or confirmations.</span></span>
+
+- **`-PreRelease`**
+
+  <span data-ttu-id="88487-131">允許更新為發行前版本。</span><span class="sxs-lookup"><span data-stu-id="88487-131">Allows updating to prerelease versions.</span></span> <span data-ttu-id="88487-132">更新已安裝的發行前版本套件時，不需要此旗標。</span><span class="sxs-lookup"><span data-stu-id="88487-132">This flag is not required when updating prerelease packages that are already installed.</span></span>
+
+- **`-RepositoryPath`**
+
+  <span data-ttu-id="88487-133">指定安裝封裝的本機資料夾。</span><span class="sxs-lookup"><span data-stu-id="88487-133">Specifies the local folder where packages are installed.</span></span>
+
+- **`-Safe`**
+
+  <span data-ttu-id="88487-134">指定在安裝套件的主要和次要版本中，只會安裝具有最高版本的更新。</span><span class="sxs-lookup"><span data-stu-id="88487-134">Specifies that only updates with the highest version available within the same major and minor version as the installed package will be installed.</span></span>
+
+- **`-Self`**
+
+  <span data-ttu-id="88487-135">更新為最新版本 nuget.exe;系統會忽略所有其他引數。</span><span class="sxs-lookup"><span data-stu-id="88487-135">Updates nuget.exe to the latest version; all other arguments are ignored.</span></span>
+
+- **`-Source`**
+
+  <span data-ttu-id="88487-136">指定要用於更新的 Url)  (套件來源的清單。</span><span class="sxs-lookup"><span data-stu-id="88487-136">Specifies the list of package sources (as URLs) to use for the updates.</span></span> <span data-ttu-id="88487-137">如果省略，此命令會使用設定檔中提供的來源，請參閱 [一般 NuGet](../../consume-packages/configuring-nuget-behavior.md)設定。</span><span class="sxs-lookup"><span data-stu-id="88487-137">If omitted, the command uses the sources provided in configuration files, see [Common NuGet configurations](../../consume-packages/configuring-nuget-behavior.md).</span></span>
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  <span data-ttu-id="88487-138">指定輸出中顯示的詳細資料量： `normal` (預設) 、 `quiet` 或 `detailed` 。</span><span class="sxs-lookup"><span data-stu-id="88487-138">Specifies the amount of detail displayed in the output: `normal` (the default), `quiet`, or `detailed`.</span></span>
+
+- **`-Version`**
+
+  <span data-ttu-id="88487-139">與一個封裝識別碼搭配使用時，會指定要更新的封裝版本。</span><span class="sxs-lookup"><span data-stu-id="88487-139">When used with one package ID, specifies the version of the package to update.</span></span>
+
+<span data-ttu-id="88487-140">另請參閱 [環境變數](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="88487-140">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+
+## <a name="examples"></a><span data-ttu-id="88487-141">範例</span><span class="sxs-lookup"><span data-stu-id="88487-141">Examples</span></span>
 
 ```cli
 nuget update
