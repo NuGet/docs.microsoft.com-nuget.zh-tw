@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610707"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623002"
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -24,7 +24,7 @@ ms.locfileid: "73610707"
 
 您可以使用下列其中一種方式指定此版本：
 
-- **若您的專案使用 [`PackageReference`](../consume-packages/package-references-in-project-files.md)**：在 `.csproj` 檔案的 [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) 元素中包括語意版本尾碼。
+- **若您的專案使用 [`PackageReference`](../consume-packages/package-references-in-project-files.md)**：在 `.csproj` 檔案的 [`PackageVersion`](/dotnet/core/tools/csproj#packageversion) 元素中包括語意版本尾碼。
 
     ```xml
     <PropertyGroup>
@@ -50,9 +50,9 @@ NuGet 使用套件時預設不包含發行前版本，但是您可以如下所�
 
     設定或清除此方塊會重新整理套件管理員 UI，以及您可以安裝的可用版本清單。
 
-- **套件管理員主控台**`-IncludePrerelease``Find-Package`:使用 開`Get-Package``Install-Package`關`Sync-Package`與`Update-Package`、 、 和命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
+- **封裝管理員主控台**：使用 `-IncludePrerelease` 參數搭配、、 `Find-Package` `Get-Package` `Install-Package` 、 `Sync-Package` 和 `Update-Package` 命令。 請參閱 [PowerShell 參考](../reference/powershell-reference.md)。
 
-- **NuGet CLI:**`-prerelease`將`install`開`update``delete`關`mirror`與、 與指令一起使用。 請參閱 [NuGet CLI 參考](../reference/nuget-exe-cli-reference.md)
+- **NuGet CLI**：搭配 `-prerelease` `install` 、 `update` 、 `delete` 和命令使用參數 `mirror` 。 請參閱 [NuGet CLI 參考](../reference/nuget-exe-cli-reference.md)
 
 ## <a name="semantic-versioning"></a>語意化版本控制系統
 

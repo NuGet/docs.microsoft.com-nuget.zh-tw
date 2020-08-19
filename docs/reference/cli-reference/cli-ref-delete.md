@@ -1,44 +1,68 @@
 ---
-title: NuGet CLI delete 命令
-description: Nuget.exe delete 命令的參考
+title: NuGet CLI 刪除命令
+description: nuget.exe delete 命令的參考
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 5185bc8b89f645a0a0f4d3241b5fa04e09560ede
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bec1a778d4986a4cb7ee87e1ef8a98550c96ed57
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327835"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622859"
 ---
-# <a name="delete-command-nuget-cli"></a>delete 命令 (NuGet CLI)
+# <a name="delete-command-nuget-cli"></a> (NuGet CLI 刪除命令) 
 
-**適用于:** 套件發行&bullet; **支援的版本:** 全部
+**適用于：** 套件發行 &bullet; **支援的版本：** 全部
 
-從封裝來源刪除或取消列出封裝。 針對 nuget.org, delete 命令會[取消列出套件](../../nuget-org/policies/deleting-packages.md)。
+從套件來源刪除或取消列出套件。 若為 nuget.org，delete 命令會 [取消列出封裝](../../nuget-org/policies/deleting-packages.md)。
 
-## <a name="usage"></a>使用量
+## <a name="usage"></a>使用方式
 
 ```cli
 nuget delete <packageID> <packageVersion> [options]
 ```
 
-其中`<packageID>` , `<packageVersion>`和會識別要刪除或取消列出的確切封裝。 確切的行為視來源而定。 例如, 針對本機資料夾, 會刪除封裝;針對 nuget.org, 封裝為未列出。
+， `<packageID>` 並 `<packageVersion>` 識別要刪除或取消列出的確切套件。 確切的行為取決於來源。 舉例來說，如果是本機資料夾，則會刪除封裝;若為 nuget.org，則不會列出套件。
 
-## <a name="options"></a>選項
+## <a name="options"></a>選項。
 
-| 選項 | 說明 |
-| --- | --- |
-| ApiKey | 目標存放庫的 API 金鑰。 如果不存在, 則會使用設定檔中指定的檔案。 |
-| ConfigFile | 要套用的 NuGet 設定檔。 如果未指定, `%AppData%\NuGet\NuGet.Config`則會使用 ( `~/.nuget/NuGet/NuGet.Config` Windows) 或 (Mac/Linux)。|
-| ForceEnglishOutput | *(3.5 +)* 強制使用非變異的英文文化特性來執行 nuget.exe。 |
-| Help | 顯示命令的說明資訊。 |
-| NonInteractive | 抑制使用者輸入或確認的提示。 |
-| Source | 指定伺服器 URL。 Nuget.org 的 URL 是`https://api.nuget.org/v3/index.json`。 若是私人摘要, 請以主機名稱取代, 例如 *% hostname%/api/v3*。 |
-| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]  、[無訊息]、[*詳細*]。 |
+- **`-ApiKey`**
 
-另請參閱[環境變數](cli-ref-environment-variables.md)
+  目標儲存機制的 API 金鑰。 如果不存在，則會使用設定檔中指定的。
+
+- **`-ConfigFile`**
+
+  要套用的 NuGet 設定檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` 則會使用 (Windows) 或 `~/.nuget/NuGet/NuGet.Config` 或 `~/.config/NuGet/NuGet.Config` (Mac/Linux) 。
+
+- **`-ForceEnglishOutput`**
+
+  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+
+- **`-?|-help`**
+
+  顯示命令的說明資訊。
+
+- **`-NonInteractive`**
+
+  抑制使用者輸入或確認的提示。
+
+ - **`-np|-NoPrompt`**
+
+   刪除時不要提示。
+
+ - **`-NoServiceEndpoint`** 不會將 "api/v2/套件" 附加至來源 URL。
+
+- **`-src|-Source`**
+
+  指定伺服器 URL。 Nuget.org 的 URL 是 `https://api.nuget.org/v3/index.json` 。 若為私用摘要，請取代主機名稱，例如 *% hostname%/api/v3*。
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  指定輸出中顯示的詳細資料量： `normal` (預設) 、 `quiet` 或 `detailed` 。
+
+另請參閱 [環境變數](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>範例
 

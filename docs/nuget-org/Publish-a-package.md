@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429021"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623018"
 ---
 # <a name="publishing-packages"></a>發行套件
 
@@ -24,7 +24,7 @@ ms.locfileid: "79429021"
 
 ## <a name="publish-to-nugetorg"></a>發行至 nuget.org
 
-對於nuget.org,您必須使用Microsoft帳戶登錄,系統將要求您向nuget.org註冊該帳戶。您還可以使用使用舊版本的門戶創建的nuget.org帳戶登錄。
+針對 nuget.org，您必須使用 Microsoft 帳戶登入，系統會要求您向 nuget.org 註冊帳戶。您也可以使用以舊版入口網站建立的 nuget.org 帳戶登入。
 
 ![NuGet 登入位置](media/publish_NuGetSignIn.png)
 
@@ -46,7 +46,8 @@ ms.locfileid: "79429021"
 
 ### <a name="command-line"></a>命令列
 
-若要將套件推送至 nuget.org，您必須使用 [nuget.exe 4.1.0 版或以上版本](https://www.nuget.org/downloads)，以實作必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。 您也需要 API 金鑰，這是在 nuget.org 上建立的。
+若要將套件推送至 nuget.org，您需要先在 nuget.org 上建立 API 金鑰。您必須使用 dotnet.exe ( .NET Core) 或 nuget.exe v 4.1.0 或更新版本，以執行所需的 NuGet 通訊協定。
+如需詳細資訊，請參閱 [.Net Core](https://docs.microsoft.com/dotnet/core/install/)、 [nuget.exe](https://www.nuget.org/downloads)和 [NuGet 通訊協定](../api/nuget-protocols.md)。
 
 #### <a name="create-api-keys"></a>建立 API 金鑰
 
@@ -64,11 +65,11 @@ ms.locfileid: "79429021"
     nuget setApiKey <your_API_key>
     ```
 
-    此命令將 API 金鑰儲存在 NuGet 設定中,這樣您就不必在同一台電腦上再次重複此步驟。
+    此命令會將您的 API 金鑰儲存在 NuGet 設定中，如此一來，您就不需要在同一部電腦上再次重複此步驟。
 
     > [!NOTE]
-    > API 密鑰不用於與專用源進行身份驗證。 請參閱[`nuget sources`命令](../reference/cli-reference/cli-ref-sources.md)來管理認證,以便使用源進行身分驗證。
-    > API 密鑰可以從各個 NuGet 伺服器獲取。 要建立與操作 apikey nuget.org 請參閱發佈[api 鍵](../quickstart/includes/publish-api-key.md)
+    > API 金鑰不會用來向私人摘要進行驗證。 請參閱[ `nuget sources` 命令](../reference/cli-reference/cli-ref-sources.md)來管理用來驗證來源的認證。
+    > 您可以從個別的 NuGet 伺服器取得 API 金鑰。 若要建立和管理 >apikeys.cs for nuget.org，請參閱 [建立 API 金鑰](#create-api-keys)。
 
 1. 使用下列命令，將套件推送至 NuGet 資源庫：
 
@@ -91,7 +92,7 @@ ms.locfileid: "79429021"
 
 套件驗證和編製索引通常在 15 分鐘內完成。 如果套件發佈所需的時間超出預期，請前往 [status.nuget.org](https://status.nuget.org/)，以檢查 nuget.org 是否發生任何中斷。 如果所有系統都可以正常運作，但未在一個小時內成功發佈套件，請登入 nuget.org，並使用套件頁面上的 [連絡客戶支援] 連結與我們連絡。
 
-要查看包的狀態,請在nuget.org上選擇帳戶名稱下的 **「管理包**」。驗證完成後,您將收到一封確認電子郵件。
+若要查看套件的狀態，請在 nuget.org 上選取 [管理您的帳戶名稱下的 **封裝** ]。驗證完成時，您會收到確認電子郵件。
 
 請注意，您的套件進行編製索引可能需要一些時間，並顯示在其他人可以找到它的搜尋結果中；在這段期間，您會在套件頁面上看到下列訊息：
 

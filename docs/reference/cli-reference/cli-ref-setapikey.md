@@ -1,46 +1,62 @@
 ---
 title: NuGet CLI setapikey 命令
-description: Nuget.exe setapikey 命令的參考
+description: nuget.exe setapikey 命令的參考
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: e06cfb5b355dfae8104090db7babdecdf9e9fec1
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231223"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622807"
 ---
-# <a name="setapikey-command-nuget-cli"></a>setapikey 命令（NuGet CLI）
+# <a name="setapikey-command-nuget-cli"></a> (NuGet CLI 的 setapikey 命令) 
 
-**適用物件：** 套件耗用量、發行 &bullet;**支援的版本：** 全部
+**適用于：** 套件耗用量、發佈 &bullet; **支援的版本：** 全部
 
-將指定伺服器 URL 的 API 金鑰儲存至 `NuGet.Config`，讓它不需要針對後續命令輸入。
+將指定的伺服器 URL 的 API 金鑰儲存在中 `NuGet.Config` ，如此一來，就不需要針對後續命令輸入它。
 
-## <a name="usage"></a>使用量
+## <a name="usage"></a>使用方式
 
 ```cli
 nuget setapikey <key> -Source <url> [options]
 ```
 
-其中 `<source>` 會識別伺服器，而 `<key>` 則是要儲存的金鑰。 如果省略 `<source>`，則會假設為 nuget.org。 
+`<source>`識別伺服器的位置，以及 `<key>` 要儲存的金鑰。 如果 `<source>` 省略，則會假設為 nuget.org。 
 
 > [!NOTE]
-> API 金鑰不會用來向私人摘要進行驗證。 請參閱[`nuget sources` 命令](../cli-reference/cli-ref-sources.md)，以管理用來驗證來源的認證。
-> 您可以從個別的 NuGet 伺服器取得 API 金鑰。 若要建立和管理 nuget.org 的 APIKeys，請參閱[發佈-api-金鑰](../../quickstart/includes/publish-api-key.md)
+> API 金鑰不會用來向私人摘要進行驗證。 請參閱[ `nuget sources` 命令](../cli-reference/cli-ref-sources.md)來管理用來驗證來源的認證。
+> 您可以從個別的 NuGet 伺服器取得 API 金鑰。 若要建立和管理 nuget.org 的 >apikeys.cs，請參閱 [取得---api 金鑰](../../nuget-org/scoped-api-keys.md#acquire-an-api-key)
 
 ## <a name="options"></a>選項。
 
-| 選項 | 描述 |
-| --- | --- |
-| ConfigFile | 要套用的 NuGet 設定檔。 如果未指定，則會使用 `%AppData%\NuGet\NuGet.Config` （Windows）或 `~/.nuget/NuGet/NuGet.Config` （Mac/Linux）。|
-| ForceEnglishOutput | *（3.5 +）* 強制使用非變異的英文文化特性來執行 nuget.exe。 |
-| 説明 | 顯示命令的說明資訊。 |
-| NonInteractive | 抑制使用者輸入或確認的提示。 |
-| 詳細程度 | 指定輸出中顯示的詳細資料量： [*一般*] *、[* 無訊息]、[*詳細*]。 |
+- **`-ConfigFile`**
 
-另請參閱[環境變數](cli-ref-environment-variables.md)
+  要套用的 NuGet 設定檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` 則會使用 (Windows) 或 `~/.nuget/NuGet/NuGet.Config` 或 `~/.config/NuGet/NuGet.Config` (Mac/Linux) 。
+
+- **`-ForceEnglishOutput`**
+
+  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+
+- **`-?|-help`**
+
+  顯示命令的說明資訊。
+
+- **`-NonInteractive`**
+
+  抑制使用者輸入或確認的提示。
+
+- **`-src|-Source`**
+
+  API 金鑰有效的伺服器 URL。
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  指定輸出中顯示的詳細資料量： `normal` (預設) 、 `quiet` 或 `detailed` 。
+
+另請參閱 [環境變數](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>範例
 

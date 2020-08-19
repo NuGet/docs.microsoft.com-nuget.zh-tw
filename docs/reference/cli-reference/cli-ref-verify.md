@@ -1,56 +1,69 @@
 ---
 title: NuGet CLI 驗證命令
-description: Nuget.exe verify 命令的參考
+description: nuget.exe verify 命令的參考
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9510f7323fe0cb860e0dbde51c1eda761846ee27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327495"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622599"
 ---
-# <a name="verify-command-nuget-cli"></a>verify 命令 (NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>確認 (NuGet CLI 的命令) 
 
-**適用于:** 套件耗&bullet;用量**支援的版本:** 4.6 +
+**適用物件：** 套件耗用量 &bullet; **支援的版本：** 4.6 +
 
 驗證套件。
 
-在 .NET Core、Mono 或非 Windows 平臺上, 尚未支援已簽署套件的驗證。
+.NET Core、Mono 或非 Windows 平臺上尚未支援已簽署套件的驗證。
 
-## <a name="usage"></a>使用量
+## <a name="usage"></a>使用方式
 
 ```cli
 nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
-其中`<package(s)>`是一或多`.nupkg`個檔案。
+其中 `<package(s)>` 是一或多個檔案 `.nupkg` 。
 
 ## <a name="nuget-verify--all"></a>nuget 驗證-全部
 
-指定所有可能的驗證都應該在封裝上執行。
+指定所有可能的驗證都應該在封裝 (s) 上執行。
 
 ## <a name="nuget-verify--signatures"></a>nuget 驗證-簽章
 
-指定應該執行封裝簽章驗證。
+指定應執行封裝簽章驗證。
 
-## <a name="options-for-verify--signatures"></a>「驗證-簽章」的選項
+## <a name="options-for-verify--signatures"></a>「驗證簽章」的選項
 
-| 選項 | 說明 |
-| --- | --- |
-| CertificateFingerprint | 指定憑證的一個或多個 SHA-256 憑證指紋, 其簽署的套件必須經過簽署。 憑證 SHA-256 指紋是憑證的 SHA-256 雜湊。 多個輸入應以分號分隔。 |
+- **`-CertificateFingerprint`**
 
-## <a name="options"></a>選項
+  指定憑證 (s 的一或多個 256 SHA-1 憑證指紋，) 簽署的套件必須使用簽署。 憑證 256 SHA-1 指紋是憑證的 SHA-256 雜湊。 多個輸入應以分號分隔。
 
-| 選項 | 描述 |
-| --- | --- |
-| ConfigFile | 要套用的 NuGet 設定檔。 如果未指定, `%AppData%\NuGet\NuGet.Config`則會使用 ( `~/.nuget/NuGet/NuGet.Config` Windows) 或 (Mac/Linux)。|
-| ForceEnglishOutput | 強制使用非變異的英文文化特性來執行 nuget.exe。 |
-| Help | 顯示命令的說明資訊。 |
-| Verbosity | 指定輸出中顯示的詳細資料量: [*一般*]  、[無訊息]、[*詳細*]。 |
+## <a name="options"></a>選項。
+
+- **`-ConfigFile`**
+
+  要套用的 NuGet 設定檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` 則會使用 (Windows) 或 `~/.nuget/NuGet/NuGet.Config` 或 `~/.config/NuGet/NuGet.Config` (Mac/Linux) 。
+
+- **`-ForceEnglishOutput`**
+
+  使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+
+- **`-?|-help`**
+
+  顯示命令的說明資訊。
+
+- **`-NonInteractive`**
+
+  抑制使用者輸入或確認的提示。
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  指定輸出中顯示的詳細資料量： `normal` (預設) 、 `quiet` 或 `detailed` 。
 
 ## <a name="examples"></a>範例
 

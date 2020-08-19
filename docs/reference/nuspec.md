@@ -1,17 +1,17 @@
 ---
-title: 適用于 NuGet 的 nuspec 檔案參考
+title: NuGet 的 nuspec 檔案參考
 description: .nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 19e7934e2f249056c532369fa5e8ee6e35cc8086
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429098"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623132"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -26,17 +26,17 @@ ms.locfileid: "79429098"
 - [Framework 組件參考](#framework-assembly-references)
 - [包含組件檔](#including-assembly-files)
 - [包含內容檔](#including-content-files)
-- [範例 nuspec 檔案](#example-nuspec-files)
+- [範例 nuspec 檔](#example-nuspec-files)
 
 ## <a name="project-type-compatibility"></a>專案類型相容性
 
-- 針對使用 `packages.config`的非 SDK 樣式專案，使用 `.nuspec` 搭配 `nuget.exe pack`。
+- `.nuspec` `nuget.exe pack` 針對使用的非 SDK 樣式專案使用 with `packages.config` 。
 
-- 建立[SDK 樣式專案](../resources/check-project-format.md)的套件（通常是 .net Core 和使用[SDK 屬性](/dotnet/core/tools/csproj#additions)的 .NET Standard 專案）時，不需要 `.nuspec` 檔案。 （請注意，當您建立封裝時，會產生 `.nuspec`）。
+- `.nuspec`針對[sdk 樣式專案](../resources/check-project-format.md)建立套件時，不需要檔案 (通常是 .net Core 和使用[SDK 屬性](/dotnet/core/tools/csproj#additions)) 的 .NET Standard 專案。  (請注意， `.nuspec` 當您建立套件時，就會產生。 ) 
 
-   如果您要使用 `dotnet.exe pack` 或 `msbuild pack target`建立封裝，建議您改為在專案檔的 `.nuspec` 檔案中[包含所有屬性](../reference/msbuild-targets.md#pack-target)。 不過，您可以改為選擇[使用 `.nuspec` 檔案，以使用 `dotnet.exe` 或 `msbuild pack target`來](../reference/msbuild-targets.md#packing-using-a-nuspec)封裝。
+   如果您要使用或建立封裝 `dotnet.exe pack` `msbuild pack target` ，建議您改為在專案檔中包含通常在檔案中的 [所有屬性](../reference/msbuild-targets.md#pack-target) `.nuspec` 。 不過，您可以改為選擇[使用 `.nuspec` 要使用 `dotnet.exe` 或 `msbuild pack target` 封裝的](../reference/msbuild-targets.md#packing-using-a-nuspec)檔案。
 
-- 若為從 `packages.config` 遷移至[PackageReference](../consume-packages/package-references-in-project-files.md)的專案，則不需要 `.nuspec` 檔案來建立封裝。 請改用[msbuild-t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
+- 若為從遷移 `packages.config` 至 [PackageReference](../consume-packages/package-references-in-project-files.md)的專案 `.nuspec` ，則不需要使用檔案來建立封裝。 相反地，請使用 [msbuild-t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
 
 ## <a name="general-form-and-schema"></a>一般格式和結構描述
 
@@ -61,9 +61,11 @@ ms.locfileid: "79429098"
 </package>
 ```
 
-為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管] 連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)。 任一方式都可取得類似以下的檢視 (大部分展開時)：
+為能清晰呈現結構描述，請在 Visual Studio 中以設計模式開啟結構描述檔案，按一下 [XML 結構描述總管]**** 連結。 或者，將檔案開啟為程式碼，在編輯器中按一下滑鼠右鍵，選取 [Show XML Schema Explorer] (顯示 XML 結構描述總管)****。 任一方式都可取得類似以下的檢視 (大部分展開時)：
 
 ![開啟了 nuspec.xsd 的 Visual Studio 結構描述總管](media/SchemaExplorer.png)
+
+Nuspec 檔案中的所有 XML 元素名稱都會區分大小寫，如同一般的 XML 情況。 例如，使用中繼資料元素 `<description>` 是正確的，而且 `<Description>` 不正確。 以下列出每個專案名稱的適當大小寫。
 
 ### <a name="required-metadata-elements"></a>必要的中繼資料項目
 
@@ -73,40 +75,58 @@ ms.locfileid: "79429098"
 
 #### <a name="id"></a>id 
 不區分大小寫的套件識別碼，在整個 nuget.org 或套件所在的任何組件庫中都必須是唯一的。 識別碼可能不包含對 URL 而言無效的空格或字元，而且通常會遵循 .NET 命名空間規則。 如需指導方針，請參閱[選擇唯一的套件識別碼](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)。
-#### <a name="version"></a>版本
+
+將封裝上傳至 nuget.org 時， `id` 欄位會限制為128個字元。
+
+#### <a name="version"></a>version
 套件版本，遵循 *major.minor.patch* 模式。 版本號碼可以包含預先發行版本的後置詞，如[套件版本控制](../concepts/package-versioning.md#pre-release-versions)中所述。 
+
+將封裝上傳至 nuget.org 時， `version` 欄位會限制為64個字元。
+
 #### <a name="description"></a>description
 UI 顯示的封裝描述。
+
+將封裝上傳至 nuget.org 時， `description` 欄位會限制為4000個字元。
+
 #### <a name="authors"></a>authors
-以逗號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 上的 NuGet 元件庫中，並用於相同作者的交互參照封裝。 
+以逗號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的 NuGet 元件庫中，並用來交互參照相同作者的封裝。 
+
+將封裝上傳至 nuget.org 時， `authors` 欄位會限制為4000個字元。
 
 ### <a name="optional-metadata-elements"></a>選擇性中繼資料項目
 
-#### <a name="owners"></a>擁有者
-在 nuget.org 上使用設定檔名稱的套件建立者清單（以逗號分隔）。這通常與 `authors`中的清單相同，並會在將封裝上傳至 nuget.org 時予以忽略。請參閱[在 nuget.org 上管理套件擁有](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)者。 
+#### <a name="owners"></a>owners
+在 nuget.org 上使用設定檔名稱的封裝建立者清單（以逗號分隔）。這通常是中的相同清單 `authors` ，而將封裝上傳至 nuget.org 時則會忽略。請參閱 [在 nuget.org 上管理套件擁有](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)者。 
 
 #### <a name="projecturl"></a>projectUrl
 套件首頁的 URL，通常會顯示在 UI 顯示及 nuget.org 中。 
+
+將封裝上傳至 nuget.org 時， `projectUrl` 欄位會限制為4000個字元。
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl 已被取代。 請改用授權。
 
-套件授權的 URL，通常會顯示在像是 nuget.org 的 Ui 中。
+封裝的授權 URL，通常會顯示在像是 nuget.org 的 Ui 中。
+
+將封裝上傳至 nuget.org 時， `licenseUrl` 欄位會限制為4000個字元。
 
 #### <a name="license"></a>授權
-封裝內授權檔案的 SPDX 授權運算式或路徑，通常會顯示在類似 nuget.org 的 Ui 中。如果您要以一般授權（例如 MIT 或 BSD-2-子句）授權封裝，請使用相關聯的[SPDX 授權識別碼](https://spdx.org/licenses/)。 例如，
+
+*支援 **NuGet 4.9.0** 和更新版本*
+
+SPDX 授權運算式或封裝內的授權檔路徑，通常會顯示在類似 nuget.org 的 Ui 中。如果您要使用一般授權（例如 MIT 或 BSD-2 子句）來授權套件，請使用相關聯的 [SPDX 授權識別碼](https://spdx.org/licenses/)。 例如：
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
-> NuGet.org 只接受開放原始碼計畫或免費軟體基礎核准的授權運算式。
+> NuGet.org 只接受開放原始碼計畫或免費 Software Foundation 核准的授權運算式。
 
-如果您的套件是以多個一般授權授權，您可以使用[SPDX 運算式語法2.0 版](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)來指定複合授權。 例如，
+如果您的套件是以多個一般授權授權，您可以使用 [SPDX 運算式語法版本 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)來指定複合授權。 例如：
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-如果您使用授權運算式不支援的自訂授權，您可以使用授權文字來封裝 `.txt` 或 `.md` 檔案。 例如，
+如果您使用授權運算式不支援的自訂授權，您可以 `.txt` `.md` 使用授權的文字來封裝或檔案。 例如：
 
 ```xml
 <package>
@@ -123,9 +143,9 @@ UI 顯示的封裝描述。
 </package>
 ```
 
-如需對等的 MSBuild，請參閱[封裝授權運算式或授權檔案](msbuild-targets.md#packing-a-license-expression-or-a-license-file)。
+針對 MSBuild 對等專案，請參閱 [封裝授權運算式或授權檔案](msbuild-targets.md#packing-a-license-expression-or-a-license-file)。
 
-NuGet 授權運算式的確切語法在下面的[ABNF](https://tools.ietf.org/html/rfc5234)中有說明。
+NuGet 授權運算式的確切語法如下所述 [ABNF](https://tools.ietf.org/html/rfc5234)。
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
 
@@ -147,13 +167,17 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > [!Important]
 > iconUrl 已被取代。 請改用圖示。
 
-128x128 影像的 URL，具有透明度背景，以做為 UI 顯示中的套件圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 中的映射，請使用原始檔案 URL，例如<em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>。 
+具有透明背景的128x128 影像 URL，可在 UI 顯示中做為封裝的圖示。 確定這個項目包含「直接映像 URL」**，不是包含影像的網頁 URL。 例如，若要使用 GitHub 中的映射，請使用原始檔案 URL，例如<em> https://github.com/ \<username\> / \<repository\> /raw/ \<branch\> / \<logo.png\> </em>。 
    
-#### <a name="icon"></a>圖示
+將封裝上傳至 nuget.org 時， `iconUrl` 欄位會限制為4000個字元。
 
-它是封裝內影像檔案的路徑，通常會顯示在像是 nuget.org 的 Ui 中，做為封裝圖示。 影像檔案大小限制為 1 MB。 支援的檔案格式包括 JPEG 和 PNG。 我們建議使用128x128 的映射解析度。
+#### <a name="icon"></a>icon
 
-例如，當您使用 nuget.exe 建立套件時，會將下列內容新增至您的 nuspec：
+*支援 **NuGet 5.3.0** 和更新版本*
+
+它是套件內影像檔案的路徑，通常會顯示在 nuget.org 之類的 Ui 中做為封裝圖示。 影像檔案大小限制為 1 MB。 支援的檔案格式包括 JPEG 和 PNG。 我們建議使用128x128 的影像解析度。
+
+例如，您會在使用 nuget.exe 建立套件時，將下列內容新增至您的 nuspec：
 
 ```xml
 <package>
@@ -172,28 +196,34 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 [封裝圖示 nuspec 範例。](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
 
-如需對等的 MSBuild，請參閱[封裝圖示影像檔](msbuild-targets.md#packing-an-icon-image-file)。
+針對 MSBuild 對等專案，請參閱 [封裝圖示影像檔](msbuild-targets.md#packing-an-icon-image-file)案。
 
 > [!Tip]
-> 您可以指定 `icon` 和 `iconUrl`，以維持與不支援 `icon`的來源的回溯相容性。 Visual Studio 將支援未來版本中來自以資料夾為基礎的來源之套件的 `icon`。
+> 您可以同時指定 `icon` 和， `iconUrl` 以便與不支援的來源維持回溯相容性 `icon` 。 Visual Studio 將 `icon` 在未來版本中支援來自以資料夾為基礎之來源的封裝。
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。
 
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 使用 PackageReference （NuGet 4.8 +）時，此旗標也表示它會從編譯中排除編譯時間資產。 請參閱[DevelopmentDependency support For PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+*(2.8+)* 布林值，指定套件是否標示為僅限開發相依性，這可防止套件包含為其他套件的相依性。 使用 PackageReference (NuGet 4.8+) 時，此旗標也表示它在編譯時會排除編譯時間資產。 請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
-#### <a name="summary"></a>摘要
+#### <a name="summary"></a>總結
 > [!Important]
-> `summary` 已被取代。 請改用 `description`。
+> `summary` 即將淘汰。 請改用 `description`。
 
 UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `description`。
 
+將封裝上傳至 nuget.org 時， `summary` 欄位會限制為4000個字元。
+
 #### <a name="releasenotes"></a>releaseNotes
-*(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新] 索引標籤等 UI 中，以取代套件描述。
+*(1.5+)* 此版本套件中的變更描述，通常用於 Visual Studio Package Manager 的 [更新]**** 索引標籤等 UI 中，以取代套件描述。
+
+將封裝上傳至 nuget.org 時， `releaseNotes` 欄位會限制為35000個字元。
 
 #### <a name="copyright"></a>著作權
 *(1.5+)* 套件的著作權詳細資料。
+
+將封裝上傳至 nuget.org 時， `copyright` 欄位會限制為4000個字元。
 
 #### <a name="language"></a>語言
 套件的地區設定識別碼。 請參閱[建立當地語系化的套件](../create-packages/creating-localized-packages.md)。
@@ -201,13 +231,15 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 #### <a name="tags"></a>tags
 以逗號分隔的標記與關鍵字清單，描述套件並透過搜尋和篩選協助探索套件。 
 
-#### <a name="serviceable"></a>一次性 
+將封裝上傳至 nuget.org 時， `tags` 欄位會限制為4000個字元。
+
+#### <a name="serviceable"></a>能否提供服務 
 *(3.3+)* 僅供內部 NuGet 使用。
 
 #### <a name="repository"></a>repository
-存放庫中繼資料，由四個選擇性屬性組成： `type` 和 `url` *（4.0 +）* ，以及 `branch` 和 `commit` *（4.6 +）* 。 這些屬性可讓您將 `.nupkg` 對應至建立它的存放庫，而且可能會如個別分支名稱和/或認可建立封裝的 SHA-1 雜湊來取得詳細資訊。 這應該是公開可用的 url，可直接由版本控制軟體叫用。 它不應該是 html 網頁，因為這適用于電腦。 在 [連結至專案] 頁面上，改為使用 [`projectUrl`] 欄位。
+存放庫中繼資料，由四個選擇性屬性組成： `type` 和 `url` * (4.0 +) *，以及 `branch` 和 `commit` * (4.6 +) *。 這些屬性可讓您將對應 `.nupkg` 至建立它的儲存機制，而且可能會如個別分支名稱和/或認可建立封裝的 sha-1 雜湊一樣詳細地取得。 這應該是可由版本控制軟體直接叫用的公開可用 url。 它不應該是 html 網頁，因為這是用於電腦。 若要連結至 [專案] 頁面，請 `projectUrl` 改用欄位。
 
-例如，
+例如：
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
@@ -219,28 +251,32 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 </package>
 ```
 
+將封裝上傳至 nuget.org 時，此 `type` 屬性的限制為100個字元，且 `url` 屬性限制為4000個字元。
+
 #### <a name="title"></a>title
-可在某些 UI 中使用之套件的人易記標題。 （nuget.org 和 Visual Studio 中的套件管理員不會顯示標題）
+可能在某些 UI 顯示中使用之套件的易記標題。  (nuget.org 和 Visual Studio 中的封裝管理員不會顯示標題) 
+
+將封裝上傳至 nuget.org 時， `title` 欄位會限制為256個字元，但不會用於任何顯示用途。
 
 #### <a name="collection-elements"></a>集合項目
 
-#### <a name="packagetypes"></a>Packagetypes>
-*(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/set-package-type.md)。
+#### <a name="packagetypes"></a>packageTypes
+*(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」** 和「版本」** 屬性。 請參閱[設定套件類型](../create-packages/set-package-type.md)。
 #### <a name="dependencies"></a>相依性
-零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
+零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」**、「版本」**、「包含」**(3.x+) 和「排除」**(3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2+)* 零或多個 `<frameworkAssembly>` 項目的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下文的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。
 #### <a name="references"></a>參考
-*(1.5+)* 在套件的 `<reference>` 資料夾中命名組件的零或多個 `lib` 項目集合，這些項目可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含具有 `<group>`targetFramework*屬性的* 項目，然後即可包含 `<reference>` 項目。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。
+*(1.5+)* 在套件的 `lib` 資料夾中命名組件的零或多個 `<reference>` 項目集合，這些項目可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含具有 *targetFramework* 屬性的 `<group>` 項目，然後即可包含 `<reference>` 項目。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。
 #### <a name="contentfiles"></a>contentFiles
-*(3.3+)* `<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。
+*(3.3+)*`<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。
 #### <a name="files"></a>files 
-`<package>` 節點可能會包含 `<files>` 節點做為 `<metadata>`的同級，以及 `<metadata>`下的 `<contentFiles>` 子系，以指定要包含在封裝中的元件和內容檔案。 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
+`<package>`節點可包含 `<files>` 節點作為的同級節點 `<metadata>` ，以及 `<contentFiles>` 下的子系 `<metadata>` ，以指定要包含在封裝中的元件和內容檔案。 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
 
 ### <a name="metadata-attributes"></a>中繼資料屬性
 
 #### <a name="minclientversion"></a>minClientVersion
-指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」拒絕安裝套件，無論 `minClientVersion` 包含什麼。
+指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 每當套件依存於 NuGet 用戶端新增的 `.nuspec` 檔案特定功能時，就會使用。 例如，套件使用的 `developmentDependency` 屬性應該為 `minClientVersion` 指定 "2.8"。 同樣地，使用 `contentFiles` 項目的套件 (請參閱下一節) 應將 `minClientVersion` 設定成 "3.3"。 另請注意，因為 2.5 之前的 NuGet 用戶端無法辨識此旗標，所以它們「一律」** 拒絕安裝套件，無論 `minClientVersion` 包含什麼。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -262,9 +298,9 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 
 ## <a name="replacement-tokens"></a>取代權杖
 
-建立套件時，[`nuget pack` 命令](../reference/cli-reference/cli-ref-pack.md) 會使用來自專案檔的值或來自 `.nuspec` 命令的 `<metadata>` 參數值，取代 `pack` 檔案之 `-properties` 節點的 $ 分隔權杖。
+建立套件時，此[ `nuget pack` 命令](../reference/cli-reference/cli-ref-pack.md) `.nuspec` `<metadata>` 會以來自專案檔或命令參數的值取代檔案節點中以 $ 分隔的標記 `pack` `-properties` 。
 
-在命令列中，您可以使用 `nuget pack -properties <name>=<value>;<name>=<value>` 指定權杖值。 例如，您可以在 `$owners$` 中使用權杖，例如 `$desc$` 和 `.nuspec`，並在封裝階段提供值，如下所示：
+在命令列中，您可以使用 `nuget pack -properties <name>=<value>;<name>=<value>` 指定權杖值。 例如，您可以在 `.nuspec` 中使用權杖，例如 `$owners$` 和 `$desc$`，並在封裝階段提供值，如下所示：
 
 ```ps
 nuget pack MyProject.csproj -properties
@@ -273,25 +309,25 @@ nuget pack MyProject.csproj -properties
 
 若要使用專案中的值，請指定下表中描述的權杖 (AssemblyInfo 是指 `Properties` 中的檔案，例如 `AssemblyInfo.cs` 或 `AssemblyInfo.vb`)。
 
-若要使用這些權杖，請執行 `nuget pack` 與專案檔，非僅 `.nuspec`。 例如，使用下列命令時，專案的 `$id$` 和 `$version$` 值會取代為 `.nuspec` 檔案中的 `AssemblyName` 和 `AssemblyVersion` 權杖：
+若要使用這些權杖，請執行 `nuget pack` 與專案檔，非僅 `.nuspec`。 例如，使用下列命令時，專案的 `AssemblyName` 和 `AssemblyVersion` 值會取代為 `.nuspec` 檔案中的 `$id$` 和 `$version$` 權杖：
 
 ```ps
 nuget pack MyProject.csproj
 ```
 
-通常，當您擁有專案時，一開始會使用自動包含這些標準權杖一部分的 `.nuspec` 來建立 `nuget spec MyProject.csproj`。 不過，如果專案沒有所需之 `.nuspec` 項目的值，則 `nuget pack` 會失敗。 此外，如果變更專案值，請務必在建立套件前重建；使用 pack 命令的 `build` 參數很容易完成此作業。
+通常，當您擁有專案時，一開始會使用自動包含這些標準權杖一部分的 `nuget spec MyProject.csproj` 來建立 `.nuspec`。 不過，如果專案沒有所需之 `.nuspec` 項目的值，則 `nuget pack` 會失敗。 此外，如果變更專案值，請務必在建立套件前重建；使用 pack 命令的 `build` 參數很容易完成此作業。
 
 除 `$configuration$` 以外，專案中值的使用順序優先於任何指派給命令列上相同權杖的值。
 
-| 權杖 | 值來源 | 值
+| Token | 值來源 | 值
 | --- | --- | ---
-| **$id$** | 專案檔 | 專案檔中的 AssemblyName （title） |
-| **$version$** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
-| **$author$** | AssemblyInfo | AssemblyCompany |
+| **$id $** | 專案檔 | 專案檔中) 的 AssemblyName (標題 |
+| **$version $** | AssemblyInfo | 如有則為 AssemblyInformationalVersion，否則為 AssemblyVersion |
+| **$author $** | AssemblyInfo | AssemblyCompany |
 | **$title $** | AssemblyInfo | AssemblyTitle |
-| **$description$** | AssemblyInfo | AssemblyDescription |
-| **$copyright$** | AssemblyInfo | AssemblyCopyright |
-| **$configuration$** | 組件 DLL | 用以建置組件的組態，預設為偵錯。 請注意，若要建立使用版本組態的套件，命令列上一律要使用 `-properties Configuration=Release`。 |
+| **$description $** | AssemblyInfo | AssemblyDescription |
+| **$copyright $** | AssemblyInfo | AssemblyCopyright |
+| **$configuration $** | 組件 DLL | 用以建置組件的組態，預設為偵錯。 請注意，若要建立使用版本組態的套件，命令列上一律要使用 `-properties Configuration=Release`。 |
 
 當您包含[組件檔](#including-assembly-files)和[內容檔](#including-content-files)時，也可使用權杖來解析路徑。 權杖和 MSBuild 屬性有相同的名稱，所以您才能夠根據目前的組建組態選取要包含的檔案。 例如，如果在 `.nuspec` 檔案中使用下列權杖：
 
@@ -301,7 +337,7 @@ nuget pack MyProject.csproj
 </files>
 ```
 
-而您建置的組件，其 `AssemblyName` 是在 MSBuild 中有 `LoggingLibrary` 組態的 `Release`，在套件的 `.nuspec` 檔案中產生的程式碼如下：
+而您建置的組件，其 `AssemblyName` 是在 MSBuild 中有 `Release` 組態的 `LoggingLibrary`，在套件的 `.nuspec` 檔案中產生的程式碼如下：
 
 ```xml
 <files>
@@ -311,20 +347,22 @@ nuget pack MyProject.csproj
 
 ## <a name="dependencies-element"></a>相依性元素
 
-`<dependencies>` 內的 `<metadata>` 項目包含任意數目的 `<dependency>` 項目，可識別最上層套件依存的其他套件。 每個 `<dependency>` 的屬性如下：
+`<metadata>` 內的 `<dependencies>` 項目包含任意數目的 `<dependency>` 項目，可識別最上層套件依存的其他套件。 每個 `<dependency>` 的屬性如下：
 
 | 屬性 | 描述 |
 | --- | --- |
 | `id` | (必要) 相依性的套件識別碼，例如 "EntityFramework" 與 "NUnit"，是在套件頁面上顯示的套件 nuget.org 名稱。 |
 | `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../concepts/package-versioning.md#version-ranges)。 不支援浮動版本。 |
 | include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值是 `all`。 |
-| 排除 | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值是可覆寫的 `build,analyzers`。 但是 `content/ ContentFiles` 也會在最終封裝中以隱含方式排除，而無法覆寫。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
+| 排除 | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值是 `build,analyzers` 可以過度寫入的值。 但 `content/ ContentFiles` 也會隱含地排除在無法寫入的最終封裝中。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
+
+將封裝上傳至 nuget.org 時，每個相依性的 `id` 屬性會限制為128個字元，而且此 `version` 屬性會限制為256個字元。
 
 | 包含/排除標記 | 目標的受影響資料夾 |
 | --- | --- |
 | contentFiles | 內容 |
 | 執行階段 | 執行階段、資源和 FrameworkAssemblies |
-| compile (編譯) | lib |
+| compile | lib |
 | build | 組建 (MSBuild props 和目標) |
 | native | native |
 | 無 | 無資料夾 |
@@ -339,7 +377,7 @@ nuget pack MyProject.csproj
 </dependencies>
 ```
 
-下列幾行程式碼指出相同套件的相依性，但指定要包含 `contentFiles` 的 `build` 和 `PackageA` 資料夾，以及 `native` 的 `compile` 和 `PackageB` 資料夾以外的所有一切
+下列幾行程式碼指出相同套件的相依性，但指定要包含 `PackageA` 的 `contentFiles` 和 `build` 資料夾，以及 `PackageB` 的 `native` 和 `compile` 資料夾以外的所有一切
 
 ```xml
 <dependencies>
@@ -349,23 +387,23 @@ nuget pack MyProject.csproj
 ```
 
 > [!Important]
-> 使用 `nuget spec`從專案建立 `.nuspec` 時，存在於該專案中的相依性不會自動包含在產生的 `.nuspec` 檔中。 相反地，請使用 `nuget pack myproject.csproj`，然後從產生的*nupkg*檔案內取得*nuspec*檔案。 *Nuspec*包含相依性。
+> `.nuspec`使用從專案建立時 `nuget spec` ，存在於該專案中的相依性不會自動包含在產生的檔案中 `.nuspec` 。 請改 `nuget pack myproject.csproj` 為使用，並從產生的*nupkg*檔案內取得*nuspec*檔案。 *Nuspec*包含相依性。
 
 ### <a name="dependency-groups"></a>相依性群組
 
-*2.0+ 版*
+*2.0 版 +*
 
-當作單一一般清單的替代方案，您可以使用 `<group>` 內的 `<dependencies>` 項目，根據目標專案的 Framework 設定檔指定相依性。
+當作單一一般清單的替代方案，您可以使用 `<dependencies>` 內的 `<group>` 項目，根據目標專案的 Framework 設定檔指定相依性。
 
 每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<dependency>` 項目。 當目標 Framework 與專案的 Framework 設定檔相容時，會同時安裝這些相依性。
 
-沒有 `<group>` 屬性的 `targetFramework` 項目用為預設值或後援相依性清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。
+沒有 `targetFramework` 屬性的 `<group>` 項目用為預設值或後援相依性清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。
 
 > [!Important]
 > 群組格式無法和一般清單混合使用。
 
 > [!Note]
-> 相較于 `dependency groups`中所使用的 TFM，`lib/ref` 資料夾中使用的[目標 Framework 標記（TFM）](../reference/target-frameworks.md)格式會不同。 如果 `dependencies group` 中宣告的目標 framework 和 `.nuspec` 檔的 `lib/ref` 資料夾沒有完全相符的專案，則 `pack` 命令會引發[NuGet 警告 NU5128](../reference/errors-and-warnings/nu5128.md)。
+> 相較于中使用的 TFM，在資料夾中使用的 [目標 Framework 標記 (TFM) ](../reference/target-frameworks.md) 的格式 `lib/ref` 不同 `dependency groups` 。 如果在中宣告的目標 framework `dependencies group` 和檔案的資料夾沒有完全相符的專案， `lib/ref` `.nuspec` 則 `pack` 命令會引發 [NuGet 警告 NU5128](../reference/errors-and-warnings/nu5128.md)。
 
 下列範例示範 `<group>` 項目的不同變化：
 
@@ -389,7 +427,7 @@ nuget pack MyProject.csproj
 
 ## <a name="explicit-assembly-references"></a>明確的組件參考
 
-使用 `packages.config` 的專案會使用 `<references>` 元素，明確指定使用封裝時，目標專案應參考的元件。 明確參考通常只用於設計階段的組件。 如需詳細資訊，請參閱[選取專案所參考的元件](../create-packages/select-assemblies-referenced-by-projects.md)中的頁面以取得詳細資訊。
+`<references>`專案會使用專案 `packages.config` 來明確指定目標專案在使用封裝時應該參考的元件。 明確參考通常只用於設計階段的組件。 如需詳細資訊，請參閱 [選取專案所參考之元件](../create-packages/select-assemblies-referenced-by-projects.md) 的頁面，以取得詳細資訊。
 
 例如，以下 `<references>` 項目會指示 NuGet 只將參考新增至 `xunit.dll` 和 `xunit.extensions.dll`，即使套件中有其他組件：
 
@@ -402,11 +440,11 @@ nuget pack MyProject.csproj
 
 ### <a name="reference-groups"></a>參考群組
 
-當作單一一般清單的替代方案，您可以使用 `<group>` 內的 `<references>` 項目，根據目標專案的 Framework 設定檔指定參考。
+當作單一一般清單的替代方案，您可以使用 `<references>` 內的 `<group>` 項目，根據目標專案的 Framework 設定檔指定參考。
 
 每個群組都有名為 `targetFramework` 的屬性，且包含零或多個 `<reference>` 項目。 當目標 Framework 與專案的 Framework 設定檔相容時，這些參考會新增至專案。
 
-沒有 `<group>` 屬性的 `targetFramework` 項目用為預設值或後援參考清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。
+沒有 `targetFramework` 屬性的 `<group>` 項目用為預設值或後援參考清單。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。
 
 > [!Important]
 > 群組格式無法和一般清單混合使用。
@@ -439,7 +477,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 | 屬性 | 描述 |
 | --- | --- |
-| **assemblyName** | (必要) 完整組件名稱。 |
+| **集** | (必要) 完整組件名稱。 |
 | **targetFramework** | (選擇性) 指定要套用這個參考的目標 Framework。 如果省略，則表示參考適用於所有 Framework。 如需確切的 Framework 識別碼，請參閱[目標 Framework](../reference/target-frameworks.md)。 |
 
 下列範例會顯示所有目標 Framework 的 `System.Net` 參考，以及僅供 .NET Framework 4.0 使用的 `System.ServiceModel` 參考：
@@ -459,9 +497,9 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 如果遵循[建立套件](../create-packages/creating-a-package.md)中所述的慣例，即不必在 `.nuspec` 檔案中明確指定檔案清單。 `nuget pack` 命令會自動挑選必要的檔案。
 
 > [!Important]
-> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
+> 當套件安裝至專案時，NuGet 會自動將組件參考新增至套件的 DLL，「排除」** 那些名為 `.resources.dll` 的參考，因為它們假設是當地語系化的附屬組件。 因此，本該含有基本套件程式碼的檔案請避免使用 `.resources.dll`。
 
-為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 項目當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 項目的檔案。 例如，
+為略過這項自動行為並明確控制套件要包含哪些檔案，請放置 `<files>` 項目當作 `<package>` 的子系 (和 `<metadata>` 的同層級)，找出每個有不同 `<file>` 項目的檔案。 例如：
 
 ```xml
 <files>
@@ -557,13 +595,13 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 - 需要以專案的組建輸出包含的指令碼
 - 套件的組態檔必須包含在專案中，但不需要專門針對任何專案變更
 
-內容檔包含在使用 `<files>` 項目的套件中，指定 `content` 屬性中的 `target` 資料夾。 不過，使用 PackageReference 在專案中安裝套件時，會忽略這類檔案，改用 `<contentFiles>` 元素。
+內容檔包含在使用 `<files>` 項目的套件中，指定 `target` 屬性中的 `content` 資料夾。 不過，使用 PackageReference 在專案中安裝套件時，會忽略這類檔案，改用 `<contentFiles>` 元素。
 
 為取得取用專案的最大相容性，套件應該在兩個項目中都指定內容檔。
 
 ### <a name="using-the-files-element-for-content-files"></a>內容檔使用 files 項目
 
-內容檔只要使用和組件檔相同的格式即可，但要在 `content` 屬性中指定 `target` 作為基底資料夾，如下列範例所示。
+內容檔只要使用和組件檔相同的格式即可，但要在 `target` 屬性中指定 `content` 作為基底資料夾，如下列範例所示。
 
 **基本內容檔**
 
@@ -676,7 +714,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 *NuGet 4.0+ 與 PackageReference*
 
-根據預設，套件會將內容放在 `contentFiles` 資料夾 (請參閱下文)，而 `nuget pack` 包含使用預設屬性資料夾中的所有檔案。 在此情況下，`contentFiles` 完全不需要包含 `.nuspec` 節點。
+根據預設，套件會將內容放在 `contentFiles` 資料夾 (請參閱下文)，而 `nuget pack` 包含使用預設屬性資料夾中的所有檔案。 在此情況下，`.nuspec` 完全不需要包含 `contentFiles` 節點。
 
 為控制包含哪些檔案，`<contentFiles>` 項目要指定 `<files>` 項目的集合，找出正確的檔案。
 
@@ -684,11 +722,11 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 | 屬性 | 描述 |
 | --- | --- |
-| **include** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 除非指定絕對路徑，否則路徑會相對於 `contentFiles` 資料夾。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
+| **包括** | (必要) 要包含的檔案位置，受限於 `exclude` 屬性所指定的排除項目。 `contentFiles`除非已指定絕對路徑，否則路徑會相對於資料夾。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
 | **排除** | `src` 位置要排除之以分號分隔的檔案清單或檔案模式。 允許萬用字元 `*`，而雙萬用字元 `**` 表示遞迴資料夾搜尋。 |
-| **buildAction** | 要指派給 MSBuild 內容專案的組建動作，例如 `Content`、`None`、`Embedded Resource`、`Compile`等等。預設值為 `Compile`。 |
-| **copyToOutput** | 布林值，指出是否要將內容專案複製到組建（或發行）輸出檔案夾。 預設為 false。 |
-| **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設為 false。 |
+| **buildAction** | 要指派給 MSBuild 內容專案的組建動作，例如 `Content` 、、、等等 `None` `Embedded Resource` `Compile` 。預設值為 `Compile` 。 |
+| **copyToOutput** | 布林值，指出是否要將內容專案複製到組建 (或發佈) 的輸出檔案夾。 預設值為 false。 |
+| **flatten** | 布林值，指出要將內容項目複製到組建輸出的單一資料夾 (true)，或保留套件中的資料夾結構 (false)。 這個旗標僅適用於將 copyToOutput 旗標設為 true 時。 預設值為 false。 |
 
 安裝套件時，NuGet 會由上而下套用 `<contentFiles>` 的子項目。 如有多個項目符合同一檔案，則套用所有項目。 如果相同的屬性發生衝突，則最上層項目會覆寫較低的項目。
 
@@ -702,7 +740,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 - `TxM` 是 NuGet 支援的任何合法目標 Framework Moniker (請參閱[目標 Framework](../reference/target-frameworks.md))。
 - 這個語法的結尾可以附加任何資料夾結構。
 
-例如，
+例如：
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml
@@ -748,15 +786,15 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 ## <a name="framework-reference-groups"></a>架構參考群組
 
-*僅限5.1 版 + 使用 PackageReference*
+*5.1 版 + 使用僅限 PackageReference*
 
 架構參考是代表共用架構（例如 WPF 或 Windows Forms）的 .NET Core 概念。
 藉由指定共用架構，封裝可確保其所有架構相依性都包含在參考專案中。
 
 每個 `<group>` 元素都需要 `targetFramework` 屬性和零或多個 `<frameworkReference>` 元素。
 
-下列範例顯示針對 .NET Core WPF 專案產生的 nuspec。
-請注意，不建議使用包含架構參考的手動撰寫 nuspecs。 請考慮改為使用[目標](msbuild-targets.md)套件，這會自動從專案推斷它們。
+下列範例顯示針對 .NET Core WPF 專案所產生的 nuspec。
+請注意，不建議使用包含架構參考的手作者 nuspecs。 請考慮改為使用 [目標](msbuild-targets.md) 套件，這會自動從專案推斷它們。
 
 ```xml
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
@@ -773,7 +811,7 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 </package>
 ```
 
-## <a name="example-nuspec-files"></a>範例 nuspec 檔案
+## <a name="example-nuspec-files"></a>範例 nuspec 檔
 
 **簡單的 `.nuspec` 不指定相依性或檔案**
 

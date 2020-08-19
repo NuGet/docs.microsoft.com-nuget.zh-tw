@@ -1,17 +1,17 @@
 ---
-ms.openlocfilehash: 1df35c96124584bddbe58b8dd6587e3fff256ef9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9167b4b5943dd797c5a4cb20e53ee6832f0b3021
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "74825303"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623017"
 ---
 1. 變更為包含 `.nupkg` 檔案的資料夾。
 
 1. 執行下列命令，指定套件名稱 (使用套件識別碼) 並使用您的 API 金鑰來取代金鑰值：
 
     ```dotnetcli
-    dotnet nuget push AppLogger.1.0.0.nupkg -k qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -s https://api.nuget.org/v3/index.json
+    dotnet nuget push AppLogger.1.0.0.nupkg --api-key qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 --source https://api.nuget.org/v3/index.json
     ```
 
 1. dotnet 會顯示發行程序的結果：

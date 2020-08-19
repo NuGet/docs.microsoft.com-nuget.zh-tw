@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dfbd793eee05169f051d9c8943bc065945b92da
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498241"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622638"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio 範本中的套件
 
@@ -23,7 +23,7 @@ ms.locfileid: "64498241"
 本節的其餘部分描述在撰寫範本以正確包含 NuGet 套件時要採取的特定步驟。
 
 - [將套件新增至範本](#adding-packages-to-a-template)
-- [最佳作法](#best-practices)
+- [最佳做法](#best-practices)
 
 如需範例，請參閱 [NuGetInVsTemplates 範例](https://bitbucket.org/marcind/nugetinvstemplates)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "64498241"
 
 要在範本中包含套件的步驟：
 
-1. 在檔案中`vstemplate`,透過新增元素新增對 NuGet 樣本精靈的[`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates)參考:
+1. 在您的檔案中 `vstemplate` 新增專案，以新增 NuGet 範本嚮導的參考 [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) ：
 
     ```xml
     <WizardExtension>
@@ -93,7 +93,7 @@ VSIX 本身可以作為範本所需的套件來源：
 1. 修改 `.vstemplate` 檔案中的 `<packages>` 項目，如下所示：
 
     ```xml
-    <packages repository="template"">
+    <packages repository="template">
         <!-- ... -->
     </packages>
     ```
@@ -141,6 +141,6 @@ VSIX 本身可以作為範本所需的套件來源：
     <!-- ... -->
     ```
 
-1. 要求在創建時通過在[`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates)`.vstemplate`檔中包括來保存專案/專案範本。
+1. 藉由在檔案中包含，要求在建立時儲存專案/專案範本 [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) `.vstemplate` 。
 
 1. 範本不包含 `packages.config` 檔案，而且不包含安裝 NuGet 套件時將會新增的任何參考或內容。

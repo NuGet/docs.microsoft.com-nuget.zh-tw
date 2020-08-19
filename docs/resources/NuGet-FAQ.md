@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69999946"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622612"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -89,9 +89,9 @@ NuGet 完整支援各種專案範本，例如 Windows、Web、Cloud、SharePoint
 
 Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具環境) 物件。 此主控台透過名為 `$DTE` 的變數提供這個項目。 如需詳細資訊，請參閱＜Visual Studio 擴充性＞文件中的 [Automation Model Overview](/visualstudio/extensibility/internals/automation-model-overview) (自動化模型概觀)。
 
-**我嘗試將$DTE變數轉換為類型 DTE2,但收到錯誤:無法將類型為"EnvDTE.DTEClass"的"EnvDTE.DTEClass"值轉換為鍵入"EnvDTE80.DTE2"。怎麼了?**
+**我嘗試將 $DTE 變數轉換成 DTE2 型別，但是收到錯誤：無法將 "EnvDTE. Envdte.dteclass" 類型的 "EnvDTE. Envdte.dteclass" 值轉換為 "EnvDTE80. DTE2" 類型。怎麼了？**
 
-這是 PowerShell 如何與 COM 物件互動的已知問題。 請嘗試下列作業：
+這是 PowerShell 如何與 COM 物件互動的已知問題。 嘗試下列作業：
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
@@ -105,7 +105,7 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 請參閱[建立並發行套件](../quickstart/create-and-publish-a-package.md)。
 
-**我的庫有多個版本,這些版本針對的是 .NET Framework 的不同版本。如何構建支援此功能的單個包?**
+**我有多個以不同 .NET Framework 版本為目標的程式庫版本。如何? 建立支援此功能的單一套件？**
 
 請參閱[支援多個 .NET Framework 版本和設定檔](../create-packages/supporting-multiple-target-frameworks.md)。
 
@@ -119,21 +119,17 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 ## <a name="working-with-packages"></a>使用套件
 
-**專案層級套件與方案層級套件之間的差異為何？**
-
-只要在方案中安裝方案層級套件 (NuGet 3.x+) 一次，就可以用於方案中的所有專案。 專案層級套件會安裝在使用它的每個專案中。 方案層級套件也可能會安裝可從套件管理員主控台內呼叫的新命令。
-
 **可以在沒有網際網路連線的情況下安裝 NuGet 套件嗎？**
 
 是，請參閱 Scott Hanselman 的部落格文章 [How to access NuGet when nuget.org is down (or you're on a plane](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (如何在 nuget.org 關閉 (或您在飛機上) 時存取 NuGet) (hanselman.com)。
 
 **如何將套件從預設套件資料夾安裝至不同位置？**
 
-使用`nuget config -set repositoryPath=<path>`[`repositoryPath`](../reference/nuget-config-file.md#config-section)`Nuget.Config`中設置設置。
+[`repositoryPath`](../reference/nuget-config-file.md#config-section)使用來設定中的設定 `Nuget.Config` `nuget config -set repositoryPath=<path>` 。
 
 **如何避免將 NuGet 套件資料夾新增至原始檔控制嗎？**
 
-設定[`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section)為`Nuget.Config``true`。 此索引鍵作用於方案層級，因此需要新增至 `$(Solutiondir)\.nuget\Nuget.Config` 檔案。 從 Visual Studio 啟用套件還原時會自動建立這個檔案。
+將中的設定 [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) `Nuget.Config` 為 `true` 。 此索引鍵作用於方案層級，因此需要新增至 `$(Solutiondir)\.nuget\Nuget.Config` 檔案。 從 Visual Studio 啟用套件還原時會自動建立這個檔案。
 
 **如何關閉套件還原？**
 

@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 760bf09cb03608275e2c5406474f572a407a7379
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451121"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623158"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
-NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.config` ，如[一般 NuGet](../consume-packages/configuring-nuget-behavior.md)設定中所述。
+NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.config` 如 [一般 NuGet](../consume-packages/configuring-nuget-behavior.md)設定中所述。
 
-`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段都包含零個或多個專案。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
+`nuget.config` 是包含最上層 `<configuration>` 節點的 XML 檔案，該節點則包含本主題中所述的區段項目。 每個區段包含零或多個專案。 請參閱[設定檔範例](#example-config-file)。 設定名稱會區分大小寫，而且值可以使用[環境變數](#using-environment-variables)。
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -25,15 +25,15 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 
 ## <a name="config-section"></a>config 區段
 
-包含其他設定設定，可以使用[ `nuget config` 命令](../reference/cli-reference/cli-ref-config.md)來設定。
+包含可使用[ `nuget config` 命令](../reference/cli-reference/cli-ref-config.md)設定的其他設定。
 
-`dependencyVersion`和 `repositoryPath` 僅適用于使用的 `packages.config` 專案。 `globalPackagesFolder`僅適用于使用 PackageReference 格式的專案。
+`dependencyVersion` 並 `repositoryPath` 僅適用于使用的 `packages.config` 專案。 `globalPackagesFolder` 只適用于使用 PackageReference 格式的專案。
 
 | Key | 值 |
 | --- | --- |
 | dependencyVersion (僅 `packages.config`) | 當未直接指定 `-DependencyVersion` 參數時，套件安裝、還原及更新的預設 `DependencyVersion` 值。 NuGet 套件管理員 UI 也使用此值。 值為 `Lowest`、`HighestPatch`、`HighestMinor`、`Highest`。 |
-| globalPackagesFolder （僅使用 PackageReference 的專案） | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 NUGET_PACKAGES 環境變數會覆寫此設定，其優先順序較高。 |
-| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 NUGET_PACKAGES 環境變數會覆寫此設定，其優先順序較高。 |
+| 使用僅限 PackageReference 的 globalPackagesFolder (專案)  | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由 NUGET_PACKAGES 環境變數所覆寫，這會優先使用。 |
+| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由 NUGET_PACKAGES 環境變數所覆寫，這會優先使用。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
 | 因為 signaturevalidationmode | 指定驗證模式，用來驗證封裝安裝和還原的封裝簽章。 值為 `accept` 、 `require` 。 預設為 `accept`。
@@ -102,15 +102,15 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 
 ## <a name="package-source-sections"></a>套件來源區段
 
-`packageSources`、 `packageSourceCredentials` 、 `apikeys` 、 `activePackageSource` `disabledPackageSources` 和全都會 `trustedSigners` 共同運作，以設定 NuGet 在安裝、還原和更新作業期間如何與套件存放庫搭配運作。
+`packageSources`、、 `packageSourceCredentials` `apikeys` 、 `activePackageSource` `disabledPackageSources` 和全都會 `trustedSigners` 一起運作，以設定在安裝、還原和更新作業期間，NuGet 與套件存放庫的搭配運作方式。
 
-此[ `nuget sources` 命令](../reference/cli-reference/cli-ref-sources.md)通常用來管理這些設定，但 `apikeys` 使用[ `nuget setapikey` 命令](../reference/cli-reference/cli-ref-setapikey.md)管理，並 `trustedSigners` 使用[ `nuget trusted-signers` 命令](../reference/cli-reference/cli-ref-trusted-signers.md)來管理。
+[ `nuget sources` 命令](../reference/cli-reference/cli-ref-sources.md)通常用來管理這些設定，但 `apikeys` 使用[ `nuget setapikey` 命令](../reference/cli-reference/cli-ref-setapikey.md)來管理，以及 `trustedSigners` 使用[ `nuget trusted-signers` 命令](../reference/cli-reference/cli-ref-trusted-signers.md)管理的例外。
 
 請注意，nuget.org 的來源 URL 是 `https://api.nuget.org/v3/index.json`。
 
 ### <a name="packagesources"></a>packageSources
 
-列出所有已知的套件來源。 在還原作業期間，以及使用 PackageReference 格式的任何專案，都會忽略順序。 NuGet 會遵循使用的專案進行安裝和更新作業的來源順序 `packages.config` 。
+列出所有已知的套件來源。 在還原作業期間，以及使用 PackageReference 格式的任何專案時，會忽略順序。 NuGet 會遵循使用專案進行安裝和更新作業的來源順序 `packages.config` 。
 
 | Key | 值 |
 | --- | --- |
@@ -132,12 +132,14 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 儲存來源的使用者名稱和密碼，通常使用 `nuget sources` 的 `-username` 和 `-password` 參數來指定。 依預設會加密密碼，除非同時使用了 `-storepasswordincleartext` 選項。
+（選擇性）使用參數可以指定有效的驗證類型 `-validauthenticationtypes` 。
 
 | Key | 值 |
 | --- | --- |
 | username | 純文字的來源使用者名稱。 |
-| 密碼 | 加密的來源密碼。 只有在 Windows 上才支援加密密碼，而且只有在同一部電腦上使用，以及透過與原始加密相同的使用者時，才可以解密。 |
+| 密碼 | 加密的來源密碼。 只有在 Windows 上才支援加密的密碼，而且只有在同一部電腦上使用時，以及透過與原始加密相同的使用者才能解密。 |
 | cleartextpassword | 未加密的來源密碼。 注意：環境變數可以用來改善安全性。 |
+| validauthenticationtypes | 此來源的有效驗證類型清單（以逗號分隔）。 將此設定為， `basic` 如果伺服器通告 NTLM 或 Negotiate，而且您的認證必須使用基本機制傳送，例如，搭配內部部署 Azure DevOps Server 使用 PAT。 其他有效的值包括 `negotiate` 、 `kerberos` 、 `ntlm` 和 `digest` ，但這些值不太可能很有用。 |
 
 **範例︰**
 
@@ -156,7 +158,7 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 </packageSourceCredentials>
 ```
 
-使用儲存在環境變數中未加密的密碼時：
+使用儲存在環境變數中的未加密密碼時：
 
 ```xml
 <packageSourceCredentials>
@@ -186,9 +188,26 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 </packageSourceCredentials>
 ```
 
+此外，也可以提供有效的驗證方法：
+
+```xml
+<packageSourceCredentials>
+    <Contoso>
+        <add key="Username" value="user@contoso.com" />
+        <add key="Password" value="..." />
+        <add key="ValidAuthenticationTypes" value="basic" />
+    </Contoso>
+    <Test_x0020_Source>
+        <add key="Username" value="user" />
+        <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
+        <add key="ValidAuthenticationTypes" value="basic, negotiate" />
+    </Test_x0020_Source>
+</packageSourceCredentials>
+```
+
 ### <a name="apikeys"></a>apikeys
 
-為使用 API 金鑰驗證的來源儲存金鑰，如使用[ `nuget setapikey` 命令](../reference/cli-reference/cli-ref-setapikey.md)所設定。
+儲存使用 API 金鑰驗證之來源的金鑰，如[ `nuget setapikey` 命令](../reference/cli-reference/cli-ref-setapikey.md)所設定。
 
 | Key | 值 |
 | --- | --- |
@@ -251,13 +270,13 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 
 **架構**：
 
-受信任的簽署者具有 `certificate` 專案集合，可登錄識別指定簽署者的所有憑證。 受信任的簽署者可以是 `Author` 或 `Repository` 。
+受信任的簽署者有一個 `certificate` 專案集合，這些專案會登錄識別指定之簽署者的所有憑證。 受信任的簽署者可以是 `Author` 或 `Repository` 。
 
-受信任的存放*庫*也 `serviceIndex` 會指定存放庫的（必須是有效的 `https` uri），而且可以選擇性地指定以分號分隔的清單， `owners` 以限制更多受該特定存放庫信任的使用者。
+受信任的存放 *庫* 也會指定存放 `serviceIndex` 庫 (的，其必須是有效的 `https` uri) 而且可以選擇性地指定以分號分隔的清單， `owners` 以限制更多受該特定存放庫信任的物件。
 
 用於憑證指紋的支援雜湊演算法為 `SHA256` 、 `SHA384` 和 `SHA512` 。
 
-如果 `certificate` 指定 `allowUntrustedRoot` 為，則在 `true` 將憑證鏈建立為簽章驗證的一部分時，允許將該憑證連結到不受信任的根。
+如果 `certificate` 指定為指定的 `allowUntrustedRoot` 憑證，則在 `true` 建立憑證鏈作為簽章驗證的一部分時，允許鏈至不受信任的根。
 
 **範例**：
 
@@ -275,21 +294,21 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 
 ## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders 區段
 
-*（3.5 +）* 提供方法來預先安裝封裝，因此如果在回溯資料夾中找到封裝，則不需要執行任何工作。 Fallback 封裝資料夾與全域封裝資料夾的資料夾和檔案結構完全相同： *。 nupkg*存在，而且所有檔案都會解壓縮。
+* (3.5 +) * 提供預先安裝封裝的方法，因此，如果在回溯資料夾中找到封裝，就不需要執行任何工作。 Fallback 封裝資料夾與全域封裝資料夾的資料夾和檔案結構完全相同： *nupkg* 存在，而且所有檔案都已解壓縮。
 
-此設定的查閱邏輯如下：
+這項設定的查閱邏輯是：
 
-- 查看全域封裝資料夾，查看套件/版本是否已下載。
+- 查看全域封裝資料夾，查看是否已下載套件/版本。
 
-- 查看 [fallback] 資料夾中是否有套件/版本相符。
+- 查看 [回復] 資料夾中是否有套件/版本相符。
 
 如果其中一項查閱成功，則不需要下載。
 
-如果找不到相符項，則 NuGet 會檢查檔案來源，然後再進行 HTTP 來源，然後下載封裝。
+如果找不到相符項，則 NuGet 會檢查檔案來源，然後再檢查 HTTP 來源，然後下載套件。
 
 | Key | 值 |
 | --- | --- |
-| （fallback 資料夾的名稱） | Fallback 資料夾的路徑。 |
+|  (的 [fallback] 資料夾名稱)  | Fallback 資料夾的路徑。 |
 
 **範例**：
 
@@ -301,12 +320,12 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 
 ## <a name="packagemanagement-section"></a>packageManagement 區段
 
-設定預設的封裝管理格式，可以是*packages.config*或 PackageReference。 SDK 樣式專案一律使用 PackageReference。
+設定預設封裝管理格式（ *packages.config* 或 PackageReference）。 SDK 樣式的專案一律使用 PackageReference。
 
 | Key | 值 |
 | --- | --- |
-| format | 布林值，指出預設的封裝管理格式。 如果 `1` 為，則格式為 PackageReference。 如果 `0` 為，則格式為*packages.config*。 |
-| disabled | 布林值，指出是否要在第一次封裝安裝時顯示選取預設封裝格式的提示。 `False`隱藏提示。 |
+| format | 指出預設封裝管理格式的布林值。 如果 `1` 為，則格式為 PackageReference。 如果 `0` 為，則 *packages.config*格式。 |
+| disabled | 布林值，指出是否要在第一次安裝套件時顯示提示以選取預設封裝格式。 `False` 隱藏提示。 |
 
 **範例**：
 
@@ -323,13 +342,25 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
 
 例如，如果 Windows 上的 `HOME` 環境變數設為 `c:\users\username`，則設定檔中的 `%HOME%\NuGetRepository` 值會解析為 `c:\users\username\NuGetRepository`。
 
-請注意，您必須使用 Windows 樣式的環境變數（開頭和結尾都是%）即使在 Mac/Linux 上也一樣。 `$HOME/NuGetRepository`在設定檔中擁有將無法解析。 在 Mac/Linux 上，的值 `%HOME%\NuGetRepository` 會解析為 `/home/myStuff/NuGetRepository` 。
+請注意，您必須使用 Windows 樣式的環境變數 (以% ) 作為開頭和結尾，即使是在 Mac/Linux 上也是如此。 `$HOME/NuGetRepository`無法解析設定檔中的 Having。 在 Mac/Linux 上，的值 `%HOME%/NuGetRepository` 會解析為 `/home/myStuff/NuGetRepository` 。
 
-如果找不到環境變數，NuGet 會使用來自設定檔的常值。
+如果找不到環境變數，NuGet 會使用來自設定檔的常值。 例如， `%MY_UNDEFINED_VAR%/NuGetRepository` 將解析為 `path/to/current_working_dir/$MY_UNDEFINED_VAR/NuGetRepository`
+
+下表顯示 NuGet.Config 檔案的環境變數語法和路徑分隔符號的支援。
+
+### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config 環境變數支援
+
+| 語法 | Dir 分隔符號 | Windows nuget.exe | Windows dotnet.exe | Mono 中的 Mac nuget.exe ()  | Mac dotnet.exe |
+|---|---|---|---|---|---|
+| `%MY_VAR%` | `/`  | 是 | 是 | 是 | 是 |
+| `%MY_VAR%` | `\`  | 是 | 是 | 否 | 否 |
+| `$MY_VAR` | `/`  | 否 | 否 | 否 | 否 |
+| `$MY_VAR` | `\`  | 否 | 否 | 否 | 否 |
+
 
 ## <a name="example-config-file"></a>範例設定檔
 
-以下是 `nuget.config` 說明一些設定的範例檔案，包括選擇性的設定：
+以下是範例檔案 `nuget.config` ，其中說明許多設定，包括選擇性的設定：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -340,10 +371,10 @@ NuGet 行為是由不同或檔案中的設定所控制 `NuGet.Config` `nuget.con
             See: nuget.exe help install
             See: nuget.exe help update
 
-            In this example, %PACKAGEHOME% is an environment variable. On Mac/Linux,
-            use $PACKAGE_HOME/External as the value.
+            In this example, %PACKAGEHOME% is an environment variable.
+            This syntax works on Windows/Mac/Linux
         -->
-        <add key="repositoryPath" value="%PACKAGEHOME%\External" />
+        <add key="repositoryPath" value="%PACKAGEHOME%/External" />
 
         <!--
             Used to specify default source for the push command.

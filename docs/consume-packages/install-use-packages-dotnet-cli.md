@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 67cca81c48970c7f2e2cf0a64ee5ba57704a31e2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 38455e61bd91f115df9f27df090ba47a029f6877
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "74825175"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622937"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>使用 dotnet CLI 安裝和管理套件
 
@@ -57,13 +57,13 @@ Dotnet CLI 適用於 .NET Core 和 .NET Standard 專案 (SDK 樣式專案類型)
 如果未指定版本，則 NuGet 會安裝最新版的套件。 您也可以使用 [dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) 命令來安裝特定版本的 NuGet 套件：
 
 ```dotnetcli
-dotnet add package <PACKAGE_NAME> -v <VERSION>
+dotnet add package <PACKAGE_NAME> --version <VERSION>
 ```
 
 例如，若要新增 12.0.1 版的 `Newtonsoft.Json` 套件，請使用此命令：
 
 ```dotnetcli
-dotnet add package Newtonsoft.Json -v 12.0.1
+dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
 ## <a name="list-package-references"></a>列出套件參考

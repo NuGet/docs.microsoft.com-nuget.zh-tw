@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610623"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622703"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 
@@ -46,7 +46,7 @@ ms.locfileid: "73610623"
 ```xml
 <FileList>
   <File Reference = "your_package_file">
-    <ToolboxItems VSCategory="vs_category" BlendCategory="blend_category">
+    <ToolboxItems UIFramework="WPF" VSCategory="vs_category" BlendCategory="blend_category">
       <Item Type="type_full_name_1" />
 
       <!-- Any number of additional Items -->
@@ -61,6 +61,7 @@ ms.locfileid: "73610623"
 
 - *your_package_file*：您控制檔案的名稱，例如 `ManagedPackage.winmd` ("ManagedPackage" 是用於此範例的任意名稱，沒有任何其他意義)。
 - *vs_category*：Visual Studio 設計工具工具箱中控制項應該出現在其中的群組標籤。 需要有 `VSCategory`，控制項才會出現在工具箱中。
+*ui_framework*： framework 的名稱，例如 ' WPF '，請注意 `UIFramework` Visual Studio 16.7 Preview 3 或更新版本上的 ToolboxItems 節點上需要屬性，控制項才會出現在 [工具箱] 中。
 - *blend_category*：Blend 設計工具 [資產] 窗格中控制項應該出現在其中的群組標籤。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
 - *type_full_name_n*：每個控制項的完整名稱，包含命名空間 (例如 `ManagedPackage.MyCustomControl`)。 請注意，點格式適用於 Managed 和原生類型。
 
@@ -71,7 +72,7 @@ ms.locfileid: "73610623"
 ```xml
 <FileList>
   <File Reference = "ManagedPackage.winmd">
-    <ToolboxItems VSCategory="Managed Package" BlendCategory="Managed Package">
+    <ToolboxItems UIFramework="WPF" VSCategory="Managed Package" BlendCategory="Managed Package">
       <Item Type="ManagedPackage.MyCustomControl" />
     </ToolboxItems>
   </File>
@@ -120,7 +121,7 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 
 ## <a name="add-design-time-support"></a>新增設計階段支援
 
-若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**** 功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。 (此檔對控件的運行時行為沒有影響。因此,資料夾結構將顯示如下:
+若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)**** 功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。  (此檔案不會影響控制項的執行時間行為。 ) 資料夾結構會如下所示：
 
     \lib
       \uap10.0.14393
