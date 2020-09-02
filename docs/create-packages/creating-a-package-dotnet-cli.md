@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fcba9dd6bbc7ff4e9b5b8b57250c399f59a1c5e
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: 87b38d7a707d6175eb3347280784d9dfefd9c17d
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473840"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "89359641"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
 
@@ -66,7 +66,7 @@ ms.locfileid: "87473840"
 > [!NOTE]
 > 針對公眾取用而建置的套件，請特別注意 **PackageTags** 屬性，因為標籤可協助其他人找到您的套件，並了解其用途。
 
-如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
+如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱控制相依性 [資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
 ## <a name="add-an-optional-description-field"></a>新增選擇性的描述欄位
 
@@ -104,14 +104,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-當您在 `dotnet pack` 方案上執行時，這會將方案中 packable 的所有專案（ [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性設為）封裝在一起 `true` 。
+當您 `dotnet pack` 在方案上執行時，這會封裝封裝 ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性設定為) 之方案中的所有專案 `true` 。
 
 > [!NOTE]
 > 當您自動產生套件時，封裝的時間會增加專案的建置時間。
 
 ### <a name="test-package-installation"></a>測試套件安裝
 
-發行套件之前，您通常會想要測試將套件安裝至專案的程序。 這些測試會確保所有必要的檔案最後都在專案中的正確位置。
+發行套件之前，您通常會想要測試將套件安裝至專案的程序。 測試可確保必要的檔案最後都在專案的正確位置。
 
 您可以使用一般[套件安裝步驟](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)，以在 Visual Studio 中或命令列上手動測試安裝。
 
@@ -135,5 +135,5 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 最後，請注意其他套件類型：
 
-- [原生套件](../guides/native-packages.md)
+- [原生封裝](../guides/native-packages.md)
 - [符號套件](../create-packages/symbol-packages-snupkg.md)

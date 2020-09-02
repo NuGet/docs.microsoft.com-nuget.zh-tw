@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c604d20c6358b7da5b1294ae48d9b7452794102f
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80151326"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359642"
 ---
-包的可選說明顯示在包的NuGet.org頁面上,`<description></description>`要麼`.csproj`從 檔案中使用的中拉,`$description`要麼通過[.nuspec 檔中](../../reference/nuspec.md)拉。
+封裝的 [NuGet.org] 頁面上顯示的封裝的選擇性描述，會從檔案中使用的提取，或是透過 nuspec 檔案中 `<description></description>` `.csproj` 的來提取 `$description` [。](../../reference/nuspec.md)
 
-_描述_欄位的範例顯示在 .NET 套件`.csproj`的檔案的以下 XML 文字中:
+以下是 .NET 封裝之檔案的 XML 文字中顯示 _描述_ 欄位的範例 `.csproj` ：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -25,5 +25,5 @@ _描述_欄位的範例顯示在 .NET 套件`.csproj`的檔案的以下 XML 文�
       REST API Reference for Blob Service - https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api
     </Description>
   </PropertyGroup>
-</PropertyGroup>
+</Project>
 ```
