@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429000"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237584"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -19,9 +19,9 @@ ms.locfileid: "79429000"
 
 ## <a name="get-a-code-signing-certificate"></a>取得程式碼簽署憑證
 
-有效證書可以從公共證書頒發機構,如[賽門鐵克](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)[、DigiCert、Go](https://www.digicert.com/code-signing/) [Daddy、](https://www.godaddy.com/web-security/code-signing-certificate)[全球標誌](https://www.globalsign.com/en/code-signing-certificate/)、[科莫多](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)[、Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等。Windows 信任的認證機構的完整清單可以從[http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners)抓取 。
+有效的憑證可以從公開憑證授權單位單位取得，例如 [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、 [DigiCert](https://www.digicert.com/code-signing/)、 [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、 [Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、 [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、 [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等等。您可以從取得 Windows 信任之憑證授權單位單位的完整清單 [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) 。
 
-您可以基於測試目的使用自動發行的憑證。 但是,使用自頒發的證書簽名的包NuGet.org不接受。瞭解有關[建立測試憑證](#create-a-test-certificate)的更多
+您可以基於測試目的使用自動發行的憑證。 不過，NuGet.org 不接受使用自我發行的憑證簽署的套件。深入瞭解如何 [建立測試憑證](#create-a-test-certificate)
 
 ## <a name="export-the-certificate-file"></a>匯出憑證檔案
 
@@ -34,7 +34,7 @@ ms.locfileid: "79429000"
 ## <a name="sign-the-package"></a>簽署套件
 
 > [!note]
-> 需要 nuget.exe 4.6.0 或更高版本。 dotnet.exe 支援即將推出 - [#7939](https://github.com/NuGet/Home/issues/7939)
+> 需要 nuget.exe 4.6.0 或更新版本。 即將推出 dotnet.exe 支援- [#7939](https://github.com/NuGet/Home/issues/7939)
 
 使用 [nuget sign](../reference/cli-reference/cli-ref-sign.md) 簽署套件：
 
@@ -51,7 +51,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>在 NuGet.org 上註冊憑證
 
-要發佈已簽名的包,必須首先向NuGet.org註冊證書。您需要將憑證作為二進位`.cer`的顏色格式的檔案。
+若要發佈已簽署的封裝，您必須先向 NuGet.org 註冊憑證。您需要憑證作為 `.cer` 二進位 DER 格式的檔案。
 
 1. [登入](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org。
 1. 前往 `Account settings` (若您想要使用組織帳戶來註冊憑證，則前往 `Manage Organization` **>** `Edit Organziation`)。
@@ -61,12 +61,12 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 **注意**
 * 一位使用者可以提交多個憑證，且多位使用者可以註冊同一個憑證。
-* 使用者在註冊憑證後，往後提交的所有套件都**必須**使用其中一項憑證簽署。 請參閱[在 NuGet.org 上管理您套件的簽署需求](#manage-signing-requirements-for-your-package-on-nugetorg)
+* 使用者在註冊憑證後，往後提交的所有套件都 **必須** 使用其中一項憑證簽署。 請參閱[在 NuGet.org 上管理您套件的簽署需求](#manage-signing-requirements-for-your-package-on-nugetorg)
 * 使用者也可以從帳戶移除已註冊憑證。 移除憑證後，使用該憑證簽署的新套件將會提交失敗。 現有的套件則不會受影響。
 
 ## <a name="publish-the-package"></a>發行套件
 
-現在,您已準備好將包發佈到NuGet.org。請參考[的清單 。](../nuget-org/Publish-a-package.md)
+您現在已準備好將封裝發佈至 NuGet.org。請參閱 [發行封裝](../nuget-org/Publish-a-package.md)。
 
 ## <a name="create-a-test-certificate"></a>建立測試憑證
 
@@ -104,4 +104,4 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 ## <a name="related-articles"></a>相關文章
 
 - [管理套件的信任界限](../consume-packages/installing-signed-packages.md)
-- [已簽署的套件參考](../reference/Signed-Packages-Reference.md)
+- [簽署的套件參考](../reference/Signed-Packages-Reference.md)

@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429007"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237941"
 ---
 # <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
 許多程式庫的目標都設為特定 .NET Framework 版本。 例如，您可能有一版的程式庫是 UWP 特有的，而另一個版本則利用 .NET Framework 4.6 中的功能。 為了配合此功能，NuGet 支援在單一套件中放置相同程式庫的多個版本。
 
-本文介紹 NuGet 包的佈局,無論包或程式集的構建方式如何(也就是說,無論使用多個非 SDK 風格的 *.csproj*檔和自定義 *.nuspec*檔,還是單個多目標 SDK 樣式 *.csproj,* 佈局都是相同的。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
+本文描述 NuGet 套件的版面配置，不論套件或元件的建立方式為何 (也就是，不論使用多個非 SDK 樣式 *的 .csproj* 檔案和自訂的 *nuspec* 檔案，或單一多目標的 SDK 樣式 *.csproj* ) ，配置都相同。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
 
 如果您使用[建立套件](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)中所述的傳統型工作目錄方法，就必須如此文章中所述手動配置套件。 針對 SDK 樣式專案，建議使用自動化方法，但您也可以選擇如此文章中所述手動配置套件。
 
@@ -67,11 +67,11 @@ ms.locfileid: "79429007"
 
 這些組件只有在執行階段中可用，因此若您也要提供對應的編譯階段組件，`AnyCPU` 必須位於 `/ref/{tfm}` 資料夾中。 
 
-請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣,如果有一些相容的資產,`/runtimes``/lib`也將忽略運行時。
+請注意，NuGet 一律會從一個資料夾挑選這些編譯或執行階段資產，因此若有一些來自 `/ref` 的相容資產，則將忽略 `/lib` 以新增編譯階段組件。 同樣地，如果有一些相容的資產， `/runtimes` 則在執行時間也 `/lib` 會略過。
 
 如需在 `.nuspec` 資訊清單中參考這些檔案的範例，請參閱[建立 UWP 套件](../guides/create-uwp-packages.md)。
 
-此外，請參閱[使用 NuGet 封裝 Windows 市集應用程式](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)
+此外，請參閱[使用 NuGet 封裝 Windows 市集應用程式](/archive/blogs/mim/packaging-a-windows-store-apps-component-with-nuget-part-2)
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>比對組件版本與專案中的目標架構
 

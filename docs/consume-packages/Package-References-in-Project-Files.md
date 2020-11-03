@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428867"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237636"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
 套件參考使用 `PackageReference` 節點，直接在專案檔中管理 NuGet 相依性 (而不是在個別的 `packages.config` 檔案中)。 使用 PackageReference 不會影響 NuGet 的其他方面；例如，仍會套用 `NuGet.config` 檔案中的設定 (包括套件來源)，如[常用的 NuGet 組態](configuring-nuget-behavior.md)中所述。
 
-使用 PackageReference,您還可以使用 MSBuild 條件來選擇每個目標框架或其他分組的包引用。 它也允許對相依性和內容流動進行細微控制。 (如需詳細資訊，請參閱 [NuGet pack and restore as MSBuild targetsNuGet](../reference/msbuild-targets.md) (NuGet 以 pack 與 restore 作為 MSBuild 目標)。)
+使用 PackageReference，您也可以使用 MSBuild 條件來選擇每個目標 framework 的套件參考，或其他群組。 它也允許對相依性和內容流動進行細微控制。 (如需詳細資訊，請參閱 [NuGet pack and restore as MSBuild targetsNuGet](../reference/msbuild-targets.md) (NuGet 以 pack 與 restore 作為 MSBuild 目標)。)
 
 ## <a name="project-type-support"></a>專案類型支援
 
@@ -64,9 +64,9 @@ ms.locfileid: "79428867"
 
 如果您的參考專案為 PackageReference 樣式 (現有的 csproj 或 SDK 樣式專案)，這會很有用。 這會讓這些專案參考的套件成為您專案「過渡性」參考的套件。
 
-## <a name="packagereference-and-sources"></a>包參考和源
+## <a name="packagereference-and-sources"></a>PackageReference 和來源
 
-在包參考專案中,傳遞依賴項版本在還原時解析。 因此,在包參考專案中,所有源都需要可用於所有還原。 
+在 PackageReference 專案中，可轉移的相依性版本會在還原時進行解析。 因此，在 PackageReference 專案中，所有來源都必須可用於所有還原。 
 
 ## <a name="floating-versions"></a>浮動版本
 
@@ -99,7 +99,7 @@ ms.locfileid: "79428867"
 
 下列中繼資料標記控制相依性資產：
 
-| Tag | 描述 | 預設值 |
+| 標籤 | 描述 | 預設值 |
 | --- | --- | --- |
 | IncludeAssets | 會取用這些資產 | all |
 | ExcludeAssets | 不會取用這些資產 | 無 |
@@ -114,7 +114,7 @@ ms.locfileid: "79428867"
 | contentFiles | `contentfiles` 資料夾的內容 |
 | build | `build` 資料夾中的 `.props` 與 `.targets` |
 | buildMultitargeting | 用於跨架構目標的 *(4.0)* `.props` 與 `buildMultitargeting` 資料夾中的 `.targets` |
-| buildTransitive | *(5.0+)`buildTransitive` 資料夾中的 * `.props` 與 `.targets`，用於可傳遞至任何取用專案的資產。 請參閱[功能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)頁面 \(英文\)。 |
+| buildTransitive | *(5.0+)`buildTransitive` 資料夾中的* `.props` 與 `.targets`，用於可傳遞至任何取用專案的資產。 請參閱[功能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)頁面 \(英文\)。 |
 | analyzers | .NET 分析器 |
 | native | `native` 資料夾的內容 |
 | 無 | 以上皆不使用。 |
@@ -136,7 +136,7 @@ ms.locfileid: "79428867"
 </ItemGroup>
 ```
 
-請注意，因為 `build` 不隨附於 `PrivateAssets`，所以目標與 props「會」** 流動至父專案。 例如，考慮到上述參考會用在建置名為 AppLogger 之 NuGet 套件的專案中。 AppLogger 可從 `Contoso.Utility.UsefulStuff` 取用目標與 props，如同專案可以取用 AppLogger。
+請注意，因為 `build` 不隨附於 `PrivateAssets`，所以目標與 props「會」  流動至父專案。 例如，考慮到上述參考會用在建置名為 AppLogger 之 NuGet 套件的專案中。 AppLogger 可從 `Contoso.Utility.UsefulStuff` 取用目標與 props，如同專案可以取用 AppLogger。
 
 > [!NOTE]
 > 在 `.nuspec` 檔案中，當 `developmentDependency` 設定為 `true` 時可讓套件成為僅限開發相依性，這可防止套件被包含為其他套件的相依性。 使用 PackageReference *(NuGet 4.8+)* 時，此旗標也表示它在編譯時會排除編譯時間資產。 如需詳細資訊，請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) \(英文\)。
@@ -170,14 +170,14 @@ ms.locfileid: "79428867"
 </ItemGroup>
 ```
 
-## <a name="generatepathproperty"></a>產生路徑屬性
+## <a name="generatepathproperty"></a>GeneratePathProperty
 
-此功能與 NuGet **5.0**或以上版本以及 Visual Studio 2019 **16.0**或以上一起提供。
+這項功能適用于 NuGet **5.0** 或更新版本，以及 Visual Studio 2019 **16.0** 或更新版本。
 
-有時,最好從 MSBuild 目標引用包中的檔。
-在`packages.config`專案的專案中,包安裝在與專案檔相關的資料夾中。 但是,在"包參考"中,包從*全域包*資料夾[使用](../concepts/package-installation-process.md),該資料夾可能因計算機而異。
+有時候，最好從 MSBuild 目標參考封裝中的檔案。
+在以專案 `packages.config` 為基礎的專案中，套件會安裝在相對於專案檔的資料夾中。 不過，在 PackageReference 中，封裝 [會從](../concepts/package-installation-process.md)*全域套件* 資料夾取用，而這可能會因電腦而異。
 
-為了彌補這一差距,NuGet 引入了一個屬性,該屬性指向將使用包的位置。
+為了橋接該間距，NuGet 引進了一個屬性，該屬性指向將取用封裝的位置。
 
 範例：
 
@@ -191,7 +191,7 @@ ms.locfileid: "79428867"
   </Target>
 ````
 
-此外,NuGet 將自動為包含工具資料夾的包生成屬性。
+此外，NuGet 會自動為包含 tools 資料夾的套件產生屬性。
 
 ```xml
   <ItemGroup>
@@ -203,20 +203,20 @@ ms.locfileid: "79428867"
   </Target>
 ````
 
-MSBuild 屬性和包標識沒有相同的限制,因此包標識需要更改為 MSBuild 友好名稱,該名稱`Pkg`由 單詞 預寫。
-要驗證生成的屬性的確切名稱,請查看生成的[nuget.g.props](../reference/msbuild-targets.md#restore-outputs)檔。
+MSBuild 屬性和套件身分識別沒有相同的限制，因此必須將套件身分識別變更為 MSBuild 易記名稱，並在前面加上文字 `Pkg` 。
+若要確認所產生屬性的確切名稱，請查看產生的 [.props](../reference/msbuild-targets.md#restore-outputs) 檔案。
 
-## <a name="nuget-warnings-and-errors"></a>NuGet 警告與錯誤
+## <a name="nuget-warnings-and-errors"></a>NuGet 警告和錯誤
 
-*此功能與 NuGet **4.3**或以上版本以及 Visual Studio 2017 **15.3**或以上可用。*
+*這項功能適用于 NuGet **4.3** 或更新版本，以及 Visual Studio 2017 **15.3** 或更新版本。*
 
-對於許多打包和還原方案,對所有 NuGet 警告和錯誤進行編碼,`NU****`然後從開始。 [參考](../reference/errors-and-warnings.md)文件中列出了所有 NuGet 警告和錯誤。
+在許多套件和還原案例中，所有的 NuGet 警告和錯誤都會進行編碼，並從開始 `NU****` 。 所有 NuGet 警告和錯誤都會列在 [參考](../reference/errors-and-warnings.md) 檔中。
 
-NuGet 遵守以下警告屬性:
+NuGet 會觀察下列警告屬性：
 
-- `TreatWarningsAsErrors`,將所有警告視為錯誤
-- `WarningsAsErrors`,將特定警告視為錯誤
-- `NoWarn`,隱藏特定警告,無論是項目範圍還是包級。
+- `TreatWarningsAsErrors`，將所有警告視為錯誤
+- `WarningsAsErrors`，將特定警告視為錯誤
+- `NoWarn`，隱藏特定的警告，可能是整個專案或整個套件。
 
 範例：
 
@@ -238,10 +238,10 @@ NuGet 遵守以下警告屬性:
 </ItemGroup>
 ```
 
-### <a name="suppressing-nuget-warnings"></a>禁止 NuGet 警告
+### <a name="suppressing-nuget-warnings"></a>隱藏 NuGet 警告
 
-雖然建議您在打包期間解決所有 NuGet 警告並還原操作,但在某些情況下,有必要禁止這些警告。
-要在寬範圍內抑制警告專案,請考慮執行以下工作:
+雖然建議您在封裝和還原作業期間解決所有的 NuGet 警告，但在某些情況下，這些警告仍有保證。
+若要隱藏警告專案範圍，請考慮執行下列動作：
 
 ```xml
 <PropertyGroup>
@@ -253,7 +253,7 @@ NuGet 遵守以下警告屬性:
 </ItemGroup>
 ```
 
-有時,警告僅適用於圖形中的某個包。 我們可以選擇通過在「包參考」項上添加`NoWarn`來 更有選擇地抑制該警告。 
+有時警告只適用于圖形中的特定套件。 我們可以選擇 `NoWarn` 在 PackageReference 專案上加入，以更有選擇性地隱藏該警告。 
 
 ```xml
 <PropertyGroup>
@@ -264,10 +264,10 @@ NuGet 遵守以下警告屬性:
 </ItemGroup>
 ```
 
-#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>在視覺工作室中禁止使用 NuGet 包警告
+#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>隱藏 Visual Studio 中的 NuGet 套件警告
 
-在視覺化工作室中時,您還可以透過 IDE[禁止警告](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
-)。
+當 Visual Studio 時，您也可以透過 IDE [隱藏警告](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
+) 。
 
 ## <a name="locking-dependencies"></a>鎖定相依性
 
@@ -335,9 +335,9 @@ NuGet 遵守以下警告屬性:
 ### <a name="make-lock-file-part-of-your-source-repository"></a>讓鎖定檔案成為您來源存放庫的一部分
 若您要建置應用程式，可執行檔與討論的專案是相依性鏈結的開頭，則請將鎖定檔案存回原始程式碼存放庫，讓 NuGet 可以在還原期間使用。
 
-不過，若您的專案是您不會發行的程式庫專案，或是其他專案所相依的一般程式碼專案，您**不應該**將鎖定檔案存回為您原始程式碼的一部分。 保留鎖定檔案並不會造成傷害，但在還原/建置相依於此一般程式碼專案的專案時，無法使用一般程式碼專案的鎖定套件相依性，如鎖定檔案中所列。
+不過，若您的專案是您不會發行的程式庫專案，或是其他專案所相依的一般程式碼專案，您 **不應該** 將鎖定檔案存回為您原始程式碼的一部分。 保留鎖定檔案並不會造成傷害，但在還原/建置相依於此一般程式碼專案的專案時，無法使用一般程式碼專案的鎖定套件相依性，如鎖定檔案中所列。
 
-例如
+例如：
 
 ```
 ProjectA
@@ -346,15 +346,15 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-若 `ProjectA` 有對 `PackageX` 版本 `2.0.0` 的相依性，而且也參考相依於 `PackageX` 版本 `1.0.0` 的 `ProjectB`，則 `ProjectB` 的鎖定檔案將會列出對 `PackageX` 版本 `1.0.0` 的相依性。 但是,生成`ProjectA`時,其鎖檔將包含`PackageX`對**`2.0.0`** 版本的依賴項,`ProjectB`**而不是**`1.0.0`列為的鎖檔中列出的依賴項。 因此，一般程式碼專案的鎖定檔案對於相依於它之專案的解析套件沒有多大決定權。
+若 `ProjectA` 有對 `PackageX` 版本 `2.0.0` 的相依性，而且也參考相依於 `PackageX` 版本 `1.0.0` 的 `ProjectB`，則 `ProjectB` 的鎖定檔案將會列出對 `PackageX` 版本 `1.0.0` 的相依性。 不過，當 `ProjectA` 建立時，其鎖定檔案將會包含版本的相依性， `PackageX` **`2.0.0`** 而 **不** 會包含 `1.0.0` 的鎖定檔案中所列 `ProjectB` 的相依性。 因此，一般程式碼專案的鎖定檔案對於相依於它之專案的解析套件沒有多大決定權。
 
 ### <a name="lock-file-extensibility"></a>鎖定檔案擴充性
 
 您使用鎖定檔案來控制還原的各種行為，如下所述：
 
-| NuGet.exe 選項 | 點網選項 | MSBuild 同等選項 | 描述 |
+| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | Description |
 |:--- |:--- |:--- |:--- |
-| `-UseLockFile` |`--use-lock-file` | 使用鎖定檔案還原包 | 選擇使用鎖檔。 |
-| `-LockedMode` | `--locked-mode` | 修復鎖定模式 | 針對還原啟用鎖定模式。 這在需要可重複生成的 CI/CD 方案中非常有用。|   
-| `-ForceEvaluate` | `--force-evaluate` | 還原強制評估 | 對於專案中已定義浮動版本的套件而言，此選項非常實用。 預設情況下,NuGet 還原不會在每次還原時自動更新套件版本,除非您使用此選項運行還原。 |
-| `-LockFilePath` | `--lock-file-path` | NuGetLock 檔案路徑 | 為專案定義自訂鎖定檔案位置。 根據預設，NuGet 支援根目錄的 `packages.lock.json`。 若您在相同的目錄中有多個專案，NuGet 支援專案特定鎖定檔案 `packages.<project_name>.lock.json` |
+| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | 選擇使用鎖定檔案。 |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | 針對還原啟用鎖定模式。 這在您想要可重複組建的 CI/CD 案例中很有用。|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | 對於專案中已定義浮動版本的套件而言，此選項非常實用。 根據預設，除非您使用此選項執行還原，否則 NuGet 還原不會在每次還原時自動更新套件版本。 |
+| `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | 為專案定義自訂鎖定檔案位置。 根據預設，NuGet 支援根目錄的 `packages.lock.json`。 若您在相同的目錄中有多個專案，NuGet 支援專案特定鎖定檔案 `packages.<project_name>.lock.json` |

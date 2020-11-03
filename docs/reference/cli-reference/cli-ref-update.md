@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 84f939188ac190f6d539f8ee2b422049a274f178
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622573"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236785"
 ---
 # <a name="update-command-nuget-cli"></a> (NuGet CLI 更新命令) 
 
@@ -32,11 +32,15 @@ nuget update <configPath> [options]
 
 其中 `<configPath>` 會識別列出專案相依性的 `packages.config` 或方案檔。
 
-## <a name="options"></a>選項。
+## <a name="options"></a>選項
 
 - **`-ConfigFile`**
 
   要套用的 NuGet 設定檔。 如果未指定， `%AppData%\NuGet\NuGet.Config` 則會使用 (Windows) 或 `~/.nuget/NuGet/NuGet.Config` 或 `~/.config/NuGet/NuGet.Config` (Mac/Linux) 。
+  
+- **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
+
+  指定要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch* ：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor* ：最低主要、最小次要、最高修補程式的版本</li><li>*最高* ：最高版本</li><li>*略* 過：將不會使用任何相依性套件</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 
@@ -46,7 +50,7 @@ nuget update <configPath> [options]
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-?|-help`**
 
@@ -58,11 +62,11 @@ nuget update <configPath> [options]
 
 - **`-MSBuildPath`**
 
-  * (4.0 +) * 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。
+  *(4.0 +)* 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。
 
 - **`-MSBuildVersion`**
 
-  * (3.2 +) * 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。
+  *(3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。
 
 - **`-NonInteractive`**
 

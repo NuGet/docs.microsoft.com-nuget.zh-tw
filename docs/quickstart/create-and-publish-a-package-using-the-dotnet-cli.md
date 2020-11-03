@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231301"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237480"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發佈套件 (dotnet CLI)
 
 使用 `dotnet` 命令列介面 (CLI) 從 .NET 類別庫建立 NuGet 套件，並將它發行到 nuget.org 是個簡單的程序。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先決條件
 
 1. 安裝 [.NET Core SDK](https://www.microsoft.com/net/download/)，其中包括 `dotnet` CLI。 從 Visual Studio 2017 開始，dotnet CLI 會自動與任何 .NET Core 相關工作負載一起安裝。
 
@@ -109,9 +109,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-在[頻道 9](https://channel9.msdn.com/Series/NuGet-101)和[YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上查找更多 NuGet 影片。
+在 [Channel 9](https://channel9.msdn.com/Series/NuGet-101) 和 [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多的 NuGet 影片。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>下一步
 
 恭喜，您建立了您的第一個 NuGet 套件！
 
@@ -120,10 +120,11 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 若要深入探索 NuGet 所提供的功能，請選取下列連結。
 
-- [發佈包](../nuget-org/publish-a-package.md)
-- [預發行套件](../create-packages/Prerelease-Packages.md)
-- [支援多個目標 Framework](../create-packages/multiple-target-frameworks-project-file.md)
+- [發佈封裝](../nuget-org/publish-a-package.md)
+- [發行前套件](../create-packages/Prerelease-Packages.md)
+- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [套件版本控制](../concepts/package-versioning.md)
-- [建立本地端](../create-packages/creating-localized-packages.md)
+- [新增授權運算式或檔案](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
 - [建立符號套件](../create-packages/symbol-packages-snupkg.md)
 - [正在簽署套件](../create-packages/Sign-a-package.md)

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623018"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237928"
 ---
 # <a name="publishing-packages"></a>發行套件
 
@@ -24,7 +24,7 @@ ms.locfileid: "88623018"
 
 ## <a name="publish-to-nugetorg"></a>發行至 nuget.org
 
-針對 nuget.org，您必須使用 Microsoft 帳戶登入，系統會要求您向 nuget.org 註冊帳戶。您也可以使用以舊版入口網站建立的 nuget.org 帳戶登入。
+對於 nuget.org，您必須使用 Microsoft 帳戶登入，之後會要求您使用該帳戶註冊 nuget.org 的帳戶。
 
 ![NuGet 登入位置](media/publish_NuGetSignIn.png)
 
@@ -32,22 +32,22 @@ ms.locfileid: "88623018"
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web 入口網站：使用 nuget.org 上的 [Upload Package] \(上傳套件\) 索引標籤
 
-1. 在 nuget.org 的上方功能表中選取 [上傳]****，並瀏覽至套件位置。
+1. 在 nuget.org 的上方功能表中選取 [上傳]  ，並瀏覽至套件位置。
 
     ![在 nuget.org 上上傳套件](media/publish_UploadYourPackage.PNG)
 
 1. nuget.org 會告訴您該套件名稱是否可用。 如果不可使用，請在您專案中變更套件識別碼、重建，並再次嘗試上傳。
 
-1. 如果套件名稱可用，nuget.org 會開啟 [確認]**** 區段，您可在其中檢閱套件資訊清單的中繼資料。 若要變更任何中繼資料，請編輯您的專案 (專案檔或 `.nuspec` 檔案)、重建、重新建立套件，然後再次上傳。
+1. 如果套件名稱可用，nuget.org 會開啟 [確認]  區段，您可在其中檢閱套件資訊清單的中繼資料。 若要變更任何中繼資料，請編輯您的專案 (專案檔或 `.nuspec` 檔案)、重建、重新建立套件，然後再次上傳。
 
-1. 在 [匯入文件]**** 底下，您可以貼上 Markdown、使用 URL 指向您的文件，或上傳文件檔案。
+1. 在 [匯入文件]  底下，您可以貼上 Markdown、使用 URL 指向您的文件，或上傳文件檔案。
 
-1. 當所有資訊準備就緒時，請選取 [提交]**** 按鈕
+1. 當所有資訊準備就緒時，請選取 [提交]  按鈕
 
 ### <a name="command-line"></a>命令列
 
 若要將套件推送至 nuget.org，您需要先在 nuget.org 上建立 API 金鑰。您必須使用 dotnet.exe ( .NET Core) 或 nuget.exe v 4.1.0 或更新版本，以執行所需的 NuGet 通訊協定。
-如需詳細資訊，請參閱 [.Net Core](https://docs.microsoft.com/dotnet/core/install/)、 [nuget.exe](https://www.nuget.org/downloads)和 [NuGet 通訊協定](../api/nuget-protocols.md)。
+如需詳細資訊，請參閱 [.Net Core](/dotnet/core/install/)、 [nuget.exe](https://www.nuget.org/downloads)和 [NuGet 通訊協定](../api/nuget-protocols.md)。
 
 #### <a name="create-api-keys"></a>建立 API 金鑰
 
@@ -111,13 +111,13 @@ ms.locfileid: "88623018"
 若要變更套件的擁有權，請執行下列動作：
 
 1. 使用套件之目前擁有者的帳戶來登入 nuget.org。
-1. 選取您的帳戶名稱，選取 [管理套件]****，然後展開 [已發行的套件]****。
-1. 選取您要管理的套件，然後在右側選取 [管理擁有者]****。
+1. 選取您的帳戶名稱，選取 [管理套件]  ，然後展開 [已發行的套件]  。
+1. 選取您要管理的套件，然後在右側選取 [管理擁有者]  。
 
 在這裡，您有數個選項：
 
-1. 移除 [目前擁有者]**** 底下所列的所有擁有者。
-1. 在 [新增擁有者]**** 下，透過輸入其使用者名稱、訊息，並選取 [新增]**** 來新增擁有者。 此動作會將含有確認連結的電子郵件傳送給這個新的共同擁有者。 確認之後，該人員具有新增和移除擁有者的完整權限  (確認之後，[目前擁有者]**** 區段會指出該人員等待核准。)
+1. 移除 [目前擁有者]  底下所列的所有擁有者。
+1. 在 [新增擁有者]  下，透過輸入其使用者名稱、訊息，並選取 [新增]  來新增擁有者。 此動作會將含有確認連結的電子郵件傳送給這個新的共同擁有者。 確認之後，該人員具有新增和移除擁有者的完整權限  (確認之後，[目前擁有者]  區段會指出該人員等待核准。)
 1. 若要移轉擁有權 (擁有權變更時，或透過錯誤的帳戶發行套件之後)，請新增擁有者，而且在確認擁有權之後，即可從清單中將您移除。
 
 若要將擁有權指派給公司或群組，請使用轉寄給適當小組成員的電子郵件別名來建立 nuget.org 帳戶。 例如，各種 Microsoft ASP.NET 套件都是由 [microsoft](https://nuget.org/profiles/microsoft) 和 [aspnet](https://nuget.org/profiles/aspnet) 帳戶共同擁有，這可簡化這類別名。

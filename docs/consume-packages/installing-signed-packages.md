@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428979"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237623"
 ---
 # <a name="manage-package-trust-boundaries"></a>管理套件的信任界限
 
@@ -40,7 +40,7 @@ nuget.exe config -set signatureValidationMode=require
 
 ### <a name="trust-package-author"></a>信任套件作者
 
-要信任基於作者簽名的包,請使用[`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md)命令在 nuget.config`author`中設定 該屬性。
+若要根據作者簽章來信任封裝，請使用 [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) 命令來設定 `author` nuget.config 中的屬性。
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -104,4 +104,4 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ## <a name="related-articles"></a>相關文章
 
 - [簽署 NuGet 套件](../create-packages/Sign-a-Package.md)
-- [已簽署的套件參考](../reference/Signed-Packages-Reference.md)
+- [簽署的套件參考](../reference/Signed-Packages-Reference.md)

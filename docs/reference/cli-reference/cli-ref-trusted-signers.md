@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622664"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238149"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>受信任的簽署者命令 (NuGet CLI) 
 
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注意_：此選項只會新增信任的存放庫。 
+_注意_ ：此選項只會新增信任的存放庫。 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _注意_：此選項只會新增信任的存放庫。
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注意_：如果已有具有指定名稱的受信任簽署者存在，則憑證專案將會新增至該簽署人。 否則，將會使用指定憑證資訊的憑證專案來建立信任的作者。
+_注意_ ：如果已有具有指定名稱的受信任簽署者存在，則憑證專案將會新增至該簽署人。 否則，將會使用指定憑證資訊的憑證專案來建立信任的作者。
 
 
 - **`-AllowUntrustedRoot`**
@@ -122,7 +123,7 @@ _注意_：如果已有具有指定名稱的受信任簽署者存在，則憑證
 
 - **`-FingerprintAlgorithm`**
 
-  指定用來計算憑證指紋的雜湊演算法。 預設為 `SHA256`。 支援的值為 `SHA256` 、 `SHA384` 和 `SHA512` 。
+  指定用來計算憑證指紋的雜湊演算法。 預設值為 `SHA256`。 支援的值為 `SHA256` 、 `SHA384` 和 `SHA512` 。
 
 ## <a name="nuget-trusted-signers-remove--name-name"></a>nuget 受信任-簽署者移除名稱 \<name\>
 
@@ -132,9 +133,9 @@ _注意_：如果已有具有指定名稱的受信任簽署者存在，則憑證
 
 要求目前受信任存放庫中使用的最新憑證清單，以更新受信任簽署者中的現有憑證清單。
 
-_注意_：此手勢將會刪除目前的憑證清單，並將其取代為存放庫中的最新清單。
+_注意_ ：此手勢將會刪除目前的憑證清單，並將其取代為存放庫中的最新清單。
 
-## <a name="options"></a>選項。
+## <a name="options"></a>選項
 
 - **`-ConfigFile`**
 

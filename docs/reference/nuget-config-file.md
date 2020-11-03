@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623158"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238097"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
@@ -36,9 +36,9 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由 NUGET_PACKAGES 環境變數所覆寫，這會優先使用。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
-| 因為 signaturevalidationmode | 指定驗證模式，用來驗證封裝安裝和還原的封裝簽章。 值為 `accept` 、 `require` 。 預設為 `accept`。
+| 因為 signaturevalidationmode | 指定驗證模式，用來驗證封裝安裝和還原的封裝簽章。 值為 `accept` 、 `require` 。 預設值為 `accept`。
 
-**範例**：
+**範例** ：
 
 ```xml
 <config>
@@ -56,9 +56,9 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 | Key | 值 |
 | --- | --- |
-| skip | 布林值，指出是否略過自動繫結重新導向。 預設值為 false。 |
+| skip | 布林值，指出是否略過自動繫結重新導向。 預設為 false。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | 已啟用 | 布林值，指出 NuGet 是否可以執行自動還原。 您也可以使用 `True` 值來設定 `EnableNuGetPackageRestore` 環境變數，而不是在設定檔中設定此金鑰。 |
 | automatic | 布林值，指出 NuGet 是否應該在建置期間檢查遺漏的套件。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | --- | --- |
 | disableSourceControlIntegration | 布林值，指出當使用原始檔控制時是否要忽略 packages 資料夾。 預設值為 false。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | --- | --- |
 | (要指派給套件來源的名稱) | 套件來源的路徑或 URL。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <packageSources>
@@ -141,7 +141,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | cleartextpassword | 未加密的來源密碼。 注意：環境變數可以用來改善安全性。 |
 | validauthenticationtypes | 此來源的有效驗證類型清單（以逗號分隔）。 將此設定為， `basic` 如果伺服器通告 NTLM 或 Negotiate，而且您的認證必須使用基本機制傳送，例如，搭配內部部署 Azure DevOps Server 使用 PAT。 其他有效的值包括 `negotiate` 、 `kerberos` 、 `ntlm` 和 `digest` ，但這些值不太可能很有用。 |
 
-**範例︰**
+**範例：**
 
 設定檔中，`<packageSourceCredentials>` 項目包含每個適用來源名稱的子節點 (名稱中的空格會取代為 `_x0020_`)。 也就是說，對於名為 "Contoso" 和 "Test Source" 的來源，在使用加密的密碼時設定檔時包含下列內容：
 
@@ -213,7 +213,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | --- | --- |
 | (來源 URL) | 加密的 API 金鑰。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <apikeys>
@@ -229,7 +229,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | --- | --- |
 | (來源名稱) | 布林值，指出是否停用來源。 |
 
-**範例︰**
+**範例：**
 
 ```xml
 <disabledPackageSources>
@@ -250,7 +250,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | --- | --- |
 | (來源名稱) 或 `All` | 如果金鑰是來源的名稱，則值是來源路徑或 URL。 若為 `All`，值應該是 `(Aggregate source)` 以結合未以其他方式停用的所有套件來源。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 您可以使用[ `nuget trusted-signers` 命令](../reference/cli-reference/cli-ref-trusted-signers.md)來更新此區段。
 
-**架構**：
+**結構描述** ：
 
 受信任的簽署者有一個 `certificate` 專案集合，這些專案會登錄識別指定之簽署者的所有憑證。 受信任的簽署者可以是 `Author` 或 `Repository` 。
 
@@ -278,12 +278,13 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 如果 `certificate` 指定為指定的 `allowUntrustedRoot` 憑證，則在 `true` 建立憑證鏈作為簽章驗證的一部分時，允許鏈至不受信任的根。
 
-**範例**：
+**範例** ：
 
 ```xml
 <trustedSigners>
     <author name="microsoft">
         <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
@@ -294,7 +295,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 ## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders 區段
 
-* (3.5 +) * 提供預先安裝封裝的方法，因此，如果在回溯資料夾中找到封裝，就不需要執行任何工作。 Fallback 封裝資料夾與全域封裝資料夾的資料夾和檔案結構完全相同： *nupkg* 存在，而且所有檔案都已解壓縮。
+*(3.5 +)* 提供預先安裝封裝的方法，因此，如果在回溯資料夾中找到封裝，就不需要執行任何工作。 Fallback 封裝資料夾與全域封裝資料夾的資料夾和檔案結構完全相同： *nupkg* 存在，而且所有檔案都已解壓縮。
 
 這項設定的查閱邏輯是：
 
@@ -310,7 +311,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | --- | --- |
 |  (的 [fallback] 資料夾名稱)  | Fallback 資料夾的路徑。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <fallbackPackageFolders>
@@ -324,10 +325,10 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 | Key | 值 |
 | --- | --- |
-| format | 指出預設封裝管理格式的布林值。 如果 `1` 為，則格式為 PackageReference。 如果 `0` 為，則 *packages.config*格式。 |
+| format | 指出預設封裝管理格式的布林值。 如果 `1` 為，則格式為 PackageReference。 如果 `0` 為，則 *packages.config* 格式。 |
 | disabled | 布林值，指出是否要在第一次安裝套件時顯示提示以選取預設封裝格式。 `False` 隱藏提示。 |
 
-**範例**：
+**範例** ：
 
 ```xml
 <packageManagement>
@@ -350,7 +351,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 ### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config 環境變數支援
 
-| 語法 | Dir 分隔符號 | Windows nuget.exe | Windows dotnet.exe | Mono 中的 Mac nuget.exe ()  | Mac dotnet.exe |
+| Syntax | Dir 分隔符號 | Windows nuget.exe | Windows dotnet.exe | Mono 中的 Mac nuget.exe ()  | Mac dotnet.exe |
 |---|---|---|---|---|---|
 | `%MY_VAR%` | `/`  | 是 | 是 | 是 | 是 |
 | `%MY_VAR%` | `\`  | 是 | 是 | 否 | 否 |
@@ -431,6 +432,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
     <trustedSigners>
         <author name="microsoft">
             <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />

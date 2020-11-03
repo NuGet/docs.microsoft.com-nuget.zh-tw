@@ -1,18 +1,18 @@
 ---
 title: NuGet Add-BindingRedirect PowerShell 參考
-description: Visual Studio 中 NuGet 封裝管理員主控台中的 BindingRedirect PowerShell 命令參考。
+description: Visual Studio 中 NuGet 封裝管理員主控台的 Add-BindingRedirect PowerShell 命令參考。
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f5ba4bd8140fa8cac7da8bf1351ad5448671b768
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 382ba9b179428c70e3eb16db86a363e095207d61
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623119"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237253"
 ---
-# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>在 Visual Studio 中新增-BindingRedirect (封裝管理員主控台) 
+# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Add-BindingRedirect (封裝管理員主控台
 
 *只能在 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內使用。*
 
@@ -31,7 +31,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 描述 |
+| 參數 | Description |
 | --- | --- |
 | ProjectName |  (需要) 要加入系結重新導向的專案。 -專案參數本身是選擇性的。 |
 
@@ -39,7 +39,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 ## <a name="common-parameters"></a>一般參數
 
-`Add-BindingRedirect` 支援下列 [常見的 PowerShell 參數](https://go.microsoft.com/fwlink/?LinkID=113216)： Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction 和 WarningVariable。
+`Add-BindingRedirect` 支援下列 [常見的 PowerShell 參數](/powershell/module/microsoft.powershell.core/about/about_commonparameters)： Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction 和 WarningVariable。
 
 ## <a name="examples"></a>範例
 

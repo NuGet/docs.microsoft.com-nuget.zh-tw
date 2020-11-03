@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428685"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237383"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>使用 nuget.exe CLI 管理套件
 
@@ -23,7 +23,7 @@ CLI 工具可讓您輕鬆地在專案和解決方案中更新及還原 NuGet 套
 
 此文章顯示一些最常用 `nuget.exe` CLI 命令的基本使用方式。 針對這些命令的大部分，CLI 工具會在目前的目錄中尋找專案檔，除非在命令中指定專案檔。 如需您可以使用的命令和引數完整清單，請參閱 [nuget.exe CLI 參考](../reference/nuget-exe-cli-reference.md)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先決條件
 
 - 安裝 `nuget.exe` CLI，作法是從 [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) 下載它、將該 `.exe` 檔案儲存至適當的資料夾，然後將該資料夾新增至您的 PATH 環境變數。
 
@@ -32,7 +32,7 @@ CLI 工具可讓您輕鬆地在專案和解決方案中更新及還原 NuGet 套
 [install](../reference/cli-reference/cli-ref-install.md) 命令會下載並安裝套件至專案，預設為目前的資料夾，且使用指定的套件來源。 請將新套件安裝到專案根目錄中的 *packages* 資料夾。
 
 > [!IMPORTANT]
-> `install` 命令不會修改專案檔或 *packages.config*；如此，它類似於 `restore`，因為它只會將套件新增至磁碟，但不會變更專案的相依性。 若要新增相依性，請在 Visual Studio 中透過套件管理員 UI 或主控台來新增套件，或是修改 *packages.config*，然後執行 `install` 或 `restore`。
+> `install` 命令不會修改專案檔或 *packages.config* ；如此，它類似於 `restore`，因為它只會將套件新增至磁碟，但不會變更專案的相依性。 若要新增相依性，請在 Visual Studio 中透過套件管理員 UI 或主控台來新增套件，或是修改 *packages.config* ，然後執行 `install` 或 `restore`。
 
 1. 開啟命令列並切換至包含您專案檔的目錄。
 
