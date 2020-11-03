@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231314"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237967"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
-當您從程式碼建立 NuGet 套件時，會將該功能封裝至可由任意數目的其他開發人員共用和使用的元件。 本文說明如何使用 MSBuild 建立套件。 MSBuild 會使用每個包含 NuGet 的 Visual Studio 工作負載來進行預先安裝。 此外,您也可以使用MSBuild通過點網CLI與[點網msbuild。](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild)
+當您從程式碼建立 NuGet 套件時，會將該功能封裝至可由任意數目的其他開發人員共用和使用的元件。 本文說明如何使用 MSBuild 建立套件。 MSBuild 會使用每個包含 NuGet 的 Visual Studio 工作負載來進行預先安裝。 此外，您也可以透過 dotnet CLI 搭配 [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild)使用 msbuild。
 
 針對使用 [SDK 樣式格式](../resources/check-project-format.md)與任何其他 SDK 樣式專案的 .NET Core 與 .NET Standard 專案，NuGet 會直接使用專案檔中的資訊來建立套件。  針對使用 `<PackageReference>` 的非 SDK 樣式專案，NuGet 也會使用專案檔來建立套件。
 
@@ -30,16 +30,16 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 建立套件時需要下列屬性。
 
 - `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 若未指定，則預設值為 `AssemblyName`。
-- `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
+- `Version`， *Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別 [發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
 - 主機上應該會出現套件標題 (例如 nuget.org)
 - `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
 - `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
 
-此外,如果要打包使用包參考的非 SDK 樣式專案,則需要:
+此外，如果您要封裝使用 PackageReference 的非 SDK 樣式專案，則需要下列專案：
 
-- `PackageOutputPath`,調用包時生成的包的輸出資料夾。
+- `PackageOutputPath`，在呼叫 pack 時產生之封裝的輸出檔案夾。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]****，然後選取 [套件]**** 索引標籤)。 您也可以直接在專案檔 (*.csproj*) 中設定這些屬性。
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 ( *.csproj* ) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>
@@ -74,7 +74,7 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 
 如需宣告相依性及指定版本號碼的詳細資料，請參閱[專案檔中的套件參考](../consume-packages/package-references-in-project-files.md)和[套件版本控制](../concepts/package-versioning.md)。 使用 `<IncludeAssets>` 與 `<ExcludeAssets>` 屬性，也可以將來自相依性的資產直接用於套件中。 如需詳細資訊，請參閱[控制相依性資產](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。
 
-## <a name="add-an-optional-description-field"></a>新增選擇的標題欄位
+## <a name="add-an-optional-description-field"></a>新增選擇性的描述欄位
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
@@ -96,9 +96,9 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
    </ItemGroup>
    ```
 
-2. 開啟開發人員命令提示字元 (在 [搜尋]**** 方塊中，輸入**開發人員命令提示字元**)。
+2. 開啟開發人員命令提示字元 (在 [搜尋] 方塊中，輸入 **開發人員命令提示字元** )。
 
-   您通常想要從 [開始]**** 功能表啟動適用於 Visual Studio 的開發人員命令提示字元，因為它將使用適用於 MSBuild 的所有必要路徑來設定。
+   您通常想要從 [開始] 功能表啟動適用於 Visual Studio 的開發人員命令提示字元，因為它將使用適用於 MSBuild 的所有必要路徑來設定。
 
 3. 切換至包含專案檔的資料夾，並輸入下列命令以安裝 NuGet.Build.Tasks.Pack 套件。
 
@@ -157,7 +157,7 @@ Time Elapsed 00:00:01.21
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-在解決方案`msbuild -t:pack`上執行時,這將打包解決方案中可打包的所有專案[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties)(屬性設置`true`為)。
+當您 `msbuild -t:pack` 在方案上執行時，這會封裝封裝 ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) 屬性設定為) 之方案中的所有專案 `true` 。
 
 > [!NOTE]
 > 當您自動產生套件時，封裝的時間會增加專案的建置時間。
@@ -179,14 +179,14 @@ Time Elapsed 00:00:01.21
 
 - [NuGet 封裝和還原為 MSBuild 目標](../reference/msbuild-targets.md)
 - [套件版本控制](../concepts/package-versioning.md)
-- [支援多個目標 Framework](../create-packages/multiple-target-frameworks-project-file.md)
+- [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [原始程式檔和組態檔的轉換](../create-packages/source-and-config-file-transformations.md)
 - [當地語系化](../create-packages/creating-localized-packages.md)
-- [預發行版本](../create-packages/prerelease-packages.md)
+- [發行前版本](../create-packages/prerelease-packages.md)
 - [設定套件類型](../create-packages/set-package-type.md)
 - [建立包含 COM Interop 組件的套件](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 最後，請注意其他套件類型：
 
-- [本機包](../guides/native-packages.md)
+- [原生封裝](../guides/native-packages.md)
 - [符號套件](../create-packages/symbol-packages-snupkg.md)

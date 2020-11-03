@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147444"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237357"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
-您一律必須使用套件的套件識別碼與確切版本號碼來參考特定套件。 例如，nuget.org 上的 [Entity Framework](https://www.nuget.org/packages/EntityFramework/) \(英文\) 有數十個特定套件可用，範圍從 *4.1.10311* 版到 *6.1.3* 版 (最新穩定版本) 與各種發行前版本 (像是 *6.2.0-beta1*)。
+您一律必須使用套件的套件識別碼與確切版本號碼來參考特定套件。 例如，nuget.org 上的 [Entity Framework](https://www.nuget.org/packages/EntityFramework/) \(英文\) 有數十個特定套件可用，範圍從 *4.1.10311* 版到 *6.1.3* 版 (最新穩定版本) 與各種發行前版本 (像是 *6.2.0-beta1* )。
 
 在建立套件時，您可以搭配選擇性的發行前版本文字尾碼來指派特定版本號碼。 另一方面，在取用套件時，您可以指定確切版本號碼或可接受的版本範圍。
 
@@ -27,14 +27,14 @@ ms.locfileid: "80147444"
 
 ## <a name="version-basics"></a>版本基本概念
 
-特定版本號碼的格式為「主要.次要.修補程式[-尾碼]」**，其中的元件具有下列意義：
+特定版本號碼的格式為「主要.次要.修補程式[-尾碼]」，其中的元件具有下列意義：
 
-- *主要*: 打破變化
-- *次要*: 新功能,但向後相容
-- *修補程式*:僅向後相容的錯誤修復
-- 「-尾碼」**(選擇性)：後面接著字串的連字號，表示發行前版本 (遵循[語意化版本控制系統或 SemVer 1.0 慣例](https://semver.org/spec/v1.0.0.html))。
+- *主要* ：重大變更
+- *次要* ：新功能，但與舊版相容
+- *Patch* ：僅回溯相容的 bug 修正
+- 「-尾碼」(選擇性)：後面接著字串的連字號，表示發行前版本 (遵循[語意化版本控制系統或 SemVer 1.0 慣例](https://semver.org/spec/v1.0.0.html))。
 
-**範例:**
+**範例：**
 
     1.0.1
     6.11.1231
@@ -50,12 +50,12 @@ ms.locfileid: "80147444"
 
 話雖如此，套件開發人員通常會遵循公認的命名慣例：
 
-- `-alpha`:Alpha 版本,通常用於正在進行的工作和實驗。
+- `-alpha`： Alpha 版本，通常用於進行中的工作和實驗。
 - `-beta`：搶鮮版 (Beta) 版本，通常是計劃發行的功能完整版本，但可能包含已知的 Bug。
 - `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
+> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23* 。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
 
 解析套件參考且多個套件版本只有尾碼不同時，NuGet 會先選擇不含尾碼的版本，然後再依相反字母順序套用發行前版本。 例如，系統會依照所示的順序選擇下列版本：
 
@@ -80,7 +80,7 @@ ms.locfileid: "80147444"
 針對 nuget.org，如果下列其中一個敘述立，則會將套件定義為 SemVer v2.0.0 套件：
 
 - 套件本身的版本符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 的規範，如上面所定義。
-- 套件的任何相依性版本範圍都有最小或最大版本，它們符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 規範，如上面所定義；例如，*[1.0.0-alpha.1, )*。
+- 套件的任何相依性版本範圍都有最小或最大版本，它們符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 規範，如上面所定義；例如， *[1.0.0-alpha.1, )* 。
 
 如果您將 SemVer v2.0.0 特定套件上傳到 nuget.org，則舊版用戶端看不到該套件，只有下列 NuGet 用戶端可以取得該套件：
 
@@ -102,7 +102,7 @@ ms.locfileid: "80147444"
 
 在參考套件相依性時，NuGet 支援使用間隔標記法來指定版本範圍，摘要說明如下：
 
-| 表示法 | 套用的規則 | 描述 |
+| 表示法 | 套用的規則 | Description |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | 最小版本 (包含) |
 | (1.0,) | x > 1.0 | 最小版本 (不包含) |
@@ -114,7 +114,7 @@ ms.locfileid: "80147444"
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | 混合包含最小且不包含最大版本 |
 | (1.0)    | 無效 | 無效 |
 
-使用包參考格式時,NuGet 還支援使用浮動表示法\*, 對於數位的主要、次要、補丁和預發行後綴部分。 `packages.config`格式不支援浮動版本。
+使用 PackageReference 格式時，NuGet 也支援使用浮動標記法， \* 以用於數位的主要、次要、修補和預先發行尾碼部分。 格式不支援浮動版本 `packages.config` 。 當指定浮動版本時，規則會解析為符合版本描述的最高版本。 浮動版本和解決方法的範例如下。
 
 > [!Note]
 > PackageReference 中的版本範圍包含發行前版本。 根據設計，浮動版本不會解析發行前版本，除非選擇加入。 如需相關功能要求的狀態，請參閱[問題 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297) \(英文\)。
@@ -126,28 +126,43 @@ ms.locfileid: "80147444"
 #### <a name="references-in-project-files-packagereference"></a>專案檔中的參考 (PackageReference)
 
 ```xml
-<!-- Accepts any version 6.1 and above. -->
+<!-- Accepts any version 6.1 and above.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.1" />
 
-<!-- Accepts any 6.x.y version. -->
+<!-- Accepts any 6.x.y version.
+     Will resolve to the highest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.*" />
-<PackageReference Include="ExamplePackage" Version="[6,7)" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
-     used to guarantee a dependency with a specific bug fix. -->
+     used to guarantee a dependency with a specific bug fix. 
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="(4.1.3,)" />
 
 <!-- Accepts any version up below 5.x, which might be used to prevent pulling in a later
      version of a dependency that changed its interface. However, this form is not
-     recommended because it can be difficult to determine the lowest version. -->
+     recommended because it can be difficult to determine the lowest version. 
+     Will resolve to the smallest acceptable stable version.
+     -->
 <PackageReference Include="ExamplePackage" Version="(,5.0)" />
 
-<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher. -->
+<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="[1,3)" />
 
-<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher. -->
+<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher.
+     Will resolve to the smallest acceptable stable version. -->
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
+
+#### <a name="floating-version-resolutions"></a>浮動版本解析 
+
+| 版本 | 存在於伺服器上的版本 | 解決方法 | 原因 | 備忘稿 |
+|----------|--------------|-------------|-------------|-------------|
+| * | 1.1.0 <br> 1.1.1 <br> 1.2.0 <br> 1.3.0-Alpha  | 1.2.0 | 最高穩定版本。 |
+| 1.1.* | 1.1.0 <br> 1.1.1 <br> 1.1.2-Alpha <br> 1.2.0-Alpha | 1.1.1 | 遵循指定模式的最高穩定版本。|
+| * - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-Alpha <br> 1.3.0-Beta  | 1.3.0-Beta | 最高版本，包括不穩定版本。 | 適用于 Visual Studio 16.6 版、NuGet 5.6 版、.NET Core SDK 版本3.1.300 |
+| 1.1. *-* | 1.1.0 <br> 1.1.1 <br> 1.1.2-Alpha <br> 1.1.2-Beta <br> 1.3.0-Beta  | 1.1.2-Beta | 採用模式並包含不穩定版本的最高版本。 | 適用于 Visual Studio 16.6 版、NuGet 5.6 版、.NET Core SDK 版本3.1.300 |
 
 **`packages.config` 中的參考：**
 
@@ -222,7 +237,7 @@ ms.locfileid: "80147444"
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
         
-- SemVer 2.0.0 產生中繼資料被刪除
+- 已移除 SemVer 2.0.0 組建中繼資料
 
         1.0.7+r3456 is treated as 1.0.7
 

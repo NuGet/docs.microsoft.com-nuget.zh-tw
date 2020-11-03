@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622612"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237993"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet 常見問題集
 
@@ -30,7 +30,7 @@ ms.locfileid: "88622612"
 
 **如何判斷套件所包含的內容，以及它對我的應用程式而言是否穩定而且有用？**
 
-了解套件的主要來源是其在 nuget.org 上的清單頁面 (或另一個私人摘要)。 nuget.org 上的每個套件頁面都會包含套件的描述、其版本歷程記錄和使用量統計資料。 套件頁面上的 [資訊]**** 區段也會包含專案網站的連結，而在專案網站中，您一般可以找到許多範例和其他文件協助您了解如何使用套件。
+了解套件的主要來源是其在 nuget.org 上的清單頁面 (或另一個私人摘要)。 nuget.org 上的每個套件頁面都會包含套件的描述、其版本歷程記錄和使用量統計資料。 套件頁面上的 [資訊] 區段也會包含專案網站的連結，而在專案網站中，您一般可以找到許多範例和其他文件協助您了解如何使用套件。
 
 如需詳細資訊，請參閱[尋找及選擇套件](../consume-packages/finding-and-choosing-packages.md)。
 
@@ -41,13 +41,13 @@ ms.locfileid: "88622612"
 - Windows 上的 Visual Studio 支援[套件管理員 UI](../consume-packages/install-use-packages-visual-studio.md) 和[套件管理員主控台](../consume-packages/install-use-packages-powershell.md)。
 - Visual Studio for Mac 具有內建 NuGet 功能，如[在專案中包含 NuGet 套件](/visualstudio/mac/nuget-walkthrough)中所述。
 - Visual Studio Code (所有平台) 沒有任何直接 NuGet 整合。 請使用 [NuGet CLI](../reference/nuget-exe-cli-reference.md) 或 [dotnet CLI](../reference/dotnet-commands.md)。
-- Azure DevOps 提供[還原 NuGet 套件的建置步驟](/vsts/build-release/tasks/package/nuget)。 您也可以[在 Azure DevOps 上裝載私人 NuGet 套件摘要](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish)。
+- Azure DevOps 提供[還原 NuGet 套件的建置步驟](/vsts/build-release/tasks/package/nuget)。 您也可以[在 Azure DevOps 上裝載私人 NuGet 套件摘要](/azure/devops/artifacts/nuget/publish)。
 
 **如何檢查已安裝 NuGet 工具的確切版本？**
 
-在 Visual Studio 中，使用 [說明] > [關於 Microsoft Visual Studio]**** 命令，並查看 [NuGet 套件管理員]**** 旁邊所顯示的版本。
+在 Visual Studio 中，使用 [說明] > [關於 Microsoft Visual Studio] 命令，並查看 [NuGet 套件管理員] 旁邊所顯示的版本。
 
-或者，啟動 [套件管理員主控台] ([工具] > [NuGet 套件管理員] > [套件管理員主控台]****)，並輸入 `$host` 以查看 NuGet 的相關資訊 (包含版本)。
+或者，啟動 [套件管理員主控台] ([工具] > [NuGet 套件管理員] > [套件管理員主控台])，並輸入 `$host` 以查看 NuGet 的相關資訊 (包含版本)。
 
 **NuGet 支援哪些程式設計語言？**
 
@@ -61,7 +61,7 @@ NuGet 完整支援各種專案範本，例如 Windows、Web、Cloud、SharePoint
 
 **如何更新屬於 Visual Studio 範本的套件？**
 
-移至套件管理員 UI 中的 [更新]**** 索引標籤，然後選取 [全部更新]****，或使用套件管理員主控台中的 [`Update-Package` 命令](../reference/ps-reference/ps-ref-update-package.md)。
+移至套件管理員 UI 中的 [更新] 索引標籤，然後選取 [全部更新]，或使用套件管理員主控台中的 [`Update-Package` 命令](../reference/ps-reference/ps-ref-update-package.md)。
 
 若要更新範本本身，您需要手動更新範本存放庫。 請參閱有關本主題的 [Xavier Decoster 部落格](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages)。 請注意，您必須自負這項作業的風險；因為，如果所有相依性的最新版本彼此不相容，則手動更新可能會損毀範本。
 
@@ -103,7 +103,7 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 **如何在摘要中列出我的套件？**
 
-請參閱[建立並發行套件](../quickstart/create-and-publish-a-package.md)。
+請參閱[建立並發行套件](../quickstart/create-and-publish-a-package-using-visual-studio.md)。
 
 **我有多個以不同 .NET Framework 版本為目標的程式庫版本。如何? 建立支援此功能的單一套件？**
 
@@ -137,7 +137,7 @@ Visual Studio 自動化物件模型中的最上層物件稱為 DTE (開發工具
 
 **安裝含遠端相依性的本機套件時，為什麼收到「無法解決相依性錯誤」？**
 
-將本機套件安裝至專案時，您需要選取**所有**來源。 這會彙總所有摘要，而不是只使用一個。 出現此錯誤的原因是本機存放庫使用者經常會因公司原則而想要避免不小心安裝遠端套件。
+將本機套件安裝至專案時，您需要選取 **所有** 來源。 這會彙總所有摘要，而不是只使用一個。 出現此錯誤的原因是本機存放庫使用者經常會因公司原則而想要避免不小心安裝遠端套件。
 
 **我在同一個資料夾中有多個專案，我該如何為每個專案使用不同的 packages.config 檔案？**
 
