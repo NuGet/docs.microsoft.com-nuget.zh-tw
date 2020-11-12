@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0edfa1f61e6b18ef38689ed2272b2c5992a46ae6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237844"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550384"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -36,7 +36,7 @@ ms.locfileid: "93237844"
    - [Visual Studio](#restore-using-visual-studio) ([自動還原](#restore-packages-automatically-using-visual-studio)或[手動還原](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
-   - [MSBuild](#restore-using-msbuild)
+   - [Msbuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
@@ -169,7 +169,7 @@ NuGet 有兩種格式，可供專案使用套件： [`PackageReference`](package
    確定 MSBuild 輸出會指出組建已順利完成。
    
 > [!Note]
-> msbuild 具有 `-restore` 會執行 `Restore` 、重載專案，然後建立的參數。 請參閱 [使用一個 MSBuild 命令來還原和建立](/nuget/reference/msbuild-targets#restoring-and-building-with-one-msbuild-command)。
+> msbuild 具有 `-restore` 會執行 `Restore` 、重載專案，然後建立的參數。 請參閱 [使用一個 MSBuild 命令來還原和建立](../reference/msbuild-targets.md#restoring-and-building-with-one-msbuild-command)。
 
 ```cmd
 # Will restore the project, then build, since build is the default target.

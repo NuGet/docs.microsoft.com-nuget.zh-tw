@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237584"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550371"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 若要發佈已簽署的封裝，您必須先向 NuGet.org 註冊憑證。您需要憑證作為 `.cer` 二進位 DER 格式的檔案。
 
 1. [登入](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) NuGet.org。
-1. 前往 `Account settings` (若您想要使用組織帳戶來註冊憑證，則前往 `Manage Organization` **>** `Edit Organziation`)。
+1. 前往 `Account settings` (若您想要使用組織帳戶來註冊憑證，則前往 `Manage Organization` **>** `Edit Organization`)。
 1. 展開 `Certificates` 區段並選取 `Register new`。
 1. 瀏覽並選取稍早匯出的憑證檔案。
   ![已註冊憑證](../reference/media/registered-certs.png)
