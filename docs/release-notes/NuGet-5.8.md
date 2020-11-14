@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86e173b9d760578454df8f5f817533f64e193996
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
+ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550753"
+ms.locfileid: "94572827"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5.8 版本資訊
 
@@ -28,6 +28,8 @@ NuGet 配送車：
 
 ## <a name="summary-whats-new-in-58"></a>摘要：5.8 中的新功能
 🎉 **這是為以 .net 5.0 為目標的 NuGet 套件提供完整撰寫和還原支援的第一個版本** 🎉
+
+* 使用 mmap/CreateFileMapping 加速 nupkg 的解壓縮- [#9807](https://github.com/NuGet/Home/issues/9807)
 
 * 在封裝管理員 UI 套件詳細資料窗格中顯示套件弱點詳細資料- [#9850](https://github.com/NuGet/Home/issues/9850)
 
