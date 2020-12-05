@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623171"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738925"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -42,19 +42,19 @@ ms.locfileid: "88623171"
 
 針對使用 PackageReference 格式的 .NET Standard 專案，使用會 `msbuild -t:pack` 從專案檔繪製輸入，以用於建立 NuGet 套件。
 
-下表描述可新增至第一個 `<PropertyGroup>` 節點內之專案檔的 MSBuild 屬性。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]****，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表會依照檔案中的對等屬性進行[ `.nuspec` 組織。](../reference/nuspec.md)
+下表描述可新增至第一個 `<PropertyGroup>` 節點內之專案檔的 MSBuild 屬性。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表會依照檔案中的對等屬性進行[ `.nuspec` 組織。](../reference/nuspec.md)
 
 請注意，MSBuild 不支援 `.nuspec` 中的 `Owners` 和 `Summary` 屬性。
 
-| 屬性/NuSpec 值 | MSBuild 屬性 | 預設 | 注意 |
+| 屬性/NuSpec 值 | MSBuild 屬性 | 預設 | 備註 |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | MSBuild 中的 $(AssemblyName) |
+| 識別碼 | PackageId | AssemblyName | MSBuild 中的 $(AssemblyName) |
 | 版本 | PackageVersion | 版本 | 這與 SemVer 相容，例如 “1.0.0”、“1.0.0-beta” 或 “1.0.0-beta-00345” |
 | VersionPrefix | PackageVersionPrefix | empty | 設定 PackageVersion 會覆寫 PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 中的 $(VersionSuffix)。 設定 PackageVersion 會覆寫 PackageVersionSuffix |
 | Authors | Authors | 目前使用者的使用者名稱 | |
 | 擁有者 | N/A | NuSpec 中沒有 | |
-| Title | Title | PackageId| |
+| 標題 | 標題 | PackageId| |
 | 描述 | 描述 | "Package Description" | |
 | 著作權 | 著作權 | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
@@ -68,8 +68,8 @@ ms.locfileid: "88623171"
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | 存放庫/Url | RepositoryUrl | empty | 用來複製或取出原始程式碼的儲存機制 URL。 例子： *https://github.com/NuGet/NuGet.Client.git* |
 | 存放庫/類型 | RepositoryType | empty | 存放庫類型。 範例： *git*、 *tfs*。 |
-| 存放庫/分支 | RepositoryBranch | empty | 選用的存放庫分支資訊。 您也必須指定*RepositoryUrl* ，此屬性才會包含在內。 範例： *master* (NuGet 4.7.0 +)  |
-| 儲存機制/認可 | RepositoryCommit | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 您也必須指定*RepositoryUrl* ，此屬性才會包含在內。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +)  |
+| 存放庫/分支 | RepositoryBranch | empty | 選用的存放庫分支資訊。 您也必須指定 *RepositoryUrl* ，此屬性才會包含在內。 範例： *master* (NuGet 4.7.0 +)  |
+| 儲存機制/認可 | RepositoryCommit | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 您也必須指定 *RepositoryUrl* ，此屬性才會包含在內。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +)  |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | 摘要 | 不支援 | | |
 
@@ -221,7 +221,7 @@ ms.locfileid: "88623171"
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-使用 `MSBuild -t:pack -p:IncludeSymbols=true` 時，會複製對應的 `.pdb` 檔案與其他輸出檔案 (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`)。 請注意，設定 `IncludeSymbols=true` 時會建立一般套件「和」** 符號套件。
+使用 `MSBuild -t:pack -p:IncludeSymbols=true` 時，會複製對應的 `.pdb` 檔案與其他輸出檔案 (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`)。 請注意，設定 `IncludeSymbols=true` 時會建立一般套件「和」符號套件。
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -365,7 +365,8 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 1. 下載套件
 1. 撰寫資產檔案、目標和屬性
 
-`restore`目標**只**適用于使用 PackageReference 格式的專案。 它不適 **用於** 使用格式的專案 `packages.config` ; 請改用 [nuget 還原](../reference/cli-reference/cli-ref-restore.md) 。
+`restore`目標適用于使用 PackageReference 格式的專案。
+`MSBuild 16.5+` 也提供格式的 [選擇支援](#restoring-packagereference-and-packages.config-with-msbuild) `packages.config` 。
 
 ### <a name="restore-properties"></a>還原屬性
 
@@ -391,7 +392,8 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 | RestorePackagesWithLockFile | 選擇使用鎖定檔案。 |
 | RestoreLockedMode | 以鎖定模式執行還原。 這表示還原將不會重新評估相依性。 |
 | NuGetLockFilePath | 鎖定檔案的自訂位置。 預設位置是專案的旁邊，而且名為 `packages.lock.json` 。 |
-| RestoreForceEvaluate | 強制還原以重新計算相依性，並更新鎖定檔案而不發出任何警告。 | 
+| RestoreForceEvaluate | 強制還原以重新計算相依性，並更新鎖定檔案而不發出任何警告。 |
+| RestorePackagesConfig | 使用 packages.config 來還原專案的加入宣告參數。僅支援 `MSBuild -t:restore` 。 |
 
 #### <a name="examples"></a>範例
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 相同的邏輯也適用于類似的其他目標 `build` 。
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>使用 MSBuild 還原 PackageReference 和 packages.config
+
+使用 MSBuild 16.5 + 時，也支援的 packages.config `msbuild -t:restore` 。
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` restore 僅適用于 `MSBuild 16.5+` 和 `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
