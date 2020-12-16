@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498226"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523398"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>查詢發佈至 nuget.org 的所有套件
 
@@ -32,7 +32,7 @@ ms.locfileid: "64498226"
 
 ## <a name="overview"></a>概觀
 
-本指南的中心是 [NuGet API](../../api/overview.md) 的資源，稱之為**目錄**。 目錄是僅追加 API,允許呼叫方檢視從nuget.org添加、修改和刪除的包的完整歷史記錄。如果您對發佈到nuget.org的所有包子集感興趣,則目錄是隨著時間的推移保持當前可用包集最新狀態的好方法。
+本指南的中心是 [NuGet API](../../api/overview.md) 的資源，稱之為 **目錄**。 目錄是僅限附加的 API，可讓呼叫端查看從 nuget.org 新增、修改和刪除的封裝完整歷程記錄。如果您對發佈至 nuget.org 的所有套件或甚至是套件子集感興趣，則目錄會是在一段時間內隨時保持最新可用套件的絕佳方式。
 
 本指南旨在成為總體的逐步解說，但如果您對目錄的細部詳細資料有興趣，請參閱其 [API 參考文件](../../api/catalog-resource.md)。
 
@@ -56,7 +56,7 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
     GET https://api.nuget.org/v3/index.json
 
-服務文檔是 JSON 文件,其中包含nuget.org上的所有資源。尋找有`@type`的屬性值 的資源`Catalog/3.0.0`。 相關聯的 `@id` 屬性值是目錄索引本身的 URL。 
+服務檔是 JSON 檔，其中包含 nuget.org 上的所有資源。尋找 `@type` 屬性值為的資源 `Catalog/3.0.0` 。 相關聯的 `@id` 屬性值是目錄索引本身的 URL。 
 
 ## <a name="find-new-catalog-leaves"></a>尋找新的目錄分葉
 
@@ -110,7 +110,7 @@ git clone https://github.com/NuGet/Samples.git
 
 ### <a name="catalog-sdk"></a>目錄 SDK
 
-取用目錄最簡單的方法，是使用發行前版本的 .NET 目錄 SDK 套件：[NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog)。 此套件位於 `nuget-build` MyGet 摘要，針對它使用 NuGet 套件來源 URL `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`。
+使用類別目錄的最簡單方式是使用發行前版本的 .NET 目錄 SDK 套件 `NuGet.Protocol.Catalog` ，此套件可在 Azure Artifacts 使用下列 NuGet 套件來源 URL： `https://pkgs.dev.azure.com/dnceng/public/_packaging/nuget-build/nuget/v3/index.json` 。
 
 您可以將這個套件安裝到與 `netstandard1.3` 或更高版本相容的專案 (例如.NET Framework 4.6)。
 

@@ -1,16 +1,16 @@
 ---
 title: NuGet 套件還原
 description: NuGet 如何還原專案相依套件的概觀，包括如何停用還原和限制版本。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738951"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523531"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -147,7 +147,7 @@ NuGet 有兩種格式，可供專案使用套件： [`PackageReference`](package
 
 ## <a name="restore-using-msbuild"></a>使用 MSBuild 進行還原
 
-使用 [msbuild-t:restore](../reference/msbuild-targets.md#restore-target) 命令來還原專案檔中所列的封裝 (請參閱 [PackageReference](../../consume-packages/package-references-in-project-files.md)) 並開始使用 msbuild 16.5 +、 `packages.config` 專案。
+使用 [msbuild-t:restore](../reference/msbuild-targets.md#restore-target) 命令來還原專案檔中所列的套件 (請參閱 [PackageReference](package-references-in-project-files.md)) 並開始使用 msbuild 16.5 +、 `packages.config` 專案。
 
  這個命令只適用於 NuGet 4.x+ 和 MSBuild 15.1+ (兩者均隨附於 Visual Studio 2017 和更新版本)。
 從 MSBuild 16.5 + 開始，此命令也可以 `packages.config` 在執行時還原為基礎的專案 `-p:RestorePackagesConfig=true` 。
