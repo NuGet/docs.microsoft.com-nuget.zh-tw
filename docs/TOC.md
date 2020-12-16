@@ -1,4 +1,3 @@
-# [文件概覽](index.yml)
 # [什麼是 NuGet？](what-is-nuget.md)
 # 開始使用
 ## [安裝 NuGet 用戶端工具](install-nuget-client-tools.md)
