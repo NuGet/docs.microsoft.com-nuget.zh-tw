@@ -1,16 +1,16 @@
 ---
 title: NuGet 5.1 RTM 版本資訊
-description: 其中包括新功能、 bug 修正和 Dcr NuGet 5.1 版本資訊。
+description: NuGet 5.1 的版本資訊，包括新功能、bug 修正及 Dcr。
 author: karann-msft
 ms.author: karann
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 384145947b19af6577dc1255985df1a361c72bb5
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 2a94360dc375ba90b90c1045f4acbcfca81fea5b
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842573"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699858"
 ---
 # <a name="nuget-51-release-notes"></a>NuGet 5.1 版本資訊
 
@@ -18,85 +18,85 @@ NuGet 配送車：
 
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
-| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.1 版](https://visualstudio.microsoft.com/downloads/) | [2.1.70X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>， [2.2.30X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.1 版](https://visualstudio.microsoft.com/downloads/) | [2.1.70 x](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>， [2.2.30 x](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
-<sup>1</sup>安裝的 Visual Studio 2019 是使用.NET Core 工作負載 
+<sup>1</sup>使用 .NET Core 工作負載搭配 Visual Studio 2019 安裝 
 
-<sup>2</sup>與.NET Core 工作負載的 Visual Studio 2019 提供選擇性的安裝
+<sup>2</sup>可透過 .NET Core 工作負載，以選用的方式安裝 Visual Studio 2019
 
-## <a name="summary-whats-new-in-51"></a>摘要: 在 5.1 中最新消息
+## <a name="summary-whats-new-in-51"></a>摘要：5.1 中的新功能
 
-* 如果已經存在以允許與 CI/CD 工作流程-更緊密整合，請略過封裝推送支援[# 1630年](https://github.com/NuGet/Home/issues/1630#issuecomment-483461100)
+* 支援略過封裝推送（如果已存在），以提供更好的 CI/CD 工作流程整合- [#1630](https://github.com/NuGet/Home/issues/1630#issuecomment-483461100)
 
-* Visual Studio 現在提供方便的連結，以套件的 nuget.org 資源庫頁面- [#5299](https://github.com/NuGet/Home/issues/5299#issuecomment-494458510)
+* Visual Studio 現在提供了一個方便的連結，可連至套件的 [nuget.org 資源庫] 頁面- [#5299](https://github.com/NuGet/Home/issues/5299#issuecomment-494458510)
 
-* 這類支援.NET Core 3.0 的新資產[為目標的組件](https://github.com/dotnet/cli/issues/10006)和[執行階段組件](https://github.com/dotnet/cli/issues/10007)
-  * 若要啟用目標和執行階段封裝參考-FrameworkReferences 支援 NuGet 封裝和還原[#7342](https://github.com/NuGet/Home/issues/7342)
-  * 支援 「 只下載 」 套件案例 PackageDownload- [#7339](https://github.com/NuGet/Home/issues/7339)
-  * 排除的執行階段和目標從搜尋結果與還原的套件圖形使用 PackageType- [#7337](https://github.com/NuGet/Home/issues/7337)
+* 支援新的 .NET Core 3.0 資產，例如 [目標套件](https://github.com/dotnet/cli/issues/10006) 和 [執行時間套件](https://github.com/dotnet/cli/issues/10007)
+  * FrameworkReferences 的 NuGet 套件和還原支援，以啟用目標和執行時間封裝參考- [#7342](https://github.com/NuGet/Home/issues/7342)
+  * 支援「僅下載」套件案例與 PackageDownload- [#7339](https://github.com/NuGet/Home/issues/7339)
+  * 使用 PackageType 從搜尋結果中排除執行時間和目標套件 & restore graph- [#7337](https://github.com/NuGet/Home/issues/7337)
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
 **Bug**
 
-* 外掛程式： 例外狀況詳細資料遺失期間外掛程式- [#8057](https://github.com/NuGet/Home/issues/8057)
+* 外掛程式：在外掛程式建立期間遺失例外狀況詳細資料- [#8057](https://github.com/NuGet/Home/issues/8057)
 
-* PackageReference 獨佔的下限範圍無法運作如果下限是存在的其中一個來源。 - [#8054](https://github.com/NuGet/Home/issues/8054)
+* 如果其中一個來源上有下限，則具有獨佔下限的 PackageReference 範圍將無法運作。 - [#8054](https://github.com/NuGet/Home/issues/8054)
 
-* Improve IsPackableFalseError message - [#8021](https://github.com/NuGet/Home/issues/8021)
+* 改善 IsPackableFalseError 訊息- [#8021](https://github.com/NuGet/Home/issues/8021)
 
-* 封裝鎖定檔案-重新產生的鎖定檔案的專案圖形變更時- [#8019](https://github.com/NuGet/Home/issues/8019)
+* 封裝鎖定檔案-在專案圖形變更時重新產生鎖定檔案- [#8019](https://github.com/NuGet/Home/issues/8019)
 
-* ProjectSystem bug:Nuget 套件取得自動移除- [#8017](https://github.com/NuGet/Home/issues/8017)
+* ProjectSystem bug：取得自動移除的 Nuget 套件- [#8017](https://github.com/NuGet/Home/issues/8017)
 
-* 新增的目標傳回 FrameworkReference 類似 CollectPackageDownloads 和 CollectPackageReferences- [#8005](https://github.com/NuGet/Home/issues/8005)
+* 新增傳回 FrameworkReference 的目標，類似于 CollectPackageDownloads 和 CollectPackageReferences- [#8005](https://github.com/NuGet/Home/issues/8005)
 
-* HTTP 快取：RepositoryResources 資源不會快取版本控制的方式- [#7997](https://github.com/NuGet/Home/issues/7997)
+* HTTP 快取： RepositoryResources 資源不會以已設定版本的方式快取- [#7997](https://github.com/NuGet/Home/issues/7997)
 
-* 記錄： 例外狀況呼叫堆疊不會報告與詳細等級- [#7955](https://github.com/NuGet/Home/issues/7955)
+* 記錄：未以詳細的詳細資訊[#7955](https://github.com/NuGet/Home/issues/7955)報告例外狀況呼叫堆疊
 
-* 變更所有 NuGet Docs Url 使用 HTTPS- [#7950](https://github.com/NuGet/Home/issues/7950)
+* 將所有 NuGet 檔 Url 變更為使用 HTTPS- [#7950](https://github.com/NuGet/Home/issues/7950)
 
 * 改善 NU3024 警告訊息- [#7933](https://github.com/NuGet/Home/issues/7933)
 
-* 無法更新時鎖定檔案移除-packagereference [#7930](https://github.com/NuGet/Home/issues/7930)
+* packagereference 移除時鎖定檔案未更新- [#7930](https://github.com/NuGet/Home/issues/7930)
 
-* 驗證在 nuspec-licenseurl 和授權的項目時，改善錯誤案例處理[#7915](https://github.com/NuGet/Home/issues/7915)
+* 改善在 nuspec 中驗證 licenseurl 和授權元素時的錯誤案例處理- [#7915](https://github.com/NuGet/Home/issues/7915)
 
-* PM UI-以滑鼠右鍵按一下索引標籤行標頭，然後按一下 [開啟檔案位置] 會導致錯誤- [#7913](https://github.com/NuGet/Home/issues/7913)
+* PM UI-以滑鼠右鍵按一下 tab 標頭，然後按一下 [開啟檔案位置] 會導致錯誤 [#7913](https://github.com/NuGet/Home/issues/7913)
 
-* 外掛程式： 記錄外掛程式處理序結束-時[#7907](https://github.com/NuGet/Home/issues/7907)
+* 外掛程式：當外掛程式進程結束時記錄- [#7907](https://github.com/NuGet/Home/issues/7907)
 
-* 外掛程式： 記錄的日期時間值中高衝突率[#7899](https://github.com/NuGet/Home/issues/7899)
+* 外掛程式：記錄日期時間值中的高衝突率- [#7899](https://github.com/NuGet/Home/issues/7899)
 
-* 任何 nuspec LicenseExpression-與失敗 Manifest.ReadFrom [#7894](https://github.com/NuGet/Home/issues/7894)
+* 資訊清單。具有 LicenseExpression [#7894](https://github.com/NuGet/Home/issues/7894)的任何 nuspec 上的 system.xml.linq.xnode.readfrom 失敗
 
-* RestoreLockedMode:未預期的 NU1004 當參考的專案的自訂組件名稱-ProjectReference [#7889](https://github.com/NuGet/Home/issues/7889)
+* RestoreLockedMode：當 ProjectReference 參考具有自訂 AssemblyName [#7889](https://github.com/NuGet/Home/issues/7889)的專案時，未預期的 NU1004
 
-* 更好的錯誤訊息時外掛程式啟動失敗並發生例外狀況- [#7857](https://github.com/NuGet/Home/issues/7857)
+* 當外掛程式啟動失敗且發生例外狀況[#7857](https://github.com/NuGet/Home/issues/7857)時，會有更好的錯誤訊息
 
-* NoOp 還原時，避免 *。 在 obj 目錄-dgspec.json 寫入[#7854](https://github.com/NuGet/Home/issues/7854)
+* 進行 NoOp 還原時，請避免在 obj 目錄中寫入 * .dgspec.js[#7854](https://github.com/NuGet/Home/issues/7854)
 
-* GeneratePathProperty = true 無法產生屬性上大小寫不符- [#7843](https://github.com/NuGet/Home/issues/7843)
+* GeneratePathProperty = true 無法在案例不符時產生屬性- [#7843](https://github.com/NuGet/Home/issues/7843)
 
-* 設定： 在 套件來源路徑不合法的字元可能會損毀 VS- [#7820](https://github.com/NuGet/Home/issues/7820)
+* 設定：套件來源路徑中不合法的字元可能會損毀 VS- [#7820](https://github.com/NuGet/Home/issues/7820)
 
-* 如果刪除鎖定檔案時，還原不會產生鎖定檔案上 NoOp- [#7807](https://github.com/NuGet/Home/issues/7807)
+* 如果刪除鎖定檔案，restore 不會在 NoOp 上產生鎖定檔案- [#7807](https://github.com/NuGet/Home/issues/7807)
 
-* 授權 URL 和授權讀取中繼資料-錯誤的原因[#7547](https://github.com/NuGet/Home/issues/7547)
+* 授權 URL 和授權會導致中繼資料的讀取錯誤- [#7547](https://github.com/NuGet/Home/issues/7547)
 
-* 未處理例外狀況中 V2FeedParser- [#7523](https://github.com/NuGet/Home/issues/7523)
+* V2FeedParser 中未處理的例外狀況- [#7523](https://github.com/NuGet/Home/issues/7523)
 
-* nuget.exe 會傳回無效的引數-的結束代碼為零[#7178](https://github.com/NuGet/Home/issues/7178)
+* nuget.exe 傳回無效引數的結束代碼零- [#7178](https://github.com/NuGet/Home/issues/7178)
 
-* 更新 錯誤和警告文件以反映簽章的相關的案例- [#6498](https://github.com/NuGet/Home/issues/6498)
+* 更新錯誤和警告檔以反映簽署相關案例- [#6498](https://github.com/NuGet/Home/issues/6498)
 
-* 資產檔案應該使用相對路徑，來更輕鬆地-啟用移動專案[#4582](https://github.com/NuGet/Home/issues/4582)
+* 資產檔案應該使用相對路徑來更輕鬆地啟用移動專案- [#4582](https://github.com/NuGet/Home/issues/4582)
 
-**DCRs**
+**DCR**
 
-* 外掛程式： 啟用診斷記錄- [#7859](https://github.com/NuGet/Home/issues/7859)
+* 外掛程式：啟用診斷記錄- [#7859](https://github.com/NuGet/Home/issues/7859)
 
-* 請 Tizen 6 對應為 NetStandard 2.1- [#7773](https://github.com/NuGet/Home/issues/7773)
+* 將 Tizen 6 對應到 NetStandard 2.1- [#7773](https://github.com/NuGet/Home/issues/7773)
 
-**[此版本為 5.1 RTM 修正的所有問題的清單](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.1")**
+**[此版本中所有已修正問題的清單-5.1 RTM](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.1")**

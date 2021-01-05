@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237636"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699779"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -136,7 +136,7 @@ ms.locfileid: "93237636"
 </ItemGroup>
 ```
 
-請注意，因為 `build` 不隨附於 `PrivateAssets`，所以目標與 props「會」  流動至父專案。 例如，考慮到上述參考會用在建置名為 AppLogger 之 NuGet 套件的專案中。 AppLogger 可從 `Contoso.Utility.UsefulStuff` 取用目標與 props，如同專案可以取用 AppLogger。
+請注意，因為 `build` 不隨附於 `PrivateAssets`，所以目標與 props「會」流動至父專案。 例如，考慮到上述參考會用在建置名為 AppLogger 之 NuGet 套件的專案中。 AppLogger 可從 `Contoso.Utility.UsefulStuff` 取用目標與 props，如同專案可以取用 AppLogger。
 
 > [!NOTE]
 > 在 `.nuspec` 檔案中，當 `developmentDependency` 設定為 `true` 時可讓套件成為僅限開發相依性，這可防止套件被包含為其他套件的相依性。 使用 PackageReference *(NuGet 4.8+)* 時，此旗標也表示它在編譯時會排除編譯時間資產。 如需詳細資訊，請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) \(英文\)。
@@ -201,10 +201,42 @@ ms.locfileid: "93237636"
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 MSBuild 屬性和套件身分識別沒有相同的限制，因此必須將套件身分識別變更為 MSBuild 易記名稱，並在前面加上文字 `Pkg` 。
 若要確認所產生屬性的確切名稱，請查看產生的 [.props](../reference/msbuild-targets.md#restore-outputs) 檔案。
+
+## <a name="packagereference-aliases"></a>PackageReference 別名
+
+在某些罕見的情況下，不同的封裝將包含相同命名空間中的類別。 從 NuGet 5.7 & Visual Studio 2019 Update 7 開始，相當於 ProjectReference，PackageReference 支援 [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) 。
+依預設，不會提供任何別名。 指定別名時，所有來自批註套件的元件 *都* 必須使用別名來參考。
+
+您可以在[NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)中查看範例使用方式
+
+在專案檔中，指定別名，如下所示：
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+然後在程式碼中使用它，如下所示：
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
 
 ## <a name="nuget-warnings-and-errors"></a>NuGet 警告和錯誤
 
@@ -352,7 +384,7 @@ ProjectA
 
 您使用鎖定檔案來控制還原的各種行為，如下所述：
 
-| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | Description |
+| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | 描述 |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | 選擇使用鎖定檔案。 |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | 針對還原啟用鎖定模式。 這在您想要可重複組建的 CI/CD 案例中很有用。|   

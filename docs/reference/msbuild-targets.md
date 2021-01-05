@@ -1,16 +1,16 @@
 ---
 title: NuGet 封裝和還原為 MSBuild 目標
 description: 使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738925"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699892"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -46,7 +46,7 @@ ms.locfileid: "96738925"
 
 請注意，MSBuild 不支援 `.nuspec` 中的 `Owners` 和 `Summary` 屬性。
 
-| 屬性/NuSpec 值 | MSBuild 屬性 | 預設 | 備註 |
+| 屬性/NuSpec 值 | MSBuild 屬性 | 預設 | 附註 |
 |--------|--------|--------|--------|
 | 識別碼 | PackageId | AssemblyName | MSBuild 中的 $(AssemblyName) |
 | 版本 | PackageVersion | 版本 | 這與 SemVer 相容，例如 “1.0.0”、“1.0.0-beta” 或 “1.0.0-beta-00345” |
@@ -71,7 +71,7 @@ ms.locfileid: "96738925"
 | 存放庫/分支 | RepositoryBranch | empty | 選用的存放庫分支資訊。 您也必須指定 *RepositoryUrl* ，此屬性才會包含在內。 範例： *master* (NuGet 4.7.0 +)  |
 | 儲存機制/認可 | RepositoryCommit | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 您也必須指定 *RepositoryUrl* ，此屬性才會包含在內。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +)  |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| 摘要 | 不支援 | | |
+| 總結 | 不支援 | | |
 
 ### <a name="pack-target-inputs"></a>封裝目標輸入
 
@@ -256,6 +256,23 @@ ms.locfileid: "96738925"
 
 [授權檔案範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
 
+### <a name="packing-a-file-without-an-extension"></a>封裝沒有副檔名的檔案
+
+在某些情況下，例如封裝授權檔案時，您可能會想要包含沒有副檔名的檔案。
+基於歷史原因，NuGet & MSBuild 會將沒有副檔名的路徑視為目錄。
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[沒有副檔名範例的](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/)檔案。
 ### <a name="istool"></a>IsTool
 
 使用 `MSBuild -t:pack -p:IsTool=true` 時，會將[輸出組件](#output-assemblies)案例中所指定的所有輸出檔案都複製至 `tools` 資料夾，而非 `lib` 資料夾。 請注意，這與 `DotNetCliTool` 不同，該項目是在 `.csproj` 檔案中設定 `PackageType` 所指定。
@@ -366,7 +383,10 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 1. 撰寫資產檔案、目標和屬性
 
 `restore`目標適用于使用 PackageReference 格式的專案。
-`MSBuild 16.5+` 也提供格式的 [選擇支援](#restoring-packagereference-and-packages.config-with-msbuild) `packages.config` 。
+`MSBuild 16.5+` 也提供格式的 [選擇支援](#restoring-packagereference-and-packagesconfig-with-msbuild) `packages.config` 。
+
+> [!NOTE]
+> `restore`目標[不應](#restoring-and-building-with-one-msbuild-command)與目標一起執行 `build` 。
 
 ### <a name="restore-properties"></a>還原屬性
 

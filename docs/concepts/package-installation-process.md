@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 634c421499b06f6b62d88a95f8703614dec5ace8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "77036899"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699758"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>安裝 NuGet 套件時會發生什麼事？
 
@@ -23,9 +23,12 @@ ms.locfileid: "77036899"
    如果安裝工具是 Visual Studio 或 dotnet CLI，則工具會先嘗試安裝套件。 如果不相容，則套件不會新增至專案檔或 `packages.config`。
 
 2. 取得套件：
-   - 檢查套件 (依據確切的識別碼和版本號碼) 是否已安裝在 *global-packages* 資料夾中，如[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)中所述。
+   - 檢查套件 (依據確切的識別碼和版本號碼) 是否已安裝在 *global-packages* 資料夾中，如 [管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)中所述。
 
-   - 如果包不在*全域包*資料夾中,請嘗試從[配置檔](../consume-packages/Configuring-NuGet-Behavior.md)中列出的源中檢索它。 針對線上來源，除非已使用 `nuget.exe` 命令指定 `-NoCache`，或已使用 `dotnet restore` 指定 `--no-cache`，否則會先嘗試從 HTTP 快取擷取套件。 (可視化工作室,`dotnet add package`始終使用緩存。如果從緩存中使用包,則輸出中將顯示"CACHE"。 快取的到期時間為 30 分鐘。
+   - 如果套件不在 [ *全域封裝* ] 資料夾中，請嘗試從 [設定檔](../consume-packages/Configuring-NuGet-Behavior.md)中所列的來源抓取。 針對線上來源，除非已使用 `nuget.exe` 命令指定 `-NoCache`，或已使用 `dotnet restore` 指定 `--no-cache`，否則會先嘗試從 HTTP 快取擷取套件。  (Visual Studio，且 `dotnet add package` 一律使用快取。 ) 如果從快取使用封裝，輸出中就會出現 "cache"。 快取的到期時間為 30 分鐘。
+
+   - 如果封裝是使用 [浮動版本](../consume-packages/Package-References-in-Project-Files.md#floating-versions)指定，或沒有最低版本，則 NuGet *會* 聯繫所有來源，以找出最符合的結果。
+   範例： `1.*` ， `(, 2.0.0]` 。
 
    - 如果套件不在 HTTP 快取中，則會嘗試從組態中所列的來源下載套件。 如果已下載套件，輸出中會出現 "GET" 和 "OK"。 NuGet 會記錄正常詳細程度的 HTTP 流量。
 
@@ -35,7 +38,7 @@ ms.locfileid: "77036899"
 
    - NuGet 會先檢查來源本機資料夾和網路共用，然後才檢查 HTTP 來源。
 
-3. 將套件複本和其他資訊儲存在 *http-cache* 資料夾中，如[管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)中所述。
+3. 將套件複本和其他資訊儲存在 *http-cache* 資料夾中，如 [管理全域套件和快取資料夾](../consume-packages/managing-the-global-packages-and-cache-folders.md)中所述。
 
 4. 如果已下載，則將套件安裝到每個使用者的 *global-packages* 資料夾中。 NuGet 會針對每個套件識別碼建立子資料夾，然後針對每個已安裝的套件版本建立子資料夾。
 

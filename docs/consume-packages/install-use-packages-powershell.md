@@ -7,18 +7,21 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237396"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699838"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>在 Visual Studio 中使用套件管理員主控台安裝及管理套件 (PowerShell)
 
 Nuget 套件管理員主控台可讓您使用 [NuGet PowerShell 命令](../reference/powershell-reference.md)來尋找、安裝、解除安裝及更新 NuGet 套件。 在套件管理員 UI 無法執行作業的情況下，則必須使用主控台。 若要在主控台中使用 `nuget.exe` CLI 命令，請參閱[在主控台中使用 nuget.exe CLI](#use-the-nugetexe-cli-in-the-console)。
 
 主控台內建於 Windows 上的 Visual Studio 中。 它不包含在 Visual Studio for Mac 或 Visual Studio Code 中。
+
+> [!Important]
+> 此處所列的命令是 Visual Studio 中的封裝管理員主控台特定的命令，不同于一般 PowerShell 環境中可用的 [套件管理模組命令](/powershell/module/packagemanagement/) 。 具體而言，每個環境都有其他無法使用的命令，而且具有相同名稱的命令在其特定引數中也可能不同。 當您在 Visual Studio 中使用套件管理主控台時，適用于本主題中記載的命令和引數適用于。
 
 ## <a name="find-and-install-a-package"></a>尋找並安裝套件
 

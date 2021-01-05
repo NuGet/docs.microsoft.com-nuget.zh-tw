@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a6a4ee434c43ad4865dba12f039b5d545a90d3c4
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: d8e5c8574b44375e651f3ff1a4868681b3ce6d66
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238162"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699848"
 ---
 # <a name="list-command-nuget-cli"></a>列出命令 (NuGet CLI) 
 
@@ -58,7 +58,7 @@ nuget list [search terms] [options]
 
 - **`-Source`**
 
-  指定要搜尋的套件來源清單。
+  要搜尋的套件來源。 您可以多次使用此選項來指定多個來源 `-Source` 。
 
 - **`-Verbosity [normal|quiet|detailed]`**
 
