@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 329fdf6479d0799ae4b15cc3493848ba2d999853
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7f641c669cdb0cc979d698f6b219cbb4f2692a2e
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523433"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235746"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5.8 版本資訊
 
@@ -19,6 +19,7 @@ NuGet 配送車：
 | NuGet 版本 | 隨附於 Visual Studio 版本 | 隨附於 .NET SDK |
 |:---|:---|:---|
 | [**5.8**](https://nuget.org/downloads) | [Visual Studio 2019 16.8 版](https://visualstudio.microsoft.com/downloads/) | [5.0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.8.1**](https://nuget.org/downloads) | [Visual Studio 2019 版本16.8。4](https://visualstudio.microsoft.com/downloads/) | |
 
 <sup>1</sup> 與 .net Core 工作負載搭配 Visual Studio 2019 安裝
   
@@ -125,7 +126,7 @@ NuGet 配送車：
 
 **[此版本修正的所有問題清單-5。8](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f03519b777e78b4ffb2edeb)**
 
-**[在此版本中修正的問題/認可清單-5。8](https://github.com/NuGet/NuGet.Client/compare/5.7.0.6726...5.8.0.6930)**
+**[此版本的問題清單-5。8](https://github.com/NuGet/NuGet.Client/compare/5.7.0.6726...5.8.0.6930)**
 
 ### <a name="community-contributions"></a>社群投稿
 
@@ -141,6 +142,15 @@ NuGet 配送車：
 [Therzok](https://github.com/Therzok) | [3636](https://github.com/NuGet/NuGet.Client/pull/3636) | `RuntimeEnvironmentHelper.IsRunningOnVisualStudio` Mono 的效能問題- [#9989](https://github.com/NuGet/Home/issues/9989)
 [thomaslevesque](https://github.com/thomaslevesque) | [3442](https://github.com/NuGet/NuGet.Client/pull/3442) | 新增 SemanticVersion 類別的 TypeConverter- [#9125](https://github.com/NuGet/Home/issues/9125)
 
+## <a name="summary-whats-new-in-581"></a>摘要：5.8.1 的新功能
+
+* packages.config package.lock.js在5.8 中使用不正確的目標 framework- [#10257](https://github.com/NuGet/Home/issues/10257)
+
+* 5.8 + 16.8 無法在混合 PackageReference 和 packages.config 時，解析可轉移的專案相依性 [#10326](https://github.com/NuGet/Home/issues/10326)
+
+**[此版本修正的所有問題清單-5.8。1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5ff7aeae16150e3b19910391)**
+
+**[此版本中的認可清單-5.8。1](https://github.com/NuGet/NuGet.Client/compare/5.8.0.6930...5.8.1.7021)**
 
 ## <a name="feedback-welcome"></a>歡迎意見反應
 

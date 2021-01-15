@@ -5,38 +5,33 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622924"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235733"
 ---
 # <a name="nuget-client-sdk"></a>NuGet 用戶端 SDK
 
-*Nuget 用戶端 SDK*指的是一組 nuget 套件：
+*Nuget 用戶端 SDK* 指的是一組 nuget 套件：
 
 * [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -用來與 HTTP 和以檔案為基礎的 NuGet 摘要互動
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -用來與 NuGet 套件互動。 `NuGet.Protocol` 相依于此套件
 
 您可以在 [NuGet/nuget. 用戶端](https://github.com/NuGet/NuGet.Client) GitHub 存放庫中找到這些套件的原始程式碼。
+您可以在 GitHub 上的 [nuget.exe](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) 範例專案中找到這些範例的原始程式碼。
 
 > [!Note]
 > 如需 NuGet 伺服器通訊協定的相關檔，請參閱 [Nuget 伺服器 API](~/api/overview.md)。
 
-## <a name="getting-started"></a>開始使用
+## <a name="nugetprotocol"></a>Nuget.exe
 
-### <a name="install-the-packages"></a>安裝套件
+安裝 `NuGet.Protocol` 套件以與 HTTP 和以資料夾為基礎的 NuGet 套件摘要進行互動：
 
 ```ps1
-dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
-
-dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
+dotnet add package NuGet.Protocol
 ```
-
-## <a name="examples"></a>範例
-
-您可以在 GitHub 上的 [nuget.exe. 範例](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) 專案中找到這些範例。
 
 ### <a name="list-package-versions"></a>列出套件版本
 
@@ -61,6 +56,36 @@ dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from
 使用 [NuGet V3 搜尋 API](../api/search-query-service-resource.md)來搜尋 "json" 套件：
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="push-a-package"></a>推送套件
+
+使用 [NuGet V3 推送和刪除 API](../api/package-publish-resource.md)來推送套件：
+
+[!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
+
+### <a name="delete-a-package"></a>刪除套件
+
+使用 [NuGet V3 推送和刪除 API](../api/package-publish-resource.md)來刪除套件：
+
+> [!Note]
+> NuGet 伺服器可任意將套件刪除要求解讀為「實刪除」、「虛刪除」或「取消列出」。
+> 例如，nuget.org 會將套件刪除要求解讀為 "取消列出"。 如需這種作法的詳細資訊，請參閱 [刪除封裝](../nuget-org/policies/deleting-packages.md) 原則。
+
+[!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
+
+### <a name="work-with-authenticated-feeds"></a>使用已驗證的摘要
+
+使用 [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) 來處理已驗證的摘要。
+
+[!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
+
+## <a name="nugetpackaging"></a>NuGet. 封裝
+
+安裝 `NuGet.Packaging` 套件以與資料流程互動 `.nupkg` 和檔案 `.nuspec` ：
+
+```ps1
+dotnet add package NuGet.Packaging
+```
 
 ### <a name="create-a-package"></a>建立套件
 

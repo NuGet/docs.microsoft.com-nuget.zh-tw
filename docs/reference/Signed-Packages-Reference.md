@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: ac9efadc1d29bec86ca9b7821d5587e0171613aa
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238175"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235707"
 ---
 # <a name="signed-packages"></a>已簽署的套件
 
@@ -20,13 +20,13 @@ ms.locfileid: "93238175"
 NuGet 套件可以包含數位簽章，以防止遭篡改的內容受到保護。 此簽章是從 x.509 憑證產生的，也會將真品證明證明新增至封裝的實際來源。
 
 簽署的套件提供最強的端對端驗證。 有兩種不同類型的 NuGet 簽章：
-- **作者簽名** 。 作者簽名碼可保證在作者簽署套件之後，封裝未經過修改，不論是從哪個存放庫或封裝的傳輸方法傳遞。 此外，作者簽署的套件會提供額外的驗證機制給 nuget.org 發佈管線，因為簽署憑證必須事先註冊。 如需詳細資訊，請參閱 [註冊憑證](#signature-requirements-on-nugetorg)。
+- **作者簽名**。 作者簽名碼可保證在作者簽署套件之後，封裝未經過修改，不論是從哪個存放庫或封裝的傳輸方法傳遞。 此外，作者簽署的套件會提供額外的驗證機制給 nuget.org 發佈管線，因為簽署憑證必須事先註冊。 如需詳細資訊，請參閱 [註冊憑證](#signature-requirements-on-nugetorg)。
 - 存放 **庫簽** 章。 存放庫簽章會針對存放庫中的 **所有** 套件提供完整性保證（不論其是否為作者簽署），即使這些套件是從與其簽署來源的原始存放庫不同的位置取得。   
 
-如需建立作者簽署套件的詳細資訊，請參閱 [簽署封裝](../create-packages/Sign-a-package.md) 和 [nuget sign 命令](../reference/cli-reference/cli-ref-sign.md)。
+如需建立作者簽署套件的詳細資訊，請參閱 [簽署封裝](../create-packages/Sign-a-package.md) 和 [nuget sign 命令](../reference/cli-reference/cli-ref-sign.md)。 您可以使用 [dotnet nuget 驗證](/dotnet/core/tools/dotnet-nuget-verify.md) 或 [nuget 驗證](../reference/cli-reference/cli-ref-verify.md) 命令來確認套件的簽章。
 
 > [!Important]
-> 目前只有在 Windows 上使用 nuget.exe 時，才支援套件簽署。 [目前只有在使用 Windows 上的 nuget.exe或 Visual Studio 時，才支援驗證已簽署的套件 ](../reference/cli-reference/cli-ref-verify.md) 。
+> 目前只有 Windows 上的 nuget.exe 才支援作者簽署套件。 不過，所有上傳至 nuget.org 的套件都會自動簽署儲存機制。
 
 ## <a name="certificate-requirements"></a>憑證需求
 
@@ -57,4 +57,6 @@ nuget.org 具有接受已簽署套件的其他需求：
 ## <a name="related-articles"></a>相關文章
 
 - [簽署 NuGet 套件](../create-packages/Sign-a-Package.md)
+- [使用 dotnet CLI 驗證已簽署的套件](/dotnet/core/tools/dotnet-nuget-verify.md)
+- [使用 nuget.exe驗證已簽署的套件 ](../reference/cli-reference/cli-ref-verify.md)
 - [管理套件的信任界限](../consume-packages/installing-signed-packages.md)

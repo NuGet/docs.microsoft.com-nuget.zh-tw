@@ -1,16 +1,16 @@
 ---
 title: NuGet PackageReference 格式 (專案檔中的套件參考)
 description: NuGet 4.0+ 和 VS2017 及 .NET Core 2.0 所支援之專案檔中的 NuGet PackageReference 詳細資料
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699779"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235759"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
 
@@ -384,9 +384,40 @@ ProjectA
 
 您使用鎖定檔案來控制還原的各種行為，如下所述：
 
-| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | 描述 |
+| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | Description |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | 選擇使用鎖定檔案。 |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | 針對還原啟用鎖定模式。 這在您想要可重複組建的 CI/CD 案例中很有用。|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | 對於專案中已定義浮動版本的套件而言，此選項非常實用。 根據預設，除非您使用此選項執行還原，否則 NuGet 還原不會在每次還原時自動更新套件版本。 |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | 為專案定義自訂鎖定檔案位置。 根據預設，NuGet 支援根目錄的 `packages.lock.json`。 若您在相同的目錄中有多個專案，NuGet 支援專案特定鎖定檔案 `packages.<project_name>.lock.json` |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+`AssetTargetFallback`屬性可讓您針對專案所參考的專案和您的專案所使用的 NuGet 套件，指定其他相容的架構版本。
+
+如果您使用指定套件相依 `PackageReference` 性，但該套件未包含與您專案的目標 framework 相容的資產，則此 `AssetTargetFallback` 屬性會進入 play。 參考封裝的相容性是使用中所指定的每一個目標架構來間隔 `AssetTargetFallback` 。
+`project`透過參考或時 `package` `AssetTargetFallback` ，將會引發[NU1701](../reference/errors-and-warnings/NU1701.md)警告。
+
+請參閱下表，以取得如何 `AssetTargetFallback` 影響相容性的範例。
+
+| 專案架構 | AssetTargetFallback | 封裝架構 | 結果 |
+|-------------------|---------------------|--------------------|--------|
+| .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
+| .NET Core 應用程式3。1 | | .NET Standard 2.0，.NET Framework 4.7。2 | .NET Standard 2.0 |
+| .NET Core 應用程式3。1 | | .NET Framework 4.7.2 | 不相容，失敗 [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| .NET Core 應用程式3。1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7。2 [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+您可以使用做為分隔符號來指定多個架構 `;` 。 若要新增回溯架構，您可以執行下列動作：
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+`$(AssetTargetFallback)`如果您想要覆寫，而不是加入至現有的值，您可以保留 off `AssetTargetFallback` 。
+
+> [!NOTE]
+> 如果您使用以 [.NET SDK 為基礎的專案](/dotnet/core/sdk)，則會設定適當的 `$(AssetTargetFallback)` 值，而且您不需要手動加以設定。
+>
+> `$(PackageTargetFallback)` 是嘗試解決這項挑戰的早期功能，但它基本上是中斷的，不 *應該* 使用。 若要從遷移 `$(PackageTargetFallback)` 至 `$(AssetTargetFallback)` ，只要變更屬性名稱即可。
