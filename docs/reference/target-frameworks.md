@@ -1,23 +1,23 @@
 ---
 title: NuGet 的目標 Framework 參考
 description: NuGet 目標 Framework 參考會識別並隔離套件的 Framework 相依元件。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230508"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777315"
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
 NuGet 在各種位置使用目標 Framework 參考，具體識別並隔離套件的 Framework 相依元件：
 
-- [專案](../create-packages/multiple-target-frameworks-project-file.md)檔：針對 SDK 樣式的專案， *.csproj*包含目標 framework 參考。
+- [專案](../create-packages/multiple-target-frameworks-project-file.md)檔：針對 SDK 樣式專案， *.csproj* 包含目標 framework 參考。
 - [.nuspec 資訊清單](../reference/nuspec.md)：套件可以根據專案的目標 Framework，指出專案要包含的確切套件。
 - [.nupkg 資料夾名稱](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)：套件的 `lib` 資料夾內的資料夾，可以根據目標 Framework 命名，各自包含 DLL 以及其他合適的內容。
 - [packages.config](../reference/packages-config.md)：相依性的 `targetframework` 屬性會指定要安裝的套件 Variant。
@@ -29,9 +29,9 @@ NuGet 在各種位置使用目標 Framework 參考，具體識別並隔離套件
 
 ## <a name="supported-frameworks"></a>支援的架構
 
-Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在 .NET Standard 中，這也會一般化為*TxM* ，以允許單一參考多個架構。
+Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在 .NET Standard 這也一般化 *TxM* ，以允許對多個架構的單一參考。
 
-NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括弧內。 請注意，某些工具，例如 `dotnet`，可能會在某些檔案中使用標準的 TFM 變化。 例如，`dotnet pack` 在 `.NETCoreApp2.0` 檔案中使用 `.nuspec`，而非 `netcoreapp2.0`。 各種 NuGet 用戶端工具會正確處理這些變化，但直接編輯檔案時，您應該一律使用標準的 TFM。
+NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括弧內。 請注意，某些工具，例如 `dotnet`，可能會在某些檔案中使用標準的 TFM 變化。 例如，`dotnet pack` 在 `.nuspec` 檔案中使用 `.NETCoreApp2.0`，而非 `netcoreapp2.0`。 各種 NuGet 用戶端工具會正確處理這些變化，但直接編輯檔案時，您應該一律使用標準的 TFM。
 
 | 名稱 | 縮寫 | TFM/TxM |
 | ------------- | ------------ | --------- |
@@ -69,7 +69,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 通用 Windows 平台 | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | uap 10.0 （其中 10.0. xxxxx 是取用應用程式的目標平臺最小版本） |
+| | | uap 10.0. xxxxx (其中10.0 是使用中應用程式的目標平臺最小版本)  |
 .NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -78,14 +78,14 @@ Windows Phone (UWP) | | wpa81 |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
-| | | netstandard 2.1 |
+| | | netstandard 2。1 |
 .NET Core 應用程式 | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
-| | | netcoreapp 3.0 |
-| | | netcoreapp 3.1 |
+| | | netcoreapp 3。0 |
+| | | netcoreapp 3。1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -116,7 +116,7 @@ Tizen | tizen | tizen3 |
 
 有一些 Framework 彼此相關且相容，但未必相等：
 
-| Framework | 可使用 |
+| 架構 | 可使用 |
 | -- | --- |
 | uap (通用 Windows 平台) | win81 |
 | | wpa81 |
@@ -126,7 +126,7 @@ Tizen | tizen | tizen3 |
 
 ## <a name="net-standard"></a>NET Standard
 
-[.NET Standard](/dotnet/standard/net-standard)可簡化二進位相容架構之間的參考，讓單一目標架構能夠參考其他專案的組合。 (背景請參閱 [.NET 入門](/dotnet/articles/standard/index)。)
+[.NET Standard](/dotnet/standard/net-standard) 可簡化二進位相容架構之間的參考，讓單一目標架構參考其他人的組合。 (背景請參閱 [.NET 入門](/dotnet/articles/standard/index)。)
 
 [NuGet 取得最接近的 Framework 工具](https://aka.ms/s2m3th)會模擬 NuGet 使用的方法，從以專案 Framework 為基礎之套件中的許多可用 Framework 資產中選取一個 Framework。
 
@@ -135,7 +135,7 @@ NuGet 3.3 和更舊版本中應該使用 moniker 的 `dotnet` 系列，v3.4 及�
 ## <a name="portable-class-libraries"></a>可攜式類別庫
 
 > [!Warning]
-> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 .NET 平臺標準是 Pcl 的演進，並使用未系結至靜態程式庫（例如*便攜-a + b + c）* 的單一名字標記，來代表跨平臺的二進位可攜性。
+> **不建議使用 PCL**。 儘管支援 PCL，但套件作者應改支援 netstandard。 .NET 平臺標準是 Pcl 的演進，代表跨平臺的二進位可攜性，使用未系結至靜態程式庫（例如 *便攜-a + b + c* 的名字標記）的單一標記。
 
 若要定義參考多個子目標 Framework 的目標 Framework，會使用 `portable` 關鍵字 作為參考之 Framework 清單的首碼。 避免以人為方式包含不會直接編譯的額外 Framework ，因為它會導致這些 Framework 出現非預期的副作用。
 

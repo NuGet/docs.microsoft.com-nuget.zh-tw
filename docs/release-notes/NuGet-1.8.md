@@ -1,16 +1,16 @@
 ---
 title: NuGet 1.8 版本資訊
 description: NuGet 1.8 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9d55534ffe765137731b7fbf4be4bbaa618c769c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8dd0fff88424c516d8b894412d07dcc53af19265
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236829"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777100"
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 版本資訊
 
@@ -72,6 +72,6 @@ NuGet 1.8 現在支援針對當地語系化的資源建立個別套件的功能�
 ### <a name="nugetexe-performance-improvements"></a>nuget.exe 效能改進
 藉由修改 install 命令，以平行方式下載並安裝套件，NuGet 1.8 對 nuget.exe 以及延伸模組套件還原帶來大幅的效能改進。  高階測試顯示將6個套件安裝至專案的效能，可透過 NuGet 1.8 中的35% 來改善。  將套件數目增加至25會顯示大約60% 的效能提升。
 
-## <a name="bug-fixes"></a>錯誤修正
+## <a name="bug-fixes"></a>Bug 修正
 NuGet 1.8 包含許多 bug 修正，並著重于套件管理員主控台和套件還原工作流程，特別是與套件還原同意和 Windows 8 快速整合有關。
 如需 NuGet 1.8 中已修正之工作專案的完整清單，請參閱 [此版本的 Nuget 問題追蹤程式](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)。

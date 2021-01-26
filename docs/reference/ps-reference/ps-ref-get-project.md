@@ -1,16 +1,16 @@
 ---
 title: NuGet Get-Project PowerShell 參考
 description: Visual Studio 中 NuGet 封裝管理員主控台中的 GetProject PowerShell 命令參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 6d9e1d48c8e1838f193878cab3483b1bfba7d7f0
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 16b3ffc0a375b8027c615020243a7289520715f8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238071"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777469"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Get-Project (封裝管理員主控台
 
@@ -28,7 +28,7 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | 參數 | 描述 |
 | --- | --- |
-| Name | 指定要顯示的專案，預設為在封裝管理員主控台中選取的預設專案。 -Name 參數本身是選擇性的。 |
+| 名稱 | 指定要顯示的專案，預設為在封裝管理員主控台中選取的預設專案。 -Name 參數本身是選擇性的。 |
 | 全部 | 顯示方案中每個專案的資訊;專案的順序不具決定性。 |
 
 這些參數都不接受管線輸入或萬用字元。

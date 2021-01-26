@@ -1,16 +1,16 @@
 ---
 title: NuGet 2.6 版本資訊
 description: 適用于 WebMatrix 的 NuGet 2.6.1 版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5f6504d180879f2e9140552e0d2e07e34a85a083
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 812a0e806e29c5a2141db4f2fbab4bf91b0983f9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236969"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776831"
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 版本資訊
 
@@ -102,6 +102,6 @@ NuGet 2.6 藉由搜尋路徑% ProgramData%/NuGet/Config. 下的資料夾階層�
 
 除了不同的作業名稱之外，也會記錄相依的封裝識別碼以進行安裝。  NuGet 資源庫的未來更新將會在報表中公開該資料，讓套件作者完全瞭解開發人員安裝其套件的方式。
 
-## <a name="bug-fixes"></a>錯誤修正
+## <a name="bug-fixes"></a>Bug 修正
 
 NuGet 2.6 也包含數個 bug 修正。 如需 NuGet 2.6 中已修正之工作專案的完整清單，請參閱 [此版本的 Nuget 問題追蹤程式](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)。

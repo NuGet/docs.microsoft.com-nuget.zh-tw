@@ -1,30 +1,30 @@
 ---
-title: NuGet 2.12 RC 版本資訊
-description: 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 2.12 RC 版本資訊。
-author: karann-msft
-ms.author: karann
+title: NuGet 2.12-RC 版本資訊
+description: NuGet 2.12 RC 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5321d5cfbb1565daa0dab54904287475cc721c4f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 049a38e9ddd1f33b6d0c87aed5ccb64c0e0d9740
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549755"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776956"
 ---
-# <a name="nuget-212-rc-release-notes"></a>NuGet 2.12 RC 版本資訊
+# <a name="nuget-212-rc-release-notes"></a>NuGet 2.12-RC 版本資訊
 
-NuGet 2.12 RC 已發行為 2.12.0-rc VSIX 更新 2016 年 6 月 22 日，適用於 Visual Studio 2013。
+NuGet 2.12-RC 已于2016年6月22日發行，作為 Visual Studio 2013 的 2.12.0-rc VSIX 更新。
 
-### <a name="updates-in-this-release"></a>在此版本的更新
+### <a name="updates-in-this-release"></a>此版本中的更新
 
-* 完整 NetStandard 和 NetCoreApp VS2013 的支援。
-* 新增包含/排除要`.nuspec`相依性項目。
-* 新增對 「 no_proxy"來指定 proxy 例外狀況支援。
-* TFS 相關的修正程式。
+* VS2013 的完整 NetStandard 和 NetCoreApp 支援。
+* 新增包含/排除至相依性 `.nuspec` 專案。
+* 新增 "no_proxy" 的支援以指定 proxy 例外狀況。
+* TFS 相關修正程式。
 
-在此版本中修正的清單可在 GitHub 上[2.12 里程碑](https://github.com/NuGet/Home/issues?q=milestone%3A2.12+is%3Aclosed)
+您可以在[2.12 里程碑](https://github.com/NuGet/Home/issues?q=milestone%3A2.12+is%3Aclosed)的 GitHub 上找到此版本的修正清單
 
-下載的擴充功能：
+下載下列的延伸模組：
 
 * [Visual Studio 2013](https://dist.nuget.org/visualstudio-2013-vsix/v2.12.0-rc/NuGet.Tools.vsix)

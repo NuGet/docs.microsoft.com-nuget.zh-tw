@@ -1,16 +1,16 @@
 ---
 title: 已知問題
 description: NuGet 已知問題，包括驗證、套件安裝和工具。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e6030670875192470fa47de84066281e45ac3eff
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "75383654"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777299"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet 已知問題
 
@@ -21,7 +21,7 @@ ms.locfileid: "75383654"
 
 ## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>使用 nuget.exe v3.4.3 之 VSTS 中的 NuGet 摘要驗證問題
 
-**問題:**
+**問題：**
 
 當我們使用下列命令儲存認證時，最後會兩次加密個人存取權杖。
 
@@ -33,7 +33,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>使用 NuGet 3.4、3.4.1 安裝套件時發生錯誤
 
-**問題:**
+**問題：**
 
 在 NuGet 3.4 和 3.4.1 中，使用 NuGet 增益集時不會回報任何可用來源，而且無法在 [組態] 視窗中新增新的來源。 結果類似於下面的映像：
 
@@ -43,7 +43,7 @@ $PAT = "您的個人存取權杖" $Feed = "您的 URL" .\nuget.exe 來源新增 
 
 ## <a name="error-installing-packages-with-nuget-27"></a>使用 NuGet 2.7 安裝套件時發生錯誤
 
-**問題:**
+**問題：**
 
 在 NuGet 2.7 或更新版本中，當您嘗試安裝任何包含組件參考的套件時，可能會收到錯誤訊息 **「輸入字串格式不正確。」**，如下：
 
@@ -63,15 +63,17 @@ install-package log4net
 
 這是因為您的系統上正在取消註冊 `VSLangProj.dll` COM 元件的型別程式庫。 例如，當您並行安裝了兩個版本的 Visual Studio，然後又解除安裝較舊的版本，就會發生此種情況。 這樣做，可能會不小心取消註冊上述的 COM 程式庫。
 
-**解決方案:**:
+**解決方案：**：
 
-從**提升權限的提示字元**執行此命令，以重新註冊 `VSLangProj.dll` 的型別程式庫
+從 **提升權限的提示字元** 執行此命令，以重新註冊 `VSLangProj.dll` 的型別程式庫
 
-    regsvr32 "C:\Program Files (x86)\Common Files\microsoft shared\MSEnv\VsLangproj.olb"
+```
+regsvr32 "C:\Program Files (x86)\Common Files\microsoft shared\MSEnv\VsLangproj.olb"
+```
 
 如果命令失敗，請檢查檔案是否位在該位置。
 
-有關此錯誤的詳細資訊,請參閱此[工作項目](https://nuget.codeplex.com/workitem/3609 "工作項 3609")。
+如需有關此錯誤的詳細資訊，請參閱這個 [工作專案](https://nuget.codeplex.com/workitem/3609 "工作專案3609")。
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>在 VS 2012 中更新套件後組建失敗
 
@@ -90,47 +92,51 @@ install-package log4net
 檢視記錄檔時，您可能會看到有關 `SignatureMismatchException` 的記錄。
 
 為避免發生這種情形，您可以安裝 [Visual Studio 2010 SP1 Hotfix](http://bit.ly/vsixcertfix)。
-也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。 如需相關資訊，請參閱 <https://support.microsoft.com/kb/2581019>。
+也可以選擇因應措施，只解除安裝 NuGet (以系統管理員身分執行 Visual Studio)，再從 VS 延伸模組庫安裝它。 如需相關資訊，請參閱 <https://support.microsoft.com/kb/2581019> 。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>如果也安裝了反射程式 Visual Studio 增益集，套件管理員主控台會擲回例外狀況。
 
 執行套件管理員主控台時，如已安裝反射程式 VS 增益集，可能會遇到下列例外狀況訊息。
 
-    The following error occurred while loading the extended type data file:
-    Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2950) :
-    Error in type "System.Security.AccessControl.ObjectSecurity":
-    Exception: Cannot convert the "Microsoft.PowerShell.Commands.SecurityDescriptorCommandsBase"
-    value of type "System.String" to type "System.Type".
-    System.Management.Automation.ActionPreferenceStopException:
-    Command execution stopped because the preference variable "ErrorActionPreference" or common parameter
-    is set to Stop: Unable to find type
+```
+The following error occurred while loading the extended type data file:
+Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2950) :
+Error in type "System.Security.AccessControl.ObjectSecurity":
+Exception: Cannot convert the "Microsoft.PowerShell.Commands.SecurityDescriptorCommandsBase"
+value of type "System.String" to type "System.Type".
+System.Management.Automation.ActionPreferenceStopException:
+Command execution stopped because the preference variable "ErrorActionPreference" or common parameter
+is set to Stop: Unable to find type
+```
 
 或
 
-    System.Management.Automation.CmdletInvocationException: Could not load file or assembly 'Scripts\nuget.psm1' or one of its dependencies. <br />The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) ---&gt; System.IO.FileLoadException: Could not load file or <br />assembly 'Scripts\nuget.psm1' or one of its dependencies. The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) <br />---&gt; System.ArgumentException: Illegal characters in path.
-       at System.IO.Path.CheckInvalidPathChars(String path)
-       at System.IO.Path.Combine(String path1, String path2)
-       at Microsoft.VisualStudio.Platform.VsAppDomainManager.<AssemblyPaths>d__1.MoveNext()
-       at Microsoft.VisualStudio.Platform.VsAppDomainManager.InnerResolveHandler(String name)
-       at Microsoft.VisualStudio.Platform.VsAppDomainManager.ResolveHandler(Object sender, ResolveEventArgs args)
-       at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
-       --- End of inner exception stack trace ---
-       at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadBinaryModule(Boolean trySnapInName, String moduleName, String fileName, <br />Assembly assemblyToLoad, String moduleBase, SessionState ss, String prefix, Boolean loadTypes, Boolean loadFormats, Boolean&amp; found)
-       at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadModuleNamedInManifest(String moduleName, String moduleBase, <br />Boolean searchModulePath, <br />String prefix, SessionState ss, Boolean loadTypesFiles, Boolean loadFormatFiles, Boolean&amp; found)
-       at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadModuleManifest(ExternalScriptInfo scriptInfo, ManifestProcessingFlags <br />manifestProcessingFlags, Version version)
-       at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadModule(String fileName, String moduleBase, String prefix, SessionState ss, <br />Boolean&amp; found)
-       at Microsoft.PowerShell.Commands.ImportModuleCommand.ProcessRecord()
-       at System.Management.Automation.Cmdlet.DoProcessRecord()
-       at System.Management.Automation.CommandProcessor.ProcessRecord()
-       --- End of inner exception stack trace ---
-       at System.Management.Automation.Runspaces.PipelineBase.Invoke(IEnumerable input)
-       at System.Management.Automation.Runspaces.Pipeline.Invoke()
-       at NuGetConsole.Host.PowerShell.Implementation.PowerShellHost.Invoke(String command, Object input, Boolean outputResults)
-       at NuGetConsole.Host.PowerShell.Implementation.PowerShellHostExtensions.ImportModule(PowerShellHost host, String modulePath)
-       at NuGetConsole.Host.PowerShell.Implementation.PowerShellHost.LoadStartupScripts()
-       at NuGetConsole.Host.PowerShell.Implementation.PowerShellHost.Initialize()
-       at NuGetConsole.Implementation.Console.ConsoleDispatcher.Start()
-       at NuGetConsole.Implementation.PowerConsoleToolWindow.MoveFocus(FrameworkElement consolePane)
+```
+System.Management.Automation.CmdletInvocationException: Could not load file or assembly 'Scripts\nuget.psm1' or one of its dependencies. <br />The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) ---&gt; System.IO.FileLoadException: Could not load file or <br />assembly 'Scripts\nuget.psm1' or one of its dependencies. The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) <br />---&gt; System.ArgumentException: Illegal characters in path.
+    at System.IO.Path.CheckInvalidPathChars(String path)
+    at System.IO.Path.Combine(String path1, String path2)
+    at Microsoft.VisualStudio.Platform.VsAppDomainManager.<AssemblyPaths>d__1.MoveNext()
+    at Microsoft.VisualStudio.Platform.VsAppDomainManager.InnerResolveHandler(String name)
+    at Microsoft.VisualStudio.Platform.VsAppDomainManager.ResolveHandler(Object sender, ResolveEventArgs args)
+    at System.AppDomain.OnAssemblyResolveEvent(RuntimeAssembly assembly, String assemblyFullName)
+    --- End of inner exception stack trace ---
+    at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadBinaryModule(Boolean trySnapInName, String moduleName, String fileName, <br />Assembly assemblyToLoad, String moduleBase, SessionState ss, String prefix, Boolean loadTypes, Boolean loadFormats, Boolean&amp; found)
+    at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadModuleNamedInManifest(String moduleName, String moduleBase, <br />Boolean searchModulePath, <br />String prefix, SessionState ss, Boolean loadTypesFiles, Boolean loadFormatFiles, Boolean&amp; found)
+    at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadModuleManifest(ExternalScriptInfo scriptInfo, ManifestProcessingFlags <br />manifestProcessingFlags, Version version)
+    at Microsoft.PowerShell.Commands.ModuleCmdletBase.LoadModule(String fileName, String moduleBase, String prefix, SessionState ss, <br />Boolean&amp; found)
+    at Microsoft.PowerShell.Commands.ImportModuleCommand.ProcessRecord()
+    at System.Management.Automation.Cmdlet.DoProcessRecord()
+    at System.Management.Automation.CommandProcessor.ProcessRecord()
+    --- End of inner exception stack trace ---
+    at System.Management.Automation.Runspaces.PipelineBase.Invoke(IEnumerable input)
+    at System.Management.Automation.Runspaces.Pipeline.Invoke()
+    at NuGetConsole.Host.PowerShell.Implementation.PowerShellHost.Invoke(String command, Object input, Boolean outputResults)
+    at NuGetConsole.Host.PowerShell.Implementation.PowerShellHostExtensions.ImportModule(PowerShellHost host, String modulePath)
+    at NuGetConsole.Host.PowerShell.Implementation.PowerShellHost.LoadStartupScripts()
+    at NuGetConsole.Host.PowerShell.Implementation.PowerShellHost.Initialize()
+    at NuGetConsole.Implementation.Console.ConsoleDispatcher.Start()
+    at NuGetConsole.Implementation.PowerConsoleToolWindow.MoveFocus(FrameworkElement consolePane)
+```
 
 我們已連絡增益集的作者，希望能找到解決之道。
 
@@ -140,18 +146,20 @@ install-package log4net
 
 嘗試開啟套件管理員主控台時，可能會看到這些錯誤：
 
-    The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2977) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
-    The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2984) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
-    The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2991) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
-    The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2998) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
-    The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(3005) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
-    The term 'Get-ExecutionPolicy' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
+The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2977) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
+The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2984) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
+The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2991) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
+The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(2998) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
+The following error occurred while loading the extended type data file: Microsoft.PowerShell.Core, C:\Windows\SysWOW64\WindowsPowerShell\v1.0\types.ps1xml(3005) : Error in type "System.Security.AccessControl.ObjectSecurity": Exception: The getter method should be public, non void, static, and have one parameter of type PSObject.
+The term 'Get-ExecutionPolicy' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
 
 如果發生此種情況，請遵循 [StackOverflow 上討論](http://stackoverflow.com/questions/12638289/embedding-powershell-v2-0-in-net-app-on-windows-8-rtm)的解決方案來修正它們。
 
 ## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>如果解決方案包含 InstallShield 限量版專案，[Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況
 
-我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考)**** 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
+我們已發現，如果解決方案包含一或多個 InstallShield 限量版專案，開啟 [Add Package Library Reference] \(新增套件程式庫參考) 對話方塊就會擲回例外狀況。 目前除了移除或卸載 InstallShield 專案之外，沒有任何因應措施。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[解除安裝] 按鈕呈現灰色？ 需要有系統管理員權限才能安裝/解除安裝 NuGet
 
@@ -171,12 +179,12 @@ NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>嘗試安裝或解除安裝會造成錯誤「無法建立已存在的檔案。」
 
-因為某些原因，Visual Studio 會進入很奇怪的狀態，明明已經解除安裝 VSIX 延伸模組，卻會留下某些檔案。 若要解決此問題：
+因為某些原因，Visual Studio 會進入很奇怪的狀態，明明已經解除安裝 VSIX 延伸模組，卻會留下某些檔案。 若要解決這個問題：
 
 1. 結束 Visual Studio
 1. 開啟下列資料夾 (它可能會在電腦的其他磁碟機上)
 
-    C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Corporation\NuGet Package Manager\<版本>\
+    C:\Program Files (x86) \Microsoft Visual Studio 10.0 \ Common7\IDE\Extensions\Microsoft Corporation\NuGet 封裝管理員\<version>\
 
 1. 刪除所有副檔名為 *.deleteme* 的檔案。
 1. 重新開啟 Visual Studio
@@ -187,11 +195,13 @@ NuGet 需要 Powershell 2.0 執行階段。 Windows XP 預設沒有 Powershell 2
 
 如果使用套件管理員主控台安裝 FluentNHibernate，然後在 [程式碼分析] 開啟的情況下編譯專案，您可能會收到下列錯誤。
 
-    Error 3 CA0058 : The referenced assembly
-    'NHibernate, Version=3.0.0.2001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4'
-    could not be found. This assembly is required for analysis and was referenced by:
-    C:\temp\Scratch\src\MyProject.UnitTests\bin\Debug\MyProject.UnitTests.dll.
-    MyProject.UnitTests
+```
+Error 3 CA0058 : The referenced assembly
+'NHibernate, Version=3.0.0.2001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4'
+could not be found. This assembly is required for analysis and was referenced by:
+C:\temp\Scratch\src\MyProject.UnitTests\bin\Debug\MyProject.UnitTests.dll.
+MyProject.UnitTests
+```
 
 FluentNHibernate 預設需要 NHibernate 3.0.0.2001。 但依照設計，NuGet 會在專案中安裝 NHibernate 3.0.0.4000，並新增合適的繫結重新導向，它才會運作。 如未開啟程式碼分析，您的專案會正常編譯。 相較於編譯器，程式碼分析工具不會正確遵循繫結重新導向使用 3.0.0.4000，而是使用 3.0.0.2001。 執行下列作業，安裝 NHibernate 3.0.0.2001 或通知程式碼分析工具要和編譯器有相同的行為，可以暫時解決此問題：
 
@@ -203,7 +213,9 @@ FluentNHibernate 預設需要 NHibernate 3.0.0.2001。 但依照設計，NuGet �
 
 這是已知的問題。 不是呼叫 Write-Error，請嘗試呼叫 throw。
 
-    throw "My error message"
+```
+throw "My error message"
+```
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>在 Windows 2003 上以有限的存取安裝 NuGet，會損毀 Visual Studio
 
@@ -217,12 +229,14 @@ FluentNHibernate 預設需要 NHibernate 3.0.0.2001。 但依照設計，NuGet �
 
 Windows Phone 工具不支援 Visual Studio 延伸模組管理員。 為解除安裝 NuGet，請執行下列命令。
 
-     vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
+```
+vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
+```
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>變更 NuGet 套件識別碼的大小寫會中斷套件還原
 
-根據在[此 GitHub 問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932) \(英文\) 上長時間的討論，NuGet 支援可變更 NuGet 套件的大小寫，但對於在 *global-packages* 資料夾中現有大小寫不同套件的使用者，會在還原套件期間造成很複雜的情況。 建議您，只有在能與套件現有的使用者，溝通其建置時間套件還原可能發生中斷時，才要求變更大小寫。
+根據在 [此 GitHub 問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932) \(英文\) 上長時間的討論，NuGet 支援可變更 NuGet 套件的大小寫，但對於在 *global-packages* 資料夾中現有大小寫不同套件的使用者，會在還原套件期間造成很複雜的情況。 建議您，只有在能與套件現有的使用者，溝通其建置時間套件還原可能發生中斷時，才要求變更大小寫。
 
 ## <a name="reporting-issues"></a>回報問題
 
-要回報 NuGet[https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)問題 ,請造訪 。
+若要報告 NuGet 問題，請造訪 [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues) 。

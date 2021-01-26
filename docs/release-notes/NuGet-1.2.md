@@ -1,16 +1,16 @@
 ---
 title: NuGet 1.2 版本資訊
 description: NuGet 1.2 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237178"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777193"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 版本資訊
 
@@ -42,8 +42,8 @@ NuGet 1.2 已于2011年3月30日發行。
 
 |屬性 |描述|
 |----------------|-----------|
-|**集**|*必要* 。 元件的名稱，例如 `System.Net` 。|
-|**targetFramework**|*選擇項* 。 允許指定架構和設定檔名稱 (或) 此 framework 元件套用的別名，例如 "net40" 或 "sl4"。 使用 [支援多個目標 framework](../create-packages/supporting-multiple-target-frameworks.md)所述的相同格式。|
+|**集**|*必要*。 元件的名稱，例如 `System.Net` 。|
+|**targetFramework**|*選擇項*。 允許指定架構和設定檔名稱 (或) 此 framework 元件套用的別名，例如 "net40" 或 "sl4"。 使用 [支援多個目標 framework](../create-packages/supporting-multiple-target-frameworks.md)所述的相同格式。|
 
 ```xml
   <frameworkAssemblies>
@@ -65,6 +65,6 @@ NuGet 1.2 已于2011年3月30日發行。
 
 ## <a name="known-issues"></a>已知問題
 
-* **1.2 套件不相容** ：以最新版本的命令列工具建立的套件，nuget.exe ( # A0 1.2) 將無法搭配舊版 NuGet 與增益集 (，例如 1.1) 。 如果您遇到錯誤訊息，說明不相容的架構，則表示您遇到此錯誤。 請將 NuGet 更新至最新版本。
-* **Nuget. 伺服器不相容** ：如果您使用 nuget.exe 專案裝載內部 nuget 摘要，您必須使用最新版本的 nuget.exe 來更新該專案。
-* 簽章 **不符錯誤** ：如果在升級期間發生錯誤，並顯示簽章不相符的訊息，您必須先卸載 NuGet，然後再安裝。 這會列在 [ [已知問題] 頁面](../release-notes/known-issues.md) 中，以提供更多詳細資料。 此問題只會影響執行 Visual Studio 2010 SP1 的版本，並已安裝不正確簽署的 NuGet 1.0 版本。 此版本僅可從 CodePlex 網站取得一小段時間，因此此問題不會影響太多人。
+* **1.2 套件不相容**：以最新版本的命令列工具建立的套件，nuget.exe ( # A0 1.2) 將無法搭配舊版 NuGet 與增益集 (，例如 1.1) 。 如果您遇到錯誤訊息，說明不相容的架構，則表示您遇到此錯誤。 請將 NuGet 更新至最新版本。
+* **Nuget. 伺服器不相容**：如果您使用 nuget.exe 專案裝載內部 nuget 摘要，您必須使用最新版本的 nuget.exe 來更新該專案。
+* 簽章 **不符錯誤**：如果在升級期間發生錯誤，並顯示簽章不相符的訊息，您必須先卸載 NuGet，然後再安裝。 這會列在 [ [已知問題] 頁面](../release-notes/known-issues.md) 中，以提供更多詳細資料。 此問題只會影響執行 Visual Studio 2010 SP1 的版本，並已安裝不正確簽署的 NuGet 1.0 版本。 此版本僅可從 CodePlex 網站取得一小段時間，因此此問題不會影響太多人。

@@ -1,17 +1,17 @@
 ---
 title: NuGet 的 nuspec 檔案參考
 description: .nuspec 檔案包含建置套件時使用的套件中繼資料，並向套件取用者提供資訊。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738938"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777672"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -149,6 +149,7 @@ SPDX 授權運算式或封裝內的授權檔路徑，通常會顯示在類似 nu
 針對 MSBuild 對等專案，請參閱 [封裝授權運算式或授權檔案](msbuild-targets.md#packing-a-license-expression-or-a-license-file)。
 
 NuGet 授權運算式的確切語法如下所述 [ABNF](https://tools.ietf.org/html/rfc5234)。
+
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
 
@@ -171,7 +172,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > iconUrl 已被取代。 請改用圖示。
 
 具有透明背景的128x128 影像 URL，可在 UI 顯示中做為封裝的圖示。 確定這個項目包含「直接映像 URL」，不是包含影像的網頁 URL。 例如，若要使用 GitHub 中的映射，請使用原始檔案 URL，例如<em> https://github.com/ \<username\> / \<repository\> /raw/ \<branch\> / \<logo.png\> </em>。 
-   
+
 將封裝上傳至 nuget.org 時， `iconUrl` 欄位會限制為4000個字元。
 
 #### <a name="icon"></a>icon
@@ -265,14 +266,19 @@ UI 顯示中的套件簡短描述。 如果省略，即使用截斷版本的 `de
 
 #### <a name="packagetypes"></a>packageTypes
 *(3.5+)* 零或多個 `<packageType>` 元素的集合，如果不是傳統相依性套件，則會指定套件類型。 每個 packageType 都有「名稱」和「版本」屬性。 請參閱[設定套件類型](../create-packages/set-package-type.md)。
+
 #### <a name="dependencies"></a>相依性
 零或多個 `<dependency>` 項目的集合，指定套件的相依性。 每個相依性都有「識別碼」、「版本」、「包含」(3.x+) 和「排除」(3.x+) 屬性。 請參閱下文的[相依性](#dependencies-element)。
+
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2+)* 零或多個 `<frameworkAssembly>` 項目的集合，識別此套件需要的 .NET Framework 組件參考，它們可確保參考會新增至取用套件的專案。 每個 frameworkAssembly 都有 *assemblyName* 和 *targetFramework* 屬性。 請參閱下文的[指定 Framework 組件參考 GAC](#specifying-framework-assembly-references-gac)。
+
 #### <a name="references"></a>參考
 *(1.5+)* 在套件的 `lib` 資料夾中命名組件的零或多個 `<reference>` 項目集合，這些項目可新增為專案參考。 每個參考都有 *file* 屬性。 `<references>` 也可以包含具有 *targetFramework* 屬性的 `<group>` 項目，然後即可包含 `<reference>` 項目。 如果省略，就會包含 `lib` 中的所有參考。 請參閱下文中的[指定明確的組件參考](#specifying-explicit-assembly-references)。
+
 #### <a name="contentfiles"></a>contentFiles
 *(3.3+)*`<files>` 項目的集合，可識別要包含在取用專案中的內容檔案。 這些檔案是由一組描述如何在專案系統內使用它們的屬性所指定。 請參閱下文中的[指定要包含在套件中的檔案](#specifying-files-to-include-in-the-package)。
+
 #### <a name="files"></a>files 
 `<package>`節點可包含 `<files>` 節點作為的同級節點 `<metadata>` ，以及 `<contentFiles>` 下的子系 `<metadata>` ，以指定要包含在封裝中的元件和內容檔案。 如需詳細資料，請參閱本主題下文中的[包含組件檔](#including-assembly-files)和[包含內容檔](#including-content-files)。
 
@@ -356,7 +362,7 @@ nuget pack MyProject.csproj
 | --- | --- |
 | `id` | (必要) 相依性的套件識別碼，例如 "EntityFramework" 與 "NUnit"，是在套件頁面上顯示的套件 nuget.org 名稱。 |
 | `version` | (必要) 可接受為相依性的版本範圍。 如需確切的語法，請參閱[套件版本控制](../concepts/package-versioning.md#version-ranges)。 不支援浮動版本。 |
-| include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值為 `all`。 |
+| include | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要包含的相依性。 預設值是 `all`。 |
 | 排除 | 包含/排除標記的逗號分隔清單 (如下所示)，指出最終套件要排除的相依性。 預設值是 `build,analyzers` 可以過度寫入的值。 但 `content/ ContentFiles` 也會隱含地排除在無法寫入的最終封裝中。 以 `exclude` 指定的標記優先於以 `include` 指定的標記。 例如，`include="runtime, compile" exclude="compile"` 與 `include="runtime"` 相同。 |
 
 將封裝上傳至 nuget.org 時，每個相依性的 `id` 屬性會限制為128個字元，而且此 `version` 屬性會限制為256個字元。
@@ -528,66 +534,76 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 **單一組件**
 
-    Source file:
-        library.dll
+```
+Source file:
+    library.dll
 
-    .nuspec entry:
-        <file src="library.dll" target="lib" />
+.nuspec entry:
+    <file src="library.dll" target="lib" />
 
-    Packaged result:
-        lib\library.dll
+Packaged result:
+    lib\library.dll
+```
 
 **目標 Framework 的特定單一組件**
 
-    Source file:
-        library.dll
+```
+Source file:
+    library.dll
 
-    .nuspec entry:
-        <file src="assemblies\net40\library.dll" target="lib\net40" />
+.nuspec entry:
+    <file src="assemblies\net40\library.dll" target="lib\net40" />
 
-    Packaged result:
-        lib\net40\library.dll
+Packaged result:
+    lib\net40\library.dll
+```
 
 **使用萬用字元的 DLL 集合**
 
-    Source files:
-        bin\release\libraryA.dll
-        bin\release\libraryB.dll
+```
+Source files:
+    bin\release\libraryA.dll
+    bin\release\libraryB.dll
 
-    .nuspec entry:
-        <file src="bin\release\*.dll" target="lib" />
+.nuspec entry:
+    <file src="bin\release\*.dll" target="lib" />
 
-    Packaged result:
-        lib\libraryA.dll
-        lib\libraryB.dll
+Packaged result:
+    lib\libraryA.dll
+    lib\libraryB.dll
+```
 
 **不同 Framework 的 DLL**
 
-    Source files:
-        lib\net40\library.dll
-        lib\net20\library.dll
+```
+Source files:
+    lib\net40\library.dll
+    lib\net20\library.dll
 
-    .nuspec entry (using ** recursive search):
-        <file src="lib\**" target="lib" />
+.nuspec entry (using ** recursive search):
+    <file src="lib\**" target="lib" />
 
-    Packaged result:
-        lib\net40\library.dll
-        lib\net20\library.dll
+Packaged result:
+    lib\net40\library.dll
+    lib\net20\library.dll
+```
 
 **排除檔案**
 
-    Source files:
-        \tools\fileA.bak
-        \tools\fileB.bak
-        \tools\fileA.log
-        \tools\build\fileB.log
+```
+Source files:
+    \tools\fileA.bak
+    \tools\fileB.bak
+    \tools\fileA.log
+    \tools\build\fileB.log
 
-    .nuspec entries:
-        <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
-        <file src="tools\**\*.*" target="tools" exclude="**\*.log" />
+.nuspec entries:
+    <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
+    <file src="tools\**\*.*" target="tools" exclude="**\*.log" />
 
-    Package result:
-        (no files)
+Package result:
+    (no files)
+```
 
 ## <a name="including-content-files"></a>包含內容檔
 
@@ -608,108 +624,124 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 **基本內容檔**
 
-    Source files:
-        css\mobile\style1.css
-        css\mobile\style2.css
+```
+Source files:
+    css\mobile\style1.css
+    css\mobile\style2.css
 
-    .nuspec entry:
-        <file src="css\mobile\*.css" target="content\css\mobile" />
+.nuspec entry:
+    <file src="css\mobile\*.css" target="content\css\mobile" />
 
-    Packaged result:
-        content\css\mobile\style1.css
-        content\css\mobile\style2.css
+Packaged result:
+    content\css\mobile\style1.css
+    content\css\mobile\style2.css
+```
 
 **具有目錄結構的內容檔**
 
-    Source files:
-        css\mobile\style.css
-        css\mobile\wp7\style.css
-        css\browser\style.css
+```
+Source files:
+    css\mobile\style.css
+    css\mobile\wp7\style.css
+    css\browser\style.css
 
-    .nuspec entry:
-        <file src="css\**\*.css" target="content\css" />
+.nuspec entry:
+    <file src="css\**\*.css" target="content\css" />
 
-    Packaged result:
-        content\css\mobile\style.css
-        content\css\mobile\wp7\style.css
-        content\css\browser\style.css
+Packaged result:
+    content\css\mobile\style.css
+    content\css\mobile\wp7\style.css
+    content\css\browser\style.css
+```
 
 **目標 Framework 的特定內容檔案**
 
-    Source file:
-        css\cool\style.css
+```
+Source file:
+    css\cool\style.css
 
-    .nuspec entry
-        <file src="css\cool\style.css" target="Content" />
+.nuspec entry
+    <file src="css\cool\style.css" target="Content" />
 
-    Packaged result:
-        content\style.css
+Packaged result:
+    content\style.css
+```
 
 **複製到資料夾，名稱中有點的內容檔**
 
 在此情況下，NuGet 會看到 `target` 的副檔名與 `src` 的副檔名不相符，因此會將 `target` 名稱的該部分視為資料夾：
 
-    Source file:
-        images\picture.png
+```
+Source file:
+    images\picture.png
 
-    .nuspec entry:
-        <file src="images\picture.png" target="Content\images\package.icons" />
+.nuspec entry:
+    <file src="images\picture.png" target="Content\images\package.icons" />
 
-    Packaged result:
-        content\images\package.icons\picture.png
+Packaged result:
+    content\images\package.icons\picture.png
+```
 
 **無副檔名的內容檔**
 
 若要包含不含副檔名的檔案，請使用 `*` 或 `**` 萬用字元：
 
-    Source file:
-        flags\installed
+```
+Source file:
+    flags\installed
 
-    .nuspec entry:
-        <file src="flags\**" target="flags" />
+.nuspec entry:
+    <file src="flags\**" target="flags" />
 
-    Packaged result:
-        flags\installed
+Packaged result:
+    flags\installed
+```
 
 **有深路徑和深層目標的內容檔**
 
 在此情況下，因為原始程式檔的副檔名和目標相符，所以 NuGet 會假設目標是檔案名稱，不是資料夾：
 
-    Source file:
-        css\cool\style.css
+```
+Source file:
+    css\cool\style.css
 
-    .nuspec entry:
-        <file src="css\cool\style.css" target="Content\css\cool" />
-        or:
-        <file src="css\cool\style.css" target="Content\css\cool\style.css" />
+.nuspec entry:
+    <file src="css\cool\style.css" target="Content\css\cool" />
+    or:
+    <file src="css\cool\style.css" target="Content\css\cool\style.css" />
 
-    Packaged result:
-        content\css\cool\style.css
+Packaged result:
+    content\css\cool\style.css
+```
 
 **重新命名套件中的內容檔**
 
-    Source file:
-        ie\css\style.css
+```
+Source file:
+    ie\css\style.css
 
-    .nuspec entry:
-        <file src="ie\css\style.css" target="Content\css\ie.css" />
+.nuspec entry:
+    <file src="ie\css\style.css" target="Content\css\ie.css" />
 
-    Packaged result:
-        content\css\ie.css
+Packaged result:
+    content\css\ie.css
+```
 
 **排除檔案**
 
-    Source file:
-        docs\*.txt (multiple files)
+```
+Source file:
+    docs\*.txt (multiple files)
 
-    .nuspec entry:
-        <file src="docs\*.txt" target="content\docs" exclude="docs\admin.txt" />
-        or
-        <file src="*.txt" target="content\docs" exclude="admin.txt;log.txt" />
+.nuspec entry:
+    <file src="docs\*.txt" target="content\docs" exclude="docs\admin.txt" />
+    or
+    <file src="*.txt" target="content\docs" exclude="admin.txt;log.txt" />
 
-    Packaged result:
-        All .txt files from docs except admin.txt (first example)
-        All .txt files from docs except admin.txt and log.txt (second example)
+Packaged result:
+    All .txt files from docs except admin.txt (first example)
+    All .txt files from docs except admin.txt and log.txt (second example)
+```
 
 <a name="using-contentfiles-element-for-content-files"></a>
 
@@ -737,7 +769,9 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 套件專案應該結構化使用下列模式的內容：
 
-    /contentFiles/{codeLanguage}/{TxM}/{any?}
+```
+/contentFiles/{codeLanguage}/{TxM}/{any?}
+```
 
 - `codeLanguages` 可能是 `cs`、`vb`、`fs`、`any`，或指定的 `$(ProjectLanguage)` 小寫對等項
 - `TxM` 是 NuGet 支援的任何合法目標 Framework Moniker (請參閱[目標 Framework](../reference/target-frameworks.md))。
@@ -745,19 +779,23 @@ Framework 組件屬於 .NET Framework，應該已經在任何指定電腦的全�
 
 例如：
 
-    Language- and framework-agnostic:
-        /contentFiles/any/any/config.xml
+```
+Language- and framework-agnostic:
+    /contentFiles/any/any/config.xml
 
-    net45 content for all languages
-        /contentFiles/any/net45/config.xml
+net45 content for all languages
+    /contentFiles/any/net45/config.xml
 
-    C#-specific content for net45 and up
-        /contentFiles/cs/net45/sample.cs
+C#-specific content for net45 and up
+    /contentFiles/cs/net45/sample.cs
+```
 
 空資料夾可以使用 `.` 選擇不提供特定語言和 TxM 組合的內容，例如：
 
-    /contentFiles/vb/any/code.vb
-    /contentFiles/cs/any/.
+```
+/contentFiles/vb/any/code.vb
+/contentFiles/cs/any/.
+```
 
 #### <a name="example-contentfiles-section"></a>contentFiles 區段範例
 

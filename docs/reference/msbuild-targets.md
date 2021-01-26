@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 0c32978baf6146f10c262ba7af94f61fee22272d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235694"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777714"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
 
@@ -40,75 +40,79 @@ ms.locfileid: "98235694"
 
 ## <a name="pack-target"></a>封裝目標
 
-針對使用 PackageReference 格式的 .NET Standard 專案，使用會 `msbuild -t:pack` 從專案檔繪製輸入，以用於建立 NuGet 套件。
+針對使用格式的 .NET 專案 `PackageReference` ，使用會 `msbuild -t:pack` 從專案檔繪製輸入，以用於建立 NuGet 套件。
 
-下表描述可新增至第一個 `<PropertyGroup>` 節點內之專案檔的 MSBuild 屬性。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表會依照檔案中的對等屬性進行[ `.nuspec` 組織。](../reference/nuspec.md)
+下表描述可新增至第一個節點內之專案檔的 MSBuild 屬性 `<PropertyGroup>` 。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表會依照檔案中的對等屬性進行[ `.nuspec` 組織。](../reference/nuspec.md)
 
 請注意，MSBuild 不支援 `.nuspec` 中的 `Owners` 和 `Summary` 屬性。
 
-| 屬性/NuSpec 值 | MSBuild 屬性 | 預設值 | 備註 |
+| 屬性/NuSpec 值 | MSBuild 屬性 | 預設 | 備註 |
 |--------|--------|--------|--------|
 | 識別碼 | PackageId | AssemblyName | MSBuild 中的 $(AssemblyName) |
 | 版本 | PackageVersion | 版本 | 這與 SemVer 相容，例如 “1.0.0”、“1.0.0-beta” 或 “1.0.0-beta-00345” |
 | VersionPrefix | PackageVersionPrefix | empty | 設定 PackageVersion 會覆寫 PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild 中的 $(VersionSuffix)。 設定 PackageVersion 會覆寫 PackageVersionSuffix |
-| Authors | Authors | 目前使用者的使用者名稱 | |
+| Authors | Authors | 目前使用者的使用者名稱 | 以分號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的 NuGet 元件庫中，並用來交互參照相同作者的封裝。 |
 | 擁有者 | N/A | NuSpec 中沒有 | |
-| 標題 | 標題 | PackageId| |
-| 描述 | 描述 | "Package Description" | |
-| 著作權 | 著作權 | empty | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| 授權 | PackageLicenseExpression | empty | 對應至 `<license type="expression">` |
-| 授權 | PackageLicenseFile | empty | 對應至 `<license type="file">`。 您必須明確地封裝參考的授權檔案。 |
-| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` 已淘汰，請使用 PackageLicenseExpression 或 PackageLicenseFile 屬性 |
+| 標題 | 標題 | PackageId| 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 |
+| 描述 | 描述 | "Package Description" | 組件的完整描述。 如果 `PackageDescription` 未指定，則此屬性也會用來做為封裝的描述。 |
+| 著作權 | 著作權 | empty | 套件的著作權詳細資料。 |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
+| 授權 | PackageLicenseExpression | empty | 對應至 `<license type="expression">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
+| 授權 | PackageLicenseFile | empty | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 您必須明確地封裝參考的授權檔案。 對應至 `<license type="file">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
 | ProjectUrl | PackageProjectUrl | empty | |
-| 圖示 | PackageIcon | empty | 您必須明確地封裝參考的圖示影像檔案。|
-| IconUrl | PackageIconUrl | empty | `PackageIconUrl`除了之外，您還必須指定，才能獲得最佳的早期體驗 `PackageIcon` 。 更長的詞彙 `PackageIconUrl` 將被取代。 |
-| 標籤 | PackageTags | empty | 以分號來分隔標記。 |
-| ReleaseNotes | PackageReleaseNotes | empty | |
-| 存放庫/Url | RepositoryUrl | empty | 用來複製或取出原始程式碼的儲存機制 URL。 例子： *https://github.com/NuGet/NuGet.Client.git* |
-| 存放庫/類型 | RepositoryType | empty | 存放庫類型。 範例： *git*、 *tfs*。 |
-| 存放庫/分支 | RepositoryBranch | empty | 選用的存放庫分支資訊。 您也必須指定 *RepositoryUrl* ，此屬性才會包含在內。 範例： *master* (NuGet 4.7.0 +)  |
-| 儲存機制/認可 | RepositoryCommit | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 您也必須指定 *RepositoryUrl* ，此屬性才會包含在內。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +)  |
+| 圖示 | PackageIcon | empty | 封裝中用來做為封裝圖示的影像路徑。 您必須明確地封裝參考的圖示影像檔案。 如需詳細資訊，請參閱[封裝圖示影像檔](#packing-an-icon-image-file)案和[ `icon` 中繼資料](/nuget/reference/nuspec#icon)。 |
+| IconUrl | PackageIconUrl | empty | `PackageIconUrl` 已被取代，改為使用 `PackageIcon` 。 但是，為了獲得最佳的早期體驗，除了之外，您還應該指定 `PackageIconUrl` `PackageIcon` 。 |
+| 標籤 | PackageTags | empty | 以分號分隔的標記清單，用以指定套件。 |
+| ReleaseNotes | PackageReleaseNotes | empty | 套件的版本資訊。 |
+| 存放庫/Url | RepositoryUrl | empty | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* 。 |
+| 存放庫/類型 | RepositoryType | empty | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
+| 存放庫/分支 | RepositoryBranch | empty | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
+| 儲存機制/認可 | RepositoryCommit | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| [摘要] | 不支援 | | |
+| 摘要 | 不支援 | | |
 
 ### <a name="pack-target-inputs"></a>封裝目標輸入
 
-- IsPackable
-- SuppressDependenciesWhenPacking
-- PackageVersion
-- PackageId
-- Authors
-- Description
-- 著作權
-- PackageRequireLicenseAcceptance
-- DevelopmentDependency
-- PackageLicenseExpression
-- PackageLicenseFile
-- PackageLicenseUrl
-- PackageProjectUrl
-- PackageIconUrl
-- PackageReleaseNotes
-- PackageTags
-- PackageOutputPath
-- IncludeSymbols
-- IncludeSource
-- PackageTypes
-- IsTool
-- RepositoryUrl
-- RepositoryType
-- RepositoryBranch
-- RepositoryCommit
-- NoPackageAnalysis
-- MinClientVersion
-- IncludeBuildOutput
-- IncludeContentInPack
-- BuildOutputTargetFolder
-- ContentTargetFolders
-- NuspecFile
-- NuspecBasePath
-- NuspecProperties
+| 屬性 | 描述 |
+| - | - |
+| IsPackable | 布林值，指定是否可封裝專案。 預設值是 `true`。 |
+| SuppressDependenciesWhenPacking | 設定為 `true` ，以從產生的 NuGet 套件抑制套件相依性。 |
+| PackageVersion | 指定所產生之套件的版本。 接受所有形式的 NuGet 版本字串。 預設為 `$(Version)` 的值，也就是專案中的屬性 `Version`。 |
+| PackageId | 指定所產生之套件的名稱。 如果未指定，`pack` 作業會預設為使用 `AssemblyName` 或目錄名稱作為套件的名稱。 |
+| PackageDescription | UI 顯示中的套件詳細描述。 |
+| Authors | 以分號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的 NuGet 元件庫中，並用來交互參照相同作者的封裝。 |
+| 描述 | 組件的完整描述。 如果 `PackageDescription` 未指定，則此屬性也會用來做為封裝的描述。 |
+| 著作權 | 套件的著作權詳細資料。 |
+| PackageRequireLicenseAcceptance | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 預設為 `false`。 |
+| DevelopmentDependency | 布林值，指定封裝是否標記為僅限開發的相依性，這可防止封裝作為其他封裝的相依性。 使用 `PackageReference` (NuGet 4.8 +) ，此旗標也表示編譯時期資產已從編譯中排除。 如需詳細資訊，請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) \(英文\)。 |
+| PackageLicenseExpression | [SPDX 授權識別碼](https://spdx.org/licenses/)或運算式，例如 `Apache-2.0` 。 如需詳細資訊，請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
+| PackageLicenseFile | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 |
+| PackageLicenseUrl | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
+| PackageProjectUrl | |
+| PackageIcon | 指定封裝圖示路徑（相對於封裝的根目錄）。 如需詳細資訊，請參閱 [封裝圖示影像檔](#packing-an-icon-image-file)。 |
+| PackageReleaseNotes| 套件的版本資訊。 |
+| PackageTags | 以分號分隔的標記清單，用以指定套件。 |
+| PackageOutputPath | 決定要置放所封裝之套件的輸出路徑。 預設為 `$(OutputPath)`。 |
+| IncludeSymbols | 此布林值會指出在封裝專案時，套件是否應該建立額外的符號套件。 符號套件的格式由 `SymbolPackageFormat` 屬性控制。 如需詳細資訊，請參閱 [IncludeSymbols](#includesymbols)。 |
+| IncludeSource | 此布林值會指出封裝處理序是否應該建立來源套件。 來源套件包含程式庫的原始程式碼及 PDB 檔案。 原始程式檔會放在所產生之套件檔案中的 `src/ProjectName` 目錄底下。 如需詳細資訊，請參閱 [IncludeSource](#includesource)。 |
+| PackageTypes
+| IsTool | 指定是否要將所有輸出檔複製到 *tools* 資料夾，而不是 *lib* 資料夾。 如需詳細資訊，請參閱 [IsTool](#istool)。 |
+| RepositoryUrl | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* 。 |
+| RepositoryType | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
+| RepositoryBranch | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
+| RepositoryCommit | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
+| SymbolPackageFormat | 指定符號套件的格式。 如果是 "nupkg"，則會使用包含 Pdb、Dll 和其他輸出檔的 *nupkg* 副檔名來建立舊版符號套件。 如果是 ".snupkg"，則會建立包含便攜 Pdb 的 .snupkg 符號套件。 預設值為 "nupkg"。 |
+| NoPackageAnalysis | 指定 `pack` 在建立封裝之後，不應該執行套件分析。 |
+| MinClientVersion | 指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 |
+| IncludeBuildOutput | 這個布林值會指定是否應將組建輸出元件封裝至 *nupkg* 檔中。 |
+| IncludeContentInPack | 這個布林值會指定是否 `Content` 要自動在產生的封裝中包含類型為的任何專案。 預設為 `true`。 |
+| BuildOutputTargetFolder | 指定要放置輸出組件的資料夾。 輸出組件 (及其他輸出檔) 會複製到其相關的架構資料夾中。 如需詳細資訊，請參閱 [輸出元件](#output-assemblies)。 |
+| ContentTargetFolders | 如果未指定所有內容檔案，則指定其預設位置 `PackagePath` 。 預設值為 "content;contentFiles"。 如需詳細資訊，請參閱 [Including content in a package](#including-content-in-a-package) (在套件中包含內容)。 |
+| NuspecFile | 正用於封裝之 *.nuspec* 檔案的相對或絕對路徑。 如果指定，則會 **專門** 用於封裝資訊，而不會使用專案中的任何資訊。 如需詳細資訊，請參閱 [使用 Nuspec 封裝](#packing-using-a-nuspec)。 |
+| NuspecBasePath | *.nuspec* 檔案的基底路徑。 如需詳細資訊，請參閱 [使用 Nuspec 封裝](#packing-using-a-nuspec)。 |
+| NuspecProperties | 以分號分隔的索引鍵=值組清單。 如需詳細資訊，請參閱 [使用 Nuspec 封裝](#packing-using-a-nuspec)。 |
 
 ## <a name="pack-scenarios"></a>封裝案例
 
@@ -118,18 +122,16 @@ ms.locfileid: "98235694"
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-`PackageIconUrl` 將會取代為新的 [`PackageIcon`](#packageicon) 屬性。
-
-從 NuGet 5.3 & Visual Studio 2019 16.3 版開始， `pack` 如果套件中繼資料僅指定，將會引發 [NU5048](./errors-and-warnings/nu5048.md) 警告 `PackageIconUrl` 。
+`PackageIconUrl` 已被取代為屬性的使用方式 [`PackageIcon`](#packageicon) 。 從 NuGet 5.3 開始，Visual Studio 2019 16.3 版， `pack` 如果套件中繼資料僅指定，則會引發 [NU5048](./errors-and-warnings/nu5048.md) 警告 `PackageIconUrl` 。
 
 ### <a name="packageicon"></a>PackageIcon
 
 > [!Tip]
-> 您應該同時指定 `PackageIcon` 和 `PackageIconUrl` 來維持與用戶端和尚未支援的來源之間的回溯相容性 `PackageIcon` 。 Visual Studio 將 `PackageIcon` 在未來版本中支援來自以資料夾為基礎之來源的封裝。
+> 若要維持與尚未支援的用戶端和來源的回溯相容性 `PackageIcon` ，請同時指定 `PackageIcon` 和 `PackageIconUrl` 。 Visual Studio 支援 `PackageIcon` 來自以資料夾為基礎之來源的封裝。
 
 #### <a name="packing-an-icon-image-file"></a>封裝圖示影像檔案
 
-封裝圖示影像檔案時，您必須使用 `PackageIcon` 屬性來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 影像檔案大小限制為 1 MB。 支援的檔案格式包括 JPEG 和 PNG。 我們建議使用128x128 的影像解析度。
+封裝圖示影像檔案時，請使用 `PackageIcon` 屬性來指定圖示檔路徑（相對於封裝的根目錄）。 此外，請確定檔案包含在套件中。 影像檔案大小限制為 1 MB。 支援的檔案格式包括 JPEG 和 PNG。 我們建議使用128x128 的影像解析度。
 
 例如：
 
@@ -231,8 +233,7 @@ ms.locfileid: "98235694"
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>封裝授權運算式或授權檔案
 
-使用授權運算式時，應使用 PackageLicenseExpression 屬性。 
-[授權運算式範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
+使用授權運算式時，請使用 `PackageLicenseExpression` 屬性。 如需範例，請參閱 [授權運算式範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
 
 ```xml
 <PropertyGroup>
@@ -240,9 +241,9 @@ ms.locfileid: "98235694"
 </PropertyGroup>
 ```
 
-[深入瞭解 NuGet.org 所接受的授權運算式和](nuspec.md#license)授權。
+若要深入瞭解 NuGet.org 所接受的授權運算式和授權，請參閱 [授權中繼資料](nuspec.md#license)。
 
-封裝授權檔案時，您必須使用 PackageLicenseFile 屬性來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 例如：
+封裝授權檔案時，請使用 `PackageLicenseFile` 屬性來指定相對於封裝根目錄的封裝路徑。 此外，請確定檔案包含在套件中。 例如：
 
 ```xml
 <PropertyGroup>
@@ -254,7 +255,10 @@ ms.locfileid: "98235694"
 </ItemGroup>
 ```
 
-[授權檔案範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
+如需範例，請參閱 [授權檔案範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
+
+> [!NOTE]
+> `PackageLicenseExpression`一次只能指定、和中的一個 `PackageLicenseFile` `PackageLicenseUrl` 。
 
 ### <a name="packing-a-file-without-an-extension"></a>封裝沒有副檔名的檔案
 

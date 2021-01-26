@@ -1,16 +1,16 @@
 ---
 title: NuGet Register-TabExpansion PowerShell 參考
 description: Visual Studio 中 NuGet 封裝管理員主控台的 Register-TabExpansion PowerShell 命令參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 9d5bae2878cb6bf0848bca9a5ed9af0fee61bb85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 6ad0da0e84fc2e31499c06bde013d2a256987d9a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237149"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777459"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Register-TabExpansion (封裝管理員主控台
 
@@ -28,7 +28,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | 參數 | 描述 |
 | --- | --- |
-| Name |  (需要) 註冊擴充的命令。 -Name 參數本身是選擇性的。 |
+| 名稱 |  (需要) 註冊擴充的命令。 -Name 參數本身是選擇性的。 |
 | 定義 |  (所需的) 物件描述語法中的引數， `@{'<parameter>' = {'<value1>', '<value2>', ...}}` 其中 `<parameter>` 是要修改之參數的名稱，而每個都 `<value>` 提供特定的擴充。 單引號和雙引號都接受。 |
 
 這些參數都不接受管線輸入或萬用字元。

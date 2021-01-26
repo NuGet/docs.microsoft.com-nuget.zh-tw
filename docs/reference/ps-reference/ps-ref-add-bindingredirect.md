@@ -1,16 +1,16 @@
 ---
 title: NuGet Add-BindingRedirect PowerShell 參考
 description: Visual Studio 中 NuGet 封裝管理員主控台的 Add-BindingRedirect PowerShell 命令參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 382ba9b179428c70e3eb16db86a363e095207d61
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 62edf1bf8995a4e1ffb83acc7a7621a786cc53e4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237253"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777607"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Add-BindingRedirect (封裝管理員主控台
 
@@ -31,7 +31,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | Description |
+| 參數 | 描述 |
 | --- | --- |
 | ProjectName |  (需要) 要加入系結重新導向的專案。 -專案參數本身是選擇性的。 |
 

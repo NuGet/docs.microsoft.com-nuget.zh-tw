@@ -1,16 +1,16 @@
 ---
 title: nuget.exe 認證提供者
 description: nuget.exe 認證提供者會使用摘要進行驗證，而且會實作為遵循特定慣例的命令列可執行檔。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238110"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777770"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>使用 nuget.exe 認證提供者驗證摘要
 
@@ -22,11 +22,11 @@ ms.locfileid: "93238110"
 
 您可以使用下列三種方式來使用 nuget.exe 認證提供者：
 
-- **全域** ：若要讓認證提供者可以 `nuget.exe` 在目前使用者的設定檔下執行的所有實例，請將它新增至 `%LocalAppData%\NuGet\CredentialProviders` 。 您可能需要建立 `CredentialProviders` 資料夾。 認證提供者可以安裝在資料夾的根目錄 `CredentialProviders`  或子資料夾內。 如果認證提供者有多個檔案/元件，您可以使用子資料夾來將提供者組織。
+- **全域**：若要讓認證提供者可以 `nuget.exe` 在目前使用者的設定檔下執行的所有實例，請將它新增至 `%LocalAppData%\NuGet\CredentialProviders` 。 您可能需要建立 `CredentialProviders` 資料夾。 認證提供者可以安裝在資料夾的根目錄 `CredentialProviders`  或子資料夾內。 如果認證提供者有多個檔案/元件，您可以使用子資料夾來將提供者組織。
 
-- **從環境變數** ：認證提供者可以在任何地方儲存，並藉 `nuget.exe` 由將 `%NUGET_CREDENTIALPROVIDERS_PATH%` 環境變數設為提供者位置來存取。 此變數可以是以分號分隔的清單 (例如， `path1;path2` 如果您有多個位置，則) 。
+- **從環境變數**：認證提供者可以在任何地方儲存，並藉 `nuget.exe` 由將 `%NUGET_CREDENTIALPROVIDERS_PATH%` 環境變數設為提供者位置來存取。 此變數可以是以分號分隔的清單 (例如， `path1;path2` 如果您有多個位置，則) 。
 
-- 此外 **nuget.exe** ： nuget.exe 認證提供者可放置在與相同的資料夾中 `nuget.exe` 。
+- 此外 **nuget.exe**： nuget.exe 認證提供者可放置在與相同的資料夾中 `nuget.exe` 。
 
 載入認證提供者時， `nuget.exe` 會依序在上述位置搜尋任何名為的檔案 `credentialprovider*.exe` ，然後依找到這些檔案的順序載入這些檔案。 如果同一個資料夾中有多個認證提供者，就會依字母順序載入。
 
@@ -45,7 +45,7 @@ ms.locfileid: "93238110"
 
 ### <a name="input-parameters"></a>輸入參數
 
-| 參數/切換 |Description|
+| 參數/切換 |描述|
 |----------------|-----------|
 | Uri {value} | 需要認證的套件來源 URI。|
 | NonInteractive | 如果有的話，提供者不會發出互動式提示。 |
@@ -62,7 +62,7 @@ ms.locfileid: "93238110"
 
 ### <a name="standard-output"></a>標準輸出
 
-| 屬性 |備忘稿|
+| 屬性 |備註|
 |----------------|-----------|
 | 使用者名稱 | 已驗證要求的使用者名稱。|
 | 密碼 | 已驗證要求的密碼。|
@@ -70,9 +70,11 @@ ms.locfileid: "93238110"
 
 範例 stdout：
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>認證提供者的疑難排解
 

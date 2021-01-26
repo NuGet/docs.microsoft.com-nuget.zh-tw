@@ -1,16 +1,16 @@
 ---
 title: NuGet Get-Package PowerShell 參考
 description: Visual Studio 中 NuGet 封裝管理員主控台的 Get-Package PowerShell 命令參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 1576e3f20eba1ecdd099b1e7c23aef6b1a1a0a4f
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237227"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777497"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Get-Package (封裝管理員主控台
 
@@ -18,7 +18,7 @@ ms.locfileid: "93237227"
 
 抓取本機儲存機制中所安裝的套件清單、列出套件來源中搭配-ListAvailable 參數使用時可使用的封裝，或在搭配-Update 參數使用時，列出可用的更新。
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>語法
 
 ```ps
 Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
@@ -36,7 +36,7 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
 | ListAvailable | 列出可從套件來源取得的封裝，預設為 nuget.org。除非指定-PageSize 和/或-First，否則會顯示50封裝的預設值。 |
 | 更新 | 列出套件來源中有可用更新的套件。 |
 | ProjectName | 要從中取得已安裝封裝的專案。 如果省略，則會傳回整個方案的已安裝專案。 |
-| Filter | 篩選字串，用來將封裝清單套用至封裝識別碼、描述和標記，以縮小封裝的範圍。 |
+| 篩選 | 篩選字串，用來將封裝清單套用至封裝識別碼、描述和標記，以縮小封裝的範圍。 |
 | First | 要從清單開頭返回的封裝數目。 如果未指定，則預設為50。 |
 | 跳過 | 省略 &lt; &gt; 所顯示清單中的第一個 int 封裝。  |
 | AllVersions | 顯示每個套件的所有可用版本，而不是僅限最新版本。 |

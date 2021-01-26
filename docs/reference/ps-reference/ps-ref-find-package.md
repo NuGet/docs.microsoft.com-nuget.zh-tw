@@ -1,16 +1,16 @@
 ---
 title: NuGet Find-Package PowerShell 參考
 description: Visual Studio 中 NuGet 封裝管理員主控台的 Find-Package PowerShell 命令參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 267dd3eb501cae6e419386a5ca5e0c1ab659f807
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 83d0d62bbda07d07ea1e3b58e531447e2001b680
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238084"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777514"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Find-Package (封裝管理員主控台
 
@@ -27,7 +27,7 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 ## <a name="parameters"></a>參數
 
-| 參數 | Description |
+| 參數 | 描述 |
 | --- | --- |
 | 識別碼 &lt; 關鍵字&gt; |  (在搜尋套件來源時，需要使用) 關鍵字。 使用-ExactMatch 只傳回套件識別碼符合關鍵字的封裝。 如果未指定任何關鍵字，則會 `Find-Package` 依下載傳回前20個封裝的清單，或依-First 指定的數位。 請注意，-Id 是選擇性的，且不會有任何作用。 |
 | 來源 | 要搜尋之套件來源的 URL 或資料夾路徑。 本機資料夾路徑可以是絕對或相對於目前資料夾的路徑。 如果省略，則會 `Find-Package` 搜尋目前選取的封裝來源。 |

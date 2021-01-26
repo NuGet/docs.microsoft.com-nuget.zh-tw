@@ -1,16 +1,16 @@
 ---
 title: NuGet 2.8 版本資訊
 description: NuGet 2.8 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb77cf0f049b5b3cfe1039d83ab58e33457674bf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237011"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776717"
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 版本資訊
 
@@ -44,13 +44,15 @@ NuGet 2.8 發行于2014年1月29日。
 
 在解析套件相依性時，NuGet 過去已實行一項策略，以選取符合套件相依性的最低主要和次要套件版本。 不過，與主要和次要版本不同的是，修補程式版本一律會解析為最高版本。 雖然行為的因為善意很好，但卻建立了不具決定性的方式來安裝具有相依性的套件。 請考慮下列範例：
 
-    PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
+```
+PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
-    Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
+Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
 
-    PackageB@1.0.1 is published
+PackageB@1.0.1 is published
 
-    Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+```
 
 在此範例中，即使安裝了 Developer1 和 Developer2 PackageA@1.0.0 ，每個都有不同的 PackageB 版本。 NuGet 2.8 會變更此預設行為，使修補程式版本的相依性解析行為與主要和次要版本的行為一致。 在上述範例中， PackageB@1.0.0 會安裝為安裝的結果， PackageA@1.0.0 而不考慮較新的修補程式版本。
 
@@ -64,24 +66,28 @@ NuGet 2.8 發行于2014年1月29日。
 
 除了上述的-DependencyVersion 參數之外，NuGet 也可讓您在定義預設值的 Nuget.Config 檔案中設定新屬性的功能，如果未在安裝套件的調用中指定-DependencyVersion 參數，則為。 任何安裝套件作業的 NuGet 封裝管理員對話方塊也會遵守此值。 若要設定此值，請將下列屬性新增至您的 Nuget.Config 檔案：
 
-    <config>
-        <add key="dependencyversion" value="Highest" />
-    </config>
+```xml
+<config>
+    <add key="dependencyversion" value="Highest" />
+</config>
+```
 
 ## <a name="preview-nuget-operations-with--whatif"></a>使用-whatif 預覽 NuGet 作業
 
 有些 NuGet 套件可以有深度的相依性圖形，因此在安裝、卸載或更新作業期間，可能會有説明，以先查看將會發生什麼事。 NuGet 2.8 將標準的 PowerShell-whatif 交換器新增至安裝套件、卸載套件和更新套件命令，以啟用將套用命令的整個封裝的整個關閉。 例如， `install-package Microsoft.AspNet.WebApi -whatif` 在空白 ASP.NET Web 應用程式中執行時，會產生下列各項。
 
-    PM> install-package Microsoft.AspNet.WebApi -whatif
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
-    Install Newtonsoft.Json 4.5.11
-    Install Microsoft.AspNet.WebApi.Client 5.0.0
-    Install Microsoft.AspNet.WebApi.Core 5.0.0
-    Install Microsoft.AspNet.WebApi.WebHost 5.0.0
-    Install Microsoft.AspNet.WebApi 5.0.0
+```
+PM> install-package Microsoft.AspNet.WebApi -whatif
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
+Install Newtonsoft.Json 4.5.11
+Install Microsoft.AspNet.WebApi.Client 5.0.0
+Install Microsoft.AspNet.WebApi.Core 5.0.0
+Install Microsoft.AspNet.WebApi.WebHost 5.0.0
+Install Microsoft.AspNet.WebApi 5.0.0
+```
 
 ## <a name="downgrade-package"></a>降級套件
 
@@ -101,12 +107,14 @@ NuGet 2.8 發行于2014年1月29日。
 
 雖然 NuGet 套件通常是從使用網路連線 [的「nuget](http://www.nuget.org/) 資源庫」之類的遠端資源庫取用，但在許多情況下，用戶端並未連線。 如果沒有網路連線，NuGet 用戶端就無法成功安裝套件，即使這些套件已在用戶端電腦上的本機 NuGet 快取中。 NuGet 2.8 會將自動快取回復新增至套件管理員主控台。 例如，中斷網路介面卡的連線並安裝 jQuery 時，主控台會顯示下列各項：
 
-    PM> Install-Package jquery
-    The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
-    Installing 'jQuery 2.0.3'.
-    Successfully installed 'jQuery 2.0.3'.
-    Adding 'jQuery 2.0.3' to WebApplication18.
-    Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
+PM> Install-Package jquery
+The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
+Installing 'jQuery 2.0.3'.
+Successfully installed 'jQuery 2.0.3'.
+Adding 'jQuery 2.0.3' to WebApplication18.
+Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
 
 快取回復功能不需要任何特定的命令引數。 此外，快取回復目前只能在套件管理員主控台中運作-在 [封裝管理員] 對話方塊中，行為目前無法運作。
 
@@ -124,7 +132,7 @@ NuGet 2.8 發行于2014年1月29日。
 
 這是 NuGet 團隊首次發行版本的 NuGet 封裝管理員延伸模組。  Microsoft 最近將程式碼提供給開放原始碼 NuGet 專案。 先前，NuGet 整合已內建在 WebMatrix 中，無法從 WebMatrix 更新。  我們現在可以將它與 NuGet 用戶端工具的其餘部分一起更新。
 
-## <a name="bug-fixes"></a>錯誤修正
+## <a name="bug-fixes"></a>Bug 修正
 
 更新套件-重新安裝命令的效能改進是所做的其中一個重大錯誤修正。
 

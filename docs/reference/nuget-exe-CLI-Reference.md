@@ -1,16 +1,16 @@
 ---
-title: " (CLI) 參考的 NuGet 命令列介面"
+title: NuGet Command-Line 介面 (CLI) 參考
 description: nuget.exe CLI 的命令列參考索引
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: e9343f1fdddcf839322849925372587e685aef4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a9a5fc4d3b1e0f19fa3ea249ca7759c8ebc2d12e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623145"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777706"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI 參考
 
@@ -47,7 +47,7 @@ ms.locfileid: "88623145"
 | [push](cli-reference/cli-ref-push.md) | 發佈 | 全部 | 將封裝發佈至套件來源。 |
 | [config](cli-reference/cli-ref-config.md) | 全部 | 全部 | 取得或設定 NuGet 設定值。 |
 | [help or ?](cli-reference/cli-ref-help.md) | 全部 | 全部 | 顯示命令的說明資訊或說明。 |
-| [locals](cli-reference/cli-ref-locals.md) | 耗用量 | 3.3 + | 列出 *全域套件*、 *HTTP*快取和 *暫存* 資料夾的位置，並清除這些資料夾的內容。 |
+| [locals](cli-reference/cli-ref-locals.md) | 耗用量 | 3.3 + | 列出 *全域套件*、 *HTTP* 快取和 *暫存* 資料夾的位置，並清除這些資料夾的內容。 |
 | [restore](cli-reference/cli-ref-restore.md) | 耗用量 | 2.7+ | 還原使用中封裝管理格式所參考的所有套件。 在 Mono 上執行時，不支援使用 PackageReference 格式來還原封裝。 |
 | [setapikey](cli-reference/cli-ref-setapikey.md) | 發佈、耗用量 | 全部 | 當套件來源需要存取金鑰時，為指定的套件來源儲存 API 金鑰。 |
 | [spec](cli-reference/cli-ref-spec.md) | 建立 | 全部 | `.nuspec`如果從 Visual Studio 專案產生檔案，則會使用標記產生檔案。 |
@@ -58,7 +58,7 @@ ms.locfileid: "88623145"
 | [delete](cli-reference/cli-ref-delete.md) | 發佈 | 全部 | 從套件來源移除或取消列出封裝。 |
 | [init](cli-reference/cli-ref-init.md) | 建立 | 3.3 + | 使用階層式配置將封裝從資料夾新增至套件來源。 |
 | [install](cli-reference/cli-ref-install.md) | 耗用量 | 全部 | 將封裝安裝至目前的專案，但不會修改專案或參考檔案。 |
-| list | 耗用量，或許是發佈 | 全部 | 顯示指定來源的封裝。 |
+| [list](cli-reference/cli-ref-list.md) | 耗用量，或許是發佈 | 全部 | 顯示指定來源的封裝。 |
 | [mirror](cli-reference/cli-ref-mirror.md) | 發佈 | 3.2 + 中已淘汰 | 將封裝及其相依性從來源鏡像至目標存放庫。 |
 | [search](cli-reference/cli-ref-search.md) | 耗用量 | 5.8 + | 使用提供的查詢字串來搜尋指定的來源。 |
 | [sources](cli-reference/cli-ref-sources.md) | 耗用量、發佈 | 全部 | 管理設定檔中的套件來源。 |

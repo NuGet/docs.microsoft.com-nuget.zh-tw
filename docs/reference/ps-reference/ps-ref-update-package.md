@@ -1,16 +1,16 @@
 ---
 title: NuGet Update-Package PowerShell 參考
 description: Visual Studio 中 NuGet 封裝管理員主控台的 Update-Package PowerShell 命令參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 159817e56d978d6432e989d2027907c0d2445222
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238032"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777385"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Update-Package (封裝管理員主控台
 
@@ -18,7 +18,7 @@ ms.locfileid: "93238032"
 
 將封裝及其相依性或專案中的所有封裝更新為較新的版本。
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>語法
 
 ```ps
 Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Version <string>]
@@ -34,9 +34,9 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ## <a name="parameters"></a>參數
 
-|  參數 | Description |
+|  參數 | 描述 |
 | --- | --- |
-| Id | 要更新之封裝的識別碼。 如果省略，則會更新所有套件。 -Id 參數本身是選擇性的。 |
+| 識別碼 | 要更新之封裝的識別碼。 如果省略，則會更新所有套件。 -Id 參數本身是選擇性的。 |
 | IgnoreDependencies | 略過更新套件的相依性。 |
 | ProjectName | 包含要更新之封裝的專案名稱，預設為所有專案。 |
 | 版本 | 要用於升級的版本，預設為最新版本。 在 NuGet 3.0 + 中，版本值必須是 *最低、最高、HighestMinor* 或 *HighestPatch* 的其中一個 (相當於-Safe) 。 |
@@ -45,7 +45,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | IncludePrerelease | 包含更新的發行前版本套件。 |
 | 重新安裝 | 使用其目前安裝的版本 Resintalls 封裝。 請參閱 [重新安裝和更新套件](../../consume-packages/reinstalling-and-updating-packages.md)。 |
 | FileConflictAction | 當系統要求覆寫或忽略專案所參考的現有檔案時，所要採取的動作。 可能的值為 *覆寫、忽略、無、OverwriteAll* 和 *IgnoreAll* (3.0 +) 。 |
-| DependencyVersion | 要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch* ：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor* ：最低主要、最小次要、最高修補程式的版本</li><li>不含參數的 Update-Package *最高* (預設值) ：最高版本</li></ul>您可以使用檔案中的設定來設定預設值 [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` 。 |
+| DependencyVersion | 要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch*：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor*：最低主要、最小次要、最高修補程式的版本</li><li>不含參數的 Update-Package *最高* (預設值) ：最高版本</li></ul>您可以使用檔案中的設定來設定預設值 [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` 。 |
 | ToHighestPatch | 相當於-Safe。 |
 | ToHighestMinor | 將升級限制為只有與目前安裝的套件具有相同主要版本的版本。 |
 | WhatIf | 顯示執行命令時會發生什麼事，而不實際執行更新。 |
