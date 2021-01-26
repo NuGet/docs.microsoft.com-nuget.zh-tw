@@ -1,16 +1,16 @@
 ---
 title: 尋找及選擇 NuGet 套件
 description: 如何尋找和選擇專案之最佳 NuGet 套件的概觀，包含 NuGet 搜尋語法的詳細資料。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4ba51028c1a69a3466cec655db19c2c498e29d9b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622978"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775181"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>尋找和評估您專案的 NuGet 套件
 
@@ -54,7 +54,7 @@ ms.locfileid: "88622978"
 
 1. 嘗試使用 NuGet 封裝管理員主控台中的命令，將套件安裝到專案 [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) 中。 如果套件不相容，則此命令會顯示套件所支援的架構。
 
-1. 使用 [資訊]**** 下的 [手動下載]**** 連結，以從套件在 nuget.org 上的頁面下載套件。 將副檔名從 `.nupkg` 變更為 `.zip`，並開啟檔案來檢查其 `lib` 資料夾的內容。 您會在那裡看到每個所支援架構的子資料夾，其中使用目標 Framework Moniker (TFM；請參閱[目標 Framework](../reference/target-frameworks.md)) 來命名每個子資料夾。 如果您在 `lib` 下看不到任何子資料夾，而且只有單一 DLL，則必須嘗試將套件安裝至您的專案，以探索其相容性。
+1. 使用 [資訊] 下的 [手動下載] 連結，以從套件在 nuget.org 上的頁面下載套件。 將副檔名從 `.nupkg` 變更為 `.zip`，並開啟檔案來檢查其 `lib` 資料夾的內容。 您會在那裡看到每個所支援架構的子資料夾，其中使用目標 Framework Moniker (TFM；請參閱[目標 Framework](../reference/target-frameworks.md)) 來命名每個子資料夾。 如果您在 `lib` 下看不到任何子資料夾，而且只有單一 DLL，則必須嘗試將套件安裝至您的專案，以探索其相容性。
 
 ## <a name="pre-release-packages"></a>發行前套件
 
@@ -66,7 +66,7 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 在 Visual Studio 中，並且使用 NuGet 和 dotnet CLI 工具時，NuGet 預設不會包含發行前版本。 若要變更此行為，請執行下列步驟：
 
-- **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件]**** UI 中，設定 [包含發行前版本]**** 方塊。 設定或清除此方塊時，會重新整理套件管理員 UI 以及您可以安裝的可用版本清單。
+- **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，設定 [包含發行前版本] 方塊。 設定或清除此方塊時，會重新整理套件管理員 UI 以及您可以安裝的可用版本清單。
 
     ![Visual Studio 的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
@@ -74,13 +74,13 @@ nuget.org 預設會在搜尋結果中顯示發行前套件。 若只要搜尋穩
 
 - **nuget.exe CLI**：搭配 `-prerelease` `install` 、 `update` 、 `delete` 和命令使用參數 `mirror` 。 請參閱 [NuGet CLI 參考](../reference/nuget-exe-cli-reference.md)
 
-- **dotnet.exe CLI**使用 `-v` 引數指定確切的發行前版本。 請參閱 [dotnet 新增套件參考](/dotnet/core/tools/dotnet-add-package)。
+- **dotnet.exe CLI** 使用 `-v` 引數指定確切的發行前版本。 請參閱 [dotnet 新增套件參考](/dotnet/core/tools/dotnet-add-package)。
 
 <a name="native-cpp-packages"></a>
 
 ### <a name="native-c-packages"></a>原生 C++ 套件
 
-NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這會啟用專案的 [管理 NuGet 套件]**** 操作功能表命令、引進 `native` 目標架構，並提供 MSBuild 整合。
+NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這會啟用專案的 [管理 NuGet 套件] 操作功能表命令、引進 `native` 目標架構，並提供 MSBuild 整合。
 
 若要在 [nuget.org](https://www.nuget.org/packages) 上尋找原生套件，請使用 `tag:native` 進行搜尋。 這類套件一般會提供 `.targets` 和 `.props` 檔案，而 NuGet 會在將套件新增至專案時自動匯入這些檔案。
 
@@ -90,12 +90,12 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 同時，使用 NuGet 套件表示與其相依，因此您想要確定其為穩定且可靠。 因為安裝和直接測試套件相當耗時，所以您也可以使用套件清單頁面上的資訊來深入了解套件品質：
 
-- **下載統計資料**：在 nuget.org 的套件頁面上，[統計資料]**** 區段會顯示總下載次數、最新版的下載，以及每天的平均下載次數。 較大的數字指出許多其他開發人員都具有與套件的相依性，這表示它已證明它自己。
+- **下載統計資料**：在 nuget.org 的套件頁面上，[統計資料] 區段會顯示總下載次數、最新版的下載，以及每天的平均下載次數。 較大的數字指出許多其他開發人員都具有與套件的相依性，這表示它已證明它自己。
 
     ![下載套件清單頁面上的統計資料](media/Finding-03-Downloads.png)
 
 - **消費者**：在 [套件] 頁面上，[ **消費者** ] 區段會列出相依于此套件的前5個最受歡迎的 NuGet.org 套件和熱門的 GitHub 存放庫。 相依于此套件的套件和存放庫可以稱為此封裝的「相依項」。 相依套件和存放庫可以視為此封裝的「簽署」，因為套件作者已選擇信任並相依于該套件。
-  - 相依套件必須依存于此封裝的*最新穩定版本*中的*任何版本*。 這項定義可確保顯示的相依套件是封裝作者決定要信任且相依于此套件的最新反映。 未列出預先發行版本相依性，因為它們尚未被視為全 hero endoresements。 請參閱下表中的範例：
+  - 相依套件必須依存于此封裝的 *最新穩定版本* 中的 *任何版本*。 這項定義可確保顯示的相依套件是封裝作者決定要信任且相依于此套件的最新反映。 未列出預先發行版本相依性，因為它們尚未被視為全 hero endoresements。 請參閱下表中的範例：
 
     | 封裝版本 | 封裝 A 列為套件 B 的相依專案？ |
     |-|-|
@@ -103,7 +103,7 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
     | 1.0.0 版--> 套件 B<br>v 1.1.0 (最新的穩定) <br>v 1.2.0-預覽 | FALSE，最新的穩定版本不相依于套件 B |
     | 1.0.0 版--> 套件 B<br>v 1.1.0 (最新的穩定) <br>v 1.2.0-預覽--> 套件 B | FALSE，最新的穩定版本不相依于套件 B |
 
-  - GitHub 存放庫的星星數目通常表示該存放庫與 GitHub 使用者的熱門程度 (更多星星通常表示較熱門的) 。 如需 GitHub 的星星和儲存機制排名系統的詳細資訊，請造訪 [github 的消費者入門頁面](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) 。
+  - GitHub 存放庫的星星數目通常表示該存放庫與 GitHub 使用者的熱門程度 (更多星星通常表示較熱門的) 。 如需 GitHub 的星星和儲存機制排名系統的詳細資訊，請造訪 [github 的開始使用頁面](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) 。
 
     ![消費者](media/Used-By-section-Humanizer.png)
 
@@ -116,15 +116,15 @@ NuGet 支援可在 Visual Studio 中用於 C++ 專案的原生 C++ 套件。 這
 
 - **最近安裝**：在 [封裝] 頁面的 [ **統計資料]** 底下，選取 [ **View full stats**]。[完整統計資料] 頁面會顯示過去六周的套件安裝（依版本號碼）。 其他開發人員主動使用的套件一般是比未使用的套件還適合的選擇。
 
-- **支援**：在套件頁面的 [資訊]**** 下方，選取 [專案網站]**** \(如果有的話) 以查看作者提供的支援選項。 具有專用網站的專案通常有較佳的支援。
+- **支援**：在套件頁面的 [資訊] 下方，選取 [專案網站] \(如果有的話) 以查看作者提供的支援選項。 具有專用網站的專案通常有較佳的支援。
 
-- **開發人員歷程記錄**：在套件頁面的 [擁有者]**** 下方，選取擁有者以查看他們已發行的其他套件。 具有多個套件的擁有者未來較可能繼續支援其工作。
+- **開發人員歷程記錄**：在套件頁面的 [擁有者] 下方，選取擁有者以查看他們已發行的其他套件。 具有多個套件的擁有者未來較可能繼續支援其工作。
 
 - **開放原始碼參與**：開放原始碼存放庫會維護許多套件，因此與其相依的開發人員可以直接參與 Bug 修正和功能改善。 任何指定套件的參與歷程記錄也是有多少開發人員主動參與的不錯指標。
 
-- **訪談擁有者**：可以肯定平均認可新的開發人員，以產生您可使用的不錯套件，讓它們有機會帶入 NuGet 生態系統的新項目。 請記住，透過清單頁面的 [資訊]**** 下方的 [連絡擁有者]**** 選項直接聯繫套件開發人員。 而且他們很樂意與您合作來滿足您的需求！
+- **訪談擁有者**：可以肯定平均認可新的開發人員，以產生您可使用的不錯套件，讓它們有機會帶入 NuGet 生態系統的新項目。 請記住，透過清單頁面的 [資訊] 下方的 [連絡擁有者] 選項直接聯繫套件開發人員。 而且他們很樂意與您合作來滿足您的需求！
 
-- **保留的套件識別碼首碼**：許多套件擁有者已申請並獲得[保留的套件識別碼首碼](../nuget-org/id-prefix-reservation.md)。 當您在 [nuget.org](https://www.nuget.org/) 上或 Visual Studio 中看到套件識別碼旁出現視覺核取標記時，表示套件擁有者已符合我們的識別碼首碼保留[準則](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria)。 這表示套件擁有者已明確識別自身及其套件。
+- **保留的套件識別碼首碼**：許多套件擁有者已申請並獲得 [保留的套件識別碼首碼](../nuget-org/id-prefix-reservation.md)。 當您在 [nuget.org](https://www.nuget.org/) 上或 Visual Studio 中看到套件識別碼旁出現視覺核取標記時，表示套件擁有者已符合我們的識別碼首碼保留[準則](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria)。 這表示套件擁有者已明確識別自身及其套件。
 
 > [!Note]
 > 一律留意套件的授權條款，您可以在 nuget.org 上的套件清單頁面上選取 **授權資訊** 來查看套件的授權條款。如果封裝未指定授權條款，請使用 [封裝] 頁面上的 [ **連絡人擁有** 者] 連結，直接聯絡封裝擁有者。 Microsoft 不會將任何智慧財產權從協力廠商套件提供者授權給您，而且不負責協力廠商所提供的資訊。

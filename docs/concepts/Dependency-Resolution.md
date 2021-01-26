@@ -1,28 +1,28 @@
 ---
 title: NuGet 套件相依性解析
 description: 在 NuGet 2.x 和 NuGet 3.x+ 中解析和安裝 NuGet 套件相依性之程序的詳細資料。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237740"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775267"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet 如何解析套件相依性
 
 只要安裝或重新安裝套件 (包含安裝為[還原](../consume-packages/package-restore.md)程序一部分的套件)，NuGet 也會安裝與這個第一個套件相依的任何其他套件。
 
-這些立即相依性接著會有其自己的相依性，而這會繼續到任意深度。 這會產生所謂的「相依性圖形」  ，以描述所有層級上套件之間的關聯性。
+這些立即相依性接著會有其自己的相依性，而這會繼續到任意深度。 這會產生所謂的「相依性圖形」，以描述所有層級上套件之間的關聯性。
 
 多個套件具有相同的相依性時，同一個套件識別碼可能會多次出現在圖形中，但可能具有不同版本的條件約束。 不過，專案中只能使用一個指定套件的版本，因此 NuGet 必須選擇要使用的版本。 確切的處理序取決於所使用的套件管理格式。
 
 ## <a name="dependency-resolution-with-packagereference"></a>使用 PackageReference 的相依性解析
 
-使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」  。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用浮動版本（例如2.8） \* 來避免修改專案，以使用最新版本的封裝。
+使用 PackageReference 格式來將套件安裝至專案時，NuGet 會新增適當檔案中一般套件圖形的參考，並事先解決衝突。 此程序稱為「可轉移還原」。 重新安裝或還原套件則是下載圖形中所列套件的程序，導致更快速且更容易預測的組建。 您也可以利用浮動版本（例如2.8） \* 來避免修改專案，以使用最新版本的封裝。
 
 若 NuGet 還原程序在建置之前執行，就會先解析記憶體中的相依性，然後將產生的圖形寫入稱為 `project.assets.json` 的檔案。 如果[已啟用鎖定檔案功能](../consume-packages/package-references-in-project-files.md#locking-dependencies)，它也會將已解析的相依性寫入名為 `packages.lock.json` 的鎖定檔案。
 資產檔案位於 `MSBuildProjectExtensionsPath`，其預設為專案的 'obj' 資料夾。 MSBuild 接著會讀取這個檔案，並將它轉譯成一組可找到可能參考的資料夾，然後將它們新增至記憶體中的專案樹狀結構。
@@ -55,7 +55,7 @@ ms.locfileid: "93237740"
 
 #### <a name="floating-versions"></a>浮動版本
 
-浮動相依性版本是使用字元來指定 \* 。 例如： `6.0.*` 。 此版本規格顯示「使用最新的 6.0. x 版本」; `4.*` 表示「使用最新的4.x 版本」。 使用浮動版本可減少專案檔的變更，同時保持最新版本的相依性。
+浮動相依性版本是使用字元來指定 \* 。 例如： `6.0.*` 。 此版本規格顯示「使用最新的 6.0. x 版本」; `4.*` 表示「使用最新的4.x 版本」。 使用浮動版本可減少專案檔的變更，同時保持相依性的最新版本。
 
 使用浮動版本時，NuGet 會解析符合版本模式的最高版本套件，例如， `6.0.*` 取得以6.0 開頭的最高版本套件：
 
@@ -155,4 +155,4 @@ Package restore failed. Rolling back package changes for 'MyProject'.
 若要解決不相容，請執行下列其中一項：
 
 - 將專案的目標重新設為您想要使用的套件所支援的架構。
-- 請連絡套件作者，並與他們合作以新增所選擇架構的支援。 基於此用途， [nuget.org](https://www.nuget.org/) 上的每個套件列出頁面都具有 **連絡人負責人** 連結。
+- 請連絡套件作者，並與他們合作以新增所選擇架構的支援。 基於此用途，[nuget.org](https://www.nuget.org/) 上的每個套件列出頁面都具有 **連絡人負責人** 連結。

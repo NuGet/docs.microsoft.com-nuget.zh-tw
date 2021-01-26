@@ -1,16 +1,16 @@
 ---
 title: NuGet 套件中的發行前版本
 description: 建置發行前版本套件的指引
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: ae6628efa6d97ff5ba2c4c359b9565a3214cb346
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623002"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774659"
 ---
 # <a name="building-pre-release-packages"></a>建置發行前版本套件
 
@@ -44,7 +44,7 @@ ms.locfileid: "88623002"
 
 NuGet 使用套件時預設不包含發行前版本，但是您可以如下所示變更此行為：
 
-- **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件]**** UI 中，核取 [包含發行前版本]**** 方塊：
+- **Visual Studio 中的套件管理員 UI**：在 [管理 NuGet 套件] UI 中，核取 [包含發行前版本] 方塊：
 
     ![Visual Studio 的 [包含發行前版本] 核取方塊](media/Prerelease_02-CheckPrerelease.png)
 
@@ -64,7 +64,7 @@ NuGet 使用套件時預設不包含發行前版本，但是您可以如下所�
 - `Minor`：新功能，但具回溯相容性
 - `Patch`：僅具有回溯相容的 Bug 修正
 
-然後在發行前版本的修補程式編號後附加連字號和一個字串。 就技術層面而言，連字號後面可以使用「任何」** 字串，NuGet 會將套件視為發行前版本。 然後，NuGet 會在適用的 UI 中顯示完整的版本號碼，讓取用者自行解譯其意義。
+然後在發行前版本的修補程式編號後附加連字號和一個字串。 就技術層面而言，連字號後面可以使用「任何」字串，NuGet 會將套件視為發行前版本。 然後，NuGet 會在適用的 UI 中顯示完整的版本號碼，讓取用者自行解譯其意義。
 
 請記住，通常遵循如下所示的可辨識命名慣例會比較好：
 
@@ -77,15 +77,17 @@ NuGet 使用套件時預設不包含發行前版本，但是您可以如下所�
 
 但無論使用什麼樣的尾碼，NuGet 都會以反向字母順序給予它們優先權：
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta.12
-    1.0.1-beta.5
-    1.0.1-beta
-    1.0.1-alpha.2
-    1.0.1-alpha
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta.12
+1.0.1-beta.5
+1.0.1-beta
+1.0.1-alpha.2
+1.0.1-alpha
+```
 
 如範例所示，不含任何尾碼的版本一律優先於發行前版本。
 

@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI 新增命令
 description: nuget.exe add 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622898"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776086"
 ---
 # <a name="add-command-nuget-cli"></a> (NuGet CLI 新增命令) 
 
@@ -51,7 +51,7 @@ nuget add <packagePath> -Source <sourcePath> [options]
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-?|-help`**

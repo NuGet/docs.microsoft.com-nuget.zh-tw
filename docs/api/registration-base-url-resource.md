@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237519"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775296"
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -23,7 +23,7 @@ ms.locfileid: "93237519"
 
 使用的 `@type` 值如下：
 
-@type 值                     | 備忘稿
+@type 值                     | 備註
 ------------------------------- | -----
 RegistrationsBaseUrl            | 初始版本
 RegistrationsBaseUrl/3.0.0-Beta | 別名 `RegistrationsBaseUrl`
@@ -58,9 +58,9 @@ RegistrationsBaseUrl/3.6。0      | 包括 SemVer 2.0.0 套件
 
 註冊資源會依封裝識別碼分組封裝中繼資料。 您無法一次取得多個封裝識別碼的相關資料。 此資源不會提供探索套件識別碼的方式。 相反地，用戶端會假設已經知道所需的套件識別碼。 每個套件版本的可用中繼資料會隨著伺服器的執行而有所不同。 套件註冊 blob 具有下列階層式結構：
 
-- **Index** ：套件中繼資料的進入點，由具有相同封裝識別碼之來源上的所有封裝所共用。
-- **頁面** ：套件版本的群組。 頁面中的套件版本數目是由伺服器執行所定義。
-- 分 **葉** ：適用于單一套件版本的檔。
+- **Index**：套件中繼資料的進入點，由具有相同封裝識別碼之來源上的所有封裝所共用。
+- **頁面**：套件版本的群組。 頁面中的套件版本數目是由伺服器執行所定義。
+- 分 **葉**：適用于單一套件版本的檔。
 
 註冊索引的 URL 是可預測的，且可由用戶端指定服務索引的封裝識別碼和註冊資源的 `@id` 值來決定。 註冊頁面和離開的 Url 會藉由檢查註冊索引來進行探索。
 
@@ -72,24 +72,26 @@ RegistrationsBaseUrl/3.6。0      | 包括 SemVer 2.0.0 套件
 
 Nuget.org 使用的啟發學習法如下：如果有128或更多版本的套件，請將分葉分成大小64的頁面。 如果版本低於128，則內嵌全都會放入註冊索引中。 請注意，這表示具有65至127版本的套件在索引中會有兩個頁面，但這兩個頁面將會內嵌。
 
-    GET {@id}/{LOWER_ID}/index.json
+```
+GET {@id}/{LOWER_ID}/index.json
+```
 
 ### <a name="request-parameters"></a>要求參數
 
-Name     | 位於     | 類型    | 必要 | 備忘稿
+名稱     | 位於     | 類型    | 必要 | 備註
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | 字串  | yes      | 封裝識別碼，小寫
+LOWER_ID | URL    | 字串  | 是      | 封裝識別碼，小寫
 
-此 `LOWER_ID` 值是所需的封裝識別碼小寫使用由所執行的規則。NET 的 [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) 方法。
+此 `LOWER_ID` 值是所需的封裝識別碼小寫使用由所執行的規則。NET 的 [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) 方法。
 
 ### <a name="response"></a>回應
 
 回應是 JSON 檔，其中包含具有下列屬性的根物件：
 
-名稱  | 類型             | 必要 | 備忘稿
+名稱  | 類型             | 必要 | 備註
 ----- | ---------------- | -------- | -----
-count | integer          | yes      | 索引中的註冊頁面數目
-項目 | 物件的陣列 | yes      | 註冊頁面的陣列
+count | 整數          | 是      | 索引中的註冊頁面數目
+項目 | 物件的陣列 | 是      | 註冊頁面的陣列
 
 索引物件陣列中的每個專案 `items` 都是代表註冊頁面的 JSON 物件。
 
@@ -97,14 +99,14 @@ count | integer          | yes      | 索引中的註冊頁面數目
 
 在註冊索引中找到的註冊頁面物件具有下列屬性：
 
-名稱   | 類型             | 必要 | 備忘稿
+名稱   | 類型             | 必要 | 備註
 ------ | ---------------- | -------- | -----
-@id    | 字串           | yes      | 註冊頁面的 URL
-count  | integer          | yes      | 頁面中的註冊保留數目
-項目  | 物件的陣列 | 否       | 註冊保留的陣列及其關聯中繼資料
-lower  | 字串           | yes      | 頁面中最低的 SemVer 2.0.0 版本 (內含) 
-父系 (parent) | 字串           | 否       | 註冊索引的 URL
-upper  | 字串           | yes      | 頁面中最高的 SemVer 2.0.0 版本 (內含) 
+@id    | 字串           | 是      | 註冊頁面的 URL
+count  | 整數          | 是      | 頁面中的註冊保留數目
+項目  | 物件的陣列 | 不可以       | 註冊保留的陣列及其關聯中繼資料
+lower  | 字串           | 是      | 頁面中最低的 SemVer 2.0.0 版本 (內含) 
+父系 (parent) | 字串           | 不可以       | 註冊索引的 URL
+upper  | 字串           | 是      | 頁面中最高的 SemVer 2.0.0 版本 (內含) 
 
 `lower` `upper` 當需要特定頁面版本的中繼資料時，頁面物件的和界限會很有用。
 這些界限可以用來提取唯一需要的註冊頁面。 版本字串會遵循 [NuGet 的版本規則](../concepts/package-versioning.md)。 版本字串是正規化的，不包含組建中繼資料。 如同 NuGet 生態系統中的所有版本，系統會使用 [SemVer 2.0.0 的版本優先順序規則](https://semver.org/spec/v2.0.0.html#spec-item-11)來執行版本字串的比較。
@@ -121,11 +123,11 @@ upper  | 字串           | yes      | 頁面中最高的 SemVer 2.0.0 版本 (�
 
 註冊頁面中找到的註冊分葉物件具有下列屬性：
 
-名稱           | 類型   | 必要 | 備忘稿
+名稱           | 類型   | 必要 | 備註
 -------------- | ------ | -------- | -----
-@id            | 字串 | yes      | 註冊分葉的 URL
-catalogEntry   | 物件 (object) | yes      | 包含套件中繼資料的類別目錄專案
-packageContent | 字串 | yes      | 封裝內容的 URL (. nupkg) 
+@id            | 字串 | 是      | 註冊分葉的 URL
+catalogEntry   | 物件 (object) | 是      | 包含套件中繼資料的類別目錄專案
+packageContent | 字串 | 是      | 封裝內容的 URL (. nupkg) 
 
 每個註冊分葉物件都代表與單一套件版本相關聯的資料。
 
@@ -133,26 +135,26 @@ packageContent | 字串 | yes      | 封裝內容的 URL (. nupkg)
 
 `catalogEntry`註冊分葉物件中的屬性具有下列屬性：
 
-名稱                     | 類型                       | 必要 | 備忘稿
+名稱                     | 類型                       | 必要 | 備註
 ------------------------ | -------------------------- | -------- | -----
-@id                      | 字串                     | yes      | 用來產生此物件之檔的 URL
-authors                  | 字串或字串陣列 | 否       | 
-dependencyGroups         | 物件的陣列           | 否       | 封裝的相依性，依目標 framework 分組
-折舊              | 物件 (object)                     | 否       | 與封裝相關聯的淘汰
-description              | 字串                     | 否       | 
-iconUrl                  | 字串                     | 否       | 
-id                       | 字串                     | yes      | 封裝的識別碼
-licenseUrl               | 字串                     | 否       |
-licenseExpression        | 字串                     | 否       | 
-列出的                   | boolean                    | 否       | 如果不存在，應視為已列出
-minClientVersion         | 字串                     | 否       | 
-projectUrl               | 字串                     | 否       | 
-published                | 字串                     | 否       | 字串，包含發行套件時的 ISO 8601 時間戳記
-requireLicenseAcceptance | boolean                    | 否       | 
-總結                  | 字串                     | 否       | 
-tags                     | 字串或字串陣列  | 否       | 
-title                    | 字串                     | 否       | 
-version                  | 字串                     | yes      | 正規化之後的完整版本字串
+@id                      | 字串                     | 是      | 用來產生此物件之檔的 URL
+authors                  | 字串或字串陣列 | 不可以       | 
+dependencyGroups         | 物件的陣列           | 不可以       | 封裝的相依性，依目標 framework 分組
+折舊              | 物件 (object)                     | 不可以       | 與封裝相關聯的淘汰
+description              | 字串                     | 不可以       | 
+iconUrl                  | 字串                     | 不可以       | 
+id                       | 字串                     | 是      | 封裝的識別碼
+licenseUrl               | 字串                     | 不可以       |
+licenseExpression        | 字串                     | 不可以       | 
+列出的                   | boolean                    | 不可以       | 如果不存在，應視為已列出
+minClientVersion         | 字串                     | 不可以       | 
+projectUrl               | 字串                     | 不可以       | 
+published                | 字串                     | 不可以       | 字串，包含發行套件時的 ISO 8601 時間戳記
+requireLicenseAcceptance | boolean                    | 不可以       | 
+總結                  | 字串                     | 不可以       | 
+tags                     | 字串或字串陣列  | 不可以       | 
+title                    | 字串                     | 不可以       | 
+version                  | 字串                     | 是      | 正規化之後的完整版本字串
 
 封裝 `version` 屬性是正規化之後的完整版本字串。 這表示 SemVer 2.0.0 組建資料可以包含在此。
 
@@ -167,10 +169,10 @@ version                  | 字串                     | yes      | 正規化之�
 
 每個相依性群組物件都具有下列屬性：
 
-名稱            | 類型             | 必要 | 備忘稿
+名稱            | 類型             | 必要 | 備註
 --------------- | ---------------- | -------- | -----
-targetFramework | 字串           | 否       | 這些相依性適用的目標 framework
-相依性    | 物件的陣列 | 否       |
+targetFramework | 字串           | 不可以       | 這些相依性適用的目標 framework
+相依性    | 物件的陣列 | 不可以       |
 
 此 `targetFramework` 字串使用 nuget 的 .net 程式庫 [nuget](https://www.nuget.org/packages/NuGet.Frameworks/)所實行的格式。 如果未 `targetFramework` 指定，則會將相依性群組套用至所有目標 framework。
 
@@ -182,9 +184,9 @@ targetFramework | 字串           | 否       | 這些相依性適用的目標 
 
 名稱         | 類型   | 必要 | 注意
 ------------ | ------ | -------- | -----
-id           | 字串 | yes      | 套件相依性的識別碼
-range        | 物件 (object) | 否       | 允許的相依性[版本範圍](../concepts/package-versioning.md#version-ranges)
-註冊 | 字串 | 否       | 此相依性之註冊索引的 URL
+id           | 字串 | 是      | 套件相依性的識別碼
+range        | 物件 (object) | 不可以       | 允許的相依性[版本範圍](../concepts/package-versioning.md#version-ranges)
+註冊 | 字串 | 不可以       | 此相依性之註冊索引的 URL
 
 如果 `range` 屬性已排除或空白字串，用戶端應該預設為版本範圍 `(, )` 。 亦即，允許任何版本的相依性。 `*`屬性不允許的值 `range` 。
 
@@ -192,11 +194,11 @@ range        | 物件 (object) | 否       | 允許的相依性[版本範圍](..
 
 每個套件淘汰都有下列屬性：
 
-名稱             | 類型             | 必要 | 備忘稿
+名稱             | 類型             | 必要 | 備註
 ---------------- | ---------------- | -------- | -----
-原因          | 字串陣列 | yes      | 套件淘汰的原因
-message          | 字串           | 否       | 此淘汰的其他詳細資料
-alternatePackage | 物件 (object)           | 否       | 應改為使用的替代套件
+原因          | 字串陣列 | 是      | 套件淘汰的原因
+message          | 字串           | 不可以       | 此淘汰的其他詳細資料
+alternatePackage | 物件 (object)           | 不可以       | 應改為使用的替代套件
 
 `reasons`屬性必須包含至少一個字串，且只能包含下表中的字串：
 
@@ -214,12 +216,14 @@ CriticalBugs | 封裝有 bug，使其不適合使用
 
 名稱         | 類型   | 必要 | 注意
 ------------ | ------ | -------- | -----
-id           | 字串 | yes      | 替代套件的識別碼
-range        | 物件 (object) | 否       | 允許的 [版本範圍](../concepts/package-versioning.md#version-ranges)，或 `*` 允許的任何版本
+id           | 字串 | 是      | 替代套件的識別碼
+range        | 物件 (object) | 不可以       | 允許的 [版本範圍](../concepts/package-versioning.md#version-ranges)，或 `*` 允許的任何版本
 
 ### <a name="sample-request"></a>範例要求
 
-    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
 
 ### <a name="sample-response"></a>範例回應
 
@@ -236,20 +240,22 @@ range        | 物件 (object) | 否       | 允許的 [版本範圍](../concept
 
 當 `items` 註冊索引中未提供陣列時，值的 HTTP GET 要求 `@id` 會傳回 JSON 檔，該檔的物件為其根目錄。 此物件具有下列屬性：
 
-名稱   | 類型             | 必要 | 備忘稿
+名稱   | 類型             | 必要 | 備註
 ------ | ---------------- | -------- | -----
-@id    | 字串           | yes      | 註冊頁面的 URL
-count  | integer          | yes      | 頁面中的註冊保留數目
-項目  | 物件的陣列 | yes      | 註冊保留的陣列及其關聯中繼資料
-lower  | 字串           | yes      | 頁面中最低的 SemVer 2.0.0 版本 (內含) 
-父系 (parent) | 字串           | yes      | 註冊索引的 URL
-upper  | 字串           | yes      | 頁面中最高的 SemVer 2.0.0 版本 (內含) 
+@id    | 字串           | 是      | 註冊頁面的 URL
+count  | 整數          | 是      | 頁面中的註冊保留數目
+項目  | 物件的陣列 | 是      | 註冊保留的陣列及其關聯中繼資料
+lower  | 字串           | 是      | 頁面中最低的 SemVer 2.0.0 版本 (內含) 
+父系 (parent) | 字串           | 是      | 註冊索引的 URL
+upper  | 字串           | 是      | 頁面中最高的 SemVer 2.0.0 版本 (內含) 
 
 註冊分葉物件的形狀與 [上述](#registration-leaf-object-in-a-page)註冊索引中的形狀相同。
 
 ## <a name="sample-request"></a>範例要求
 
-    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
+GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
 
 ## <a name="sample-response"></a>範例回應
 
@@ -266,21 +272,23 @@ upper  | 字串           | yes      | 頁面中最高的 SemVer 2.0.0 版本 (�
 
 註冊分葉是 JSON 檔，其中包含具有下列屬性的根物件：
 
-名稱           | 類型    | 必要 | 備忘稿
+名稱           | 類型    | 必要 | 備註
 -------------- | ------- | -------- | -----
-@id            | 字串  | yes      | 註冊分葉的 URL
-catalogEntry   | 字串  | 否       | 產生這些分葉的目錄專案 URL
-列出的         | boolean | 否       | 如果不存在，應視為已列出
-packageContent | 字串  | 否       | 封裝內容的 URL (. nupkg) 
-published      | 字串  | 否       | 字串，包含發行套件時的 ISO 8601 時間戳記
-註冊   | 字串  | 否       | 註冊索引的 URL
+@id            | 字串  | 是      | 註冊分葉的 URL
+catalogEntry   | 字串  | 不可以       | 產生這些分葉的目錄專案 URL
+列出的         | boolean | 不可以       | 如果不存在，應視為已列出
+packageContent | 字串  | 不可以       | 封裝內容的 URL (. nupkg) 
+published      | 字串  | 不可以       | 字串，包含發行套件時的 ISO 8601 時間戳記
+註冊   | 字串  | 不可以       | 註冊索引的 URL
 
 > [!Note]
 > 在 nuget.org 上， `published` 當封裝未列出時，此值會設定為1900年。
 
 ### <a name="sample-request"></a>範例要求
 
-    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
 
 ### <a name="sample-response"></a>範例回應
 

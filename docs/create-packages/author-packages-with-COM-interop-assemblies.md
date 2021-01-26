@@ -1,16 +1,16 @@
 ---
 title: 建立包含 COM Interop 組件的套件
 description: 描述如何建立包含 COM Interop 組件的套件
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: de164b136a1636b89f674b8626613094fc53e04c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 0c663863673b50d0ba4969adf3a5d95151b2ca49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "75385568"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774496"
 ---
 # <a name="create-nuget-packages-that-contain-com-interop-assemblies"></a>建立包含 COM Interop 組件的 NuGet 套件
 
@@ -26,7 +26,7 @@ ms.locfileid: "75385568"
 </Target>
 ```
 
-請注意，使用 `packages.config` 管理格式時，新增套件中組件的參考會讓 NuGet 和 Visual Studio 檢查 COM Interop 組件，並將專案檔中的 `EmbedInteropTypes` 設定為 true。 在這種情況下,目標將被覆蓋。
+請注意，使用 `packages.config` 管理格式時，新增套件中組件的參考會讓 NuGet 和 Visual Studio 檢查 COM Interop 組件，並將專案檔中的 `EmbedInteropTypes` 設定為 true。 在此情況下，會覆寫目標。
 
 此外，根據預設，[組建資產不會轉移流動](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 如這裡所述而撰寫的套件從專案對專案參考提取為可轉移相依性時，即會以不同的方式運作。 套件取用者允許它們流動的方式，是將 PrivateAssets 預設值修改為不包含組建。
 

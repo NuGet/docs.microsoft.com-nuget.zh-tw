@@ -1,16 +1,16 @@
 ---
 title: 如何使用 NuGet 封裝 UI 控制項
 description: 如何建立包含 UWP 或 WPF 控制項的 NuGet 套件，包含 Visual Studio 和 Blend 設計工具的必要中繼資料和支援檔案。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238019"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774324"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 
@@ -36,10 +36,12 @@ ms.locfileid: "93238019"
 
 若要讓 XAML 控制項出現在 Visual Studio 的 XAML 設計工具工具箱中以及 Blend 的 [資產] 索引標籤中，請在套件專案的 `tools` 資料夾根中建立 `VisualStudioToolsManifest.xml` 檔案。 如果您不需要控制項出現在工具箱或 [資產] 窗格中，則不需要此檔案。
 
-    \build
-    \lib
-    \tools
-        VisualStudioToolsManifest.xml
+```
+\build
+\lib
+\tools
+    VisualStudioToolsManifest.xml
+```
 
 該檔案的結構如下：
 
@@ -59,11 +61,11 @@ ms.locfileid: "93238019"
 
 其中：
 
-- *your_package_file* ：您控制檔案的名稱，例如 `ManagedPackage.winmd` ("ManagedPackage" 是用於此範例的任意名稱，沒有任何其他意義)。
-- *vs_category* ：Visual Studio 設計工具工具箱中控制項應該出現在其中的群組標籤。 需要有 `VSCategory`，控制項才會出現在工具箱中。
-*ui_framework* ： framework 的名稱，例如 ' WPF '，請注意 `UIFramework` Visual Studio 16.7 Preview 3 或更新版本上的 ToolboxItems 節點上需要屬性，控制項才會出現在 [工具箱] 中。
-- *blend_category* ：Blend 設計工具 [資產] 窗格中控制項應該出現在其中的群組標籤。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
-- *type_full_name_n* ：每個控制項的完整名稱，包含命名空間 (例如 `ManagedPackage.MyCustomControl`)。 請注意，點格式適用於 Managed 和原生類型。
+- *your_package_file*：您控制檔案的名稱，例如 `ManagedPackage.winmd` ("ManagedPackage" 是用於此範例的任意名稱，沒有任何其他意義)。
+- *vs_category*：Visual Studio 設計工具工具箱中控制項應該出現在其中的群組標籤。 需要有 `VSCategory`，控制項才會出現在工具箱中。
+*ui_framework*： framework 的名稱，例如 ' WPF '，請注意 `UIFramework` Visual Studio 16.7 Preview 3 或更新版本上的 ToolboxItems 節點上需要屬性，控制項才會出現在 [工具箱] 中。
+- *blend_category*：Blend 設計工具 [資產] 窗格中控制項應該出現在其中的群組標籤。 需要有 `BlendCategory`，控制項才會出現在 [資產] 中。
+- *type_full_name_n*：每個控制項的完整名稱，包含命名空間 (例如 `ManagedPackage.MyCustomControl`)。 請注意，點格式適用於 Managed 和原生類型。
 
 在更進階的情況下，您也可以在單一套件包含多個控制項組件時，於 `<FileList>` 內包含多個 `<File>` 項目。 如果您想要將您的控制項組織成不同的類別，則也可以在單一 `<File>` 內有多個 `<ToolboxItems>` 節點。
 
@@ -109,45 +111,52 @@ UWP 套件的 TargetPlatformVersion (TPV) 和 TargetPlatformMinVersion (TPMinV) 
 
 例如，假設您已將控制項套件的 TPMinV 設定為 Windows 10 Anniversary Edition (10.0；組建 14393)，因此想要確保只有符合該下限的 UWP 專案會取用該套件。 若要允許 UWP 專案使用您的套件，您必須使用下列資料夾名稱來封裝控制項：
 
-    \lib\uap10.0.14393\*
-    \ref\uap10.0.14393\*
+```
+\lib\uap10.0.14393\*
+\ref\uap10.0.14393\*
+```
 
 NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversary Edition (10.0；組建 14393)，將無法安裝
 
 若為 WPF，假設想要讓 WPF 控制項套件供目標為 .NET Framework v4.6.1 或更高版本的專案取用。 若要強制這麼做，必須使用以下資料夾名稱來封裝控制項：
 
-    \lib\net461\*
-    \ref\net461\*
+```
+\lib\net461\*
+\ref\net461\*
+```
 
 ## <a name="add-design-time-support"></a>新增設計階段支援
 
-若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保  功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。  (此檔案不會影響控制項的執行時間行為。 ) 資料夾結構會如下所示：
+若要設定在屬性偵測器中顯示控制項屬性、新增自訂裝飾項等等，請適當地將 `design.dll` 檔案放在目標平台的 `lib\uap10.0.14393\Design` 資料夾內。 此外，為了確保 [[編輯範本] > [編輯複本]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)功能正常運作，您必須在 `<your_assembly_name>\Themes` 資料夾中包含 `Generic.xaml` 及其合併的任何資源目錄 (同樣使用您實際的組件名稱)。  (此檔案不會影響控制項的執行時間行為。 ) 資料夾結構會如下所示：
 
-    \lib
-      \uap10.0.14393
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
-
+```
+\lib
+  \uap10.0.14393
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 對於 WPF，請從範例中想要讓 WPF 控制項套件供目標為 .NET Framework v4.6.1 或更高版本的專案取用之處，繼續進行範例：
 
-    \lib
-      \net461
-        \Design
-          \MyControl.design.dll
-        \your_assembly_name
-          \Themes
-            Generic.xaml
+```
+\lib
+  \net461
+    \Design
+      \MyControl.design.dll
+    \your_assembly_name
+      \Themes
+        Generic.xaml
+```
 
 > [!Note]
 > 控制屬性預設會顯示在屬性偵測器的 [其他] 類別下方。
 
 ## <a name="use-strings-and-resources"></a>使用字串和資源
 
-您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作]  屬性設定為 [PRIResource]  。
+您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作] 屬性設定為 [PRIResource]。
 
 如需範例，請參閱 ExtensionSDKasNuGetPackage 範例中的 [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs)。
 

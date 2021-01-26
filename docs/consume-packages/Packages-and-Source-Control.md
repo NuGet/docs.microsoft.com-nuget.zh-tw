@@ -1,16 +1,16 @@
 ---
 title: NuGet 套件和原始檔控制
 description: 如何在版本設定和原始檔控制系統內處理 NuGet 套件的考量，以及如何以 git 和 TFVC 省略套件。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69019985"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775010"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>在原始檔控制系統中省略 NuGet 套件
 
@@ -27,7 +27,7 @@ ms.locfileid: "69019985"
 
 ## <a name="omitting-packages-with-git"></a>使用 Git 省略套件
 
-使用 [.gitignore 檔案](https://git-scm.com/docs/gitignore)略過 NuGet 套件 (`.nupkg`) `packages` 資料夾，以及 `project.assets.json` 和其他項目。 有關參考,請參閱[Visual `.gitignore` Studio 專案的範例](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
+使用 [.gitignore 檔案](https://git-scm.com/docs/gitignore)略過 NuGet 套件 (`.nupkg`) `packages` 資料夾，以及 `project.assets.json` 和其他項目。 如需參考，請 [參閱 `.gitignore` Visual Studio 專案的範例](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)：
 
 `.gitignore` 檔案的重要部分為：
 
@@ -58,12 +58,12 @@ project.assets.json
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>使用 Team Foundation 版本設定略過套件
 
 > [!Note]
-> 如果可能，請先遵循下列指示再** 將專案新增至原始檔控制。 否則，請手動刪除存放庫的 `packages` 資料夾，並先簽入該變更再繼續。
+> 如果可能，請先遵循下列指示再將專案新增至原始檔控制。 否則，請手動刪除存放庫的 `packages` 資料夾，並先簽入該變更再繼續。
 
 停用原始檔控制與所選檔案的 TFVC 整合：
 
 1. 在解決方案資料夾 (`.sln` 檔案所在的資料夾) 中建立名為 `.nuget` 的資料夾。
-    - 提示：在 Windows 中，在 Windows 檔案總管中建立這個資料夾，要使用名稱 「加」`.nuget.` ** 結尾後置點。
+    - 提示：在 Windows 中，在 Windows 檔案總管中建立這個資料夾，要使用名稱 「加」`.nuget.` 結尾後置點。
 
 1. 在該資料夾中，建立名為 `NuGet.Config` 的檔案，再開啟進行編輯。
 

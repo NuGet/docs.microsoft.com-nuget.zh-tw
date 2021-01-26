@@ -1,21 +1,21 @@
 ---
 title: NuGet 套件版本參考
 description: 為 NuGet 套件相依的其他套件指定版本號碼和範圍，以及相依性安裝方式的確切詳細資料。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237357"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775122"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
-您一律必須使用套件的套件識別碼與確切版本號碼來參考特定套件。 例如，nuget.org 上的 [Entity Framework](https://www.nuget.org/packages/EntityFramework/) \(英文\) 有數十個特定套件可用，範圍從 *4.1.10311* 版到 *6.1.3* 版 (最新穩定版本) 與各種發行前版本 (像是 *6.2.0-beta1* )。
+您一律必須使用套件的套件識別碼與確切版本號碼來參考特定套件。 例如，nuget.org 上的 [Entity Framework](https://www.nuget.org/packages/EntityFramework/) \(英文\) 有數十個特定套件可用，範圍從 *4.1.10311* 版到 *6.1.3* 版 (最新穩定版本) 與各種發行前版本 (像是 *6.2.0-beta1*)。
 
 在建立套件時，您可以搭配選擇性的發行前版本文字尾碼來指派特定版本號碼。 另一方面，在取用套件時，您可以指定確切版本號碼或可接受的版本範圍。
 
@@ -29,17 +29,19 @@ ms.locfileid: "93237357"
 
 特定版本號碼的格式為「主要.次要.修補程式[-尾碼]」，其中的元件具有下列意義：
 
-- *主要* ：重大變更
-- *次要* ：新功能，但與舊版相容
-- *Patch* ：僅回溯相容的 bug 修正
+- *主要*：重大變更
+- *次要*：新功能，但與舊版相容
+- *Patch*：僅回溯相容的 bug 修正
 - 「-尾碼」(選擇性)：後面接著字串的連字號，表示發行前版本 (遵循[語意化版本控制系統或 SemVer 1.0 慣例](https://semver.org/spec/v1.0.0.html))。
 
 **範例：**
 
-    1.0.1
-    6.11.1231
-    4.3.1-rc
-    2.2.44-beta1
+```
+1.0.1
+6.11.1231
+4.3.1-rc
+2.2.44-beta1
+```
 
 > [!Important]
 > nuget.org 會拒絕任何缺少確切版本號碼的套件上傳。 您必須在 `.nuspec` 中，或在用來建立套件的專案檔中指定版本。
@@ -55,18 +57,20 @@ ms.locfileid: "93237357"
 - `-rc`：候選版，除非出現重大的 Bug，不然通常是準最終版本 (穩定版)。
 
 > [!Note]
-> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23* 。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
+> NuGet 4.3.0+ 支援 [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html)，它支援使用點標記法的發行前版本號碼，如 *1.0.1-build.23*。 4.3.0 之前的 NuGet 版本不支援點標記法。 您可以使用像 *1.0.1-build23* 的格式。
 
 解析套件參考且多個套件版本只有尾碼不同時，NuGet 會先選擇不含尾碼的版本，然後再依相反字母順序套用發行前版本。 例如，系統會依照所示的順序選擇下列版本：
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta
-    1.0.1-alpha2
-    1.0.1-alpha
-    1.0.1-aaa
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta
+1.0.1-alpha2
+1.0.1-alpha
+1.0.1-aaa
+```
 
 ## <a name="semantic-versioning-200"></a>語意化版本控制系統 2.0.0
 
@@ -80,7 +84,7 @@ ms.locfileid: "93237357"
 針對 nuget.org，如果下列其中一個敘述立，則會將套件定義為 SemVer v2.0.0 套件：
 
 - 套件本身的版本符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 的規範，如上面所定義。
-- 套件的任何相依性版本範圍都有最小或最大版本，它們符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 規範，如上面所定義；例如， *[1.0.0-alpha.1, )* 。
+- 套件的任何相依性版本範圍都有最小或最大版本，它們符合 SemVer v2.0.0 的規範，但不符合 SemVer v1.0.0 規範，如上面所定義；例如，*[1.0.0-alpha.1, )*。
 
 如果您將 SemVer v2.0.0 特定套件上傳到 nuget.org，則舊版用戶端看不到該套件，只有下列 NuGet 用戶端可以取得該套件：
 
@@ -102,7 +106,7 @@ ms.locfileid: "93237357"
 
 在參考套件相依性時，NuGet 支援使用間隔標記法來指定版本範圍，摘要說明如下：
 
-| 表示法 | 套用的規則 | Description |
+| 表示法 | 套用的規則 | 描述 |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | 最小版本 (包含) |
 | (1.0,) | x > 1.0 | 最小版本 (不包含) |
@@ -157,7 +161,7 @@ ms.locfileid: "93237357"
 
 #### <a name="floating-version-resolutions"></a>浮動版本解析 
 
-| 版本 | 存在於伺服器上的版本 | 解決方法 | 原因 | 備忘稿 |
+| 版本 | 存在於伺服器上的版本 | 解決方案 | 原因 | 備註 |
 |----------|--------------|-------------|-------------|-------------|
 | * | 1.1.0 <br> 1.1.1 <br> 1.2.0 <br> 1.3.0-Alpha  | 1.2.0 | 最高穩定版本。 |
 | 1.1.* | 1.1.0 <br> 1.1.1 <br> 1.1.2-Alpha <br> 1.2.0-Alpha | 1.1.1 | 遵循指定模式的最高穩定版本。|
@@ -228,18 +232,15 @@ ms.locfileid: "93237357"
 
 - 系統會將前置零從版本號碼移除：
 
-        1.00 is treated as 1.0
-        1.01.1 is treated as 1.1.1
-        1.00.0.1 is treated as 1.0.0.1
+  1.00 被視為 1.0 1.01.1 被視為 1.1.1 1.00.0.1 被視為1.0.0。1
 
 - 系統會移除在版本號碼第四部分中的零
 
-        1.0.0.0 is treated as 1.0.0
-        1.0.01.0 is treated as 1.0.1
-        
+  1.0.0.0 被視為 1.0.0 1.0.01.0 被視為1.0。1
+
 - 已移除 SemVer 2.0.0 組建中繼資料
 
-        1.0.7+r3456 is treated as 1.0.7
+  1.0.7 + r3456 被視為1.0。7
 
 `pack` 與 `restore` 作業會盡可能將版本標準化。 針對已建置的套件，此標準化不會影響套件本身的版本號碼；它只會影響 NuGet 在解析相依性時如何比對版本。
 

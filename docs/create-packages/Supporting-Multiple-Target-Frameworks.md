@@ -1,22 +1,22 @@
 ---
 title: NuGet 套件的多目標
 description: 將目標設為單一 NuGet 套件內多個 .NET Framework 版本之各種方法的描述。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: e919b11670589900d9e588db33fd68b8df592ac2
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237941"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774557"
 ---
 # <a name="support-multiple-net-versions"></a>支援多個 .NET 版本
 
 許多程式庫的目標都設為特定 .NET Framework 版本。 例如，您可能有一版的程式庫是 UWP 特有的，而另一個版本則利用 .NET Framework 4.6 中的功能。 為了配合此功能，NuGet 支援在單一套件中放置相同程式庫的多個版本。
 
-本文描述 NuGet 套件的版面配置，不論套件或元件的建立方式為何 (也就是，不論使用多個非 SDK 樣式 *的 .csproj* 檔案和自訂的 *nuspec* 檔案，或單一多目標的 SDK 樣式 *.csproj* ) ，配置都相同。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
+本文描述 NuGet 套件的版面配置，不論套件或元件的建立方式為何 (也就是，不論使用多個非 SDK 樣式 *的 .csproj* 檔案和自訂的 *nuspec* 檔案，或單一多目標的 SDK 樣式 *.csproj*) ，配置都相同。 針對 SDK 樣式專案，NuGet [套件目標](../reference/msbuild-targets.md)知道套件應如何配置，且會將組件放在正確的 lib 資料夾中自動化，並為每個目標 Framework (TFM) 建立相依性群組。 如需詳細指示，請參閱[在您的專案檔中支援多個 .NET Framework 版本](multiple-target-frameworks-project-file.md)。
 
 如果您使用[建立套件](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)中所述的傳統型工作目錄方法，就必須如此文章中所述手動配置套件。 針對 SDK 樣式專案，建議使用自動化方法，但您也可以選擇如此文章中所述手動配置套件。
 
@@ -24,7 +24,9 @@ ms.locfileid: "93237941"
 
 如果所建置的架構只包含一個版本的程式庫，或將目標設為多個架構，您一律會搭配使用不同的區分大小寫架構名稱與下列慣例，以在 `lib` 下建立子資料夾：
 
-    lib\{framework name}[{version}]
+```
+lib\{framework name}[{version}]
+```
 
 如需所支援名稱的完整清單，請參閱[目標架構參考](../reference/target-frameworks.md#supported-frameworks)。
 
@@ -32,15 +34,17 @@ ms.locfileid: "93237941"
 
 例如，下列資料夾結構支援架構特有的四種版本的組件：
 
-    \lib
-        \net46
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
-        \uap
-            \MyAssembly.dll
-        \netcore
-            \MyAssembly.dll
+```
+\lib
+    \net46
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+    \uap
+        \MyAssembly.dll
+    \netcore
+        \MyAssembly.dll
+```
 
 若要在建置套件時輕鬆地包含所有這些檔案，請在 `.nuspec` 的 `<files>` 區段中使用遞迴 `**` 萬用字元：
 
@@ -54,16 +58,18 @@ ms.locfileid: "93237941"
 
 如果您有架構特有組件 (即目標設為 ARM、x86 和 x64 的不同組件)，則必須將它們放在 `runtimes` 資料夾的 `{platform}-{architecture}\lib\{framework}` 或 `{platform}-{architecture}\native` 子資料夾中。 例如，下列資料夾結構將放置原生以及目標設為 Windows 10 和 `uap10.0` 架構的 Managed DLL：
 
-    \runtimes
-        \win10-arm
-            \native
-            \lib\uap10.0
-        \win10-x86
-            \native
-            \lib\uap10.0
-        \win10-x64
-            \native
-            \lib\uap10.0
+```
+\runtimes
+    \win10-arm
+        \native
+        \lib\uap10.0
+    \win10-x86
+        \native
+        \lib\uap10.0
+    \win10-x64
+        \native
+        \lib\uap10.0
+```
 
 這些組件只有在執行階段中可用，因此若您也要提供對應的編譯階段組件，`AnyCPU` 必須位於 `/ref/{tfm}` 資料夾中。 
 
@@ -81,11 +87,13 @@ ms.locfileid: "93237941"
 
 例如，請考慮在套件中使用下列資料夾結構：
 
-    \lib
-        \net45
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
+```
+\lib
+    \net45
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+```
 
 在目標設為 .NET Framework 4.6 的專案中安裝此套件時，NuGet 會在 `net45` 資料夾中安裝組件，因為這是小於或等於 4.6 的最高可用版本。
 
@@ -97,12 +105,14 @@ ms.locfileid: "93237941"
 
 NuGet 只會複製套件中單一程式庫資料夾的組件。 例如，假設套件具有下列資料夾結構：
 
-    \lib
-        \net40
-            \MyAssembly.dll (v1.0)
-            \MyAssembly.Core.dll (v1.0)
-        \net45
-            \MyAssembly.dll (v2.0)
+```
+\lib
+    \net40
+        \MyAssembly.dll (v1.0)
+        \MyAssembly.Core.dll (v1.0)
+    \net45
+        \MyAssembly.dll (v2.0)
+```
 
 在目標設為 .NET Framework 4.5 的專案中安裝套件時，`MyAssembly.dll` (2.0 版) 是唯一安裝的組件。 未安裝 `MyAssembly.Core.dll` (v1.0)，因為它未列在 `net45` 資料夾中。 因為 `MyAssembly.Core.dll` 可能已合併至 2.0 版的 `MyAssembly.dll`，所以 NuGet 會以這種方式運作。
 
@@ -112,7 +122,7 @@ NuGet 只會複製套件中單一程式庫資料夾的組件。 例如，假設�
 
 NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折號和設定檔名稱附加到資料夾結尾。
 
-    lib\{framework name}-{profile}
+lib \{ framework name}-{profile}
 
 支援的設定檔如下所示：
 
@@ -162,22 +172,24 @@ NuGet 也支援將目標設為特定架構設定檔，方法是將一個破折�
 
 使用 `packages.config`，可以在 `content` 和 `tools` 資料夾內使用相同的資料夾慣例，以依目標架構來群組內容檔案和 PowerShell 指令碼。 例如：
 
-    \content
-        \net46
-            \MyContent.txt
-        \net461
-            \MyContent461.txt
-        \uap
-            \MyUWPContent.html
-        \netcore
-    \tools
-        init.ps1
-        \net46
-            install.ps1
-            uninstall.ps1
-        \uap
-            install.ps1
-            uninstall.ps1
+```
+\content
+    \net46
+        \MyContent.txt
+    \net461
+        \MyContent461.txt
+    \uap
+        \MyUWPContent.html
+    \netcore
+\tools
+    init.ps1
+    \net46
+        install.ps1
+        uninstall.ps1
+    \uap
+        install.ps1
+        uninstall.ps1
+```
 
 如果架構資料夾空白，則 NuGet 不會新增組件參考或內容檔案，或執行該架構的 PowerShell 指令碼。
 

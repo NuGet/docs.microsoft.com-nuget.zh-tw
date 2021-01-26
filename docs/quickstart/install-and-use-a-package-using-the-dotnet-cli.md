@@ -1,27 +1,27 @@
 ---
 title: 利用 dotnet CLI 安裝並使用 NuGet 套件
 description: 在 .NET Core 專案中安裝與使用 NuGet 套件程序的逐步解說教學課程。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: adbf8f457d8520e3087e539b91ef932877aec3a0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231268"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775445"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>快速入門：利用 dotnet CLI 安裝並使用套件
 
 NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 您可以使用 `dotnet add package` 命令將套件安裝到 .NET Core 專案中，如本文中針對熱門 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件所述的內容。
 
-安裝之後，請使用 `using <namespace>` 參考程式碼中的套件，其中 \<namespace\> 為您使用的套件專用。 然後，您可以使用套件的 API。
+安裝之後，請在程式碼中參考封裝， `using <namespace>` 其中包含您所使用之 \<namespace\> 套件的特定位置。 然後，您可以使用套件的 API。
 
 > [!Tip]
 > **從 nuget.org 開始**：瀏覽 nuget.org 是 .NET 開發人員通常用來尋找可在自己應用程式中重複使用之元件的方式。 您可以直接搜尋 nuget.org，或在 Visual Studio 中尋找並安裝套件，如本文所示。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先決條件
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/)，它會提供 `dotnet` 命令列工具。 從 Visual Studio 2017 開始，dotnet CLI 會自動與任何 .NET Core 相關工作負載一起安裝。
 
@@ -106,7 +106,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-the-NET-CLI-3-of-5/player]
 
-在[頻道 9](https://channel9.msdn.com/Series/NuGet-101)和[YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上查找更多 NuGet 影片。
+在 [Channel 9](https://channel9.msdn.com/Series/NuGet-101) 和 [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多的 NuGet 影片。
 
 ## <a name="next-steps"></a>後續步驟
 

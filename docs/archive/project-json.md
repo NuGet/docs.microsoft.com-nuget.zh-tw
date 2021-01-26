@@ -1,24 +1,24 @@
 ---
 title: NuGet 的 project.json 檔案參考
 description: 在某些專案類型中，project.json 會維護專案中所使用的 NuGet 套件清單。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6665f4f3e688cb4a3989216c8c8f1a8655b61ed8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488289"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775204"
 ---
 # <a name="projectjson-reference"></a>project.json 參考
 
-*NuGet 3.x+*
+*NuGet 3.x +*
 
 `project.json` 檔案維護一份專案中使用的套件之清單，稱為套件管理格式。 它會取代 `packages.config`，但又被 NuGet 4.0+ 的 [PackageReference](../consume-packages/package-references-in-project-files.md) 所取代。
 
-該檔[`project.lock.json`](#projectlockjson)(如下所述)也用於`project.json`使用的專案。
+[`project.lock.json`](#projectlockjson)以下所述的檔案 (也會在採用的專案中使用) `project.json` 。
 
 `project.json` 有下列的基本結構，其中四個最上層物件每個都可以有任意數目的子物件：
 
@@ -70,7 +70,7 @@ ms.locfileid: "69488289"
 
 | 包含/排除標記 | 目標的受影響資料夾 |
 | --- | --- |
-| contentFiles | 內容  |
+| contentFiles | Content  |
 | 執行階段 | 執行階段、資源和 FrameworkAssemblies  |
 | compile | lib |
 | build | 組建 (MSBuild props 和目標) |

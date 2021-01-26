@@ -1,16 +1,16 @@
 ---
 title: 使用 MSBuild 建立 NuGet 套件
 description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237967"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774447"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 
@@ -30,7 +30,7 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 建立套件時需要下列屬性。
 
 - `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 若未指定，則預設值為 `AssemblyName`。
-- `Version`， *Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別 [發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
+- `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別 [發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
 - 主機上應該會出現套件標題 (例如 nuget.org)
 - `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
 - `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
@@ -39,7 +39,7 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
 
 - `PackageOutputPath`，在呼叫 pack 時產生之封裝的輸出檔案夾。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 ( *.csproj* ) 中設定這些屬性。
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 (*.csproj*) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>
@@ -96,7 +96,7 @@ SDK 樣式的專案預設會提供套件功能。 針對非 SDK 樣式的 Packag
    </ItemGroup>
    ```
 
-2. 開啟開發人員命令提示字元 (在 [搜尋] 方塊中，輸入 **開發人員命令提示字元** )。
+2. 開啟開發人員命令提示字元 (在 [搜尋] 方塊中，輸入 **開發人員命令提示字元**)。
 
    您通常想要從 [開始] 功能表啟動適用於 Visual Studio 的開發人員命令提示字元，因為它將使用適用於 MSBuild 的所有必要路徑來設定。
 

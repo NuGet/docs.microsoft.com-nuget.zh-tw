@@ -1,16 +1,16 @@
 ---
-title: NuGet 4.0 RC 版本資訊
+title: NuGet 4.0 RTM 版本資訊
 description: NuGet 4.0 RTM 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
 author: anangaur
 ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c3ec5c20e5175edd315de20ca98c7a106c51809e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496598"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776268"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>NuGet 4.0 RTM 版本資訊
 
@@ -46,7 +46,7 @@ ms.locfileid: "64496598"
 
 #### <a name="workaround"></a>因應措施
 
-此問題目前沒有因應措施。
+目前尚無解決的方法。
 
 ### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>您無法使用 NuGet 套件管理員檢視、新增或更新 DotNetCLITools
 
@@ -86,7 +86,7 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 #### <a name="workaround"></a>因應措施
 
-此問題目前沒有因應措施。
+目前尚無解決的方法。
 
 ### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>重定目標 Framework 版本可能會導致不完整的 Intellisense
 
@@ -106,13 +106,13 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 #### <a name="workaround"></a>因應措施
 
-此問題目前沒有因應措施。
+目前尚無解決的方法。
 
 ## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>NuGet 4.0 RTM 時間範圍中已修正的問題
 
 [NuGet 4.0 RC 版本資訊](../release-notes/nuget-4.0-RC.md) - 列出所有 NuGet 4.0 RC 修正的問題
 
-### <a name="features"></a>特性
+### <a name="features"></a>功能
 
 - NuGet.Core.sln 中的當地語系化字串 - [#2041](https://github.com/NuGet/Home/issues/2041)
 

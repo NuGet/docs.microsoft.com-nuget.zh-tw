@@ -1,45 +1,45 @@
 ---
 title: NuGet 3.0 RC 版本資訊
-description: 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 3.0 RC 版本資訊。
-author: karann-msft
-ms.author: karann
+description: NuGet 3.0 RC 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0575cb1598f259a1cf1597f67123b644d67c31b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 19bc51a278425295811db253ca3f4ba4366ccf49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551715"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776575"
 ---
 # <a name="nuget-30-rc-release-notes"></a>NuGet 3.0 RC 版本資訊
 
-[NuGet 3.0 Beta 版本資訊](../release-notes/nuget-3.0-beta.md) | [NuGet 3.0 RC2 版本資訊](../release-notes/nuget-3.0-RC2.md)
+[NuGet 3.0 Beta 版注意事項](../release-notes/nuget-3.0-beta.md)  | [NuGet 3.0 RC2 版本](../release-notes/nuget-3.0-RC2.md)資訊
 
-NuGet 3.0 RC 於 2015 年 4 月 29 日發行 Visual Studio 2015 RC 版本。 此版本還有幾個重要的 bug 修正、 效能增強功能和更新以支援新的架構。  它只適用於 Visual Studio 2015。
+NuGet 3.0 RC 已于2015年4月29日發行，Visual Studio 2015 RC 版本。 此版本有許多重要的 bug 修正、效能改進和更新，以支援新的架構。  它僅適用于 Visual Studio 2015。
 
-### <a name="continued-focus-on-performance"></a>在效能上持續的關注
+### <a name="continued-focus-on-performance"></a>繼續專注于效能
 
-持續是熱門話題，我們會專注於穩定性和 NuGet 查詢的效能。  此版本中，您應該開始查看非常快速的搜尋作業中的 NuGet UI 和網站。  我們正在監視的服務，並使用服務，以便我們可以繼續微調這些作業。
+NuGet 查詢的穩定性和效能會持續成為我們所關注的熱門主題。  在此版本中，您應該會開始在 NuGet UI 和網站中看到非常快速的搜尋作業。  我們正在監視服務以及您使用服務的方式，讓我們可以繼續調整這些作業。
 
-## <a name="significant-issues-resolved"></a>已解決的重要問題
+## <a name="significant-issues-resolved"></a>已解決重大問題
 
-穩定的 NuGet 用戶端，以便我們可以解決許多問題做為此版本的一部分。  以下是只有一些更重要的問題已解決的簡短清單：
+為了穩定 NuGet 用戶端，我們在此版本中解決了許多問題。  以下是已解決的一些更重要問題的簡短清單：
 
-* 隨著 ASP.NET 5 的 K framework 的重新命名的詳細資訊，framework moniker 已更新，以處理 dnx 和 dnxcore[連結](https://github.com/NuGet/Home/issues/215)
-* 從 Visual Studio UI 中的連結新增說明文件[連結](https://github.com/NuGet/Home/issues/232)
-* 更妥善地處理複雜的參考中的`.nuspec`逗號分隔的 framework 參考[連結](https://github.com/NuGet/Home/issues/276)
-* 已修正日文的文化特性的支援[連結](https://github.com/NuGet/Home/issues/253)
-* 更新的用戶端，讓 ASP.NET 5 專案使用新的 v3 端點[連結](https://github.com/NuGet/Home/issues/219)
-* 已更新為較佳的控制代碼與原始檔控制的 packages 資料夾[連結](https://github.com/NuGet/Home/issues/56)
-* 已修正的附屬套件支援[連結](https://github.com/NuGet/Home/issues/17)
-* 已更正的架構特定的內容檔案支援[連結](https://github.com/NuGet/Home/issues/18)
+* 在 ASP.NET 5 的 K 架構重新命名過程中，架構的名字標記已更新為可處理 dnx 和 dnxcore [連結](https://github.com/NuGet/Home/issues/215)
+* 在 Visual Studio UI[連結](https://github.com/NuGet/Home/issues/232)中新增連結的說明文件
+* `.nuspec`使用以逗號分隔的架構參考[連結](https://github.com/NuGet/Home/issues/276)，更有效地處理中的複雜參考
+* 已修正日文文化特性[連結](https://github.com/NuGet/Home/issues/253)的支援
+* 已更新用戶端，以允許 ASP.NET 5 專案使用新的 v3 端點 [連結](https://github.com/NuGet/Home/issues/219)
+* 已更新為使用原始檔控制[連結](https://github.com/NuGet/Home/issues/56)更妥善處理套件資料夾
+* 已修正附屬套件[連結](https://github.com/NuGet/Home/issues/17)的支援
+* 已更正架構特定內容檔案[連結](https://github.com/NuGet/Home/issues/18)的支援
 
-## <a name="github-presence-overhaul"></a>GitHub 存在變革
+## <a name="github-presence-overhaul"></a>GitHub 狀態檢驗
 
-我們已進行一些變更以我們[原始程式碼儲存機制在 GitHub 上的](http://github.com/nuget/home)。  如果您有任何問題，與 Visual Studio 的 NuGet 用戶端、 Powershell 命令，或在命令列可執行檔可以記錄這些問題，並上監視其進度我們[首頁 GitHub 存放庫問題清單](http://github.com/nuget/home/issues)。  我們在追蹤中的資源庫的問題我們[GitHub NuGetGallery 存放庫](http://github.com/nuget/NuGetGallery/issues)。
+我們已對 [GitHub 上的原始程式碼存放庫](http://github.com/nuget/home)進行一些變更。  如果您有 NuGet Visual Studio 用戶端、Powershell 命令或命令列可執行檔的任何問題，您可以記錄這些問題，並在 [GitHub 首頁存放庫問題清單](http://github.com/nuget/home/issues)上監視其進度。  我們在 [GitHub NuGetGallery 存放庫](http://github.com/nuget/NuGetGallery/issues)中追蹤資源庫的問題。
 
 
-## <a name="stay-tuned"></a>敬請期待
+## <a name="stay-tuned"></a>持續關注
 
-請留意[我們的部落格](http://blog.nuget.org)如需詳細的進度和 NuGet 3.0 公告 ！
+請留意 [我們的 blog](http://blog.nuget.org) ，以取得更多 NuGet 3.0 的進度和公告！

@@ -1,16 +1,16 @@
 ---
 title: NuGet 生態系統概觀
 description: NuGet 生態系統中的完整資源，包含 NuGet 來源、非 Microsoft NuGet 專案、公用程式和訓練教材。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 57fa8e5683e687aab3022ebc77d7e69a61615877
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237422"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775607"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet 生態系統的概觀
 
@@ -37,7 +37,7 @@ Microsoft 大量參與 NuGet 的開發。 Microsoft 員工所做的所有參與�
 - [AppVeyor CI](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Chocolatey](https://chocolatey.org/)
+- [Chocolatey](https://chocolatey.org/) \(英文\)
 - [CoApp](http://coapp.org/)
 - [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)

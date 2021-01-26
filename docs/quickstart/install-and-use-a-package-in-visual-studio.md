@@ -1,39 +1,39 @@
 ---
 title: 在 Visual Studio 中安裝並使用 NuGet 套件
 description: 在 Visual Studio 專案中安裝並使用 NuGet 套件程序的逐步解說教學課程。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 55f6a64d90ce8ca628d1ac5c68f8133872a214e0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147483"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775529"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>快速入門:在可視化工作室(僅限 Windows)中安裝和使用包
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>快速入門：僅在 Visual Studio (Windows 中安裝和使用套件) 
 
-NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 套件使用 NuGet 套件管理員、[包管理器主控台](../consume-packages/install-use-packages-powershell)或[dotnet CLI](install-and-use-a-package-using-the-dotnet-cli.md)安裝到可視化工作室專案中。 此文章示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件與 Windows Presentation Foundation (WPF) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
+NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您在專案中使用。 請參閱[什麼是 NuGet？](../What-is-NuGet.md)了解背景知識。 使用 NuGet 封裝管理員、 [封裝管理員主控台](../consume-packages/install-use-packages-powershell.md)或 [dotnet CLI](install-and-use-a-package-using-the-dotnet-cli.md)將套件安裝到 Visual Studio 專案。 此文章示範使用熱門的 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) \(英文\) 套件與 Windows Presentation Foundation (WPF) 專案的程序。 相同的程序適用於任何其他 .NET 或 .NET Core 專案。
 
-安裝之後，請使用 `using <namespace>` 參考程式碼中的套件，其中 \<namespace\> 為您使用的套件專用。 建立參考之後，您可以透過其 API 呼叫套件。
+安裝之後，請在程式碼中參考封裝， `using <namespace>` 其中包含您所使用之 \<namespace\> 套件的特定位置。 建立參考之後，您可以透過其 API 呼叫套件。
 
 > [!Tip]
-> **從nuget.org開始**:流覽*nuget.org*是 .NET 開發人員通常如何在他們自己的應用程式中找到他們可以重用的元件。 您可以直接搜尋 *nuget.org*，或在 Visual Studio 中尋找並安裝套件，如此文章所示。 如需一般資訊，請參閱[尋找和評估 NuGet 套件](../consume-packages/finding-and-choosing-packages.md)。
+> **從 Nuget.org 開始**：流覽 *nuget.org* 是 .net 開發人員通常如何尋找可在自己的應用程式中重複使用的元件。 您可以直接搜尋 *nuget.org*，或在 Visual Studio 中尋找並安裝套件，如此文章所示。 如需一般資訊，請參閱[尋找和評估 NuGet 套件](../consume-packages/finding-and-choosing-packages.md)。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先決條件
 
 - 包含 .NET 桌面開發工作負載的 Visual Studio 2019。
 
 您可以從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2019 Community Edition，或使用 Professional Edition 或 Enterprise Edition。
 
-如果您使用的是 Mac 的可視化工作室,請參閱[在 Visual Studio 中安裝和使用 Mac](install-and-use-a-package-in-visual-studio-mac.md)的套件。
+如果您是使用 Visual Studio for Mac，請參閱 [在 Visual Studio for Mac 中安裝和使用套件](install-and-use-a-package-in-visual-studio-mac.md)。
 
 ## <a name="create-a-project"></a>建立專案
 
 假設 NuGet 套件 支援與專案相同的目標架構，則該套件就可安裝到任何的 .NET 專案中。
 
-在此逐步解說中，請使用簡單的 WPF 應用程式。 使用 **"檔案** > **新專案**"在可視化工作室中創建專案,在搜索框中鍵入 **.NET,** 然後選擇**WPF 應用程式 (.NET Framework)。** 按 [下一步]  。 出現提示時，接受 [架構]**** 的預設值。
+在此逐步解說中，請使用簡單的 WPF 應用程式。 **使用**[檔案新專案] 在 Visual Studio 中建立專案  >  ****、在 [搜尋] 方塊中輸入 **.net** ，然後選取 [ **WPF 應用程式] ( .NET Framework)**。 按一下 [下一步] 。 出現提示時，接受 [架構] 的預設值。
 
 Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
@@ -43,11 +43,11 @@ Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
 ### <a name="nuget-package-manager"></a>NuGet 套件管理員
 
-1. 在方案總管中以滑鼠右鍵按一下 [參考]****，選擇 [管理 NuGet 套件]****。
+1. 在方案總管中以滑鼠右鍵按一下 [參考]，選擇 [管理 NuGet 套件]。
 
     ![專案參考的管理 NuGet 套件命令](media/QS_Use-02-ManageNuGetPackages.png)
 
-1. 選擇 "nuget.org" 作為 [套件來源]****，選取 [瀏覽]**** 索引標籤、搜尋 [Newtonsoft.Json]****、在清單中選取該套件，然後選取 [安裝]****：
+1. 選擇 "nuget.org" 作為 [套件來源]，選取 [瀏覽] 索引標籤、搜尋 [Newtonsoft.Json]、在清單中選取該套件，然後選取 [安裝]：
 
     ![尋找 Newtonsoft.Json 套件](media/QS_Use-03-NewtonsoftJson.png)
 
@@ -55,19 +55,19 @@ Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
 1. 接受任何授權提示。
 
-1. (僅限 Visual Studio 2017) 如果系統提示您選取套件管理格式，請選取 [專案檔中的 PackageReference]****：
+1. (僅限 Visual Studio 2017) 如果系統提示您選取套件管理格式，請選取 [專案檔中的 PackageReference]：
 
     ![選取套件管理格式](media/QS_Use-03b-SelectFormat.png)
 
-1. 如果提示您檢閱變更，請選取 [確定]****。
+1. 如果提示您檢閱變更，請選取 [確定]。
 
 ### <a name="package-manager-console"></a>套件管理器主控台
 
-1. 選擇 **「工具** > **NuGet 套件管理員** > **管理員主控台」** 選單命令。
+1. 選取 [**工具**]  >  **NuGet 封裝管理員**  >  **封裝管理員主控台** 功能表命令。
 
-1. 在主控台開啟之後，檢查 [預設專案]**** 下拉式清單是否顯示您要安裝套件的專案。 如果您在方案中只有一個專案，則已經選取該專案。
+1. 在主控台開啟之後，檢查 [預設專案] 下拉式清單是否顯示您要安裝套件的專案。 如果您在方案中只有一個專案，則已經選取該專案。
 
-    ![尋找 Newtonsoft.Json 套件](media/QS_Use-08-Console1.png)
+    ![選取封裝的專案](media/QS_Use-08-Console1.png)
 
 1. 輸入命令 `Install-Package Newtonsoft.Json` (請參閱 [Install-Package](../reference/ps-reference/ps-ref-install-package.md))。 主控台視窗會顯示命令的輸出。 錯誤通常會指出套件與專案的目標 Framework 不相容。
 
@@ -117,7 +117,7 @@ Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
     using Newtonsoft.Json;
     ```
 
-1. 以使用 F5 或選擇**除錯** > **啟動除錯**來產生與執行應用程式:
+1. 按 F5 或選取 [ **Debug**  >  **開始調試** 程式]，以建立並執行應用程式：
 
     ![WPF 應用程式的初始輸出](media/QS_Use-06-AppStart.png)
 
@@ -129,7 +129,7 @@ Visual Studio 隨即建立專案，而專案會在 [方案總管] 中開啟。
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
 
-在[頻道 9](https://channel9.msdn.com/Series/NuGet-101)和[YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上查找更多 NuGet 影片。
+在 [Channel 9](https://channel9.msdn.com/Series/NuGet-101) 和 [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多的 NuGet 影片。
 
 ## <a name="next-steps"></a>後續步驟
 

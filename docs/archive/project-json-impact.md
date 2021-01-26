@@ -1,16 +1,16 @@
 ---
 title: project.json 對 NuGet 套件作者的影響
 description: NuGet 3.x 中的 project.json 實作如何影響套件作者的詳細資料，例如不支援的功能、內容以及套件格式。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 82b7ce7962ecccc9559ae25a8fe35a3820238049
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775395"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>建立套件時 project.json 的影響
 
@@ -33,7 +33,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 與安裝指令碼相類似，在套件安裝上執行的轉換通常不是等冪。 因為不再有安裝時間，所以如果過渡案例使用這類套件，就不支援並會忽略 XDT 轉換和類似的功能。
 
-### <a name="content"></a>內容
+### <a name="content"></a>Content
 
 傳統的 NuGet 套件傳送內容檔案，例如原始程式碼和組態檔。 通常用在兩個案例中：
 
@@ -45,7 +45,7 @@ NuGet 3+ 中使用的 `project.json` 系統在很多方面會影響套件作者�
 
 內容檔案仍然可以載入套件中，且目前仍予忽略，不過使用者仍可以將其複製到正確的位置。
 
-您可以看到一個建議,用於修復內容檔,並遵循其進度,如下所示: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)。
+您可以看到其中一個用來導回內容檔案的提案，並遵循其進度，如下所示： [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627) 。
 
 ## <a name="impact-for-package-authors"></a>對套件作者的影響
 

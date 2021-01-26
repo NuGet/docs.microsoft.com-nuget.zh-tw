@@ -1,17 +1,17 @@
 ---
 title: 裝載您自己的 NuGet 摘要概觀
 description: 在本機或遠端開啟裝載您自己的 NuGet 套件摘要或資源庫的概觀。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81acf15ac69d78d39d2784e77c18ba38bfea126d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 1b7bad6bcd897b746ea9eb6e89b80a88ee5e891a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "75385538"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774054"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>裝載您自己的 NuGet 摘要
 
@@ -23,16 +23,16 @@ ms.locfileid: "75385538"
 - NuGet.Server：套件可以透過本機 HTTP 伺服器提供。 如需詳細資料，請參閱 [NuGet.Server](../hosting-packages/nuget-server.md)。
 - NuGet 資源庫：套件裝載在使用 [NuGet 資源庫專案](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps)的網際網路伺服器上 (github.com)。 NuGet 資源庫讓使用者能夠管理及使用功能，例如大量 web UI，在瀏覽器中搜尋和瀏覽套件，類似 nuget.org。
 
-還有其他幾個 NuGet 託管產品,如[Azure 專案](https://www.visualstudio.com/docs/package/nuget/publish)和[GitHub 包註冊表](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry),支援遠端私有源。 以下是此類產品的清單:
+另外還有幾個其他 NuGet 裝載產品，例如支援遠端私人摘要的 [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish) 和 [GitHub 套件](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry) 登錄。 以下是這類產品的清單：
 
 - JFrog 的 [Artifactory](https://www.jfrog.com/artifactory/)。
 - [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish)，也適用於 Team Foundation Server 2017 及更新版本。
 - [BaGet](https://github.com/loic-sharma/BaGet)，這是建置於 ASP.NET Core 之上的 NuGet V3 伺服器開放原始碼實作
-- [雲史密斯](https://cloudsmith.io/l/nuget-feed/), 一個完全管理的軟體包管理 SaaS
+- [Cloudsmith](https://cloudsmith.io/l/nuget-feed/)，是完全受控的封裝管理 SaaS
 - [GitHub 套件登錄](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [LiGet](https://github.com/ai-traders/liget)，這是一個在 docker 中的 kestrel 上執行的 NuGet V2 伺服器開放原始碼實作
 - [MyGet](https://myget.org)
-- [Nexus 存儲庫 OSS](https://www.sonatype.com/nexus-repository-oss)從索納類型。
+- Sonatype 中的[結點存放庫 OSS](https://www.sonatype.com/nexus-repository-oss) 。
 - [NuGet 伺服器 (開放原始碼)](https://github.com/svenkle/nuget-server)，類似於 Inedo NuGet 伺服器的開放原始碼實作
 - [NuGet 伺服器](http://nugetserver.net/)，Inedo 社群專案
 - Inedo 的 [ProGet](https://inedo.com/proget)

@@ -1,16 +1,16 @@
 ---
 title: NuGet 4.8 RTM 版本資訊
 description: NuGet 4.8.1 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e61ec740735c5a03491bd0dcdf508d4954b8a6c1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "76813763"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776235"
 ---
 # <a name="nuget-48-release-notes"></a>NuGet 4.8 版本資訊
 
@@ -22,15 +22,15 @@ ms.locfileid: "76813763"
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>摘要:4.8.0 中的新增功能
+## <a name="summary-whats-new-in-480"></a>摘要：4.8.0 的新功能
 * NuGet.exe 現在可在 Windows 10 上支援 longfilenames - [#6937](https://github.com/NuGet/Home/issues/6937)
 * 驗證外掛程式現在可以在 MsBuild、DotNet.exe、NuGet.exe 和 Visual Studio 間運作，包括跨平台運作。 第一代的驗證外掛程式在 MsBuild DotNet.exe 中不受支援。 注意：VS 2017 15.9 預覽組建包含 VSTS 驗證外掛程式。 [#6486](https://github.com/NuGet/Home/issues/6486)
 * MsBuild 的 SDK 解析程式現在建置為 NuGet 的一部分，並使用 VS 的 NuGet 工具進行安裝。 這可避免版本不同步的情形。[#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference 現在支援 DevelopmentDependency 中繼資料 - [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>摘要:4.8.2 中的新增功能
+## <a name="summary-whats-new-in-482"></a>摘要：4.8.2 的新功能
 
-* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
+* 安全性修正：在 ~/.nuget 內建立之檔案的許可權太過開啟 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>已知問題
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>在 CI 電腦上或在離線環境中安裝已簽署的套件需要較多時間
@@ -84,7 +84,7 @@ ms.locfileid: "76813763"
 * 在 NuspecProperties 中允許空的取代權杖 - [#6722](https://github.com/NuGet/Home/issues/6722)
 * 已指定 NuspecProperties 時，PackTask 會擲回 NullReferenceException - [#4649](https://github.com/NuGet/Home/issues/4649)
 
-#### <a name="accessibility"></a>Accessibility
+#### <a name="accessibility"></a>協助工具選項
 * [協助工具] 在 PM UI 中，套件按鈕下的字串「發行前版本」被其套件描述遮住 - [#4504](https://github.com/NuGet/Home/issues/4504)
 * [協助工具] 在 PM UI 中選取 [Microsoft Visual Studio 離線套件] 時，套件來源下拉式清單和設定按鈕會截斷 - [#4502](https://github.com/NuGet/Home/issues/4502)
 

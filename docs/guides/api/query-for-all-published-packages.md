@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523398"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774114"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>查詢發佈至 nuget.org 的所有套件
 
@@ -54,7 +54,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 使用[服務索引](../../api/service-index.md)應該會探索到 NuGet API 中的每個資源 (端點) 位置。 因為本指南著重於 nuget.org，所以我們會使用 nuget.org 的服務索引。
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 服務檔是 JSON 檔，其中包含 nuget.org 上的所有資源。尋找 `@type` 屬性值為的資源 `Catalog/3.0.0` 。 相關聯的 `@id` 屬性值是目錄索引本身的 URL。 
 
@@ -62,13 +64,17 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 使用上一個步驟找到的 `@id` 屬性值，下載目錄索引：
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 還原序列化[目錄索引](../../api/catalog-resource.md#catalog-index)。 篩選掉 `commitTimeStamp` 小於或等於目前資料指標值的所有[目錄頁面物件](../../api/catalog-resource.md#catalog-page-object-in-the-index)。
 
 使用 `@id` 屬性為每個剩餘的目錄頁面下載完整的文件。
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 還原序列化[目錄頁面](../../api/catalog-resource.md#catalog-page)。 篩選掉 `commitTimeStamp` 小於或等於目前資料指標值的所有[目錄分葉物件](../../api/catalog-resource.md#catalog-item-object-in-a-page)。
 
@@ -80,7 +86,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 如果對套件的中繼資料有興趣 (例如描述、相依性、.nupkg 大小等等)，您可以使用 `@id` 屬性擷取[目錄分葉文件](../../api/catalog-resource.md#catalog-leaf)。
 
-    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 本文件有[套件中繼資料資源](../../api/registration-base-url-resource.md)中包含的全部中繼資料及其他資訊！
 

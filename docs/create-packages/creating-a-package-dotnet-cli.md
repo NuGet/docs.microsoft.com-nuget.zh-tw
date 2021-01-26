@@ -1,16 +1,16 @@
 ---
 title: 使用 dotnet CLI 建立 NuGet 套件
 description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87b38d7a707d6175eb3347280784d9dfefd9c17d
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4771a30ee2ff73e68154d05f1c84efd90b584162
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "89359641"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774483"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>使用 dotnet CLI 建立 NuGet 套件
 
@@ -28,12 +28,12 @@ ms.locfileid: "89359641"
 建立套件時需要下列屬性。
 
 - `PackageId`，套件識別碼，這在裝載套件的資源庫內必須是唯一的。 若未指定，則預設值為 `AssemblyName`。
-- `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別[發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
+- `Version`，*Major.Minor.Patch[-Suffix]* 形式的特定版本號碼，其中 *-Suffix* 識別 [發行前版本](prerelease-packages.md)。 若未指定，則預設值為 1.0.0。
 - 主機上應該會出現套件標題 (例如 nuget.org)
 - `Authors`，作者與擁有者資訊。 若未指定，則預設值為 `AssemblyName`。
 - `Company`，您的公司名稱。 若未指定，則預設值為 `AssemblyName`。
 
-在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]****，然後選取 [套件]**** 索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
+在 Visual Studio 中，您可以在專案屬性中設定這些值 (在 [方案總管] 中以滑鼠右鍵按一下專案，選擇 [屬性]，然後選取 [套件] 索引標籤)。 您也可以直接在專案檔 (`.csproj`) 中設定這些屬性。
 
 ```xml
 <PropertyGroup>

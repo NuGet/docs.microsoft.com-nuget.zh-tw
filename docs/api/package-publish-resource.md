@@ -1,115 +1,121 @@
 ---
-title: 推送與刪除，NuGet API
-description: 發行 」 服務可讓用戶端來發佈新的套件，並取消列出或刪除現有的封裝。
+title: 推送和刪除，NuGet API
+description: 發行服務可讓用戶端發佈新的封裝，以及取消列出或刪除現有的封裝。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0a79266011433d5adc1341a8e250838988c84d13
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426728"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773922"
 ---
-# <a name="push-and-delete"></a>推送與刪除
+# <a name="push-and-delete"></a>推送和刪除
 
-您可將推播、 刪除 （或取消列出，根據伺服器實作） 和重新列出封裝使用 NuGet V3 API。 這些作業會為基礎`PackagePublish`資源中找到[服務索引](service-index.md)。
+您可以根據伺服器的執行) 來推送、刪除 (或取消列出，以及使用 NuGet V3 API 來重新列出封裝。 這些作業是 `PackagePublish` 以 [服務索引](service-index.md)中找到的資源為基礎。
 
 ## <a name="versioning"></a>版本控制
 
-下列`@type`會使用值：
+使用的 `@type` 值如下：
 
-@type 值          | 注意
+@type 值          | 備註
 -------------------- | -----
-PackagePublish/2.0.0 | 初始版本
+PackagePublish/2.0。0 | 初始版本
 
-## <a name="base-url"></a>基礎 URL
+## <a name="base-url"></a>基底 URL
 
-下列 Api 的基底 URL 是值`@id`的屬性`PackagePublish/2.0.0`封裝來源中的資源[服務索引](service-index.md)。 下列文件，會使用 nuget.org 的 URL。 請考慮`https://www.nuget.org/api/v2/package`作為預留位置`@id`服務索引中找到的值。
+下列 Api 的基底 URL 是 `@id` `PackagePublish/2.0.0` 套件來源之 [服務索引](service-index.md)中資源的屬性值。 針對下列檔，會使用 nuget. org 的 URL。 請考慮 `https://www.nuget.org/api/v2/package` 作為 `@id` 服務索引中找到之值的預留位置。
 
-請注意，此 URL 會指向與舊版的 V2 推播端點位於相同位置因為通訊協定相同。
+請注意，此 URL 會指向與舊版 V2 推送端點相同的位置，因為通訊協定相同。
 
 ## <a name="http-methods"></a>HTTP 方法
 
-`PUT`，`POST`和`DELETE`這項資源所支援 HTTP 方法。 針對每個端點上支援何種方法，如下所示。
+`PUT` `POST` `DELETE` 此資源支援和 HTTP 方法。 針對每個端點支援的方法，請參閱下文。
 
-## <a name="push-a-package"></a>將封裝推送
+## <a name="push-a-package"></a>推送套件
 
 > [!Note]
-> nuget.org 已[其他需求](NuGet-Protocols.md)與推播端點互動。
+> nuget.org 具有與推送端點互動的 [其他需求](NuGet-Protocols.md) 。
 
-nuget.org 支援使用下列 API 推送新的套件。 如果提供的識別碼和版本的套件已經存在，nuget.org 會拒絕推送。 其他套件來源可能會支援取代現有的封裝。
+nuget.org 支援使用下列 API 來推送新的封裝。 如果具有所提供識別碼和版本的套件已存在，則 nuget.org 會拒絕推送。 其他套件來源可能會支援取代現有的封裝。
 
-    PUT https://www.nuget.org/api/v2/package
+```
+PUT https://www.nuget.org/api/v2/package
+```
 
 ### <a name="request-parameters"></a>要求參數
 
-名稱           | In     | 類型   | 必要 | 注意
+名稱           | 位於     | 類型   | 必要 | 備註
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如： `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如， `X-NuGet-ApiKey: {USER_API_KEY}`
 
-API 金鑰是不透明的字串，從套件來源取得的使用者，並在用戶端設定。 沒有特定字串的格式託管，但 API 金鑰的長度不應超過合理的大小，如 HTTP 標頭值。
+API 金鑰是由使用者從套件來源取得並設定為用戶端的不透明字串。 未強制採用任何特定的字串格式，但 API 金鑰的長度不應超過 HTTP 標頭值的合理大小。
 
 ### <a name="request-body"></a>要求本文
 
-要求本文必須有下列形式：
+要求主體的格式必須如下：
 
 #### <a name="multipart-form-data"></a>多部分表單資料
 
-要求標頭`Content-Type`是`multipart/form-data`和要求本文中的第一個項目會被推入.nupkg 檔案的未經處理位元組。 在多組件的主體中的後續項目都會被忽略。 會忽略的檔案名稱或任何其他標頭的多組件的項目。
+要求標頭 `Content-Type` 為 `multipart/form-data` ，而且要求主體中的第一個專案是所推送之 nupkg 的原始位元組。 系統會忽略多部分主體中的後續專案。 系統會忽略多元件專案的檔案名或其他任何標頭。
 
 ### <a name="response"></a>回應
 
 狀態碼 | 意義
 ----------- | -------
-201, 202    | 已成功推送套件
+201、202    | 已成功推送封裝
 400         | 提供的套件無效
-409         | 使用提供的識別碼和版本的封裝已經存在
+409         | 具有所提供識別碼和版本的套件已經存在
 
-伺服器實作會傳回已成功推送套件時的成功狀態碼而有所不同。
+當封裝成功推送時所傳回的成功狀態碼會有不同的伺服器實施。
 
 ## <a name="delete-a-package"></a>刪除套件
 
-nuget.org 會解譯為套件刪除要求的 「 取消列出 」。 這表示封裝是仍然可供現有的取用者的封裝，但是封裝不會再出現在搜尋結果中或 web 介面中。 如需有關此做法的詳細資訊，請參閱[刪除套件](../nuget-org/policies/deleting-packages.md)原則。 其他伺服器實作會解譯為永久刪除此訊號、 虛刪除，或取消列出免費的。 例如， [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) （只支援較舊的 V2 API 的伺服器實作） 支援處理此要求以取消列出或永久刪除根據組態選項。
+nuget.org 會將套件刪除要求解讀為 "取消列出"。 這表示套件仍可供封裝的現有取用者使用，但套件不會再出現在搜尋結果或 web 介面中。 如需這種作法的詳細資訊，請參閱 [已刪除的套件](../nuget-org/policies/deleting-packages.md) 原則。 其他伺服器的執行可以自由地將此信號解讀為實刪除、虛刪除或取消列出。 例如 [， (伺服器執行](https://www.nuget.org/packages/NuGet.Server) 只支援舊版 V2 API，) 支援根據設定選項，以取消列出或實刪除的方式處理此要求。
 
-    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>要求參數
 
-名稱           | In     | 類型   | 必要 | 注意
+名稱           | 位於     | 類型   | 必要 | 備註
 -------------- | ------ | ------ | -------- | -----
-識別碼             | URL    | 字串 | 是      | 要刪除的套件識別碼
-VERSION        | URL    | 字串 | 是      | 若要刪除封裝的版本
-X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如： `X-NuGet-ApiKey: {USER_API_KEY}`
+識別碼             | URL    | 字串 | 是      | 要刪除的封裝識別碼
+VERSION        | URL    | 字串 | 是      | 要刪除的套件版本
+X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如， `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>回應
 
 狀態碼 | 意義
 ----------- | -------
-204         | 已刪除的套件
-404         | 使用提供的封裝`ID`和`VERSION`存在
+204         | 已刪除封裝
+404         | 沒有具有所提供 `ID` 和 `VERSION` 存在的套件
 
-## <a name="relist-a-package"></a>重新列出封裝
+## <a name="relist-a-package"></a>重新列出套件
 
-如果未列出的封裝，就能夠顯示該套件一次一次使用 「 重新列出 」 端點的搜尋結果中。 此端點具有一樣[刪除 （取消列出） 端點](#delete-a-package)使用，但`POST`HTTP 方法，而非`DELETE`方法。
+如果未列出套件，則可以使用 "重新列出" 端點，再次在搜尋結果中顯示該套件。 此端點與 [delete (取消列出) 端點](#delete-a-package) 具有相同的圖形，但使用的 `POST` 是 HTTP 方法，而不是 `DELETE` 方法。
 
-如果已列出的封裝，請要求仍然會成功。
+如果封裝已列出，要求仍會成功。
 
-    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>要求參數
 
-名稱           | In     | 類型   | 必要 | 注意
+名稱           | 位於     | 類型   | 必要 | 備註
 -------------- | ------ | ------ | -------- | -----
-識別碼             | URL    | 字串 | 是      | 要重新列出封裝的識別碼
-VERSION        | URL    | 字串 | 是      | 若要重新列出封裝的版本
-X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如： `X-NuGet-ApiKey: {USER_API_KEY}`
+識別碼             | URL    | 字串 | 是      | 要重新列出的封裝識別碼
+VERSION        | URL    | 字串 | 是      | 要重新列出的套件版本
+X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如， `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### <a name="response"></a>回應
 
 狀態碼 | 意義
 ----------- | -------
-200         | 現在會列出封裝
-404         | 使用提供的封裝`ID`和`VERSION`存在
+200         | 現在會列出套件
+404         | 沒有具有所提供 `ID` 和 `VERSION` 存在的套件

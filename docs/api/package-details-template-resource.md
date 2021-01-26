@@ -1,61 +1,65 @@
 ---
 title: 套件詳細資料 URL 範本，NuGet API
-description: '[套件詳細資料 URL] 範本可讓用戶端在其 UI 中顯示更多套件詳細資料的 web 連結'
+description: 套件詳細資料 URL 範本可讓用戶端在其 UI 中顯示更多套件詳細資料的 web 連結
 author: joelverhagen
 ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: aaeedea9750c11099b34e927bd8442656839d784
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76812931"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773948"
 ---
 # <a name="package-details-url-template"></a>套件詳細資料 URL 範本
 
-用戶端可以建立 URL，讓使用者用來在網頁瀏覽器中查看更多套件詳細資料。 當套件來源想要顯示可能無法符合 NuGet 用戶端應用程式顯示之範圍內的套件的其他資訊時，這會很有用。
+用戶端可以建立一個 URL，讓使用者在網頁瀏覽器中查看更多套件詳細資料。 當套件來源想要顯示可能無法容納 NuGet 用戶端應用程式所顯示之內容約制內之套件的其他資訊時，這會很有用。
 
-用來建立此 URL 的資源是在[服務索引](service-index.md)中找到的 `PackageDetailsUriTemplate` 資源。
+用來建立此 URL 的資源是在 `PackageDetailsUriTemplate` [服務索引](service-index.md)中找到的資源。
 
 ## <a name="versioning"></a>版本控制
 
-會使用下列 `@type` 值：
+使用的 `@type` 值如下：
 
-@type 值                     | 注意事項
+@type 值                     | 備註
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1。0 | 初始版本
 
-## <a name="url-template"></a>URL 範本
+## <a name="url-template"></a>URL template
 
-下列 API 的 URL 是與上述其中一個資源 `@type` 值相關聯 `@id` 屬性的值。
+下列 API 的 URL 是 `@id` 與上述其中一個資源值相關聯之屬性的值 `@type` 。
 
 ## <a name="http-methods"></a>HTTP 方法
 
-雖然用戶端不會代表使用者對封裝詳細資料 URL 提出要求，但網頁應支援 `GET` 方法，以便在網頁瀏覽器中輕鬆地開啟已按一下的 URL。
+雖然用戶端不會代表使用者對套件詳細資料 URL 提出要求，但網頁應該支援 `GET` 方法，以允許在網頁瀏覽器中輕鬆地開啟所選的 url。
 
-## <a name="construct-the-url"></a>結構 URL
+## <a name="construct-the-url"></a>建立 URL
 
-假設有已知的封裝識別碼和版本，則用戶端執行可以建立用來存取 web 介面的 URL。 用戶端的執行應該會將此結構化的 URL （或可點按的連結）顯示給使用者，讓他們可以將網頁瀏覽器開啟至 URL，並深入瞭解封裝。 封裝詳細資料頁面的內容是由伺服器的執行所決定。
+假設有已知的封裝識別碼和版本，則用戶端執行可以建立用來存取 web 介面的 URL。 用戶端的執行應該會顯示這個已建立的 URL (或可點選連結) 給使用者，讓他們可以開啟網頁瀏覽器並前往 URL，以及深入瞭解套件。 封裝詳細資料頁面的內容是由伺服器執行所決定。
 
-URL 必須是絕對 URL，而配置（通訊協定）必須是 HTTPS。
+URL 必須是絕對 URL，且 (通訊協定) 的配置必須是 HTTPS。
 
-服務索引中的 `@id` 值是 URL 字串，其中包含下列任何預留位置權杖：
+`@id`服務索引中的值為 URL 字串，其中包含下列任何預留位置標記：
 
 ### <a name="url-placeholders"></a>URL 預留位置
 
-Name        | 類型    | 必要 | 注意事項
+名稱        | 類型    | 必要 | 備註
 ----------- | ------- | -------- | -----
-`{id}`      | string  | no       | 要取得詳細資料的套件識別碼
-`{version}` | string  | no       | 要取得詳細資料的套件版本
+`{id}`      | 字串  | 不可以       | 要取得其詳細資料的套件識別碼
+`{version}` | 字串  | 不可以       | 要取得其詳細資料的套件版本
 
-伺服器應該接受 `{id}`，並 `{version}` 任何大小寫的值。 此外，伺服器應該不會區分版本是否[正規化](../concepts/package-versioning.md#normalized-version-numbers)。 換句話說，伺服器也應該接受非正規化版本。
+伺服器應該接受 `{id}` `{version}` 任何大小寫的值。 此外，伺服器應該不區分版本是否 [正規化](../concepts/package-versioning.md#normalized-version-numbers)。 換句話說，伺服器也應接受非正規化的版本。
 
-例如，nuget 的 [套件詳細資料] 範本如下所示：
+例如，nuget 的套件詳細資料範本看起來像這樣：
 
-    https://www.nuget.org/packages/{id}/{version}
+```http
+https://www.nuget.org/packages/{id}/{version}
+```
 
-如果用戶端執行需要顯示 NuGet 的封裝詳細資料連結，則會產生下列 URL，並將其提供給使用者：
+如果用戶端執行需要顯示 NuGet 的封裝詳細資料的連結，則會產生下列 URL 並將其提供給使用者：
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0
+```http
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0
+```

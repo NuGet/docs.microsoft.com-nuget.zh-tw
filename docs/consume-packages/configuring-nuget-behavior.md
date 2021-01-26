@@ -1,16 +1,16 @@
 ---
 title: 常用的 NuGet 組態
 description: NuGet.Config 檔案可全面和根據每個專案來控制 NuGet 行為，並使用 nuget config 命令進行修改。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699767"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774852"
 ---
 # <a name="common-nuget-configurations"></a>常用的 NuGet 組態
 
@@ -21,7 +21,7 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 | 影響範圍 | NuGet.Config 檔案位置 | 描述 |
 | --- | --- | --- |
 | 解決方法 | 目前的資料夾 (也稱為解決方案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在解決方案資料夾中，設定會套用到子資料夾中的所有專案。 請注意，若設定檔放在專案資料夾中，它對於該專案沒有任何影響。 |
-| User | **Windows：**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux：** `~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (因作業系統散發而異)  <br/>所有平臺都支援其他的支援。 這些程式無法由工具編輯。 </br> **Windows：**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux：** `~/.config/NuGet/config/*.config` 或 `~/.nuget/config/*.config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
+| 使用者 | **Windows：**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux：** `~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (因作業系統散發而異)  <br/>所有平臺都支援其他的支援。 這些程式無法由工具編輯。 </br> **Windows：**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux：** `~/.config/NuGet/config/*.config` 或 `~/.nuget/config/*.config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
 | 電腦 | **Windows：**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux：** `$XDG_DATA_HOME` 。 如果 `$XDG_DATA_HOME` 為 Null 或空白，則會使用 `~/.local/share` 或 `/usr/local/share` (依 OS 發行版本而異)  | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
 
 舊版 NuGet 的注意事項：
@@ -120,14 +120,16 @@ NuGet 在這些檔案中找到設定時，會如下套用設定：
 
 假設您在兩個不同的磁碟機上具有下列資料夾結構：
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 則在下列位置中會有四個具有指定內容的 `NuGet.Config` 檔案  (此範例未包含電腦層級檔案，但其行為與使用者層級檔案類似)。
 

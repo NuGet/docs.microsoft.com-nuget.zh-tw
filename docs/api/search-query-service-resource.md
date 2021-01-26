@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 7047dfd48b7f93756bbb1491de1b7e65da2c12b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237870"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775405"
 ---
 # <a name="search"></a>搜尋
 
@@ -21,7 +21,7 @@ ms.locfileid: "93237870"
 
 使用的 `@type` 值如下：
 
-@type 值                   | 備忘稿
+@type 值                   | 備註
 ----------------------------- | -----
 SearchQueryService            | 初始版本
 SearchQueryService/3.0.0-Beta | 別名 `SearchQueryService`
@@ -45,18 +45,20 @@ SearchQueryService/3.5。0      | 包含 `packageType` 查詢參數的支援
 
 未列出的套件永遠不會出現在搜尋結果中。
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>要求參數
 
-Name        | 位於     | 類型    | 必要 | 備忘稿
+名稱        | 位於     | 類型    | 必要 | 備註
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | 字串  | 否       | 用來篩選封裝的搜尋字詞
-skip        | URL    | integer | 否       | 要跳過的結果數目（分頁）
-take        | URL    | integer | 否       | 要傳回的結果數目，用於分頁
-prerelease  | URL    | boolean | 否       | `true` 或 `false` 判斷是否包含 [發行前版本的套件](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | 字串  | 否       | SemVer 1.0.0 版字串 
-packageType | URL    | 字串  | 否       | 用來篩選封裝 (在) 中新增的封裝類型 `SearchQueryService/3.5.0`
+q           | URL    | 字串  | 不可以       | 用來篩選封裝的搜尋字詞
+skip        | URL    | 整數 | 不可以       | 要跳過的結果數目（分頁）
+take        | URL    | 整數 | 不可以       | 要傳回的結果數目，用於分頁
+prerelease  | URL    | boolean | 不可以       | `true` 或 `false` 判斷是否包含 [發行前版本的套件](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | 字串  | 不可以       | SemVer 1.0.0 版字串 
+packageType | URL    | 字串  | 不可以       | 用來篩選封裝 (在) 中新增的封裝類型 `SearchQueryService/3.5.0`
 
 搜尋查詢 `q` 會以伺服器執行所定義的方式進行剖析。 nuget.org 支援 [各種欄位](../consume-packages/finding-and-choosing-packages.md#search-syntax)的基本篩選。 如果未 `q` 提供，則應該傳回所有套件，並于 skip 和 take 所加諸的界限內傳回。 這會啟用 NuGet Visual Studio 體驗中的 [流覽] 索引標籤。
 
@@ -80,10 +82,10 @@ packageType | URL    | 字串  | 否       | 用來篩選封裝 (在) 中新增�
 
 根 JSON 物件具有下列屬性：
 
-名稱      | 類型             | 必要 | 備忘稿
+名稱      | 類型             | 必要 | 備註
 --------- | ---------------- | -------- | -----
-totalHits | integer          | yes      | 相符專案的總數，並忽略 `skip` 和 `take`
-資料      | 物件的陣列 | yes      | 符合要求的搜尋結果
+totalHits | 整數          | 是      | 相符專案的總數，並忽略 `skip` 和 `take`
+data      | 物件的陣列 | 是      | 符合要求的搜尋結果
 
 ### <a name="search-result"></a>搜尋結果
 
@@ -92,42 +94,44 @@ totalHits | integer          | yes      | 相符專案的總數，並忽略 `ski
 
 名稱           | 類型                       | 必要 | 注意
 -------------- | -------------------------- | -------- | -----
-id             | 字串                     | yes      | 相符套件的識別碼
-version        | 字串                     | yes      | 封裝 (的完整 SemVer 2.0.0 版本字串可能包含組建中繼資料) 
-description    | 字串                     | 否       | 
-versions       | 物件的陣列           | yes      | 符合參數的所有套件版本 `prerelease`
-authors        | 字串或字串陣列 | 否       | 
-iconUrl        | 字串                     | 否       | 
-licenseUrl     | 字串                     | 否       | 
-owners         | 字串或字串陣列 | 否       | 
-projectUrl     | 字串                     | 否       | 
-註冊   | 字串                     | 否       | 相關聯[註冊索引](registration-base-url-resource.md#registration-index)的絕對 URL。
-總結        | 字串                     | 否       | 
-tags           | 字串或字串陣列 | 否       | 
-title          | 字串                     | 否       | 
-totalDownloads | integer                    | 否       | 此值可依陣列中的下載總和來推斷。 `versions`
-驗證       | boolean                    | 否       | 指出是否已[驗證](../nuget-org/id-prefix-reservation.md)封裝的 JSON 布林值
-packageTypes   | 物件的陣列           | yes      | 封裝作者所定義的封裝類型 (新增于 `SearchQueryService/3.5.0`) 
+id             | 字串                     | 是      | 相符套件的識別碼
+version        | 字串                     | 是      | 封裝 (的完整 SemVer 2.0.0 版本字串可能包含組建中繼資料) 
+description    | 字串                     | 不可以       | 
+versions       | 物件的陣列           | 是      | 符合參數的所有套件版本 `prerelease`
+authors        | 字串或字串陣列 | 不可以       | 
+iconUrl        | 字串                     | 不可以       | 
+licenseUrl     | 字串                     | 不可以       | 
+owners         | 字串或字串陣列 | 不可以       | 
+projectUrl     | 字串                     | 不可以       | 
+註冊   | 字串                     | 不可以       | 相關聯[註冊索引](registration-base-url-resource.md#registration-index)的絕對 URL。
+總結        | 字串                     | 不可以       | 
+tags           | 字串或字串陣列 | 不可以       | 
+title          | 字串                     | 不可以       | 
+totalDownloads | 整數                    | 不可以       | 此值可依陣列中的下載總和來推斷。 `versions`
+驗證       | boolean                    | 不可以       | 指出是否已[驗證](../nuget-org/id-prefix-reservation.md)封裝的 JSON 布林值
+packageTypes   | 物件的陣列           | 是      | 封裝作者所定義的封裝類型 (新增于 `SearchQueryService/3.5.0`) 
 
 在 nuget.org 上，已驗證的套件是一個套件識別碼符合保留識別碼首碼的套件，並由其中一個保留的前置詞擁有者所擁有。 如需詳細資訊，請參閱 [識別碼首碼保留](../nuget-org/id-prefix-reservation.md)的相關檔。
 
 搜尋結果物件中包含的中繼資料是取自最新的封裝版本。 陣列中的每個專案 `versions` 都是具有下列屬性的 JSON 物件：
 
-名稱      | 類型    | 必要 | 備忘稿
+名稱      | 類型    | 必要 | 備註
 --------- | ------- | -------- | -----
-@id       | 字串  | yes      | 相關聯之[註冊分葉](registration-base-url-resource.md#registration-leaf)的絕對 URL
-version   | 字串  | yes      | 封裝 (的完整 SemVer 2.0.0 版本字串可能包含組建中繼資料) 
-下載 | integer | yes      | 此特定套件版本的下載數目
+@id       | 字串  | 是      | 相關聯之[註冊分葉](registration-base-url-resource.md#registration-leaf)的絕對 URL
+version   | 字串  | 是      | 封裝 (的完整 SemVer 2.0.0 版本字串可能包含組建中繼資料) 
+下載 | 整數 | 是      | 此特定套件版本的下載數目
 
 `packageTypes`陣列一律會包含至少一個 (1) 專案。 給定套件識別碼的封裝類型，會被視為與其他搜尋參數相關之套件的最新版本所定義的套件類型。 陣列中的每個專案 `packageTypes` 都是具有下列屬性的 JSON 物件：
 
 名稱      | 類型    | 必要 | 注意
 --------- | ------- | -------- | -----
-NAME      | 字串  | yes      | 封裝類型的名稱。
+NAME      | 字串  | 是      | 封裝類型的名稱。
 
 ### <a name="sample-request"></a>範例要求
 
-    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
+GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
 
 ### <a name="sample-response"></a>範例回應
 

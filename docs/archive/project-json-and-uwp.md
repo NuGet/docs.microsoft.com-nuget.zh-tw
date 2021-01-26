@@ -1,16 +1,16 @@
 ---
 title: UWP 專案的 NuGet project.json 檔案
 description: 描述如何使用 project.json 檔案來追蹤通用 Windows 平台 (UWP) 專案中的 NuGet 相依性。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/17/2017
 ms.topic: conceptual
-ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 30e2272aafb5d2ea8d932e3cb0209d97c30b3209
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64494384"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773808"
 ---
 # <a name="projectjson-and-uwp"></a>project.json 和 UWP
 
@@ -33,17 +33,17 @@ ms.locfileid: "64494384"
 
 ## <a name="i-dont-need-windows-10-specific-apis-but-want-new-net-features-or-dont-have-netcore45-already"></a>我不需要 Windows 10 特定 API，但想要新的 .NET 功能或還沒有 netcore45
 
-在此情況下，您需要將 `dotnet` TxM 新增至套件。 與其他 TxM 不同，`dotnet` 不表示為介面區或平台。 它會指出您的套件適用於相依性所作用的任何平台。 使用`dotnet`TxM 構建套件時,您可能`.nuspec`在 中有更多的特定於 TxM 的依賴項,因為您需要定義所依賴的`System.Text``System.Xml`BCL 包,例如 , 等。這些依賴項處理的位置定義包工作的位置。
+在此情況下，您需要將 `dotnet` TxM 新增至套件。 與其他 TxM 不同，`dotnet` 不表示為介面區或平台。 它會指出您的套件適用於相依性所作用的任何平台。 使用 TxM 建立封裝時，您 `dotnet` 可能會在中有許多 TxM 特有的相依性， `.nuspec` 因為您需要定義相依的 BCL 套件，例如， `System.Text` `System.Xml` 等等。這些相依性的運作位置會定義封裝的運作位置。
 
 ### <a name="how-do-i-find-out-my-dependencies"></a>如何找出我的相依性
 
 有兩種方式可找出要列出的相依性：
 
-1. 使用 [NuSpec 相依性產生器](https://github.com/onovotny/ReferenceGenerator) **協力廠商**工具。 此工具會將這個程序自動化，並在建置時使用相依套件更新 `.nuspec` 檔案。 它可透過 NuGet 套件 [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/) 取得。
+1. 使用 [NuSpec 相依性產生器](https://github.com/onovotny/ReferenceGenerator) **協力廠商** 工具。 此工具會將這個程序自動化，並在建置時使用相依套件更新 `.nuspec` 檔案。 它可透過 NuGet 套件 [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/) 取得。
 
 1. (較難方式) 使用 `ILDasm` 查看 `.dll`，以查看執行階段實際需要的組件。 然後判斷其各個所來自的 NuGet 套件。
 
-有關幫助[`project.json`](project-json.md)創建`dotnet`支援 TxM 的包的功能的詳細資訊,請參閱主題。
+請參閱 [`project.json`](project-json.md) 主題，以取得可協助建立支援 TxM 之套件的功能詳細資料 `dotnet` 。
 
 > [!Important]
 > 如果您的套件是要使用 PCL 專案，則強烈建議建立 `dotnet` 資料夾，以避免警告和潛在的相容性問題。
@@ -56,7 +56,7 @@ ms.locfileid: "64494384"
 | --- | --- |
 | Build | 在此資料夾中包含 MSBuild 目標和屬性檔，會以不同的方式整合至專案，但沒有任何變更。 |
 | 工具 | 未執行 `install.ps1` 和 `uninstall.ps1`。 `init.ps1` 會如常運作。 |
-| 內容 | 內容不會自動複製至使用者的專案中。 更新的版本已規劃專案中的內容包含支援。 |
+| Content | 內容不會自動複製至使用者的專案中。 更新的版本已規劃專案中的內容包含支援。 |
 | Lib | 針對許多套件，`lib` 的運作方式都與在 NuGet 2.x 中相同，但具有擴充選項，可在其內使用名稱，以及在使用套件時選擇正確子資料夾的較佳邏輯。 不過，與 `ref` 搭配使用時，`lib` 資料夾所包含的組件會實作 `ref` 資料夾中組件所定義的介面區。 |
 | 參考 | `ref` 為選用資料夾，其中包含定義公用介面 (公用類型和方法) 的 .NET 組件，讓應用程式對其進行編譯。 此資料夾中的組件可能沒有實作，它們只用來定義編譯器的介面區。 如果套件沒有 `ref` 資料夾，則 `lib` 既是參考組件也是實作組件。 |
 | 執行階段 | `runtimes` 是選擇性資料夾，其中包含 OS 特定程式碼，例如 CPU 架構與 OS 特定或平台相依二進位檔。 |
@@ -65,7 +65,7 @@ ms.locfileid: "64494384"
 
 NuGet 套件可以包含 `.targets` 和 `.props` 檔案，而這些檔案匯入至套件安裝所在的任何 MSBuild 專案。 在 NuGet 2.x 中，做法是將 `<Import>` 陳述式插入 `.csproj` 檔案中，而在 NuGet 3.0 中，則沒有特定「專案安裝」動作。 相反地，套件還原程序會寫入兩個檔案 `[projectname].nuget.props` 和 `[projectname].NuGet.targets`。
 
-MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和即將結束時自動予以匯入。 其提供的行為與 NuGet 2.x 非常類似，但有一個主要差異：「在此情況下不保證目標/屬性檔順序」**。 不過，MSBuild 確實會提供方法，透過 `<Target>` 定義的 `BeforeTargets` 和 `AfterTargets` 屬性來排序目標 (請參閱[目標項目 (MSBuild)](/visualstudio/msbuild/target-element-msbuild))。
+MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和即將結束時自動予以匯入。 其提供的行為與 NuGet 2.x 非常類似，但有一個主要差異：「在此情況下不保證目標/屬性檔順序」。 不過，MSBuild 確實會提供方法，透過 `<Target>` 定義的 `BeforeTargets` 和 `AfterTargets` 屬性來排序目標 (請參閱[目標項目 (MSBuild)](/visualstudio/msbuild/target-element-msbuild))。
 
 ## <a name="lib-and-ref"></a>Lib 和 Ref
 
@@ -73,11 +73,13 @@ MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和
 
 範例 lib 結構：
 
-    lib
-    ├───net40
-    │       MyLibrary.dll
-    └───wp81
-            MyLibrary.dll
+```
+lib
+├───net40
+│       MyLibrary.dll
+└───wp81
+        MyLibrary.dll
+```
 
 `lib` 資料夾包含在執行階段使用的組件。 針對大部分套件，您只需要 `lib` 下每個目標 TxM 的資料夾。
 
@@ -91,55 +93,59 @@ MSBuild 知道要尋找這兩個檔案，並在專案建置程序即將開始和
 
 `ref` 資料夾的結構與 `lib` 相同，例如：
 
-    └───MyImageProcessingLib
-         ├───lib
-         │   ├───net40
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   ├───net451
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   └───win81
-         │           MyImageProcessingLibrary.dll
-         │
-         └───ref
-             ├───net40
-             │       MyImageProcessingLibrary.dll
-             │
-             └───portable-net451-win81
-                     MyImageProcessingLibrary.dll
+```
+└───MyImageProcessingLib
+        ├───lib
+        │   ├───net40
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   ├───net451
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   └───win81
+        │           MyImageProcessingLibrary.dll
+        │
+        └───ref
+            ├───net40
+            │       MyImageProcessingLibrary.dll
+            │
+            └───portable-net451-win81
+                    MyImageProcessingLibrary.dll
+```
 
 在此範例中，`ref` 目錄中的組件都會相同。
 
 ## <a name="runtimes"></a>執行階段
 
-runtimes 資料夾包含在特定「執行階段」上執行所需的組件和原生程式庫，而執行階段一般是透過作業系統和 CPU 架構所定義。 這些運行時使用[運行時識別碼 (DD)(](/dotnet/core/rid-catalog)`win`如`win-x86`、、、`win7-x86``win8-64`等)進行標識。
+runtimes 資料夾包含在特定「執行階段」上執行所需的組件和原生程式庫，而執行階段一般是透過作業系統和 CPU 架構所定義。 這些執行時間是使用 [執行時間識別碼 (rid) ](/dotnet/core/rid-catalog) 來識別 `win` ，例如、、、等等 `win-x86` `win7-x86` `win8-64` 。
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>使用平台專屬 API 的原生協助程式
 
 下列範例示範具有數個平台之純受控 實作的套件，但在 Windows 8 上使用可呼叫 Windows 8 特定原生 API 的原生協助程式。
 
-    └───MyLibrary
-         ├───lib
-         │   └───net40
-         │           MyLibrary.dll
-         │
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net40
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyNativeLibrary.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net40
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyNativeLibrary.dll
+```
+└───MyLibrary
+        ├───lib
+        │   └───net40
+        │           MyLibrary.dll
+        │
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net40
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyNativeLibrary.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net40
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyNativeLibrary.dll
+```
 
 如果是上述套件，則會發生下列事項：
 
@@ -155,23 +161,25 @@ runtimes 資料夾包含在特定「執行階段」上執行所需的組件和�
 
 另一種使用執行階段的方法是傳遞透過原生組件之純受控包裝函式的套件。 在此情況下，您可以建立套件，如下所示：
 
-    └───MyLibrary
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net451
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyImplementation.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net451
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyImplementation.dll
+```
+└───MyLibrary
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net451
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyImplementation.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net451
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyImplementation.dll
+```
 
 在此情況下，沒有與該資料夾相同的最上層 `lib` 資料夾，因為沒有此套件的實作未依賴對應原生組件。 在這兩種情況下，如果受控組件 `MyLibrary.dll` 完全相同，則可以將它放入最上層 `lib` 資料夾，但因為缺少原生組件並不會造成套件安裝失敗，所以如果它已安裝在不是 win-x86 或 win-x64 的平台上，則會使用最上層 lib，但不會複製任何原生組件。
 

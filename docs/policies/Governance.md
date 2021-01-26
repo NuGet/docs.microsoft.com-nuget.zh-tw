@@ -1,16 +1,16 @@
 ---
 title: NuGet 專案治理
 description: NuGet 的治理模型，包含認可者、參與者和使用者的角色和責任。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2edaac0218dc936ea6bfe1814c0aab963028ea87
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64500388"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775601"
 ---
 # <a name="nuget-governance"></a>NuGet 治理
 
@@ -44,7 +44,7 @@ NuGet 核心小組會自行指派為仁慈獨裁者或專案負責人。 不過�
 
 參與者是將修補程式提交給 NuGet 的社群成員。 這些修補檔案可能只發生一次或一段時間。 參與者、認可者和專案負責人確信參與者的修補程式品質時，參與者預期會提交一開始很小但逐漸變大的修補程式。 在相關聯的產品版本資訊文件中可以辨識參與者。
 
-參與者必須簽署[參與者授權合約](http://en.wikipedia.org/wiki/Contributor_License_Agreement)或 .NET Foundation 的指派合約，才會將他們的第一個修補程式放入存放庫中。 修補程式可以進行提交和討論，但它實際上需要有適當的書面文件才能認可到存放庫。 要獲得貢獻者許可協定,請通過電子郵件向[contributions@nuget.org](mailto:contributions@nuget.org)發送請求。
+參與者必須簽署[參與者授權合約](http://en.wikipedia.org/wiki/Contributor_License_Agreement)或 .NET Foundation 的指派合約，才會將他們的第一個修補程式放入存放庫中。 修補程式可以進行提交和討論，但它實際上需要有適當的書面文件才能認可到存放庫。 若要取得參與者授權合約，請透過電子郵件將要求傳送至 [contributions@nuget.org](mailto:contributions@nuget.org) 。
 
 若要成為參與者，請將提取要求提交至下列其中一個存放庫：
 
@@ -88,7 +88,7 @@ NuGet 核心小組會自行指派為仁慈獨裁者或專案負責人。 不過�
     - 帳戶持有者的出生證明 (如果您是其父母)，或者
     - 監護權書面作業 (如果您是帳戶持有者的合法監護人)。
 
-如果您發現自己需要調用此策略,請向我們發送電子郵件[support@nuget.org](mailto:support@nuget.org),包括包裹的 ID 和版本。
+如果您發現自己需要叫用此原則，請傳送電子郵件給我們， [support@nuget.org](mailto:support@nuget.org) 其中包含套件的識別碼和版本。
 
 ## <a name="transparency"></a>透明度
 

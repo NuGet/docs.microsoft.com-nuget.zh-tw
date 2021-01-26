@@ -1,16 +1,16 @@
 ---
 title: 將專案檔中的 NuGet 套件設為多個目標
-description: 將目標設為單一 NuGet 套件內多個 .NET Framework 版本之各種方法的描述。
-author: karann-msft
-ms.author: karann
+description: 從專案檔的單一 NuGet 套件中，將多個 .NET Framework 版本設為目標之各種方法的描述。
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a05d053340bb2fe795991dfa5a2b95d8625dfd44
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380680"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774383"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>在您的專案檔中支援多個 .NET Framework 版本
 
@@ -31,13 +31,13 @@ ms.locfileid: "72380680"
    
    `<TargetFramework>netstandard2.0</TargetFramework>`
    
-   至：
+   變更為：
    
    `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    請務必將 XML 元素從單數變更為複數 (將 "s" 新增至開頭和結束標籤)。
 
-3. 如果您有任何只能在一個 TFM 中運作的程式碼，您可以使用 `#if NET45` 或 `#if NETSTANDARD2_0` 來分隔 TFM 相依程式碼。 (有關詳細資訊,請參閱[如何多目標](/dotnet/core/tutorials/libraries#how-to-multitarget)。例如,您可以使用以下代碼:
+3. 如果您有任何只能在一個 TFM 中運作的程式碼，您可以使用 `#if NET45` 或 `#if NETSTANDARD2_0` 來分隔 TFM 相依程式碼。  (需詳細資訊，請參閱 [如何使用多目標](/dotnet/core/tutorials/libraries#how-to-multitarget)) 。例如，您可以使用下列程式碼：
 
    ```csharp
    public string Platform {
@@ -77,4 +77,4 @@ ms.locfileid: "72380680"
 ## <a name="see-also"></a>另請參閱
 
 * [如何指定目標 Framework](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
-* [跨平台目標](/dotnet/standard/library-guidance/cross-platform-targeting)
+* [跨平台目標設定](/dotnet/standard/library-guidance/cross-platform-targeting)

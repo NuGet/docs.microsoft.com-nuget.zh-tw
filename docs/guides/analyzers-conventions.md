@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f1e9bb96fc7acc73ec37cebcdc8015081fafb307
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 63880b6b9bbfe6aac9cc6419d6a972062eea3495
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523411"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774127"
 ---
 # <a name="analyzer-nuget-formats"></a>分析器 NuGet 格式
 
@@ -43,7 +43,9 @@ Props 檔案 (為了分析器實作而包含以停用舊式 FxCop 規則) 放在
 
 `analyzers` 資料夾的使用類似於[目標架構](../create-packages/supporting-multiple-target-frameworks.md)所用的資料夾，只除了路徑中的規範描述開發主應用程式相依性，而不是建置時間。 一般格式如下：
 
-    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
+```
+$/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
+```
 
 - **framework_name** 和 **版本**：所包含 dll 需要執行之 .NET Framework 的 *選擇性* API 介面區。 `dotnet` 是目前唯一有效的值，因為 Roslyn 是唯一可以執行分析器的主機。 如果未指定目標，DLL 會假設套用至「所有」目標。
 - **supported_language**：DLL 適用的語言，`cs`(C#) 和 `vb`(Visual Basic) 其中之一，以及 `fs`F#)。 語言表示應該僅針對使用該語言的專案載入分析器。 如果未指定語言，則 DLL 會假設要套用至「所有」支援分析器的語言。

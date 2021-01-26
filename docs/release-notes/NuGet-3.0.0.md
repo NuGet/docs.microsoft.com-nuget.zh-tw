@@ -1,57 +1,57 @@
 ---
 title: NuGet 3.0 版本資訊
-description: 版本資訊 NuGet 3.0.0 包括已知問題、 bug 修正、 新增的功能和 Dcr。
-author: karann-msft
-ms.author: karann
+description: NuGet 3.0.0 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 1ade2b5b5ff7d57d756829c1c1853b5573c17d6d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4d4ce17c33dc38df5504a77d9cc3530d466d70af
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551859"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776549"
 ---
 # <a name="nuget-30-release-notes"></a>NuGet 3.0 版本資訊
 
-[NuGet 3.0 RC2 版本資訊](../release-notes/nuget-3.0-RC2.md) | [NuGet 3.1 版本資訊](../release-notes/nuget-3.1.md)
+[NuGet 3.0 RC2 版本](../release-notes/nuget-3.0-RC2.md)  |  資訊[NuGet 3.1 版本](../release-notes/nuget-3.1.md)資訊
 
-NuGet 3.0 已於 2015 年 7 月 20 日發行，為 Visual Studio 2015 的套件組合擴充功能。 我們推入來傳遞此版本中的使用 Visual Studio，以便完成更新的 NuGet 3.0 體驗可供新的 Visual Studio 使用者。 這個 NuGet 擴充功能版本僅適用於 Visual Studio 2015。
+NuGet 3.0 已于2015年7月20日發行為 Visual Studio 2015 的組合延伸模組。 我們推送了 Visual Studio 的版本，讓新的 Visual Studio 使用者可以使用完整的更新 NuGet 3.0 體驗。 此 NuGet 擴充功能版本僅適用于 Visual Studio 2015。
 
-我們建議開發人員可存取 Visual Studio 組件庫更新，可供使用，因為我們會包含支援 Windows 10 開發的 Visual Studio 2015 發行後，馬上來發佈更新為最新版本。
+我們建議可存取 Visual Studio 資源庫的開發人員更新為可用的最新版本，因為我們會在發行包含 Windows 10 開發支援的 Visual Studio 2015 之後，立即發佈更新。
 
-總計中，我們關閉 240 問題在 3.0 版的版本中，且您可以檢閱[GitHub 上的問題的完整清單](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed)。
+總共我們在3.0 版中已關閉240問題，您可以在 [GitHub 上查看問題的完整清單](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed)。
 
 ## <a name="known-issues"></a>已知問題
 
-有幾個與此版本中，傳遞的已知問題，所有這些項目固定的排程與 Windows 10 版本一致。 在 7 月 29 3.1 版本中。  您就能夠更新您的 Visual Studio 延伸模組，從資源庫來修正這些已知的問題該日期當天或之後。
+此版本提供了許多已知問題，所有這些專案都已在我們的排程3.1 版本中修正，以符合7月29日的 Windows 10 版本。  您可以從資源庫中或在該日期之後更新 Visual Studio 延伸模組，以修正這些已知問題。
 
-*  未提供轉譯為 「 不要再顯示此訊息 」 標籤上預覽 視窗，並封裝的 說明 視窗中的 「 著作人 」 標籤。
-*  當您使用 TFS 使用的專案原始檔控制時，NuGet 無法呈現的套件管理員的使用者介面如果 Nuget.Config 檔案標示為唯讀。
-   * **因應措施**查看 TFS 中的檔案。
-*  以黃色 NuGet Powershell 視窗中的 「 重新啟動列 」 的文字不是可見的當您使用 Visual Studio 暗色調佈景主題。
-   * **因應措施**使用 Visual Studio 的淺色佈景主題。
+*  [預覽] 視窗上的 [不要再顯示] 標籤和 [封裝描述] 視窗中的 [作者] 標籤不提供轉譯。
+*  當您使用 TFS 原始檔控制來處理專案時，如果 Nuget.Config 檔案標示為唯讀，則 NuGet 無法顯示套件管理員使用者介面。
+   * 因應措施從 TFS 簽出檔案。
+*  當您使用 Visual Studio 深色主題時，不會顯示 [NuGet Powershell] 視窗中黃色「重新開機列」的文字。
+   * 因應措施使用 Visual Studio 淺色主題。
 
 
-## <a name="summary-of-top-issues-resolved"></a>最常發生的問題已解決的摘要
+## <a name="summary-of-top-issues-resolved"></a>已解決常見問題的摘要
 
-* [常見網路更新呼叫時重新整理套件管理員視窗](https://github.com/NuGet/Home/issues/515)
-* [變更為安裝套件管理員中的檢視時，延遲捲軸](https://github.com/NuGet/Home/issues/519)
-* [網路呼叫應該在背景執行緒上執行](https://github.com/NuGet/Home/issues/516)
-* [已新增 [不顯示預覽視窗] 的核取方塊](https://github.com/NuGet/Home/issues/566)
-* [已新增的處理程序節流來降低處理器使用量](https://github.com/NuGet/Home/issues/356)
-* 改良的可攜式類別庫參考處理
+* [當套件管理員視窗重新整理時頻繁的網路更新呼叫](https://github.com/NuGet/Home/issues/515)
+* [在封裝管理員中變更為已安裝的視圖時，延遲捲軸](https://github.com/NuGet/Home/issues/519)
+* [應在背景執行緒上執行網路呼叫](https://github.com/NuGet/Home/issues/516)
+* [已新增 [不要顯示預覽視窗] 核取方塊](https://github.com/NuGet/Home/issues/566)
+* [已新增進程節流來降低處理器使用量](https://github.com/NuGet/Home/issues/356)
+* 改良的便攜類別程式庫參考處理
     * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
     * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
     * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
-* [自動完成 service 已區分大小寫](https://github.com/NuGet/Home/issues/198)
-* [引進基本驗證認證的更新](https://github.com/NuGet/Home/issues/456)
-* [已改善的錯誤記錄](https://github.com/NuGet/Home/issues/407)
-* [呼叫更新套件時，改善的 powershell 錯誤訊息](https://github.com/NuGet/Home/issues/5)
-* [已修正 深入了解選項' 連結，以防止在 Windows 10 上損毀](https://github.com/NuGet/Home/issues/822)
-* [請記住發行前版本 核取方塊設定](https://github.com/NuGet/Home/issues/732)
-* [依方案中專案的快取結果的改良蒐集效能](https://github.com/NuGet/Home/issues/721)
-* [您可以以平行方式收集多個封裝](https://github.com/NuGet/Home/issues/713)
-* [安裝套件中移除-強制執行命令](https://github.com/NuGet/Home/issues/697)
+* [自動完成服務區分大小寫](https://github.com/NuGet/Home/issues/198)
+* [更新以重新引入基本驗證認證](https://github.com/NuGet/Home/issues/456)
+* [已改善錯誤記錄](https://github.com/NuGet/Home/issues/407)
+* [已改善呼叫更新套件時的 powershell 錯誤訊息](https://github.com/NuGet/Home/issues/5)
+* [已修正 [瞭解選項] 連結，以防止當 Windows 10 時發生損毀](https://github.com/NuGet/Home/issues/822)
+* [[記住發行前版本] 核取方塊設定](https://github.com/NuGet/Home/issues/732)
+* [藉由快取解決方案中各專案的結果來改善收集效能](https://github.com/NuGet/Home/issues/721)
+* [可以平行收集多個封裝](https://github.com/NuGet/Home/issues/713)
+* [已移除安裝封裝-force 命令](https://github.com/NuGet/Home/issues/697)
 
-請留意[我們的部落格](http://blog.nuget.org)如需詳細的進度和宣布，我們準備好提供適用於 Windows 10 開發的支援。
+當我們準備好提供 Windows 10 開發的支援時，請留意 [我們的 blog](http://blog.nuget.org) ，以取得更多的進度和公告。

@@ -1,16 +1,16 @@
 ---
 title: 使用 Team Foundation Build 的 NuGet 套件還原逐步解說
 description: 使用 Team Foundation Build (TFS 和 Visual Studio Team Services) 進行 NuGet 套件還原的逐步解說。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b993106d439dc137fbe040b51fda373539de81a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610995"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774982"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>使用 Team Foundation Build 設定套件還原
 
@@ -54,26 +54,28 @@ nuget restore path\to\solution.sln
 
 存放庫的結構如下：
 
-    <Project>
-        │   .gitignore
-        │   .tfignore
-        │   build.proj
-        │
-        ├───src
-        │   │   BingSearcher.sln
-        │   │
-        │   └───BingSearcher
-        │       │   App.config
-        │       │   BingSearcher.csproj
-        │       │   packages.config
-        │       │   Program.cs
-        │       │
-        │       └───Properties
-        │               AssemblyInfo.cs
-        │
-        └───tools
-            └───NuGet
-                    nuget.exe
+```
+<Project>
+    │   .gitignore
+    │   .tfignore
+    │   build.proj
+    │
+    ├───src
+    │   │   BingSearcher.sln
+    │   │
+    │   └───BingSearcher
+    │       │   App.config
+    │       │   BingSearcher.csproj
+    │       │   packages.config
+    │       │   Program.cs
+    │       │
+    │       └───Properties
+    │               AssemblyInfo.cs
+    │
+    └───tools
+        └───NuGet
+                nuget.exe
+```
 
 您可以看到我們尚未簽入 `packages` 資料夾，也未簽入任何 `.targets` 檔案。
 
@@ -84,7 +86,7 @@ nuget restore path\to\solution.sln
 ### <a name="ignore-files"></a>忽略檔案
 
 > [!Note]
-> 目前 [NuGet 用戶端中有已知 Bug](https://nuget.codeplex.com/workitem/4072)，可讓用戶端仍然將 `packages` 資料夾新增至版本設定。 因應措施是停用原始檔控制整合。 若要這樣做，您需要在與解決方案平行的 `.nuget` 資料夾中有 `Nuget.Config ` 檔案。 如果此資料夾尚未存在，則您需要建立它。 在[`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md)中,新增以下內容:
+> 目前 [NuGet 用戶端中有已知 Bug](https://nuget.codeplex.com/workitem/4072)，可讓用戶端仍然將 `packages` 資料夾新增至版本設定。 因應措施是停用原始檔控制整合。 若要這樣做，您需要在與解決方案平行的 `.nuget` 資料夾中有 `Nuget.Config ` 檔案。 如果此資料夾尚未存在，則您需要建立它。 在中 [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) ，新增下列內容：
 
 ```xml
 <configuration>
@@ -98,33 +100,39 @@ nuget restore path\to\solution.sln
 
 `.gitignore` 檔案的內容如下：
 
-    syntax: glob
-    *.user
-    *.suo
-    bin
-    obj
-    packages
-    *.nupkg
-    project.lock.json
-    project.assets.json
+```
+syntax: glob
+*.user
+*.suo
+bin
+obj
+packages
+*.nupkg
+project.lock.json
+project.assets.json
+```
 
 `.gitignore` 檔案的[功能相當強大](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html)。 例如，如果您想要通常不要簽入 `packages` 資料夾的內容，但想要進行先前之簽入 `.targets` 檔案的指引，則可能改為具有下列規則：
 
-    packages
-    !packages/**/*.targets
+```
+packages
+!packages/**/*.targets
+```
 
 這會排除所有 `packages` 資料夾，但會重新包含所有內含的 `.targets` 檔案。 但您可以在[這裡](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)找到 `.gitignore` 檔案的範本，此範本是特別為 Visual Studio 開發人員需求量身訂做。
 
 TF 版本設定透過 [.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) 檔案支援非常類似的機制。 語法幾乎相同：
 
-    *.user
-    *.suo
-    bin
-    obj
-    packages
-    *.nupkg
-    project.lock.json
-    project.assets.json
+```
+*.user
+*.suo
+bin
+obj
+packages
+*.nupkg
+project.lock.json
+project.assets.json
+```
 
 ## <a name="buildproj"></a>build.proj
 

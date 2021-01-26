@@ -1,16 +1,16 @@
 ---
 title: 針對 Visual Studio 中的 NuGet 套件還原進行疑難排解
 description: Visual Studio 中常見的 NuGet 還原錯誤描述，以及如何針對這些錯誤進行疑難排解。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699722"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775028"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 

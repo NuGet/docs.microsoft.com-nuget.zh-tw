@@ -10,12 +10,12 @@ ms.technology: ''
 description: 發行服務可讓用戶端發佈新的符號套件。
 keywords: NuGet API 推送符號套件
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738873"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773893"
 ---
 # <a name="push-symbol-packages"></a>推送符號套件
 
@@ -42,7 +42,9 @@ SymbolPackagePublish/4.9。0  | 初始版本
 
 nuget.org 支援使用下列 API 來推送新的符號套件格式 ([.snupkg](../create-packages/Symbol-Packages-snupkg.md)) 。 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 具有相同識別碼和版本的符號套件可以提交多次。 在下列情況下，將會拒絕符號套件。
 - 具有相同識別碼和版本的套件不存在。
@@ -57,7 +59,7 @@ X-NuGet-ApiKey | 標頭 | 字串 | 是      | 例如， `X-NuGet-ApiKey: {USER_A
 
 API 金鑰是由使用者從套件來源取得並設定為用戶端的不透明字串。 未強制採用任何特定的字串格式，但 API 金鑰的長度不應超過 HTTP 標頭值的合理大小。
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 符號推送的要求主體與封裝推送要求的要求主體相同 (請參閱 [封裝推送和刪除](package-publish-resource.md)) 。 
 

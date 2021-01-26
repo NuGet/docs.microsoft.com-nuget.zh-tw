@@ -1,16 +1,16 @@
 ---
 title: NuGet 套件名稱爭議解決方案
 description: 解決 NuGet 套件發行者之間有關品牌、商標和其他衝突情況爭議的程序。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e725d8114cde3de189dc3a648bc5a6c0b0e785b
-ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
+ms.openlocfilehash: d9ed7de95a1f38ea2c288b28958519b1dff0e595
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83367943"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775660"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>解決 NuGet 套件名稱的爭議
 
@@ -24,6 +24,6 @@ ms.locfileid: "83367943"
 
 ## <a name="process"></a>Process
 
-1. 使用套件詳細資料頁面上的 [連絡擁有者]**** 連結，連絡有爭端的套件擁有者。 以和善、適當的口吻說明您的問題。
-2. 將您的訊息副本傳送至， [support@nuget.org](mailto:support@nuget.org) 讓 NuGet 和 .Net Foundation 知道您的爭議。
-3. 請等候最多30天的時間來解決問題，然後再通知一 [support@nuget.org](mailto:support@nuget.org) 次。 nuget.org 支援小組會介入，嘗試解決雙方爭議。
+1. 使用套件詳細資料頁面上的 [連絡擁有者]  連結，連絡有爭端的套件擁有者。 以和善、適當的口吻說明您的問題。
+2. 將您的訊息副本傳送給， [support@nuget.org](mailto:support@nuget.org) 讓 NuGet 和 .Net Foundation 知道您的爭議。
+3. 請等候最多30天的解析度，然後再次通知 [support@nuget.org](mailto:support@nuget.org) 。 nuget.org 支援小組會介入，嘗試解決雙方爭議。

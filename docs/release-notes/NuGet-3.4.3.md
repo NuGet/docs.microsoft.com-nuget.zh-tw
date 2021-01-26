@@ -1,35 +1,35 @@
 ---
 title: NuGet 3.4.3 版本資訊
-description: 版本資訊 NuGet 3.4.3 包括已知問題、 bug 修正、 新增的功能和 Dcr。
-author: karann-msft
-ms.author: karann
+description: NuGet 3.4.3 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 6ee4ecc06eb5119e24108d1cd6d2050254c45817
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f0d9740aaf0a82b9e4023b5e4990c8f4adbea63c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549161"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776467"
 ---
 # <a name="nuget-343-release-notes"></a>NuGet 3.4.3 版本資訊
 
-[NuGet 3.4.2 版本資訊](../release-notes/nuget-3.4.2.md) | [NuGet 3.4.4 版本資訊](../release-notes/nuget-3.4.4.md)
+[NuGet 3.4.2 版本](../release-notes/nuget-3.4.2.md)  |  資訊[NuGet 3.4.4 版本](../release-notes/nuget-3.4.4.md)資訊
 
-NuGet 3.4.3 已發行於 2016 年 4 月 22 日解決 3.4 及後續版本中已識別的幾個問題。
+NuGet 3.4.3 已于2016年4月22日發行，以解決在3.4 和後續版本中識別的數個問題。
 
-您可以下載 VSIX 和 nuget.exe[此處](https://dist.nuget.org/index.html)。
+您可以在 [這裡](https://dist.nuget.org/index.html)下載 VSIX 和 nuget.exe。
 
-## <a name="updates-and-improvements"></a>更新和增強功能
+## <a name="updates-and-improvements"></a>更新和改進
 
-* 改善 Visual Studio 的可靠性。 我們已修正一些問題造成損毀 Visual Studio 中的 nuget。
+* 改善 Visual Studio 的可靠性。 我們已修正 NuGet 中導致 Visual Studio 損毀的一些問題。
 
 ## <a name="fixes"></a>修正
 
-* 已修正一些授權問題受密碼保護的私用 nuget 摘要。
-* 已修正的問題解決無法還原 PCL 的從`project.json`以指定的執行階段。
-* 安裝套件時，某些客戶所遇到間歇性失敗。 這現在已修正在此版本中。
-* 已修正的問題，導致還原失敗，在 C + + /cli 專案與`project.json`。
-* 無法解壓縮正確當您使用 nuget 在 mono 中某些套件 (例如 ModernHttpClient)。 這現在已修正在此版本中。
+* 修正了一些受密碼保護的私用 nuget 摘要的授權問題。
+* 已修正無法從指定的執行時間還原 PCL 之的問題 `project.json` 。
+* 某些客戶在安裝套件時遇到間歇性失敗。 這項功能現在已在此版本中修正。
+* 修正在 c + +/CLI 專案中導致還原失敗的問題 `project.json` 。
+* 某些套件 (例如，當您在 mono 中使用 nuget 時，未正確解壓縮的 ModernHttpClient) 。 這項功能現在已在此版本中修正。
 
-如中此版本的修正和改善的完整清單，請參閱的問題清單[此處](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.4.3+is%3Aclosed)。
+如需此版本中的修正和增強功能的完整清單，請參閱 [此處](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.4.3+is%3Aclosed)的問題清單。

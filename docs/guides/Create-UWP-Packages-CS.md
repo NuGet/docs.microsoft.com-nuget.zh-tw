@@ -1,16 +1,16 @@
 ---
-title: 建立通用 Windows 平台的 NuGet 套件
+title: '建立 UWP 平臺的 NuGet 套件 (c # ) '
 description: '使用 c # 中通用 Windows 平臺的 Windows 執行階段元件來建立 NuGet 套件的端對端逐步解說。'
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 22df2cd6dc374ba265c79a019747191e797b774c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238006"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774288"
 ---
 # <a name="create-uwp-packages-c"></a> (c # ) 建立 UWP 套件
 
@@ -26,11 +26,11 @@ ms.locfileid: "93238006"
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>建立 UWP Windows 執行階段元件
 
-1. 在 Visual Studio 中，選擇 [檔案] **> [新的 > 專案** ]，搜尋 [uwp c #]，選取 **Windows 執行階段元件 (通用 Windows)** 範本，按一下 [下一步]，將名稱變更為 ImageEnhancer，然後按一下 [建立]。 當系統出現提示時，請接受目標版本和最低版本的預設值。
+1. 在 Visual Studio 中，選擇 [檔案] **> [新的 > 專案**]，搜尋 [uwp c #]，選取 **Windows 執行階段元件 (通用 Windows)** 範本，按一下 [下一步]，將名稱變更為 ImageEnhancer，然後按一下 [建立]。 當系統出現提示時，請接受目標版本和最低版本的預設值。
 
     ![建立新 UWP Windows 執行階段元件專案](media/UWP-NewProject-CS.png)
 
-1. 以滑鼠右鍵按一下方案總管中的專案，選取 [ **加入 > 新專案** ]，選取 [樣板 **化控制項** ]，將名稱變更為 AwesomeImageControl.cs，然後按一下 [ **新增** ]：
+1. 以滑鼠右鍵按一下方案總管中的專案，選取 [ **加入 > 新專案**]，選取 [樣板 **化控制項**]，將名稱變更為 AwesomeImageControl.cs，然後按一下 [ **新增**]：
 
     ![將新的 XAML 樣板化控制項項目新增至專案](media/UWP-NewXAMLControl-CS.png)
 
@@ -38,11 +38,11 @@ ms.locfileid: "93238006"
 
     ![將 [產生 XML 文件檔] 設定為 [是]](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. 以滑鼠右鍵按一下 *方案* ，選取 [ **批次組建** ]，然後在對話方塊中檢查五個組建方塊，如下所示。 這確保當您執行建置時，會為 Windows 所支援的每個目標系統產生一組完整成品。
+1. 以滑鼠右鍵按一下 *方案* ，選取 [ **批次組建**]，然後在對話方塊中檢查五個組建方塊，如下所示。 這確保當您執行建置時，會為 Windows 所支援的每個目標系統產生一組完整成品。
 
     ![批次建置](media/UWP-BatchBuild-CS.png)
 
-1. 在 [批次建置] 對話方塊中，按一下 [建置]  確認專案，並建立 NuGet 套件所需的輸出檔案。
+1. 在 [批次建置] 對話方塊中，按一下 [建置] 確認專案，並建立 NuGet 套件所需的輸出檔案。
 
 > [!Note]
 > 在本逐步解說中，您將偵錯成品用於套件。 針對非偵錯套件，請改為檢查 [批次建置] 對話方塊中的 [發行] 選項，並參照所遵循步驟中產生的發行資料夾。

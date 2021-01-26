@@ -1,21 +1,21 @@
 ---
 title: NuGet 套件的原始程式檔和組態檔轉換
 description: NuGet 套件可在安裝時轉換原始程式檔和組態檔 (XML) 的詳細資料。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237980"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774584"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>轉換原始程式碼和組態檔
 
-安裝套件時， **原始程式碼轉換** 會將單向權杖取代套用到套件 `content` 或 `contentFiles` 資料夾中的檔案 (若是使用 `packages.config` 的客戶，為 `content`；若是 `PackageReference` 則為 `contentFiles`)，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
+安裝套件時，**原始程式碼轉換** 會將單向權杖取代套用到套件 `content` 或 `contentFiles` 資料夾中的檔案 (若是使用 `packages.config` 的客戶，為 `content`；若是 `PackageReference` 則為 `contentFiles`)，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
 
 **組態檔轉換** 可讓您修改目標專案中的現有檔案 (例如 `web.config` 和 `app.config`)。 例如，您的套件可能需要將項目新增至組態檔中的 `modules` 區段。 此轉換的完成是透過在專案中包含可描述要新增至組態檔之區段的特殊檔案。 解除安裝套件時，接著會反轉這些相同的變更，讓這項作業成為雙向轉換。
 
@@ -108,7 +108,7 @@ NuGet 安裝套件之後，`web.config` 會顯示如下：
 
 若要檢查其 `web.config.transform` 檔案，請從上面的連結下載 ELMAH 套件，並將套件延伸模組從 `.nupkg` 變更為 `.zip`，然後開啟該 ZIP 檔案中的 `content\web.config.transform`。
 
-若要查看安裝和解除安裝套件的效果，請在 Visual Studio 中建立新的 ASP.NET 專案 (範本是在 [新增專案] 對話方塊的 [Visual C#] > [Web]  下方)，然後選取空白 ASP.NET 應用程式。 開啟 `web.config` 以查看其初始狀態。 接著以滑鼠右鍵按一下專案，並選取 [管理 NuGet 套件]  ，再瀏覽 nuget.org 上的 ELMAH，然後安裝最新版本。 請注意所有 `web.config` 變更。 現在解除安裝套件，而您會看到 `web.config` 還原成其先前狀態。
+若要查看安裝和解除安裝套件的效果，請在 Visual Studio 中建立新的 ASP.NET 專案 (範本是在 [新增專案] 對話方塊的 [Visual C#] > [Web] 下方)，然後選取空白 ASP.NET 應用程式。 開啟 `web.config` 以查看其初始狀態。 接著以滑鼠右鍵按一下專案，並選取 [管理 NuGet 套件]，再瀏覽 nuget.org 上的 ELMAH，然後安裝最新版本。 請注意所有 `web.config` 變更。 現在解除安裝套件，而您會看到 `web.config` 還原成其先前狀態。
 
 ### <a name="xdt-transforms"></a>XDT 轉換
 

@@ -1,16 +1,16 @@
 ---
 title: 使用 dotnet CLI 建立及發佈 NuGet 套件
 description: 使用 .NET Core CLI、dotnet 建立和發行 NuGet 套件的逐步解說教學課程。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb63257c874fc4752f3b3d59db4be5996d5ab81d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237480"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775763"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>快速入門：建立及發佈套件 (dotnet CLI)
 
@@ -111,7 +111,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 在 [Channel 9](https://channel9.msdn.com/Series/NuGet-101) 和 [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多的 NuGet 影片。
 
-## <a name="next-steps"></a>下一步
+## <a name="next-steps"></a>後續步驟
 
 恭喜，您建立了您的第一個 NuGet 套件！
 
@@ -124,7 +124,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 - [發行前套件](../create-packages/Prerelease-Packages.md)
 - [支援多個目標架構](../create-packages/multiple-target-frameworks-project-file.md)
 - [套件版本控制](../concepts/package-versioning.md)
-- [新增授權運算式或檔案](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [新增授權運算式或檔案](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)
 - [建立當地語系化的套件](../create-packages/creating-localized-packages.md)
 - [建立符號套件](../create-packages/symbol-packages-snupkg.md)
 - [正在簽署套件](../create-packages/Sign-a-package.md)

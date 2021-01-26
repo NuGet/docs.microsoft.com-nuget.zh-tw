@@ -1,31 +1,31 @@
 ---
 title: NuGet 4.4 RTM 版本資訊
 description: NuGet 4.3 RTM 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498693"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776289"
 ---
 # <a name="nuget-44-release-notes"></a>NuGet 4.4 版本資訊
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 隨附 NuGet 4.4 RTM。
 
-## <a name="summary-whats-new-in-440"></a>摘要:4.4.0 中的新增功能
+## <a name="summary-whats-new-in-440"></a>摘要：4.4.0 的新功能
 
-## <a name="summary-whats-new-in-442"></a>摘要:4.4.2 中的新增功能
+## <a name="summary-whats-new-in-442"></a>摘要：4.4.2 的新功能
 
-* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
+* 安全性修正：在 ~/.nuget 內建立之檔案的許可權太過開啟 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>摘要:4.4.3 中的新增功能
+## <a name="summary-whats-new-in-443"></a>摘要：4.4.3 的新功能
 
-* 安全修復:NUPKG 內部的檔可以在 NUPKG 目錄上方具有相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
+* 安全性修正：檔案內的檔案可以有 NUPKG 目錄上方的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
@@ -71,13 +71,13 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 #### <a name="workaround"></a>因應措施
 
-此問題目前沒有因應措施。
+目前尚無解決的方法。
 
 ## <a name="issues-fixed-in-nuget-44-rtm-timeframe"></a>NuGet 4.4 RTM 時間範圍中已修正的問題
 
 [NuGet 4.3 RTM 版本資訊](../release-notes/nuget-4.3-RTM.md) - 列出所有 NuGet 4.3 RTM 修正的問題
 
-### <a name="features"></a>特性
+### <a name="features"></a>功能
 
 - PMC 和 NuGet PM UI 案例中的輕量型解決方案載入支援 - [#5180](https://github.com/NuGet/Home/issues/5180)
 
@@ -195,8 +195,8 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 ## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4.4 RTM 中已修正之 GitHub 問題的連結
 
-[問題清單 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
+[問題清單1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 
-[問題清單 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
+[問題清單2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
 
-[問題清單 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)
+[問題清單3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)

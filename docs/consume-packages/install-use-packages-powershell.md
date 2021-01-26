@@ -1,18 +1,18 @@
 ---
 title: 在 Visual Studio 中使用主控台安裝及管理 NuGet 套件
 description: 在 Visual Studio 中使用 NuGet 套件管理員主控台來處理套件的指示。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 119bf32426e5cbc179c3713e60688c691e133c5d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699838"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774900"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>在 Visual Studio 中使用套件管理員主控台安裝及管理套件 (PowerShell)
 
@@ -162,7 +162,7 @@ Visual Studio for Mac 目前不提供套件管理員主控台。 但是，對等
 
 PowerShell 設定檔可讓您在任何使用 PowerShell 的地方提供常用的命令。 NuGet 支援 NuGet 專用設定檔，通常位於下列位置：
 
-    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
+*% UserProfile% \Documents\WindowsPowerShell\NuGet_profile.ps1*
 
 若要尋找設定檔，請在主控台中輸入 `$profile`：
 

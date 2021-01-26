@@ -1,60 +1,64 @@
 ---
-title: 報告不當使用 URL 範本，NuGet API
-description: 報告不當使用 URL 範本可讓用戶端在其 UI 中顯示的報表內容粗俗的文章連結。
+title: 檢舉不當使用 URL 範本，NuGet API
+description: 「報告濫用 URL」範本可讓用戶端在其 UI 中顯示「報告不當使用」連結。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b36058c9c841e2cca6eb61121ada8275f1525a8f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549335"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775222"
 ---
-# <a name="report-abuse-url-template"></a>報告不當使用 URL 範本
+# <a name="report-abuse-url-template"></a>報告濫用 URL 範本
 
-就可以建置可供使用者特定封裝的相關檢舉不當使用 URL 的用戶端。 當想要啟用委派到套件來源的濫用報告所有的用戶端體驗 （甚至是第 3 個合作對象） 的套件來源，這非常有用。
+用戶端可以建立一個 URL，讓使用者用來回報有關特定套件的濫用。 當套件來源想要啟用所有用戶端體驗 (甚至是協力廠商) 將濫用報表委派給套件來源時，這非常有用。
 
-用來建立此 URL 的資源`ReportAbuseUriTemplate`資源中找到[服務索引](service-index.md)。
+用來建立此 URL 的資源是在 `ReportAbuseUriTemplate` [服務索引](service-index.md)中找到的資源。
 
 ## <a name="versioning"></a>版本控制
 
-下列`@type`會使用值：
+使用的 `@type` 值如下：
 
-@type 值                       | 注意
+@type 值                       | 備註
 --------------------------------- | -----
-ReportAbuseUriTemplate/3.0.0-beta | 初始版本
+ReportAbuseUriTemplate/3.0.0-Beta | 初始版本
 ReportAbuseUriTemplate/3.0.0-rc   | 別名 `ReportAbuseUriTemplate/3.0.0-beta`
 
-## <a name="url-template"></a>URL 範本
+## <a name="url-template"></a>URL template
 
-下列 API 的 URL 是 windows 7`@id`其中一個先前提及的資源相關聯的屬性`@type`值。
+下列 API 的 URL 是 `@id` 與上述其中一個資源值相關聯之屬性的值 `@type` 。
 
 ## <a name="http-methods"></a>HTTP 方法
 
-雖然用戶端不是代表使用者對檢舉不當使用 URL 的要求，應支援網頁`GET`方法，以允許輕鬆地在網頁瀏覽器中開啟已按下的 URL。
+雖然用戶端不會代表使用者對報告濫用 URL 提出要求，但網頁應該支援 `GET` 方法，以允許在網頁瀏覽器中輕鬆地開啟已按一下的 url。
 
-## <a name="construct-the-url"></a>建構的 URL
+## <a name="construct-the-url"></a>建立 URL
 
-指定已知的套件識別碼和版本，用戶端實作可以建構 URL，用來存取 web 介面。 用戶端實作應該顯示此建構的 URL （或可點選連結） 給使用者，讓他們開啟網頁瀏覽器的 url，並進行任何必要的濫用報告。 不當使用的報表格式的實作取決於伺服器實作。
+假設有已知的封裝識別碼和版本，則用戶端執行可以建立用來存取 web 介面的 URL。 用戶端的執行應該會顯示此已建立的 URL (或可按的連結) 給使用者，讓他們能夠將網頁瀏覽器開啟至 URL，並進行任何必要的濫用報告。 「濫用報表」表單的執行是由伺服器執行所決定。
 
-值`@id`是 URL 的字串，包含任何下列預留位置語彙基元：
+的值 `@id` 是包含下列任何預留位置標記的 URL 字串：
 
 ### <a name="url-placeholders"></a>URL 預留位置
 
-名稱        | 類型    | 必要 | 注意
+名稱        | 類型    | 必要 | 備註
 ----------- | ------- | -------- | -----
-`{id}`      | 字串  | 否       | 檢舉不當使用的套件識別碼
-`{version}` | 字串  | 否       | 若要檢舉不當使用的套件版本
+`{id}`      | 字串  | 不可以       | 要報告濫用的套件識別碼
+`{version}` | 字串  | 不可以       | 要報告濫用的套件版本
 
-`{id}`和`{version}`解譯伺服器實作的值必須是不區分大小寫，並不容易受到版本是否已標準化。
+`{id}` `{version}` 伺服器執行所解讀的和值必須區分大小寫，且不區分版本是否正規化。
 
-比方說，nuget.org 的報表內容粗俗的文章範本看起來像這樣：
+例如，nuget 的報告濫用範本看起來像這樣：
 
-    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
+https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
 
-如果客戶端實現需要顯示NuGet.Versioning 4.3.0的報告濫用形式的鏈接，則會生成以下URL並將其提供給用戶：
+如果用戶端執行需要顯示 NuGet 的報告濫用表單連結，則會產生下列 URL 並將其提供給使用者：
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```

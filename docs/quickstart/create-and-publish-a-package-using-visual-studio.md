@@ -1,16 +1,16 @@
 ---
 title: 建立及發行 .NET Standard NuGet 套件 - Windows 上的 Visual Studio
 description: 在 Windows 上使用 Visual Studio 建立及發行 .NET Standard NuGet 套件的逐步解說教學課程。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 53f54f6723ad10fca2ed6f75290ba3829dfb9a5e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237493"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775684"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>快速入門：使用 Visual Studio 建立及發行 NuGet 套件 (.NET Standard，僅限 Windows)
 
@@ -114,7 +114,7 @@ namespace AppLogger
 
 ### <a name="optional-pack-with-msbuild"></a>(選擇性) 使用 MSBuild 進行封裝
 
-**Pack** `pack` 當專案包含必要的套件資料時，NuGet 4.X + 和 MSBuild 15.1 + 可以替代使用 [套件] 功能表命令。 請開啟命令提示字元，巡覽至專案資料夾並執行下列命令。 (若從 [開始] 功能表啟動 [適用於 Visual Studio 的開發人員命令提示字元]，其中就會設定好 MSBuild 的所有必要路徑，因此這是建議的做法。)
+ `pack` 當專案包含必要的套件資料時，NuGet 4.X + 和 MSBuild 15.1 + 可以替代使用 [套件] 功能表命令。 請開啟命令提示字元，巡覽至專案資料夾並執行下列命令。 (若從 [開始] 功能表啟動 [適用於 Visual Studio 的開發人員命令提示字元]，其中就會設定好 MSBuild 的所有必要路徑，因此這是建議的做法。)
 
 如需詳細資訊，請參閱[使用 MSBuild 建立套件](../create-packages/creating-a-package-msbuild.md)。
 

@@ -1,16 +1,16 @@
 ---
 title: 如何建立當地語系化 NuGet 套件
 description: 兩種當地語系化 NuGet 套件建立方式的詳細資料：包含單一套件中的所有組件，或發行不同的組件。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: cb3f8a9df66f259b130996822f102c27636d5d2c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610945"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774759"
 ---
 # <a name="creating-localized-nuget-packages"></a>建立當地語系化 NuGet 套件
 
@@ -27,34 +27,36 @@ ms.locfileid: "73610945"
 
 例如，下列資料夾結構支援德文 (de)、義大利文 (it)、日文 (ja)、俄文 (ru)、繁體中文 (zh-Hans) 和繁體中文 (zh-Hant)：
 
-    lib
-    └───net40
-        │   Contoso.Utilities.dll
-        │   Contoso.Utilities.xml
-        │
-        ├───de
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───it
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───ja
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───ru
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───zh-Hans
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        └───zh-Hant
-                Contoso.Utilities.resources.dll
-                Contoso.Utilities.xml
+```
+lib
+└───net40
+    │   Contoso.Utilities.dll
+    │   Contoso.Utilities.xml
+    │
+    ├───de
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───it
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───ja
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───ru
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───zh-Hans
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    └───zh-Hant
+            Contoso.Utilities.resources.dll
+            Contoso.Utilities.xml
+```
 
 您可以看到語言全部列在 `net40` 目標架構資料夾下方。 如果您[支援多個架構](../create-packages/supporting-multiple-target-frameworks.md)，則在每個變異的 `lib` 下方會有一個資料夾。
 
@@ -92,28 +94,32 @@ ms.locfileid: "73610945"
 
 至此，您的主要套件會使用命名慣例 `{identifier}.{version}.nupkg`，並包含預設語言 (例如 en-US) 的組件。 例如，`ContosoUtilities.1.0.0.nupkg` 會包含下列結構：
 
-    lib
-    └───net40
-            ContosoUtilities.dll
-            ContosoUtilities.xml
+```
+lib
+└───net40
+        ContosoUtilities.dll
+        ContosoUtilities.xml
+```
 
-附屬組件接著會使用命名慣例 `{identifier}.{language}.{version}.nupkg` (例如 `ContosoUtilities.de.1.0.0.nupkg`)。 識別碼**必須**完全符合主要套件的識別碼。
+附屬組件接著會使用命名慣例 `{identifier}.{language}.{version}.nupkg` (例如 `ContosoUtilities.de.1.0.0.nupkg`)。 識別碼 **必須** 完全符合主要套件的識別碼。
 
-因為這是不同的套件，所以它的專屬 `.nuspec` 檔案會包含當地語系化中繼資料。 請注意， 中的語言`.nuspec` **必須**符合檔案名稱中所使用的語言。
+因為這是不同的套件，所以它的專屬 `.nuspec` 檔案會包含當地語系化中繼資料。 請注意， 中的語言`.nuspec` **必須** 符合檔案名稱中所使用的語言。
 
-附屬組件也**必須**使用 [] 版本標記法將主要套件的確切版本宣告為相依性 (請參閱[套件版本控制](../concepts/package-versioning.md))。 例如，`ContosoUtilities.de.1.0.0.nupkg` 必須使用 `[1.0.0]` 標記法來宣告與 `ContosoUtilities.1.0.0.nupkg` 的相依性。 附屬套件的版本號碼當然可以與主要套件的版本號碼不同。
+附屬組件也 **必須** 使用 [] 版本標記法將主要套件的確切版本宣告為相依性 (請參閱 [套件版本控制](../concepts/package-versioning.md))。 例如，`ContosoUtilities.de.1.0.0.nupkg` 必須使用 `[1.0.0]` 標記法來宣告與 `ContosoUtilities.1.0.0.nupkg` 的相依性。 附屬套件的版本號碼當然可以與主要套件的版本號碼不同。
 
 附屬套件的結構接著必須包含套件檔案名稱中符合 `{language}` 之子資料夾中的資源組件和 XML IntelliSense 檔案：
 
-    lib
-    └───net40
-        └───de
-                ContosoUtilities.resources.dll
-                ContosoUtilities.xml
+```
+lib
+└───net40
+    └───de
+            ContosoUtilities.resources.dll
+            ContosoUtilities.xml
+```
 
 **注意**：除非需要 `ja-JP` 這類特定子文化特性，否則一律會使用較高層的語言識別碼 (例如 `ja`)。
 
-在附屬組件中，NuGet **只**會辨識檔案名稱中符合 `{language}` 之資料夾中的這些檔案。 其他所有項目都會被忽略。
+在附屬組件中，NuGet **只** 會辨識檔案名稱中符合 `{language}` 之資料夾中的這些檔案。 其他所有項目都會被忽略。
 
 符合所有這些慣例時，NuGet 會將套件辨識為附屬套件，並將當地語系化檔案安裝到主要套件的 `lib` 資料夾，就像它們一開始就已組合一樣。 解除安裝附屬套件將會從該相同資料夾中移除其檔案。
 

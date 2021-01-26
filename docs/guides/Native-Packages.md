@@ -1,16 +1,16 @@
 ---
 title: 建立原生 NuGet 套件
 description: 建立包含 C++ 程式碼而非受控程式碼的原生 NuGet 套件，供 C++ 專案使用的詳細資料。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: e0ec5323f7be53bef6637ad69540a66abbf22711
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2a95fca2ce5496512627e913273e5b66128e34c7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69520518"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774208"
 ---
 # <a name="creating-native-packages"></a>建立原生套件
 

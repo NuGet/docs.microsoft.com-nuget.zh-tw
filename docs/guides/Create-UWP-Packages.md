@@ -1,16 +1,16 @@
 ---
 title: 建立通用 Windows 平台的 NuGet 套件
 description: 有關如何使用適用於通用 Windows 平台之 Windows 執行階段元件來建立 NuGet 套件的端對端逐步解說。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c077645508cb10e86b3ed1e1f2bf61adcd2013d9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380756"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774234"
 ---
 # <a name="create-uwp-packages"></a>建立 UWP 套件
 
@@ -18,7 +18,7 @@ ms.locfileid: "72380756"
 
 在本逐步解說中，您將使用可在受控和原生專案中使用的原生 UWP 元件 (包含 XAML 控制項) 來建立 NuGet 套件。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先決條件
 
 1. Visual Studio 2017 或 Visual Studio 2015. 從 [visualstudio.com](https://www.visualstudio.com/) 免費安裝 2017 Community Edition，也可以使用 Professional Edition 和 Enterprise Edition。
 
@@ -26,23 +26,23 @@ ms.locfileid: "72380756"
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>建立 UWP Windows 執行階段元件
 
-1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]****，並展開 [Visual C++] > [Windows] > [通用]**** 節點，然後選取 [Windows 執行階段元件 (通用 Windows)]**** 範本，並將名稱變更為 ImageEnhancer，然後按一下 [確定]。 當系統出現提示時，請接受目標版本和最低版本的預設值。
+1. 在 Visual Studio 中，選擇 [檔案] > [新增] > [專案]，並展開 [Visual C++] > [Windows] > [通用] 節點，然後選取 [Windows 執行階段元件 (通用 Windows)] 範本，並將名稱變更為 ImageEnhancer，然後按一下 [確定]。 當系統出現提示時，請接受目標版本和最低版本的預設值。
 
     ![建立新 UWP Windows 執行階段元件專案](media/UWP-NewProject.png)
 
-1. 以滑鼠右鍵按一下方案總管中的專案，選取 [新增] > [新增項目]****、按一下 [Visual C++] > [XAML]**** 節點、選取 [樣板化控制項]****、將名稱變更為 AwesomeImageControl.cpp，然後按一下 [新增]****：
+1. 以滑鼠右鍵按一下方案總管中的專案，選取 [新增] > [新增項目]、按一下 [Visual C++] > [XAML] 節點、選取 [樣板化控制項]、將名稱變更為 AwesomeImageControl.cpp，然後按一下 [新增]：
 
     ![將新的 XAML 樣板化控制項項目新增至專案](media/UWP-NewXAMLControl.png)
 
-1. 右鍵單擊解決方案資源管理器中的專案並選擇 **「屬性」。** 在 [屬性] 頁面中，展開 [組態屬性] > [C/C++]****，然後按一下 [輸出檔案]****。 在右窗格中，將 [產生 XML 文件檔]**** 的值變更為 [是]：
+1. 以滑鼠右鍵按一下方案總管中的專案，然後選取 [ **屬性]。** 在 [屬性] 頁面中，展開 [組態屬性] > [C/C++]，然後按一下 [輸出檔案]。 在右窗格中，將 [產生 XML 文件檔] 的值變更為 [是]：
 
     ![將 [產生 XML 文件檔] 設定為 [是]](media/UWP-GenerateXMLDocFiles.png)
 
-1. 現在以滑鼠右鍵按一下「方案」**，並選取 [批次建置]****，然後核取對話方塊中的三個 [偵錯] 方塊，如下顯示。 這確保當您執行建置時，會為 Windows 所支援的每個目標系統產生一組完整成品。
+1. 現在以滑鼠右鍵按一下「方案」，並選取 [批次建置]，然後核取對話方塊中的三個 [偵錯] 方塊，如下顯示。 這確保當您執行建置時，會為 Windows 所支援的每個目標系統產生一組完整成品。
 
     ![批次建置](media/UWP-BatchBuild.png)
 
-1. 在 [批次建置] 對話方塊中，按一下 [建置]**** 確認專案，並建立 NuGet 套件所需的輸出檔案。
+1. 在 [批次建置] 對話方塊中，按一下 [建置] 確認專案，並建立 NuGet 套件所需的輸出檔案。
 
 > [!Note]
 > 在本逐步解說中，您將偵錯成品用於套件。 針對非偵錯套件，請改為檢查 [批次建置] 對話方塊中的 [發行] 選項，並參照所遵循步驟中產生的發行資料夾。
@@ -153,7 +153,7 @@ Windows 執行階段元件需要描述其所有公開可用類型的中繼資料
 
 ### <a name="adding-targets"></a>新增 .targets
 
-接下來，可能使用 NuGet 套件的 C++ 和 JavaScript 專案需要有 .targets 檔案，才能識別必要組件和 winmd 檔案  (C# 和可視化基本項目會自動執行此操作。以將下面的文字複製到其中`ImageEnhancer.targets`並儲存到與該檔相同的資料夾中`.nuspec`, 創建此檔。 _注意_：此 `.targets` 檔案的名稱必須與套件識別碼的名稱相同 (例如 `.nupspec` 檔案中的 `<Id>` 項目)：
+接下來，可能使用 NuGet 套件的 C++ 和 JavaScript 專案需要有 .targets 檔案，才能識別必要組件和 winmd 檔案   (c # 和 Visual Basic 專案會自動執行這項作業。 ) 建立這個檔案，方法是將下面的文字複製到 `ImageEnhancer.targets` ，然後將它儲存在與檔案相同的資料夾中 `.nuspec` 。 _注意_：此 `.targets` 檔案的名稱必須與套件識別碼的名稱相同 (例如 `.nupspec` 檔案中的 `<Id>` 項目)：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -252,8 +252,8 @@ nuget pack ImageEnhancer.nuspec
 
 ## <a name="related-topics"></a>相關主題
 
-- [.nuspec 參考](../reference/nuspec.md)
-- [符號包](../create-packages/symbol-packages-snupkg.md)
+- [nuspec 參考](../reference/nuspec.md)
+- [符號套件](../create-packages/symbol-packages-snupkg.md)
 - [套件版本控制](../concepts/package-versioning.md)
 - [支援多個 .NET Framework 版本](../create-packages/supporting-multiple-target-frameworks.md)
 - [在套件中包含 MSBuild 屬性和目標](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
