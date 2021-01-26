@@ -1,39 +1,39 @@
 ---
-title: NuGet 3.0 的 RC2 版本資訊
-description: 版本資訊適用於 NuGet 3.0 RC2 包括已知的問題、 bug 修正、 新增的功能和 Dcr。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.0 RC2 版本資訊
+description: NuGet 3.0 RC2 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 863e48e632387b768a43530b987683605baf6db7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 355c200481f4acba9931dc3bcd85e99c5ffbf224
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545817"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780277"
 ---
-# <a name="nuget-30-rc2-release-notes"></a><span data-ttu-id="22115-103">NuGet 3.0 的 RC2 版本資訊</span><span class="sxs-lookup"><span data-stu-id="22115-103">NuGet 3.0 RC2 Release Notes</span></span>
+# <a name="nuget-30-rc2-release-notes"></a><span data-ttu-id="95790-103">NuGet 3.0 RC2 版本資訊</span><span class="sxs-lookup"><span data-stu-id="95790-103">NuGet 3.0 RC2 Release Notes</span></span>
 
-<span data-ttu-id="22115-104">[NuGet 3.0 RC 版本資訊](../release-notes/nuget-3.0-RC.md) | [NuGet 3.0 版本資訊](../release-notes/nuget-3.0.0.md)</span><span class="sxs-lookup"><span data-stu-id="22115-104">[NuGet 3.0 RC Release Notes](../release-notes/nuget-3.0-RC.md) | [NuGet 3.0 Release Notes](../release-notes/nuget-3.0.0.md)</span></span>
+<span data-ttu-id="95790-104">[NuGet 3.0 RC 版本](../release-notes/nuget-3.0-RC.md)  |  資訊[NuGet 3.0 版本](../release-notes/nuget-3.0.0.md)資訊</span><span class="sxs-lookup"><span data-stu-id="95790-104">[NuGet 3.0 RC Release Notes](../release-notes/nuget-3.0-RC.md) | [NuGet 3.0 Release Notes](../release-notes/nuget-3.0.0.md)</span></span>
 
-<span data-ttu-id="22115-105">NuGet 3.0 RC2 已於 2015 年 6 月 3 日發行為從 Visual Studio 2015 延伸模組資源庫提供的過渡版本以及[Codeplex](https://nuget.codeplex.com/releases/view/615507)。</span><span class="sxs-lookup"><span data-stu-id="22115-105">NuGet 3.0 RC2 was released on June 3, 2015 as an interim release available from the Visual Studio 2015 Extension Gallery and [Codeplex](https://nuget.codeplex.com/releases/view/615507).</span></span> <span data-ttu-id="22115-106">此版本有一些重要 bug 修正和效能增強功能，我們認為過去必須已完成的 Visual Studio 2015 發行前版本。</span><span class="sxs-lookup"><span data-stu-id="22115-106">This release has a number of important bug fixes and performance improvements that we felt were important to release before the completed Visual Studio 2015 release.</span></span> <span data-ttu-id="22115-107">這個 NuGet 擴充功能版本僅適用於 Visual Studio 2015。</span><span class="sxs-lookup"><span data-stu-id="22115-107">This NuGet extension version is only available for Visual Studio 2015.</span></span>
+<span data-ttu-id="95790-105">NuGet 3.0 RC2 發行于2015年6月3日，作為 Visual Studio 2015 擴充功能庫和 [Codeplex](https://nuget.codeplex.com/releases/view/615507)提供的過渡版。</span><span class="sxs-lookup"><span data-stu-id="95790-105">NuGet 3.0 RC2 was released on June 3, 2015 as an interim release available from the Visual Studio 2015 Extension Gallery and [Codeplex](https://nuget.codeplex.com/releases/view/615507).</span></span> <span data-ttu-id="95790-106">此版本有許多重要的 bug 修正和效能改進，我們認為在完成的 Visual Studio 2015 版之前必須先釋出。</span><span class="sxs-lookup"><span data-stu-id="95790-106">This release has a number of important bug fixes and performance improvements that we felt were important to release before the completed Visual Studio 2015 release.</span></span> <span data-ttu-id="95790-107">此 NuGet 擴充功能版本僅適用于 Visual Studio 2015。</span><span class="sxs-lookup"><span data-stu-id="95790-107">This NuGet extension version is only available for Visual Studio 2015.</span></span>
 
-<span data-ttu-id="22115-108">總計中，我們關閉 158 的問題，在此版本中，且您可以檢閱[GitHub 上的問題的完整清單](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01)。</span><span class="sxs-lookup"><span data-stu-id="22115-108">In total, we closed 158 issues in this release, and you can review the [complete list of issues on GitHub](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01).</span></span>
+<span data-ttu-id="95790-108">我們在此版本中已關閉158問題，您可以在 [GitHub 上查看問題的完整清單](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01)。</span><span class="sxs-lookup"><span data-stu-id="95790-108">In total, we closed 158 issues in this release, and you can review the [complete list of issues on GitHub](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01).</span></span>
 
-## <a name="summary-of-top-issues-resolved"></a><span data-ttu-id="22115-109">最常發生的問題已解決的摘要</span><span class="sxs-lookup"><span data-stu-id="22115-109">Summary of top issues resolved</span></span>
+## <a name="summary-of-top-issues-resolved"></a><span data-ttu-id="95790-109">已解決常見問題的摘要</span><span class="sxs-lookup"><span data-stu-id="95790-109">Summary of top issues resolved</span></span>
 
-* [<span data-ttu-id="22115-110">常見網路更新呼叫時重新整理套件管理員視窗</span><span class="sxs-lookup"><span data-stu-id="22115-110">Frequent network update calls when package manager window refreshes</span></span>](https://github.com/NuGet/Home/issues/515)
-* [<span data-ttu-id="22115-111">變更為安裝套件管理員中的檢視時，延遲捲軸</span><span class="sxs-lookup"><span data-stu-id="22115-111">Delayed scroll when changing to installed view in package manager</span></span>](https://github.com/NuGet/Home/issues/519)
-* [<span data-ttu-id="22115-112">網路呼叫應該在背景執行緒上執行</span><span class="sxs-lookup"><span data-stu-id="22115-112">Network calls should be run on a background thread</span></span>](https://github.com/NuGet/Home/issues/516)
-* <span data-ttu-id="22115-113">[已新增 [不顯示預覽視窗] 的核取方塊](https://github.com/NuGet/Home/issues/566)</span><span class="sxs-lookup"><span data-stu-id="22115-113">[Added 'Do not show preview window' checkbox](https://github.com/NuGet/Home/issues/566)</span></span>
-* [<span data-ttu-id="22115-114">已新增的處理程序節流來降低處理器使用量</span><span class="sxs-lookup"><span data-stu-id="22115-114">Added process throttling to reduce processor usage</span></span>](https://github.com/NuGet/Home/issues/356)
-* <span data-ttu-id="22115-115">改良的可攜式類別庫參考處理</span><span class="sxs-lookup"><span data-stu-id="22115-115">Improved portable-class-library reference handling</span></span>
+* [<span data-ttu-id="95790-110">當套件管理員視窗重新整理時頻繁的網路更新呼叫</span><span class="sxs-lookup"><span data-stu-id="95790-110">Frequent network update calls when package manager window refreshes</span></span>](https://github.com/NuGet/Home/issues/515)
+* [<span data-ttu-id="95790-111">在封裝管理員中變更為已安裝的視圖時，延遲捲軸</span><span class="sxs-lookup"><span data-stu-id="95790-111">Delayed scroll when changing to installed view in package manager</span></span>](https://github.com/NuGet/Home/issues/519)
+* [<span data-ttu-id="95790-112">應在背景執行緒上執行網路呼叫</span><span class="sxs-lookup"><span data-stu-id="95790-112">Network calls should be run on a background thread</span></span>](https://github.com/NuGet/Home/issues/516)
+* <span data-ttu-id="95790-113">[已新增 [不要顯示預覽視窗] 核取方塊](https://github.com/NuGet/Home/issues/566)</span><span class="sxs-lookup"><span data-stu-id="95790-113">[Added 'Do not show preview window' checkbox](https://github.com/NuGet/Home/issues/566)</span></span>
+* [<span data-ttu-id="95790-114">已新增進程節流來降低處理器使用量</span><span class="sxs-lookup"><span data-stu-id="95790-114">Added process throttling to reduce processor usage</span></span>](https://github.com/NuGet/Home/issues/356)
+* <span data-ttu-id="95790-115">改良的便攜類別程式庫參考處理</span><span class="sxs-lookup"><span data-stu-id="95790-115">Improved portable-class-library reference handling</span></span>
     * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
     * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
     * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
-* [<span data-ttu-id="22115-116">自動完成 service 已區分大小寫</span><span class="sxs-lookup"><span data-stu-id="22115-116">Autocomplete service was case sensitive</span></span>](https://github.com/NuGet/Home/issues/198)
-* [<span data-ttu-id="22115-117">引進基本驗證認證的更新</span><span class="sxs-lookup"><span data-stu-id="22115-117">Update to reintroduce basic auth credentials</span></span>](https://github.com/NuGet/Home/issues/456)
-* [<span data-ttu-id="22115-118">已改善的錯誤記錄</span><span class="sxs-lookup"><span data-stu-id="22115-118">Improved error logging</span></span>](https://github.com/NuGet/Home/issues/407)
-* [<span data-ttu-id="22115-119">呼叫更新套件時，改善的 powershell 錯誤訊息</span><span class="sxs-lookup"><span data-stu-id="22115-119">Improved powershell error messages when calling Update-Package</span></span>](https://github.com/NuGet/Home/issues/5)
+* [<span data-ttu-id="95790-116">自動完成服務區分大小寫</span><span class="sxs-lookup"><span data-stu-id="95790-116">Autocomplete service was case sensitive</span></span>](https://github.com/NuGet/Home/issues/198)
+* [<span data-ttu-id="95790-117">更新以重新引入基本驗證認證</span><span class="sxs-lookup"><span data-stu-id="95790-117">Update to reintroduce basic auth credentials</span></span>](https://github.com/NuGet/Home/issues/456)
+* [<span data-ttu-id="95790-118">已改善錯誤記錄</span><span class="sxs-lookup"><span data-stu-id="95790-118">Improved error logging</span></span>](https://github.com/NuGet/Home/issues/407)
+* [<span data-ttu-id="95790-119">已改善呼叫更新套件時的 powershell 錯誤訊息</span><span class="sxs-lookup"><span data-stu-id="95790-119">Improved powershell error messages when calling Update-Package</span></span>](https://github.com/NuGet/Home/issues/5)
 
-<span data-ttu-id="22115-120">下載此應用程式[更新為 NuGet 延伸模組](https://nuget.codeplex.com/releases/view/615507)從 Codeplex 和請留意[我們的部落格](http://blog.nuget.org)如需詳細的進度和 NuGet 3.0 公告 ！</span><span class="sxs-lookup"><span data-stu-id="22115-120">Download this [update to the NuGet extension](https://nuget.codeplex.com/releases/view/615507) from Codeplex and please keep an eye on [our blog](http://blog.nuget.org) for more progress and announcements for NuGet 3.0!</span></span>
+<span data-ttu-id="95790-120">從 Codeplex 將此 [更新下載到 nuget 擴充](https://nuget.codeplex.com/releases/view/615507) 功能，請留意我們的 [blog](http://blog.nuget.org) ，以取得更多 nuget 3.0 的進度和公告！</span><span class="sxs-lookup"><span data-stu-id="95790-120">Download this [update to the NuGet extension](https://nuget.codeplex.com/releases/view/615507) from Codeplex and please keep an eye on [our blog](http://blog.nuget.org) for more progress and announcements for NuGet 3.0!</span></span>
