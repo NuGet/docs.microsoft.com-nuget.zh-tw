@@ -1,21 +1,21 @@
 ---
 title: NuGet 2.7.1 版本資訊
-description: 中包含 NuGet 2.7.1 版本資訊的已知問題、 bug 修正、 新增的功能和 Dcr。
-author: karann-msft
-ms.author: karann
+description: NuGet 2.7.1 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 218a86f419a9a4a2cb6f35bf7bdfa8f65fdc1dee
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42c0aa83cddb056828508df03c3af1ec67905d12
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551574"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780379"
 ---
 # <a name="nuget-271-release-notes"></a>NuGet 2.7.1 版本資訊
 
-[NuGet 2.7 版本資訊](../release-notes/nuget-2.7.md) | [NuGet 2.7.2 版本資訊](../release-notes/nuget-2.7.2.md)
+[NuGet 2.7 版本](../release-notes/nuget-2.7.md)  |  資訊[NuGet 2.7.2 版本](../release-notes/nuget-2.7.2.md)資訊
 
-NuGet 2.7.1 版已於 2013 年 10 月 7 日發行。  這是我們最新的 2.7 版與某些目標式修正，以改善體驗 2.7 的新功能的次要更新。 如需工作的清單項目中已修正 NuGet 2.7.1，請檢視[此版本的 NuGet Issue Tracker](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.7.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0)。
+NuGet 2.7.1 發行于2013年10月7日。  這是我們最近2.7 版的次要更新，並提供一些目標修正來改善新2.7 功能的體驗。 如需 NuGet 2.7.1 中已修正的工作專案清單，請參閱 [此版本的 Nuget 問題追蹤程式](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.7.1&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0)。
 
-中可以找到一組完整的功能在 2.7[版本資訊](../release-notes/nuget-2.7.md)這裡。
+您可以在這裡的 [版本](../release-notes/nuget-2.7.md) 資訊中找到2.7 的完整功能集。

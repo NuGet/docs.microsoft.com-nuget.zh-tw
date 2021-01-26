@@ -1,17 +1,17 @@
 ---
 title: NuGet 4.0 RC 版本資訊
 description: NuGet 4.0 RC 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
-ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 44f15e2fc33cca8a3d88af17bf76f1dcc16ca860
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496649"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780181"
 ---
 # <a name="nuget-40-rc-release-notes"></a>NuGet 4.0 RC 版本資訊
 
@@ -19,7 +19,7 @@ ms.locfileid: "64496649"
 
 [NuGet 4.0 RC for Visual Studio 2017](http://blog.nuget.org/20161121/introducing-nuget4.0) 著重於新增 .NET Core 案例支援、處理重要客戶意見，以及改善各種案例中的效能。 此版本帶來幾項改善，像是支援 PackageReference，以及 MSBuild 目標、背景套件還原等多項 NuGet 命令。
 
-## <a name="bug-fixes"></a>錯誤修正
+## <a name="bug-fixes"></a>Bug 修正
 
 - `dotnet pack --version-suffix foo` 中的行為變更  - [#3838](https://github.com/NuGet/Home/issues/3838)
 
@@ -91,7 +91,7 @@ ms.locfileid: "64496649"
 
 - VS 中無法載入認證提供者時，不會中斷 NuGet - [#2422](https://github.com/NuGet/Home/issues/2422)
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 - 設定 CI 執行 x86 - [#3868](https://github.com/NuGet/Home/issues/3868)
 

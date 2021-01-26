@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI push 命令
 description: nuget.exe push 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d53a2e7f41219e68e59b195d1d5a9d1f62ad7c63
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 54a09361173ae10040433b05fcfae7304e39452e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622841"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779180"
 ---
 # <a name="push-command-nuget-cli"></a> (NuGet CLI 的推送命令) 
 
@@ -47,7 +47,7 @@ nuget push <packagePath> [options]
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-?|-help`**
 
@@ -63,7 +63,7 @@ nuget push <packagePath> [options]
 
 - **`-NoSymbols`**
 
-  * (3.5 +) * 如果符號封裝存在，則不會將其推送至符號伺服器。
+  *(3.5 +)* 如果符號封裝存在，則不會將其推送至符號伺服器。
 
 - **`-src|-Source`**
 
@@ -71,15 +71,15 @@ nuget push <packagePath> [options]
 
 - **`-SkipDuplicate`**
 
-  * (5.1 +) * 如果套件和版本已經存在，請略過它，然後繼續進行推送中的下一個套件（如果有的話）。
+  *(5.1 +)* 如果套件和版本已經存在，請略過它，然後繼續進行推送中的下一個套件（如果有的話）。
 
 - **`-SymbolSource`**
 
-  * (3.5 +) * 指定符號伺服器 URL;nuget.smbsrc.net 會在推送至 nuget.org 時使用
+  *(3.5 +)* 指定符號伺服器 URL;nuget.smbsrc.net 會在推送至 nuget.org 時使用
 
 - **`-SymbolApiKey`**
 
-  * (3.5 +) * 指定中指定之 URL 的 API 金鑰 `-SymbolSource` 。
+  *(3.5 +)* 指定中指定之 URL 的 API 金鑰 `-SymbolSource` 。
 
 - **`-Timeout`**
 

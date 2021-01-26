@@ -1,59 +1,59 @@
 ---
-title: NuGet 2.6.1 for WebMatrix 版本資訊
-description: Webmatrix 包括已知的問題、 bug 修正、 新增的功能和 Dcr NuGet 2.6.1 的版本資訊。
-author: karann-msft
-ms.author: karann
+title: 適用于 WebMatrix 的 NuGet 2.6.1 版本資訊
+description: 適用于 WebMatrix 的 NuGet 2.6.1 版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 10d80a921cbc34b537f91644da97efc44530fa75
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: de568829efd5060f3b02c3129ccfee2b27782821
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550313"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780417"
 ---
-# <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 for WebMatrix 版本資訊
+# <a name="nuget-261-for-webmatrix-release-notes"></a>適用于 WebMatrix 的 NuGet 2.6.1 版本資訊
 
-[NuGet 2.6 版本資訊](../release-notes/nuget-2.6.md) | [NuGet 2.7 版本資訊](../release-notes/nuget-2.7.md)
+[NuGet 2.6 版本](../release-notes/nuget-2.6.md)  |  資訊[NuGet 2.7 版本](../release-notes/nuget-2.7.md)資訊
 
-NuGet 小組發行於 2014 年 3 月 26 日 WebMatrix 更新的 NuGet 套件管理員延伸模組。  可以從安裝此更新[WebMatrix 延伸模組庫](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery)使用下列步驟：
+NuGet 小組在2014年3月26日發行了 WebMatrix 的更新 NuGet 封裝管理員延伸模組。  您可以使用下列步驟，從 [WebMatrix 擴充功能庫](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) 安裝此更新：
 
 1. 開啟 WebMatrix 3
 1. 按一下 [首頁] 功能區中的延伸模組圖示
 1. 選取 [更新] 索引標籤
-1. 按一下以更新 2.6.1 NuGet 套件管理員
+1. 按一下以將 NuGet 封裝管理員更新為2.6。1
 1. 關閉並重新啟動 WebMatrix 3
 
 ## <a name="notable-changes"></a>值得注意的變更
 
-此延伸模組更新可解決兩個的最大的問題使用者面臨在 WebMatrix 內取用 NuGet 套件。  第一個是 NuGet 結構描述版本錯誤，且第二個前置零位元組 dll 的 bug`bin`資料夾。
+此延伸模組更新解決了使用者在 WebMatrix 中使用 NuGet 套件的兩個最大問題。  第一個是 NuGet 架構版本錯誤，第二個是在資料夾中導致零位元組 Dll 的錯誤（bug） `bin` 。
 
-### <a name="nuget-schema-version-error"></a>NuGet 的結構描述版本錯誤
+### <a name="nuget-schema-version-error"></a>NuGet 架構版本錯誤
 
-WebMatrix 3 已發行，因為新的結構描述版本所需的 NuGet 套件的 nuget 已推出新功能。  管理網站中的 NuGet 封裝時，這些新的封裝可能會導致您在 WebMatrix 中看到的錯誤。
+由於 WebMatrix 3 已發行，因此已將新功能引進 NuGet 套件，需要新的架構版本。  當您嘗試在網站中管理 NuGet 套件時，這些新的封裝可能會導致您在 WebMatrix 中看到的錯誤。
 
-![發生錯誤。 結構描述版本不相容。 請升級至最新版本的 NuGet。](./media/NuGet-2.8/webmatrix-schema-version.png)
+![發生錯誤。 架構版本不相容。 請將 NuGet 升級至最新版本。](./media/NuGet-2.8/webmatrix-schema-version.png)
 
-這個最新版本提供與最新的 NuGet 套件，防止發生此錯誤的相容性。 現在可以在 WebMatrix 中安裝套件包括 Microsoft.AspNet.WebPages 的新版本。  部分這些封裝所使用的 NuGet 功能，例如[XDT 組態轉換](../release-notes/nuget-2.6.md#xdt)，但不支援在 WebMatrix 中到目前為止。
+此最新版本提供與最新 NuGet 套件的相容性，以防止發生此錯誤。 新版本的套件（包括 Microsoft）現在可以安裝在 WebMatrix 中。  其中有些套件使用 NuGet 功能，例如 XDT 設定 [轉換](../release-notes/nuget-2.6.md#xdt)，在 WebMatrix 中不受支援。
 
-### <a name="zero-byte-dlls-in-bin-folder"></a>在 bin 資料夾中的零位元組 Dll
+### <a name="zero-byte-dlls-in-bin-folder"></a>在 bin 資料夾中 Zero-Byte Dll
 
-安裝 NuGet 封裝在 WebMatrix 中包含 Dll 複製到分類收納，Dll 顯示中之後，某些使用者有報告的`bin`0 位元組檔案的資料夾。  這會中斷應用程式在執行階段。
+有些使用者在安裝包含複製到 bin 之 Dll 的 WebMatrix 中安裝 NuGet 套件之後，會發現 Dll 會以0位元組檔案的 `bin` 形式顯示在資料夾中。  這會在執行時間中斷應用程式。
 
-[此問題](https://nuget.codeplex.com/workitem/4060)現在已修正。
+現在已修正[此問題](https://nuget.codeplex.com/workitem/4060)。
 
-## <a name="other-recent-improvements"></a>其他最近的改進功能
+## <a name="other-recent-improvements"></a>其他最近的改進
 
-當 NuGet 封裝管理員 2.8 已發行適用於 Visual Studio 中時，我們也會發行 NuGet 套件管理員 2.5.0 for WebMatrix。  雖然這在提到[NuGet 2.8 版本資訊](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates)，我們忘了提特定的新功能導入該更新。
+針對 Visual Studio 發行 NuGet 封裝管理員2.8 時，我們也發行了適用于 WebMatrix 的 NuGet 封裝管理員2.5.0。  雖然 [NuGet 2.8 版本](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates)資訊中提及這一點，但我們並未提及更新所引進的特定新功能。
 
 ### <a name="update-all"></a>全部更新
 
-您現在可以更新所有網站的套件，在一個步驟中 ！  當您在 WebMatrix 中開啟 NuGet 延伸模組時，您會看到資源庫、 安裝，以及可用的更新以外的所有封裝的清單。  之前，每個套件必須個別更新，但現在已經是有用的 [全部更新] 按鈕，就會出現在 [更新] 索引標籤。
+您現在可以在一個步驟中更新所有網站套件！  當您在 WebMatrix 中開啟 NuGet 擴充功能時，您會看到資源庫上的所有套件清單、已安裝的套件，以及有可用更新的套件。  先前，每個套件都必須個別更新，但現在會在 [更新] 索引標籤上顯示有用的 [全部更新] 按鈕。
 
-![按一下 [全部更新]，以使用可用的更新來更新所有封裝](./media/NuGet-2.8/webmatrix-update-all.png)
+![按一下 [全部更新] 以更新具有可用更新的所有套件](./media/NuGet-2.8/webmatrix-update-all.png)
 
-### <a name="overwrite-existing-files"></a>覆寫現有檔案
+### <a name="overwrite-existing-files"></a>覆寫現有的檔案
 
-安裝套件，其中包含存在於您的網站的檔案時，NuGet 就是一律只以無訊息方式略過這些檔案 （保留現有的檔案）。  這可能會導致封裝已安裝，或當事實上它未正確更新的印象。  NuGet 現在會提示輸入覆寫檔案中。
+當您安裝的套件中包含已存在於您的網站中的檔案時，NuGet 一律只會以無訊息方式略過這些檔案， (保留現有的檔案) 。  這可能會導致您認為封裝已正確安裝或更新，但事實上並不是。  NuGet 現在會提示您輸入要覆寫的檔案。
 
-![解決檔案衝突](./media/NuGet-2.8/webmatrix-overwrite-file.png)
+![檔案衝突解決](./media/NuGet-2.8/webmatrix-overwrite-file.png)

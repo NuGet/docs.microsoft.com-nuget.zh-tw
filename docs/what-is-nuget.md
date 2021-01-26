@@ -1,22 +1,22 @@
 ---
 title: 什麼是 NuGet？它有哪些功能？
 description: 何謂 NuGet 和其功能的完整介紹
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: c326cf184ff20fb798a5770f0a4cf9bf42bed3f5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 446a1ad4d07d0338a996ad93823ac20386620c0d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78230690"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780098"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet 簡介
 
 任何新式開發平台的基本工具都是一種機制，而開發人員可以透過此機制建立、共用和使用實用的程式碼。 這類程式碼通常會打包成「套件」，其中包含已編譯程式碼 (如 DLL)，以及在取用這些套件之專案中所需的其他內容。
 
-針對 .NET (包括 .NET Core)，Microsoft 支援的共用程式碼機制是 **NuGet**，它定義如何建立、裝載和取用 .NET 套件，並為這些角色的每一個[提供工具](install-nuget-client-tools.md)。
+針對 .NET (包括 .NET Core)，Microsoft 支援的共用程式碼機制是 **NuGet**，它定義如何建立、裝載和取用 .NET 套件，並為這些角色的每一個 [提供工具](install-nuget-client-tools.md)。
 
 簡言之，NuGet 套件就是副檔名為 `.nupkg` 的單一 ZIP 檔案，內含已編譯程式碼 (DLL)、其他與該程式碼相關的檔案，以及包含套件版本號碼這類資訊的描述性資訊清單。 擁有要共用之程式碼的開發人員會建立套件，並將它們發行至公用或私人主機。 套件取用者會從適當的主機取得那些套件、將它們新增至其專案，然後在其專案程式碼中呼叫套件的功能。 NuGet 本身接著會處理所有中間詳細資料。
 
@@ -24,9 +24,9 @@ ms.locfileid: "78230690"
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>建立者、主機和取用者之間的套件流程
 
-作為公共主機,NuGet 本身在[nuget.org](https://www.nuget.org)維護超過 100,000 個唯一套件的中央存儲庫。這些軟體包每天被數百萬 .NET/.NET 核心開發人員使用。 NuGet 也讓您能夠在雲端 (例如在 Azure DevOps 上)、私人網路或甚至只是在本機檔案系統中，私下裝載套件。 如此一來，那些套件就只能供可存取該主機的開發人員使用，讓特定的取用者群組能夠使用套件。 [裝載您自己的 NuGet 摘要](hosting-packages/overview.md)會說明這些選項。 透過設定選項，您也可以完全控制哪些主機可以透過任何指定的電腦來存取，以確定可從諸如 nuget.org 之公用存放庫以外的特定來源取得套件。
+在其作為公用主機的角色中，NuGet 本身會在 [nuget.org](https://www.nuget.org)上維護超過100000個唯一套件的中央存放庫。每天有數百萬個 .NET/.NET Core 開發人員都採用這些套件。 NuGet 也讓您能夠在雲端 (例如在 Azure DevOps 上)、私人網路或甚至只是在本機檔案系統中，私下裝載套件。 如此一來，那些套件就只能供可存取該主機的開發人員使用，讓特定的取用者群組能夠使用套件。 [裝載您自己的 NuGet 摘要](hosting-packages/overview.md)會說明這些選項。 透過設定選項，您也可以完全控制哪些主機可以透過任何指定的電腦來存取，以確定可從諸如 nuget.org 之公用存放庫以外的特定來源取得套件。
 
-不管其本質為何，主機都是作為套件「建立者」** 與套件「取用者」** 之間的聯繫點。 建立者會建置有用的 NuGet 套件，並將其發行至主機。 取用者接著會搜尋可存取主機上的實用和相容套件，並下載這些套件且將其包含在專案中。 一旦安裝於專案，套件的 API 就可供專案程式碼的其餘部分使用。
+不管其本質為何，主機都是作為套件「建立者」與套件「取用者」之間的聯繫點。 建立者會建置有用的 NuGet 套件，並將其發行至主機。 取用者接著會搜尋可存取主機上的實用和相容套件，並下載這些套件且將其包含在專案中。 一旦安裝於專案，套件的 API 就可供專案程式碼的其餘部分使用。
 
 ![套件建立者、套件主機與套件取用者之間的關聯性](media/nuget-roles.png)
 
@@ -72,21 +72,21 @@ ms.locfileid: "78230690"
 
 因為專案可以輕鬆地在開發人員電腦、原始檔控制存放庫、組建伺服器等等之間移動，所以讓 NuGet 套件的二進位組件直接繫結至專案是不切實際的作法。 這樣做會使得專案的每個複本產生不必要的膨脹 (因而浪費原始檔控制存放庫中的空間)。 此外，也會使得它很難將套件二進位檔更新為較新版本，因為更新必須跨專案的所有複本加以套用。
 
-NuGet 會改為維護專案相依之套件的簡單參考清單，包括最上層和最下層的相依性。 也就是說，只要您將套件從某個主機安裝至專案，NuGet 就會在參考清單中記錄套件識別碼和版本號碼  (當然,卸載包會將其從清單中刪除。然後,NuGet 提供了一種根據請求還原所有引用包的方法,如[包還原](consume-packages/package-restore.md)上所述。
+NuGet 會改為維護專案相依之套件的簡單參考清單，包括最上層和最下層的相依性。 也就是說，只要您將套件從某個主機安裝至專案，NuGet 就會在參考清單中記錄套件識別碼和版本號碼  當然， (卸載套件時，會將它從清單中移除。 ) NuGet 接著會提供一種方法，在要求時還原所有參考的套件，如 [封裝還原](consume-packages/package-restore.md)中所述。
 
 ![在套件安裝時會建立 NuGet 參考清單，並且可以用來在其他位置還原套件](media/nuget-restore.png)
 
-只需參考清單,NuGet 就可以重新&mdash;安裝 ,即在以後任何時候從公共和/或私有主機*還原*&mdash;所有這些包。 將專案認可到原始檔控制，或以某種其他方式進行共用時，只需包含參考清單，並排除任何套件二進位檔 (請參閱[套件和原始檔控制](consume-packages/packages-and-source-control.md))。
+除了參考清單，NuGet 還可以重新安裝， &mdash; 也就是 &mdash; 稍後從公用和/或私人主機還原所有套件。 將專案認可到原始檔控制，或以某種其他方式進行共用時，只需包含參考清單，並排除任何套件二進位檔 (請參閱[套件和原始檔控制](consume-packages/packages-and-source-control.md))。
 
 接收專案的電腦 (例如，在自動部署系統期間取得專案複本的組建伺服器) 只會要求 NuGet 在必要時還原相依性。 而建置像是 Azure DevOps 系統，可為此確切之目的，提供 "NuGet restore" 步驟。 同樣地，當開發人員取得專案複本時 (像是在複製存放庫時)，可以叫用類似 `nuget restore` (NuGet CLI)、`dotnet restore` (dotnet CLI) 或 `Install-Package` (套件管理員主控台) 的命令來取得所有必要的套件。 在建置專案時，Visual Studio 會自動還原套件 (假設已啟用自動還原，如[套件還原](consume-packages/package-restore.md)中所述)。
 
-清楚的是，開發人員所關注的 NuGet 主要角色將會代表您的專案維護該參考清單，並提供方式，以有效率地還原 (和更新) 這些參考的套件。 此清單會以兩種「套件管理格式」** (呼叫它們時) 之一來維護：
+清楚的是，開發人員所關注的 NuGet 主要角色將會代表您的專案維護該參考清單，並提供方式，以有效率地還原 (和更新) 這些參考的套件。 此清單會以兩種「套件管理格式」 (呼叫它們時) 之一來維護：
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (或「專案檔中的套件參考」) | *(NuGet 4.0+)* 直接維護專案檔內的專案最上層相依性清單，因此不需要個別檔案。 相關聯的 `obj/project.assets.json` 檔案是動態產生的，用途是管理專案所使用套件的整體相依性關係圖以及所有下層相依性。 PackageReference 一律由 .NET Core 專案使用。
 
-- [`packages.config`](reference/packages-config.md)*:(NuGet 1.0+)* 維護專案中所有依賴項的平面清單的 XML 檔,包括其他已安裝包的依賴項。 已安裝或已還原的套件會儲存在 `packages` 資料夾中。
+- [`packages.config`](reference/packages-config.md)： *(NuGet 1.0 +)* XML 檔案，此檔案會維護專案中所有相依性的一般清單，包括其他已安裝套件的相依性。 已安裝或已還原的套件會儲存在 `packages` 資料夾中。
 
-任何指定專案中採用的套件管理格式都取決於專案類型，以及 NuGet (和/或 Visual Studio) 的可用版本。 若要檢查正在使用的格式，只需在安裝第一個套件之後，於專案根目錄中尋找 `packages.config`。 如果您沒有該檔案，請直接在專案檔中查看是否有 \<PackageReference\> 元素。
+任何指定專案中採用的套件管理格式都取決於專案類型，以及 NuGet (和/或 Visual Studio) 的可用版本。 若要檢查正在使用的格式，只需在安裝第一個套件之後，於專案根目錄中尋找 `packages.config`。 如果您沒有該檔案，請直接查看專案檔中的 \<PackageReference\> 元素。
 
 如果您可以選擇，建議使用 PackageReference。 `packages.config` 是為了舊版考量而保留，已不再積極開發中。
 
@@ -105,7 +105,7 @@ NuGet 會改為維護專案相依之套件的簡單參考清單，包括最上�
 
 在個別專案中，NuGet 會管理整體相依性關係圖，同樣包含將多個參考解析為相同套件的不同版本。 專案經常需要採用與一或多個本身具有相同相依性之套件的相依性。 許多其他套件都會採用 nuget.org 上的一些最實用公用程式套件。 在整個相依性關係圖中，您接著就能輕鬆地擁有相同套件之不同版本的十個不同參考。 為了避免將該套件的多個版本帶入應用程式本身，NuGet 會找出所有取用者都可使用的單一版本  (如需詳細資訊，請參閱[相依性解析](concepts/dependency-resolution.md))。
 
-除此之外,NuGet 還維護與包的結構(包括[當地語系化](create-packages/creating-localized-packages.md)和[調試符號](create-packages/symbol-packages-snupkg.md))以及如何[引用](consume-packages/package-references-in-project-files.md)(包括[版本範圍](concepts/package-versioning.md#version-ranges)和[預發佈版本](create-packages/prerelease-packages.md))相關的所有規範。NuGet 還提供各種 API 以程式設計方式處理其服務,並為編寫 Visual Studio 擴充和專案範本的開發人員提供支援。
+除此之外，NuGet 會維護封裝結構的所有相關規格 (包括 [當地語系化](create-packages/creating-localized-packages.md) 和 [偵錯工具符號](create-packages/symbol-packages-snupkg.md)) 以及如何 [參考](consume-packages/package-references-in-project-files.md) 它們 (包括 [版本範圍](concepts/package-versioning.md#version-ranges) 和 [發行前版本](create-packages/prerelease-packages.md)。 ) NuGet 也提供各種 api 來以程式設計方式處理其服務，並為撰寫 Visual Studio 延伸模組和專案範本的開發人員提供支援。
 
 請花一點時間瀏覽此文件的目錄，您會在那裡看到所有呈現的功能，以及回溯到 NuGet 開始的版本資訊。
 
@@ -113,11 +113,11 @@ NuGet 會改為維護專案相依之套件的簡單參考清單，包括最上�
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/What-is-NuGet-1-of-5/player]
 
-在[頻道 9](https://channel9.msdn.com/Series/NuGet-101)和[YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上查找更多 NuGet 影片。
+在 [Channel 9](https://channel9.msdn.com/Series/NuGet-101) 和 [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多的 NuGet 影片。
 
 ## <a name="comments-contributions-and-issues"></a>意見、參與和問題
 
-最後，我們十分歡迎對本文件的意見和參與&mdash;只要選取任何頁面頂端的 [意見反應]**** 和 [編輯]**** 命令，或瀏覽 GitHub 上的[文件存放庫](https://github.com/NuGet/docs.microsoft.com-nuget/) \(英文\) 和[文件問題清單](https://github.com/NuGet/docs.microsoft.com-nuget/issues) \(英文\)。
+最後，我們十分歡迎對本文件的意見和參與&mdash;只要選取任何頁面頂端的 [意見反應] 和 [編輯] 命令，或瀏覽 GitHub 上的[文件存放庫](https://github.com/NuGet/docs.microsoft.com-nuget/) \(英文\) 和[文件問題清單](https://github.com/NuGet/docs.microsoft.com-nuget/issues) \(英文\)。
 
 我們也歡迎透過[各種 GitHub 存放庫](https://github.com/NuGet/Home) \(英文\) 來參與 NuGet 本身；在 [https://github.com/NuGet/home/issues](https://github.com/NuGet/home/issues) \(英文\) 可以找到 NuGet 問題。
 

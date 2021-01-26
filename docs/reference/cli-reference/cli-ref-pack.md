@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI 套件命令
 description: nuget.exe pack 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: e2906d53119cb8c922df7d177cd686836ac50a5a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622950"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780041"
 ---
 # <a name="pack-command-nuget-cli"></a> (NuGet CLI 的 pack 命令) 
 
@@ -53,7 +53,7 @@ where `<nuspecPath>` 和 `<projectPath>` 分別指定 `.nuspec` 或專案檔。
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-?|-help`**
 
@@ -73,11 +73,11 @@ where `<nuspecPath>` 和 `<projectPath>` 分別指定 `.nuspec` 或專案檔。
 
 - **`-MSBuildPath`**
 
-  * (4.0 +) * 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。
+  *(4.0 +)* 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。
 
 - **`-MSBuildVersion`**
 
-  * (3.2 +) * 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。
+  *(3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。
 
 - **`-NoDefaultExcludes`**
 
@@ -113,7 +113,7 @@ where `<nuspecPath>` 和 `<projectPath>` 分別指定 `.nuspec` 或專案檔。
 
 - **`-Suffix`**
 
-  * (3.4.4 +) * 將尾碼附加至內部產生的版本號碼，通常用於附加組建或其他發行前版本識別碼。 例如，使用 `-suffix nightly` 會建立版本號碼類似的封裝 `1.2.3-nightly` 。 尾碼必須以字母開頭，以避免與不同版本的 NuGet 和 NuGet 封裝管理員的警告、錯誤和潛在不相容。
+  *(3.4.4 +)* 將尾碼附加至內部產生的版本號碼，通常用於附加組建或其他發行前版本識別碼。 例如，使用 `-suffix nightly` 會建立版本號碼類似的封裝 `1.2.3-nightly` 。 尾碼必須以字母開頭，以避免與不同版本的 NuGet 和 NuGet 封裝管理員的警告、錯誤和潛在不相容。
 
 - **`-SymbolPackageFormat`**
 

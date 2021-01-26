@@ -1,16 +1,16 @@
 ---
 title: NuGet 4.9 RTM 版本資訊
 description: NuGet 4.9 版本資訊，包含已知問題、錯誤 (Bug) 修正、新功能與 DCR。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 429218fa4968d572ef187ef1dbfacac8a3bde2b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496455"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780150"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 版本資訊
 
@@ -18,15 +18,15 @@ NuGet 配送車：
 
 | NuGet 版本 | 隨附於 Visual Studio 版本| 隨附於 .NET SDK|
 |:---|:---|:---|
-| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 15.9.0 版](https://visualstudio.microsoft.com/downloads/) | [2.1.500、2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 版本15.9。0](https://visualstudio.microsoft.com/downloads/) | [2.1.500、2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.1**](https://nuget.org/downloads) | n/a | n/a |
-| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.4 版](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 15.9.6 版](https://visualstudio.microsoft.com/downloads/) | [2.1.504、2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 版本15.9。4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 版本15.9.6 版](https://visualstudio.microsoft.com/downloads/) | [2.1.504、2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
 ## <a name="summary-whats-new-in-490"></a>摘要：4.9.0 的新功能
 
-* 簽署:讓用戶端政策需要使用 NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961)[部落格文章中](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)列出的一組受信任的作者和儲存函式庫
+* 簽署：讓 ClientPolicies 要求使用一組受信任的作者和儲存機制，NuGet.Config- [#6961](https://github.com/NuGet/Home/issues/6961)列于[blog 文章](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)中。
 
 * 建立 ".snupkg" 檔案以在套件中包含符號 -- 加強推送以了解 nuget 通訊協定以接受符號伺服器的 snupkg 檔案 - [#6878](https://github.com/NuGet/Home/issues/6878)、[部落格文章](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
@@ -98,7 +98,7 @@ NuGet 配送車：
 
 [此 4.9.1 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>摘要:4.9.2 中的新增功能
+## <a name="summary-whats-new-in-492"></a>摘要：4.9.2 的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
@@ -110,7 +110,7 @@ NuGet 配送車：
 
 [此 4.9.2 版本修正的所有問題清單](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-## <a name="summary-whats-new-in-493"></a>摘要:4.9.3 中的新增功能
+## <a name="summary-whats-new-in-493"></a>摘要：4.9.3 的新功能
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 #### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>「使用鎖定檔案的可重複的套件還原」問題
@@ -140,9 +140,9 @@ NuGet 配送車：
 
 [此 4.9.3 版本修正的所有問題清單](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 
-## <a name="summary-whats-new-in-494"></a>摘要:4.9.4 中的新增功能
+## <a name="summary-whats-new-in-494"></a>摘要：4.9.4 的新功能
 
-* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
+* 安全性修正：在 ~/.nuget 內建立之檔案的許可權太過開啟 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 
 ## <a name="known-issues"></a>已知問題

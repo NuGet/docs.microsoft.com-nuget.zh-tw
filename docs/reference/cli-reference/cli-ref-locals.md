@@ -1,22 +1,22 @@
 ---
 title: NuGet CLI 區域變數命令
 description: nuget.exe 區域變數命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: cdc2b760021ffc4a9e02edacb45beac01cc99bf1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 25feb29c7b96c47681cedd8208b8595952d3ca49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623054"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779198"
 ---
 # <a name="locals-command-nuget-cli"></a> (NuGet CLI 的區域變數命令) 
 
 **適用物件：** 套件耗用量 &bullet; **支援的版本：** 3.3 +
 
-清除或列出本機 NuGet 資源，例如 *HTTP*快取、 *全域套件* 資料夾和 temp 資料夾。 `locals`命令也可以用來顯示這些位置的清單。 如需詳細資訊，請參閱 [管理全域封裝和](../../consume-packages/managing-the-global-packages-and-cache-folders.md)快取資料夾。
+清除或列出本機 NuGet 資源，例如 *HTTP* 快取、 *全域套件* 資料夾和 temp 資料夾。 `locals`命令也可以用來顯示這些位置的清單。 如需詳細資訊，請參閱 [管理全域封裝和](../../consume-packages/managing-the-global-packages-and-cache-folders.md)快取資料夾。
 
 ## <a name="usage"></a>使用方式
 
@@ -24,7 +24,7 @@ ms.locfileid: "88623054"
 nuget locals <folder> [options]
 ```
 
-其中 `<folder>` 是 `all` 、 `http-cache` 、 `packages-cache` * (3.5 和較早的) *、 `global-packages` `temp` * (3.4 +) *，以及 `plugins-cache` * (4.8 +) *。
+其中 `<folder>` 是 `all` 、 `http-cache` 、 `packages-cache` *(3.5 和較早的)*、 `global-packages` `temp` *(3.4 +)*，以及 `plugins-cache` *(4.8 +)*。
 
 ## <a name="options"></a>選項。
 
@@ -38,7 +38,7 @@ nuget locals <folder> [options]
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-?|-help`**
 
@@ -46,7 +46,7 @@ nuget locals <folder> [options]
 
 - **`-List`**
 
-  列出指定之資料夾的位置，或與 *所有*資料夾一起使用時的位置。
+  列出指定之資料夾的位置，或與 *所有* 資料夾一起使用時的位置。
 
 - **`-NonInteractive`**
 

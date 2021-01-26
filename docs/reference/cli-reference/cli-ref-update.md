@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI 更新命令
 description: nuget.exe update 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236785"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779136"
 ---
 # <a name="update-command-nuget-cli"></a> (NuGet CLI 更新命令) 
 
@@ -32,7 +32,7 @@ nuget update <configPath> [options]
 
 其中 `<configPath>` 會識別列出專案相依性的 `packages.config` 或方案檔。
 
-## <a name="options"></a>選項
+## <a name="options"></a>選項。
 
 - **`-ConfigFile`**
 
@@ -40,7 +40,7 @@ nuget update <configPath> [options]
   
 - **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
 
-  指定要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch* ：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor* ：最低主要、最小次要、最高修補程式的版本</li><li>*最高* ：最高版本</li><li>*略* 過：將不會使用任何相依性套件</li></ul>
+  指定要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch*：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor*：最低主要、最小次要、最高修補程式的版本</li><li>*最高*：最高版本</li><li>*略* 過：將不會使用任何相依性套件</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

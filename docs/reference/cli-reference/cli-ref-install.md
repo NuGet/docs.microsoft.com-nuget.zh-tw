@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI 安裝命令
 description: nuget.exe install 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 23856728d07d07183b5aedcd6218a56a444c410b
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 34b79bfa7a0dddf5da6b5c465293caec49129f6c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623093"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779263"
 ---
 # <a name="install-command-nuget-cli"></a> (NuGet CLI 安裝命令) 
 
@@ -45,7 +45,7 @@ nuget install <packageID | configFilePath> [options]
 
 - **`-DependencyVersion`**
 
-  * (4.4 +) * 要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch*：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor*：最低主要、最小次要、最高修補程式的版本</li><li>*最高*：最高版本</li><li>*略*過：將不會使用任何相依性套件</li></ul>
+  *(4.4 +)* 要使用之相依性套件的版本，它可以是下列其中一項：<br/><ul><li>*最低* (預設) ：最低版本</li><li>*HighestPatch*：最低主要、最低次要、最高修補程式的版本</li><li>*HighestMinor*：最低主要、最小次要、最高修補程式的版本</li><li>*最高*：最高版本</li><li>*略* 過：將不會使用任何相依性套件</li></ul>
 
 - **`-DirectDownload`**
 
@@ -61,15 +61,15 @@ nuget install <packageID | configFilePath> [options]
 
 - **`-FallbackSource`**
 
-  * (3.2 +) * 在主要或預設來源中找不到封裝時，用來做為回盒的封裝來源清單。
+  *(3.2 +)* 在主要或預設來源中找不到封裝時，用來做為回盒的封裝來源清單。
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-Framework`**
 
-  * (4.4 +) * 用來選取相依性的目標架構。 如果未指定，則預設為 ' Any '。
+  *(4.4 +)* 用來選取相依性的目標架構。 如果未指定，則預設為 ' Any '。
 
 - **`-?|-help`**
 

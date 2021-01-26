@@ -1,18 +1,18 @@
 ---
 title: NuGet PowerShell 參考
 description: 您可以在 Visual Studio 中的 NuGet 封裝管理員主控台取得 PowerShell 命令的完整參考。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 4f8b42847cbc155393fe6d2afbe2e0857b619da3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 98bea8a225f4864953f898ef57b26e9093f7c2e9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236876"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779374"
 ---
-# <a name="powershell-reference"></a>PowerShell 參考
+# <a name="powershell-reference"></a>PowerShell 參考資料
 
 封裝管理員主控台提供 Windows Visual Studio 內的 PowerShell 介面，可透過下列特定命令與 NuGet 互動。  (主控台目前無法在 Visual Studio for Mac 中使用。 ) 如需使用主控台的指南，請參閱 [使用封裝管理員主控台安裝及管理套件](../consume-packages/install-use-packages-powershell.md) 主題。
 
@@ -22,14 +22,14 @@ ms.locfileid: "93236876"
 > [!Important]
 > 此處所列的命令是 Visual Studio 中的封裝管理員主控台特定的命令，不同于一般 PowerShell 環境中可用的 [套件管理模組命令](/powershell/module/packagemanagement/?view=powershell-6) 。 具體而言，每個環境都有其他無法使用的命令，而且具有相同名稱的命令在其特定引數中也可能不同。 當您在 Visual Studio 中使用套件管理主控台時，適用于本主題中記載的命令和引數適用于。
 
-| 常見命令 | Description | NuGet 版本 |
+| 常見命令 | 描述 | NuGet 版本 |
 | --- | --- | --- |
 | [Install-Package](ps-reference/ps-ref-install-package.md) | 將封裝及其相依性安裝到專案中。 | 全部 |
 | [Update-Package](ps-reference/ps-ref-update-package.md) | 更新封裝及其相依性，或專案中的所有套件。 | 全部 |
 | [Find-Package](ps-reference/ps-ref-find-package.md) | 使用封裝識別碼或關鍵字搜尋封裝來源。 | 3.0+ |
 | [Get-Package](ps-reference/ps-ref-get-package.md) | 抓取本機存放庫中所安裝的套件清單，或列出可從套件來源取得的封裝。 | 全部 |
 
-| 次要命令 | Description | NuGet 版本 |
+| 次要命令 | 描述 | NuGet 版本 |
 | --- | --- | --- |
 | [Add-BindingRedirect](ps-reference/ps-ref-add-bindingredirect.md) | 檢查項目輸出路徑內的所有元件，並將系結重新導向加入至 `app.config` 或 `web.config` 需要的位置。 | 全部 |
 | [Get-Project](ps-reference/ps-ref-get-project.md) | 顯示預設或指定專案的相關資訊。 | 3.0+ |

@@ -1,34 +1,34 @@
 ---
 title: NuGet 4.7 RTM 版本資訊
 description: NuGet 4.7.0 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 143781cf0a95c6a156d4afcd83ad277f3e227711
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "76813789"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780159"
 ---
 # <a name="nuget-47-release-notes"></a>NuGet 4.7 版本資訊
 
 [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 隨附 [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe)。
 
-## <a name="summary-whats-new-in-470"></a>摘要:4.7.0 中的新增功能
+## <a name="summary-whats-new-in-470"></a>摘要：4.7.0 的新功能
 
 * 我們已增強套件簽署，以啟用[存放庫簽署套件](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
 * Visual Studio Version 15.7 引進了一個功能，[讓使用 packages.config 格式的現有專案移轉成改為使用 PackageReference](../consume-packages/migrate-packages-config-to-package-reference.md)。
 
-## <a name="summary-whats-new-in-472"></a>摘要:4.7.2 中的新增功能
+## <a name="summary-whats-new-in-472"></a>摘要：4.7.2 的新功能
 
-* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
+* 安全性修正：在 ~/.nuget 內建立之檔案的許可權太過開啟 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-473"></a>摘要:4.7.3 中的新增功能
+## <a name="summary-whats-new-in-473"></a>摘要：4.7.3 的新功能
 
-* 安全修復:NUPKG 內部的檔可以在 NUPKG 目錄上方具有相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
+* 安全性修正：檔案內的檔案可以有 NUPKG 目錄上方的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 

@@ -1,28 +1,28 @@
 ---
 title: NuGet 4.3 RTM 版本資訊
 description: NuGet 4.3 RTM 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e9b6d15584d875f59ed64fe662944db3e37aeabb
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496597"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780180"
 ---
 # <a name="nuget-43-release-notes"></a>NuGet 4.3 版本資訊
 
 [Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 附有 NuGet 4.3 RTM，它新增新案例的支援，例如 .NET Standard 2.0/.NET Core 2.0、包含許多品質修正，並且改善效能。 此版本也帶來數項改善，像是支援語意化版本控制系統 2.0.0、NuGet 警告和錯誤的 MSBuild 整合等等。
 
-## <a name="summary-whats-new-in-430"></a>摘要:4.3.0 中的新增功能
+## <a name="summary-whats-new-in-430"></a>摘要：4.3.0 的新功能
 
-## <a name="summary-whats-new-in-431"></a>摘要:4.3.1 中的新增功能
+## <a name="summary-whats-new-in-431"></a>摘要：4.3.1 的新功能
 
-* 安全修復:在 #/.nuget 中創建的檔案的許可權在[CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757) [#7673](https://github.com/NuGet/Home/issues/7673)太開放
-* 安全修復:NUPKG 內部的檔可以在 NUPKG 目錄上方具有相對路徑[#7906](https://github.com/NuGet/Home/issues/7906)
+* 安全性修正：在 ~/.nuget 內建立之檔案的許可權太過開啟 [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* 安全性修正：檔案內的檔案可以有 NUPKG 目錄上方的相對路徑 [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>已知問題
 
@@ -74,7 +74,7 @@ NuGet 套件管理員沒有顯示，而且不允許加入/更新 DotNetCLITools�
 
 [NuGet 4.0 RTM 版本資訊](../release-notes/nuget-4.0-RTM.md) - 列出所有 NuGet 4.0 RTM 修正的問題
 
-### <a name="features"></a>特性
+### <a name="features"></a>功能
 
 - 改善 NuGet 還原效能 - 針對命令列還原作業和 VS 實作更聰明的 NoOp - [#5080](https://github.com/NuGet/Home/issues/5080)
 

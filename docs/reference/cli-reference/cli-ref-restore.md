@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI 還原命令
 description: nuget.exe restore 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 108317aba2107948180ab0149c0c5ba5150cf9b8
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 49fabbd0ef0c1c0c16f13bdf741296575fa72359
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622825"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780029"
 ---
 # <a name="restore-command-nuget-cli"></a> (NuGet CLI 還原命令) 
 
@@ -36,7 +36,7 @@ nuget restore <projectPath> [options]
 
 - **`-DirectDownload`**
 
-  * (4.0 +) * 直接下載套件，而不將任何二進位檔或中繼資料填入快取。
+  *(4.0 +)* 直接下載套件，而不將任何二進位檔或中繼資料填入快取。
 
 - **`-DisableParallelProcessing`**
 
@@ -44,7 +44,7 @@ nuget restore <projectPath> [options]
 
 - **`-FallbackSource`**
 
-  * (3.2 +) * 在主要或預設來源中找不到封裝時，用來做為回盒的封裝來源清單。 使用分號來分隔清單專案。
+  *(3.2 +)* 在主要或預設來源中找不到封裝時，用來做為回盒的封裝來源清單。 使用分號來分隔清單專案。
 
 - **`-Force`**
 
@@ -52,7 +52,7 @@ nuget restore <projectPath> [options]
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-ForceEvaluate`**
 
@@ -72,11 +72,11 @@ nuget restore <projectPath> [options]
 
 - **`-MSBuildPath`**
 
-   * (4.0 +) * 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。
+   *(4.0 +)* 指定要搭配命令使用的 MSBuild 路徑，優先順序高於 `-MSBuildVersion` 。
 
 - **`-MSBuildVersion`**
 
-  * (3.2 +) * 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。
+  *(3.2 +)* 指定要搭配此命令使用的 MSBuild 版本。 支援的值為4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9。 依預設，會挑選路徑中的 MSBuild，否則會預設為 MSBuild 的最高安裝版本。
 
 - **`-NoCache`**
 
@@ -104,7 +104,7 @@ nuget restore <projectPath> [options]
 
 - **`-Recursive`**
 
-  * (4.0 +) * 還原 UWP 和 .NET Core 專案的所有參考專案。 不會套用至使用 `packages.config` 的專案。
+  *(4.0 +)* 還原 UWP 和 .NET Core 專案的所有參考專案。 不會套用至使用 `packages.config` 的專案。
 
 - **`-RequireConsent`**
 

@@ -1,39 +1,39 @@
 ---
-title: NuGet 3.0 的 RC2 版本資訊
-description: 版本資訊適用於 NuGet 3.0 RC2 包括已知的問題、 bug 修正、 新增的功能和 Dcr。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.0 RC2 版本資訊
+description: NuGet 3.0 RC2 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 863e48e632387b768a43530b987683605baf6db7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 355c200481f4acba9931dc3bcd85e99c5ffbf224
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545817"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780277"
 ---
-# <a name="nuget-30-rc2-release-notes"></a>NuGet 3.0 的 RC2 版本資訊
+# <a name="nuget-30-rc2-release-notes"></a>NuGet 3.0 RC2 版本資訊
 
-[NuGet 3.0 RC 版本資訊](../release-notes/nuget-3.0-RC.md) | [NuGet 3.0 版本資訊](../release-notes/nuget-3.0.0.md)
+[NuGet 3.0 RC 版本](../release-notes/nuget-3.0-RC.md)  |  資訊[NuGet 3.0 版本](../release-notes/nuget-3.0.0.md)資訊
 
-NuGet 3.0 RC2 已於 2015 年 6 月 3 日發行為從 Visual Studio 2015 延伸模組資源庫提供的過渡版本以及[Codeplex](https://nuget.codeplex.com/releases/view/615507)。 此版本有一些重要 bug 修正和效能增強功能，我們認為過去必須已完成的 Visual Studio 2015 發行前版本。 這個 NuGet 擴充功能版本僅適用於 Visual Studio 2015。
+NuGet 3.0 RC2 發行于2015年6月3日，作為 Visual Studio 2015 擴充功能庫和 [Codeplex](https://nuget.codeplex.com/releases/view/615507)提供的過渡版。 此版本有許多重要的 bug 修正和效能改進，我們認為在完成的 Visual Studio 2015 版之前必須先釋出。 此 NuGet 擴充功能版本僅適用于 Visual Studio 2015。
 
-總計中，我們關閉 158 的問題，在此版本中，且您可以檢閱[GitHub 上的問題的完整清單](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01)。
+我們在此版本中已關閉158問題，您可以在 [GitHub 上查看問題的完整清單](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01)。
 
-## <a name="summary-of-top-issues-resolved"></a>最常發生的問題已解決的摘要
+## <a name="summary-of-top-issues-resolved"></a>已解決常見問題的摘要
 
-* [常見網路更新呼叫時重新整理套件管理員視窗](https://github.com/NuGet/Home/issues/515)
-* [變更為安裝套件管理員中的檢視時，延遲捲軸](https://github.com/NuGet/Home/issues/519)
-* [網路呼叫應該在背景執行緒上執行](https://github.com/NuGet/Home/issues/516)
-* [已新增 [不顯示預覽視窗] 的核取方塊](https://github.com/NuGet/Home/issues/566)
-* [已新增的處理程序節流來降低處理器使用量](https://github.com/NuGet/Home/issues/356)
-* 改良的可攜式類別庫參考處理
+* [當套件管理員視窗重新整理時頻繁的網路更新呼叫](https://github.com/NuGet/Home/issues/515)
+* [在封裝管理員中變更為已安裝的視圖時，延遲捲軸](https://github.com/NuGet/Home/issues/519)
+* [應在背景執行緒上執行網路呼叫](https://github.com/NuGet/Home/issues/516)
+* [已新增 [不要顯示預覽視窗] 核取方塊](https://github.com/NuGet/Home/issues/566)
+* [已新增進程節流來降低處理器使用量](https://github.com/NuGet/Home/issues/356)
+* 改良的便攜類別程式庫參考處理
     * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
     * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
     * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
-* [自動完成 service 已區分大小寫](https://github.com/NuGet/Home/issues/198)
-* [引進基本驗證認證的更新](https://github.com/NuGet/Home/issues/456)
-* [已改善的錯誤記錄](https://github.com/NuGet/Home/issues/407)
-* [呼叫更新套件時，改善的 powershell 錯誤訊息](https://github.com/NuGet/Home/issues/5)
+* [自動完成服務區分大小寫](https://github.com/NuGet/Home/issues/198)
+* [更新以重新引入基本驗證認證](https://github.com/NuGet/Home/issues/456)
+* [已改善錯誤記錄](https://github.com/NuGet/Home/issues/407)
+* [已改善呼叫更新套件時的 powershell 錯誤訊息](https://github.com/NuGet/Home/issues/5)
 
-下載此應用程式[更新為 NuGet 延伸模組](https://nuget.codeplex.com/releases/view/615507)從 Codeplex 和請留意[我們的部落格](http://blog.nuget.org)如需詳細的進度和 NuGet 3.0 公告 ！
+從 Codeplex 將此 [更新下載到 nuget 擴充](https://nuget.codeplex.com/releases/view/615507) 功能，請留意我們的 [blog](http://blog.nuget.org) ，以取得更多 nuget 3.0 的進度和公告！

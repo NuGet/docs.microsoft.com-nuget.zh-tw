@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI init 命令
 description: nuget.exe init 命令的參考
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 3b830d678a473c917b70bd46900bdb0206d3652e
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: f37572624cea744ce60a9a2e58ad3cbe2696cb9e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623080"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780067"
 ---
 # <a name="init-command-nuget-cli"></a> (NuGet CLI 的 init 命令) 
 
@@ -40,7 +40,7 @@ nuget init <source> <destination> [options]
 
 - **`-ForceEnglishOutput`**
 
-  * (3.5 +) * 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
+  *(3.5 +)* 使用不因文化特性而異的文化特性，強制執行 nuget.exe。
 
 - **`-?|-help`**
 
