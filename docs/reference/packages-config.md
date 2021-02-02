@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: da682197d4a156f9dff8ce169aab449a5392ef41
+ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777628"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260299"
 ---
 # <a name="packagesconfig-reference"></a>packages.config 參考
 
-`packages.config` 檔案用於某些專案類型，以維護專案所參考的套件清單。 將專案傳輸至沒有所有這些套件的不同電腦 (例如組建伺服器) 時，這可讓 NuGet 輕鬆地還原專案的相依性。
+`packages.config` 檔案用於某些專案類型，以維護專案所參考的套件清單。 這可讓 NuGet 在專案要傳輸到不同的電腦（例如組建伺服器）時，輕鬆地還原專案的相依性，而不需要所有套件。
 
 如果使用的話， `packages.config` 通常位於專案根目錄中。 當第一個 NuGet 作業執行時，它會自動建立，但也可以在執行任何命令（例如）之前手動建立 `nuget restore` 。
 
