@@ -35,9 +35,10 @@
 ## [建立套件(dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
 ## [建立套件 (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [建立套件 (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [在您的專案檔中支援多目標 Framework](create-packages/multiple-target-frameworks-project-file.md)
+## [封裝撰寫的最佳作法](create-packages/Package-authoring-best-practices.md)
 ## [建置發行前版本套件](create-packages/prerelease-packages.md)
 ## [建立符號套件](create-packages/symbol-packages-snupkg.md)
+## [在您的專案檔中支援多目標 Framework](create-packages/multiple-target-frameworks-project-file.md)
 ## 進階工作
 ### [支援多個目標架構](create-packages/supporting-multiple-target-frameworks.md)
 ### [修改原始程式碼和組態檔](create-packages/source-and-config-file-transformations.md)
