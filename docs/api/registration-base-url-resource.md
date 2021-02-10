@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775296"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990120"
 ---
 # <a name="package-metadata"></a>套件中繼資料
 
@@ -155,6 +155,7 @@ requireLicenseAcceptance | boolean                    | 不可以       |
 tags                     | 字串或字串陣列  | 不可以       | 
 title                    | 字串                     | 不可以       | 
 version                  | 字串                     | 是      | 正規化之後的完整版本字串
+弱點          | 物件的陣列           | 不可以       | 封裝的安全性弱點
 
 封裝 `version` 屬性是正規化之後的完整版本字串。 這表示 SemVer 2.0.0 組建資料可以包含在此。
 
@@ -218,6 +219,15 @@ CriticalBugs | 封裝有 bug，使其不適合使用
 ------------ | ------ | -------- | -----
 id           | 字串 | 是      | 替代套件的識別碼
 range        | 物件 (object) | 不可以       | 允許的 [版本範圍](../concepts/package-versioning.md#version-ranges)，或 `*` 允許的任何版本
+
+#### <a name="vulnerabilities"></a>弱點
+
+`vulnerability` 物件的陣列。 每個弱點都有下列屬性：
+
+名稱         | 類型   | 必要 | 備註
+------------ | ------ | -------- | -----
+advisoryUrl  | 字串 | 是      | 封裝之安全性諮詢的位置
+severity     | 字串 | 是      | 摘要報告的嚴重性： "0" = Low、"1" = 適中、"2" = High、"3" = 重大
 
 ### <a name="sample-request"></a>範例要求
 

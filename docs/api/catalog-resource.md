@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774158"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990150"
 ---
 # <a name="catalog"></a>目錄
 
@@ -220,6 +220,7 @@ requireLicenseAgreement | boolean                    | 不可以       | 假設 
 tags                    | 字串陣列           | 不可以       |
 title                   | 字串                     | 不可以       |
 verbatimVersion         | 字串                     | 不可以       | 最初在 nuspec 中找到的版本字串。
+弱點         | 物件的陣列           | 不可以       | 封裝的安全性弱點
 
 封裝 `version` 屬性是正規化之後的完整版本字串。 這表示 SemVer 2.0.0 組建資料可以包含在此。
 
@@ -238,6 +239,17 @@ version    | 字串  | 不可以       | 封裝類型的版本。 只有當作�
 
 > [!Note]
 > 在 nuget.org 上， `published` 當封裝未列出時，此值會設定為1900年。
+
+#### <a name="vulnerabilities"></a>弱點
+
+`vulnerability` 物件的陣列。 每個弱點都有下列屬性：
+
+名稱         | 類型   | 必要 | 備註
+------------ | ------ | -------- | -----
+advisoryUrl  | 字串 | 是      | 封裝之安全性諮詢的位置
+severity     | 字串 | 是      | 摘要報告的嚴重性： "0" = Low、"1" = 適中、"2" = High、"3" = 重大
+
+如果 `severity` 屬性包含的值不是此處所列的值，則會將通報的嚴重性視為低。
 
 #### <a name="sample-request"></a>範例要求
 

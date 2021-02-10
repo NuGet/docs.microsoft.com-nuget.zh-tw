@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775928"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990096"
 ---
 # <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目
 
@@ -73,23 +73,25 @@ ms.locfileid: "98775928"
 
 ### <a name="id-prefix-reservation-criteria"></a>識別碼首碼保留項目準則
 
-檢閱識別碼首碼保留項目的任何申請時，[nuget.org](https://www.nuget.org/) 小組會針對以下準則評估申請。 不必滿足所有準則即可保留首碼，但如果沒有實質證明滿足準則 (提供說明)，申請可能遭拒：
+查看任何識別碼首碼保留專案的應用程式時， [NuGet.org](https://www.nuget.org) 團隊會根據下列準則來評估應用程式。 請注意，並非所有準則都必須符合，才能保留前置詞，但如果沒有符合準則的重大辨識項，應用程式可能會遭到拒絕， (有提供) 的說明：
 
-1. 套件識別碼首碼是否能正確且清楚地識別套件擁有者？
+1. 封裝識別碼首碼是否正確，並清楚地識別保留擁有者？
 
-1. 套件擁有者是否已[為自己的 NuGet.org 帳戶啟用2FA](individual-accounts.md#enable-two-factor-authentication-2fa)？
-
-1. 有由擁有者已經在套件識別碼首碼下提交的大量套件嗎？
+1. 擁有者已 [為其 NuGet.org 帳戶啟用 2FA](individual-accounts.md#enable-two-factor-authentication-2fa)嗎？
 
 1. 套件識別碼首碼是否和不應該屬於任何個別擁有者或組織有某些雷同嗎？
 
-1. 保留套件識別碼首碼「不會」造成模稜兩可和社群的混淆嗎？
+1. *不* 會保留套件識別碼前置詞會導致對社區造成不明確、混淆或其他損害？
+
+將套件發佈至識別碼首碼保留範圍內的 NuGet.org 時，必須考慮下列最佳做法：
 
 1. 符合套件識別碼首碼的套件識別屬性是否清楚且一致 (尤其是套件作者)？
 
 1. 套件是否有授權 (使用 [license](../reference/nuspec.md#license) 中繼資料元素，而非即將淘汰的 licenseUrl)？
 
-1. 如果封裝有 (使用 iconUrl 中繼資料元素) 的圖示，則它們也會使用 [圖示](../reference/nuspec.md#icon) 中繼資料元素 (不需要移除 iconUrl) 嗎？
+1. 如果封裝有 (使用 iconUrl metadata 元素) 的圖示，是否也會使用 [icon](../reference/nuspec.md#icon) metadata 元素？ 不需要移除 iconUrl，但必須使用內嵌的圖示。
+ 
+除了上述幾點，請考慮查看完整 [套件撰寫的最佳作法指南](../create-packages/package-authoring-best-practices.md) 。
 
 ## <a name="third-party-feed-provider-scenarios"></a>第三方摘要提供者案例
 
