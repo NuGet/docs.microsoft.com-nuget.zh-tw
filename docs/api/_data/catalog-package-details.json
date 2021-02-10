@@ -7,7 +7,7 @@
     "catalog:commitId": "49fe04d8-5694-45a5-9822-3be61bda871b",
     "catalog:commitTimeStamp": "2015-02-01T11:18:40.8589193Z",
     "created": "2011-12-02T20:21:23.74Z",
-    "description": "此套件是 V3 通訊協定的範例。",
+    "description": "此封裝是 V3 通訊協定的範例。",
     "deprecation": {
         "reasons": [
             "Legacy",
@@ -72,5 +72,13 @@
         "V3",
         "Protocol",
         "Example"
+    ],
+    "vulnerabilities": [
+        {
+            "@id": "https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json#vulnerability/GitHub/999",
+            "@type": "Vulnerability",
+            "advisoryUrl": "https://github.com/advisories/ABCD-1234-5678-9012",
+            "severity": "2"
+        }
     ]
 }
