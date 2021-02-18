@@ -69,6 +69,7 @@
 ## [套件安裝流程](concepts/package-installation-process.md)
 ## [套件版本控制](concepts/package-versioning.md)
 ## [相依性解析](concepts/dependency-resolution.md)
+## [安全軟體供應鏈的最佳作法](concepts/Security-Best-Practices.md)
 # 參考資料
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config 檔案](reference/nuget-config-file.md)

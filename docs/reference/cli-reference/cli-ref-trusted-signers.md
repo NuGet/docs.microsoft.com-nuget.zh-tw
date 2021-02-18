@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4b6a1c3b6eb0fefd9a78c78233f974eb0db19e93
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238149"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101364"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>受信任的簽署者命令 (NuGet CLI) 
 
@@ -90,7 +90,7 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注意_ ：此選項只會新增信任的存放庫。 
+_注意_：此選項只會新增信任的存放庫。 
 
 - **`-AllowUntrustedRoot`**
 
@@ -110,7 +110,7 @@ _注意_ ：此選項只會新增信任的存放庫。
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注意_ ：如果已有具有指定名稱的受信任簽署者存在，則憑證專案將會新增至該簽署人。 否則，將會使用指定憑證資訊的憑證專案來建立信任的作者。
+_注意_：如果已有具有指定名稱的受信任簽署者存在，則憑證專案將會新增至該簽署人。 否則，將會使用指定憑證資訊的憑證專案來建立信任的作者。
 
 
 - **`-AllowUntrustedRoot`**
@@ -133,7 +133,7 @@ _注意_ ：如果已有具有指定名稱的受信任簽署者存在，則憑�
 
 要求目前受信任存放庫中使用的最新憑證清單，以更新受信任簽署者中的現有憑證清單。
 
-_注意_ ：此手勢將會刪除目前的憑證清單，並將其取代為存放庫中的最新清單。
+_注意_：此手勢將會刪除目前的憑證清單，並將其取代為存放庫中的最新清單。
 
 ## <a name="options"></a>選項
 
@@ -175,7 +175,7 @@ nuget trusted-signers Add -Name author1 -CertificateFingerprint CE40881FF5F0AD3E
 
 nuget trusted-signers Add -Repository .\..\MyRepositorySignedPackage.nupkg -Name TrustedRepo
 
-nuget-trusted-signers Remove -Name TrustedRepo
+nuget trusted-signers Remove -Name TrustedRepo
 
-nuget-trusted-signers Sync -Name TrustedRepo
+nuget trusted-signers Sync -Name TrustedRepo
 ```

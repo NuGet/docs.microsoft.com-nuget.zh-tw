@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 60626a5a2a261241e0dce34421f73a86d815e454
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777662"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101339"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config 參考
 
@@ -32,8 +32,8 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 | Key | 值 |
 | --- | --- |
 | dependencyVersion (僅 `packages.config`) | 當未直接指定 `-DependencyVersion` 參數時，套件安裝、還原及更新的預設 `DependencyVersion` 值。 NuGet 套件管理員 UI 也使用此值。 值為 `Lowest`、`HighestPatch`、`HighestMinor`、`Highest`。 |
-| 使用僅限 PackageReference 的 globalPackagesFolder (專案)  | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由 NUGET_PACKAGES 環境變數所覆寫，這會優先使用。 |
-| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由 NUGET_PACKAGES 環境變數所覆寫，這會優先使用。 |
+| 使用僅限 PackageReference 的 globalPackagesFolder (專案)  | 預設全域套件資料夾的位置。 預設值為 `%userprofile%\.nuget\packages` (Windows) 或 `~/.nuget/packages` (Mac/Linux)。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由環境變數所覆寫 `NUGET_PACKAGES` ，它的優先順序較高。 |
+| repositoryPath (僅 `packages.config`) | 要在其中安裝 NuGet 套件的位置，而非預設 `$(Solutiondir)/packages` 資料夾。 相對路徑可用於專案特有的 `nuget.config` 檔案。 這項設定是由環境變數所覆寫 `NUGET_PACKAGES` ，它的優先順序較高。 |
 | defaultPushSource | 識別在找不到任何其他套件來源可進行作業時，應該作為預設值使用的套件來源 URL 或路徑。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | 連線到套件來源時使用的 Proxy 設定；`http_proxy` 應該為 `http://<username>:<password>@<domain>` 格式。 密碼會加密，且無法手動新增。 對於 `no_proxy`，值是會略過 Proxy 伺服器的網域清單，並以逗號分隔。 您可以為那些值選擇使用 http_proxy 及 no_proxy 環境變數。 如需詳細資料，請參閱 [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (NuGet proxy 設定) (skolima.blogspot.com)。 |
 | 因為 signaturevalidationmode | 指定驗證模式，用來驗證封裝安裝和還原的封裝簽章。 值為 `accept` 、 `require` 。 預設值為 `accept`。
@@ -351,7 +351,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 ### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config 環境變數支援
 
-| 語法 | Dir 分隔符號 | Windows nuget.exe | Windows dotnet.exe | Mono 中的 Mac nuget.exe ()  | Mac dotnet.exe |
+| Syntax | Dir 分隔符號 | Windows nuget.exe | Windows dotnet.exe | Mono 中的 Mac nuget.exe ()  | Mac dotnet.exe |
 |---|---|---|---|---|---|
 | `%MY_VAR%` | `/`  | 是 | 是 | 是 | 是 |
 | `%MY_VAR%` | `\`  | 是 | 是 | 否 | 否 |
