@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 63880b6b9bbfe6aac9cc6419d6a972062eea3495
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ef1a2e68714618ac0195874996acd8263a3a6eb1
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774127"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859352"
 ---
 # <a name="analyzer-nuget-formats"></a>分析器 NuGet 格式
 
-.NET Compiler Platform (亦稱為"Roslyn") 可讓開發人員建立[分析器](https://github.com/dotnet/roslyn/blob/master/docs/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix.md)，在撰寫的同時檢查程式碼的語法樹狀結構與語意。 這為開發人員提供一種方法來建立網域特定分析工具，例如可協助引導使用特定 API 或程式庫的工具。 您可以在 [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub Wiki 找到更多資訊。 另請參閱 MSDN Magazine 中的文件：[使用 Roslyn 為您的 API 撰寫即時程式碼分析器](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api)。
+.NET Compiler Platform (亦稱為"Roslyn") 可讓開發人員建立[分析器](https://github.com/dotnet/roslyn/blob/main/docs/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix.md)，在撰寫的同時檢查程式碼的語法樹狀結構與語意。 這為開發人員提供一種方法來建立網域特定分析工具，例如可協助引導使用特定 API 或程式庫的工具。 您可以在 [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub Wiki 找到更多資訊。 另請參閱 MSDN Magazine 中的文件：[使用 Roslyn 為您的 API 撰寫即時程式碼分析器](/archive/msdn-magazine/2014/special-issue/csharp-and-visual-basic-use-roslyn-to-write-a-live-code-analyzer-for-your-api)。
 
 分析器本身通常會封裝並散發作為實作討論中 API 或程式庫之 NuGet 套件的一部分。
 

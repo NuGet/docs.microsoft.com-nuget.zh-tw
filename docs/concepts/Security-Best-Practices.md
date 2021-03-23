@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101423"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859222"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>安全軟體供應鏈的最佳作法
 
@@ -75,7 +75,7 @@ ms.locfileid: "101101423"
 -   [`packages.config`](../reference/packages-config.md) –位於專案根目錄中。
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) –位於專案檔中。 
 
-根據您用來管理 NuGet 相依性的方法，您也可以使用 Visual Studio 直接在 [方案總管](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) 或 [NuGet 封裝管理員](../consume-packages/install-use-packages-visual-studio.md)中查看相依性。
+根據您用來管理 NuGet 相依性的方法，您也可以使用 Visual Studio 直接在 [方案總管](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) 或 [NuGet 封裝管理員](../consume-packages/install-use-packages-visual-studio.md)中查看相依性。
 
 在 CLI 環境中，您可以使用 [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) 命令來列出專案或解決方案的相依性。 
 
@@ -140,7 +140,7 @@ ms.locfileid: "101101423"
 
 鎖定檔案會儲存套件內容的雜湊。 如果您要安裝的套件內容雜湊符合鎖定檔案，則會確保封裝重複性。
 
-若要啟用鎖定檔案， [請參閱下列檔](../consume-packages/package-references-in-project-files#locking-dependencies)。
+若要啟用鎖定檔案， [請參閱下列檔](../consume-packages/package-references-in-project-files.md#locking-dependencies)。
 
 ## <a name="monitor-your-supply-chain"></a>監視您的供應鏈
 
@@ -182,7 +182,7 @@ GitHub 會掃描 NuGet API 金鑰的存放庫，以防止詐騙使用意外認�
 
 若要瞭解如何取代和取消列出套件，請參閱下列有關 [淘汰](../nuget-org/deprecate-packages.md) 和 [取消列出套件](../nuget-org/policies/deleting-packages.md#unlisting-a-package)的檔。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>總結
 
 您的軟體供應鏈是任何進入或影響程式碼的程式碼。 雖然供應鏈的危害是真實且越來越普及，但它們仍然很罕見;因此，您可以做的最重要的事，就是藉由 **瞭解您的相依性、管理您的** 相依性，以及 **監視您的供應鏈**，來保護您的供應鏈。
 

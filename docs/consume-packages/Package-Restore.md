@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523531"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859235"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -36,7 +36,7 @@ ms.locfileid: "97523531"
    - [Visual Studio](#restore-using-visual-studio) ([自動還原](#restore-packages-automatically-using-visual-studio)或[手動還原](#restore-packages-manually-using-visual-studio))
    - [dotnet CLI](#restore-using-the-dotnet-cli)
    - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
-   - [Msbuild](#restore-using-msbuild)
+   - [MSBuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
@@ -244,4 +244,4 @@ NuGet 透過任何方法還原套件時，會使用 `packages.config` 或專案�
 
 ## <a name="troubleshooting"></a>疑難排解
 
-請參閱[針對套件還原進行疑難排解](package-restore-troubleshooting.md)。
+請參閱[針對套件還原進行疑難排解](Package-restore-troubleshooting.md)。

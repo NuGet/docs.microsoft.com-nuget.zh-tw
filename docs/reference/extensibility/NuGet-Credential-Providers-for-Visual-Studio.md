@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777761"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859092"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>使用 NuGet 認證提供者驗證 Visual Studio 中的摘要
 
 NuGet Visual Studio Extension 3.6 + 支援認證提供者，可讓 NuGet 使用已驗證的摘要。
 當您安裝 Visual Studio 的 NuGet 認證提供者之後，NuGet Visual Studio 擴充功能就會在必要時自動取得並重新整理已驗證摘要的認證。
 
-您可以在 [VsCredentialProvider 範例](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)中找到範例執行。
+您可以在 [VsCredentialProvider 範例](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider)中找到範例執行。
 
 在 Visual Studio 中，NuGet 會使用 `VsCredentialProviderImporter` 同時掃描外掛程式認證提供者的內部。 這些外掛程式認證提供者必須可探索為型別的 MEF 匯出 `IVsCredentialProvider` 。
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-您可以在 [VsCredentialProvider 範例](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)中找到範例執行。
+您可以在 [VsCredentialProvider 範例](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider)中找到範例執行。
 
 Visual Studio 的每個 NuGet 認證提供者都必須：
 
@@ -78,4 +78,4 @@ Visual Studio 的自訂 NuGet 認證提供者必須執行 `IVsCredentialProvider
 | bool 非互動式 | 若為 true，認證提供者必須隱藏所有使用者提示，並改用預設值。 |
 | CancellationToken cancellationToken | 應檢查此解除標記，以判斷要求認證的作業是否已取消。 |
 
-傳回 **值**：執行 [ `System.Net.ICredentials` 介面](/dotnet/api/system.net.icredentials?view=netstandard-2.0)的認證物件。
+傳回 **值**：執行 [ `System.Net.ICredentials` 介面](/dotnet/api/system.net.icredentials)的認證物件。

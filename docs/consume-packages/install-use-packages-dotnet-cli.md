@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 38455e61bd91f115df9f27df090ba47a029f6877
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fecf14f0f04d5063f89080b2756f988739c1412c
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622937"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859261"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>使用 dotnet CLI 安裝和管理套件
 
@@ -47,9 +47,9 @@ Dotnet CLI 適用於 .NET Core 和 .NET Standard 專案 (SDK 樣式專案類型)
    您可以開啟 `.csproj` 檔案來查看已新增的參考：
 
     ```xml
-   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-   </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    </ItemGroup>
     ```
 
 ## <a name="install-a-specific-version-of-a-package"></a>安裝特定版本的套件

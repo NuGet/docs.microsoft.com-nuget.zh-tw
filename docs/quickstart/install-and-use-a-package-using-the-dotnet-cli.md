@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: adbf8f457d8520e3087e539b91ef932877aec3a0
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: dbe1d3ee8e50a90803140bc2c5cb5821b485a2fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775445"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859430"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>快速入門：利用 dotnet CLI 安裝並使用套件
 
@@ -21,7 +21,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 > [!Tip]
 > **從 nuget.org 開始**：瀏覽 nuget.org 是 .NET 開發人員通常用來尋找可在自己應用程式中重複使用之元件的方式。 您可以直接搜尋 nuget.org，或在 Visual Studio 中尋找並安裝套件，如本文所示。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/)，它會提供 `dotnet` 命令列工具。 從 Visual Studio 2017 開始，dotnet CLI 會自動與任何 .NET Core 相關工作負載一起安裝。
 
@@ -52,9 +52,9 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 2. 在命令完成之後，開啟 `.csproj` 檔案來查看已新增的參考：
 
     ```xml
-   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-   </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    </ItemGroup>
     ```
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>在應用程式中使用 Newtonsoft.Json API
@@ -108,7 +108,7 @@ NuGet 套件包含可重複使用的程式碼，由其他開發人員提供您�
 
 在 [Channel 9](https://channel9.msdn.com/Series/NuGet-101) 和 [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)上尋找更多的 NuGet 影片。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>下一步
 
 恭喜，您安裝並使用了您的第一個 NuGet 套件！
 

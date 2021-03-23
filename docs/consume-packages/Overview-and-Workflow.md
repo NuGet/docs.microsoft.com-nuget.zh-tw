@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f1856940a988e0585c29ccfd581d823e4f69921
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775069"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859209"
 ---
 # <a name="package-consumption-workflow"></a>套件使用工作流程
 
@@ -45,9 +45,9 @@ NuGet 也會確保套件所支援的目標架構與您的專案相容。 如果�
 
 NuGet 套件會使用下表任一方法下載並安裝。
 
-| 工具 | 描述 |
-| --- | --- |
-| [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | 適用於 .NET Core 與 .NET Standard 程式庫，以及適用於以 .NET Framework 為目標的 SDK 樣式專案 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 抓取所識別的封裝 \<package_name\> ，並將參考加入至專案檔。 此外，也會擷取並安裝相依性。 |
-| Visual Studio | (Windows 和 Mac) 提供 UI，透過該 UI 可從指定套件來源瀏覽、選取套件及其相依性並安裝至專案。 將對於已安裝套件的參考新增至專案檔。<ul><li>[使用 Visual Studio 安裝和管理套件](install-use-packages-visual-studio.md)</li><li>[在專案中包含 NuGet 套件 (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [套件管理員主控台 (Visual Studio)](install-use-packages-powershell.md) |  (僅限 Windows) 從選取的來源將所識別的封裝，並安裝 \<package_name\> 到方案中的指定專案，然後將參考新增至專案檔。 此外，也會擷取並安裝相依性。 |
-| [nuget.exe CLI](install-use-packages-nuget-cli.md) | (所有平台) 適用於 .NET Framework 程式庫及以 .NET Standard 程式庫為目標的非 SDK 樣式專案 CLI 工具。 抓取所識別的封裝 \<package_name\> ，並將其內容展開至目前的目錄中的資料夾; 也可以取出檔案中列出的所有套件 `packages.config` 。 另外也會擷取並安裝相依性，但不會對專案檔或 `packages.config` 進行任何變更。 |
+| 工具 | 平台 | 描述 |
+| --- | --- | --- |
+| [dotnet CLI](install-use-packages-dotnet-cli.md) | 全部 | 適用於 .NET Core 與 .NET Standard 程式庫，以及以 .NET Framework 為目標之 SDK 樣式專案的 CLI 工具 (請參閱 [ SDK 屬性](/dotnet/core/tools/csproj#additions))。 抓取所識別的封裝 \<package_name\> ，並將參考加入至專案檔。 此外，也會擷取並安裝相依性。 |
+| Visual Studio | Windows 和 Mac | 提供 UI，您可以在其中流覽、選取套件及其相依性，並將其從指定的套件來源安裝到專案中。 將對於已安裝套件的參考新增至專案檔。<ul><li>[使用 Visual Studio 安裝和管理套件](install-use-packages-visual-studio.md)</li><li>[在專案中包含 NuGet 套件 (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [套件管理員主控台 (Visual Studio)](install-use-packages-powershell.md) | 僅限 Windows | 從選取的來源將所識別的封裝，並安裝 \<package_name\> 到方案中的指定專案，然後將參考新增至專案檔。 此外，也會擷取並安裝相依性。 |
+| [nuget.exe CLI](install-use-packages-nuget-cli.md) | 全部 | 適用於 .NET Framework 程式庫與以 .NET Standard 程式庫為目標之非 SDK 樣式專案的 CLI 工具。 抓取所識別的封裝 \<package_name\> ，並將其內容展開至目前的目錄中的資料夾; 也可以取出檔案中列出的所有套件 `packages.config` 。 另外也會擷取並安裝相依性，但不會對專案檔或 `packages.config` 進行任何變更。 |

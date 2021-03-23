@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777672"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859495"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -34,7 +34,7 @@ ms.locfileid: "98777672"
 
 - `.nuspec`針對[sdk 樣式專案](../resources/check-project-format.md)建立套件時，不需要檔案 (通常是 .net Core 和使用[SDK 屬性](/dotnet/core/tools/csproj#additions)) 的 .NET Standard 專案。  (請注意， `.nuspec` 當您建立套件時，就會產生。 ) 
 
-   如果您要使用或建立封裝 `dotnet.exe pack` `msbuild pack target` ，建議您改為在專案檔中包含通常在檔案中的 [所有屬性](../reference/msbuild-targets.md#pack-target) `.nuspec` 。 不過，您可以改為選擇[使用 `.nuspec` 要使用 `dotnet.exe` 或 `msbuild pack target` 封裝的](../reference/msbuild-targets.md#packing-using-a-nuspec)檔案。
+   如果您要使用或建立封裝 `dotnet.exe pack` `msbuild pack target` ，建議您改為在專案檔中包含通常在檔案中的 [所有屬性](../reference/msbuild-targets.md#pack-target) `.nuspec` 。 不過，您可以改為選擇[使用 `.nuspec` 要使用 `dotnet.exe` 或 `msbuild pack target` 封裝的](../reference/msbuild-targets.md#packing-using-a-nuspec-file)檔案。
 
 - 若為從遷移 `packages.config` 至 [PackageReference](../consume-packages/package-references-in-project-files.md)的專案 `.nuspec` ，則不需要使用檔案來建立封裝。 相反地，請使用 [msbuild-t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)。
 
@@ -198,7 +198,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 </package>
 ```
 
-[封裝圖示 nuspec 範例。](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+[封裝圖示 nuspec 範例。](https://github.com/NuGet/Samples/tree/main/PackageIconNuspecExample)
 
 針對 MSBuild 對等專案，請參閱 [封裝圖示影像檔](msbuild-targets.md#packing-an-icon-image-file)案。
 

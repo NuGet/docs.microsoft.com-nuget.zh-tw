@@ -6,16 +6,16 @@ ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 76c589b5ad034127675fb2bbf79ea97992883ebe
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774584"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859105"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>轉換原始程式碼和組態檔
 
-安裝套件時，**原始程式碼轉換** 會將單向權杖取代套用到套件 `content` 或 `contentFiles` 資料夾中的檔案 (若是使用 `packages.config` 的客戶，為 `content`；若是 `PackageReference` 則為 `contentFiles`)，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
+安裝套件時，**原始程式碼轉換** 會將單向權杖取代套用到套件 `content` 或 `contentFiles` 資料夾中的檔案 (若是使用 `packages.config` 的客戶，為 `content`；若是 `PackageReference` 則為 `contentFiles`)，而權杖指的是 Visual Studio [套件屬性](/dotnet/api/vslangproj.projectproperties)。 這可讓您將檔案插入至專案的命名空間，或自訂一般會移入 ASP.NET 專案之 `global.asax` 中的程式碼。
 
 **組態檔轉換** 可讓您修改目標專案中的現有檔案 (例如 `web.config` 和 `app.config`)。 例如，您的套件可能需要將項目新增至組態檔中的 `modules` 區段。 此轉換的完成是透過在專案中包含可描述要新增至組態檔之區段的特殊檔案。 解除安裝套件時，接著會反轉這些相同的變更，讓這項作業成為雙向轉換。
 
@@ -45,7 +45,7 @@ ms.locfileid: "98774584"
 
     安裝時，NuGet 會將 `$rootnamespace$` 取代為 `Fabrikam`，並假設目標專案的根命名空間是 `Fabrikam`。
 
-`$rootnamespace$` 權杖是最常用的專案屬性，其他則列在[專案屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)中。 當然，請注意，某些屬性可能是專案類型所特有。
+`$rootnamespace$` 權杖是最常用的專案屬性，其他則列在[專案屬性](/dotnet/api/vslangproj.projectproperties)中。 當然，請注意，某些屬性可能是專案類型所特有。
 
 ## <a name="specifying-config-file-transformations"></a>指定組態檔轉換
 
@@ -113,9 +113,9 @@ NuGet 安裝套件之後，`web.config` 會顯示如下：
 ### <a name="xdt-transforms"></a>XDT 轉換
 
 > [!Note]
-> 如同[從遷移 `packages.config` `PackageReference` 至的檔的封裝相容性問題一節](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)所述，僅支援下列所述的 XDT 轉換 `packages.config` 。 如果您將下列檔案新增到封裝中，使用您的封裝的取用者 `PackageReference` 將不會套用轉換 (請參閱 [此範例](https://github.com/NuGet/Samples/tree/master/XDTransformExample) ，讓 XDT 轉換能與) 搭配運作 `PackageReference` 。
+> 如同[從遷移 `packages.config` `PackageReference` 至的檔的封裝相容性問題一節](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)所述，僅支援下列所述的 XDT 轉換 `packages.config` 。 如果您將下列檔案新增到封裝中，使用您的封裝的取用者 `PackageReference` 將不會套用轉換 (請參閱 [此範例](https://github.com/NuGet/Samples/tree/main/XDTransformExample) ，讓 XDT 轉換能與) 搭配運作 `PackageReference` 。
 
-您可以使用 [XDT 語法](/previous-versions/aspnet/dd465326(v=vs.110))來修改組態檔。 您也可以在 `$` 分隔符號內，納入屬性名稱 (不區分大小寫)，讓 NuGet 將權杖取代為[專案屬性](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)。
+您可以使用 [XDT 語法](/previous-versions/aspnet/dd465326(v=vs.110))來修改組態檔。 您也可以在 `$` 分隔符號內，納入屬性名稱 (不區分大小寫)，讓 NuGet 將權杖取代為[專案屬性](/dotnet/api/vslangproj.projectproperties)。
 
 例如，下列 `app.config.install.xdt` 檔案會將 `appSettings` 項目從專案插入至包含 `FullPath`、`FileName` 和 `ActiveConfigurationSettings` 值的 `app.config`：
 

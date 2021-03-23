@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fabfd76a46a38ff26acbc6439406d99eb3f85bf4
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774782"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859157"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>從 package.config 移轉到 PackageReference
 
@@ -100,31 +100,27 @@ PackageReference 中不支援某些在 packages.config 中支援的層面。 移
 
 ### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>當套件是在移轉之後安裝時，系統會忽略 "install. ps1" 指令碼
 
-| | |
-| --- | --- |
-| **說明** | 使用 PackageReference 時，在安裝套件或將套件解除時，不會執行 install.ps1 與 uninstall.ps1 PowerShell 指令碼。 |
-| **潛在影響** | 相依於這些指令碼以在目的專案中設定某些行為的套件，可能無法如預期般運作。 |
+* **描述**：在安裝或卸載套件時，不會執行 PackageReference、install.ps1 和 uninstall.ps1 的 PowerShell 腳本。
+
+* **可能的影響**：相依于這些腳本的封裝在目的地專案中設定某些行為，可能無法如預期般運作。
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>當套件是在移轉之後安裝時，會無法使用「內容」資產
 
-| | |
-| --- | --- |
-| **說明** | PackageReference 不支援在套件的 `content` 資料夾中的資產，因此系統會忽略它們。 PackageReference 新增對 `contentFiles` 的支援，以獲得更好的可轉移支援和共用內容。  |
-| **潛在影響** | `content` 中的資產未複製到專案中，且依賴那些資產存在的專案程式碼必須重構。  |
+* **描述**： `content` PackageReference 不支援套件資料夾中的資產，而且會予以忽略。 PackageReference 新增對 `contentFiles` 的支援，以獲得更好的可轉移支援和共用內容。
+
+* **可能的影響**：中的資產 `content` 不會複製到專案中，而取決於這些資產是否存在的專案程式碼需要重構。
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>當套件是在升級後安裝時，不會套用 XDT 轉換
 
-| | |
-| --- | --- |
-| **說明** | PackageReference 不支援 XDT 轉換，而且在安裝套件或將套件解除安裝時，系統會忽略 `.xdt` 檔案。   |
-| **潛在影響** | XDT 轉換不會套用至任何專案 XML 檔案，最常見的是 `web.config.install.xdt` 與 `web.config.uninstall.xdt`，這表示專案的 ` web.config` 檔案，沒有在安裝套件或將套件解除安裝時更新。 |
+* **描述**： `.xdt` 在安裝或卸載套件時，不支援 XDT 轉換與 PackageReference，而且會忽略檔案。
+
+* **潛在影響**： XDT 轉換不會套用至任何專案 XML 檔案，最常見的是， `web.config.install.xdt` 也就是在 `web.config.uninstall.xdt` ` web.config` 安裝或卸載套件時，不會更新專案的檔案。
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>當套件是在遷移之後安裝時，系統會忽略 lib 根目錄中的組件
 
-| | |
-| --- | --- |
-| **說明** | 使用 PackageReference 時，系統會忽略出現在 `lib` 資料夾根目錄且沒有目標架構特定子資料夾的組件。 NuGet 會尋找與專案目標 Framework 對應之目標 Framework Moniker (TFM) 相符的子資料夾，並將相符的元件安裝到專案中。 |
-| **潛在影響** | 若套件沒有與專案目標架構對應之目標 Framework Moniker (TFM) 相符的子資料夾，在移轉之後可能無法如預期般運作，或可能在移轉期間安裝失敗 |
+* **描述**：使用 PackageReference 時，會忽略存在於資料夾根目錄的元件， `lib` 而不使用目標 framework 特定的子資料夾。 NuGet 會尋找與專案目標 Framework 對應之目標 Framework Moniker (TFM) 相符的子資料夾，並將相符的元件安裝到專案中。
+
+* **可能的影響**：如果封裝沒有符合目標 framework 標記的子資料夾 (TFM) 對應至專案的目標架構，則在遷移期間轉換或失敗後，可能無法如預期般運作。
 
 ## <a name="found-an-issue-report-it"></a>發現問題嗎？ 請回報！
 

@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: e89b50601deb204892536406b4ddabf7005e0642
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776134"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859404"
 ---
 # <a name="nuget-client-sdk"></a>NuGet 用戶端 SDK
 
@@ -20,7 +20,7 @@ ms.locfileid: "98776134"
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -用來與 NuGet 套件互動。 `NuGet.Protocol` 相依于此套件
 
 您可以在 [NuGet/nuget. 用戶端](https://github.com/NuGet/NuGet.Client) GitHub 存放庫中找到這些套件的原始程式碼。
-您可以在 GitHub 上的 [nuget.exe](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) 範例專案中找到這些範例的原始程式碼。
+您可以在 GitHub 上的 [nuget.exe](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) 範例專案中找到這些範例的原始程式碼。
 
 > [!Note]
 > 如需 NuGet 伺服器通訊協定的相關檔，請參閱 [Nuget 伺服器 API](~/api/overview.md)。

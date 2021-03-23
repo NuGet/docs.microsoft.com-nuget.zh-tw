@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777315"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859482"
 ---
 # <a name="target-frameworks"></a>目標 Framework
 
@@ -23,17 +23,21 @@ NuGet 在各種位置使用目標 Framework 參考，具體識別並隔離套件
 - [packages.config](../reference/packages-config.md)：相依性的 `targetframework` 屬性會指定要安裝的套件 Variant。
 
 > [!Note]
-> 計算下列表格的 NuGet 用戶端原始程式碼位在下列位置：
-> - 支援的 Framework 名稱：[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Framework 優先順序和對應：[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> NuGet 支援所有新式 .NET 目標 framework：
+> - 如需最新的目標 framework 清單，請參閱 [SDK 樣式專案檔案中的目標 framework](/dotnet/standard/frameworks) 。
 
 ## <a name="supported-frameworks"></a>支援的架構
 
 Framework 通常是簡短的目標 Framework Moniker 或 TFM 的參考對象。 在 .NET Standard 這也一般化 *TxM* ，以允許對多個架構的單一參考。
 
+> [!Note]
+> 計算下列表格的 NuGet 用戶端原始程式碼位在下列位置：
+> - 支援的 Framework 名稱：[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Framework 優先順序和對應：[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+
 NuGet 用戶端支援下表中的 Framework 。 對等項目會顯示在 [] 括弧內。 請注意，某些工具，例如 `dotnet`，可能會在某些檔案中使用標準的 TFM 變化。 例如，`dotnet pack` 在 `.nuspec` 檔案中使用 `.NETCoreApp2.0`，而非 `netcoreapp2.0`。 各種 NuGet 用戶端工具會正確處理這些變化，但直接編輯檔案時，您應該一律使用標準的 TFM。
 
-| 名稱 | 縮寫 | TFM/TxM |
+| Name | 縮寫 | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -286,7 +290,7 @@ NuGet 3.3 和更舊版本中應該使用 moniker 的 `dotnet` 系列，v3.4 及�
 
 此外，以 Xamarin 為目標的 NuGet 套件可以使用其他 Xamarin 定義的 Framework。 請參閱 [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (手動建立適用於 Xamarin 的 NuGet 套件)。
 
-| 名稱 | 描述 | .NET Standard |
+| Name | 描述 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android 作業系統的 Mono 支援 | netstandard1.4 |
 | monotouch | iOS 的 Mono 支援 | netstandard1.4 |

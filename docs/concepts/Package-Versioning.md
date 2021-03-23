@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775122"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859196"
 ---
 # <a name="package-versioning"></a>套件版本控制
 
@@ -245,3 +245,13 @@ ms.locfileid: "98775122"
 `pack` 與 `restore` 作業會盡可能將版本標準化。 針對已建置的套件，此標準化不會影響套件本身的版本號碼；它只會影響 NuGet 在解析相依性時如何比對版本。
 
 不過，NuGet 套件存放庫必須以與 NuGet 相同的方式來處理這些值，以防止套件版本重複。 因此，包含 *1.0* 版套件的存放庫，不應該也裝載 *1.0.0* 版，並作為個別且不同的套件。
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>從語義版本控制 NuGetVersion 分歧
+
+如果您想要以程式設計方式使用 NuGet 套件版本，強烈建議使用 [封裝 nuget。版本控制](https://www.nuget.org/packages/NuGet.Versioning)。 靜態方法 `NuGetVersion.Parse(string)` 可用來剖析版本字串，而且 `VersionComparer` 可以用來排序 `NuGetVersion` 實例。
+
+如果您要使用不在 .NET 上執行的語言來執行 NuGet 功能，以下是和語義版本控制之間的已知差異清單 `NuGetVersion` ，以及現有的語義版本設定庫對於已在 nuget.org 上發行的封裝而言可能無法運作的原因。
+
+1. `NuGetVersion` 支援第四個版本區段， `Revision` 以相容于或的超集合 [`System.Version`](/dotnet/api/system.version) 。 因此，不包括發行前版本和中繼資料標籤，版本字串為 `Major.Minor.Patch.Revision` 。 根據上面所述的版本正規化，如果 `Revision` 是零，則會省略正規化版本字串中的。
+2. `NuGetVersion` 只需要定義主要區段。 所有其他專案都是選擇性的，且相當於零。 這表示 `1` 、、 `1.0` `1.0.0` 和 `1.0.0.0` 都是已接受且相等的。
+3. `NuGetVersion` 使用案例 insenstive 預先發行元件的字串比較。 這表示 `1.0.0-alpha` 和 `1.0.0-Alpha` 相等。

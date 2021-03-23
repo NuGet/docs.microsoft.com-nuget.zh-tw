@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235759"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859183"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>專案檔中的套件參考 (PackageReference)
+# <a name="package-references-packagereference-in-project-files"></a>專案檔中)  (套件參考 `PackageReference`
 
 套件參考使用 `PackageReference` 節點，直接在專案檔中管理 NuGet 相依性 (而不是在個別的 `packages.config` 檔案中)。 使用 PackageReference 不會影響 NuGet 的其他方面；例如，仍會套用 `NuGet.config` 檔案中的設定 (包括套件來源)，如[常用的 NuGet 組態](configuring-nuget-behavior.md)中所述。
 
@@ -211,7 +211,7 @@ MSBuild 屬性和套件身分識別沒有相同的限制，因此必須將套件
 在某些罕見的情況下，不同的封裝將包含相同命名空間中的類別。 從 NuGet 5.7 & Visual Studio 2019 Update 7 開始，相當於 ProjectReference，PackageReference 支援 [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) 。
 依預設，不會提供任何別名。 指定別名時，所有來自批註套件的元件 *都* 必須使用別名來參考。
 
-您可以在[NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)中查看範例使用方式
+您可以在[NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)中查看範例使用方式
 
 在專案檔中，指定別名，如下所示：
 
@@ -384,7 +384,7 @@ ProjectA
 
 您使用鎖定檔案來控制還原的各種行為，如下所述：
 
-| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | Description |
+| NuGet.exe 選項 | dotnet 選項 | MSBuild 同等選項 | 描述 |
 |:--- |:--- |:--- |:--- |
 | `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | 選擇使用鎖定檔案。 |
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | 針對還原啟用鎖定模式。 這在您想要可重複組建的 CI/CD 案例中很有用。|   

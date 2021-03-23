@@ -1,28 +1,33 @@
 ---
-title: NuGet 封裝和還原為 MSBuild 目標
-description: 使用 NuGet 4.0+，NuGet 封裝和還原就可以直接作為 MSBuild 目標。
+title: NuGet 套件和還原為 MSBuild 目標
+description: NuGet pack 和 restore 可以直接做為 MSBuild 4.0 + 的目標使用 NuGet 。
 author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0c32978baf6146f10c262ba7af94f61fee22272d
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+no-loc:
+- NuGet
+- MSBuild
+- .nuspec
+- nuspec
+ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777714"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104858962"
 ---
-# <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 封裝和還原為 MSBuild 目標
+# <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 套件和還原為 MSBuild 目標
 
-*NuGet 4.0+*
+*NuGet 4.0 +*
 
-使用 [PackageReference](../consume-packages/package-references-in-project-files.md) 格式時，NuGet 4.0 + 可以直接將所有資訊清單中繼資料儲存在專案檔中，而不是使用個別的檔案 `.nuspec` 。
+使用 [PackageReference](../consume-packages/package-references-in-project-files.md) 格式， NuGet 4.0 + 可以直接將所有資訊清單中繼資料儲存在專案檔中，而不是使用個別的檔案 `.nuspec` 。
 
-使用 MSBuild 15.1+，NuGet 也是含 `pack` 和 `restore` 目標的第一級 MSBuild 公民，如下所述。 這些目標可讓您使用 NuGet，就像使用任何其他 MSBuild 工作或目標一樣。 如需使用 MSBuild 建立 NuGet 套件的指示，請參閱 [使用 Msbuild 建立 nuget 套件](../create-packages/creating-a-package-msbuild.md)。 (在 NuGet 3.x 和更早版本中，您可以改成透過 NuGet CLI 來使用 [pack](../reference/cli-reference/cli-ref-pack.md) 和 [restore](../reference/cli-reference/cli-ref-restore.md) 命令)。
+使用 MSBuild 15.1 + NuGet 時，也是 MSBuild 具有和目標的第一級公民， `pack` `restore` 如下所述。 這些目標可讓您與 NuGet 任何其他工作或目標一樣使用 MSBuild 。 如需使用建立 NuGet 封裝的指示 MSBuild ，請參閱[ NuGet 使用 MSBuild 建立封裝](../create-packages/creating-a-package-msbuild.md)。  (3.x NuGet 及更早版本，您可以改為使用 [套件](../reference/cli-reference/cli-ref-pack.md) 並透過 CLI [還原](../reference/cli-reference/cli-ref-restore.md) 命令 NuGet 。 ) 
 
 ## <a name="target-build-order"></a>目標組建順序
 
-因為 `pack` 和 `restore` 是 MSBuild 目標，所以您可以存取它們，以加強工作流程。 例如，假設您想要在封裝套件之後，將套件複製至網路共用。 做法是在專案檔中新增下列項目：
+因為 `pack` 和 `restore` 是  MSBuild 目標，所以您可以存取它們來增強您的工作流程。 例如，假設您想要在封裝之後將套件複製到網路共用。 做法是在專案檔中新增下列項目：
 
 ```xml
 <Target Name="CopyPackage" AfterTargets="Pack">
@@ -33,98 +38,99 @@ ms.locfileid: "98777714"
 </Target>
 ```
 
-同樣地，您可以撰寫 MSBuild 工作、撰寫您自己的目標，以及在 MSBuild 工作中使用 NuGet 屬性。
+同樣地，您可以撰寫 MSBuild 工作、撰寫您自己的目標，並使用 NuGet 工作中的屬性 MSBuild 。
 
 > [!NOTE]
 > `$(OutputPath)` 是相對的，且預期您是從專案根目錄執行命令。
 
 ## <a name="pack-target"></a>封裝目標
 
-針對使用格式的 .NET 專案 `PackageReference` ，使用會 `msbuild -t:pack` 從專案檔繪製輸入，以用於建立 NuGet 套件。
+針對使用格式的 .NET 專案 `PackageReference` ，使用會 `msbuild -t:pack` 從專案檔繪製輸入，以用於建立 NuGet 封裝。
 
-下表描述可新增至第一個節點內之專案檔的 MSBuild 屬性 `<PropertyGroup>` 。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表會依照檔案中的對等屬性進行[ `.nuspec` 組織。](../reference/nuspec.md)
+下表說明 MSBuild 可以加入至第一個節點內之專案檔的屬性 `<PropertyGroup>` 。 以滑鼠右鍵按一下專案，然後選取操作功能表上的 [編輯 {project_name}]，即可在 Visual Studio 2017 和更新版本中輕鬆地進行這些編輯。 為了方便起見，資料表會依照檔案中的對等屬性進行[ `.nuspec` 組織。](../reference/nuspec.md)
 
-請注意，MSBuild 不支援 `.nuspec` 中的 `Owners` 和 `Summary` 屬性。
+> [!NOTE]
+> `Owners``Summary`不支援的和屬性 `.nuspec` MSBuild 。
 
-| 屬性/NuSpec 值 | MSBuild 屬性 | 預設 | 備註 |
+| 屬性/ nuspec 值 | MSBuild 屬性 | 預設 | 備註 |
 |--------|--------|--------|--------|
-| 識別碼 | PackageId | AssemblyName | MSBuild 中的 $(AssemblyName) |
-| 版本 | PackageVersion | 版本 | 這與 SemVer 相容，例如 “1.0.0”、“1.0.0-beta” 或 “1.0.0-beta-00345” |
-| VersionPrefix | PackageVersionPrefix | empty | 設定 PackageVersion 會覆寫 PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | empty | MSBuild 中的 $(VersionSuffix)。 設定 PackageVersion 會覆寫 PackageVersionSuffix |
-| Authors | Authors | 目前使用者的使用者名稱 | 以分號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的 NuGet 元件庫中，並用來交互參照相同作者的封裝。 |
-| 擁有者 | N/A | NuSpec 中沒有 | |
-| 標題 | 標題 | PackageId| 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 |
-| 描述 | 描述 | "Package Description" | 組件的完整描述。 如果 `PackageDescription` 未指定，則此屬性也會用來做為封裝的描述。 |
-| 著作權 | 著作權 | empty | 套件的著作權詳細資料。 |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
-| 授權 | PackageLicenseExpression | empty | 對應至 `<license type="expression">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
-| 授權 | PackageLicenseFile | empty | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 您必須明確地封裝參考的授權檔案。 對應至 `<license type="file">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
-| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
-| ProjectUrl | PackageProjectUrl | empty | |
-| 圖示 | PackageIcon | empty | 封裝中用來做為封裝圖示的影像路徑。 您必須明確地封裝參考的圖示影像檔案。 如需詳細資訊，請參閱[封裝圖示影像檔](#packing-an-icon-image-file)案和[ `icon` 中繼資料](/nuget/reference/nuspec#icon)。 |
-| IconUrl | PackageIconUrl | empty | `PackageIconUrl` 已被取代，改為使用 `PackageIcon` 。 但是，為了獲得最佳的早期體驗，除了之外，您還應該指定 `PackageIconUrl` `PackageIcon` 。 |
-| 標籤 | PackageTags | empty | 以分號分隔的標記清單，用以指定套件。 |
-| ReleaseNotes | PackageReleaseNotes | empty | 套件的版本資訊。 |
-| 存放庫/Url | RepositoryUrl | empty | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* 。 |
-| 存放庫/類型 | RepositoryType | empty | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
-| 存放庫/分支 | RepositoryBranch | empty | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
-| 儲存機制/認可 | RepositoryCommit | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
-| PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| 摘要 | 不支援 | | |
+| `Id` | `PackageId` | `$(AssemblyName)` | 來自 MSBuild 的 `$(AssemblyName)` |
+| `Version` | `PackageVersion` | 版本 | 這是 semver 相容的，例如 `1.0.0` ， `1.0.0-beta` 或 `1.0.0-beta-00345` |
+| `VersionPrefix` | `PackageVersionPrefix` | empty | 設定 `PackageVersion` 覆寫 `PackageVersionPrefix` |
+| `VersionSuffix` | `PackageVersionSuffix` | empty | `$(VersionSuffix)` from MSBuild 。 設定 `PackageVersion` 覆寫 `PackageVersionSuffix` |
+| `Authors` | `Authors` | 目前使用者的使用者名稱 | 以分號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的資源 NuGet 庫中，並用來交互參照相同作者的封裝。 |
+| `Owners` | N/A | 不存在於 nuspec | |
+| `Title` | `Title` | `PackageId` | 套件的易記標題，通常會用於 UI 顯示，以及 nuget.org 和 Visual Studio 套件管理員中。 |
+| `Description` | `Description` | "Package Description" | 組件的完整描述。 如果 `PackageDescription` 未指定，則此屬性也會用來做為封裝的描述。 |
+| `Copyright` | `Copyright` | empty | 套件的著作權詳細資料。 |
+| `RequireLicenseAcceptance` | `PackageRequireLicenseAcceptance` | `false` | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 |
+| `license` | `PackageLicenseExpression` | empty | 對應至 `<license type="expression">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
+| `license` | `PackageLicenseFile` | empty | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 您必須明確地封裝參考的授權檔案。 對應至 `<license type="file">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
+| `LicenseUrl` | `PackageLicenseUrl` | empty | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
+| `ProjectUrl` | `PackageProjectUrl` | empty | |
+| `Icon` | `PackageIcon` | empty | 封裝中用來做為封裝圖示的影像路徑。 您必須明確地封裝參考的圖示影像檔案。 如需詳細資訊，請參閱[封裝圖示影像檔](#packing-an-icon-image-file)案和[ `icon` 中繼資料](/nuget/reference/nuspec#icon)。 |
+| `IconUrl` | `PackageIconUrl` | empty | `PackageIconUrl` 已被取代，改為使用 `PackageIcon` 。 但是，為了獲得最佳的早期體驗，除了之外，您還應該指定 `PackageIconUrl` `PackageIcon` 。 |
+| `Tags` | `PackageTags` | empty | 以分號分隔的標記清單，用以指定套件。 |
+| `ReleaseNotes` | `PackageReleaseNotes` | empty | 套件的版本資訊。 |
+| `Repository/Url` | `RepositoryUrl` | empty | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/ NuGet / NuGet 。用戶端. git*。 |
+| `Repository/Type` | `RepositoryType` | empty | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
+| `Repository/Branch` | `RepositoryBranch` | empty | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
+| `Repository/Commit` | `RepositoryCommit` | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
+| `PackageType` | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
+| `Summary` | 不支援 | | |
 
 ### <a name="pack-target-inputs"></a>封裝目標輸入
 
 | 屬性 | 描述 |
 | - | - |
-| IsPackable | 布林值，指定是否可封裝專案。 預設值是 `true`。 |
-| SuppressDependenciesWhenPacking | 設定為 `true` ，以從產生的 NuGet 套件抑制套件相依性。 |
-| PackageVersion | 指定所產生之套件的版本。 接受所有形式的 NuGet 版本字串。 預設為 `$(Version)` 的值，也就是專案中的屬性 `Version`。 |
-| PackageId | 指定所產生之套件的名稱。 如果未指定，`pack` 作業會預設為使用 `AssemblyName` 或目錄名稱作為套件的名稱。 |
-| PackageDescription | UI 顯示中的套件詳細描述。 |
-| Authors | 以分號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的 NuGet 元件庫中，並用來交互參照相同作者的封裝。 |
-| 描述 | 組件的完整描述。 如果 `PackageDescription` 未指定，則此屬性也會用來做為封裝的描述。 |
-| 著作權 | 套件的著作權詳細資料。 |
-| PackageRequireLicenseAcceptance | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 預設為 `false`。 |
-| DevelopmentDependency | 布林值，指定封裝是否標記為僅限開發的相依性，這可防止封裝作為其他封裝的相依性。 使用 `PackageReference` (NuGet 4.8 +) ，此旗標也表示編譯時期資產已從編譯中排除。 如需詳細資訊，請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) \(英文\)。 |
-| PackageLicenseExpression | [SPDX 授權識別碼](https://spdx.org/licenses/)或運算式，例如 `Apache-2.0` 。 如需詳細資訊，請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
-| PackageLicenseFile | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 |
-| PackageLicenseUrl | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
-| PackageProjectUrl | |
-| PackageIcon | 指定封裝圖示路徑（相對於封裝的根目錄）。 如需詳細資訊，請參閱 [封裝圖示影像檔](#packing-an-icon-image-file)。 |
-| PackageReleaseNotes| 套件的版本資訊。 |
-| PackageTags | 以分號分隔的標記清單，用以指定套件。 |
-| PackageOutputPath | 決定要置放所封裝之套件的輸出路徑。 預設為 `$(OutputPath)`。 |
-| IncludeSymbols | 此布林值會指出在封裝專案時，套件是否應該建立額外的符號套件。 符號套件的格式由 `SymbolPackageFormat` 屬性控制。 如需詳細資訊，請參閱 [IncludeSymbols](#includesymbols)。 |
-| IncludeSource | 此布林值會指出封裝處理序是否應該建立來源套件。 來源套件包含程式庫的原始程式碼及 PDB 檔案。 原始程式檔會放在所產生之套件檔案中的 `src/ProjectName` 目錄底下。 如需詳細資訊，請參閱 [IncludeSource](#includesource)。 |
-| PackageTypes
-| IsTool | 指定是否要將所有輸出檔複製到 *tools* 資料夾，而不是 *lib* 資料夾。 如需詳細資訊，請參閱 [IsTool](#istool)。 |
-| RepositoryUrl | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/NuGet/NuGet.Client.git* 。 |
-| RepositoryType | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
-| RepositoryBranch | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
-| RepositoryCommit | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
-| SymbolPackageFormat | 指定符號套件的格式。 如果是 "nupkg"，則會使用包含 Pdb、Dll 和其他輸出檔的 *nupkg* 副檔名來建立舊版符號套件。 如果是 ".snupkg"，則會建立包含便攜 Pdb 的 .snupkg 符號套件。 預設值為 "nupkg"。 |
-| NoPackageAnalysis | 指定 `pack` 在建立封裝之後，不應該執行套件分析。 |
-| MinClientVersion | 指定可安裝此套件的最低 NuGet 用戶端版本，此作業是由 nuget.exe 和 Visual Studio 套件管理員強制執行。 |
-| IncludeBuildOutput | 這個布林值會指定是否應將組建輸出元件封裝至 *nupkg* 檔中。 |
-| IncludeContentInPack | 這個布林值會指定是否 `Content` 要自動在產生的封裝中包含類型為的任何專案。 預設為 `true`。 |
-| BuildOutputTargetFolder | 指定要放置輸出組件的資料夾。 輸出組件 (及其他輸出檔) 會複製到其相關的架構資料夾中。 如需詳細資訊，請參閱 [輸出元件](#output-assemblies)。 |
-| ContentTargetFolders | 如果未指定所有內容檔案，則指定其預設位置 `PackagePath` 。 預設值為 "content;contentFiles"。 如需詳細資訊，請參閱 [Including content in a package](#including-content-in-a-package) (在套件中包含內容)。 |
-| NuspecFile | 正用於封裝之 *.nuspec* 檔案的相對或絕對路徑。 如果指定，則會 **專門** 用於封裝資訊，而不會使用專案中的任何資訊。 如需詳細資訊，請參閱 [使用 Nuspec 封裝](#packing-using-a-nuspec)。 |
-| NuspecBasePath | *.nuspec* 檔案的基底路徑。 如需詳細資訊，請參閱 [使用 Nuspec 封裝](#packing-using-a-nuspec)。 |
-| NuspecProperties | 以分號分隔的索引鍵=值組清單。 如需詳細資訊，請參閱 [使用 Nuspec 封裝](#packing-using-a-nuspec)。 |
+| `IsPackable` | 布林值，指定是否可封裝專案。 預設值是 `true`。 |
+| `SuppressDependenciesWhenPacking` | 設定為， `true` 以從產生的封裝中隱藏封裝相依性 NuGet 。 |
+| `PackageVersion` | 指定所產生之套件的版本。 接受所有形式的 NuGet 版本字串。 預設為 `$(Version)` 的值，也就是專案中的屬性 `Version`。 |
+| `PackageId` | 指定所產生之套件的名稱。 如果未指定，`pack` 作業會預設為使用 `AssemblyName` 或目錄名稱作為套件的名稱。 |
+| `PackageDescription` | UI 顯示中的套件詳細描述。 |
+| `Authors` | 以分號分隔的套件作者清單，與 nuget.org 上的設定檔名稱相符。這些會顯示在 nuget.org 的資源 NuGet 庫中，並用來交互參照相同作者的封裝。 |
+| `Description` | 組件的完整描述。 如果 `PackageDescription` 未指定，則此屬性也會用來做為封裝的描述。 |
+| `Copyright` | 套件的著作權詳細資料。 |
+| `PackageRequireLicenseAcceptance` | 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。 預設為 `false`。 |
+| `DevelopmentDependency` | 布林值，指定封裝是否標記為僅限開發的相依性，這可防止封裝作為其他封裝的相依性。 在 `PackageReference` (NuGet 4.8 +) 中，此旗標也表示編譯時期資產已從編譯中排除。 如需詳細資訊，請參閱 [PackageReference 的 DevelopmentDependency 支援](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference) \(英文\)。 |
+| `PackageLicenseExpression` | [SPDX 授權識別碼](https://spdx.org/licenses/)或運算式，例如 `Apache-2.0` 。 如需詳細資訊，請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
+| `PackageLicenseFile` | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 |
+| `PackageLicenseUrl` | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
+| `PackageProjectUrl` | |
+| `PackageIcon` | 指定封裝圖示路徑（相對於封裝的根目錄）。 如需詳細資訊，請參閱 [封裝圖示影像檔](#packing-an-icon-image-file)。 |
+| `PackageReleaseNotes` | 套件的版本資訊。 |
+| `PackageTags` | 以分號分隔的標記清單，用以指定套件。 |
+| `PackageOutputPath` | 決定要置放所封裝之套件的輸出路徑。 預設為 `$(OutputPath)`。 |
+| `IncludeSymbols` | 此布林值會指出在封裝專案時，套件是否應該建立額外的符號套件。 符號套件的格式由 `SymbolPackageFormat` 屬性控制。 如需詳細資訊，請參閱 [IncludeSymbols](#includesymbols)。 |
+| `IncludeSource` | 此布林值會指出封裝處理序是否應該建立來源套件。 來源套件包含程式庫的原始程式碼及 PDB 檔案。 原始程式檔會放在所產生之套件檔案中的 `src/ProjectName` 目錄底下。 如需詳細資訊，請參閱 [IncludeSource](#includesource)。 |
+| `PackageType` | |
+| `IsTool` | 指定是否要將所有輸出檔複製到 *tools* 資料夾，而不是 *lib* 資料夾。 如需詳細資訊，請參閱 [IsTool](#istool)。 |
+| `RepositoryUrl` | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/ NuGet / NuGet 。用戶端. git*。 |
+| `RepositoryType` | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
+| `RepositoryBranch` | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
+| `RepositoryCommit` | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
+| `SymbolPackageFormat` | 指定符號套件的格式。 如果是 "nupkg"，則會使用包含 Pdb、Dll 和其他輸出檔的 *nupkg* 副檔名來建立舊版符號套件。 如果是 ".snupkg"，則會建立包含便攜 Pdb 的 .snupkg 符號套件。 預設值為 "nupkg"。 |
+| `NoPackageAnalysis` | 指定 `pack` 在建立封裝之後，不應該執行套件分析。 |
+| `MinClientVersion` | 指定 NuGet 可安裝此封裝的最小用戶端版本，由 nuget.exe 和 Visual Studio 封裝管理員強制執行。 |
+| `IncludeBuildOutput` | 這個布林值會指定是否應將組建輸出元件封裝至 *nupkg* 檔中。 |
+| `IncludeContentInPack` | 這個布林值會指定是否 `Content` 要自動在產生的封裝中包含類型為的任何專案。 預設為 `true`。 |
+| `BuildOutputTargetFolder` | 指定要放置輸出組件的資料夾。 輸出組件 (及其他輸出檔) 會複製到其相關的架構資料夾中。 如需詳細資訊，請參閱 [輸出元件](#output-assemblies)。 |
+| `ContentTargetFolders` | 如果未指定所有內容檔案，則指定其預設位置 `PackagePath` 。 預設值為 "content;contentFiles"。 如需詳細資訊，請參閱 [Including content in a package](#including-content-in-a-package) (在套件中包含內容)。 |
+| `NuspecFile` | 用於封裝之檔案的相對或絕對路徑 *.nuspec* 。 如果指定，則會 **專門** 用於封裝資訊，而不會使用專案中的任何資訊。 如需詳細資訊，請參閱[使用 .nuspec 封裝](#packing-using-a-nuspec-file)。 |
+| `NuspecBasePath` | 檔案的基底路徑 *.nuspec* 。 如需詳細資訊，請參閱[使用 .nuspec 封裝](#packing-using-a-nuspec-file)。 |
+| `NuspecProperties` | 以分號分隔的索引鍵=值組清單。 如需詳細資訊，請參閱[使用 .nuspec 封裝](#packing-using-a-nuspec-file)。 |
 
 ## <a name="pack-scenarios"></a>封裝案例
 
-### <a name="suppress-dependencies"></a>隱藏相關性
+### <a name="suppressing-dependencies"></a>隱藏相關性
 
-若要從產生的 NuGet 套件抑制套件相依性，請將設定 `SuppressDependenciesWhenPacking` 為，以 `true` 允許略過產生的 nupkg 檔案中的所有相依性。
+若要從產生的封裝隱藏封裝相依性 NuGet ，請將設定 `SuppressDependenciesWhenPacking` 為，以 `true` 允許略過產生的 nupkg 檔中的所有相依性。
 
-### <a name="packageiconurl"></a>PackageIconUrl
+### `PackageIconUrl`
 
-`PackageIconUrl` 已被取代為屬性的使用方式 [`PackageIcon`](#packageicon) 。 從 NuGet 5.3 開始，Visual Studio 2019 16.3 版， `pack` 如果套件中繼資料僅指定，則會引發 [NU5048](./errors-and-warnings/nu5048.md) 警告 `PackageIconUrl` 。
+`PackageIconUrl` 已被取代為屬性的使用方式 [`PackageIcon`](#packageicon) 。 從5.3 開始， NuGet Visual Studio 2019 16.3 版， `pack` 如果封裝中繼資料僅指定，則會引發 [NU5048](./errors-and-warnings/nu5048.md) 警告 `PackageIconUrl` 。
 
-### <a name="packageicon"></a>PackageIcon
+### `PackageIcon`
 
 > [!Tip]
 > 若要維持與尚未支援的用戶端和來源的回溯相容性 `PackageIcon` ，請同時指定 `PackageIcon` 和 `PackageIconUrl` 。 Visual Studio 支援 `PackageIcon` 來自以資料夾為基礎之來源的封裝。
@@ -149,15 +155,15 @@ ms.locfileid: "98777714"
 </ItemGroup>
 ```
 
-[封裝圖示範例](https://github.com/NuGet/Samples/tree/master/PackageIconExample)。
+[封裝圖示範例](https://github.com/NuGet/Samples/tree/main/PackageIconExample)。
 
-針對 nuspec 對等專案，請查看 [圖示的 nuspec 參考](nuspec.md#icon)。
+針對 nuspec 相等的，請查看圖示的[ nuspec 參考](nuspec.md#icon)。
 
 ### <a name="output-assemblies"></a>輸出組件
 
-`nuget pack` 會複製副檔名為 `.exe`、`.dll`、`.xml`、`.winmd`、`.json` 和 `.pri` 的輸出檔案。 所複製的輸出檔案取決於 MSBuild 從 `BuiltOutputProjectGroup` 目標所提供的項目。
+`nuget pack` 會複製副檔名為 `.exe`、`.dll`、`.xml`、`.winmd`、`.json` 和 `.pri` 的輸出檔案。 複製的輸出檔案取決於 MSBuild 從目標提供的內容 `BuiltOutputProjectGroup` 。
 
-在專案檔或命令列中，您可以使用兩種 MSBuild 屬性來控制放置輸出組件的位置：
+您 MSBuild  可以在專案檔或命令列中使用兩個屬性來控制輸出元件的位置：
 
 - `IncludeBuildOutput`：布林值，決定是否應該在套件中包含組建輸出組件。
 - `BuildOutputTargetFolder`：指定應該在其中放置輸出組件的資料夾。 輸出組件 (及其他輸出檔) 會複製到其相關的架構資料夾中。
@@ -168,7 +174,7 @@ ms.locfileid: "98777714"
 
 ### <a name="project-to-project-references"></a>專案對專案參考
 
-預設會將專案對專案參考視為 NuGet 套件參考，例如：
+專案對專案的參考預設會被視為 NuGet 封裝參考。 例如：
 
 ```xml
 <ProjectReference Include="..\UwpLibrary2\UwpLibrary2.csproj"/>
@@ -201,7 +207,7 @@ ms.locfileid: "98777714"
 </Content>
 ```
 
-如果您想要將所有內容都只複製至特定根資料夾 (而不是 `content` 和 `contentFiles`)，則可以使用 MSBuild 屬性 `ContentTargetFolders`，其預設為 "content;contentFiles"，但可以設定為任何其他資料夾名稱。 請注意，根據 `buildAction`，只在 `ContentTargetFolders` 中指定 "contentFiles" 會將檔案放在 `contentFiles\any\<target_framework>` 或 `contentFiles\<language>\<target_framework>` 下方。
+如果您想要將所有內容複寫到僅 (s 的特定根資料夾)  (而非 `content` 和 `contentFiles` 兩者) ，您可以使用 MSBuild 屬性 `ContentTargetFolders` （預設為 "content; contentFiles"），但可以設定為任何其他資料夾名稱。 請注意，根據 `buildAction`，只在 `ContentTargetFolders` 中指定 "contentFiles" 會將檔案放在 `contentFiles\any\<target_framework>` 或 `contentFiles\<language>\<target_framework>` 下方。
 
 `PackagePath` 可以是以分號分隔的一組目標路徑。 指定空的套件路徑會將檔案新增至套件的根目錄。 例如，下列會將 `libuv.txt` 新增至 `content\myfiles`、`content\samples` 和套件根目錄：
 
@@ -212,9 +218,9 @@ ms.locfileid: "98777714"
 </Content>
 ```
 
-另有 MSBuild 屬性 `$(IncludeContentInPack)` 預設為 `true`。 如果這在任何專案上設定為 `false`，則 NuGet 套件不會包含該專案的內容。
+另外還有一個 MSBuild 屬性 `$(IncludeContentInPack)` ，預設為 `true` 。 如果這在任何專案上設定為 `false`，則 NuGet 套件不會包含該專案的內容。
 
-您可在上述任何項目上設定的其他封裝特定中繼資料包含 ```<PackageCopyToOutput>``` 和 ```<PackageFlatten>```，其在輸出 nuspec 的 ```contentFiles``` 項目上設定 ```CopyToOutput``` 和 ```Flatten``` 值。
+您可以在上述任何專案上設定的其他封裝特定中繼資料，包括 ```<PackageCopyToOutput>``` 和 ```<PackageFlatten>``` ```CopyToOutput``` ```Flatten``` ```contentFiles``` 輸出中專案的集合和值 nuspec 。
 
 > [!Note]
 > 除了 Content 項目之外，還可以在建置動作為 Compile、EmbeddedResource、ApplicationDefinition、Page、Resource、SplashScreen、DesignData、DesignDataWithDesignTimeCreateableTypes、CodeAnalysisDictionary、AndroidAsset、AndroidResource、BundleResource 或 None 的檔案上設定 `<Pack>` 和 `<PackagePath>` 中繼資料。
@@ -233,7 +239,7 @@ ms.locfileid: "98777714"
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>封裝授權運算式或授權檔案
 
-使用授權運算式時，請使用 `PackageLicenseExpression` 屬性。 如需範例，請參閱 [授權運算式範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
+使用授權運算式時，請使用 `PackageLicenseExpression` 屬性。 如需範例，請參閱 [授權運算式範例](https://github.com/NuGet/Samples/tree/main/PackageLicenseExpressionExample)。
 
 ```xml
 <PropertyGroup>
@@ -241,7 +247,7 @@ ms.locfileid: "98777714"
 </PropertyGroup>
 ```
 
-若要深入瞭解 NuGet.org 所接受的授權運算式和授權，請參閱 [授權中繼資料](nuspec.md#license)。
+若要深入瞭解由 org 接受的授權運算式和授權 NuGet ，請參閱 [授權中繼資料](nuspec.md#license)。
 
 封裝授權檔案時，請使用 `PackageLicenseFile` 屬性來指定相對於封裝根目錄的封裝路徑。 此外，請確定檔案包含在套件中。 例如：
 
@@ -255,7 +261,7 @@ ms.locfileid: "98777714"
 </ItemGroup>
 ```
 
-如需範例，請參閱 [授權檔案範例](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
+如需範例，請參閱 [授權檔案範例](https://github.com/NuGet/Samples/tree/main/PackageLicenseFileExample)。
 
 > [!NOTE]
 > `PackageLicenseExpression`一次只能指定、和中的一個 `PackageLicenseFile` `PackageLicenseUrl` 。
@@ -263,7 +269,7 @@ ms.locfileid: "98777714"
 ### <a name="packing-a-file-without-an-extension"></a>封裝沒有副檔名的檔案
 
 在某些情況下，例如封裝授權檔案時，您可能會想要包含沒有副檔名的檔案。
-基於歷史原因，NuGet & MSBuild 會將沒有副檔名的路徑視為目錄。
+基於歷史原因，請 NuGet  &  MSBuild 將沒有副檔名的路徑視為目錄。
 
 ```xml
   <PropertyGroup>
@@ -276,19 +282,20 @@ ms.locfileid: "98777714"
   </ItemGroup>  
 ```
 
-[沒有副檔名範例的](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/)檔案。
+[沒有副檔名範例的](https://github.com/NuGet/Samples/blob/main/PackageLicenseFileExtensionlessExample/)檔案。
+
 ### <a name="istool"></a>IsTool
 
 使用 `MSBuild -t:pack -p:IsTool=true` 時，會將[輸出組件](#output-assemblies)案例中所指定的所有輸出檔案都複製至 `tools` 資料夾，而非 `lib` 資料夾。 請注意，這與 `DotNetCliTool` 不同，該項目是在 `.csproj` 檔案中設定 `PackageType` 所指定。
 
-### <a name="packing-using-a-nuspec"></a>使用 .nuspec 封裝
+### <a name="packing-using-a-nuspec-file"></a>使用 `.nuspec` 檔案進行封裝
 
-雖然建議您將通常是在檔案中的 [所有屬性包含](../reference/msbuild-targets.md#pack-target) 在 `.nuspec` 專案檔中，但您可以選擇使用檔案 `.nuspec` 來封裝專案。 若為使用的非 SDK 樣式專案 `PackageReference` ，您必須匯入， `NuGet.Build.Tasks.Pack.targets` 才能執行封裝工作。 您仍然需要還原專案，才能封裝 nuspec 檔。  (SDK 樣式專案預設會包含套件目標。 ) 
+雖然建議您將通常是在檔案中的 [所有屬性包含](../reference/msbuild-targets.md#pack-target) 在 `.nuspec` 專案檔中，但您可以選擇使用檔案 `.nuspec` 來封裝專案。 若為使用的非 SDK 樣式專案 `PackageReference` ，您必須匯入， `NuGet.Build.Tasks.Pack.targets` 才能執行封裝工作。 您仍然需要還原專案，才能封裝檔案 nuspec 。  (SDK 樣式專案預設會包含套件目標。 ) 
 
-專案檔的目標 framework 是不相關的，而且不會在封裝 nuspec 時使用。 下列三個 MSBuild 屬性與使用 `.nuspec` 進行封裝有關：
+專案檔的目標 framework 是不相關的，而且不會在封裝時使用 nuspec 。 下列三個 MSBuild 屬性與使用的封裝有關 `.nuspec` ：
 
 1. `NuspecFile`：將用於封裝之 `.nuspec` 檔案的相對或絕對路徑。
-1. `NuspecProperties`：以分號分隔的索引鍵=值組清單。 基於 MSBuild 命令列剖析的運作方式，必須如下指定多個屬性：`-p:NuspecProperties="key1=value1;key2=value2"`。  
+1. `NuspecProperties`：以分號分隔的索引鍵=值組清單。 由於 MSBuild 命令列剖析的運作方式，必須指定多個屬性，如下所示： `-p:NuspecProperties="key1=value1;key2=value2"` 。  
 1. `NuspecBasePath`：`.nuspec` 檔案的基底路徑。
 
 如果使用 `dotnet.exe` 來封裝您的專案，則請使用下列這類命令：
@@ -303,9 +310,9 @@ dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nuspec
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-請注意，使用 dotnet.exe 或 msbuild 封裝 nuspec 時，預設也會導致建立專案。 將 ```--no-build``` 屬性傳遞給 dotnet.exe （這相當於專案檔中的設定 ```<NoBuild>true</NoBuild> ``` ，以及專案檔中的設定），即可避免此情況 ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` 。
+請注意， nuspec 使用 dotnet.exe 或 msbuild 封裝，預設也會導致建立專案。 將 ```--no-build``` 屬性傳遞給 dotnet.exe （這相當於專案檔中的設定 ```<NoBuild>true</NoBuild> ``` ，以及專案檔中的設定），即可避免此情況 ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` 。
 
-要封裝 nuspec 檔案的 *.csproj* 檔案範例如下：
+封裝檔案的 *.csproj* 檔案範例 nuspec 如下：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -327,7 +334,7 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 - `TargetsForTfmSpecificBuildOutput` 目標：用於資料夾內的檔案 `lib` 或使用指定的資料夾 `BuildOutputTargetFolder` 。
 - `TargetsForTfmSpecificContentInPackage` 目標：用於以外的檔案 `BuildOutputTargetFolder` 。
 
-#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+#### `TargetsForTfmSpecificBuildOutput`
 
 撰寫自訂目標，並將其指定為屬性的值 `$(TargetsForTfmSpecificBuildOutput)` 。 若為任何需要在預設情況下進入 `BuildOutputTargetFolder` (lib 的檔案) ，目標應該將這些檔案寫入 ItemGroup `BuildOutputInPackage` ，並設定下列兩個中繼資料值：
 
@@ -350,11 +357,11 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 </Target>
 ```
 
-#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+#### `TargetsForTfmSpecificContentInPackage`
 
 撰寫自訂目標，並將其指定為屬性的值 `$(TargetsForTfmSpecificContentInPackage)` 。 對於要包含在封裝中的任何檔案，目標應該將這些檔案寫入至 ItemGroup `TfmSpecificPackageFile` ，並設定下列選擇性中繼資料：
 
-- `PackagePath`：檔案應在封裝中輸出的路徑。 如果有多個檔案加入至相同的封裝路徑，NuGet 會發出警告。
+- `PackagePath`：檔案應在封裝中輸出的路徑。 NuGet 如果有多個檔案加入至相同的封裝路徑，則會發出警告。
 - `BuildAction`：要指派給檔案的組建動作，只有在封裝路徑位於資料夾中時才需要 `contentFiles` 。 預設值為 "None"。
 
 例如：
@@ -381,44 +388,44 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 
 1. 讀取所有專案對專案參考
 1. 讀取專案屬性來尋找中繼資料夾和目標架構
-1. 將 MSBuild 資料傳遞給 NuGet.Build.Tasks.dll
+1. MSBuild將資料傳遞給 NuGet.Build.Tasks.dll
 1. 執行還原
 1. 下載套件
 1. 撰寫資產檔案、目標和屬性
 
 `restore`目標適用于使用 PackageReference 格式的專案。
-`MSBuild 16.5+` 也提供格式的 [選擇支援](#restoring-packagereference-and-packagesconfig-with-msbuild) `packages.config` 。
+`MSBuild 16.5+` 也提供格式的 [選擇支援](#restoring-packagereference-and-packagesconfig-projects-with-msbuild) `packages.config` 。
 
 > [!NOTE]
 > `restore`目標[不應](#restoring-and-building-with-one-msbuild-command)與目標一起執行 `build` 。
 
 ### <a name="restore-properties"></a>還原屬性
 
-其他還原設定可能來自專案檔中的 MSBuild 屬性。 您也可以從命令列，使用 `-p:` 參數設定值 (請參閱下列＜範例＞)。
+其他還原設定可能來自 MSBuild 專案檔中的屬性。 您也可以從命令列，使用 `-p:` 參數設定值 (請參閱下列＜範例＞)。
 
 | 屬性 | 描述 |
 |--------|--------|
-| RestoreSources | 以分號分隔的套件來源清單。 |
-| RestorePackagesPath | 使用者套件資料夾路徑。 |
-| RestoreDisableParallel | 限制逐一進行下載。 |
-| RestoreConfigFile | 要套用之 `Nuget.Config` 檔案的路徑。 |
-| RestoreNoCache | 若為 true，則避免使用快取的封裝。 請參閱 [管理全域封裝和](../consume-packages/managing-the-global-packages-and-cache-folders.md)快取資料夾。 |
-| RestoreIgnoreFailedSources | 如果為 true，請忽略失敗或遺漏的套件來源。 |
-| RestoreFallbackFolders | 回溯資料夾，使用的方式與使用者套件資料夾相同。 |
-| RestoreAdditionalProjectSources | 還原期間要使用的其他來源。 |
-| RestoreAdditionalProjectFallbackFolders | 還原期間要使用的其他回溯資料夾。 |
-| RestoreAdditionalProjectFallbackFoldersExcludes | 排除指定的回溯資料夾 `RestoreAdditionalProjectFallbackFolders` |
-| RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` 的路徑。 |
-| RestoreGraphProjectInput | 要還原的專案清單 (以分號分隔)，其中應包含絕對路徑。 |
-| RestoreUseSkipNonexistentTargets  | 透過 MSBuild 收集項目時，它會決定是否使用優化進行收集 `SkipNonexistentTargets` 。 若未設定，則預設為 `true` 。 當無法匯入專案的目標時，結果會是快速失敗的行為。 |
-| MSBuildProjectExtensionsPath | 輸出檔案夾，預設為 `BaseIntermediateOutputPath` 和 `obj` 資料夾。 |
-| RestoreForce | 在以 PackageReference 為基礎的專案中，即使上次還原成功，仍會強制解析所有相依性。 指定此旗標與刪除檔案類似 `project.assets.json` 。 這不會略過 HTTP 快取。 |
-| RestorePackagesWithLockFile | 選擇使用鎖定檔案。 |
-| RestoreLockedMode | 以鎖定模式執行還原。 這表示還原將不會重新評估相依性。 |
-| NuGetLockFilePath | 鎖定檔案的自訂位置。 預設位置是專案的旁邊，而且名為 `packages.lock.json` 。 |
-| RestoreForceEvaluate | 強制還原以重新計算相依性，並更新鎖定檔案而不發出任何警告。 |
-| RestorePackagesConfig | 可使用 packages.config 還原專案的加入宣告參數。僅支援 `MSBuild -t:restore` 。 |
-| RestoreUseStaticGraphEvaluation | 加入宣告參數以使用靜態圖形 MSBuild 評估，而不是標準評估。 靜態圖表評估是一項實驗性功能，對於大型存放庫和解決方案來說更快。 |
+| `RestoreSources` | 以分號分隔的套件來源清單。 |
+| `RestorePackagesPath` | 使用者套件資料夾路徑。 |
+| `RestoreDisableParallel` | 限制逐一進行下載。 |
+| `RestoreConfigFile` | 要套用之 `Nuget.Config` 檔案的路徑。 |
+| `RestoreNoCache` | 若為 true，則避免使用快取的封裝。 請參閱 [管理全域封裝和](../consume-packages/managing-the-global-packages-and-cache-folders.md)快取資料夾。 |
+| `RestoreIgnoreFailedSources` | 如果為 true，請忽略失敗或遺漏的套件來源。 |
+| `RestoreFallbackFolders` | 回溯資料夾，使用的方式與使用者套件資料夾相同。 |
+| `RestoreAdditionalProjectSources` | 還原期間要使用的其他來源。 |
+| `RestoreAdditionalProjectFallbackFolders` | 還原期間要使用的其他回溯資料夾。 |
+| `RestoreAdditionalProjectFallbackFoldersExcludes` | 排除指定的回溯資料夾 `RestoreAdditionalProjectFallbackFolders` |
+| `RestoreTaskAssemblyFile` | `NuGet.Build.Tasks.dll` 的路徑。 |
+| `RestoreGraphProjectInput` | 要還原的專案清單 (以分號分隔)，其中應包含絕對路徑。 |
+| `RestoreUseSkipNonexistentTargets`  | 透過它收集項目時，會 MSBuild 決定是否使用優化來收集項目 `SkipNonexistentTargets` 。 若未設定，則預設為 `true` 。 當無法匯入專案的目標時，結果會是快速失敗的行為。 |
+| `MSBuildProjectExtensionsPath` | 輸出檔案夾，預設為 `BaseIntermediateOutputPath` 和 `obj` 資料夾。 |
+| `RestoreForce` | 在以 PackageReference 為基礎的專案中，即使上次還原成功，仍會強制解析所有相依性。 指定此旗標與刪除檔案類似 `project.assets.json` 。 這不會略過 HTTP 快取。 |
+| `RestorePackagesWithLockFile` | 選擇使用鎖定檔案。 |
+| `RestoreLockedMode` | 以鎖定模式執行還原。 這表示還原將不會重新評估相依性。 |
+| `NuGetLockFilePath` | 鎖定檔案的自訂位置。 預設位置是專案的旁邊，而且名為 `packages.lock.json` 。 |
+| `RestoreForceEvaluate` | 強制還原以重新計算相依性，並更新鎖定檔案而不發出任何警告。 |
+| `RestorePackagesConfig` | 可使用 packages.config 還原專案的加入宣告參數。僅支援 `MSBuild -t:restore` 。 |
+| `RestoreUseStaticGraphEvaluation` | 加入宣告參數以使用靜態圖形評估， MSBuild 而不是標準評估。 靜態圖表評估是一項實驗性功能，對於大型存放庫和解決方案來說更快。 |
 
 #### <a name="examples"></a>範例
 
@@ -443,10 +450,10 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 | 檔案 | 描述 |
 |--------|--------|
 | `project.assets.json` | 包含所有封裝參考的相依性圖形。 |
-| `{projectName}.projectFileExtension.nuget.g.props` | 套件中所含 MSBuild 屬性的參考 |
-| `{projectName}.projectFileExtension.nuget.g.targets` | 套件中所含 MSBuild 目標的參考 |
+| `{projectName}.projectFileExtension.nuget.g.props` | MSBuild封裝所包含之 .props 的參考 |
+| `{projectName}.projectFileExtension.nuget.g.targets` | MSBuild封裝中包含目標的參考 |
 
-### <a name="restoring-and-building-with-one-msbuild-command"></a>使用一個 MSBuild 命令來還原和建立
+### <a name="restoring-and-building-with-one-msbuild-command"></a>使用一個命令來還原和建立 MSBuild
 
 由於 NuGet 可以還原可關閉 MSBuild 目標和 .props 的套件，因此會使用不同的全域屬性來執行還原和建立評估。
 這表示下列將會有無法預測且通常不正確的行為。
@@ -463,7 +470,7 @@ msbuild -t:build -restore
 
 相同的邏輯也適用于類似的其他目標 `build` 。
 
-### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>使用 MSBuild 還原 PackageReference 和 packages.config
+### <a name="restoring-packagereference-and-packagesconfig-projects-with-msbuild"></a>還原 PackageReference 和 packages.config 專案 MSBuild
 
 使用 MSBuild 16.5 + 時，也支援的 packages.config `msbuild -t:restore` 。
 
@@ -477,7 +484,7 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 ### <a name="restoring-with-msbuild-static-graph-evaluation"></a>使用 MSBuild 靜態圖形評估還原
 
 > [!NOTE]
-> 使用 MSBuild 16.6 版 +，NuGet 已新增實驗性功能，可從命令列使用靜態圖形評估，以大幅改善大型存放庫的還原時間。
+> 使用 MSBuild 16.6 版 +， NuGet 已新增實驗性功能，可從命令列使用靜態圖形評估，以大幅改善大型存放庫的還原時間。
 
 ```cli
 msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
@@ -494,9 +501,9 @@ msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
 > [!NOTE]
-> 自 Visual Studio 2019. x 和 NuGet 5.x 起，這項功能會被視為實驗性和加入宣告。 依照 [NuGet/Home # 9803](https://github.com/NuGet/Home/issues/9803) 的詳細資訊，以瞭解何時預設會啟用這項功能。
+> 自2019年 Visual Studio 2019 和5.x 起 NuGet ，這項功能會被視為實驗性和加入宣告。 依照[ NuGet /Home # 9803](https://github.com/NuGet/Home/issues/9803)的詳細資訊，以瞭解何時預設會啟用這項功能。
 
-靜態圖形還原會變更還原的 msbuild 部分、專案讀取和評估，但不會變更還原演算法！ 所有 NuGet 工具的還原演算法都相同 ( # A0、MSBuild.exe、dotnet.exe 和 Visual Studio) 。
+靜態圖形還原會變更還原的 msbuild 部分、專案讀取和評估，但不會變更還原演算法！ 還原演算法在所有工具上都相同， NuGet (NuGet .exe、 MSBuild .exe、dotnet.exe 和 Visual Studio) 。
 
 在極少數的情況下，靜態圖形還原的行為可能會與目前的還原不同，而某些宣告的 PackageReferences 或 ProjectReferences 可能會遺失。
 
@@ -507,7 +514,7 @@ msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
 msbuild.exe -t:restore
 ```
 
-NuGet *不* 應報告任何變更。 如果您看不到差異，請在 [NuGet/Home](https://github.com/nuget/home/issues/new)提出問題。
+NuGet*不* 應報告任何變更。 如果您看不到差異，請在[ NuGet /Home](https://github.com/nuget/home/issues/new)提出問題。
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>取代還原圖形中的一個程式庫
 

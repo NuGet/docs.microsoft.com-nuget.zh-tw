@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7660203ec44db75b7764767b519c9ff10dd1122e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774324"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859079"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>建立 UI 控制項作為 NuGet 套件
 
-自 Visual Studio 2017 開始，您可利用 NuGet 套件所傳遞的 UWP 和 WPF 控制項新增功能。 本指南會使用 [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)，在 UWP 控制項內容中，逐步介紹這些功能。 除非另外提及，否則所述內容也適用於 WPF 控制項。
+自 Visual Studio 2017 開始，您可利用 NuGet 套件所傳遞的 UWP 和 WPF 控制項新增功能。 本指南會使用 [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)，在 UWP 控制項內容中，逐步介紹這些功能。 除非另外提及，否則所述內容也適用於 WPF 控制項。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2017
 1. 了解如何[建立 UWP 套件](create-uwp-packages.md)
@@ -90,7 +90,7 @@ ms.locfileid: "98774324"
 
 ## <a name="add-custom-icons-to-your-controls"></a>將自訂圖示新增至控制項
 
-若要在工具箱/資產窗格中顯示自訂圖示，請將影像新增至專案或名為 “Namespace.ControlName.extension” 的對應 `design.dll` 專案，並將建置動作新增至 [內嵌資源]。 您也必須確定關聯的 `AssemblyInfo.cs` 指定 ProvideMetadata 屬性 - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`。 請參閱此[範例](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)。
+若要在工具箱/資產窗格中顯示自訂圖示，請將影像新增至專案或名為 “Namespace.ControlName.extension” 的對應 `design.dll` 專案，並將建置動作新增至 [內嵌資源]。 您也必須確定關聯的 `AssemblyInfo.cs` 指定 ProvideMetadata 屬性 - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`。 請參閱此[範例](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)。
 
 支援的格式為 `.png`、`.jpg`、`.jpeg`、`.gif` 和 `.bmp`。 建議的格式為 16 x 16 像素的 BMP24。
 
@@ -158,7 +158,7 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 
 您可以在套件中內嵌控制項或取用 UWP 專案可使用的字串資源 (`.resw`)，並將 `.resw` 檔案的 [建置動作] 屬性設定為 [PRIResource]。
 
-如需範例，請參閱 ExtensionSDKasNuGetPackage 範例中的 [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs)。
+如需範例，請參閱 ExtensionSDKasNuGetPackage 範例中的 [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs)。
 
 > [!Note]
 > 這僅適用於 UWP 控制項。
@@ -166,4 +166,4 @@ NuGet 會自動檢查取用專案的 TPMinV。如果低於 Windows 10 Anniversar
 ## <a name="see-also"></a>另請參閱
 
 - [建立 UWP 套件](create-uwp-packages.md)
-- [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [ExtensionSDKasNuGetPackage 範例](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)

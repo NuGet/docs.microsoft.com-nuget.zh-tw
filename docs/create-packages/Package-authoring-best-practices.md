@@ -5,12 +5,12 @@ author: chgill-MSFT
 ms.author: chgill
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35eb000bddaa58726857cd3c1fd2362917f83196
-ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
+ms.openlocfilehash: 7475cf655876f2c127e79a16ccf67c0c723d164f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99420855"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859066"
 ---
 # <a name="package-authoring-best-practices"></a>封裝撰寫的最佳作法
 
@@ -59,7 +59,7 @@ ms.locfileid: "99420855"
 以下是資料表對應和描述可用的封裝中繼資料元素：
 
 | Visual Studio 屬性名稱                   | [專案檔/MSBuild 屬性名稱](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                          | [Nuspec 屬性名稱](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema) | 描述                                                                                                       |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [`Package id`](#package-id)                   | [`PackageId`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageid)                                                            | [`id`](https://docs.microsoft.com/nuget/reference/nuspec#id)                                      | 封裝名稱或識別碼。                    |
 | [`Package version`](#package-version)         | [`PackageVersion`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageversion)                                                  | [`version`](https://docs.microsoft.com/nuget/reference/nuspec#version)                            | NuGet 套件版本。                                           |
 | [`Authors`](#authors)                         | [`Authors`](https://docs.microsoft.com/dotnet/core/tools/csproj#authors)                                                                | [`authors`](https://docs.microsoft.com/nuget/reference/nuspec#authors)                            | 以逗號分隔的套件作者清單，通常使用個人或組織的「美觀名稱」。                             |
@@ -70,9 +70,9 @@ ms.locfileid: "99420855"
 | [`Project URL`](#project-url)                 | `PackageProjectUrl`                                                                                                                     | [`projectUrl`](https://docs.microsoft.com/nuget/reference/nuspec#projecturl)                      | 專案首頁的 URL。                                                                                   |
 | [`Icon File`](#icon)                          | [`PackageIcon`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)                                  | [`icon`](https://docs.microsoft.com/nuget/reference/nuspec#icon)                                  | 封裝圖示影像檔案的路徑。                                                                      |
 | [`Repository URL`](#repository-type-and-url)  | [`RepositoryUrl`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositoryurl)                                                    | [`repository url`](https://docs.microsoft.com/nuget/reference/nuspec#repository)               | 用來建立封裝之來源存放庫的 URL。                                                           |
-| [`Repository type`](#repository-type-and-url) | [`RespositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | 存放庫 URL 指向 (也就是 "git" ) 的存放庫類型。                                                   |
+| [`Repository type`](#repository-type-and-url) | [`RepositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | 存放庫 URL 指向 (也就是 "git" ) 的存放庫類型。                                                   |
 | [`Tags`](#tags)                               | [`PackageTags`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagetags)                                                        | [`tags`](https://docs.microsoft.com/nuget/reference/nuspec#tags)                                  | 以空格分隔的標記與關鍵字清單，能描述套件。 標記會在搜尋套件時使用。 |
-| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | 這一版封裝中所做變更的描述。                                                 |  |
+| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | 這一版封裝中所做變更的描述。                                                 |
 
 ### <a name="package-id"></a>封裝識別碼
 
