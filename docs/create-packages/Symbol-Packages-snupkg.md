@@ -12,20 +12,20 @@ keywords: NuGet 符號套件、NuGet 套件偵錯、支援 NuGet 偵錯、套件
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: a62996a28348bf95e4581af180597d72cd5aa298
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774566"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387331"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>建立符號套件 (snupkg)
 
 良好的調試經驗會依賴 debug 符號的存在，因為它們提供了重要的資訊，例如已編譯和原始程式碼之間的關聯、區域變數的名稱、堆疊追蹤等等。 您可以使用符號套件 (. .snupkg) 來散發這些符號，並改善 NuGet 套件的偵錯工具體驗。
 
-> 請注意，符號套件不是讓您的媒體櫃取用者能使用 debug 符號的唯一策略。 您[也 `embed` 可以](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle)在或中， `dll` `exe` 使用下列專案屬性：`<DebugType>embedded</DebugType>`
+> 請注意，符號套件不是讓您的媒體櫃取用者能使用 debug 符號的唯一策略。 您[也 `embed` 可以](/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle)在或中， `dll` `exe` 使用下列專案屬性：`<DebugType>embedded</DebugType>`
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [nuget.exe v 4.9.0 或](https://www.nuget.org/downloads) 更新版本，或 [dotnet CLI v 2.2.0 或](https://www.microsoft.com/net/download/dotnet-core/2.2)更新版本，其會執行必要的 [NuGet 通訊協定](../api/nuget-protocols.md)。
 

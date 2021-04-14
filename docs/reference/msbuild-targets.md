@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104858962"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387370"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 套件和還原為 MSBuild 目標
 
@@ -68,8 +68,9 @@ ms.locfileid: "104858962"
 | `license` | `PackageLicenseFile` | empty | 如果您使用自訂授權或未獲指派 SPDX 識別碼的授權，則為套件內的授權檔案路徑。 您必須明確地封裝參考的授權檔案。 對應至 `<license type="file">`。 請參閱 [封裝授權運算式或授權檔案](#packing-a-license-expression-or-a-license-file)。 |
 | `LicenseUrl` | `PackageLicenseUrl` | empty | `PackageLicenseUrl` 已被取代。 請改用 `PackageLicenseExpression` 或 `PackageLicenseFile`。 |
 | `ProjectUrl` | `PackageProjectUrl` | empty | |
-| `Icon` | `PackageIcon` | empty | 封裝中用來做為封裝圖示的影像路徑。 您必須明確地封裝參考的圖示影像檔案。 如需詳細資訊，請參閱[封裝圖示影像檔](#packing-an-icon-image-file)案和[ `icon` 中繼資料](/nuget/reference/nuspec#icon)。 |
+| `Icon` | `PackageIcon` | empty | 封裝中用來做為封裝圖示的影像路徑。 您必須明確地封裝參考的圖示影像檔案。 如需詳細資訊，請參閱[封裝圖示影像檔](#packing-an-icon-image-file)案和[ `icon` 中繼資料](./nuspec.md#icon)。 |
 | `IconUrl` | `PackageIconUrl` | empty | `PackageIconUrl` 已被取代，改為使用 `PackageIcon` 。 但是，為了獲得最佳的早期體驗，除了之外，您還應該指定 `PackageIconUrl` `PackageIcon` 。 |
+| `Readme` | `PackageReadmeFile` | empty | 您必須明確地封裝參考的讀我檔案。|
 | `Tags` | `PackageTags` | empty | 以分號分隔的標記清單，用以指定套件。 |
 | `ReleaseNotes` | `PackageReleaseNotes` | empty | 套件的版本資訊。 |
 | `Repository/Url` | `RepositoryUrl` | empty | 用來複製或取出原始程式碼的儲存機制 URL。 範例： *https://github.com/ NuGet / NuGet 。用戶端. git*。 |
@@ -99,6 +100,7 @@ ms.locfileid: "104858962"
 | `PackageProjectUrl` | |
 | `PackageIcon` | 指定封裝圖示路徑（相對於封裝的根目錄）。 如需詳細資訊，請參閱 [封裝圖示影像檔](#packing-an-icon-image-file)。 |
 | `PackageReleaseNotes` | 套件的版本資訊。 |
+| `PackageReadmeFile` | 封裝的讀我檔案。 |
 | `PackageTags` | 以分號分隔的標記清單，用以指定套件。 |
 | `PackageOutputPath` | 決定要置放所封裝之套件的輸出路徑。 預設為 `$(OutputPath)`。 |
 | `IncludeSymbols` | 此布林值會指出在封裝專案時，套件是否應該建立額外的符號套件。 符號套件的格式由 `SymbolPackageFormat` 屬性控制。 如需詳細資訊，請參閱 [IncludeSymbols](#includesymbols)。 |
@@ -158,6 +160,28 @@ ms.locfileid: "104858962"
 [封裝圖示範例](https://github.com/NuGet/Samples/tree/main/PackageIconExample)。
 
 針對 nuspec 相等的，請查看圖示的[ nuspec 參考](nuspec.md#icon)。
+
+### <a name="packagereadmefile"></a>PackageReadmeFile
+
+封裝讀我檔案時，您必須使用 `PackageReadmeFile` 屬性來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 支援的檔案格式只包含 Markdown (*md*) 。
+
+例如：
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="docs\readme.md" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+如 nuspec 需對等專案，請參閱[ nuspec 讀我檔案的參考](nuspec.md#readme)。
 
 ### <a name="output-assemblies"></a>輸出組件
 

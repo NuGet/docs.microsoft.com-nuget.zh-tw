@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6417c971dc13cf9ed05dcec4e4156af94c0ea058
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859404"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387383"
 ---
 # <a name="nuget-client-sdk"></a>NuGet 用戶端 SDK
 
@@ -32,6 +32,9 @@ ms.locfileid: "104859404"
 ```ps1
 dotnet add package NuGet.Protocol
 ```
+
+> [!Tip]
+> `Repository.Factory` 是在 `NuGet.Protocol.Core.Types` 命名空間中定義，而 `GetCoreV3` 方法是在命名空間中定義的擴充方法 `NuGet.Protocol` 。 因此，您將需要為 `using` 這兩個命名空間加入語句。
 
 ### <a name="list-package-versions"></a>列出套件版本
 

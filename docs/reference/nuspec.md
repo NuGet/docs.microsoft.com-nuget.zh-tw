@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859495"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387409"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -204,6 +204,29 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 > [!Tip]
 > 您可以同時指定 `icon` 和， `iconUrl` 以便與不支援的來源維持回溯相容性 `icon` 。 Visual Studio 將 `icon` 在未來版本中支援來自以資料夾為基礎之來源的封裝。
+
+#### <a name="readme"></a>讀我檔案
+
+封裝讀我檔案時，您必須使用專案 `readme` 來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 支援的檔案格式只包含 Markdown (*md*) 。
+
+例如，您可以將下列內容新增至 nuspec，以將讀我檔案封裝到您的專案中：
+
+```xml
+<package>
+  <metadata>
+    ...
+    <readme>docs\readme.md</readme>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\readme.md" target="docs\" />
+    ...
+  </files>
+</package>
+```
+
+針對 MSBuild 對等專案，請參閱 [封裝讀我檔案](msbuild-targets.md#packagereadmefile)。
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。
