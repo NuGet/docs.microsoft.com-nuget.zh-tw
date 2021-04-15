@@ -5,12 +5,12 @@ author: chgill-msft
 ms.author: chgill
 ms.date: 8/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c821091983ab0b5d59b759e1ee9930cf449fd9d
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 58ab481f0c6a6cb5549c269788170b8c3ff6002f
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364163"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508783"
 ---
 # <a name="nuget-57-release-notes"></a>NuGet 5.7 版本資訊
 
@@ -19,6 +19,7 @@ NuGet 配送車：
 | NuGet 版本 | 隨附於 Visual Studio 版本 | 隨附於 .NET SDK |
 |:---|:---|:---|
 | [**5.7.0 版**](https://nuget.org/downloads) | [Visual Studio 2019 16.7 版](https://visualstudio.microsoft.com/downloads/) | [3.1.401](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
+| [**5.7.1**](https://nuget.org/downloads) | [Visual Studio 2019 16.7 版](https://visualstudio.microsoft.com/downloads/) | [3.1.408](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
 
 <sup>1</sup> 與 .net Core 工作負載搭配 Visual Studio 2019 安裝
 
@@ -30,7 +31,7 @@ NuGet 配送車：
 
 * 藉由允許它們共用資料來源並減少 resfreshing [#8294](https://github.com/NuGet/Home/issues/8294) ，使已安裝和更新索引標籤之間的切換變得更快
 
-* 藉由呼叫 MSBuild 靜態圖形 api ( # A0) [#9644](https://github.com/NuGet/Home/issues/9644) ，讓還原速度更快。
+* 藉由呼叫 MSBuild 靜態圖形 api (dotnet.exe) [#9644](https://github.com/NuGet/Home/issues/9644) ，讓還原速度更快。
 
 * 已為 PackageReference 專案新增 Visual Studio 部分還原 (無作業 + +) - [#9513](https://github.com/NuGet/Home/issues/9513)
 
@@ -107,3 +108,15 @@ NuGet 配送車：
 |[Sunner (SuNNjek) ](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe 規格會產生具有硬式編碼文字的著作權標記，而不是 `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)|
 |[Olivier Spinelli (Olivier-Spinelli) ](https://github.com/olivier-spinelli)|[3335](https://github.com/NuGet/NuGet.Client/pull/3335)|在 dotnet CLI 還原中，啟動認證外掛程式時，如果 `DOTNET_HOST_PATH`  未定義環境變數，請嘗試在系統路徑上使用 DOTNET CLI。 - [#7438](https://github.com/NuGet/Home/issues/7438)|
 |[goyzhang](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|已新增 `latest` `-MSBuildVersion`  -  [#8808](https://github.com/NuGet/Home/issues/8808)的選項|
+
+## <a name="summary-whats-new-in-571"></a>摘要：5.7.1 的新功能
+
+* 擴充 nupkg 中繼檔以包含安裝來源- [#10354](https://github.com/NuGet/Home/issues/10354)
+
+* 記錄檔封裝 contenthash 在) 解壓縮期間的還原記錄 (- [#10384](https://github.com/NuGet/Home/issues/10384)
+
+* 在正常的詳細資訊還原時，記錄要從中還原封裝的來源 [#10461](https://github.com/NuGet/Home/issues/10461)
+
+**[此版本中已修正的所有問題清單-5.7。1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f5724f84579cc29a79ee)**
+
+**[此版本中的認可清單-5.7。1](https://github.com/NuGet/NuGet.Client/compare/80512866a2c127e52ce3e86fd803fff77e9b9b52...5.7.1.4)**

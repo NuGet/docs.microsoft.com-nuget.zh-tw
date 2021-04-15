@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 24933ebb51851da2583b03e7fd3e55fade5e8a18
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859555"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508809"
 ---
 # <a name="nuget-59-release-notes"></a>NuGet 5.9 版本資訊
 
@@ -18,12 +18,13 @@ NuGet 配送車：
 
 | NuGet 版本 | 隨附於 Visual Studio 版本 | 隨附於 .NET SDK |
 |:---|:---|:---|
-| [**5.9**](https://nuget.org/downloads) | [Visual Studio 2019 16.9 版](https://visualstudio.microsoft.com/downloads/) | [5.0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.9 版](https://visualstudio.microsoft.com/downloads/) | [5.0.200](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.1**](https://nuget.org/downloads) | [Visual Studio 2019 16.9 版](https://visualstudio.microsoft.com/downloads/) | [5.0.202](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
 <sup>1</sup> 與 .net Core 工作負載搭配 Visual Studio 2019 安裝
   
 > [!NOTE]
-> Visual Studio 16.9、MSBuild 16.9 和 .NET 5.0.3 + 需要 NuGet.exe 5.9 或更新版本。
+> Visual Studio 16.9、MSBuild 16.9 和 .NET 5.0.200 + 需要 NuGet.exe 5.9 或更新版本。
 
 ## <a name="summary-whats-new-in-59"></a>摘要：5.9 中的新功能
 
@@ -187,7 +188,6 @@ NuGet 配送車：
 
 * NuGetPackageFileService 修正-使用以取得可處置的 memorystream- [#10503](https://github.com/NuGet/Home/issues/10503)
 
-
 **[此版本修正的所有問題清單-5.9。0](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f6be8c10485c0236b7ef889)**
 
 **[此版本中的認可清單-5.9。0](https://github.com/NuGet/NuGet.Client/compare/5.8.1.7021...5.9.0.7134)**
@@ -211,6 +211,15 @@ NuGet 配送車：
 [rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | 當重新導向時，輸出會在 macOS 上以80個字元包裝： [#10198](https://github.com/NuGet/Home/issues/10198)
 [xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | 讓 Nuget.exe 以 .NET Standard 套件的形式提供- [#6150](https://github.com/NuGet/Home/issues/6150)
 [Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | 引進新的 msbuild 屬性，在 pack 工作期間排除特定 tfm 的組建輸出- [#10396](https://github.com/NuGet/Home/issues/10396)
+
+## <a name="summary-whats-new-in-591"></a>摘要：5.9.1 的新功能
+
+* 「dotnet nuget 移除來源 nuget.org」無法在第一次使用 [#10745](https://github.com/NuGet/Home/issues/10745)
+* 在 Linux 上將預設驗證設為停用，但在 Windows 上預設為啟用- [#10713](https://github.com/NuGet/Home/issues/10713)
+
+**[此版本修正的所有問題清單-5.9。1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
+
+**[此版本中的認可清單-5.9。1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
 ## <a name="feedback-welcome"></a>歡迎意見反應
 
