@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237610"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901560"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>NuGet.org 上的個人帳戶
 
@@ -36,7 +36,7 @@ ms.locfileid: "93237610"
 
    ![將權限授與 NuGet.org](media/nuget-org-permissions.png)
 
-1. 系統會將您重新導向至 *nuget.org* ，並要求您註冊使用者名稱。
+1. 系統會將您重新導向至 *nuget.org*，並要求您註冊使用者名稱。
 
 1. 在輸入方塊中指定使用者名稱。 請注意，使用者名稱 **會** 區分大小寫，且往後無法再變更或重新命名。
 
@@ -62,11 +62,11 @@ ms.locfileid: "93237610"
 
    確認已與 Microsoft 帳戶相關聯的電話號碼或電子郵件。 您可能需要為您的帳戶輸入新的電話號碼或電子郵件。 如果是這樣，請依照指示輸入必要資訊，然後按一下 [下一步]。
 
-   ![啟用 2FA](media/nuget-org-sign-in-2fa.png)
+   ![啟用2FA 並輸入電話](media/nuget-org-sign-in-2fa.png)
 
 4. 檢查您的裝置或電子郵件帳戶，然後輸入我們剛傳送給您的代碼。
 
-   ![啟用 2FA](media/nuget-org-enter-code-2fa.png)
+   ![啟用2FA 並輸入程式碼](media/nuget-org-enter-code-2fa.png)
 
 5. 請遵循任何其他指示來完成雙重要素驗證。
 

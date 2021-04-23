@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e3af7145495b5753b5900915ffb4b07942b856
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774852"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901469"
 ---
 # <a name="common-nuget-configurations"></a>常用的 NuGet 組態
 
@@ -18,15 +18,15 @@ NuGet 行為是透過可存在於專案、使用者和整個電腦層級的一�
 
 ## <a name="config-file-locations-and-uses"></a>組態檔位置和使用
 
-| 影響範圍 | NuGet.Config 檔案位置 | 描述 |
+| 影響範圍 | `NuGet.Config` 檔案位置 | 描述 |
 | --- | --- | --- |
 | 解決方法 | 目前的資料夾 (也稱為解決方案資料夾) 或最高到磁碟機根目錄的任何資料夾。| 在解決方案資料夾中，設定會套用到子資料夾中的所有專案。 請注意，若設定檔放在專案資料夾中，它對於該專案沒有任何影響。 |
-| 使用者 | **Windows：**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux：** `~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (因作業系統散發而異)  <br/>所有平臺都支援其他的支援。 這些程式無法由工具編輯。 </br> **Windows：**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux：** `~/.config/NuGet/config/*.config` 或 `~/.nuget/config/*.config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
+| User | **Windows：**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux：** `~/.config/NuGet/NuGet.Config` 或 `~/.nuget/NuGet/NuGet.Config` (因作業系統散發而異)  <br/>所有平臺都支援其他的支援。 這些程式無法由工具編輯。 </br> **Windows：**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux：** `~/.config/NuGet/config/*.config` 或 `~/.nuget/config/*.config` | 設定適用於所有作業，但會覆寫為任何專案層級設定。 |
 | 電腦 | **Windows：**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux：** `$XDG_DATA_HOME` 。 如果 `$XDG_DATA_HOME` 為 Null 或空白，則會使用 `~/.local/share` 或 `/usr/local/share` (依 OS 發行版本而異)  | 設定適用於電腦上的所有作業，但會覆寫為任何使用者或專案層級設定。 |
 
 舊版 NuGet 的注意事項：
 - NuGet 3.3 和更早版本使用整個方案設定的 `.nuget` 資料夾。 此資料夾不會用在 NuGet 3.4 + 中。
-- 針對 NuGet 2.6 到 3.x，Windows 上的電腦層級組態檔位於 %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config，其中 *{IDE}* 可以是 *VisualStudio*、*{Version}* 是 Visual Studio 版本 (例如 *14.0*)，而 *{SKU}* 是 *Community*、*Pro* 或 *Enterprise*。 若要將設定遷移至 NuGet 4.0 +，只要將配置檔案複製到% ProgramFiles (x86) % \ NuGet\Config。在 Linux 上，這個先前的位置是/etc/opt，而在 Mac 上，/Library/application support 支援。
+- 針對 NuGet 2.6 至3.x，Windows 上的電腦層級設定檔案位於 `%ProgramData%\NuGet\Config[\{IDE}[\{Version}[\{SKU}]]]\NuGet.Config` ，其中 `{IDE}` 可以是 `VisualStudio` `{Version}` Visual Studio 版本（例如 `14.0` ），而且 `{SKU}` 是 `Community` 、 `Pro` 或 `Enterprise` 。 若要將設定遷移至 NuGet 4.0 +，只要將配置檔案複製到 `%ProgramFiles(x86)%\NuGet\Config` 。 在 Linux 上，這個先前的位置是 `/etc/opt` 和 Mac 上的 `/Library/Application Support` 。
 
 ## <a name="changing-config-settings"></a>變更組態設定
 
@@ -102,18 +102,16 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 具體來說，NuGet 會依下列順序從不同的組態檔載入設定：
 
-1. [NuGetDefaults.Config 檔案](#nuget-defaults-file)，內含只與套件來源相關的設定。
+1. 檔案[ `NuGetDefaults.Config` ，其中](#nuget-defaults-file)包含僅與套件來源相關的設定。
 1. 電腦層級檔案。
 1. 使用者層級檔案。
 1. 使用 `-configFile` 所指定的檔案。
-1. 從磁碟機根目錄到目前資料夾 (叫用 nuget.exe 或包含 Visual Studio 專案之資料夾的位置) 之路徑的每個資料夾中找到的檔案。 例如，如果在 c:\A\B\C 中叫用命令，則 NuGet 會依序在 c:\,、c:\A、c:\A\B 和 c:\A\B\C 中尋找並載入組態檔。
+1. 從磁片磁碟機根目錄到目前資料夾的路徑中的每個資料夾中找到的檔案 (的叫用位置， `nuget.exe` 或包含 Visual Studio 專案) 的資料夾。 例如，如果在中叫用命令 `c:\A\B\C` ，NuGet 會在中尋找並載入設定檔 `c:\` ，然後再 `c:\A` `c:\A\B` 和最後 `c:\A\B\C` 。
 
 NuGet 在這些檔案中找到設定時，會如下套用設定：
 
 1. 針對單一項目的項目，NuGet 已取代相同索引鍵的任何先前找到的值。 這表示「最接近」目前資料夾或專案的設定會覆寫任何其他稍早找到的設定。 例如，如果任何其他組態檔中有 `NuGetDefaults.Config` 中的 `defaultPushSource` 設定，則會予以覆寫。
-
 1. 針對集合項目 (例如 `<packageSources>`)，NuGet 會將所有組態檔中的值結合成單一集合。
-
 1. 指定節點具有 `<clear />` 時，NuGet 會忽略先前針對該節點所定義的組態值。
 
 ### <a name="settings-walkthrough"></a>設定逐步解說
@@ -144,7 +142,7 @@ disk_drive_2
 </configuration>
 ```
 
-檔案 B。disk_drive_2/NuGet.Config：
+檔案 B `disk_drive_2/NuGet.Config` ：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,7 +156,7 @@ disk_drive_2
 </configuration>
 ```
 
-檔案 C。disk_drive_2/Project1/NuGet.Config：
+File C. `disk_drive_2/Project1/NuGet.Config` ：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,7 +172,7 @@ disk_drive_2
 </configuration>
 ```
 
-檔案 D。disk_drive_2/Project2/NuGet.Config：
+File D. `disk_drive_2/Project2/NuGet.Config` ：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,13 +186,13 @@ disk_drive_2
 
 NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 
-- **從 disk_drive_1/users 叫用**：只會使用使用者層級組態檔 (A) 中所列的預設存放庫，因為這是 disk_drive_1 上找到的唯一檔案。
+- **從 `disk_drive_1/users`** 叫用：只會使用使用者層級設定檔中所列的預設存放庫 () ，因為這是在上找到的唯一檔案 `disk_drive_1` 。
 
-- **從 disk_drive_2/ 或 disk_drive_/tmp 叫用**：會先載入使用者層級檔案 (A)，接著 NuGet 會移至 disk_drive_2 的根目錄，並找到檔案 (B)。 NuGet 也會在 /tmp 中尋找組態檔，但會找不到。 因此，會使用 nuget.org 上的預設存放庫、啟用套件還原，並展開 disk_drive_2/tmp 中的套件。
+- **從 `disk_drive_2/` 或 `disk_drive_/tmp`** 叫用：先載入 () 的使用者層級檔案，然後將 NuGet 移至的根目錄， `disk_drive_2` 並尋找 (B) 的檔案。 NuGet 也會尋找中的設定檔， `/tmp` 但是找不到它。 因此，會使用上的預設存放庫 `nuget.org` 、啟用套件還原，並在中展開套件 `disk_drive_2/tmp` 。
 
-- **從 disk_drive_2/Project1 或 disk_drive_2/Project1/Source 叫用**：會先載入使用者層級檔案 (A)，接著 NuGet 會從 disk_drive_2 的根目錄依序載入檔案 (B) 和檔案 (C)。 (C) 中的設定會覆寫 (B) 和 (A) 中的設定，因此在其中安裝套件的 `repositoryPath` 是 disk_drive_2/Project1/External/Packages，而不是 *disk_drive_2/tmp*。 此外，因為 (C) 會清除 `<packageSources>`，所以 nuget.org 不再是來源，並且只留下 `https://MyPrivateRepo/ES/nuget`。
+- **從 `disk_drive_2/Project1` 或 `disk_drive_2/Project1/Source`** 叫用：先載入) 的使用者層 (級檔案，然後 NuGet 會將檔案從的根目錄 (載入) `disk_drive_2` ，後面接著檔案 (C) 。  (C) 中的設定會覆寫 (B) 和 () 中的設定，因此 `repositoryPath` 會安裝套件， `disk_drive_2/Project1/External/Packages` 而不是 `disk_drive_2/tmp` 。 此外，因為 (C) 會清除 `<packageSources>`，所以 nuget.org 不再是來源，並且只留下 `https://MyPrivateRepo/ES/nuget`。
 
-- **從 disk_drive_2/Project2 或 disk_drive_2/Project2/Source 叫用**：會先載入使用者層級檔案 (A)，接著載入檔案 (B) 和檔案 (D)。 因為未清除 `packageSources`，所以 `nuget.org` 和 `https://MyPrivateRepo/DQ/nuget` 都可以當成來源使用。 套件會在 (B) 中所指定的 disk_drive_2/tmp 內展開。
+- **從 `disk_drive_2/Project2` 或 `disk_drive_2/Project2/Source`** 叫用：先載入) 的使用者層 (級檔案，然後再載入 file (B) 和 file (D) 。 因為未清除 `packageSources`，所以 `nuget.org` 和 `https://MyPrivateRepo/DQ/nuget` 都可以當成來源使用。 封裝會依照 `disk_drive_2/tmp` (B) 中的指定展開。
 
 ## <a name="additional-user-wide-configuration"></a>其他使用者範圍設定
 
@@ -217,11 +215,11 @@ NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 >
 > 此外， `NuGetDefaults.Config` NuGet 中的或其他任何機制都不會防止存取套件來源，例如 nuget.org。如果組織想要封鎖這類存取，則必須使用其他方法（例如防火牆）。
 
-### <a name="nugetdefaultsconfig-location"></a>NuGetDefaults.Config 位置
+### <a name="nugetdefaultsconfig-location"></a>`NuGetDefaults.Config` 位置
 
 下表描述 `NuGetDefaults.Config` 檔案應儲存的位置，視目標 OS 而定：
 
-| 作業系統平台  | NuGetDefaults.Config 位置 |
+| 作業系統平台  | `NuGetDefaults.Config` 位置 |
 | --- | --- |
 | Windows      | **Visual Studio 2017 或 NuGet 4.x+：** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 及更早版本或 NuGet 3.x 及更早版本：** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (一般為 `~/.local/share` 或 `/usr/local/share`，取決於 OS 發行版本)|
@@ -230,9 +228,9 @@ NuGet 接著會如下載入並套用設定，視其叫用位置而定：
 
 - `packageSources`：此集合的意義與一般組態檔中的 `packageSources` 相同，並指定預設來源。 使用 `packages.config` 管理格式來安裝或更新專案中的套件時，NuGet 會依序使用來源。 對於使用 PackageReference 格式的專案，NuGet 首先使用本機來源，然後使用網路共用的來源，再使用 HTTP 來源，與組態檔中的順序無關。 NuGet 一律會略過還原作業的來源順序。
 
-- `disabledPackageSources`：此集合的意義也與 `NuGet.Config` 檔案相同；其中，會依名稱列出受影響的來源，以及指出是否停用的 true/false 值。 這可讓來源名稱和 URL 保留在 `packageSources` 中，而不需要預設將它開啟。 個別開發人員接著可以將其他 `NuGet.Config` 檔案中來源的值設定為 false 來重新啟用來源，而不需要重新尋找正確的 URL。 這也適用於將組織的完整內部來源 URL 清單提供給開發人員，同時預設僅啟用個別小組的來源。
+- `disabledPackageSources`：此集合的意義與檔案中的意義相同 `NuGet.Config` ，其中每個受影響的來源都會依其名稱列出，並顯示 `true` / `false` 指出是否已停用的值。 這可讓來源名稱和 URL 保留在 `packageSources` 中，而不需要預設將它開啟。 然後，個別開發人員可以將來源的值設定為其他檔案，以重新啟用來源， `false` `NuGet.Config` 而不需要再次尋找正確的 URL。 這也適用於將組織的完整內部來源 URL 清單提供給開發人員，同時預設僅啟用個別小組的來源。
 
-- `defaultPushSource`：指定作業的預設目標 `nuget push` ，並覆寫 nuget.org 的內建預設值。系統管理員可以部署此設定，以避免意外將內部封裝發佈至公用 nuget.org，因為開發人員特別需要使用 `nuget push -Source` 發佈至 nuget.org。
+- `defaultPushSource`：指定作業的預設目標 `nuget push` ，並覆寫的內建預設值 `nuget.org` 。 系統管理員可以部署此設定，以避免意外將內部套件發行至公用 `nuget.org` ，因為開發人員必須特別使用 `nuget push -Source` 發行至 `nuget.org` 。
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>NuGetDefaults.Config 範例和應用
 

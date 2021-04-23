@@ -7,10 +7,11 @@
 ## [發行套件](publish-a-package.md)
 ## [套件識別碼前置詞保留](id-prefix-reservation.md)
 ## [套件淘汰](deprecate-packages.md)
+## [封裝讀我檔案](package-readme-on-nuget-org.md)
 # 原則
 ## [資料要求](policies/Data-requests.md)
 ## [爭端解決](policies/dispute-resolution.md)
-## [刪除套件](policies/deleting-packages.md)
+## [刪除封裝](policies/deleting-packages.md)
 ## [匯出控制](policies/export-control.md)
 # 參考
 ## [NuGet API](../api/overview.md)

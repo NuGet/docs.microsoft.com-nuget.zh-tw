@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: ed865aad6f72752adcf3e3921287a20b961c4a8a
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387409"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901807"
 ---
 # <a name="nuspec-reference"></a>.nuspec 參考
 
@@ -207,6 +207,8 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 
 #### <a name="readme"></a>讀我檔案
 
+*支援 **NuGet 5.10.0 preview 2** 和更新版本*
+
 封裝讀我檔案時，您必須使用專案 `readme` 來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 支援的檔案格式只包含 Markdown (*md*) 。
 
 例如，您可以將下列內容新增至 nuspec，以將讀我檔案封裝到您的專案中：
@@ -226,7 +228,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 </package>
 ```
 
-針對 MSBuild 對等專案，請參閱 [封裝讀我檔案](msbuild-targets.md#packagereadmefile)。
+針對 MSBuild 對等專案，請參閱 [封裝讀我檔案](msbuild-targets.md#packagereadmefile)。 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 布林值，指定在安裝套件時，用戶端是否必須提示取用者接受套件授權。

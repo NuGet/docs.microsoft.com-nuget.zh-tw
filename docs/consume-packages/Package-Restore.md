@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6cdc826c85f233c7108a53ad244aa8c47df0be67
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859235"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901833"
 ---
 # <a name="restore-packages-using-package-restore"></a>使用套件還原還原套件
 
@@ -181,7 +181,7 @@ msbuild -restore
 
 ## <a name="restore-using-azure-pipelines"></a>使用 Azure Pipelines 進行還原
 
-在 Azure Pipelines 中建立組建定義時，在定義中於任何建置工作之前包含 NuGet [還原](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)或 .NET Core [還原](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops)工作。 根據預設，一些建置範本已包含還原工作。
+在 Azure Pipelines 中建立組建定義時，在定義中於任何建置工作之前包含 NuGet [還原](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)或 .NET Core [還原](/azure/devops/pipelines/tasks/build/dotnet-core-cli)工作。 根據預設，一些建置範本已包含還原工作。
 
 ## <a name="restore-using-azure-devops-server"></a>使用 Azure DevOps Server 進行還原
 

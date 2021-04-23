@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ad551b8701cfc2061f7721fb050ed9b5a4fede32
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777442"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901690"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Install-Package (封裝管理員主控台
 
-*本主題說明 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內的命令。如需一般 PowerShell Install-Package 命令，請參閱 [PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題說明 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內的命令。如需一般 PowerShell Install-Package 命令，請參閱 [PowerShell PackageManagement 參考](/powershell/module/packagemanagement)。*
 
 將封裝及其相依性安裝到專案中。
 
-## <a name="syntax"></a>語法
+## <a name="syntax"></a>Syntax
 
 ```ps
 Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Source] <string>] 
@@ -34,7 +34,7 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 描述 |
+| 參數 | Description |
 | --- | --- |
 | 識別碼 |  (需要) 要安裝的封裝識別碼。  (*3.0 +*) 識別碼可以是檔案或檔案的路徑或 URL `packages.config` `.nupkg` 。 -Id 參數本身是選擇性的。 |
 | IgnoreDependencies | 只安裝此套件，而不安裝其相依性。 |

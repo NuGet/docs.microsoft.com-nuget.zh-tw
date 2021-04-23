@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387370"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901481"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 套件和還原為 MSBuild 目標
 
@@ -162,6 +162,8 @@ ms.locfileid: "107387370"
 針對 nuspec 相等的，請查看圖示的[ nuspec 參考](nuspec.md#icon)。
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
+
+*支援 **NuGet 5.10.0 preview 2**  /  **.net 5.0.3** 和更新版本*
 
 封裝讀我檔案時，您必須使用 `PackageReadmeFile` 屬性來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 支援的檔案格式只包含 Markdown (*md*) 。
 

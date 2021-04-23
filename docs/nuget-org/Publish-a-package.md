@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775992"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901911"
 ---
 # <a name="publishing-packages"></a>發行套件
 
@@ -38,11 +38,9 @@ ms.locfileid: "98775992"
 
 1. nuget.org 會告訴您該套件名稱是否可用。 如果不可使用，請在您專案中變更套件識別碼、重建，並再次嘗試上傳。
 
-1. 如果套件名稱可用，nuget.org 會開啟 [確認] 區段，您可在其中檢閱套件資訊清單的中繼資料。 若要變更任何中繼資料，請編輯您的專案 (專案檔或 `.nuspec` 檔案)、重建、重新建立套件，然後再次上傳。
+1. 如果套件名稱可用，nuget.org 會開啟 [確認] 區段，您可在其中檢閱套件資訊清單的中繼資料。 如果您在套件中包含 [讀我檔案](/docs/nuget-org/package-readme-on-nuget-org.md) ，請查看預覽，以確定所有內容都能正確轉譯。 若要變更任何中繼資料，請編輯您的專案 (專案檔或 `.nuspec` 檔案)、重建、重新建立套件，然後再次上傳。
 
-1. 在 [匯入文件] 底下，您可以貼上 Markdown、使用 URL 指向您的文件，或上傳文件檔案。
-
-1. 當所有資訊準備就緒時，請選取 [提交] 按鈕
+2. 當所有資訊準備就緒時，請選取 [提交] 按鈕
 
 ### <a name="command-line"></a>命令列
 

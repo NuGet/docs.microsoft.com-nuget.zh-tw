@@ -1,16 +1,16 @@
 ---
 title: 使用 MSBuild 建立 NuGet 套件
-description: NuGet 套件設計和建立程序詳細指南，包含檔案和版本控制這類索引鍵決策點。
+description: 使用 MSBuild 設計及建立 NuGet 套件之程式的詳細指南，包括檔案和版本控制等關鍵決策點。
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774447"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901456"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>使用 MSBuild 建立 NuGet 套件
 

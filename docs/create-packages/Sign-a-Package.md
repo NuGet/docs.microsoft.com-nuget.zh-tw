@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: c0622520a325000d5fcb8fb884cb509ee4b641f4
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550371"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901898"
 ---
 # <a name="signing-nuget-packages"></a>簽署 NuGet 套件
 
@@ -19,7 +19,7 @@ ms.locfileid: "94550371"
 
 ## <a name="get-a-code-signing-certificate"></a>取得程式碼簽署憑證
 
-有效的憑證可以從公開憑證授權單位單位取得，例如 [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、 [DigiCert](https://www.digicert.com/code-signing/)、 [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、 [Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、 [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、 [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等等。您可以從取得 Windows 信任之憑證授權單位單位的完整清單 [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) 。
+您可以從公開憑證授權單位單位（例如 [DigiCert](https://www.digicert.com/code-signing/)、 [Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、 [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、 [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)等）取得有效的憑證。您可以從取得 Windows 信任之憑證授權單位單位的完整清單 [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) 。
 
 您可以基於測試目的使用自動發行的憑證。 不過，NuGet.org 不接受使用自我發行的憑證簽署的套件。深入瞭解如何 [建立測試憑證](#create-a-test-certificate)
 

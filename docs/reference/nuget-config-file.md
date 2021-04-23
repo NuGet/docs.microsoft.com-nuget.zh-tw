@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859508"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901859"
 ---
-# <a name="nugetconfig-reference"></a>nuget.config 參考
+# <a name="nugetconfig-reference"></a>`nuget.config` 參考
 
 NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.config` 如 [一般 NuGet](../consume-packages/configuring-nuget-behavior.md)設定中所述。
 
@@ -350,7 +350,7 @@ NuGet 行為是由不同或檔案中的設定所控制， `NuGet.Config` `nuget.
 
 下表顯示 NuGet.Config 檔案的環境變數語法和路徑分隔符號的支援。
 
-### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config 環境變數支援
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` 環境變數支援
 
 | Syntax | Dir 分隔符號 | Windows nuget.exe | Windows dotnet.exe | Mono 中的 Mac nuget.exe ()  | Mac dotnet.exe |
 |---|---|---|---|---|---|

@@ -1,17 +1,17 @@
 ---
 title: NuGet 4.4 RTM 版本資訊
-description: NuGet 4.3 RTM 版本資訊，包含已知問題、Bug 修正、新增功能和 DCR。
+description: NuGet 4.4 RTM 的版本資訊，包含已知問題、bug 修正、新增功能和 Dcr。
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 980afffcd4202e019ffa87de5dccf947300a9c13
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776289"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901703"
 ---
 # <a name="nuget-44-release-notes"></a>NuGet 4.4 版本資訊
 

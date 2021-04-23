@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 19173d2be7cd66b65651655385466b40f5e08352
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776221"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901742"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5.0 版本資訊
 
@@ -27,7 +27,7 @@ NuGet 配送車：
 
 ## <a name="summary-whats-new-in-50"></a>摘要：5.0 中的新功能
 
-* 支援在 Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)中還原已[篩選的解決方案](/visualstudio/ide/filtered-solutions?view=vs-2019)
+* 支援在 Visual Studio 2019- [#5820](https://github.com/NuGet/Home/issues/5820)中還原已[篩選的解決方案](/visualstudio/ide/filtered-solutions)
 * `BuildTransitive` 資料夾可讓套件以可傳遞的目標/.props 給主項目目- [#6091](https://github.com/NuGet/Home/issues/6091)
 * 針對 NuGet Iv Api 中的 PackageReference 案例提供更佳的支援- [#7005](https://github.com/NuGet/Home/issues/7005)、 [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` 已淘汰- [#7928](https://github.com/NuGet/Home/issues/7928)

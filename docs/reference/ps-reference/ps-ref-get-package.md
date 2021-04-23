@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7c91faecaac2967c7a01dd81e72b9097e7bd6cae
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777497"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901729"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Get-Package (封裝管理員主控台
 
-*本主題說明 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內的命令。如需一般 PowerShell Get-Package 命令，請參閱 [PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題說明 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內的命令。如需一般 PowerShell Get-Package 命令，請參閱 [PowerShell PackageManagement 參考](/powershell/module/packagemanagement)。*
 
 抓取本機儲存機制中所安裝的套件清單、列出套件來源中搭配-ListAvailable 參數使用時可使用的封裝，或在搭配-Update 參數使用時，列出可用的更新。
 
-## <a name="syntax"></a>語法
+## <a name="syntax"></a>Syntax
 
 ```ps
 Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]

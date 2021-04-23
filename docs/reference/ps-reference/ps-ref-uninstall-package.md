@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 961a9d68e5cba09030401fc871a93bf1145b23a3
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 371e95c341efbce1c4a15facefc15cd51b266141
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777392"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901781"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Visual Studio) 中的 Uninstall-Package (封裝管理員主控台
 
-*本主題說明 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內的命令。如需一般 PowerShell Uninstall-Package 命令，請參閱 [PowerShell PackageManagement 參考](/powershell/module/packagemanagement/?view=powershell-6)。*
+*本主題說明 Windows 上 Visual Studio 的 [封裝管理員主控台](../../consume-packages/install-use-packages-powershell.md) 內的命令。如需一般 PowerShell Uninstall-Package 命令，請參閱 [PowerShell PackageManagement 參考](/powershell/module/packagemanagement)。*
 
 移除專案中的封裝，並選擇性地移除其相依性。 若是其他封裝與此封裝有相依性，則必須指定 –Force 選項，否則此命令將會失敗。
 
-## <a name="syntax"></a>語法
+## <a name="syntax"></a>Syntax
 
 ```ps
 Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [-Force]
@@ -29,7 +29,7 @@ Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 描述 |
+| 參數 | Description |
 | --- | --- |
 | 識別碼 |  (需要) 要卸載之套件的識別碼。 -Id 參數本身是選擇性的。 |
 | 版本 | 要卸載的套件版本，預設為目前安裝的版本。 |

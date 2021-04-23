@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426943"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901586"
 ---
 # <a name="scoped-api-keys"></a>限定範圍的 API 金鑰
 
@@ -47,29 +47,29 @@ ms.locfileid: "67426943"
 
 ## <a name="use-glob-patterns"></a>使用 Glob 模式
 
-如果您要使用多個套件，且有龐大的套件清單要管理，您可以選擇使用萬用字元模式，同時選取多個套件。 例如，如果您想要授與金鑰給所有套件識別碼開頭為 `Fabrikam.Service` 的特定範圍，您可以在 [Glob 模式]**** 文字方塊中指定 `fabrikam.service.*` 來執行此作業。
+如果您要使用多個套件，且有龐大的套件清單要管理，您可以選擇使用萬用字元模式，同時選取多個套件。 例如，如果您想要授與金鑰給所有套件識別碼開頭為 `Fabrikam.Service` 的特定範圍，您可以在 [Glob 模式] 文字方塊中指定 `fabrikam.service.*` 來執行此作業。
 
-![建立 API 金鑰](media/scoped-api-keys-glob-pattern.png)
+![建立 API 金鑰-2](media/scoped-api-keys-glob-pattern.png)
 
 使用 Glob 模式判斷 API 金鑰權限是否也適用於符合 Glob 模式的套件。 例如，如果您嘗試推送名為 `Fabrikam.Service.Framework` 的新套件，您可使用先前建立的金鑰完成此作業，因為套件符合 Glob 模式 `fabrikam.service.*`。
 
 ## <a name="obtain-api-keys-securely"></a>安全取得 API 金鑰
 
-基於安全性，新建立的金鑰絕不會顯示在螢幕中，且只能使用 [複製]**** 按鈕取得。 同樣地，頁面重新整理後即無法存取金鑰。
+基於安全性，新建立的金鑰絕不會顯示在螢幕中，且只能使用 [複製] 按鈕取得。 同樣地，頁面重新整理後即無法存取金鑰。
 
-![建立 API 金鑰](media/scoped-api-keys-obtain-keys.png)
+![建立 API 金鑰-3](media/scoped-api-keys-obtain-keys.png)
 
 ## <a name="edit-existing-api-keys"></a>編輯現有的 API 金鑰
 
 您可能也想要更新金鑰權限和範圍，但不變更金鑰本身。 如果您的金鑰具有單一套件特定範圍，您可以選擇將相同的範圍套用至一或多個其他套件。
 
-![建立 API 金鑰](media/scoped-api-keys-edit.png)
+![建立 API 金鑰-4](media/scoped-api-keys-edit.png)
 
 ## <a name="refresh-or-delete-existing-api-keys"></a>重新整理或刪除現有的 API 金鑰
 
 帳戶擁有者可以選擇重新整理金鑰，如此一來，(套件的) 權限、範圍與到期日將維持不變，但會發出新的金鑰，讓舊的金鑰無法使用。 這有利於管理過時金鑰或有可能外洩的 API 金鑰。
 
-![建立 API 金鑰](media/scoped-api-keys-refresh.png)
+![建立 API 金鑰-5](media/scoped-api-keys-refresh.png)
 
 如果不再需要這些金鑰，您也可以選擇刪除它們。 刪除金鑰會移除該金鑰，並讓它無法使用。
 
@@ -92,11 +92,11 @@ ms.locfileid: "67426943"
 
 ### <a name="can-i-get-back-my-api-key-that-i-deleted-by-mistake"></a>我可以找回不小心刪除的 API 金鑰嗎？
 
-否。 刪除後，您只能建立新的金鑰。 無法復原意外刪除的金鑰。
+不會。 刪除後，您只能建立新的金鑰。 無法復原意外刪除的金鑰。
 
 ### <a name="does-the-old-api-key-continue-to-work-upon-api-key-refresh"></a>重新整理 API 金鑰時，舊的 API 金鑰還會繼續運作嗎？
 
-否。 金鑰一經重新整理就會產生與舊金鑰具有相同範圍、權限和到期日的新金鑰。 舊的金鑰不再存在。
+不會。 金鑰一經重新整理就會產生與舊金鑰具有相同範圍、權限和到期日的新金鑰。 舊的金鑰不再存在。
 
 ### <a name="can-i-give-more-permissions-to-an-existing-api-key"></a>我可以為現有的 API 金鑰授與更多權限嗎？
 
