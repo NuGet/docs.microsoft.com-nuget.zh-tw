@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: 8ebf0329f9dc7af09a59f1498a934754842df365
+ms.sourcegitcommit: 08c5b2c956a1a45f0ea9fb3f50f55e41312d8ce3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107901481"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108067306"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet 套件和還原為 MSBuild 目標
 
@@ -77,7 +77,7 @@ ms.locfileid: "107901481"
 | `Repository/Type` | `RepositoryType` | empty | 存放庫類型。 範例： `git` (預設) ， `tfs` 。 |
 | `Repository/Branch` | `RepositoryBranch` | empty | 選用的存放庫分支資訊。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *master* (NuGet 4.7.0 +) 。 |
 | `Repository/Commit` | `RepositoryCommit` | empty | 選用的儲存機制認可或變更集，以指出建立封裝的來源。 `RepositoryUrl` 也必須指定此屬性才能包含。 範例： *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) 。 |
-| `PackageType` | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
+| `PackageType` | `<PackageType>CustomType1, 1.0.0.0;CustomType2</PackageType>` | | 指出封裝的預定用途。 封裝類型使用與封裝識別碼相同的格式，並以分隔 `;` 。 封裝類型可透過附加 `,` 和字串來建立版本 [`Version`](/dotnet/api/system.version) 。 請參閱 [設定 NuGet 套件類型](../create-packages/set-package-type.md) (NuGet 3.5.0 +) 。 |
 | `Summary` | 不支援 | | |
 
 ### <a name="pack-target-inputs"></a>封裝目標輸入
@@ -163,7 +163,7 @@ ms.locfileid: "107901481"
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
 
-*支援 **NuGet 5.10.0 preview 2**  /  **.net 5.0.3** 和更新版本*
+*支援 **NuGet 5.10.0 preview 2**  /  **.net SDK 5.0.300** 和更新版本*
 
 封裝讀我檔案時，您必須使用 `PackageReadmeFile` 屬性來指定封裝路徑（相對於封裝的根目錄）。 此外，您必須確定檔案包含在套件中。 支援的檔案格式只包含 Markdown (*md*) 。
 
