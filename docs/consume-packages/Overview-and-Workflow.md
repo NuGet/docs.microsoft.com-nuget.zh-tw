@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d1d6df3bcc36d8a78fcee97099b301c9ffc440d9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859209"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323631"
 ---
 # <a name="package-consumption-workflow"></a>套件使用工作流程
 
@@ -39,7 +39,7 @@ NuGet 也會確保套件所支援的目標架構與您的專案相容。 如果�
 
 偶爾需要重新安裝已包含在專案中的套件，這也可能會重新安裝相依性。 使用 `nuget reinstall` 命令或 NuGet 套件管理員主控台，就可以輕鬆做到這項作業。 如需詳細資料，請參閱[重新安裝和更新套件](../consume-packages/reinstalling-and-updating-packages.md)。
 
-最後，NuGet 的行為是透過 `Nuget.Config` 檔案所驅動。 可以使用多個檔案來集中管理不同層級的特定設定，如[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)所述。
+最後，NuGet 的行為是透過 `NuGet.Config` 檔案所驅動。 可以使用多個檔案來集中管理不同層級的特定設定，如[設定 NuGet 行為](../consume-packages/configuring-nuget-behavior.md)所述。
 
 ## <a name="ways-to-install-a-nuget-package"></a>安裝 NuGet 套件的方式
 

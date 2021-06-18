@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0bd14104695a15d2e4c65a13b271143809c4ba8a
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775028"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323618"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>對套件還原錯誤進行疑難排解
 
@@ -31,7 +31,7 @@ ms.locfileid: "98775028"
 
 ![在 [工具/選項] 中啟用 NuGet 套件還原](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-這些設定也可以在您的 `NuGet.config` 檔案中變更；請參閱[同意](#consent)一節。 如果您的專案是使用整合 MSBuild 套件還原的舊版專案，您可能需要[遷移](package-restore.md#migrate-to-automatic-package-restore-visual-studio)至自動套件還原。
+這些設定也可以在您的 `NuGet.Config` 檔案中變更；請參閱[同意](#consent)一節。 如果您的專案是使用整合 MSBuild 套件還原的舊版專案，您可能需要[遷移](package-restore.md#migrate-to-automatic-package-restore-visual-studio)至自動套件還原。
 
 <a name="missing"></a>
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 當您嘗試建置包含一或多個 NuGet 套件參考的專案，但這些套件目前並未安裝在電腦上或位於專案中時，就會發生這項錯誤。
 
-- 使用 [PackageReference](package-references-in-project-files.md) 管理格式時，此錯誤可能是來自 packages.config 到 PackageReference 遷移的剩餘問題，需要從專案檔中 [手動移除](../resources/NuGet-FAQ.md#working-with-packages) 。
+- 使用 [PackageReference](package-references-in-project-files.md) 管理格式時，此錯誤可能是來自 packages.config 到 PackageReference 遷移的剩餘問題，需要從專案檔中 [手動移除](/nuget/resources/nuget-faq#working-with-packages) 。
 - 當使用 [packages.config](../reference/packages-config.md) 時，此錯誤表示套件並未安裝在解決方案根目錄的 `packages` 資料夾中。
 
 當您從原始檔控制或另一個下載處取得專案的原始程式碼時，通常就會發生這種情況。 套件通常會從原始檔控制或下載中省略，因為可以從類似 nuget.org 的套件摘要中還原 (請參閱[套件和原始檔控制](Packages-and-Source-Control.md))。 包含套件反而會使存放庫膨脹，或建立不必要的大型 .zip 檔案。

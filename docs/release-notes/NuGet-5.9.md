@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
-ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
+ms.openlocfilehash: 1152af99cf1421918a42d0d1faa33f1452f54a8f
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107508809"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323878"
 ---
 # <a name="nuget-59-release-notes"></a>NuGet 5.9 版本資訊
 
@@ -220,6 +220,16 @@ NuGet 配送車：
 **[此版本修正的所有問題清單-5.9。1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
 
 **[此版本中的認可清單-5.9。1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
+
+## <a name="known-issues"></a>已知問題
+
+### <a name="nuget-59-pack-raises-null-reference-exception---10685"></a>nuget 5.9 套件引發 `Null Reference` 例外狀況。 - [#10685](https://github.com/NuGet/Home/issues/10685)
+
+#### <a name="issue"></a>問題
+當您使用檔案 tring 時 `pack` `.nuspec` ， `NuGet 5.9` `null reference` 如果指定 [明確的元件參考](../reference/nuspec.md#explicit-assembly-references) ，而沒有為目標的專案新增任何，則版本會引發例外狀況 `reference groups` `multiple frameworks` 。
+
+#### <a name="workaround"></a>因應措施
+使用 `nuget.exe` [5.8.1](https://dist.nuget.org/win-x86-commandline/v5.8.1/nuget.exe)  或最新版本 `5.9.1` 。
 
 ## <a name="feedback-welcome"></a>歡迎意見反應
 

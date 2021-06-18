@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 6f4adcdf3981e5ec0e5e88337a8c3bcdd9158ca3
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0b0d0445f21ae49bc4785a6de822f9b56ec5c453
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779160"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323657"
 ---
 # <a name="search-command-nuget-cli"></a> (NuGet CLI 的搜尋命令) 
 
 **適用物件：** 套件耗用量 &bullet; **支援的版本：** 5.8 +
 
-使用提供的查詢字串來搜尋指定的來源。 如果未指定任何來源，則會使用% AppData% \NuGet\NuGet.config 中定義的所有來源。
+使用提供的查詢字串來搜尋指定的來源。 如果未指定任何來源，則會使用% AppData% \NuGet\NuGet.Config 中定義的所有來源。
 
 ## <a name="usage"></a>使用方式
 
@@ -34,7 +34,7 @@ nuget search [search terms] [options]
 | 來源 | 特定套件來源 (s) 進行搜尋，而不是在 __nuget.config__ 中查詢預設來源 | -來源 `<Source URL>`|
 | Take | 要傳回的結果數目。 預設值為 20。 | -Take `<positive integer>` |
 | 詳細程度 | 要在輸出中顯示的詳細資料層級。 預設值為 _normal_。  (請參閱下面的附注)   | -詳細資訊 `<quiet|normal|detailed>` |
-| 説明 | 顯示命令的說明資訊 | -Help |
+| Help | 顯示命令的說明資訊 | -Help |
 
 另請參閱 [環境變數](cli-ref-environment-variables.md)
 

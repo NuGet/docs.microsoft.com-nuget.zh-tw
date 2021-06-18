@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 69adbbad20debf2e53f247e85d638b3226c0491d
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775267"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323748"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet 如何解析套件相依性
 
@@ -102,7 +102,7 @@ ms.locfileid: "98775267"
 
 使用 `packages.config`，NuGet 會嘗試在每個個別套件安裝期間解決相依性衝突。 也就是說，如果套件 A 已安裝並與套件 B 相依，而且套件 B 已列在 `packages.config` 中作為其他項目的相依性，則 NuGet 會比較所要求的套件 B 版本，並嘗試找到符合所有版本條件約束的版本。 具體來說，NuGet 會選取符合相依性的較低 *major.minor* 版本。
 
-根據預設，NuGet 2.8 會尋找最低的修補程式版本 (請參閱 [NuGet 2.8 版本資訊](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies))。 您可以透過 `Nuget.Config` 中的 `DependencyVersion` 屬性和命令列上的 `-DependencyVersion` 參數，來控制此設定。  
+根據預設，NuGet 2.8 會尋找最低的修補程式版本 (請參閱 [NuGet 2.8 版本資訊](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies))。 您可以透過 `NuGet.Config` 中的 `DependencyVersion` 屬性和命令列上的 `-DependencyVersion` 參數，來控制此設定。  
 
 針對較大的相依性圖形，解析相依性的 `packages.config` 程序會更為複雜。 每個新套件安裝都需要周遊整個圖形，而且會引發版本衝突機會。 發生衝突時，會停止安裝，並讓專案處於不定狀態，特別是對專案檔本身進行可能的修改。 使用其他套件管理格式時，這不是問題。
 

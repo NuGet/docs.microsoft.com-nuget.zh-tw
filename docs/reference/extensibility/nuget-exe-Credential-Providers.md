@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4f0a5a2355b34c39a435d24691a3f8ea10ee9c00
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777770"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323826"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>使用 nuget.exe 認證提供者驗證摘要
 
@@ -37,7 +37,7 @@ ms.locfileid: "98777770"
 提供者必須執行下列動作：
 
 - 判斷是否可以在起始認證取得之前，提供目標 URI 的認證。 如果沒有，則應該傳回狀態碼1，且不含任何認證。
-- 請勿修改 `Nuget.Config` (，例如) 設定認證。
+- 請勿修改 `NuGet.Config` (，例如) 設定認證。
 - 本身會處理 HTTP proxy 設定，因為 NuGet 不會提供 proxy 資訊給外掛程式。
 - 使用 UTF-8 編碼方式，藉由撰寫 JSON 回應物件以將認證或錯誤詳細資料傳回給 `nuget.exe` (，請參閱下面) 至 stdout。
 - （選擇性）將額外的追蹤記錄發出到 stderr。 不應該將秘密寫入至 stderr，因為在詳細資訊層級「正常」或「詳細」的情況下，這類追蹤會由 NuGet 回應到主控台。
