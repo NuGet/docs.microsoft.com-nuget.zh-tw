@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 4575d4779ed90150cec667489c85875b7fb87a8d
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859222"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726973"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>安全軟體供應鏈的最佳作法
 
@@ -60,7 +60,7 @@ ms.locfileid: "104859222"
 
 ![Octoverse 2020-諮詢的狀態](media/advisories.png)
 
-我們將涵蓋 NuGet 和 GitHub 提供的各種工具和技術，您可以立即使用這些工具和技術來解決專案內的潛在風險。 
+我們將涵蓋 NuGet 和 GitHub 所提供的各種工具和技術，您可以立即使用這些工具和技術來解決專案內的潛在風險。 
 
 ## <a name="knowing-what-is-in-your-environment"></a>瞭解您環境中的內容
 
@@ -75,11 +75,11 @@ ms.locfileid: "104859222"
 -   [`packages.config`](../reference/packages-config.md) –位於專案根目錄中。
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) –位於專案檔中。 
 
-根據您用來管理 NuGet 相依性的方法，您也可以使用 Visual Studio 直接在 [方案總管](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) 或 [NuGet 封裝管理員](../consume-packages/install-use-packages-visual-studio.md)中查看相依性。
+根據您用來管理 NuGet 相依性的方法，您也可以使用 Visual Studio，直接在[方案總管](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer)或[NuGet 封裝管理員](../consume-packages/install-use-packages-visual-studio.md)中查看相依性。
 
 在 CLI 環境中，您可以使用 [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) 命令來列出專案或解決方案的相依性。 
 
-如需管理 NuGet 相依性的詳細資訊， [請參閱下列檔](../consume-packages/overview-and-workflow.md)。
+如需管理 NuGet 相依性的詳細資訊，[請參閱下列檔](../consume-packages/overview-and-workflow.md)。
 
 ### <a name="github-dependency-graph"></a>GitHub 相依性關係圖 
 
@@ -87,7 +87,7 @@ ms.locfileid: "104859222"
 
 您可以使用 GitHub 的相依性圖形來查看您的專案相依的套件，以及相依于該套件的存放庫。 這可協助您查看其相依性中偵測到的任何弱點。
 
-如需 GitHub 存放庫相依性的詳細資訊， [請參閱下列檔](https://github.co/dependency-graph)。
+如需 GitHub 存放庫相依性的詳細資訊，[請參閱下列檔](https://github.co/dependency-graph)。
 
 ### <a name="dependency-versions"></a>相依性版本
 
@@ -108,11 +108,11 @@ ms.locfileid: "104859222"
 
 您可以使用 [DOTNET CLI](/dotnet/core/tools/dotnet-list-package) 來列出您的專案或解決方案中可能存在的任何已知已淘汰或易受攻擊的相依性。 您可以使用命令 `dotnet list package --deprecated` 或 `dotnet list package --vulnerable` 提供任何已知棄用功能或弱點的清單。
 
-### <a name="github-vulnerable-dependencies"></a>GitHub 易受依存的相依性
+### <a name="github-vulnerable-dependencies"></a>GitHub 易受攻擊的相依性
 
 **📦 套件取用者 | 📦🖊 封裝作者**
 
-如果您的專案是裝載在 GitHub 上，您可以利用 [Github 安全性](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors) 找出專案中的安全性弱點和錯誤，Dependabot 會藉由開啟程式碼基底的提取要求來修正這些問題。 
+如果您的專案是裝載在 GitHub 上，您可以利用[GitHub 安全性](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors)找出專案中的安全性弱點和錯誤，Dependabot 會藉由開啟程式碼基底的提取要求來修正這些問題。 
 
 在導入之前攔截易受攻擊的相依性，是「 [下移](https://en.wikipedia.org/wiki/Shift-left_testing) 」移動的一專案標。 可以取得相依性的相關資訊，例如其授權、可轉移的相依性，以及相依性的存留期，以協助您完成這項作業。
 
@@ -122,15 +122,15 @@ ms.locfileid: "104859222"
 
 **📦 套件取用者**
 
-使用多個公用 & 私用 NuGet 來源摘要時，可以從任何饋送下載套件。 為了確保您的組建是可預測的，且不受已知的攻擊（例如相依性 [混淆](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)）的保護，請瞭解您的套件所) 的特定摘要 (是最佳作法。 您可以使用單一摘要或具有 upstreaming 功能的私人摘要來保護。
+使用多個公用 & 私用 NuGet 原始檔摘要時，可以從任何饋送下載套件。 為了確保您的組建是可預測的，且不受已知的攻擊（例如相依性 [混淆](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)）的保護，請瞭解您的套件所) 的特定摘要 (是最佳作法。 您可以使用單一摘要或具有 upstreaming 功能的私人摘要來保護。
 
-如需保護套件摘要的詳細資訊，請參閱 [使用私用套件摘要時降低風險的三種方式](https://azure.microsoft.com/en-us/resources/3-ways-to-mitigate-risk-using-private-package-feeds/)。
+如需保護套件摘要的詳細資訊，請參閱 [使用私用套件摘要時降低風險的三種方式](https://azure.microsoft.com/resources/3-ways-to-mitigate-risk-using-private-package-feeds/)。
 
 ### <a name="client-trust-policies"></a>用戶端信任原則
 
 **📦 套件取用者**
 
-有一些您可以加入宣告的原則，您需要使用這些原則簽署封裝。 這可讓您信任套件作者，只要它是作者簽署的作者，或信任封裝（如果是由 NuGet.org 簽署的儲存機制的特定使用者或帳戶所擁有）。
+有一些您可以加入宣告的原則，您需要使用這些原則簽署封裝。 這可讓您信任套件作者，只要它是作者簽署的，或是信任套件（如果是由 NuGet org 簽署的儲存機制的特定使用者或帳戶所擁有）。
 
 若要設定用戶端信任原則， [請參閱下列檔](../consume-packages/installing-signed-packages.md)。
 
@@ -164,7 +164,7 @@ GitHub 會掃描 NuGet API 金鑰的存放庫，以防止詐騙使用意外認�
 
 **📦🖊 封裝作者**
 
-啟用雙因素驗證 (2FA) 可以在 [登入您的 GitHub 帳戶](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa) 或 [NuGet.org 公用套件存放庫](../nuget-org/individual-accounts.md#enable-two-factor-authentication-2fa)時，增加額外的安全性層級。 建議您啟用雙重要素驗證來保護您的帳戶。
+啟用雙因素驗證 (2FA) 可以在[登入您的 GitHub 帳戶](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)或[NuGet. 組織公用套件存放庫](../nuget-org/individual-accounts.md#enable-two-factor-authentication-2fa)時，增加額外的安全性層級。 建議您啟用雙重要素驗證來保護您的帳戶。
 
 ### <a name="package-id-prefix-reservation"></a>套件識別碼首碼保留項目 
 
@@ -182,10 +182,10 @@ GitHub 會掃描 NuGet API 金鑰的存放庫，以防止詐騙使用意外認�
 
 若要瞭解如何取代和取消列出套件，請參閱下列有關 [淘汰](../nuget-org/deprecate-packages.md) 和 [取消列出套件](../nuget-org/policies/deleting-packages.md#unlisting-a-package)的檔。
 
-## <a name="summary"></a>總結
+## <a name="summary"></a>摘要
 
 您的軟體供應鏈是任何進入或影響程式碼的程式碼。 雖然供應鏈的危害是真實且越來越普及，但它們仍然很罕見;因此，您可以做的最重要的事，就是藉由 **瞭解您的相依性、管理您的** 相依性，以及 **監視您的供應鏈**，來保護您的供應鏈。
 
-您已瞭解 NuGet 和 [GitHub](/learn/modules/maintain-secure-repository-github/) 提供的各種方法，現在可讓您更有效地查看、管理及監視您的供應鏈。
+您已瞭解 NuGet 和[GitHub](/learn/modules/maintain-secure-repository-github/)提供的各種方法，現在可讓您更有效地查看、管理及監視您的供應鏈。
 
 如需保護世界軟體的相關資訊，請參閱 [Octoverse 2020 安全性報告的狀態](https://octoverse.github.com/static/github-octoverse-2020-security-report.pdf)。

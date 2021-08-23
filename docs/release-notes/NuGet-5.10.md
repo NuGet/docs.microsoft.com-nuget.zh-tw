@@ -1,16 +1,16 @@
 ---
 title: NuGet 5.10 版本資訊
-description: NuGet 5.10 的版本資訊，包括新功能、bug 修正及 Dcr。
+description: NuGet 5.10 的版本資訊，包括新功能、bug 修正及 dcr。
 author: zkat
 ms.author: kmarchan
 ms.date: 6/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 666eda5803b540dc18a9310f61c92dc74ff2089e
-ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
+ms.openlocfilehash: 80a372074604f5c0073f78927b84de00e78acc74
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112356534"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726947"
 ---
 # <a name="nuget-510-release-notes"></a>NuGet 5.10 版本資訊
 
@@ -20,16 +20,16 @@ NuGet 配送車：
 |:---|:---|:---|
 | [**5.10.0**](https://nuget.org/downloads) | [Visual Studio 2019 16.10 版](https://visualstudio.microsoft.com/downloads/) | [5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
-<sup>1</sup> 與 .net Core 工作負載搭配 Visual Studio 2019 安裝
+<sup>1</sup>與 .net Core 工作負載搭配 Visual Studio 2019 安裝
   
 > [!NOTE]
-> Visual Studio 16.10、MSBuild 16.10 和 .NET 5.0.300 + 需要 NuGet.exe 5.10 或更新版本。
+> Visual Studio 16.10、MSBuild 16.10 和 .net 5.0.300 + 需要 NuGet.exe 5.10 或更新版本。
 
 ## <a name="summary-whats-new-in-510"></a>摘要：5.10 中的新功能
 
 * 簽署：實行 dotnet 受信任-簽署者命令- [#8053](https://github.com/NuGet/Home/issues/8053)
 
-* 在 Linux 上將預設驗證設為停用，但在 Windows 上預設為啟用- [#10713](https://github.com/NuGet/Home/issues/10713)
+* 在 Linux 上將預設驗證設為停用，但預設會在 Windows [#10713](https://github.com/NuGet/Home/issues/10713)上啟用
 
 * 在 .NET 5 + Linux/MAC 上新增適用于套件簽署驗證的 ENV 變數- [#10742](https://github.com/NuGet/Home/issues/10742)
 
@@ -39,7 +39,7 @@ NuGet 配送車：
 
 ### <a name="issues-fixed-in-this-release"></a>本版已修正的問題
 
-* <requireLicenseAcceptance>封裝專案時隱藏元素- [#5133](https://github.com/NuGet/Home/issues/5133)
+* `<requireLicenseAcceptance>`封裝專案時隱藏元素- [#5133](https://github.com/NuGet/Home/issues/5133)
 
 * [CPVM] 預覽警告應顯示在 dotnet cli 上- [#10226](https://github.com/NuGet/Home/issues/10226)
 
@@ -49,7 +49,7 @@ NuGet 配送車：
 
 * PM UI：改善解決方案層級的套件安裝效能- [#10210](https://github.com/NuGet/Home/issues/10210)
 
-* 將 GetService 取代為 NuGet 中的所有位置 GetServiceAsync。用戶端- [#3784](https://github.com/NuGet/Home/issues/3784)
+* 在 NuGet 中的所有位置，將 GetService 取代為 GetServiceAsync。用戶端- [#3784](https://github.com/NuGet/Home/issues/3784)
 
 * `..`相對路徑[#5016](https://github.com/NuGet/Home/issues/5016) NuGet.exe 套件效能問題
 
@@ -109,7 +109,7 @@ NuGet 配送車：
 
 * 受信任-簽署者新增具有不一致的引數- [#10647](https://github.com/NuGet/Home/issues/10647)
 
-* Vs2019 v 16.9.0：將 NuGet 封裝管理員中的索引標籤從 [更新] 切換至 [已安裝] 時，不會更新框架。 - [#10654](https://github.com/NuGet/Home/issues/10654)
+* Vs2019 v 16.9.0： NuGet 封裝管理員中的 [更新] 切換至 [已安裝] 時，不會更新框架。 - [#10654](https://github.com/NuGet/Home/issues/10654)
 
 * 從 PMUI 中的版本號碼移除 "v"- [#10677](https://github.com/NuGet/Home/issues/10677)
 
@@ -123,11 +123,9 @@ NuGet 配送車：
 
 * Nuget 會封鎖非同步方法中的 threadpool 執行緒，以對 UI 執行緒進行同步呼叫 [#10775](https://github.com/NuGet/Home/issues/10775)
 
-* 工具-> 選項-> NuGet 封裝管理員字串會被截斷- [#10779](https://github.com/NuGet/Home/issues/10779)
-
 * `PackageLoadContext.GetInstalledAndTransitivePackagesAsync` 是不正確程式碼，並會影響效能- [#10790](https://github.com/NuGet/Home/issues/10790)
 
-* 使用 NuGet SDK 套件中的內嵌圖示- [#10795](https://github.com/NuGet/Home/issues/10795)
+* 在 NuGet SDK 套件中使用內嵌的圖示- [#10795](https://github.com/NuGet/Home/issues/10795)
 
 * 更新 SPDX 授權清單- [#10806](https://github.com/NuGet/Home/issues/10806)
 
@@ -137,13 +135,13 @@ NuGet 配送車：
   
 ### <a name="community-contributions"></a>社群投稿
 
-感謝所有協助讓此 NuGet 版本絕佳的參與者！
+感謝所有協助讓此 NuGet 版本的投稿者！
 
 |人員|Pr|問題|
 |----|----|----|
 [港-z](https://github.com/louis-z) | [3991](https://github.com/NuGet/NuGet.Client/pull/3991) | VersionRange 無法剖析單一位數的範圍- [#10342](https://github.com/NuGet/Home/issues/10342)
-[omajid](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet. 用戶端 build.sh 中斷- [#10139](https://github.com/NuGet/Home/issues/10139)
-[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet. 用戶端 build.sh 中斷- [#10139](https://github.com/NuGet/Home/issues/10139)
+[omajid](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet。用戶端 build.sh 已中斷[#10139](https://github.com/NuGet/Home/issues/10139)
+[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet。用戶端 build.sh 已中斷[#10139](https://github.com/NuGet/Home/issues/10139)
 [BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | 「Nuget 套件」的效能隨著來源路徑中增加的層級而減少- [#5706](https://github.com/NuGet/Home/issues/5706)
 [BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | NuGet.exe pack 效能問題。 相對路徑- [#5016](https://github.com/NuGet/Home/issues/5016)
 [marcin-krystianc](https://github.com/marcin-krystianc) | [3940](https://github.com/NuGet/NuGet.Client/pull/3940) | CPVM-圖形中的並行問題逐步解說演算法- [#10598](https://github.com/NuGet/Home/issues/10598)
@@ -151,5 +149,5 @@ NuGet 配送車：
 
 ## <a name="feedback-welcome"></a>歡迎意見反應
 
-您的意見反應對我們非常寶貴。  如果此版本有任何問題，請查看我們的 [GitHub 問題](https://github.com/NuGet/Home/issues) ，並 [Visual Studio 開發人員社群](https://developercommunity.visualstudio.com/) 現有的問題。  針對 NuGet 內的新問題，請報告 [GitHub 問題](https://github.com/NuGet/Home/issues/new)。
-如需一般的 NuGet 體驗問題，請透過 [說明] 下您最愛的 IDE 中的 [回報 [問題](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) ] 選項，讓我們知道 **> 報告問題**。
+您的意見反應對我們非常寶貴。  如果此版本有任何問題，請查看我們的[GitHub 問題](https://github.com/NuGet/Home/issues)，並[Visual Studio 開發人員社群](https://developercommunity.visualstudio.com/)現有的問題。  針對 NuGet 內的新問題，請報告[GitHub 問題](https://github.com/NuGet/Home/issues/new)。
+針對一般 NuGet 體驗問題，請透過 [說明] > [回報 **問題**] 下的 [回報問題] 選項，讓我們知道您最愛的 IDE 中所找到的 [問題](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)。
